@@ -188,6 +188,7 @@ DEPENDENCIES
   devise
   high_voltage
   hub
+  i18n
   jbuilder (~> 2.0)
   jquery-rails
   pg
