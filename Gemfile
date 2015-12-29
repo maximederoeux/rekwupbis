@@ -9,6 +9,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
 gem 'i18n'
+gem 'country_select'
 
 group :development, :test do
   gem 'byebug'

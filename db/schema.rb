@@ -11,7 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151229082643) do
+ActiveRecord::Schema.define(version: 20151229124630) do
+
+  create_table "events", force: :cascade do |t|
+    t.string   "event_name"
+    t.date     "event_start_date"
+    t.date     "event_end_date"
+    t.integer  "expected_pax"
+    t.integer  "last_pax"
+    t.string   "post_code"
+    t.string   "city"
+    t.string   "country"
+    t.text     "comment"
+    t.boolean  "cuptwenty"
+    t.boolean  "cuptwentyfive"
+    t.boolean  "cupforty"
+    t.boolean  "cupfifty"
+    t.boolean  "cuplitre"
+    t.boolean  "cupwine"
+    t.boolean  "cupcava"
+    t.boolean  "cupshot"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

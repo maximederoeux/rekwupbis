@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_name: MyString
+  event_start_date: 2015-12-29
+  event_end_date: 2015-12-29
+  expected_pax: 1
+  last_pax: 1
+  post_code: MyString
+  city: MyString
+  country: MyString
+  comment: MyText
+  cuptwenty: false
+  cuptwentyfive: false
+  cupforty: false
+  cupfifty: false
+  cuplitre: false
+  cupwine: false
+  cupcava: false
+  cupshot: false
+
+two:
+  event_name: MyString
+  event_start_date: 2015-12-29
+  event_end_date: 2015-12-29
+  expected_pax: 1
+  last_pax: 1
+  post_code: MyString
+  city: MyString
+  country: MyString
+  comment: MyText
+  cuptwenty: false
+  cuptwentyfive: false
+  cupforty: false
+  cupfifty: false
+  cuplitre: false
+  cupwine: false
+  cupcava: false
+  cupshot: false
