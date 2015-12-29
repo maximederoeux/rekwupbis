@@ -37,5 +37,9 @@ nl:
     remember_me: "Hou mij aangemeld"
     forgot_password: "Wachtwoord vergeten?"
     send_password_reset: "We zullen u instructies doorsturen om uw wachtwoord opnieuw te zetten."
+    reset_password: "Uw wachtwoord opnieuw zetten"
+    change_password: "Uw wachtwoord bewerken"
+    new_password: "Nieuw wachtwoord"
+    confirm_new_password: "Nieuw wachtwoord bevestigen"
 
 

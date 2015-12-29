@@ -59,5 +59,9 @@ en:
     remember_me: "Remember me"
     forgot_password: "Forgot password?"
     send_password_reset: "We'll send password reset instructions."
+    reset_password: "Reset password"
+    change_password: "Change your password"
+    new_password: "New password"
+    confirm_new_password: "Confirm new password"
 
 
