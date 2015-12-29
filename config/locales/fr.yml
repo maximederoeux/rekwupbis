@@ -1,1 +1,42 @@
 fr:
+  activerecord:
+    attributes:
+      users:
+        name: "Nom"
+        first_name: "Prénom"
+        company: "Société"
+        password: "Mot de passe"
+        password_confirmation: "Confirmattion du mot de passe"
+        company_name: "Nom de votre organisation"
+        email: "Email"
+        individual: "Particulier"
+        non_profit: "Association"
+        intitution: "Institution"
+
+  menu:
+    home: "Accueil"
+    about: "A propos"
+    edit_account: "Modifier votre compte"
+    edit_profile: "Modifier votre profil"
+    sign_up: "S'enregistrer"
+    sign_in: "Se connecter"
+    sign_out: "Se déconnecter"
+    users: "Utilisateurs"
+
+  user:
+    name: "Nom"
+    first_name: "Prénom"
+    company: "Société"
+    password: "Mot de passe"
+    password_confirmation: "Confirmation du mot de passe"
+    company_name: "Nom de votre organisation"
+    email: "Email"
+    individual: "Particulier"
+    non_profit: "Association"
+    intitution: "Institution"
+    current_password: "Mot de passe actuel"
+    remember_me: "Garder ma session active"
+    forgot_password: "Mot de passe oublié?"
+    send_password_reset: "Nous vous enverrons les instructions pour réinitialiser votre mot de passe."
+
+

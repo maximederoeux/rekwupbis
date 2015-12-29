@@ -1,1 +1,41 @@
 nl:
+  activerecord:
+    attributes:
+      users:
+        name: "Naam"
+        first_name: "Voornaam"
+        company: "Bedrijf"
+        password: "Wachtwoord"
+        password_confirmation: "Wachtwoord bevestigen"
+        company_name: "Naam van uw organizatie"
+        email: "Email"
+        individual: "Individueel"
+        non_profit: "Associatie"
+        intitution: "Institutie"
+
+  menu:
+    home: "Home"
+    about: "Over ons"
+    edit_account: "Account bewerken"
+    edit_profile: "Profiel bewerken"
+    sign_up: "Registreren"
+    sign_in: "Aanmelden"
+    sign_out: "Afmelden"
+    users: "Gebruikers"
+
+  user:
+    name: "Naam"
+    first_name: "Voornaam"
+    password: "Wachtwoord"
+    password_confirmation: "Wachtwoord bevestigen"
+    company_name: "Naam van uw organizatie"
+    email: "Email"
+    individual: "Individueel"
+    non_profit: "Associatie"
+    intitution: "Institutie"
+    current_password: "Huidig wachtwoord"
+    remember_me: "Hou mij aangemeld"
+    forgot_password: "Wachtwoord vergeten?"
+    send_password_reset: "We zullen u instructies doorsturen om uw wachtwoord opnieuw te zetten."
+
+
