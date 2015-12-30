@@ -9,7 +9,7 @@
     <%= f.input :last_pax %>
     <%= f.input :post_code %>
     <%= f.input :city %>
-    <%= f.input :country, priority: [ "Belgium", "France", "Germany", "Luxemburg", "Netherlands" ] %>
+    <%= f.input :country, only: [ "BE", "FR", "DE", "LU", "NL" ] %>
     <%= f.input :comment %>
     <%= f.input :cuptwenty %>
     <%= f.input :cuptwentyfive %>

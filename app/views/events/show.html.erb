@@ -1,89 +1,89 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Event name:</strong>
+  <strong><%= t("event.event_name") %>:</strong>
   <%= @event.event_name %>
 </p>
 
 <p>
-  <strong>Event start date:</strong>
+  <strong><%= t("event.event_start_date") %>:</strong>
   <%= @event.event_start_date %>
 </p>
 
 <p>
-  <strong>Event end date:</strong>
+  <strong><%= t("event.event_end_date") %>:</strong>
   <%= @event.event_end_date %>
 </p>
 
 <p>
-  <strong>Expected pax:</strong>
+  <strong><%= t("event.expected_pax") %>:</strong>
   <%= @event.expected_pax %>
 </p>
 
 <p>
-  <strong>Last pax:</strong>
+  <strong><%= t("event.last_pax") %>:</strong>
   <%= @event.last_pax %>
 </p>
 
 <p>
-  <strong>Post code:</strong>
+  <strong><%= t("event.post_code") %>:</strong>
   <%= @event.post_code %>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong><%= t("event.city") %>:</strong>
   <%= @event.city %>
 </p>
 
 <p>
-  <strong>Country:</strong>
+  <strong><%= t("event.country") %>:</strong>
   <%= @event.country %>
 </p>
 
 <p>
-  <strong>Comment:</strong>
+  <strong><%= t("event.comment") %>:</strong>
   <%= @event.comment %>
 </p>
 
 <p>
-  <strong>Cuptwenty:</strong>
+  <strong><%= t("event.cuptwenty") %>:</strong>
   <%= @event.cuptwenty %>
 </p>
 
 <p>
-  <strong>Cuptwentyfive:</strong>
+  <strong><%= t("event.cuptwentyfive") %>:</strong>
   <%= @event.cuptwentyfive %>
 </p>
 
 <p>
-  <strong>Cupforty:</strong>
+  <strong><%= t("event.cupforty") %>:</strong>
   <%= @event.cupforty %>
 </p>
 
 <p>
-  <strong>Cupfifty:</strong>
+  <strong><%= t("event.cupfifty") %>:</strong>
   <%= @event.cupfifty %>
 </p>
 
 <p>
-  <strong>Cuplitre:</strong>
+  <strong><%= t("event.cuplitre") %>:</strong>
   <%= @event.cuplitre %>
 </p>
 
 <p>
-  <strong>Cupwine:</strong>
+  <strong><%= t("event.cupwine") %>:</strong>
   <%= @event.cupwine %>
 </p>
 
 <p>
-  <strong>Cupcava:</strong>
+  <strong><%= t("event.cupcava") %>:</strong>
   <%= @event.cupcava %>
 </p>
 
 <p>
-  <strong>Cupshot:</strong>
+  <strong><%= t("event.cupshot") %>:</strong>
   <%= @event.cupshot %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to t("menu.edit"), edit_event_path(@event) %> |
+<%= link_to t("menu.back"), events_path %>

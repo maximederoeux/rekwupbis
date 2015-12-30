@@ -33,6 +33,24 @@ en:
         individual: "Individual"
         non_profit: "Association"
         intitution: "Institution"
+      events:
+        event_name: "Event Name"
+        event_start_date: "Start Date"
+        event_end_date: "End Date"
+        expected_pax: "Expected number of guests"
+        last_pax: "Number of guests on last edition"
+        post_code: "Post Code"
+        city: "City"
+        country: "Country"
+        comment: "Comments"
+        cuptwenty: "20CL cups"
+        cuptwentyfive: "25CL cups"
+        cupforty: "40CL cups"
+        cupfifty: "50CL cups"
+        cuplitre: "1L jugs"
+        cupwine: "Wine cups"
+        cupcava: "Champagne cups"
+        cupshot: "Shot cups"
 
   menu:
     home: "Home"
@@ -43,6 +61,8 @@ en:
     sign_in: "Sign In"
     sign_out: "Sign Out"
     users: "Users"
+    back: "Back"
+    edit: "Edit"
 
   user:
     name: "Last Name"
@@ -64,4 +84,69 @@ en:
     new_password: "New password"
     confirm_new_password: "Confirm new password"
 
+  event:
+    new_event: "New Event"
+    listing_events: "Listing Events"
+    event_name: "Event Name"
+    event_start_date: "Start Date"
+    event_end_date: "End Date"
+    expected_pax: "Expected number of guests"
+    last_pax: "Number of guests on last edition"
+    post_code: "Post Code"
+    city: "City"
+    country: "Country"
+    comment: "Comments"
+    cuptwenty: "20CL cups"
+    cuptwentyfive: "25CL cups"
+    cupforty: "40CL cups"
+    cupfifty: "50CL cups"
+    cuplitre: "1L jugs"
+    cupwine: "Wine cups"
+    cupcava: "Champagne cups"
+    cupshot: "Shot cups"
+    
+  simple_form:
+    labels:
+      event:
+        event_name: "Event Name"
+        event_start_date: "Start Date"
+        event_end_date: "End Date"
+        expected_pax: "Expected number of guests"
+        last_pax: "Number of guests on last edition"
+        post_code: "Post Code"
+        city: "City"
+        country: "Country"
+        comment: "Comments"
+        cuptwenty: "20CL cups"
+        cuptwentyfive: "25CL cups"
+        cupforty: "40CL cups"
+        cupfifty: "50CL cups"
+        cuplitre: "1L jugs"
+        cupwine: "Wine cups"
+        cupcava: "Champagne cups"
+        cupshot: "Shot cups"
 
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    # Used in date_select and datetime_select.
+    order:
+      - year
+      - month
+      - day
+
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "am"
+    pm: "pm"

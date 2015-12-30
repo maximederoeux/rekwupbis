@@ -12,6 +12,24 @@ fr:
         individual: "Particulier"
         non_profit: "Association"
         intitution: "Institution"
+      events:
+        event_name: "Nom de l'événement"
+        event_start_date: "Date de début"
+        event_end_date: "Date de fin"
+        expected_pax: "Estimation du nombre de visiteurs"
+        last_pax: "Nombre de visiteurs de l'édition précédente"
+        post_code: "Code postal"
+        city: "Ville"
+        country: "Pays"
+        comment: "Commentaires"
+        cuptwenty: "Gobelets 20CL"
+        cuptwentyfive: "Gobelets 25CL"
+        cupforty: "Gobelets 40CL"
+        cupfifty: "Gobelets 50CL"
+        cuplitre: "Cruches 1L"
+        cupwine: "Gobelets à vin"
+        cupcava: "Gobelets à champagne"
+        cupshot: "Gobelets à shot"
 
   menu:
     home: "Accueil"
@@ -22,6 +40,8 @@ fr:
     sign_in: "Se connecter"
     sign_out: "Se déconnecter"
     users: "Utilisateurs"
+    back: "Retour"
+    edit: "Modifier"
 
   user:
     name: "Nom"
@@ -43,4 +63,69 @@ fr:
     new_password: "Nouveau mot de passe"
     confirm_new_password: "Confirmer le nouveau mot de passe"
 
+  event:
+    new_event: "Nouvel événement"
+    listing_events: "Tous les événements"
+    event_name: "Nom de l'événement"
+    event_start_date: "Date de début"
+    event_end_date: "Date de fin"
+    expected_pax: "Estimation du nombre de visiteurs"
+    last_pax: "Nombre de visiteurs de l'édition précédente"
+    post_code: "Code postal"
+    city: "Ville"
+    country: "Pays"
+    comment: "Commentaires"
+    cuptwenty: "Gobelets 20CL"
+    cuptwentyfive: "Gobelets 25CL"
+    cupforty: "Gobelets 40CL"
+    cupfifty: "Gobelets 50CL"
+    cuplitre: "Cruches 1L"
+    cupwine: "Gobelets à vin"
+    cupcava: "Gobelets à champagne"
+    cupshot: "Gobelets à shot"
 
+  simple_form:
+    labels:
+      event:
+        event_name: "Nom de l'événement"
+        event_start_date: "Date de début"
+        event_end_date: "Date de fin"
+        expected_pax: "Estimation du nombre de visiteurs"
+        last_pax: "Nombre de visiteurs de l'édition précédente"
+        post_code: "Code postal"
+        city: "Ville"
+        country: "Pays"
+        comment: "Commentaires"
+        cuptwenty: "Gobelets 20CL"
+        cuptwentyfive: "Gobelets 25CL"
+        cupforty: "Gobelets 40CL"
+        cupfifty: "Gobelets 50CL"
+        cuplitre: "Cruches 1L"
+        cupwine: "Gobelets à vin"
+        cupcava: "Gobelets à champagne"
+        cupshot: "Gobelets à shot"
+
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
+    day_names: [Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]
+    abbr_day_names: [Di, Lu, Ma, Me, Je, Ve, Sa]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    abbr_month_names: [~, Jan, Fev, Mar, Avr, Mai, Juin, Jui, Aou, Sep, Oct, Nov, Déc]
+    # Used in date_select and datetime_select.
+    order:
+      - day
+      - month
+      - year
+
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "am"
+    pm: "pm"
