@@ -10,6 +10,8 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'i18n'
 gem 'country_select'
+gem 'jquery-ui-rails'
+
 
 group :development, :test do
   gem 'byebug'
