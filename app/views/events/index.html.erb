@@ -1,59 +1,36 @@
-<p id="notice"><%= notice %></p>
-
 <h1><%= t("event.listing_events") %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= t("event.event_name") %></th>
-      <th><%= t("event.event_start_date") %></th>
-      <th><%= t("event.event_end_date") %></th>
-      <th><%= t("event.expected_pax") %></th>
-      <th><%= t("event.last_pax") %></th>
-      <th><%= t("event.post_code") %></th>
-      <th><%= t("event.city") %></th>
-      <th><%= t("event.country") %></th>
-      <th><%= t("event.comment") %></th>
-      <th><%= t("event.cuptwenty") %></th>
-      <th><%= t("event.cuptwentyfive") %></th>
-      <th><%= t("event.cupforty") %></th>
-      <th><%= t("event.cupfifty") %></th>
-      <th><%= t("event.cuplitre") %></th>
-      <th><%= t("event.cupwine") %></th>
-      <th><%= t("event.cupcava") %></th>
-      <th><%= t("event.cupshot") %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <% if current_user.admin %>
 
-  <tbody>
     <% @events.each do |event| %>
-      <tr>
-        <td><%= event.event_name %></td>
-        <td><%= event.event_start_date %></td>
-        <td><%= event.event_end_date %></td>
-        <td><%= event.expected_pax %></td>
-        <td><%= event.last_pax %></td>
-        <td><%= event.post_code %></td>
-        <td><%= event.city %></td>
-        <td><%= event.country %></td>
-        <td><%= event.comment %></td>
-        <td><%= event.cuptwenty %></td>
-        <td><%= event.cuptwentyfive %></td>
-        <td><%= event.cupforty %></td>
-        <td><%= event.cupfifty %></td>
-        <td><%= event.cuplitre %></td>
-        <td><%= event.cupwine %></td>
-        <td><%= event.cupcava %></td>
-        <td><%= event.cupshot %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+                          
+      <%= event.event_name %>
+      <%= event.creator_id %>
+      <%= event.creator.name if event.creator %>
+      <%= event.event_start_date %>
+      <%= event.event_end_date %>
+      <%= event.expected_pax %>
+      <%= link_to 'Show', event %>
+      <%= link_to 'Edit', edit_event_path(event) %>
+      <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+            
     <% end %>
-  </tbody>
-</table>
 
-<br>
+
+  <% elsif current_user.client %>
+
+    <% @myevents.each do |event| %>
+
+      <%= event.event_name %>
+      <%= event.creator_id %>
+      <%= link_to 'Show', event %>
+      <%= link_to 'Edit', edit_event_path(event) %><br>
+
+    <% end %>
+
+  <% end %>
+
+  
+
 
 <%= link_to 'New Event', new_event_path %>

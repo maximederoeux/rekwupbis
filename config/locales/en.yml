@@ -52,6 +52,8 @@ en:
         cupcava: "Champagne cups"
         cupshot: "Shot cups"
         creatorganizer: "I am the orhanizer of the event"
+        party: "Party, concert, festival"
+        dinner: "Meal"
 
 
   menu:
@@ -108,6 +110,11 @@ en:
     cupshot: "Shot cups"
     date_placeholder: "mm/dd/yyyy"
     creatorganizer: "I am the orhanizer of the event"
+    party: "Party, concert, festival"
+    dinner: "Meal"
+    edit: "Edit event"
+    notorganizer: "If you aren't the organizer of this event, please select it here"
+    organizer: "Organizer"
 
   simple_form:
     labels:
@@ -130,6 +137,8 @@ en:
         cupcava: "Champagne cups"
         cupshot: "Shot cups"
         creatorganizer: "I am the orhanizer of the event"
+        party: "Party, concert, festival"
+        dinner: "Meal"
 
 
 

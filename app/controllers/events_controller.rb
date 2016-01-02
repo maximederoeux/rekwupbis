@@ -6,6 +6,9 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    @user = current_user
+    @myevents = @events.where(:creator_id => current_user.id) | @events.where(:organizer_id => current_user.id)
+
   end
 
   # GET /events/1
@@ -20,10 +23,12 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @user = current_user
   end
 
   # GET /events/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /events

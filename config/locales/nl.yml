@@ -31,6 +31,8 @@ nl:
         cupcava: "Champagnebekers"
         cupshot: "Shotbekers"
         creatorganizer: "Ik organiseer het evenement"
+        party: "Feest, concert, festival"
+        dinner: "Maaltijd"
 
   menu:
     home: "Home"
@@ -85,6 +87,11 @@ nl:
     cupshot: "Shotbekers"
     date_placeholder: "dd/mm/jjjj"
     creatorganizer: "Ik organiseer het evenement"
+    party: "Feest, concert, festival"
+    dinner: "Maaltijd"
+    edit: "Evenement wijzigen"
+    notorganizer: "Indien u de organisator van dit evenement niet bent, mag u het hier kiezen."
+    organizer: "Organisator"
 
   simple_form:
     labels:
@@ -107,6 +114,8 @@ nl:
         cupcava: "Champagnebekers"
         cupshot: "Shotbekers"
         creatorganizer: "Ik organiseer het evenement"
+        party: "Feest, concert, festival"
+        dinner: "Maaltijd"
 
   date:
     formats:

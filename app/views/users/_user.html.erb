@@ -1,2 +1,25 @@
-<td><%= link_to user.name, user %></td>
-<td><%= link_to user.email, user %></td>
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+    
+    <%= f.input :name, :label => t("user.name"), :placeholder => t("user.name") %>
+    <%= f.input :first_name, :label => t("user.first_name"), :placeholder => t("user.first_name") %>
+    <%= f.input :individual, :label => t("user.individual") %>
+    <%= f.input :non_profit, :label => t("user.non_profit") %>
+    <%= f.input :company, :label => t("user.company") %>
+    <%= f.input :institution, :label => t("user.institution") %>
+    <%= f.input :company_name, :label => t("user.company_name") %>
+    <%= f.hidden_field :client, :value => true %>
+
+    <% if current_user.admin %>
+	    <%= f.input :admin, :label => t("user.admin") %>
+	    <%= f.input :staff, :label => t("user.staff") %>
+	    <%= f.input :client, :label => t("user.client") %>
+    <% end %>
+  
+  <div class="form-actions">
+
+    <%= f.button :submit, class: "btn btn-default" %>
+
+  </div>
+<% end %>

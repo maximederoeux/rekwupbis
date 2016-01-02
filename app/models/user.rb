@@ -10,5 +10,5 @@ class User < ActiveRecord::Base
 	def full_name
 		"#{first_name} #{name}"
 	end
-	
+
 end

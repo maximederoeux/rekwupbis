@@ -31,6 +31,8 @@ fr:
         cupcava: "Gobelets à champagne"
         cupshot: "Gobelets à shot"
         creatorganizer: "Je suis l'organisateur de l'événement"
+        party: "Soirée, concert, festival"
+        dinner: "Repas"
 
   menu:
     home: "Accueil"
@@ -86,6 +88,11 @@ fr:
     cupshot: "Gobelets à shot"
     date_placeholder: "jj/mm/aaaa"
     creatorganizer: "Je suis l'organisateur de l'événement"
+    party: "Soirée, concert, festival"
+    dinner: "Repas"
+    edit: "Modifier l'événement"
+    notorganizer: "Si vous n'êtes pas l'organisateur de l'événement, sélectionnez-le ici."
+    organizer: "Organisateur"
 
   simple_form:
     labels:
@@ -108,6 +115,8 @@ fr:
         cupcava: "Gobelets à champagne"
         cupshot: "Gobelets à shot"
         creatorganizer: "Je suis l'organisateur de l'événement"
+        party: "Soirée, concert, festival"
+        dinner: "Repas"
 
   date:
     formats:

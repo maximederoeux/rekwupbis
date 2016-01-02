@@ -5,7 +5,8 @@
     <% if @event.creatorganizer == "true" %>
     <%= f.hidden_field :organizer_id, :value => current_user.id %>
     <% else %>
-    <%= f.collection_select :organizer_id, User.all, :id, :full_name %>
+    <h4><%= t("event.notorganizer") %></h4>
+    <%= t("event.organizer") %>: <%= f.collection_select :organizer_id, User.all, :id, :full_name %>
     <% end %>
     <%= f.input :event_name %>
     <%= f.input :event_start_date %>
@@ -24,7 +25,8 @@
     <%= f.input :cupwine %>
     <%= f.input :cupcava %>
     <%= f.input :cupshot %>
-    <%= f.hidden_field :creator_id, :value => current_user.id %>
+    <%= f.input :party %>
+    <%= f.input :dinner %>
   </div>
 
   <div class="form-actions">
