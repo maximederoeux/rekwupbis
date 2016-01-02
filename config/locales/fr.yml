@@ -30,6 +30,7 @@ fr:
         cupwine: "Gobelets à vin"
         cupcava: "Gobelets à champagne"
         cupshot: "Gobelets à shot"
+        creatorganizer: "Je suis l'organisateur de l'événement"
 
   menu:
     home: "Accueil"
@@ -84,6 +85,7 @@ fr:
     cupcava: "Gobelets à champagne"
     cupshot: "Gobelets à shot"
     date_placeholder: "jj/mm/aaaa"
+    creatorganizer: "Je suis l'organisateur de l'événement"
 
   simple_form:
     labels:
@@ -105,6 +107,7 @@ fr:
         cupwine: "Gobelets à vin"
         cupcava: "Gobelets à champagne"
         cupshot: "Gobelets à shot"
+        creatorganizer: "Je suis l'organisateur de l'événement"
 
   date:
     formats:

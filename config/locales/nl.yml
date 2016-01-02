@@ -30,6 +30,7 @@ nl:
         cupwine: "Wijnbekers"
         cupcava: "Champagnebekers"
         cupshot: "Shotbekers"
+        creatorganizer: "Ik organiseer het evenement"
 
   menu:
     home: "Home"
@@ -83,6 +84,7 @@ nl:
     cupcava: "Champagnebekers"
     cupshot: "Shotbekers"
     date_placeholder: "dd/mm/jjjj"
+    creatorganizer: "Ik organiseer het evenement"
 
   simple_form:
     labels:
@@ -104,6 +106,7 @@ nl:
         cupwine: "Wijnbekers"
         cupcava: "Champagnebekers"
         cupshot: "Shotbekers"
+        creatorganizer: "Ik organiseer het evenement"
 
   date:
     formats:

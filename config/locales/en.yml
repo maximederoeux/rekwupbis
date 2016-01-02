@@ -51,6 +51,7 @@ en:
         cupwine: "Wine cups"
         cupcava: "Champagne cups"
         cupshot: "Shot cups"
+        creatorganizer: "I am the orhanizer of the event"
 
 
   menu:
@@ -106,6 +107,7 @@ en:
     cupcava: "Champagne cups"
     cupshot: "Shot cups"
     date_placeholder: "mm/dd/yyyy"
+    creatorganizer: "I am the orhanizer of the event"
 
   simple_form:
     labels:
@@ -127,6 +129,7 @@ en:
         cupwine: "Wine cups"
         cupcava: "Champagne cups"
         cupshot: "Shot cups"
+        creatorganizer: "I am the orhanizer of the event"
 
 
 

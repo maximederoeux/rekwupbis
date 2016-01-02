@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /events
   # GET /events.json
@@ -13,6 +14,7 @@ class EventsController < ApplicationController
     @user = current_user
     @event = Event.find(params[:id])
     @creator = @event.creator
+    @organizer = @event.organizer
   end
 
   # GET /events/new
@@ -28,11 +30,19 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @user = current_user
+    @creator = @event.creator
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
+        if @event.creatorganizer
+          @event.update_attribute(:organizer_id, current_user.id)
+          format.html { redirect_to @event, notice: 'Event was successfully created.' }
+          format.json { render :show, status: :created, location: @event }
+        else
+          format.html { redirect_to edit_event_path(@event), notice: 'Event was successfully created.' }
+          format.json { render :show, status: :created, location: @event }
+        end
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -72,6 +82,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:event_name, :event_start_date, :event_end_date, :expected_pax, :last_pax, :post_code, :city, :country, :comment, :cuptwenty, :cuptwentyfive, :cupforty, :cupfifty, :cuplitre, :cupwine, :cupcava, :cupshot, :creator_id)
+      params.require(:event).permit(:event_name, :event_start_date, :event_end_date, :expected_pax, :last_pax, :post_code, :city, :country, :comment, :cuptwenty, :cuptwentyfive, :cupforty, :cupfifty, :cuplitre, :cupwine, :cupcava, :cupshot, :creator_id, :creatorganizer, :organizer_id)
     end
 end
