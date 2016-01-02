@@ -128,3 +128,20 @@ nl:
       long: "%B %d, %Y %H:%M"
     am: "am"
     pm: "pm"
+
+  datepicker:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
+    day_names: [Zondag, Maandag, Dinsdag, Woensdag, Donderdag, Vrijdag, Zaterdag]
+    abbr_day_names: [Zon, Maa, Din, Woe, Don, Vri, Zat]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Januari, Februari, Maaart, April, Mei, Juni, Juli, Augustus, September, October, November, December]
+    abbr_month_names: [~, Jan, Feb, Maa, Apr, Mei, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    # Used in date_select and datetime_select.
+    order:
+      - day
+      - month
+      - year

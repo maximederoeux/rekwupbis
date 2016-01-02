@@ -1,19 +1,12 @@
 <%= simple_form_for(@event) do |f| %>
   <%= f.error_notification %>
 
-  
+  <div class="form-inputs">
+    <%= f.input :event_name %>
     <%= f.label :event_start_date %>
     <%= f.text_field :event_start_date, :class => "datepicker" %>
     <%= f.label :event_end_date %>
     <%= f.text_field :event_end_date, :class => "datepicker" %>
-
-  
-  
-
-  <div class="form-inputs">
-    <%= f.input :event_name %>
-    <%= f.input :event_start_date %>
-    <%= f.input :event_end_date %>
     <%= f.input :expected_pax %>
     <%= f.input :last_pax %>
     <%= f.input :post_code %>
