@@ -82,6 +82,7 @@ nl:
     cupwine: "Wijnbekers"
     cupcava: "Champagnebekers"
     cupshot: "Shotbekers"
+    date_placeholder: "dd/mm/jjjj"
 
   simple_form:
     labels:

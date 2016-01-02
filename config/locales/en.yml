@@ -52,6 +52,7 @@ en:
         cupcava: "Champagne cups"
         cupshot: "Shot cups"
 
+
   menu:
     home: "Home"
     about: "About"
@@ -104,7 +105,8 @@ en:
     cupwine: "Wine cups"
     cupcava: "Champagne cups"
     cupshot: "Shot cups"
-    
+    date_placeholder: "mm/dd/yyyy"
+
   simple_form:
     labels:
       event:

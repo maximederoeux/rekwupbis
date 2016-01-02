@@ -83,6 +83,7 @@ fr:
     cupwine: "Gobelets à vin"
     cupcava: "Gobelets à champagne"
     cupshot: "Gobelets à shot"
+    date_placeholder: "jj/mm/aaaa"
 
   simple_form:
     labels:
