@@ -32,7 +32,7 @@ en:
         email: "Email"
         individual: "Individual"
         non_profit: "Association"
-        intitution: "Institution"
+        institution: "Institution"
       events:
         event_name: "Event Name"
         event_start_date: "Start Date"
@@ -78,7 +78,7 @@ en:
     email: "Email"
     individual: "Individual"
     non_profit: "Association"
-    intitution: "Institution"
+    institution: "Institution"
     current_password: "Current password"
     remember_me: "Remember me"
     forgot_password: "Forgot password?"
@@ -87,6 +87,10 @@ en:
     change_password: "Change your password"
     new_password: "New password"
     confirm_new_password: "Confirm new password"
+    list: "Signed up users"
+    list_admin: "Admins"
+    list_staff: "Staff"
+    list_client: "Clients"
 
   event:
     new_event: "New Event"
@@ -115,6 +119,7 @@ en:
     edit: "Edit event"
     notorganizer: "If you aren't the organizer of this event, please select it here"
     organizer: "Organizer"
+    created_at: "Created on"
 
   simple_form:
     labels:

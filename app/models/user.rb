@@ -11,4 +11,28 @@ class User < ActiveRecord::Base
 		"#{first_name} #{name}"
 	end
 
+	def status_display
+		if admin == true
+			"Admin"
+
+		elsif staff == true
+			"Staff"
+
+		elsif client == true
+			"Client"
+		end
+	end
+
+	def company_display
+		if individual == true
+			I18n.t('user.individual')
+		elsif company == true
+			I18n.t('user.company')
+		elsif non_profit == true
+			I18n.t('user.non_profit')
+		elsif institution == true
+			I18n.t('user.institution')
+		end
+	end
+
 end

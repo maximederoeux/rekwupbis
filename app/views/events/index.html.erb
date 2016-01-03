@@ -1,36 +1,64 @@
-<h1><%= t("event.listing_events") %></h1>
+<div class="container-fluid">
 
   <% if current_user.admin %>
 
-    <% @events.each do |event| %>
-                          
-      <%= event.event_name %>
-      <%= event.creator_id %>
-      <%= event.creator.name if event.creator %>
-      <%= event.event_start_date %>
-      <%= event.event_end_date %>
-      <%= event.expected_pax %>
-      <%= link_to 'Show', event %>
-      <%= link_to 'Edit', edit_event_path(event) %>
-      <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %><br>
-            
-    <% end %>
+    <h2><%= t("event.listing_events") %></h2>
+
+          <div class="row">
+
+          <div class="col-md-2"><strong><%= t("event.event_name") %></strong></div>
+          <div class="col-md-1"><strong><%= t("event.creator") %></strong></strong></div>
+          <div class="col-md-1"><strong><%= t("event.organizer") %></strong></div>
+          <div class="col-md-1"><strong><%= t("event.created_at") %></strong></div>
+          <div class="col-md-1"><strong><%= t("event.event_start_date") %></strong></div>    
+          <div class="col-md-1"><strong><%= t("event.event_end_date") %></strong></div>
+          <div class="col-md-1"><strong><%= t("event.expected_pax") %></strong></div>
+          <div class="col-md-1"></div>
+          <div class="col-md-1"></div>
+          <div class="col-md-1"></div>
+
+      <% @events.each do |event| %>
+
+          <div class="row">
+
+          <div class="col-md-2"><%= event.event_name %></div>
+          <div class="col-md-1"><%= event.creator.name if event.creator %></div>
+          <div class="col-md-1"><%= event.organizer.name if event.organizer %></div>
+          <div class="col-md-1"><%= event.created_at.strftime("%d/%m/%Y") %></div>
+          <div class="col-md-1"><%= event.event_start_date.strftime("%d/%m/%Y") %></div>    
+          <div class="col-md-1"><%= event.event_end_date.strftime("%d/%m/%Y") %></div>
+          <div class="col-md-1"><%= event.expected_pax %></div>
+          <div class="col-md-1"><%= link_to 'Show', event %></div>
+          <div class="col-md-1"><%= link_to 'Edit', edit_event_path(event) %></div>
+          <div class="col-md-1"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+
+          
+        </div>
+                              
+        
+        
+        
+        <br>
+                
+      <% end %>
 
 
   <% elsif current_user.client %>
 
-    <% @myevents.each do |event| %>
+      <% @myevents.each do |event| %>
 
-      <%= event.event_name %>
-      <%= event.creator_id %>
-      <%= link_to 'Show', event %>
-      <%= link_to 'Edit', edit_event_path(event) %><br>
+        <%= event.event_name %>
+        <%= event.creator_id %>
+        <%= link_to 'Show', event %>
+        <%= link_to 'Edit', edit_event_path(event) %><br>
 
-    <% end %>
+      <% end %>
 
   <% end %>
 
-  
+    
 
 
-<%= link_to 'New Event', new_event_path %>
+  <%= link_to 'New Event', new_event_path %>
+
+</div>

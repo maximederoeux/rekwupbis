@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user = current_user
+    @admin = @users.where(:admin => true)
+    @staff = @users.where(:staff => true)
+    @client = @users.where(:client => true)
   end
 
   def show

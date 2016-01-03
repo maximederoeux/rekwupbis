@@ -1,15 +1,62 @@
+<div class="container-fluid">
 
-<h3>Users</h3>
+	<% if current_user.admin %>
 
-<% @users.each do |user| %>
+		<h4><%= t('user.list_admin') %></h4>
 
-  <% if current_user.admin %>
-    <%= user.name %>
-    <%= user.first_name %>
-    <%= link_to 'Edit', edit_user_path(user) %><br>
-  <% else %>
-    <%= current_user.name %>
-    <%= current_user.first_name %>
-  <% end %>
+		<% @admin.each do |user| %>
 
-<% end %>
+		  	<div class="row">
+
+			  <div class="col-md-2"><%= user.full_name %></div>
+			  <div class="col-md-2"><%= user.status_display %></div>
+			  <div class="col-md-2"><%= user.company_display %></div>
+			  <div class="col-md-2"><%= user.email %></div>
+			  <div class="col-md-4"><%= link_to 'Edit', edit_user_path(user) %></div>    
+		    
+			</div>
+
+	    <% end %>
+
+		<h4><%= t('user.list_staff') %></h4>
+
+		<% @staff.each do |user| %>
+
+		  	<div class="row">
+
+			  <div class="col-md-2"><%= user.full_name %></div>
+			  <div class="col-md-2"><%= user.status_display %></div>
+			  <div class="col-md-2"><%= user.company_display %></div>
+			  <div class="col-md-2"><%= user.email %></div>
+			  <div class="col-md-4"><%= link_to 'Edit', edit_user_path(user) %></div>    
+		    
+			</div>
+
+	    <% end %>
+
+		<h4><%= t('user.list_client') %></h4>
+
+		<% @client.each do |user| %>
+
+		  	<div class="row">
+
+			  <div class="col-md-2"><%= user.full_name %></div>
+			  <div class="col-md-2"><%= user.status_display %></div>
+			  <div class="col-md-2"><%= user.company_display %></div>
+			  <div class="col-md-2"><%= user.email %></div>
+			  <div class="col-md-4"><%= link_to 'Edit', edit_user_path(user) %></div>    
+		    
+			</div>
+
+	    <% end %>
+
+	 <% else %>
+
+	    <%= current_user.name %>
+	    <%= current_user.first_name %>
+
+	  
+
+	<% end %>
+
+</div>

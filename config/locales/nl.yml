@@ -11,7 +11,7 @@ nl:
         email: "Email"
         individual: "Individueel"
         non_profit: "Associatie"
-        intitution: "Institutie"
+        institution: "Institutie"
       events:
         event_name: "Naam van uw evenement"
         event_start_date: "Begin Datum"
@@ -55,7 +55,7 @@ nl:
     email: "Email"
     individual: "Individueel"
     non_profit: "Associatie"
-    intitution: "Institutie"
+    institution: "Institutie"
     current_password: "Huidig wachtwoord"
     remember_me: "Hou mij aangemeld"
     forgot_password: "Wachtwoord vergeten?"
@@ -64,6 +64,10 @@ nl:
     change_password: "Uw wachtwoord bewerken"
     new_password: "Nieuw wachtwoord"
     confirm_new_password: "Nieuw wachtwoord bevestigen"
+    list: "Geregistreerd gebruikers"
+    list_admin: "Admins"
+    list_staff: "Staff"
+    list_client: "Klanten"
 
   event:
     new_event: "Nieuw evenement"
@@ -92,6 +96,7 @@ nl:
     edit: "Evenement wijzigen"
     notorganizer: "Indien u de organisator van dit evenement niet bent, mag u het hier kiezen."
     organizer: "Organisator"
+    created_at: "Datum"
 
   simple_form:
     labels:
