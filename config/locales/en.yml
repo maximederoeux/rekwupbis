@@ -76,7 +76,10 @@ en:
     company: "Company"
     password: "Password"
     password_confirmation: "Password confirmation"
-    company_name: "Name of your organization"
+    company_name: "Name of your company"
+    non_profit_name: "Name of your association"
+    institution_name: "Name of your institution"
+    organisation_name: "Name of your organization"
     email: "Email"
     individual: "Individual"
     non_profit: "Association"
@@ -93,6 +96,7 @@ en:
     list_admin: "Admins"
     list_staff: "Staff"
     list_client: "Clients"
+    your_profile: "Your profile"
 
   event:
     new_event: "New Event"

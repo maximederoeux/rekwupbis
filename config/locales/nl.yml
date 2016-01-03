@@ -54,7 +54,10 @@ nl:
     first_name: "Voornaam"
     password: "Wachtwoord"
     password_confirmation: "Wachtwoord bevestigen"
-    company_name: "Naam van uw organizatie"
+    company_name: "Naam van uw bedrijf"
+    non_profit_name: "Naam van uw associatie"
+    institution_name: "Naam van uw institutie"
+    organisation_name: "Naam van uw organisatie"
     email: "Email"
     individual: "Individueel"
     non_profit: "Associatie"
@@ -115,6 +118,7 @@ nl:
     your event: "Uw evenement"
     your events: "Uw evenementen"
     no_event_yet: "U heeft nog geen evenement."
+    your_profile: "Uw profiel"
 
   simple_form:
     labels:

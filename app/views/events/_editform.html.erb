@@ -1,52 +1,107 @@
-<ul class="list-group">
+<div class="container-fluid">
 
-  <li class="list-group-item">
-    <strong><%= t("event.creator_name") %></strong>
-    <%= @creator.full_name if @event.creator %>
-    <strong> le </strong>
-    <%= @event.created_at.strftime("%d/%m/%Y") %>
-  </li> 
+  <ul class="list-group">
 
-  <li class="list-group-item">
-    <strong><%= t("event.organizer_name") %></strong>
-    <%= @organizer.full_name if @event.organizer %>
-  </li>
-</ul>
+    <li class="list-group-item">
+      <strong><%= t("event.creator_name") %></strong>
+      <%= @creator.full_name if @event.creator %>
+      <strong> le </strong>
+      <%= @event.created_at.strftime("%d/%m/%Y") %>
+    </li> 
+
+    <li class="list-group-item">
+      <strong><%= t("event.organizer_name") %></strong>
+      <%= @organizer.full_name if @event.organizer %>
+    </li>
+  </ul>
 
 
-<%= simple_form_for(@event) do |f| %>
-  <%= f.error_notification %>
-    
+  <%= simple_form_for(@event) do |f| %>
+    <%= f.error_notification %>
+      
 
 
   <div class="form-inputs">
 
-    <strong><%= t("event.organizer_change") %>   </strong>
-    <%= f.collection_select :organizer_id, User.all, :id, :full_name_with_company %>
-
-    <%= f.input :event_name %>
-    <%= f.input :event_start_date %>
-    <%= f.input :event_end_date %>
-    <%= f.input :expected_pax %>
-    <%= f.input :last_pax %>
-    <%= f.input :post_code %>
-    <%= f.input :city %>
-    <%= f.input :country, only: [ "BE", "FR", "DE", "LU", "NL" ] %>
-    <%= f.input :comment %>
-    <%= f.input :cuptwenty %>
-    <%= f.input :cuptwentyfive %>
-    <%= f.input :cupforty %>
-    <%= f.input :cupfifty %>
-    <%= f.input :cuplitre %>
-    <%= f.input :cupwine %>
-    <%= f.input :cupcava %>
-    <%= f.input :cupshot %>
-    <%= f.input :party %>
-    <%= f.input :dinner %>
+      <strong><%= t("event.organizer_change") %>   </strong>
+      <%= f.collection_select :organizer_id, User.all, :id, :full_name_with_company %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %><br>
+  <div class="row">
+    <div class="form-inputs">
+      <div class="col-md-8">
+
+        <%= f.input :event_name %>
+
+        <div class="col-md-6">
+          <%= f.input :event_start_date %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :event_end_date %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :expected_pax %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :last_pax %>
+        </div>
+        <div class="col-md-4">
+          <%= f.input :post_code %>
+        </div>
+        <div class="col-md-4">
+          <%= f.input :city %>
+        </div>
+        <div class="col-md-4">
+          <%= f.input :country, only: [ "BE", "FR", "DE", "LU", "NL" ] %>
+        </div>
+          <%= f.input :comment %>
+
+        <h6><strong><%= t("event.which_cups") %></strong></h6>
+
+        <div class="col-md-6">
+          <%= f.input :cuptwenty %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :cuplitre %>
+        </div>
+
+        <div class="col-md-6">
+          <%= f.input :cuptwentyfive %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :cupwine %>
+        </div>
+
+        <div class="col-md-6">
+          <%= f.input :cupforty %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :cupcava %>
+        </div>
+
+        <div class="col-md-6">
+          <%= f.input :cupfifty %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :cupshot %>
+        </div>
+
+        <h6><strong><%= t("event.event_type") %></strong></h6>
+
+        <div class="col-md-6">
+          <%= f.input :party %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :dinner %>
+        </div>
+
+      </div>
+    </div>
   </div>
-  <br>
-<% end %>
+
+    <div class="form-actions">
+      <%= f.button :submit %><br>
+    </div>
+    <br>
+  <% end %>
+</div>

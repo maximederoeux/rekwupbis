@@ -48,6 +48,7 @@
 
     <% else %>
 
+    <%= link_to t("menu.your_profile"), user_path(@user), class: "btn btn-default" %>
     <%= link_to t("event.new_event"), new_event_path, class: "btn btn-default" %>
 
     <% end %>

@@ -54,7 +54,10 @@ fr:
     company: "Société"
     password: "Mot de passe"
     password_confirmation: "Confirmation du mot de passe"
-    company_name: "Nom de votre organisation"
+    company_name: "Nom de votre société"
+    non_profit_name: "Nom de votre association"
+    institution_name: "Nom de votre institution"
+    organisation_name: "Nom de votre organisation"
     email: "Email"
     individual: "Particulier"
     non_profit: "Association"
@@ -71,6 +74,7 @@ fr:
     list_admin: "Admins"
     list_staff: "Staff"
     list_client: "Clients"
+    your_profile: "Votre profil"
 
   event:
     new_event: "Nouvel événement"
