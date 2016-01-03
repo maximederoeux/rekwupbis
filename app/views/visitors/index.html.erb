@@ -38,9 +38,30 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Simple Sidebar</h1>
-                    <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                    <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+<% if user_signed_in? %>
+
+    <% if @user.name.blank? %>
+
+    <h4>Vous devez compléter votre profil avant de créer un événement.</h4>
+
+    <%= link_to t("menu.edit_profile"), edit_user_path(@user), class: "btn btn-default" %>
+
+    <% else %>
+
+    <%= link_to t("event.new_event"), new_event_path, class: "btn btn-default" %>
+
+    <% end %>
+
+<% else %>
+
+Bienvenue chez Rekwup!
+
+<% end %>
+
+<br>
+
+
+
                     <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                 </div>
             </div>

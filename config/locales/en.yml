@@ -136,6 +136,7 @@ en:
     general_info: "General information"
     your_event: "Your event"
     your_events: "Your events"
+    no_event_yet: "You don't have any event yet."
 
   simple_form:
     labels:

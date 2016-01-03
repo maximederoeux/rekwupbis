@@ -114,6 +114,7 @@ fr:
     general_info: "Informations générales"
     your_event: "Votre événement"
     your_events: "Vos événements"
+    no_event_yet: "Vous n'avez pas encore d'événement."
 
   simple_form:
     labels:

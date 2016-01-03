@@ -42,7 +42,11 @@
 
   <% elsif current_user.client %>
 
-    <h2><%= t("event.your_events") %></h2> <%= link_to t("event.new_event"), new_event_path, class: "btn btn-default" %>
+    <% if @myevents.present? %>
+
+      <h2><%= t("event.your_events") %></h2> <%= link_to t("event.new_event"), new_event_path, class: "btn btn-default" %>
+
+        
 
         <div class="row">
 
@@ -72,10 +76,19 @@
           <div class="col-md-1"><%= event.expected_pax %></div>
           <div class="col-md-1 text-center"><%= link_to t("menu.show"), event %></div>
           <div class="col-md-1 text-center"><%= link_to t("menu.edit"), edit_event_path(event) %></div>
-<!--          <div class="col-md-1"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div> -->
-
-          
+          <!-- <div class="col-md-1"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div> -->
         </div>
+
       <% end %>
+      
+
+    <% else %>
+
+    <h4><%= t("event.no_event_yet") %></h4>
+  
+    <%= link_to t("event.new_event"), new_event_path, class: "btn btn-default" %>
+
+    <% end %>
+
   <% end %>
 </div>

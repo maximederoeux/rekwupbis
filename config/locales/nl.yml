@@ -114,6 +114,7 @@ nl:
     general_info: "Algemene informatie"
     your event: "Uw evenement"
     your events: "Uw evenementen"
+    no_event_yet: "U heeft nog geen evenement."
 
   simple_form:
     labels:
