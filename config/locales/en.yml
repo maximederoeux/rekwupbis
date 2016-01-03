@@ -131,7 +131,7 @@ en:
     created_at: "Created on"
     creator: "Creator"
     creator_name: "Event created by "
-    create_event: "Create your event"
+    create_event: "Create an event"
     create_event_explanation: "These informations will help us to propose you an offer that fits your needs."
     which_cups: "Which kind of cups do you need?"
     selected_cups: "Selected cups"

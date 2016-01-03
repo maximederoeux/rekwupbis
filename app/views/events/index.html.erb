@@ -1,43 +1,27 @@
-<div class="container-fluid">
+<div class="container-fluid"><br>
 
   <% if current_user.admin %>
 
-    <h2><%= t("event.listing_events") %></h2> <%= link_to t("event.new_event"), new_event_path, class: "btn btn-default" %>
+    <%= link_to t("event.create_event"), new_event_path, class: "btn btn-success" %><br>
 
-        <div class="row">
+    <ul class="list-group">
+      <br><li class="list-group-item list-group-item-default"><h4><strong>
+        <%= t("event.listing_events") %></strong></h4></li>
+    </ul>
 
-          <div class="col-md-2 text-center"><strong><%= t("event.event_name") %></strong></div>
-          <div class="col-md-1 text-center"><strong><%= t("event.creator") %></strong></strong></div>
-          <div class="col-md-1 text-center"><strong><%= t("event.organizer") %></strong></div>
-          <div class="col-md-1 text-center"><strong><%= t("event.created_at") %></strong></div>
-          <div class="col-md-1 text-center"><strong><%= t("event.event_start_date") %></strong></div>    
-          <div class="col-md-1 text-center"><strong><%= t("event.event_end_date") %></strong></div>
-          <div class="col-md-1 text-center"><strong><%= t("event.expected_pax") %></strong></div>
-          <div class="col-md-1"></div>
-          <div class="col-md-1"></div>
-          <div class="col-md-1"></div>
-
-        </div>
-
+  <div class="row">
+    
       <% @events.each do |event| %>
 
-        <div class="row">
-
-          <div class="col-md-2"><%= event.event_name %></div>
-          <div class="col-md-1"><%= event.creator.name if event.creator %></div>
-          <div class="col-md-1"><%= event.organizer.name if event.organizer %></div>
-          <div class="col-md-1"><%= event.created_at.strftime("%d/%m/%Y") %></div>
-          <div class="col-md-1"><%= event.event_start_date.strftime("%d/%m/%Y") %></div>    
-          <div class="col-md-1"><%= event.event_end_date.strftime("%d/%m/%Y") %></div>
-          <div class="col-md-1"><%= event.expected_pax %></div>
-          <div class="col-md-1"><%= link_to 'Show', event %></div>
-          <div class="col-md-1"><%= link_to 'Edit', edit_event_path(event) %></div>
-          <div class="col-md-1"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-
-          
+        <div class="col-xs-6 col-md-4">
+          <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
         </div>
-                
+
       <% end %>
+
+  </div>
+
+
 
 
   <% elsif current_user.client %>

@@ -22,14 +22,15 @@
 
 
   <div class="form-inputs">
-
+    <li class="list-group-item">
       <strong><%= t("event.organizer_change") %>   </strong>
       <%= f.collection_select :organizer_id, User.all, :id, :full_name_with_company %>
-  </div>
+
+  </div><br>
 
   <div class="row">
     <div class="form-inputs">
-      <div class="col-md-8">
+      <div class="col-md-12">
 
         <%= f.input :event_name %>
 

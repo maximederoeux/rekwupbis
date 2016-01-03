@@ -109,7 +109,7 @@ fr:
     created_at: "Date création"
     creator: "Créateur"
     creator_name: "Evénement créé par "
-    create_event: "Créez votre événement"
+    create_event: "Créez un événement"
     create_event_explanation: "Ces informations nous aideront à vous proposer une offre adaptée à vos besoins."
     which_cups: "De quels gobelets avez-vous besoin?"
     selected_cups: "Types de gobelets sélectionnés"
