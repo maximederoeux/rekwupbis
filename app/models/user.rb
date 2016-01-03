@@ -11,6 +11,14 @@ class User < ActiveRecord::Base
 		"#{first_name} #{name}"
 	end
 
+	def full_name_with_company
+		if company_name.present?
+			"#{first_name} #{name} #{I18n.t('word.from')} #{company_name}"
+		else
+			"#{first_name} #{name}"
+		end
+	end
+
 	def status_display
 		if admin == true
 			"Admin"

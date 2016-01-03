@@ -28,6 +28,13 @@
           <%= f.input :country, only: [ "BE", "FR", "DE", "LU", "NL" ] %>
         </div>
 
+        <div class="col-md-6">
+          <%= f.input :expected_pax %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :last_pax %>
+        </div>
+
         <%= f.input :comment %>
 
         <h6><strong><%= t("event.which_cups") %></strong></h6>

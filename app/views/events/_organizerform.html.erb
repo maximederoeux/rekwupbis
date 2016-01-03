@@ -1,0 +1,32 @@
+<%= simple_form_for(@event) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+    <% if @event.creatorganizer == "true" %>
+    	<h4><%= t("event.notorganizer") %></h4>
+
+	    <%= f.hidden_field :organizer_id, :value => current_user.id %>
+
+	    <div class="form-actions">
+	    	<%= f.button :submit %>
+	  	</div>
+
+    <% else %>
+
+    	<h4><%= t("event.notorganizer") %></h4>
+
+    	<%= t("event.organizer") %>: <%= f.collection_select :organizer_id, User.all, :id, :full_name_with_company %>
+
+    	<div class="form-actions">
+    		<%= f.button :submit %>
+  		</div>
+
+    <% end %>
+
+    
+
+  </div>
+
+  
+<% end %>

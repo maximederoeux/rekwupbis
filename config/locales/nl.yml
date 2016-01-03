@@ -46,6 +46,7 @@ nl:
     users: "Gebruikers"
     back: "Terug"
     edit: "Wijzigen"
+    show: "Details tonen"
 
   user:
     name: "Naam"
@@ -96,11 +97,19 @@ nl:
     dinner: "Maaltijd"
     edit: "Evenement wijzigen"
     notorganizer: "Indien u de organisator van dit evenement niet bent, mag u het hier kiezen."
+    yesorganizer: "Kunt u aub bevestigen dat u de organisator van dit evenement bent?"
     organizer: "Organisator"
+    organizer_name: "Evenement georganiseerd door "
+    organizer_change: "Verander de naam van de organisator"
     created_at: "Schepping Datum"
     creator: "Schepper"
+    creator_name: "Evenement geschept door "
     which_cups: "Welke bekers heeft u nodig?"
+    selected_cups: "Geselecteerd bekers"
     event_type: "Welke soort evenement is het?"
+    event_type2: "Type van evenement"
+    general_info: "Algemene informatie"
+    your event: "Uw evenement"
 
   simple_form:
     labels:
@@ -167,3 +176,15 @@ nl:
       - day
       - month
       - year
+
+  word:
+    from: "van"
+
+  helpers:
+    submit:
+      user:
+        create: "%{model} scheppen"
+        update: "Opslaan"
+      event:
+        create: "%{model} scheppen"
+        update: "Opslaan"

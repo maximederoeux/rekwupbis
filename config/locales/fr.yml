@@ -45,6 +45,7 @@ fr:
     users: "Utilisateurs"
     back: "Retour"
     edit: "Modifier"
+    show: "Afficher les détails"
 
   user:
     name: "Nom"
@@ -96,11 +97,19 @@ fr:
     dinner: "Repas"
     edit: "Modifier l'événement"
     notorganizer: "Si vous n'êtes pas l'organisateur de l'événement, sélectionnez-le ici."
+    yesorganizer: "Pourriez-vous nous confirmer que vous êtes l'organisateur de cet événement?"
     organizer: "Organisateur"
+    organizer_name: "Evénement organisé par "
+    organizer_change: "Changer l'organisateur"
     created_at: "Date création"
     creator: "Créateur"
+    creator_name: "Evénement créé par "
     which_cups: "De quels gobelets avez-vous besoin?"
+    selected_cups: "Types de gobelets sélectionnés"
     event_type: "Quel genre d'événement est-ce?"
+    event_type2: "Type d'événement"
+    general_info: "Informations générales"
+    your_event: "Votre événement"
 
   simple_form:
     labels:
@@ -151,3 +160,14 @@ fr:
     am: "am"
     pm: "pm"
 
+  word:
+    from: "de"
+
+  helpers:
+    submit:
+      user:
+        create: "Créer un %{model}"
+        update: "Enregistrer les changements"
+      event:
+        create: "Créer un %{model}"
+        update: "Enregistrer les changements"

@@ -1,114 +1,82 @@
-<p id="notice"><%= notice %></p>
 
 <div class="container-fluid">
+  
+  <br>
 
-  <p>
-    <strong><%= "ID Creator" %>:</strong>
-    <%= @event.creator_id %>
-  </p>
+  <div class="row">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-warning"><h5><strong><%= t("event.your_event") %></strong></h5></li>
 
-  <p>
-    <strong><%= "Name Creator" %>:</strong>
-    <%= @creator.name if @event.creator %>
-  </p>
-  <p>
-    <strong><%= "ID Organizer" %>:</strong>
-    <%= @event.organizer_id %>
-  </p>
+      <li class="list-group-item list-group-item-success"><h6><strong><%= t("event.general_info") %></strong></h6></li>
 
-  <p>
-    <strong><%= "Name Organizer" %>:</strong>
-    <%= @organizer.name if @event.organizer %>
-  </p>
+      <li class="list-group-item"><strong><%= t("event.event_name") %> : </strong><%= @event.event_name %></li>
+
+      <li class="list-group-item"><strong><%= t("event.creator_name") %></strong><%= @creator.full_name if @event.creator %><strong> le </strong><%= @event.created_at.strftime("%d/%m/%Y") %></li> 
+      <li class="list-group-item"><strong><%= t("event.organizer_name") %></strong><%= @organizer.full_name if @event.organizer %></li>
 
 
-  <p>
-    <strong><%= t("event.event_name") %>:</strong>
-    <%= @event.event_name %>
-  </p>
+      <li class="list-group-item"><strong><%= t("event.event_start_date") %> : </strong><%= @event.event_start_date %></li>
+      <li class="list-group-item"><strong><%= t("event.event_end_date") %> : </strong><%= @event.event_end_date %></li>
 
-  <p>
-    <strong><%= t("event.event_start_date") %>:</strong>
-    <%= @event.event_start_date %>
-  </p>
 
-  <p>
-    <strong><%= t("event.event_end_date") %>:</strong>
-    <%= @event.event_end_date %>
-  </p>
 
-  <p>
-    <strong><%= t("event.expected_pax") %>:</strong>
-    <%= @event.expected_pax %>
-  </p>
+      <li class="list-group-item"><strong><%= t("event.expected_pax") %> : </strong><%= @event.expected_pax %></li>
+      <li class="list-group-item"><strong><%= t("event.last_pax") %> : </strong><%= @event.last_pax %></li>
+      <li class="list-group-item"><strong><%= t("event.city") %> : </strong><%= @event.post_code %> <%= @event.city %>, <%= @event.country %></li>
 
-  <p>
-    <strong><%= t("event.last_pax") %>:</strong>
-    <%= @event.last_pax %>
-  </p>
+      <% if @event.comment.present? %>
+        <li class="list-group-item list-group-item-success"><strong><%= t("event.comment") %></strong></li>
+        <li class="list-group-item"><%= @event.comment %></li>
+      <% end %>
 
-  <p>
-    <strong><%= t("event.post_code") %>:</strong>
-    <%= @event.post_code %>
-  </p>
+      <li class="list-group-item list-group-item-success"><h6><strong><%= t("event.selected_cups") %></strong></h6></li>
 
-  <p>
-    <strong><%= t("event.city") %>:</strong>
-    <%= @event.city %>
-  </p>
+      <% if @event.cuptwenty %>
+        <li class="list-group-item"><%= t("event.cuptwenty") %></li>
+      <% end %>
+      <% if @event.cuptwentyfive %>
+        <li class="list-group-item"><%= t("event.cuptwentyfive") %></li>
+      <% end %>
+      <% if @event.cupforty %>
+        <li class="list-group-item"><%= t("event.cupforty") %></li>
+      <% end %>
+      <% if @event.cupfifty %>
+        <li class="list-group-item"><%= t("event.cupfifty") %></li>
+      <% end %>
+      <% if @event.cuplitre %>
+        <li class="list-group-item"><%= t("event.cuplitre") %></li>
+      <% end %>
+      <% if @event.cupwine %>
+        <li class="list-group-item"><%= t("event.cupwine") %></li>
+      <% end %>
+      <% if @event.cupcava %>
+        <li class="list-group-item"><%= t("event.cupcava") %></li>
+      <% end %>
+      <% if @event.cupshot %>
+       <li class="list-group-item"><%= t("event.cupshot") %></li>
+      <% end %>
 
-  <p>
-    <strong><%= t("event.country") %>:</strong>
-    <%= @event.country %>
-  </p>
+        <li class="list-group-item list-group-item-success"><h6><strong><%= t("event.event_type2") %></strong></h6></li>
 
-  <p>
-    <strong><%= t("event.comment") %>:</strong>
-    <%= @event.comment %>
-  </p>
+      <% if @event.party %>
+        <li class="list-group-item"><%= t("event.party") %></li>
+      <% end %>
 
-  <p>
-    <strong><%= t("event.cuptwenty") %>:</strong>
-    <%= @event.cuptwenty %>
-  </p>
+      <% if @event.dinner %>
+        <li class="list-group-item"><%= t("event.dinner") %></li>
+      <% end %>
+      
+    </ul>
+  </div>
+  
+<%= link_to t("menu.edit"), edit_event_path(@event), class: "btn btn-default" %>
+<%= link_to t("menu.back"), events_path, class: "btn btn-default" %>
 
-  <p>
-    <strong><%= t("event.cuptwentyfive") %>:</strong>
-    <%= @event.cuptwentyfive %>
-  </p>
 
-  <p>
-    <strong><%= t("event.cupforty") %>:</strong>
-    <%= @event.cupforty %>
-  </p>
-
-  <p>
-    <strong><%= t("event.cupfifty") %>:</strong>
-    <%= @event.cupfifty %>
-  </p>
-
-  <p>
-    <strong><%= t("event.cuplitre") %>:</strong>
-    <%= @event.cuplitre %>
-  </p>
-
-  <p>
-    <strong><%= t("event.cupwine") %>:</strong>
-    <%= @event.cupwine %>
-  </p>
-
-  <p>
-    <strong><%= t("event.cupcava") %>:</strong>
-    <%= @event.cupcava %>
-  </p>
-
-  <p>
-    <strong><%= t("event.cupshot") %>:</strong>
-    <%= @event.cupshot %>
-  </p>
-
-  <%= link_to t("menu.edit"), edit_event_path(@event) %> |
-  <%= link_to t("menu.back"), events_path %>
-
+  
 
 </div>
+      
+           
+            
+          

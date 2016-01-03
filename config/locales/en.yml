@@ -67,6 +67,7 @@ en:
     users: "Users"
     back: "Back"
     edit: "Edit"
+    show: "Show details"
 
   user:
     name: "Last Name"
@@ -118,11 +119,19 @@ en:
     dinner: "Meal"
     edit: "Edit event"
     notorganizer: "If you aren't the organizer of this event, please select it here"
+    yesorganizer: "Could you please confirm that you are the organizer of this event?"
     organizer: "Organizer"
+    organizer_name: "Event organized by"
+    organizer_change: "Change the organizer name"
     created_at: "Created on"
     creator: "Creator"
+    creator_name: "Event created by "
     which_cups: "Which kind of cups do you need?"
+    selected_cups: "Selected cups"
     event_type: "What kind of event is it?"
+    event_type2: "Event type"
+    general_info: "General information"
+    your_event: "Your event"
 
   simple_form:
     labels:
@@ -148,5 +157,15 @@ en:
         party: "Party, concert, festival"
         dinner: "Meal"
 
+  word:
+    from: "from"
 
+  helpers:
+    submit:
+      user:
+        create: "Add %{model}"
+        update: "Save Changes"
+      event:
+        create: "Add %{model}"
+        update: "Save Changes"
 

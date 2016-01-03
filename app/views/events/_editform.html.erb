@@ -1,13 +1,29 @@
+<ul class="list-group">
+
+  <li class="list-group-item">
+    <strong><%= t("event.creator_name") %></strong>
+    <%= @creator.full_name if @event.creator %>
+    <strong> le </strong>
+    <%= @event.created_at.strftime("%d/%m/%Y") %>
+  </li> 
+
+  <li class="list-group-item">
+    <strong><%= t("event.organizer_name") %></strong>
+    <%= @organizer.full_name if @event.organizer %>
+  </li>
+</ul>
+
+
 <%= simple_form_for(@event) do |f| %>
   <%= f.error_notification %>
+    
+
 
   <div class="form-inputs">
-    <% if @event.creatorganizer == "true" %>
-    <%= f.hidden_field :organizer_id, :value => current_user.id %>
-    <% else %>
-    <h4><%= t("event.notorganizer") %></h4>
-    <%= t("event.organizer") %>: <%= f.collection_select :organizer_id, User.all, :id, :full_name %>
-    <% end %>
+
+    <strong><%= t("event.organizer_change") %>   </strong>
+    <%= f.collection_select :organizer_id, User.all, :id, :full_name_with_company %>
+
     <%= f.input :event_name %>
     <%= f.input :event_start_date %>
     <%= f.input :event_end_date %>
@@ -30,6 +46,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit %><br>
   </div>
+  <br>
 <% end %>

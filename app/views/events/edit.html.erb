@@ -1,6 +1,14 @@
 <h1>Editing Event</h1>
 
+<% if @event.organizer_id.blank? %>
+
+<%= render 'organizerform' %>
+
+<% else %>
+
 <%= render 'editform' %>
 
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+<% end %>
+
+<%= link_to t("menu.show"), @event, class: "btn btn-default" %>
+<%= link_to t("menu.back"), events_path, class: "btn btn-default" %>
