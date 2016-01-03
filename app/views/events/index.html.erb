@@ -2,17 +2,17 @@
 
   <% if current_user.admin %>
 
-    <h2><%= t("event.listing_events") %></h2>
+    <h2><%= t("event.listing_events") %></h2> <%= link_to t("event.new_event"), new_event_path, class: "btn btn-default" %>
 
         <div class="row">
 
-          <div class="col-md-2"><strong><%= t("event.event_name") %></strong></div>
-          <div class="col-md-1"><strong><%= t("event.creator") %></strong></strong></div>
-          <div class="col-md-1"><strong><%= t("event.organizer") %></strong></div>
-          <div class="col-md-1"><strong><%= t("event.created_at") %></strong></div>
-          <div class="col-md-1"><strong><%= t("event.event_start_date") %></strong></div>    
-          <div class="col-md-1"><strong><%= t("event.event_end_date") %></strong></div>
-          <div class="col-md-1"><strong><%= t("event.expected_pax") %></strong></div>
+          <div class="col-md-2 text-center"><strong><%= t("event.event_name") %></strong></div>
+          <div class="col-md-1 text-center"><strong><%= t("event.creator") %></strong></strong></div>
+          <div class="col-md-1 text-center"><strong><%= t("event.organizer") %></strong></div>
+          <div class="col-md-1 text-center"><strong><%= t("event.created_at") %></strong></div>
+          <div class="col-md-1 text-center"><strong><%= t("event.event_start_date") %></strong></div>    
+          <div class="col-md-1 text-center"><strong><%= t("event.event_end_date") %></strong></div>
+          <div class="col-md-1 text-center"><strong><%= t("event.expected_pax") %></strong></div>
           <div class="col-md-1"></div>
           <div class="col-md-1"></div>
           <div class="col-md-1"></div>
@@ -42,20 +42,40 @@
 
   <% elsif current_user.client %>
 
+    <h2><%= t("event.your_events") %></h2> <%= link_to t("event.new_event"), new_event_path, class: "btn btn-default" %>
+
+        <div class="row">
+
+          <div class="col-md-2 index-title"><strong><%= t("event.event_name") %></strong></div>
+          <div class="col-md-1 index-title"><strong><%= t("event.creator") %></strong></strong></div>
+          <div class="col-md-1 index-title"><strong><%= t("event.organizer") %></strong></div>
+          <div class="col-md-1 index-title"><strong><%= t("event.created_at") %></strong></div>
+          <div class="col-md-1 index-title"><strong><%= t("event.event_start_date") %></strong></div>    
+          <div class="col-md-1 index-title"><strong><%= t("event.event_end_date") %></strong></div>
+          <div class="col-md-1 text-center"><strong><%= t("event.expected_pax") %></strong></div>
+          <div class="col-md-1"></div>
+          <div class="col-md-1"></div>
+          <div class="col-md-1"></div>
+
+        </div>
+
       <% @myevents.each do |event| %>
 
-        <%= event.event_name %>
-        <%= event.creator_id %>
-        <%= link_to 'Show', event %>
-        <%= link_to 'Edit', edit_event_path(event) %><br>
+        <div class="row">
 
+          <div class="col-md-2"><%= event.event_name %></div>
+          <div class="col-md-1"><%= event.creator.name if event.creator %></div>
+          <div class="col-md-1"><%= event.organizer.name if event.organizer %></div>
+          <div class="col-md-1"><%= event.created_at.strftime("%d/%m/%Y") %></div>
+          <div class="col-md-1"><%= event.event_start_date.strftime("%d/%m/%Y") %></div>    
+          <div class="col-md-1"><%= event.event_end_date.strftime("%d/%m/%Y") %></div>
+          <div class="col-md-1"><%= event.expected_pax %></div>
+          <div class="col-md-1 text-center"><%= link_to t("menu.show"), event %></div>
+          <div class="col-md-1 text-center"><%= link_to t("menu.edit"), edit_event_path(event) %></div>
+<!--          <div class="col-md-1"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div> -->
+
+          
+        </div>
       <% end %>
-
   <% end %>
-
-    
-
-
-  <%= link_to 'New Event', new_event_path %>
-
 </div>

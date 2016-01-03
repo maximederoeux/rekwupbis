@@ -47,6 +47,7 @@ nl:
     back: "Terug"
     edit: "Wijzigen"
     show: "Details tonen"
+    cancel: "Annuleren"
 
   user:
     name: "Naam"
@@ -104,12 +105,15 @@ nl:
     created_at: "Schepping Datum"
     creator: "Schepper"
     creator_name: "Evenement geschept door "
+    create_event: "Schep uw evenement"
+    create_event_explanation: "Deze inlichtingen zullen ons helpen om u een aanbod te proposeren die tot uw nood aangepast is."
     which_cups: "Welke bekers heeft u nodig?"
     selected_cups: "Geselecteerd bekers"
     event_type: "Welke soort evenement is het?"
     event_type2: "Type van evenement"
     general_info: "Algemene informatie"
     your event: "Uw evenement"
+    your events: "Uw evenementen"
 
   simple_form:
     labels:
@@ -186,5 +190,5 @@ nl:
         create: "%{model} scheppen"
         update: "Opslaan"
       event:
-        create: "%{model} scheppen"
+        create: "Schep uw evenement"
         update: "Opslaan"

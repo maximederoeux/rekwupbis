@@ -1,9 +1,9 @@
 <div class="container-fluid">
 
-<h1><%= t("event.new_event") %></h1>
+	<h2><%= t("event.create_event") %></h2>
+	<h4><%= t("event.create_event_explanation") %></h4>
+	
+	<%= render 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to t("menu.back"), events_path %>
 
 </div>

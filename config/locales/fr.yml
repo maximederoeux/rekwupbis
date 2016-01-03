@@ -46,6 +46,7 @@ fr:
     back: "Retour"
     edit: "Modifier"
     show: "Afficher les détails"
+    cancel: "Annuler"
 
   user:
     name: "Nom"
@@ -104,12 +105,15 @@ fr:
     created_at: "Date création"
     creator: "Créateur"
     creator_name: "Evénement créé par "
+    create_event: "Créez votre événement"
+    create_event_explanation: "Ces informations nous aideront à vous proposer une offre adaptée à vos besoins."
     which_cups: "De quels gobelets avez-vous besoin?"
     selected_cups: "Types de gobelets sélectionnés"
     event_type: "Quel genre d'événement est-ce?"
     event_type2: "Type d'événement"
     general_info: "Informations générales"
     your_event: "Votre événement"
+    your_events: "Vos événements"
 
   simple_form:
     labels:
@@ -169,5 +173,5 @@ fr:
         create: "Créer un %{model}"
         update: "Enregistrer les changements"
       event:
-        create: "Créer un %{model}"
+        create: "Créez votre événement"
         update: "Enregistrer les changements"

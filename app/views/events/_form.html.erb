@@ -81,10 +81,13 @@
           <%= f.hidden_field :creator_id, :value => current_user.id %>
 
         <div class="form-actions">
-          <%= f.button :submit %>
+          <%= f.button :submit, class: "btn btn-success btn-lg btn-block" %>
         </div>
 
       <% end %>
+
+  <br>
+  <%= link_to t("menu.cancel"), events_path, class: "btn btn-warning btn-lg btn-block" %>
 
     </div>
 
