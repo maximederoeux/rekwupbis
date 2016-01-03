@@ -1,110 +1,114 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container-fluid">
 
-<p>
-  <strong><%= "ID Creator" %>:</strong>
-  <%= @event.creator_id %>
-</p>
+  <p>
+    <strong><%= "ID Creator" %>:</strong>
+    <%= @event.creator_id %>
+  </p>
 
-<p>
-  <strong><%= "Name Creator" %>:</strong>
-  <%= @creator.name %>
-</p>
-<p>
-  <strong><%= "ID Organizer" %>:</strong>
-  <%= @event.organizer_id %>
-</p>
+  <p>
+    <strong><%= "Name Creator" %>:</strong>
+    <%= @creator.name if @event.creator %>
+  </p>
+  <p>
+    <strong><%= "ID Organizer" %>:</strong>
+    <%= @event.organizer_id %>
+  </p>
 
-<p>
-  <strong><%= "Name Organizer" %>:</strong>
-  <%= @organizer.name %>
-</p>
+  <p>
+    <strong><%= "Name Organizer" %>:</strong>
+    <%= @organizer.name if @event.organizer %>
+  </p>
 
 
-<p>
-  <strong><%= t("event.event_name") %>:</strong>
-  <%= @event.event_name %>
-</p>
+  <p>
+    <strong><%= t("event.event_name") %>:</strong>
+    <%= @event.event_name %>
+  </p>
 
-<p>
-  <strong><%= t("event.event_start_date") %>:</strong>
-  <%= @event.event_start_date %>
-</p>
+  <p>
+    <strong><%= t("event.event_start_date") %>:</strong>
+    <%= @event.event_start_date %>
+  </p>
 
-<p>
-  <strong><%= t("event.event_end_date") %>:</strong>
-  <%= @event.event_end_date %>
-</p>
+  <p>
+    <strong><%= t("event.event_end_date") %>:</strong>
+    <%= @event.event_end_date %>
+  </p>
 
-<p>
-  <strong><%= t("event.expected_pax") %>:</strong>
-  <%= @event.expected_pax %>
-</p>
+  <p>
+    <strong><%= t("event.expected_pax") %>:</strong>
+    <%= @event.expected_pax %>
+  </p>
 
-<p>
-  <strong><%= t("event.last_pax") %>:</strong>
-  <%= @event.last_pax %>
-</p>
+  <p>
+    <strong><%= t("event.last_pax") %>:</strong>
+    <%= @event.last_pax %>
+  </p>
 
-<p>
-  <strong><%= t("event.post_code") %>:</strong>
-  <%= @event.post_code %>
-</p>
+  <p>
+    <strong><%= t("event.post_code") %>:</strong>
+    <%= @event.post_code %>
+  </p>
 
-<p>
-  <strong><%= t("event.city") %>:</strong>
-  <%= @event.city %>
-</p>
+  <p>
+    <strong><%= t("event.city") %>:</strong>
+    <%= @event.city %>
+  </p>
 
-<p>
-  <strong><%= t("event.country") %>:</strong>
-  <%= @event.country %>
-</p>
+  <p>
+    <strong><%= t("event.country") %>:</strong>
+    <%= @event.country %>
+  </p>
 
-<p>
-  <strong><%= t("event.comment") %>:</strong>
-  <%= @event.comment %>
-</p>
+  <p>
+    <strong><%= t("event.comment") %>:</strong>
+    <%= @event.comment %>
+  </p>
 
-<p>
-  <strong><%= t("event.cuptwenty") %>:</strong>
-  <%= @event.cuptwenty %>
-</p>
+  <p>
+    <strong><%= t("event.cuptwenty") %>:</strong>
+    <%= @event.cuptwenty %>
+  </p>
 
-<p>
-  <strong><%= t("event.cuptwentyfive") %>:</strong>
-  <%= @event.cuptwentyfive %>
-</p>
+  <p>
+    <strong><%= t("event.cuptwentyfive") %>:</strong>
+    <%= @event.cuptwentyfive %>
+  </p>
 
-<p>
-  <strong><%= t("event.cupforty") %>:</strong>
-  <%= @event.cupforty %>
-</p>
+  <p>
+    <strong><%= t("event.cupforty") %>:</strong>
+    <%= @event.cupforty %>
+  </p>
 
-<p>
-  <strong><%= t("event.cupfifty") %>:</strong>
-  <%= @event.cupfifty %>
-</p>
+  <p>
+    <strong><%= t("event.cupfifty") %>:</strong>
+    <%= @event.cupfifty %>
+  </p>
 
-<p>
-  <strong><%= t("event.cuplitre") %>:</strong>
-  <%= @event.cuplitre %>
-</p>
+  <p>
+    <strong><%= t("event.cuplitre") %>:</strong>
+    <%= @event.cuplitre %>
+  </p>
 
-<p>
-  <strong><%= t("event.cupwine") %>:</strong>
-  <%= @event.cupwine %>
-</p>
+  <p>
+    <strong><%= t("event.cupwine") %>:</strong>
+    <%= @event.cupwine %>
+  </p>
 
-<p>
-  <strong><%= t("event.cupcava") %>:</strong>
-  <%= @event.cupcava %>
-</p>
+  <p>
+    <strong><%= t("event.cupcava") %>:</strong>
+    <%= @event.cupcava %>
+  </p>
 
-<p>
-  <strong><%= t("event.cupshot") %>:</strong>
-  <%= @event.cupshot %>
-</p>
+  <p>
+    <strong><%= t("event.cupshot") %>:</strong>
+    <%= @event.cupshot %>
+  </p>
 
-<%= link_to t("menu.edit"), edit_event_path(@event) %> |
-<%= link_to t("menu.back"), events_path %>
+  <%= link_to t("menu.edit"), edit_event_path(@event) %> |
+  <%= link_to t("menu.back"), events_path %>
+
+
+</div>

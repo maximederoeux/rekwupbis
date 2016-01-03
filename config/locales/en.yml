@@ -120,6 +120,9 @@ en:
     notorganizer: "If you aren't the organizer of this event, please select it here"
     organizer: "Organizer"
     created_at: "Created on"
+    creator: "Creator"
+    which_cups: "Which kind of cups do you need?"
+    event_type: "What kind of event is it?"
 
   simple_form:
     labels:

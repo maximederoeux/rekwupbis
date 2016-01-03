@@ -98,6 +98,9 @@ fr:
     notorganizer: "Si vous n'êtes pas l'organisateur de l'événement, sélectionnez-le ici."
     organizer: "Organisateur"
     created_at: "Date création"
+    creator: "Créateur"
+    which_cups: "De quels gobelets avez-vous besoin?"
+    event_type: "Quel genre d'événement est-ce?"
 
   simple_form:
     labels:

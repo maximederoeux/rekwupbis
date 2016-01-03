@@ -34,6 +34,7 @@ nl:
         party: "Feest, concert, festival"
         dinner: "Maaltijd"
 
+
   menu:
     home: "Home"
     about: "Over ons"
@@ -96,7 +97,10 @@ nl:
     edit: "Evenement wijzigen"
     notorganizer: "Indien u de organisator van dit evenement niet bent, mag u het hier kiezen."
     organizer: "Organisator"
-    created_at: "Datum"
+    created_at: "Schepping Datum"
+    creator: "Schepper"
+    which_cups: "Welke bekers heeft u nodig?"
+    event_type: "Welke soort evenement is het?"
 
   simple_form:
     labels:
