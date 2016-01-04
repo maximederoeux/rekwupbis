@@ -51,6 +51,7 @@ nl:
     cancel: "Annuleren"
     update: "Bijwerken"
     events: "Evenementen"
+    articles: "Artikels"
 
   user:
     name: "Naam"

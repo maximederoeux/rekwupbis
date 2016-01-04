@@ -72,6 +72,7 @@ en:
     cancel: "Cancel"
     update: "Update"
     events: "Events"
+    articles: "Articles"
 
   user:
     name: "Last Name"

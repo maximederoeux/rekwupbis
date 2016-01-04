@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104063039) do
+ActiveRecord::Schema.define(version: 20160104093421) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "article_name"
+    t.integer  "article_content"
+    t.string   "article_type"
+    t.string   "article_category"
+    t.integer  "quantity_bigbox"
+    t.integer  "quantity_smallbox"
+    t.integer  "quantity_pile"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.string   "event_name"

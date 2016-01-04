@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Article name:</strong>
+  <%= @article.article_name %>
+</p>
+
+<p>
+  <strong>Article content:</strong>
+  <%= @article.article_content %>
+</p>
+
+<p>
+  <strong>Article type:</strong>
+  <%= @article.article_type %>
+</p>
+
+<p>
+  <strong>Article category:</strong>
+  <%= @article.article_category %>
+</p>
+
+<p>
+  <strong>Quantity bigbox:</strong>
+  <%= @article.quantity_bigbox %>
+</p>
+
+<p>
+  <strong>Quantity smallbox:</strong>
+  <%= @article.quantity_smallbox %>
+</p>
+
+<p>
+  <strong>Quantity pile:</strong>
+  <%= @article.quantity_pile %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>

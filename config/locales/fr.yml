@@ -50,6 +50,7 @@ fr:
     cancel: "Annuler"
     update: "Mettre à jour"
     events: "Evénements"
+    articles: "Articles"
 
   user:
     name: "Nom"

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  article_name: MyString
+  article_content: 1
+  article_type: MyString
+  article_category: MyString
+  quantity_bigbox: 1
+  quantity_smallbox: 1
+  quantity_pile: 1
+
+two:
+  article_name: MyString
+  article_content: 1
+  article_type: MyString
+  article_category: MyString
+  quantity_bigbox: 1
+  quantity_smallbox: 1
+  quantity_pile: 1

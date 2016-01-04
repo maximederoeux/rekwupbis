@@ -1,0 +1,17 @@
+<%= simple_form_for(@article) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :article_name %>
+    <%= f.input :article_content %>
+    <%= f.input :article_type %>
+    <%= f.input :article_category %>
+    <%= f.input :quantity_bigbox %>
+    <%= f.input :quantity_smallbox %>
+    <%= f.input :quantity_pile %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

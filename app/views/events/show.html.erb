@@ -5,7 +5,7 @@
 
   <div class="row">
     <ul class="list-group">
-      <li class="list-group-item list-group-item-warning"><h5><strong><%= t("event.your_event") %></strong></h5></li>
+      <li class="list-group-item list-group-item-warning"><h5><strong><%= t("event.your_event") %> - Ref. <%= @event.created_at.strftime("%Y") %>-<%= @event.id %></strong></h5></li>
 
       <li class="list-group-item list-group-item-success"><h6><strong><%= t("event.general_info") %></strong></h6></li>
 
