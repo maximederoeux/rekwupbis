@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104093421) do
+ActiveRecord::Schema.define(version: 20160104135844) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20160104093421) do
     t.integer  "quantity_pile"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "boxes", force: :cascade do |t|
+    t.string   "box_name"
+    t.boolean  "box_regular"
+    t.string   "box_type"
+    t.integer  "box_detail_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "events", force: :cascade do |t|
