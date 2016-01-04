@@ -1,5 +1,6 @@
-<h1>New Article</h1>
+<h2><%= t("article.new_article") %></h2>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', articles_path %>
+<%= link_to t("menu.cancel"), articles_path, class: "btn btn-warning" %>
+

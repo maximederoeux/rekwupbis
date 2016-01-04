@@ -152,6 +152,17 @@ en:
     your_events: "Your events"
     no_event_yet: "You don't have any event yet."
 
+  article:
+    article_name: "Article Name"
+    article_content: "Content"
+    article_type: "Type"
+    article_catégory: "Category"
+    quantity_bigbox: "Quantity in big box"
+    quantity_smallbox: "Quantity in small box"
+    quantity_pile: "Quantity in pile"
+    new_article: "Create an article"
+    listing_articles: "Listing Articles"
+
   simple_form:
     labels:
       event:
@@ -176,6 +187,14 @@ en:
         creatorganizer: "I am the orhanizer of the event"
         party: "Party, concert, festival"
         dinner: "Meal"
+      article:
+        article_name: "Article Name"
+        article_content: "Content"
+        article_type: "Type"
+        article_catégory: "Category"
+        quantity_bigbox: "Quantity in big box"
+        quantity_smallbox: "Quantity in small box"
+        quantity_pile: "Quantity in pile"
 
   word:
     from: "from"
@@ -188,4 +207,6 @@ en:
       event:
         create: "Create your event"
         update: "Save Changes"
-
+      article:
+        create: "Create your article"
+        update: "Save Changes"

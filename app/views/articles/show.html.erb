@@ -1,39 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Article name:</strong>
-  <%= @article.article_name %>
-</p>
+<% if @user.client %>
 
-<p>
-  <strong>Article content:</strong>
-  <%= @article.article_content %>
-</p>
+Information à déterminer
 
-<p>
-  <strong>Article type:</strong>
-  <%= @article.article_type %>
-</p>
+<% else %>
 
-<p>
-  <strong>Article category:</strong>
-  <%= @article.article_category %>
-</p>
+  <div class="container-fluid">
+    
+    <br>
 
-<p>
-  <strong>Quantity bigbox:</strong>
-  <%= @article.quantity_bigbox %>
-</p>
+    <div class="row">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-success"><h5><strong><%= @article.full_name %></strong></h5></li>
 
-<p>
-  <strong>Quantity smallbox:</strong>
-  <%= @article.quantity_smallbox %>
-</p>
+        <li class="list-group-item"><strong><%= t("article.article_name") %> : </strong><%= @article.article_name %></li>
 
-<p>
-  <strong>Quantity pile:</strong>
-  <%= @article.quantity_pile %>
-</p>
+        <li class="list-group-item"><strong><%= t("article.article_content") %> : </strong><%= @article.article_content %> CL</li> 
+        <li class="list-group-item"><strong><%= t("article.article_type") %> : </strong><%= @article.article_type %></li>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+
+        <li class="list-group-item"><strong><%= t("article.article_category") %> : </strong><%= @article.article_category %></li>
+        <li class="list-group-item"><strong><%= t("article.quantity_bigbox") %> : </strong><%= @article.quantity_bigbox %></li>
+        <li class="list-group-item"><strong><%= t("article.quantity_smallbox") %> : </strong><%= @article.quantity_smallbox %></li>
+
+
+
+        <li class="list-group-item"><strong><%= t("article.quantity_bigbox") %> : </strong><%= @article.quantity_pile %></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  <% if @user.admin %>
+    <%= link_to t("menu.edit"), edit_article_path(@article), class: "btn btn-lg btn-default" %>
+  <% end %>
+  <%= link_to t("menu.back"), articles_path, class: "btn btn-lg btn-warning" %>
+
+
+<% end %>

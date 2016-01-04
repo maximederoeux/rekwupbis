@@ -131,6 +131,18 @@ nl:
     no_event_yet: "U heeft nog geen evenement."
     your_profile: "Uw profiel"
 
+
+  article:
+    article_name: "Naam ven het artikel"
+    article_content: "Inhoud"
+    article_type: "Type"
+    article_catégory: "Categorie"
+    quantity_bigbox: "Kwantiteit per groot doos"
+    quantity_smallbox: "Kwantiteit per klein doos"
+    quantity_pile: "Kwantitieit per stapel"
+    new_article: "Een artikel scheppen"
+    listing_articles: "Alle artikels"
+
   simple_form:
     labels:
       event:
@@ -155,6 +167,14 @@ nl:
         creatorganizer: "Ik organiseer het evenement"
         party: "Feest, concert, festival"
         dinner: "Maaltijd"
+      article:
+        article_name: "Naam ven het artikel"
+        article_content: "Inhoud"
+        article_type: "Type"
+        article_catégory: "Categorie"
+        quantity_bigbox: "Kwantiteit per groot doos"
+        quantity_smallbox: "Kwantiteit per klein doos"
+        quantity_pile: "Kwantitieit per stapel"
 
   date:
     formats:
@@ -208,4 +228,7 @@ nl:
         update: "Opslaan"
       event:
         create: "Schep uw evenement"
+        update: "Opslaan"
+      article:
+        create: "Schep uw artikel"
         update: "Opslaan"

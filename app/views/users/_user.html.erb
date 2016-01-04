@@ -1,17 +1,48 @@
 <%= simple_form_for(@user) do |f| %>
   <%= f.error_notification %>
 
-    
-    <%= f.input :name, :label => t("user.name"), :placeholder => t("user.name") %>
-    <%= f.input :first_name, :label => t("user.first_name"), :placeholder => t("user.first_name") %>
-    <%= f.input :individual, :label => t("user.individual") %>
-    <%= f.input :non_profit, :label => t("user.non_profit") %>
-    <%= f.input :company, :label => t("user.company") %>
-    <%= f.input :institution, :label => t("user.institution") %>
-    <%= f.input :company_name, :label => t("user.organisation_name") %>
-    <%= f.hidden_field :client, :value => true %>
+    <% if current_user.client.blank? && current_user.admin.blank? && current_user.staff.blank? %>
+
+      <%= f.input :name, :label => t("user.name"), :placeholder => t("user.name") %>
+      <%= f.input :first_name, :label => t("user.first_name"), :placeholder => t("user.first_name") %>
+      <%= f.input :email, :label => t("user.email"), :placeholder => t("user.email") %>
+      <%= f.input :individual, :label => t("user.individual") %>
+      <%= f.input :non_profit, :label => t("user.non_profit") %>
+      <%= f.input :company, :label => t("user.company") %>
+      <%= f.input :institution, :label => t("user.institution") %>
+      <%= f.input :company_name, :label => t("user.organisation_name") %>
+      <%= f.hidden_field :client, :value => true %>
+      
+    <% end %>
+
+    <% if current_user.client %>
+
+      <%= f.input :name, :label => t("user.name"), :placeholder => t("user.name") %>
+      <%= f.input :first_name, :label => t("user.first_name"), :placeholder => t("user.first_name") %>
+      <%= f.input :email, :label => t("user.email"), :placeholder => t("user.email") %>
+      <%= f.input :individual, :label => t("user.individual") %>
+      <%= f.input :non_profit, :label => t("user.non_profit") %>
+      <%= f.input :company, :label => t("user.company") %>
+      <%= f.input :institution, :label => t("user.institution") %>
+      <%= f.input :company_name, :label => t("user.organisation_name") %>
+
+    <% end %>
+
+    <% if current_user.staff %>
+      <%= f.input :name, :label => t("user.name"), :placeholder => t("user.name") %>
+      <%= f.input :first_name, :label => t("user.first_name"), :placeholder => t("user.first_name") %>
+      <%= f.input :email, :label => t("user.email"), :placeholder => t("user.email") %>
+    <% end %>
 
     <% if current_user.admin %>
+      <%= f.input :name, :label => t("user.name"), :placeholder => t("user.name") %>
+      <%= f.input :first_name, :label => t("user.first_name"), :placeholder => t("user.first_name") %>
+      <%= f.input :email, :label => t("user.email"), :placeholder => t("user.email") %>
+      <%= f.input :individual, :label => t("user.individual") %>
+      <%= f.input :non_profit, :label => t("user.non_profit") %>
+      <%= f.input :company, :label => t("user.company") %>
+      <%= f.input :institution, :label => t("user.institution") %>
+      <%= f.input :company_name, :label => t("user.organisation_name") %>
 	    <%= f.input :admin, :label => t("user.admin") %>
 	    <%= f.input :staff, :label => t("user.staff") %>
 	    <%= f.input :client, :label => t("user.client") %>
