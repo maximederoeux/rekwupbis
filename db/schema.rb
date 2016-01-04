@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160102140647) do
+ActiveRecord::Schema.define(version: 20160104063039) do
 
   create_table "events", force: :cascade do |t|
     t.string   "event_name"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160102140647) do
     t.boolean  "creatorganizer"
     t.boolean  "party"
     t.boolean  "dinner"
+    t.integer  "last_consumption"
   end
 
   create_table "users", force: :cascade do |t|

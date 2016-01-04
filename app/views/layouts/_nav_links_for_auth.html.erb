@@ -1,13 +1,13 @@
 <% if user_signed_in? %>
-  <li><%= link_to 'Edit account', edit_user_registration_path %></li>
-  <li><%= link_to 'Edit profile', edit_user_path(@user) %></li>
-  <li><%= link_to 'Events', events_path %></li>
-  <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+  <li><%= link_to t("menu.edit_account"), edit_user_registration_path %></li>
+  <li><%= link_to t("menu.edit_profile"), edit_user_path(@user) %></li>
+  <li><%= link_to t("menu.events"), events_path %></li>
+  <li><%= link_to t("menu.sign_out"), destroy_user_session_path, :method=>'delete' %></li>
   	<% if current_user.admin %>
-	  <li><%= link_to 'Users', users_path %></li>
+	  <li><%= link_to t("menu.users"), users_path %></li>
 	<% end %>
 <% else %>
-  <li><%= link_to 'Sign in', new_user_session_path %></li>
-  <li><%= link_to 'Sign up', new_user_registration_path %></li>
+  <li><%= link_to t("menu.sign_in"), new_user_session_path %></li>
+  <li><%= link_to t("menu.sign_up"), new_user_registration_path %></li>
 <% end %>
 

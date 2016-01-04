@@ -17,6 +17,7 @@ fr:
         event_start_date: "Date de début"
         event_end_date: "Date de fin"
         expected_pax: "Estimation du nombre de visiteurs"
+        last_consumption: "Consommation de boissons à la dernière édition"
         last_pax: "Nombre de visiteurs de l'édition précédente"
         post_code: "Code postal"
         city: "Ville"
@@ -47,6 +48,8 @@ fr:
     edit: "Modifier"
     show: "Afficher les détails"
     cancel: "Annuler"
+    update: "Mettre à jour"
+    events: "Evénements"
 
   user:
     name: "Nom"
@@ -75,6 +78,11 @@ fr:
     list_staff: "Staff"
     list_client: "Clients"
     your_profile: "Votre profil"
+    leave_fields_blank: "Laissez ces champs vides si vous ne voulez pas changer votre mot de passe."
+    must_enter_password: "Vous devez entrer votre mot de passe actuel pour faire les changements."
+    cancel_account: "Annuler votre compte"
+    unhappy: "Mécontent? Nous serons tristes de vous voir partir."
+    cancel_my_account: "Annuler mon compte"
 
   event:
     new_event: "Nouvel événement"
@@ -84,6 +92,7 @@ fr:
     event_end_date: "Date de fin"
     expected_pax: "Estimation du nombre de visiteurs"
     last_pax: "Nombre de visiteurs de l'édition précédente"
+    last_consumption: "Consommation de boissons à la dernière édition"
     post_code: "Code postal"
     city: "Ville"
     country: "Pays"
@@ -128,6 +137,7 @@ fr:
         event_end_date: "Date de fin"
         expected_pax: "Estimation du nombre de visiteurs"
         last_pax: "Nombre de visiteurs de l'édition précédente"
+        last_consumption: "Consommation de boissons à la dernière édition"
         post_code: "Code postal"
         city: "Ville"
         country: "Pays"

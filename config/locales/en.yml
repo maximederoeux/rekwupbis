@@ -39,6 +39,7 @@ en:
         event_end_date: "End Date"
         expected_pax: "Expected number of guests"
         last_pax: "Number of guests on last edition"
+        last_consumption: "Beverage consumtion on last edition"
         post_code: "Post Code"
         city: "City"
         country: "Country"
@@ -69,6 +70,8 @@ en:
     edit: "Edit"
     show: "Show details"
     cancel: "Cancel"
+    update: "Update"
+    events: "Events"
 
   user:
     name: "Last Name"
@@ -97,6 +100,11 @@ en:
     list_staff: "Staff"
     list_client: "Clients"
     your_profile: "Your profile"
+    leave_fields_blank: "Leave these fields blank if you don't want to change your password."
+    must_enter_password: "You must enter your current password to make changes."
+    cancel_account: "Cancel Account"
+    unhappy: "Unhappy? We'll be sad to see you go."
+    cancel_my_account: "Cancel my account"
 
   event:
     new_event: "New Event"
@@ -105,6 +113,7 @@ en:
     event_start_date: "Start Date"
     event_end_date: "End Date"
     expected_pax: "Expected number of guests"
+    last_consumption: "Beverage consumtion on last edition"
     last_pax: "Number of guests on last edition"
     post_code: "Post Code"
     city: "City"
@@ -150,6 +159,7 @@ en:
         event_end_date: "End Date"
         expected_pax: "Expected number of guests"
         last_pax: "Number of guests on last edition"
+        last_consumption: "Beverage consumtion on last edition"
         post_code: "Post Code"
         city: "City"
         country: "Country"

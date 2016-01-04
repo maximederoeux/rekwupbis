@@ -17,6 +17,7 @@ nl:
         event_start_date: "Begin Datum"
         event_end_date: "Eind Datum"
         expected_pax: "Verwachte aantal van gasten"
+        last_consumtion: "Drank verbruik op de laatste editie"
         last_pax: "Aantal gasten op de laatste editie"
         post_code: "Postcode"
         city: "Stad"
@@ -48,6 +49,8 @@ nl:
     edit: "Wijzigen"
     show: "Details tonen"
     cancel: "Annuleren"
+    update: "Bijwerken"
+    events: "Evenementen"
 
   user:
     name: "Naam"
@@ -74,6 +77,12 @@ nl:
     list_admin: "Admins"
     list_staff: "Staff"
     list_client: "Klanten"
+    your_profile: "Uw profiel"
+    leave_fields_blank: "Laat die blank indien u uw wachtwoord niet wilt veranderen."
+    must_enter_password: "U moet uw huidig wachtwoord zetten om de veranderingen op te slaan."
+    cancel_account: "Account annuleren"
+    unhappy: "Niet tevreden? We zullen triest zijn als u weggaat."
+    cancel_my_account: "Mijn account annuleren"
 
   event:
     new_event: "Nieuw evenement"
@@ -83,6 +92,7 @@ nl:
     event_end_date: "Eind Datum"
     expected_pax: "Verwachte aantal van gasten"
     last_pax: "Aantal gasten op de laatste editie"
+    last_consumtion: "Drank verbruik op de laatste editie"
     post_code: "Postcode"
     city: "Stad"
     country: "Land"
@@ -127,6 +137,7 @@ nl:
         vent_start_date: "Begin Datum"
         event_end_date: "Eind Datum"
         expected_pax: "Verwachte aantal van gasten"
+        last_consumtion: "Drank verbruik op de laatste editie"
         last_pax: "Aantal gasten op de laatste editie"
         post_code: "Postcode"
         city: "Stad"
