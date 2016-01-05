@@ -117,10 +117,10 @@ nl:
     organizer: "Organisator"
     organizer_name: "Evenement georganiseerd door "
     organizer_change: "Verander de naam van de organisator"
-    created_at: "Schepping Datum"
-    creator: "Schepper"
+    created_at: "Maken Datum"
+    creator: "Maker"
     creator_name: "Evenement geschept door "
-    create_event: "Schep een evenement"
+    create_event: "Maak een evenement"
     create_event_explanation: "Deze inlichtingen zullen ons helpen om u een aanbod te proposeren die tot uw nood aangepast is."
     which_cups: "Welke bekers heeft u nodig?"
     selected_cups: "Geselecteerd bekers"
@@ -141,8 +141,17 @@ nl:
     quantity_bigbox: "Kwantiteit per groot doos"
     quantity_smallbox: "Kwantiteit per klein doos"
     quantity_pile: "Kwantitieit per stapel"
-    new_article: "Een artikel scheppen"
+    new_article: "Een artikel maken"
     listing_articles: "Alle artikels"
+
+  box:
+    box_name: "Doosnaam"
+    bigbox: "Grote doos"
+    smallbox: "Kleine doos"
+    box_regular: "Doos - Een beker"
+    box_not_regular: "Gemengde doos"
+    new_box: "Een doos maken"
+    listing_boxes: "Alle dozen"
 
   simple_form:
     labels:
@@ -176,6 +185,11 @@ nl:
         quantity_bigbox: "Kwantiteit per groot doos"
         quantity_smallbox: "Kwantiteit per klein doos"
         quantity_pile: "Kwantitieit per stapel"
+      box:
+        box_name: "Doosnaam"
+        bigbox: "Grote doos"
+        smallbox: "Kleine doos"
+        box_regular: "Doos - Een beker"
 
   date:
     formats:
@@ -232,4 +246,7 @@ nl:
         update: "Opslaan"
       article:
         create: "Schep uw artikel"
+        update: "Opslaan"
+      boxdetail:
+        create: "In de doos toevoegen"
         update: "Opslaan"

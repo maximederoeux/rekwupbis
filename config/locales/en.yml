@@ -164,6 +164,16 @@ en:
     new_article: "Create an article"
     listing_articles: "Listing Articles"
 
+  box:
+    box_name: "Box Name"
+    bigbox: "Big Box"
+    smallbox: "Small Box"
+    box_regular: "One Cup Box"
+    box_not_regular: "Mixed Cups Box"
+    new_box: "Create a box"
+    listing_boxes: "Listing Boxes"
+
+
   simple_form:
     labels:
       event:
@@ -196,6 +206,11 @@ en:
         quantity_bigbox: "Quantity in big box"
         quantity_smallbox: "Quantity in small box"
         quantity_pile: "Quantity in pile"
+      box:
+        box_name: "Box Name"
+        bigbox: "Big Box"
+        smallbox: "Small Box"
+        box_regular: "One Cup Box"
 
   word:
     from: "from"
@@ -211,3 +226,6 @@ en:
       article:
         create: "Create your article"
         update: "Save Changes"
+      boxdetail:
+        create: "Add in the box"
+        update: "Save changes"

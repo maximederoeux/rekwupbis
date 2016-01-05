@@ -1,23 +1,33 @@
-<p id="notice"><%= notice %></p>
 
-<% if @user.client %>
 
-  Information à déterminer
+<div class="container-fluid"><br>
 
-<% else %>
+  <% if @user.client %>
 
-  <% if @user.admin %>
-    <%= link_to t("article.new_article"), new_article_path, class: "btn btn-success" %><br>
+    Information à déterminer
+
+  <% else %>
+
+    <% if @user.admin %>
+      <%= link_to t("article.new_article"), new_article_path, class: "btn btn-success" %><br>
+    <% end %>
+
+
+
+    <ul class="list-group">
+      <br><li class="list-group-item list-group-item-default"><h4><strong>
+        <%= t("article.listing_articles") %></strong></h4></li>
+    </ul>
+
+    <% @articles.each do |article| %>
+
+    <div class="row">
+      <div class="col-xs-6 col-md-4">
+     <%= link_to article.full_name, article_path(article), class: "btn btn-lg btn-default btn-block" %>
+      </div>
+
+    </div>
+    <% end %>
   <% end %>
 
-  <ul class="list-group">
-    <br><li class="list-group-item list-group-item-default"><h4><strong>
-      <%= t("article.listing_articles") %></strong></h4></li>
-  </ul>
-
-  <% @articles.each do |article| %>
-    
-   <%= link_to article.full_name, article_path(article), class: "btn btn-lg btn-default btn-block" %>
-
-  <% end %>
-<% end %>
+</div>

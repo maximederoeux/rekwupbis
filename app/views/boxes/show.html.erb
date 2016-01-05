@@ -1,42 +1,70 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Box name:</strong>
-  <%= @box.box_name %>
-</p>
 
-<p>
-  <strong>Box regular:</strong>
-  <%= @box.box_regular %>
-</p>
+  <div class="container-fluid">
+    
+    <br>
 
-<p>
-  <strong>Box type:</strong>
-  <%= @box.box_type %>
-</p>
+    <div class="row">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-success"><h5><strong><%= @box.box_name %></strong></h5></li>
 
-<% @thisboxdetails.each do |thisboxdetail| %>
-	<%= thisboxdetail.article.full_name %>
+        <% if @box.box_regular %>
 
+        <li class="list-group-item"><strong><%= t("box.box_regular") %></li>
 
-	<%= thisboxdetail.box_article_quantity %><br>
-<% end %>
+        <% else %>
 
+        <li class="list-group-item"><strong><%= t("box.box_not_regular") %></li>
 
-<%= simple_form_for(@new_boxdetail) do |f| %>
-  <%= f.error_notification %>
+        <% end %>
+      </ul>
+    </div>
+  </div><br>
 
-  <div class="form-inputs">
-  	<%= f.hidden_field :box_id, :value => @box.id %>
-    <%= f.collection_select :article_id, Article.all, :id, :full_name %>
-    <%= f.input :box_article_quantity %>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Gobelets</th>
+        <th>Quantité</th>
+      </tr>
+    </thead>
+  
+    <% @thisboxdetails.each do |thisboxdetail| %>
+      <tbody>
+        <tr>
+      	<td><%= thisboxdetail.article.full_name %></td>
+      	<td><%= thisboxdetail.box_article_quantity %></td>
+        </tr>
+      </tbody>
+    <% end %>
+</table>
+</div>
 
+<h4>Ajouter un article dans la caisse</h4>
+<div class="container-fluid">
+  <div class="row">
+
+    <%= simple_form_for(@new_boxdetail) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-group">
+      	<%= f.hidden_field :box_id, :value => @box.id %>
+        
+          <%= f.label :article_name %>
+          <%= f.collection_select :article_id, Article.all, :id, :full_name, {prompt: true}, {class: "form-control input-lg"} %>
+        
+          <%= f.input :box_article_quantity %>
+        
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+</div>
 
 <%= link_to 'Edit', edit_box_path(@box) %> |
 <%= link_to 'Back', boxes_path %>

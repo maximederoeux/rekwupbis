@@ -51,7 +51,7 @@ fr:
     update: "Mettre à jour"
     events: "Evénements"
     articles: "Articles"
-    boxes: "Boîtes"
+    boxes: "Caisses"
 
   user:
     name: "Nom"
@@ -142,6 +142,15 @@ fr:
     new_article: "Créer un article"
     listing_articles: "Tous les articles"
 
+  box:
+    box_name: "Nom de la caisse"
+    bigbox: "Grande caisse"
+    smallbox: "Petite caisse"
+    box_regular: "Caisse - Un gobelet"
+    box_not_regular: "Caisse mixte"
+    new_box: "Créer une caisse"
+    listing_boxes: "Toutes les caisses"
+
   simple_form:
     labels:
       event:
@@ -174,6 +183,11 @@ fr:
         quantity_bigbox: "Quantité par grande caisse"
         quantity_smallbox: "Quantité par petite caisse"
         quantity_pile: "Quantité par pile"
+      box:
+        box_name: "Nom de la caisse"
+        bigbox: "Grande caisse"
+        smallbox: "Petite caisse"
+        box_regular: "Caisse - Un gobelet"
 
 
   date:
@@ -214,4 +228,7 @@ fr:
         update: "Enregistrer les changements"
       article:
         create: "Créez votre article"
+        update: "Enregistrer les changements"
+      boxdetail:
+        create: "Ajouter dans la caisse"
         update: "Enregistrer les changements"
