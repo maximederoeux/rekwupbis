@@ -15,14 +15,15 @@
   <%= @box.box_type %>
 </p>
 
-<% @thisboxdetails.each do |boxdetail| %>
-	<%= boxdetail.article_id %>
-	<%= boxdetail.article.article_name %>
-	<%= boxdetail.box_article_quantity %>
+<% @thisboxdetails.each do |thisboxdetail| %>
+	<%= thisboxdetail.article.full_name %>
+
+
+	<%= thisboxdetail.box_article_quantity %><br>
 <% end %>
 
 
-<%= simple_form_for(@boxdetail) do |f| %>
+<%= simple_form_for(@new_boxdetail) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">

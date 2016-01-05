@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-	belongs_to :boxdetail
+	has_many :boxdetail
 
 
 

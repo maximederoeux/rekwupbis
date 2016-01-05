@@ -1,6 +1,6 @@
 class Boxdetail < ActiveRecord::Base
 	belongs_to :box
-	has_many :articles
+	belongs_to :article
 
 	accepts_nested_attributes_for :box
 end

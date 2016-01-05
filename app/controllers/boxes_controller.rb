@@ -12,7 +12,8 @@ class BoxesController < ApplicationController
   # GET /boxes/1.json
   def show
     @user = current_user
-    @boxdetail = Boxdetail.new
+    @box = Box.find(params[:id])
+    @new_boxdetail = Boxdetail.new
     @boxdetails = Boxdetail.all
     @articles = Article.all
     @thisboxdetails = @boxdetails.where(:box_id => @box.id)
