@@ -1,0 +1,15 @@
+<%= simple_form_for(@boxdetail) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :box_id %>
+    <%= f.collection_select :article_id, Article.all, :id, :full_name %>
+    <%= f.input :box_article_quantity %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+

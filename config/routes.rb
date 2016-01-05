@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :boxdetails
   resources :boxes
   resources :articles
   resources :events

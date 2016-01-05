@@ -51,6 +51,7 @@ fr:
     update: "Mettre à jour"
     events: "Evénements"
     articles: "Articles"
+    boxes: "Boîtes"
 
   user:
     name: "Nom"

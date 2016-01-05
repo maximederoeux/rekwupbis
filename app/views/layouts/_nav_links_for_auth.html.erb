@@ -3,6 +3,7 @@
   <li><%= link_to t("menu.edit_profile"), edit_user_path(@user) %></li>
   <li><%= link_to t("menu.events"), events_path %></li>
   <li><%= link_to t("menu.articles"), articles_path %></li>
+  <li><%= link_to t("menu.boxes"), boxes_path %></li>
   <li><%= link_to t("menu.sign_out"), destroy_user_session_path, :method=>'delete' %></li>
   	<% if current_user.admin %>
 	  <li><%= link_to t("menu.users"), users_path %></li>

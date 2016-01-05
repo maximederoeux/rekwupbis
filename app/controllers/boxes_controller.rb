@@ -5,20 +5,28 @@ class BoxesController < ApplicationController
   # GET /boxes.json
   def index
     @boxes = Box.all
+    @user = current_user
   end
 
   # GET /boxes/1
   # GET /boxes/1.json
   def show
+    @user = current_user
+    @boxdetail = Boxdetail.new
+    @boxdetails = Boxdetail.all
+    @articles = Article.all
+    @thisboxdetails = @boxdetails.where(:box_id => @box.id)
   end
 
   # GET /boxes/new
   def new
     @box = Box.new
+    @user = current_user
   end
 
   # GET /boxes/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /boxes
@@ -69,6 +77,6 @@ class BoxesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def box_params
-      params.require(:box).permit(:box_name, :box_regular, :box_type, :box_detail_id)
+      params.require(:box).permit(:box_name, :box_regular, :box_type, :bigbox, :smallbox)
     end
 end

@@ -52,6 +52,7 @@ nl:
     update: "Bijwerken"
     events: "Evenementen"
     articles: "Artikels"
+    boxes: "Dozen"
 
   user:
     name: "Naam"
