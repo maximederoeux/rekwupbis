@@ -5,7 +5,11 @@ class Article < ActiveRecord::Base
 
 
 	def full_name
+		if article.article_content.present?
 		"#{article_name} #{article_content}"
+		else
+		"#{article_name}"
+		end
 	end
 
 
