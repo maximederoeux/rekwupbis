@@ -11,8 +11,9 @@
       <%= f.input :company, :label => t("user.company") %>
       <%= f.input :institution, :label => t("user.institution") %>
       <%= f.input :company_name, :label => t("user.organisation_name") %>
-      <%= f.hidden_field :client, :value => true %>
-      <!-- <%= f.input :admin, :label => t("user.admin") %> -->
+      <!-- <%= f.hidden_field :client, :value => true %> -->
+      <%= f.input :admin, :label => t("user.admin") %>
+      <%= f.input :staff, :label => t("user.staff") %>
       
     <% end %>
 
