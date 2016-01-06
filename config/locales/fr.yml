@@ -133,6 +133,7 @@ fr:
 
   article:
     article_name: "Nom de l'article"
+    article_id: "Code de l'article"
     article_content: "Contenance"
     article_type: "Type"
     article_catégory: "Categorie"
@@ -148,10 +149,20 @@ fr:
     box_name: "Nom de la caisse"
     bigbox: "Grande caisse"
     smallbox: "Petite caisse"
-    box_regular: "Caisse - Un gobelet"
+    box_regular: "Caisse normale"
     box_not_regular: "Caisse mixte"
     new_box: "Créer une caisse"
     listing_boxes: "Toutes les caisses"
+    edit_box: "Modifier la caisse"
+    fill_box: "Remplir la caisse"
+    box_is_full: "Cette caisse est complète"
+    box_is_not_full: "Cette caisse n'est pas complète"
+    close_box: "Fermer cette caisse"
+    open_box: "Ouvrir cette caisse"
+    add_article: "Ajouter un article dans cette caisse"
+    destroy_article: "Retirer cet article"
+    closed_boxes: "Caisses fermées"
+    open_boxes: "Caisses ouvertes"
 
   simple_form:
     labels:
@@ -179,6 +190,7 @@ fr:
         dinner: "Repas"
       article:
         article_name: "Nom de l'article"
+        article_id: "Code de l'article"
         article_content: "Contenance"
         article_type: "Type"
         article_catégory: "Categorie"
@@ -189,7 +201,10 @@ fr:
         box_name: "Nom de la caisse"
         bigbox: "Grande caisse"
         smallbox: "Petite caisse"
-        box_regular: "Caisse - Un gobelet"
+        box_regular: "Caisse normale - Une sorte de gobelets"
+      boxdetail:
+        article_id: "Nom de l'article"
+        box_article_quantity: "Quantité dans la caisse"
 
 
   date:
@@ -233,4 +248,7 @@ fr:
         update: "Enregistrer les changements"
       boxdetail:
         create: "Ajouter dans la caisse"
+        update: "Enregistrer les changements"
+      box:
+        create: "Créer une caisse"
         update: "Enregistrer les changements"

@@ -1,6 +1,6 @@
-<h1>Editing Box</h1>
+<h1><%= t("box.edit_box") %></h1>
 
-<%= render 'form' %>
+<%= render 'form' %><br>
 
-<%= link_to 'Show', @box %> |
-<%= link_to 'Back', boxes_path %>
+<%= link_to t("box.fill_box"), @box, class: "btn btn-lg btn-primary" %><br><br>
+<%= link_to t("menu.back"), boxes_path, class: "btn btn-lg btn-warning" %>

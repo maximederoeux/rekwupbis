@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160105090607) do
+ActiveRecord::Schema.define(version: 20160106082757) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160105090607) do
     t.datetime "updated_at",    null: false
     t.boolean  "bigbox"
     t.boolean  "smallbox"
+    t.boolean  "box_is_full"
   end
 
   create_table "events", force: :cascade do |t|

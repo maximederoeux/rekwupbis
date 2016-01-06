@@ -1,67 +1,122 @@
-<div class="container-fluid">
-    
-  <br>
+<% if @user.client %>
 
-  <div class="row">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-success"><h5><strong><%= @box.box_name %></strong></h5></li>
 
-      <% if @box.box_regular %>
 
-      <li class="list-group-item"><strong><%= t("box.box_regular") %></li>
+<% else %>
+
+  <div class="container-fluid">
+      
+    <br>
+
+    <div class="row">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-success"><h5><strong><%= @box.box_name %>
+          <%= link_to edit_box_path(@box) do %>
+            <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+          <% end %>
+        </strong></h5></li>
+
+        <% if @box.box_regular %>
+
+        <li class="list-group-item"><strong><%= t("box.box_regular") %></li>
+
+        <% else %>
+
+        <li class="list-group-item"><strong><%= t("box.box_not_regular") %></stroing></li>
+
+        <% end %>
+      </ul>
+    </div>
+  </div><br>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <% if @box.box_is_full %>
+        <div class="col-md-3">
+          <%= t("box.box_is_full") %>
+        </div>
+        <div class="col-md-3">
+          <%= simple_form_for(@box) do |f| %>
+            <%= f.error_notification %>
+            <%= f.hidden_field :box_is_full, :value => false %>
+            <%= f.submit t("box.open_box"), class: "btn btn-success" %>
+          <% end %>
+        </div>  
 
       <% else %>
-
-      <li class="list-group-item"><strong><%= t("box.box_not_regular") %></stroing></li>
-
+        <div class="col-md-3">
+          <%= t("box.box_is_not_full") %>
+        </div>
+        <div class="col-md-3">
+          <%= simple_form_for(@box) do |f| %>
+            <%= f.error_notification %>
+              <%= f.hidden_field :box_is_full, :value => true %>
+              <%= f.submit t("box.close_box"), class: "btn btn-success" %>
+          <% end %>
+        </div> 
       <% end %>
-    </ul>
-  </div>
-</div><br>
 
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th><%= t("article.selected_articles") %></th>
-        <th><%= t("article.quantity") %></th>
-      </tr>
-    </thead>
-  
-    <% @thisboxdetails.each do |thisboxdetail| %>
-      <tbody>
+  </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
         <tr>
-      	<td><%= thisboxdetail.article.full_name %></td>
-      	<td><%= thisboxdetail.box_article_quantity %></td>
+          <th><%= t("article.selected_articles") %></th>
+          <th><%= t("article.quantity") %></th>
         </tr>
-      </tbody>
-    <% end %>
-  </table>
-</div>
-
-<h4>Ajouter un article dans la caisse</h4>
-<div class="container-fluid">
-  <div class="row">
-
-    <%= simple_form_for(@new_boxdetail) do |f| %>
-      <%= f.error_notification %>
-
-      <div class="form-input">
-      	<%= f.hidden_field :box_id, :value => @box.id %>
-        
-          <%= f.label :article_name %>
-          <%= f.collection_select :article_id, Article.all, :id, :full_name, {prompt: true}, {class: "form-control styled-select"} %>
-        
-          <%= f.input :box_article_quantity %>
-        
-      </div>
-
-      <div class="form-actions">
-        <%= f.button :submit %>
-      </div>
-    <% end %>
+      </thead>
+    
+      <% @thisboxdetails.each do |thisboxdetail| %>
+        <tbody>
+          <tr>
+        	<td><%= thisboxdetail.article.full_name %></td>
+        	<td><%= thisboxdetail.box_article_quantity %>
+              <%= link_to edit_boxdetail_path(thisboxdetail) do %>
+                <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+              <% end %>
+          </td>
+          <td><%= link_to t("box.destroy_article"), thisboxdetail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
   </div>
-</div>
 
-<%= link_to 'Edit', edit_box_path(@box) %>
-<%= link_to 'Back', boxes_path %>
+  <% if @box.box_is_full %>
+
+  <% else %>
+
+    <h4><%= t("box.add_article") %></h4>
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <%= simple_form_for(@new_boxdetail) do |f| %>
+          <%= f.error_notification %>
+
+          
+          	<%= f.hidden_field :box_id, :value => @box.id %>
+             <div class="col-md-3">
+              <%= f.label :article_id %>
+              <%= f.collection_select :article_id, Article.all.order('article_name ASC'), :id, :full_name, {prompt: false}, {class: "form-control styled-select"} %>
+            </div>
+            <div class="col-md-3">
+              <%= f.input :box_article_quantity %>
+            </div>
+
+            <div class="col-md-3">
+              <br>
+              <%= f.button :submit, class: "btn btn-success" %>
+            </div>
+        <% end %>
+      </div>
+    </div><br>
+  <% end %>
+<%= link_to 'Back', boxes_path, class: "btn btn-lg btn-block btn-warning" %>
+  
+<% end %>
+
+

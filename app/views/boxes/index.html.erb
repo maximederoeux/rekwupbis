@@ -12,20 +12,41 @@
 
 
 
-    <ul class="list-group">
-      <br><li class="list-group-item list-group-item-default"><h4><strong>
-        <%= t("box.listing_boxes") %></strong></h4></li>
+    <ul class="list-group"><br>
+
+      <li class="list-group-item list-group-item-default">
+        <h4><strong>
+          <%= t("box.closed_boxes") %>
+        </strong></h4>
+      </li>
     </ul>
 
-    <% @boxes.each do |box| %>
+    <% @closed_boxes.each do |box| %>
 
-    <div class="row">
-      <div class="col-xs-6 col-md-4">
-     <%= link_to box.box_name, box_path(box), class: "btn btn-lg btn-default btn-block" %>
+      <div class="row">
+        <div class="col-xs-6 col-md-4">
+          <%= link_to box.box_name, box_path(box), class: "btn btn-lg btn-default btn-block" %>
+        </div>
       </div>
+    <% end %><br>
 
-    </div>
-    <% end %>
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-default">
+        <h4><strong>
+          <%= t("box.open_boxes") %>
+        </strong></h4>
+      </li>
+    </ul>
+
+    <% @open_boxes.each do |box| %>
+
+      <div class="row">
+        <div class="col-xs-6 col-md-4">
+          <%= link_to box.box_name, box_path(box), class: "btn btn-lg btn-default btn-block" %>
+        </div>
+      </div>
+    <% end %><br>
+
   <% end %>
 
 </div>

@@ -155,6 +155,7 @@ en:
 
   article:
     article_name: "Article Name"
+    article_id: "Article Code"
     article_content: "Content"
     article_type: "Type"
     article_catégory: "Category"
@@ -170,10 +171,20 @@ en:
     box_name: "Box Name"
     bigbox: "Big Box"
     smallbox: "Small Box"
-    box_regular: "One Cup Box"
+    box_regular: "Regular Box"
     box_not_regular: "Mixed Cups Box"
     new_box: "Create a box"
     listing_boxes: "Listing Boxes"
+    edit_box: "Edit Box"
+    fill_box: "Fill the box"
+    box_is_full: "This box is full"
+    box_is_not_full: "This box is not full"
+    close_box: "Close this box"
+    open_box: "Open this box"
+    add_article: "Add an article in this box"
+    destroy_article: "Remove this article"
+    closed_boxes: "Closed boxes"
+    open_boxes: "Open boxes"
 
 
   simple_form:
@@ -202,6 +213,7 @@ en:
         dinner: "Meal"
       article:
         article_name: "Article Name"
+        article_id: "Article Code"
         article_content: "Content"
         article_type: "Type"
         article_catégory: "Category"
@@ -212,7 +224,10 @@ en:
         box_name: "Box Name"
         bigbox: "Big Box"
         smallbox: "Small Box"
-        box_regular: "One Cup Box"
+        box_regular: "Regular Box - One kind of cups"
+      boxdetail:
+        article_id: "Article Name"
+        box_article_quantity: "Quantity in the box"
 
   word:
     from: "from"
@@ -230,4 +245,7 @@ en:
         update: "Save Changes"
       boxdetail:
         create: "Add in the box"
+        update: "Save changes"
+      box:
+        create: "Create a box"
         update: "Save changes"

@@ -6,6 +6,11 @@ class BoxesController < ApplicationController
   def index
     @boxes = Box.all
     @user = current_user
+    @closed_boxes = @boxes.where(:box_is_full => true)
+    @open_boxes = @boxes.where(:box_is_full => false)
+    unless @user == current_user.staff or current_user.admin
+      redirect_to :root, :alert => "Access denied."
+    end
   end
 
   # GET /boxes/1
@@ -17,17 +22,26 @@ class BoxesController < ApplicationController
     @boxdetails = Boxdetail.all
     @articles = Article.all
     @thisboxdetails = @boxdetails.where(:box_id => @box.id)
+    unless @user == current_user.staff or current_user.admin
+      redirect_to :root, :alert => "Access denied."
+    end
   end
 
   # GET /boxes/new
   def new
     @box = Box.new
     @user = current_user
+    unless @user == current_user.staff or current_user.admin
+      redirect_to :root, :alert => "Access denied."
+    end
   end
 
   # GET /boxes/1/edit
   def edit
     @user = current_user
+    unless @user == current_user.staff or current_user.admin
+      redirect_to :root, :alert => "Access denied."
+    end
   end
 
   # POST /boxes
@@ -86,6 +100,6 @@ class BoxesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def box_params
-      params.require(:box).permit(:box_name, :box_regular, :box_type, :bigbox, :smallbox)
+      params.require(:box).permit(:box_name, :box_regular, :box_type, :bigbox, :smallbox, :box_is_full)
     end
 end

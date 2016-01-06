@@ -135,6 +135,7 @@ nl:
 
   article:
     article_name: "Naam ven het artikel"
+    article_id: "Artikel Code"
     article_content: "Inhoud"
     article_type: "Type"
     article_catégory: "Categorie"
@@ -145,15 +146,26 @@ nl:
     listing_articles: "Alle artikels"
     selected_articles: "Gekozen artikels"
     quantity: "Kwantiteit"
+    box_is_full: "Deze doos is vol"
+    box_is_not_full: "Deze doos is niet vol"
+    close_box: "Deze doos sluiten"
+    open_box: "Deze doos openen"
+    add_article: "Voeg een artikel in deze doos toe"
+
 
   box:
     box_name: "Doosnaam"
     bigbox: "Grote doos"
     smallbox: "Kleine doos"
-    box_regular: "Doos - Een beker"
+    box_regular: "Normale doos"
     box_not_regular: "Gemengde doos"
     new_box: "Een doos maken"
     listing_boxes: "Alle dozen"
+    edit_box: "Doos wijzigen"
+    fill_box: "Doos vullen"
+    destroy_article: "Dit artikel verwijderen"
+    closed_boxes: "Gesloten dozen"
+    open_boxes: "Open dozen"
 
   simple_form:
     labels:
@@ -181,6 +193,7 @@ nl:
         dinner: "Maaltijd"
       article:
         article_name: "Naam ven het artikel"
+        article_id: "Artikel Code"
         article_content: "Inhoud"
         article_type: "Type"
         article_catégory: "Categorie"
@@ -191,7 +204,10 @@ nl:
         box_name: "Doosnaam"
         bigbox: "Grote doos"
         smallbox: "Kleine doos"
-        box_regular: "Doos - Een beker"
+        box_regular: "Normale doos - Een beker soort"
+      boxdetail:
+        article_id: "Artikelnaam"
+        box_article_quantity: "Kwantiteit in de doos"
 
   date:
     formats:
@@ -244,11 +260,14 @@ nl:
         create: "%{model} scheppen"
         update: "Opslaan"
       event:
-        create: "Schep uw evenement"
+        create: "Een evenement maken"
         update: "Opslaan"
       article:
-        create: "Schep uw artikel"
+        create: "Een artikel maken"
         update: "Opslaan"
       boxdetail:
         create: "In de doos toevoegen"
+        update: "Opslaan"
+      box:
+        create: "Een doos maken"
         update: "Opslaan"
