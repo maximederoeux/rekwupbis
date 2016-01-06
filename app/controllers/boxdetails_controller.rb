@@ -32,8 +32,6 @@ class BoxdetailsController < ApplicationController
   # POST /boxdetails.json
   def create
     @boxdetail = Boxdetail.new(boxdetail_params)
-
-
     respond_to do |format|
       if @boxdetail.save
         format.html { redirect_to :back, notice: 'Boxdetail was successfully created.' }
@@ -48,9 +46,10 @@ class BoxdetailsController < ApplicationController
   # PATCH/PUT /boxdetails/1
   # PATCH/PUT /boxdetails/1.json
   def update
+    
     respond_to do |format|
       if @boxdetail.update(boxdetail_params)
-        format.html { redirect_to boxes_path, notice: 'Boxdetail was successfully updated.' }
+        format.html { redirect_to box_path(@boxdetail.box), notice: 'Boxdetail was successfully updated.' }
         format.json { render :show, status: :ok, location: @boxdetail }
       else
         format.html { render :edit }
