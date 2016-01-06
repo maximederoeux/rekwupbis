@@ -1,56 +1,95 @@
-<div class="container-fluid">
+<div class="container-fluid"><br>
 
 	<% if current_user.admin %>
-
+		
 		<h4><%= t('user.list_admin') %></h4>
 
-		<% @admin.each do |user| %>
+			<% @admin.each do |user| %>
 
-		  	<div class="row">
+				<div class="list-group">
+				  <button type="button" class="list-group-item"><%= user.full_name %></button>
+				</div>
 
-			  <div class="col-md-2"><%= user.full_name %></div>
-			  <div class="col-md-2"><%= user.status_display %></div>
-			  <div class="col-md-2"><%= user.company_display %></div>
-			  <div class="col-md-2"><%= user.email %></div>
-			  <div class="col-md-4"><%= link_to 'Edit', edit_user_path(user) %></div>    
-		    
-			</div>
+		  <% end %>
 
-	    <% end %>
 
 		<h4><%= t('user.list_staff') %></h4>
 
-		<% @staff.each do |user| %>
 
-		  	<div class="row">
+			<% @staff.each do |user| %>
 
-			  <div class="col-md-2"><%= user.full_name %></div>
-			  <div class="col-md-2"><%= user.status_display %></div>
-			  <div class="col-md-2"><%= user.company_display %></div>
-			  <div class="col-md-2"><%= user.email %></div>
-			  <div class="col-md-4"><%= link_to 'Edit', edit_user_path(user) %></div>    
-		    
-			</div>
+				<div class="list-group">
+				  <button type="button" class="list-group-item"><%= user.full_name %></button>
+				</div>
 
-	    <% end %>
+		  <% end %>
 
-		<h4><%= t('user.list_client') %></h4>
+		<h4><%= t('user.list_client') %> - <%= t('user.company') %></h4>
 
-		<% @client.each do |user| %>
+			<% @company.each do |user| %>
 
-		  	<div class="row">
+			  	<div class="row">
 
-			  <div class="col-md-2"><%= user.full_name %></div>
-			  <div class="col-md-2"><%= user.status_display %></div>
-			  <div class="col-md-2"><%= user.company_display %></div>
-			  <div class="col-md-2"><%= user.email %></div>
-			  <div class="col-md-4"><%= link_to 'Edit', edit_user_path(user) %></div>    
-		    
-			</div>
+					  <div class="col-md-2"><%= user.full_name %></div>
+					  <div class="col-md-2"><%= user.status_display %></div>
+					  <div class="col-md-2"><%= user.company_display %></div>
+					  <div class="col-md-2"><%= user.email %></div>
+					  <div class="col-md-4"><%= link_to 'Edit', edit_user_path(user) %></div>
 
-	    <% end %>
+					</div>
 
-	 <% else %>
+			<% end %>
+
+		<h4><%= t('user.list_client') %> - <%= t('user.non_profit') %></h4>
+
+			<% @non_profit.each do |user| %>
+
+			  	<div class="row">
+
+					  <div class="col-md-2"><%= user.full_name %></div>
+					  <div class="col-md-2"><%= user.status_display %></div>
+					  <div class="col-md-2"><%= user.company_display %></div>
+					  <div class="col-md-2"><%= user.email %></div>
+					  <div class="col-md-4"><%= link_to 'Edit', edit_user_path(user) %></div>    
+			    
+					</div>
+			<% end %>
+
+		<h4><%= t('user.list_client') %> - <%= t('user.institution') %></h4>
+
+			<% @institution.each do |user| %>
+
+			  	<div class="row">
+
+					  <div class="col-md-2"><%= user.full_name %></div>
+					  <div class="col-md-2"><%= user.status_display %></div>
+					  <div class="col-md-2"><%= user.company_display %></div>
+					  <div class="col-md-2"><%= user.email %></div>
+					  <div class="col-md-4"><%= link_to 'Edit', edit_user_path(user) %></div>    
+			    
+					</div>
+			<% end %>
+
+		<h4><%= t('user.list_client') %> - <%= t('user.individual') %></h4>
+
+			<% @individual.each do |user| %>
+
+			  	<div class="row">
+
+					  <div class="col-md-2"><%= user.full_name %></div>
+					  <div class="col-md-2"><%= user.status_display %></div>
+					  <div class="col-md-2"><%= user.company_display %></div>
+					  <div class="col-md-2"><%= user.email %></div>
+					  <div class="col-md-4"><%= link_to 'Edit', edit_user_path(user) %></div>    
+			    
+					</div>
+			<% end %>
+
+
+
+
+
+	<% else %>
 
 	    <%= current_user.name %>
 	    <%= current_user.first_name %>

@@ -1,61 +1,59 @@
-<div class="container-fluid">
-  
-  <br>
-
-  <div class="row">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-success"><h5><strong><%= t("user.your_profile") %>
-
-      <% if @user.staff %>
-       - <%= t("user.list_staff") %>
-      <% end %>
-
-      <% if @user.individual %>
-       - <%= t("user.individual") %>
-      <% end %>
-
-      <% if @user.company %>
-       - <%= t("user.company") %>
-      <% end %>
-
-      <% if @user.non_profit %>
-       - <%= t("user.non_profit") %>
-      <% end %>
-
-      <% if @user.institution %>
-       - <%= t("user.institution") %>
-      <% end %>
-
-      </strong></h5></li>
-
-      <li class="list-group-item"><strong><%= t("user.user_name") %> : </strong><%= @user.name if @user.name %></li>
-
-      <li class="list-group-item"><strong><%= t("user.first_name") %> : </strong><%= @user.first_name if @user.first_name %></li>
-
-      <li class="list-group-item"><strong><%= t("user.email") %> : </strong><%= @user.email %></li>
-
-      <% if @user.company %>
-       <li class="list-group-item"><strong><%= t("user.company_name") %> : </strong><%= @user.company_name %></li>
-      <% end %>
-
-      <% if @user.non_profit %>
-       <li class="list-group-item"><strong><%= t("user.non_profit_name") %> : </strong><%= @user.company_name %></li>
-      <% end %>
-
-      <% if @user.institution %>
-       <li class="list-group-item"><strong><%= t("user.institution_name") %> : </strong><%= @user.company_name %></li>
-      <% end %>
-
-
-      
-    </ul>
-  </div>
-</div>
 
 
 
 
-<%= link_to t("menu.edit"), edit_user_path(@user), class: "btn btn-default" %>
+      <div class="container-fluid">
+        
+        <br>
+
+        <div class="row">
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-success"><h5><strong><%= t("user.your_profile") %>
+
+            <% if @user.staff %>
+             - <%= t("user.list_staff") %>
+            <% end %>
+
+            <% if @user.individual %>
+             - <%= t("user.individual") %>
+            <% end %>
+
+            <% if @user.company %>
+             - <%= t("user.company") %>
+            <% end %>
+
+            <% if @user.non_profit %>
+             - <%= t("user.non_profit") %>
+            <% end %>
+
+            <% if @user.institution %>
+             - <%= t("user.institution") %>
+            <% end %>
+
+            </strong></h5></li>
+
+            <li class="list-group-item"><strong><%= t("user.user_name") %> : </strong><%= @user.name if @user.name %></li>
+
+            <li class="list-group-item"><strong><%= t("user.first_name") %> : </strong><%= @user.first_name if @user.first_name %></li>
+
+            <li class="list-group-item"><strong><%= t("user.email") %> : </strong><%= @user.email %></li>
+
+            <% if @user.company %>
+             <li class="list-group-item"><strong><%= t("user.company_name") %> : </strong><%= @user.company_name %></li>
+            <% end %>
+
+            <% if @user.non_profit %>
+             <li class="list-group-item"><strong><%= t("user.non_profit_name") %> : </strong><%= @user.company_name %></li>
+            <% end %>
+
+            <% if @user.institution %>
+             <li class="list-group-item"><strong><%= t("user.institution_name") %> : </strong><%= @user.company_name %></li>
+            <% end %>
+
+          </ul>
+        </div>
+      </div> <!-- /#container-fluid -->
 
 
+      <%= link_to t("menu.edit"), edit_user_path(@user), class: "btn btn-default" %>
 

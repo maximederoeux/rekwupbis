@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @admin = @users.where(:admin => true)
     @staff = @users.where(:staff => true)
     @client = @users.where(:client => true)
+    @individual = @users.where(:individual => true)
+    @company = @users.where(:company => true)
+    @non_profit = @users.where(:non_profit => true)
+    @institution = @users.where(:institution => true)
   end
 
   def show
