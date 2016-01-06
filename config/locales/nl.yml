@@ -143,6 +143,8 @@ nl:
     quantity_pile: "Kwantitieit per stapel"
     new_article: "Een artikel maken"
     listing_articles: "Alle artikels"
+    selected_articles: "Gekozen artikels"
+    quantity: "Kwantiteit"
 
   box:
     box_name: "Doosnaam"

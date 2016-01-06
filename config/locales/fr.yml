@@ -141,6 +141,8 @@ fr:
     quantity_pile: "Quantité par pile"
     new_article: "Créer un article"
     listing_articles: "Tous les articles"
+    selected_articles: "Articles sélectionnés"
+    quantity: "Quantité"
 
   box:
     box_name: "Nom de la caisse"

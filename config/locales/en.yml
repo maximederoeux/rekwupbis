@@ -163,6 +163,8 @@ en:
     quantity_pile: "Quantity in pile"
     new_article: "Create an article"
     listing_articles: "Listing Articles"
+    selected_articles: "Selected articles"
+    quantity: "Quantity"
 
   box:
     box_name: "Box Name"

@@ -37,6 +37,14 @@ class BoxesController < ApplicationController
 
     respond_to do |format|
       if @box.save
+
+        @box.boxdetails.create(:box_id => @box.id, :article_id => "8", :box_article_quantity => "1")
+        if @box.bigbox
+          @box.boxdetails.create(:box_id => @box.id, :article_id => "4", :box_article_quantity => "1")
+        elsif @box.smallbox
+          @box.boxdetails.create(:box_id => @box.id, :article_id => "5", :box_article_quantity => "1")
+        end
+        
         format.html { redirect_to @box, notice: 'Box was successfully created.' }
         format.json { render :show, status: :created, location: @box }
       else
