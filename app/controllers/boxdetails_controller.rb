@@ -12,6 +12,7 @@ class BoxdetailsController < ApplicationController
   # GET /boxdetails/1.json
   def show
     @user = current_user
+    @article = Article.all
   end
 
   # GET /boxdetails/new
