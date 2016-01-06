@@ -72,8 +72,8 @@
       <% @thisboxdetails.each do |thisboxdetail| %>
         <tbody>
           <tr>
-        	<td><%= thisboxdetail.article.full_name %></td>
-        	<td><%= thisboxdetail.box_article_quantity %>
+        	<td><%= thisboxdetail.article.full_name if thisboxdetail.article %></td>
+        	<td><%= thisboxdetail.box_article_quantity if thisboxdetail.box_article_quantity %>
               <%= link_to edit_boxdetail_path(thisboxdetail) do %>
                 <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
               <% end %>
@@ -116,7 +116,7 @@
     </div><br>
   <% end %>
 <%= link_to 'Back', boxes_path, class: "btn btn-lg btn-block btn-warning" %>
-  
+
 <% end %>
 
 
