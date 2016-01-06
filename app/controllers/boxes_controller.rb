@@ -7,7 +7,7 @@ class BoxesController < ApplicationController
     @boxes = Box.all
     @user = current_user
     @closed_boxes = @boxes.where(:box_is_full => true)
-    @open_boxes = @boxes.where(:box_is_full => false)
+    #@open_boxes = @boxes.where.not(:box_is_full => true)
     unless @user == current_user.staff or current_user.admin
       redirect_to :root, :alert => "Access denied."
     end

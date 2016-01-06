@@ -38,11 +38,13 @@
       </li>
     </ul>
 
-    <% @open_boxes.each do |box| %>
+    <% @boxes.each do |box| %>
 
       <div class="row">
         <div class="col-xs-6 col-md-4">
+          <% unless box.box_is_full %>
           <%= link_to box.box_name, box_path(box), class: "btn btn-lg btn-default btn-block" %>
+          <% end %>
         </div>
       </div>
     <% end %><br>
