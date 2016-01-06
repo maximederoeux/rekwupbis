@@ -4,7 +4,7 @@ class BoxesController < ApplicationController
   # GET /boxes
   # GET /boxes.json
   def index
-    @boxes = Box.all
+    @boxes = Box.all.order('box_name ASC')
     @user = current_user
     @closed_boxes = @boxes.where(:box_is_full => true)
     #@open_boxes = @boxes.where.not(:box_is_full => true)
