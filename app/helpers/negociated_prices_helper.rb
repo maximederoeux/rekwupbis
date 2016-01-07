@@ -1,0 +1,2 @@
+module NegociatedPricesHelper
+end

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  article_id: 1
+  client_id: 1
+  washing_price: 9.99
+  handwash_price: 9.99
+  tab_price: 9.99
+  deposit_price: 9.99
+
+two:
+  article_id: 1
+  client_id: 1
+  washing_price: 9.99
+  handwash_price: 9.99
+  tab_price: 9.99
+  deposit_price: 9.99

@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
-	has_many :boxdetail
+	has_many :boxdetails
+	has_many :negociated_prices
 
 
 

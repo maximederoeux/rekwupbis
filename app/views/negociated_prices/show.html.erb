@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Article:</strong>
+  <%= @negociated_price.article_id %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @negociated_price.client_id %>
+</p>
+
+<p>
+  <strong>Washing price:</strong>
+  <%= @negociated_price.washing_price %>
+</p>
+
+<p>
+  <strong>Handwash price:</strong>
+  <%= @negociated_price.handwash_price %>
+</p>
+
+<p>
+  <strong>Tab price:</strong>
+  <%= @negociated_price.tab_price %>
+</p>
+
+<p>
+  <strong>Deposit price:</strong>
+  <%= @negociated_price.deposit_price %>
+</p>
+
+<%= link_to 'Edit', edit_negociated_price_path(@negociated_price) %> |
+<%= link_to 'Back', negociated_prices_path %>

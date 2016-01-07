@@ -53,6 +53,7 @@ nl:
     events: "Evenementen"
     articles: "Artikels"
     boxes: "Dozen"
+    negociated_prices: "Onderhandeld prizen"
 
   user:
     name: "Naam"

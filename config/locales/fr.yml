@@ -52,6 +52,7 @@ fr:
     events: "Evénements"
     articles: "Articles"
     boxes: "Caisses"
+    negociated_prices: "Prix négociés"
 
   user:
     name: "Nom"

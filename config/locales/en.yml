@@ -74,6 +74,7 @@ en:
     events: "Events"
     articles: "Articles"
     boxes: "Boxes"
+    negociated_prices: "Negociated Prices"
 
   user:
     name: "Last Name"
@@ -175,6 +176,9 @@ en:
     handwash_price: "Handwash Price"
     tab_price: "Tab Handling Price"
     deposit_price: "Deposit Price"
+
+  negociated_price:
+
 
   box:
     box_name: "Box Name"
