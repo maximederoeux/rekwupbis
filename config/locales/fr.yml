@@ -38,7 +38,7 @@ fr:
   menu:
     home: "Accueil"
     about: "A propos"
-    edit_account: "Modifier votre compte"
+    edit_account: "Modifier votre mot de passe"
     edit_profile: "Modifier votre profil"
     sign_up: "S'enregistrer"
     sign_in: "Se connecter"
@@ -144,6 +144,9 @@ fr:
     listing_articles: "Tous les articles"
     selected_articles: "Articles sélectionnés"
     quantity: "Quantité"
+    add_article: "Ajouter un article dans cette caisse"
+    edit_article: "Modifier l'article"
+    select_article: "Sélectionner un article"
 
   box:
     box_name: "Nom de la caisse"
@@ -163,6 +166,12 @@ fr:
     destroy_article: "Retirer cet article"
     closed_boxes: "Caisses fermées"
     open_boxes: "Caisses ouvertes"
+    box_size: "Taille de la caisse"
+    box_type: "Type de caisse"
+
+
+  boxdetail:
+    edit_boxdetail: "Modifier le contenu de la caisse"
 
   simple_form:
     labels:
@@ -201,7 +210,8 @@ fr:
         box_name: "Nom de la caisse"
         bigbox: "Grande caisse"
         smallbox: "Petite caisse"
-        box_regular: "Caisse normale - Une sorte de gobelets"
+        box_regular: "Caisse normale - Un modèle de gobelets"
+        mixed: "Caisse mixte - Plusieurs modèles de gobelets"
       boxdetail:
         article_id: "Nom de l'article"
         box_article_quantity: "Quantité dans la caisse"
@@ -232,8 +242,7 @@ fr:
     am: "am"
     pm: "pm"
 
-  word:
-    from: "de"
+
 
   helpers:
     submit:
@@ -252,3 +261,23 @@ fr:
       box:
         create: "Créer une caisse"
         update: "Enregistrer les changements"
+  notice:
+    access: "Access refusé"
+    profile_updated: "Votre profil a été mis à jour."
+    event_updated: "L'événement a été mis à jour."
+    event_created: "L'événement a bien été créé."
+    event_destroyed: "L'événement a bien été supprimé."
+    articleupdated: "L'article a été mis à jour."
+    articlecreated: "L'article a bien été créé."
+    articledestroyed: "L'article a bien été supprimé."
+    box_updated: "La caisse a été mis à jour."
+    box_created: "La caisse a bien été créée."
+    box_destroyed: "La caisse a bien été supprimée."
+    boxdetail_updated: "Le contenu de la caisse a été mis à jour."
+    boxdetail_created: "Le contenu de la caisse a bien été créé."
+    boxdetail_destroyed: "Le contenu de la caisse a bien été supprimé."
+
+
+  word:
+    from: "de"
+    on_the: "le"

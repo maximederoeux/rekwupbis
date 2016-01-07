@@ -60,7 +60,7 @@ en:
   menu:
     home: "Home"
     about: "About"
-    edit_account: "Edit Account"
+    edit_account: "Edit Password"
     edit_profile: "Edit Profile"
     sign_up: "Sign Up"
     sign_in: "Sign In"
@@ -166,6 +166,9 @@ en:
     listing_articles: "Listing Articles"
     selected_articles: "Selected articles"
     quantity: "Quantity"
+    add_article: "Add an article in this box"
+    edit_article: "Edit Article"
+    select_article: "Select Article"
 
   box:
     box_name: "Box Name"
@@ -185,7 +188,11 @@ en:
     destroy_article: "Remove this article"
     closed_boxes: "Closed boxes"
     open_boxes: "Open boxes"
+    box_size: "Size of the box"
+    box_type: "Box Type"
 
+  boxdetail:
+    edit_boxdetail: "Modify box content"
 
   simple_form:
     labels:
@@ -225,12 +232,10 @@ en:
         bigbox: "Big Box"
         smallbox: "Small Box"
         box_regular: "Regular Box - One kind of cups"
+        mixed: "Mixed Box - Several kinds of cups"
       boxdetail:
         article_id: "Article Name"
         box_article_quantity: "Quantity in the box"
-
-  word:
-    from: "from"
 
   helpers:
     submit:
@@ -249,3 +254,24 @@ en:
       box:
         create: "Create a box"
         update: "Save changes"
+
+  notice:
+    access: "Access denied"
+    profile_updated: "Your profile was successfully updated."
+    event_created: "Your event was successfully created."
+    event_updated: "Your event was successfully updated."
+    event_destroyed: "Your event was successfully destroyed"
+    article_created: "This article was successfully created."
+    article_updated: "This article was successfully updated."
+    article_destroyed: "This article was successfully destroyed"
+    box_created: "This box was successfully created."
+    box_updated: "This box was successfully updated."
+    box_destroyed: "This box was successfully destroyed"
+    boxdetail_created: "This box content was successfully created."
+    boxdetail_updated: "This box content was successfully updated."
+    boxdetail_destroyed: "This box content was successfully destroyed"
+
+
+  word:
+    from: "from"
+    on_the: "on the"

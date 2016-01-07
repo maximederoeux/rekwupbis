@@ -3,11 +3,12 @@
 
   <div class="form-inputs">
     <%= f.input :box_name %>
+    <h6><strong><%= t("box.box_size")%></strong></h6>
     <%= f.input :box_regular %>
+    <%= f.input :mixed %>
+    <h6><strong><%= t("box.box_type")%></strong></h6>
     <%= f.input :bigbox %>
     <%= f.input :smallbox %>
-
-
   </div>
 
   <div class="form-actions">

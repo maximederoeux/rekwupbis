@@ -1,6 +1,7 @@
-<h1>Editing Boxdetail</h1>
+<h3><%= t("boxdetail.edit_boxdetail") %></h3>
 
-<%= render 'form' %>
+<%= render 'form' %><br>
 
-<%= link_to 'Show', @boxdetail %> |
-<%= link_to 'Back', boxdetails_path %>
+
+<%= link_to t("menu.cancel"), box_path(@boxdetail.box), class: "btn btn-lg btn-warning" %><br><br>
+

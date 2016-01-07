@@ -74,9 +74,12 @@
           <tr>
         	<td><%= thisboxdetail.article.full_name if thisboxdetail.article %></td>
         	<td><%= thisboxdetail.box_article_quantity if thisboxdetail.box_article_quantity %>
+
+            <% unless @box.box_is_full %>
               <%= link_to edit_boxdetail_path(thisboxdetail) do %>
                 <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
               <% end %>
+            <% end %>
           </td>
           <td><%= link_to t("box.destroy_article"), thisboxdetail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>

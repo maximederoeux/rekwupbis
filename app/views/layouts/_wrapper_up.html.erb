@@ -5,31 +5,74 @@
     <ul class="sidebar-nav">
       <li class="sidebar-brand">
         <a href="#">
-            Rekwup
+          <%= link_to 'Rekwup', root_path, class: 'navbar-brand' %>
         </a>
       </li>
-      <li>
-        <a href="#"><%= link_to t("user.your_profile"), user_path(current_user) %></a>
-      </li>
-      <li>
-        <a href="#"><%= link_to t("event.your_events"), events_path %></a>
-      </li>
-      <li>
-<!--    <a href="#">Overview</a>
-      </li>
-      <li>
-        <a href="#">Events</a>
-      </li>
-      <li>
-        <a href="#">About</a>
-      </li>
-      <li>
-        <a href="#">Services</a>
-      </li>
-      <li>
-        <a href="#">Contact</a>
-      </li> -->
+
+      <% if user_signed_in? %>
+
+        <% if current_user.admin %>
+          <li>
+            <a href="#"><%= link_to t("user.your_profile"), user_path(current_user) %></a>
+          </li>
+          <li>
+            <a href="#"><%= link_to t("menu.users"), users_path %></a>
+          </li>
+          <li>
+            <a href="#"><%= link_to t("menu.events"), events_path %></a>
+          </li>
+          <li>
+            <a href="#"><%= link_to t("menu.articles"), articles_path %></a>
+          </li>
+          <li>
+            <a href="#"><%= link_to t("menu.boxes"), boxes_path %></a>
+          </li>
+
+        <% end %>
+
+        <% if current_user.staff %>
+
+          <li>
+            <a href="#"><%= link_to t("user.your_profile"), user_path(current_user) %></a>
+          </li>
+          <li>
+            <a href="#"><%= link_to t("menu.users"), users_path %></a>
+          </li>
+          <li>
+            <a href="#"><%= link_to t("menu.events"), events_path %></a>
+          </li>
+          <li>
+            <a href="#"><%= link_to t("menu.articles"), articles_path %></a>
+          </li>
+          <li>
+            <a href="#"><%= link_to t("menu.boxes"), boxes_path %></a>
+          </li>
+
+        <% end %>
+
+        <% if current_user.client %>
+          <li>
+            <a href="#"><%= link_to t("user.your_profile"), user_path(current_user) %></a>
+          </li>
+          <li>
+            <a href="#"><%= link_to t("event.your_events"), events_path %></a>
+          </li>
+          <li>
+
+        <% end %>
+
+      <% else %>
+
+        <li>
+          <a href="#"><%= link_to t("menu.sign_in"), new_user_session_path %></a>
+        </li>
+        <li>
+          <a href="#"><%= link_to t("menu.sign_up"), new_user_registration_path %></a>
+        </li>
+
+      <% end %>
     </ul>
+
   </div>
   <!-- /#sidebar-wrapper -->
 

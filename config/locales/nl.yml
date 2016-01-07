@@ -39,7 +39,7 @@ nl:
   menu:
     home: "Home"
     about: "Over ons"
-    edit_account: "Account bewerken"
+    edit_account: "Wachtwoord bewerken"
     edit_profile: "Profiel bewerken"
     sign_up: "Registreren"
     sign_in: "Aanmelden"
@@ -151,6 +151,8 @@ nl:
     close_box: "Deze doos sluiten"
     open_box: "Deze doos openen"
     add_article: "Voeg een artikel in deze doos toe"
+    edit_article: "Dit artikel wijzigen"
+    select_article: "Een artikel kiezen"
 
 
   box:
@@ -166,6 +168,11 @@ nl:
     destroy_article: "Dit artikel verwijderen"
     closed_boxes: "Gesloten dozen"
     open_boxes: "Open dozen"
+    box_size: "Maat van de doos"
+    box_type: "Type van de doos"
+
+  boxdetail:
+    edit: "Inhoud van de doos wijzigen"
 
   simple_form:
     labels:
@@ -205,6 +212,7 @@ nl:
         bigbox: "Grote doos"
         smallbox: "Kleine doos"
         box_regular: "Normale doos - Een beker soort"
+        mixed: "Gemengde doos - Verschijdene soorten van bekers"
       boxdetail:
         article_id: "Artikelnaam"
         box_article_quantity: "Kwantiteit in de doos"
@@ -251,9 +259,6 @@ nl:
       - month
       - year
 
-  word:
-    from: "van"
-
   helpers:
     submit:
       user:
@@ -271,3 +276,28 @@ nl:
       box:
         create: "Een doos maken"
         update: "Opslaan"
+
+  notice:
+    access: "Verboden toegang"
+    user: "De gebruiker"
+    event_: "Het evenement "
+    article_: "Het artikel "
+    box_: "De doos "
+    boxdetail_: "De inhoud van de doos "
+    profile_updated: "Uw profiel werd updated."
+    event_updated: "Het evenement werd updated."
+    event_created_m: "Het evenement werd geschept."
+    event_destroyed_f: "Het evenement werd gewijgerd."
+    article_updated: "Het artikel werd updated."
+    article_created_m: "Het artikel werd geschept."
+    article_destroyed_f: "Het artikel werd gewijgerd."
+    box_updated: "De doos werd updated."
+    box_created_m: "De doos werd geschept."
+    box_destroyed_f: "De doos werd gewijgerd."
+    boxdetail_updated: "De inhoud van de doos werd updated."
+    boxdetail_created_m: "De inhoud van de doos werd geschept."
+    boxdetail_destroyed_f: "De inhoud van de doos werd gewijgerd."
+
+  word:
+    from: "van"
+    on_the: "op"

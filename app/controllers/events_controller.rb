@@ -18,6 +18,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @creator = @event.creator
     @organizer = @event.organizer
+    unless current_user.admin or current_user == @creator or current_user == @organizer
+      redirect_to :back, :alert => t("notice.access")
+    end
   end
 
   # GET /events/new
@@ -32,6 +35,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @creator = @event.creator
     @organizer = @event.organizer
+    unless current_user.admin or current_user == @creator or current_user == @organizer
+      redirect_to :back, :alert => t("notice.access")
+    end
   end
 
   # POST /events
@@ -45,10 +51,10 @@ class EventsController < ApplicationController
       if @event.save
         if @event.creatorganizer
           @event.update_attribute(:organizer_id, current_user.id)
-          format.html { redirect_to @event, notice: 'Event was successfully created.' }
+          format.html { redirect_to @event, notice: t("notice.event_created") }
           format.json { render :show, status: :created, location: @event }
         else
-          format.html { redirect_to edit_event_path(@event), notice: 'Event was successfully created.' }
+          format.html { redirect_to edit_event_path(@event), notice: t("notice.event_created") }
           format.json { render :show, status: :created, location: @event }
         end
       else
@@ -63,7 +69,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to @event, notice: t("notice.event_updated") }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -77,7 +83,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to events_url, notice: t("notice.event_destroyed") }
       format.json { head :no_content }
     end
   end

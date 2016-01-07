@@ -9,7 +9,7 @@ class BoxesController < ApplicationController
     @closed_boxes = @boxes.where(:box_is_full => true)
     #@open_boxes = @boxes.where.not(:box_is_full => true)
     unless @user == current_user.staff or current_user.admin
-      redirect_to :root, :alert => "Access denied."
+      redirect_to :root, :alert => t("notice.access")
     end
   end
 
@@ -23,7 +23,7 @@ class BoxesController < ApplicationController
     @articles = Article.all
     @thisboxdetails = @boxdetails.where(:box_id => @box.id)
     unless @user == current_user.staff or current_user.admin
-      redirect_to :root, :alert => "Access denied."
+      redirect_to :root, :alert => t("notice.access")
     end
   end
 
@@ -32,7 +32,7 @@ class BoxesController < ApplicationController
     @box = Box.new
     @user = current_user
     unless @user == current_user.staff or current_user.admin
-      redirect_to :root, :alert => "Access denied."
+      redirect_to :root, :alert => t("notice.access")
     end
   end
 
@@ -40,7 +40,7 @@ class BoxesController < ApplicationController
   def edit
     @user = current_user
     unless @user == current_user.staff or current_user.admin
-      redirect_to :root, :alert => "Access denied."
+      redirect_to :root, :alert => t("notice.access")
     end
   end
 
@@ -59,7 +59,7 @@ class BoxesController < ApplicationController
           @box.boxdetails.create(:box_id => @box.id, :article_id => "5", :box_article_quantity => "1")
         end
         
-        format.html { redirect_to @box, notice: 'Box was successfully created.' }
+        format.html { redirect_to @box, notice: t("notice.box_created") }
         format.json { render :show, status: :created, location: @box }
       else
         format.html { render :new }
@@ -73,7 +73,7 @@ class BoxesController < ApplicationController
   def update
     respond_to do |format|
       if @box.update(box_params)
-        format.html { redirect_to @box, notice: 'Box was successfully updated.' }
+        format.html { redirect_to @box, notice: t("notice.box_updated") }
         format.json { render :show, status: :ok, location: @box }
       else
         format.html { render :edit }
@@ -87,7 +87,7 @@ class BoxesController < ApplicationController
   def destroy
     @box.destroy
     respond_to do |format|
-      format.html { redirect_to boxes_url, notice: 'Box was successfully destroyed.' }
+      format.html { redirect_to boxes_url, notice: t("notice.box_destroyed") }
       format.json { head :no_content }
     end
   end

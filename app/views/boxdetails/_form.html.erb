@@ -2,14 +2,14 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :box_id %>
-    <%= f.collection_select :article_id, Article.all, :id, :full_name %>
+  	<h6><strong><%= t("article.select_article")%></strong></h6>
+    <%= f.collection_select :article_id, Article.all.order('article_name ASC'), :id, :full_name, {prompt: false}, {class: "form-control styled-select"} %><br>
     <%= f.input :box_article_quantity %>
 
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+  	<%= f.submit t("menu.update"), class: "btn btn-success" %>
   </div>
 <% end %>
 

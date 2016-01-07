@@ -34,7 +34,7 @@ class BoxdetailsController < ApplicationController
     @boxdetail = Boxdetail.new(boxdetail_params)
     respond_to do |format|
       if @boxdetail.save
-        format.html { redirect_to :back, notice: 'Boxdetail was successfully created.' }
+        format.html { redirect_to :back, notice: t("notice.boxdetail_created") }
         format.json { render :show, status: :created, location: @boxdetail }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class BoxdetailsController < ApplicationController
     
     respond_to do |format|
       if @boxdetail.update(boxdetail_params)
-        format.html { redirect_to box_path(@boxdetail.box), notice: 'Boxdetail was successfully updated.' }
+        format.html { redirect_to box_path(@boxdetail.box), notice: t("notice.boxdetail_updated") }
         format.json { render :show, status: :ok, location: @boxdetail }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class BoxdetailsController < ApplicationController
   def destroy
     @boxdetail.destroy
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Boxdetail was successfully destroyed.' }
+      format.html { redirect_to :back, notice: t("notice.boxdetail_destroyed") }
       format.json { head :no_content }
     end
   end

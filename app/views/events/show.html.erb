@@ -11,7 +11,7 @@
 
       <li class="list-group-item"><strong><%= t("event.event_name") %> : </strong><%= @event.event_name %></li>
 
-      <li class="list-group-item"><strong><%= t("event.creator_name") %></strong><%= @creator.full_name if @event.creator %><strong> le </strong><%= @event.created_at.strftime("%d/%m/%Y") %></li> 
+      <li class="list-group-item"><strong><%= t("event.creator_name") %> </strong><%= @creator.full_name if @event.creator %><strong> <%= t("word.on_the") %> </strong><%= @event.created_at.strftime("%d/%m/%Y") %></li> 
       <li class="list-group-item"><strong><%= t("event.organizer_name") %></strong><%= @organizer.full_name if @event.organizer %></li>
 
 
