@@ -107,6 +107,7 @@ en:
     cancel_account: "Cancel Account"
     unhappy: "Unhappy? We'll be sad to see you go."
     cancel_my_account: "Cancel my account"
+    negociated_price: "Negociated Price"
 
   event:
     new_event: "New Event"

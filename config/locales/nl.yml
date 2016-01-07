@@ -85,6 +85,7 @@ nl:
     cancel_account: "Account annuleren"
     unhappy: "Niet tevreden? We zullen triest zijn als u weggaat."
     cancel_my_account: "Mijn account annuleren"
+    negociated_price: "Onderhandeld Prijs"
 
   event:
     new_event: "Nieuw evenement"

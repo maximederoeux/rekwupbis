@@ -85,6 +85,7 @@ fr:
     cancel_account: "Annuler votre compte"
     unhappy: "Mécontent? Nous serons tristes de vous voir partir."
     cancel_my_account: "Annuler mon compte"
+    negociated_price: "Prix négocié"
 
   event:
     new_event: "Nouvel événement"
