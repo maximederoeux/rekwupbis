@@ -138,7 +138,7 @@ nl:
     article_id: "Artikel Code"
     article_content: "Inhoud"
     article_type: "Type"
-    article_catégory: "Categorie"
+    article_category: "Categorie"
     quantity_bigbox: "Kwantiteit per groot doos"
     quantity_smallbox: "Kwantiteit per klein doos"
     quantity_pile: "Kwantitieit per stapel"
@@ -153,6 +153,11 @@ nl:
     add_article: "Voeg een artikel in deze doos toe"
     edit_article: "Dit artikel wijzigen"
     select_article: "Een artikel kiezen"
+    is_washable: "Dit artikel is wasbaar."
+    washing_price: "Was Prijs"
+    handwash_price: "Handwas Prijs"
+    tab_price: "Lusbehandeling Prijs"
+    deposit_price: "Garantie Prijs"
 
 
   box:
@@ -203,10 +208,15 @@ nl:
         article_id: "Artikel Code"
         article_content: "Inhoud"
         article_type: "Type"
-        article_catégory: "Categorie"
+        article_category: "Categorie"
         quantity_bigbox: "Kwantiteit per groot doos"
         quantity_smallbox: "Kwantiteit per klein doos"
         quantity_pile: "Kwantitieit per stapel"
+        is_washable: "Dit artikel is wasbaar."
+        washing_price: "Was Prijs"
+        handwash_price: "Handwas Prijs"
+        tab_price: "Lusbehandeling Prijs"
+        deposit_price: "Garantie Prijs"
       box:
         box_name: "Doosnaam"
         bigbox: "Grote doos"

@@ -158,7 +158,7 @@ en:
     article_id: "Article Code"
     article_content: "Content"
     article_type: "Type"
-    article_catégory: "Category"
+    article_category: "Category"
     quantity_bigbox: "Quantity in big box"
     quantity_smallbox: "Quantity in small box"
     quantity_pile: "Quantity in pile"
@@ -169,6 +169,11 @@ en:
     add_article: "Add an article in this box"
     edit_article: "Edit Article"
     select_article: "Select Article"
+    is_washable: "This article is washable"
+    washing_price: "Washing Price"
+    handwash_price: "Handwash Price"
+    tab_price: "Tab Handling Price"
+    deposit_price: "Deposit Price"
 
   box:
     box_name: "Box Name"
@@ -223,10 +228,16 @@ en:
         article_id: "Article Code"
         article_content: "Content"
         article_type: "Type"
-        article_catégory: "Category"
+        article_category: "Category"
         quantity_bigbox: "Quantity in big box"
         quantity_smallbox: "Quantity in small box"
         quantity_pile: "Quantity in pile"
+        is_washable: "This article is washable"
+        washing_price: "Washing Price"
+        handwash_price: "Handwash Price"
+        tab_price: "Tab Handling Price"
+        deposit_price: "Deposit Price"
+
       box:
         box_name: "Box Name"
         bigbox: "Big Box"

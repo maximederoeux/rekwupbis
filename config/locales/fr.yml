@@ -136,7 +136,7 @@ fr:
     article_id: "Code de l'article"
     article_content: "Contenance"
     article_type: "Type"
-    article_catégory: "Categorie"
+    article_category: "Categorie"
     quantity_bigbox: "Quantité par grande caisse"
     quantity_smallbox: "Quantité par petite caisse"
     quantity_pile: "Quantité par pile"
@@ -147,6 +147,11 @@ fr:
     add_article: "Ajouter un article dans cette caisse"
     edit_article: "Modifier l'article"
     select_article: "Sélectionner un article"
+    is_washable: "Cet article est lavable"
+    washing_price: "Prix Lavage"
+    handwash_price: "Prix Lavage Manuel"
+    tab_price: "Prix Manutention Languette"
+    deposit_price: "Prix Caution"
 
   box:
     box_name: "Nom de la caisse"
@@ -202,10 +207,16 @@ fr:
         article_id: "Code de l'article"
         article_content: "Contenance"
         article_type: "Type"
-        article_catégory: "Categorie"
+        article_category: "Categorie"
         quantity_bigbox: "Quantité par grande caisse"
         quantity_smallbox: "Quantité par petite caisse"
         quantity_pile: "Quantité par pile"
+        is_washable: "Cet article est lavable"
+        washing_price: "Prix Lavage"
+        handwash_price: "Prix Lavage Manuel"
+        tab_price: "Prix Manutention Languette"
+        deposit_price: "Prix Caution"
+
       box:
         box_name: "Nom de la caisse"
         bigbox: "Grande caisse"
