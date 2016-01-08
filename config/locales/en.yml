@@ -161,6 +161,8 @@ en:
   negociated_price:
     add: "Add negociated prices"
     remove: "Remove negociated prices"
+    edit: "Modify Negociated Prices"
+    yours: "Your Negociated Prices"
 
   box:
     box_name: "Box Name"

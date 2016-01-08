@@ -61,7 +61,11 @@
 			      <% @thisuserprices.each do |thisuserprice| %>
 			        <tbody>
 			          <tr>
-			          <td><%= thisuserprice.article.full_name if thisuserprice.article %></td>
+			          <td><%= thisuserprice.article.full_name if thisuserprice.article %>
+                  <%= link_to edit_negociated_price_path(thisuserprice) do %>
+                    <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+                  <% end %>
+                </td>
 			          <td><%= thisuserprice.washing_price if thisuserprice.washing_price %></td>
 			          <td><%= thisuserprice.handwash_price if thisuserprice.handwash_price %></td>
 			          <td><%= thisuserprice.tab_price if thisuserprice.tab_price %></td>

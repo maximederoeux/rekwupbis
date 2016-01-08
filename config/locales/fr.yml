@@ -161,6 +161,8 @@ fr:
   negociated_price:
     add: "Ajouter des prix négociés."
     remove: "Retirer les prix négociés."
+    edit: "Modifier les prix négociés"
+    yours: "Vos prix négociés"
 
   box:
     box_name: "Nom de la caisse"
@@ -294,9 +296,9 @@ fr:
     event_updated: "L'événement a été mis à jour."
     event_created: "L'événement a bien été créé."
     event_destroyed: "L'événement a bien été supprimé."
-    articleupdated: "L'article a été mis à jour."
-    articlecreated: "L'article a bien été créé."
-    articledestroyed: "L'article a bien été supprimé."
+    article_updated: "L'article a été mis à jour."
+    article_created: "L'article a bien été créé."
+    article_destroyed: "L'article a bien été supprimé."
     box_updated: "La caisse a été mis à jour."
     box_created: "La caisse a bien été créée."
     box_destroyed: "La caisse a bien été supprimée."

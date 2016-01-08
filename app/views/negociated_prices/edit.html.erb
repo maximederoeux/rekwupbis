@@ -1,6 +1,7 @@
-<h1>Editing Negociated Price</h1>
+<h2><%= t("negociated_price.edit") %></h2>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @negociated_price %> |
-<%= link_to 'Back', negociated_prices_path %>
+<%= link_to t("menu.show"), @event, class: "btn btn-default" %>
+<%= link_to t("menu.back"), events_path, class: "btn btn-default" %>
+

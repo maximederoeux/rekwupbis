@@ -14,9 +14,9 @@ class User < ActiveRecord::Base
 
 	def full_name_with_company
 		if company_name.present?
-			"#{first_name} #{name} #{I18n.t('word.from')} #{company_name}"
+			"#{name} #{I18n.t('word.from')} #{company_name}"
 		else
-			"#{first_name} #{name}"
+			"#{name}"
 		end
 	end
 

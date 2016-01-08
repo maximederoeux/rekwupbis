@@ -161,6 +161,8 @@ nl:
   negociated_price:
     add: "Onderhandeld prijzen toevoegen."
     remove: "Onderhandeld prijzen verwijderen."
+    edit: "Die onderhgandeld prijzen wijzigen"
+    yours: "Uw onderhandeld prijzen"
 
   box:
     box_name: "Doosnaam"

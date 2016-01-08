@@ -17,7 +17,7 @@ class NegociatedPricesController < ApplicationController
   # GET /negociated_prices/1.json
   def show
     @user = current_user
-    unless @user == current_user.admin
+    unless current_user.admin
       redirect_to :root, :alert => t("notice.access")
     end
   end
@@ -26,7 +26,7 @@ class NegociatedPricesController < ApplicationController
   def new
     @negociated_price = NegociatedPrice.new
     @users = User.all
-    @clients = @users.where(:client => true).order('name ASC')
+    @clients = User.where(:client => true).order('name ASC')
     @contracted = @clients.where(:negociated_price => true).order('name ASC')
     @articles = Article.all.order('article_name ASC')
     @user = current_user
@@ -37,8 +37,7 @@ class NegociatedPricesController < ApplicationController
 
   # GET /negociated_prices/1/edit
   def edit
-    @user = current_user
-    unless @user == current_user.admin
+    unless current_user.admin
       redirect_to :root, :alert => t("notice.access")
     end
   end
@@ -64,7 +63,7 @@ class NegociatedPricesController < ApplicationController
   def update
     respond_to do |format|
       if @negociated_price.update(negociated_price_params)
-        format.html { redirect_to @negociated_price, notice: 'Negociated price was successfully updated.' }
+        format.html { redirect_to edit_user_path(@negociated_price.client), notice: 'Negociated price was successfully updated.' }
         format.json { render :show, status: :ok, location: @negociated_price }
       else
         format.html { render :edit }
