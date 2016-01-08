@@ -86,7 +86,10 @@ fr:
     cancel_account: "Annuler votre compte"
     unhappy: "Mécontent? Nous serons tristes de vous voir partir."
     cancel_my_account: "Annuler mon compte"
-    negociated_price: "Prix négocié"
+    negociated_price: "Prix négociés"
+    has_negociated: "Ce client a des prix négociés."
+    has_not_negociated: "Ce client n'a pas de prix négociés."
+    status: "Statut"
 
   event:
     new_event: "Nouvel événement"
@@ -134,8 +137,8 @@ fr:
     no_event_yet: "Vous n'avez pas encore d'événement."
 
   article:
-    article_name: "Nom de l'article"
-    article_id: "Code de l'article"
+    article_name: "Nom Article"
+    article_id: "Code Article"
     article_content: "Contenance"
     article_type: "Type"
     article_category: "Categorie"
@@ -154,6 +157,10 @@ fr:
     handwash_price: "Prix Lavage Manuel"
     tab_price: "Prix Manutention Languette"
     deposit_price: "Prix Caution"
+
+  negociated_price:
+    add: "Ajouter des prix négociés."
+    remove: "Retirer les prix négociés."
 
   box:
     box_name: "Nom de la caisse"
@@ -175,7 +182,6 @@ fr:
     open_boxes: "Caisses ouvertes"
     box_size: "Taille de la caisse"
     box_type: "Type de caisse"
-
 
   boxdetail:
     edit_boxdetail: "Modifier le contenu de la caisse"
@@ -218,7 +224,6 @@ fr:
         handwash_price: "Prix Lavage Manuel"
         tab_price: "Prix Manutention Languette"
         deposit_price: "Prix Caution"
-
       box:
         box_name: "Nom de la caisse"
         bigbox: "Grande caisse"
@@ -228,7 +233,6 @@ fr:
       boxdetail:
         article_id: "Nom de l'article"
         box_article_quantity: "Quantité dans la caisse"
-
 
   date:
     formats:
@@ -255,7 +259,13 @@ fr:
     am: "am"
     pm: "pm"
 
-
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "am"
+    pm: "pm"
 
   helpers:
     submit:
@@ -274,6 +284,10 @@ fr:
       box:
         create: "Créer une caisse"
         update: "Enregistrer les changements"
+      negociated_price:
+        create: "Ajouter un prix négocié"
+        update: "Enregistrer les changements"
+
   notice:
     access: "Access refusé"
     profile_updated: "Votre profil a été mis à jour."
@@ -289,7 +303,6 @@ fr:
     boxdetail_updated: "Le contenu de la caisse a été mis à jour."
     boxdetail_created: "Le contenu de la caisse a bien été créé."
     boxdetail_destroyed: "Le contenu de la caisse a bien été supprimé."
-
 
   word:
     from: "de"

@@ -1,24 +1,3 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   activerecord:
     attributes:
@@ -55,7 +34,6 @@ en:
         creatorganizer: "I am the orhanizer of the event"
         party: "Party, concert, festival"
         dinner: "Meal"
-
 
   menu:
     home: "Home"
@@ -108,7 +86,10 @@ en:
     cancel_account: "Cancel Account"
     unhappy: "Unhappy? We'll be sad to see you go."
     cancel_my_account: "Cancel my account"
-    negociated_price: "Negociated Price"
+    negociated_price: "Negociated Prices"
+    has_negociated: "This client has negociated prices."
+    has_not_negociated: "This client does not have negociated prices."
+    status: "Status"
 
   event:
     new_event: "New Event"
@@ -178,7 +159,8 @@ en:
     deposit_price: "Deposit Price"
 
   negociated_price:
-
+    add: "Add negociated prices"
+    remove: "Remove negociated prices"
 
   box:
     box_name: "Box Name"
@@ -242,16 +224,48 @@ en:
         handwash_price: "Handwash Price"
         tab_price: "Tab Handling Price"
         deposit_price: "Deposit Price"
-
       box:
         box_name: "Box Name"
         bigbox: "Big Box"
         smallbox: "Small Box"
         box_regular: "Regular Box - One kind of cups"
-        mixed: "Mixed Box - Several kinds of cups"
+        mixed: "Mixed Box - Several kind of cups"
       boxdetail:
-        article_id: "Article Name"
-        box_article_quantity: "Quantity in the box"
+        article_id: "Nom de l'article"
+        box_article_quantity: "Quantité dans la caisse"
+
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    # Used in date_select and datetime_select.
+    order:
+      - day
+      - month
+      - year
+
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "am"
+    pm: "pm"
+
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "am"
+    pm: "pm"
 
   helpers:
     submit:
@@ -270,6 +284,9 @@ en:
       box:
         create: "Create a box"
         update: "Save changes"
+      negociated_price:
+        create: "Add a negociated price"
+        update: "Save changes"
 
   notice:
     access: "Access denied"
@@ -286,7 +303,6 @@ en:
     boxdetail_created: "This box content was successfully created."
     boxdetail_updated: "This box content was successfully updated."
     boxdetail_destroyed: "This box content was successfully destroyed"
-
 
   word:
     from: "from"

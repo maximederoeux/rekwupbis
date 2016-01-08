@@ -35,7 +35,6 @@ nl:
         party: "Feest, concert, festival"
         dinner: "Maaltijd"
 
-
   menu:
     home: "Home"
     about: "Over ons"
@@ -58,6 +57,7 @@ nl:
   user:
     name: "Naam"
     first_name: "Voornaam"
+    company: "Bedrijf"
     password: "Wachtwoord"
     password_confirmation: "Wachtwoord bevestigen"
     company_name: "Naam van uw bedrijf"
@@ -87,6 +87,9 @@ nl:
     unhappy: "Niet tevreden? We zullen triest zijn als u weggaat."
     cancel_my_account: "Mijn account annuleren"
     negociated_price: "Onderhandeld Prijs"
+    has_negociated: "Deze klant heeft onderhandeld prijzen."
+    has_not_negociated: "Deze klant heeft geen onderhandeld prijzen."
+    status: "Toestand"
 
   event:
     new_event: "Nieuw evenement"
@@ -132,8 +135,6 @@ nl:
     your event: "Uw evenement"
     your events: "Uw evenementen"
     no_event_yet: "U heeft nog geen evenement."
-    your_profile: "Uw profiel"
-
 
   article:
     article_name: "Naam ven het artikel"
@@ -148,10 +149,6 @@ nl:
     listing_articles: "Alle artikels"
     selected_articles: "Gekozen artikels"
     quantity: "Kwantiteit"
-    box_is_full: "Deze doos is vol"
-    box_is_not_full: "Deze doos is niet vol"
-    close_box: "Deze doos sluiten"
-    open_box: "Deze doos openen"
     add_article: "Voeg een artikel in deze doos toe"
     edit_article: "Dit artikel wijzigen"
     select_article: "Een artikel kiezen"
@@ -161,6 +158,9 @@ nl:
     tab_price: "Lusbehandeling Prijs"
     deposit_price: "Garantie Prijs"
 
+  negociated_price:
+    add: "Onderhandeld prijzen toevoegen."
+    remove: "Onderhandeld prijzen verwijderen."
 
   box:
     box_name: "Doosnaam"
@@ -172,6 +172,11 @@ nl:
     listing_boxes: "Alle dozen"
     edit_box: "Doos wijzigen"
     fill_box: "Doos vullen"
+    box_is_full: "Deze doos is vol"
+    box_is_not_full: "Deze doos is niet vol"
+    close_box: "Deze doos sluiten"
+    open_box: "Deze doos openen"
+    add_article: "Een artikel in deze doos toevoegen"
     destroy_article: "Dit artikel verwijderen"
     closed_boxes: "Gesloten dozen"
     open_boxes: "Open dozen"
@@ -254,23 +259,6 @@ nl:
     am: "am"
     pm: "pm"
 
-  datepicker:
-    formats:
-      default: "%Y-%m-%d"
-      short: "%b %d"
-      long: "%B %d, %Y"
-    day_names: [Zondag, Maandag, Dinsdag, Woensdag, Donderdag, Vrijdag, Zaterdag]
-    abbr_day_names: [Zon, Maa, Din, Woe, Don, Vri, Zat]
-
-    # Don't forget the nil at the beginning; there's no such thing as a 0th month
-    month_names: [~, Januari, Februari, Maaart, April, Mei, Juni, Juli, Augustus, September, October, November, December]
-    abbr_month_names: [~, Jan, Feb, Maa, Apr, Mei, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
-    # Used in date_select and datetime_select.
-    order:
-      - day
-      - month
-      - year
-
   helpers:
     submit:
       user:
@@ -288,14 +276,12 @@ nl:
       box:
         create: "Een doos maken"
         update: "Opslaan"
+      negociated_price:
+        create: "Een onderhandeld prijs toevoegen"
+        update: "Opslaan"
 
   notice:
     access: "Verboden toegang"
-    user: "De gebruiker"
-    event_: "Het evenement "
-    article_: "Het artikel "
-    box_: "De doos "
-    boxdetail_: "De inhoud van de doos "
     profile_updated: "Uw profiel werd updated."
     event_updated: "Het evenement werd updated."
     event_created_m: "Het evenement werd geschept."

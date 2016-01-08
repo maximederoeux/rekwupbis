@@ -8,11 +8,18 @@ class NegociatedPricesController < ApplicationController
     @users = User.all
     @clients = @users.where(:client => true).order('name ASC')
     @contracted = @clients.where(:negociated_price => true).order('name ASC')
+    unless @user == current_user.admin
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # GET /negociated_prices/1
   # GET /negociated_prices/1.json
   def show
+    @user = current_user
+    unless @user == current_user.admin
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # GET /negociated_prices/new
@@ -20,11 +27,20 @@ class NegociatedPricesController < ApplicationController
     @negociated_price = NegociatedPrice.new
     @users = User.all
     @clients = @users.where(:client => true).order('name ASC')
+    @contracted = @clients.where(:negociated_price => true).order('name ASC')
     @articles = Article.all.order('article_name ASC')
+    @user = current_user
+    unless @user == current_user.admin
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # GET /negociated_prices/1/edit
   def edit
+    @user = current_user
+    unless @user == current_user.admin
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # POST /negociated_prices
@@ -34,7 +50,7 @@ class NegociatedPricesController < ApplicationController
 
     respond_to do |format|
       if @negociated_price.save
-        format.html { redirect_to @negociated_price, notice: 'Negociated price was successfully created.' }
+        format.html { redirect_to :back, notice: 'Negociated price was successfully created.' }
         format.json { render :show, status: :created, location: @negociated_price }
       else
         format.html { render :new }

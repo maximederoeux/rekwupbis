@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @articles = Article.all
     unless @user == current_user or current_user.admin
       redirect_to :back, :alert => t("notice.access")
     end
@@ -22,6 +23,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @negociated_price = NegociatedPrice.new
+    @negociated_prices = NegociatedPrice.all
+    @thisuserprices = @negociated_prices.where(:client_id => @user.id)
     unless @user == current_user or current_user.admin
       redirect_to :back, :alert => t("notice.access")
     end
@@ -31,7 +35,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
+        if current_user.admin
+        format.html { redirect_to edit_user_path(@user), notice: t("notice.profile_updated")}
+        else
         format.html { redirect_to @user, notice: t("notice.profile_updated")}
+        end
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }

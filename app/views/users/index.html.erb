@@ -2,88 +2,151 @@
 
 	<% if current_user.admin %>
 		
-		<h4><%= t('user.list_admin') %></h4>
+		<div class="row">
+			<div class="col-md-6">
 
-			<% @admin.each do |user| %>
+				<h4><%= t('user.list_admin') %></h4>
 
-				<div class="list-group">
-				  <button type="button" class="list-group-item"><%= user.full_name %></button>
-				</div>
-
-		  <% end %>
+				<% @admin.each do |user| %>
 
 
-		<h4><%= t('user.list_staff') %></h4>
+							<div class="list-group">
+								<li class="list-group-item"><strong>
+							  	<%= user.full_name %>
+
+								  <%= link_to edit_user_path(user) do %>
+										<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+									<% end %>
+
+								</strong></li>
+							</div>
+
+			  <% end %>
+			</div>
 
 
-			<% @staff.each do |user| %>
+				
+			<div class="col-md-6">
 
-				<div class="list-group">
-				  <button type="button" class="list-group-item"><%= user.full_name %></button>
-				</div>
+				<h4><%= t('user.list_staff') %></h4>
 
-		  <% end %>
+				<% @staff.each do |user| %>
 
-		<h4><%= t('user.list_client') %> - <%= t('user.company') %></h4>
+						<div class="list-group">
+							<li class="list-group-item"><strong>
+						  	<%= user.full_name %>
 
-			<% @company.each do |user| %>
+						  <%= link_to edit_user_path(user) do %>
+								<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+							<% end %>
+							</strong></li>
+						</div>
+				<% end %>
+			</div>
 
-			  	<div class="row">
+			<div class="col-md-3">
 
-					  <div class="col-md-2"><%= user.full_name %></div>
-					  <div class="col-md-2"><%= user.status_display %></div>
-					  <div class="col-md-2"><%= user.company_display %></div>
-					  <div class="col-md-2"><%= user.email %></div>
-					  <div class="col-md-4"><%= link_to 'Edit', edit_user_path(user) %></div>
+				<h4><%= t('user.list_client') %> - <%= t('user.company') %></h4>
 
+				<% @company.each do |user| %>
+
+					<div class="list-group">
+						<% if user.negociated_price %>
+							<li class="list-group-item list-group-item-info"><strong>
+							  <%= user.full_name %>
+							  <%= link_to edit_user_path(user) do %>
+									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+								<% end %>
+							</strong></li>
+						<% else %>
+							<li class="list-group-item"><strong>
+						  	<%= user.full_name %>
+						  	<%= link_to edit_user_path(user) do %>
+									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+								<% end %>
+							</strong></li>
+						<% end %>
 					</div>
+				<% end %>
+			</div>
 
-			<% end %>
+			<div class="col-md-3">
 
-		<h4><%= t('user.list_client') %> - <%= t('user.non_profit') %></h4>
+				<h4><%= t('user.list_client') %> - <%= t('user.non_profit') %></h4>
 
-			<% @non_profit.each do |user| %>
+				<% @non_profit.each do |user| %>
 
-			  	<div class="row">
-
-					  <div class="col-md-2"><%= user.full_name %></div>
-					  <div class="col-md-2"><%= user.status_display %></div>
-					  <div class="col-md-2"><%= user.company_display %></div>
-					  <div class="col-md-2"><%= user.email %></div>
-					  <div class="col-md-4"><%= link_to 'Edit', edit_user_path(user) %></div>    
-			    
+					<div class="list-group">
+						<% if user.negociated_price %>
+							<li class="list-group-item list-group-item-info"><strong>
+							  <%= user.full_name %>
+							  <%= link_to edit_user_path(user) do %>
+									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+								<% end %>
+							</strong></li>
+						<% else %>
+							<li class="list-group-item"><strong>
+						  	<%= user.full_name %>
+						  	<%= link_to edit_user_path(user) do %>
+									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+								<% end %>
+							</strong></li>
+						<% end %>
 					</div>
-			<% end %>
+				<% end %>
+			</div>
 
-		<h4><%= t('user.list_client') %> - <%= t('user.institution') %></h4>
+			<div class="col-md-3">
 
-			<% @institution.each do |user| %>
+				<h4><%= t('user.list_client') %> - <%= t('user.institution') %></h4>
 
-			  	<div class="row">
+				<% @institution.each do |user| %>
 
-					  <div class="col-md-2"><%= user.full_name %></div>
-					  <div class="col-md-2"><%= user.status_display %></div>
-					  <div class="col-md-2"><%= user.company_display %></div>
-					  <div class="col-md-2"><%= user.email %></div>
-					  <div class="col-md-4"><%= link_to 'Edit', edit_user_path(user) %></div>    
-			    
+					<div class="list-group">
+						<% if user.negociated_price %>
+							<li class="list-group-item list-group-item-info"><strong>
+							  <%= user.full_name %>
+							  <%= link_to edit_user_path(user) do %>
+									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+								<% end %>
+							</strong></li>
+						<% else %>
+							<li class="list-group-item"><strong>
+						  	<%= user.full_name %>
+						  	<%= link_to edit_user_path(user) do %>
+									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+								<% end %>
+							</strong></li>
+						<% end %>
 					</div>
-			<% end %>
+				<% end %>
+			</div>
 
-		<h4><%= t('user.list_client') %> - <%= t('user.individual') %></h4>
+			<div class="col-md-3">
 
-			<% @individual.each do |user| %>
+				<h4><%= t('user.list_client') %> - <%= t('user.individual') %></h4>
 
-			  	<div class="row">
+				<% @individual.each do |user| %>
 
-					  <div class="col-md-2"><%= user.full_name %></div>
-					  <div class="col-md-2"><%= user.status_display %></div>
-					  <div class="col-md-2"><%= user.company_display %></div>
-					  <div class="col-md-2"><%= user.email %></div>
-					  <div class="col-md-4"><%= link_to 'Edit', edit_user_path(user) %></div>    
-			    
+					<div class="list-group">
+						<% if user.negociated_price %>
+							<li class="list-group-item list-group-item-info"><strong>
+							  <%= user.full_name %>
+							  <%= link_to edit_user_path(user) do %>
+									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+								<% end %>
+							</strong></li>
+						<% else %>
+							<li class="list-group-item"><strong>
+						  	<%= user.full_name %>
+						  	<%= link_to edit_user_path(user) do %>
+									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+								<% end %>
+							</strong></li>
+						<% end %>
 					</div>
-			<% end %>
+				<% end %>
+			</div>
 
 
 
