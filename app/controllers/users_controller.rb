@@ -26,6 +26,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @negociated_price = NegociatedPrice.new
     @negociated_prices = NegociatedPrice.all
+    @thisuserprices = @negociated_prices.where(:client_id => @user.id)
     unless @user == current_user or current_user.admin
       redirect_to :back, :alert => t("notice.access")
     end
