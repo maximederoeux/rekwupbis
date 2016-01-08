@@ -7,7 +7,7 @@ class Article < ActiveRecord::Base
 
 	def full_name
 		if article_content.present?
-		"#{article_name} #{article_content}"
+		"#{article_name} #{article_content} CL"
 		else
 		"#{article_name}"
 		end

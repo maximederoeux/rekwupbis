@@ -157,6 +157,9 @@ en:
     handwash_price: "Handwash Price"
     tab_price: "Tab Handling Price"
     deposit_price: "Deposit Price"
+    rekwup_cup: "Rekwup Cup"
+    our_prices: "Our prices"
+    your_prices: "Your prices"
 
   negociated_price:
     add: "Add negociated prices"
@@ -226,6 +229,7 @@ en:
         handwash_price: "Handwash Price"
         tab_price: "Tab Handling Price"
         deposit_price: "Deposit Price"
+        rekwup_cup: "Rekwup Cup"
       box:
         box_name: "Box Name"
         bigbox: "Big Box"

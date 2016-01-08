@@ -25,9 +25,13 @@ Information à déterminer
         <li class="list-group-item"><strong><%= t("article.quantity_smallbox") %> : </strong><%= @article.quantity_smallbox %></li>
         <li class="list-group-item"><strong><%= t("article.quantity_pile") %> : </strong><%= @article.quantity_pile %></li>
 
-        <% if @article.is_washable %>
-        <li class="list-group-item"><strong><%= t("article.is_washable") %>
+        <% if @article.rekwup_cup %>
+          <li class="list-group-item"><strong><%= t("article.rekwup_cup") %>
         <% end %>
+        <% if @article.is_washable %>
+          <li class="list-group-item"><strong><%= t("article.is_washable") %>
+        <% end %>
+
         <li class="list-group-item"><strong><%= t("article.washing_price") %> : </strong><%= @article.washing_price %></li>
         <li class="list-group-item"><strong><%= t("article.handwash_price") %> : </strong><%= @article.handwash_price %></li>
         <li class="list-group-item"><strong><%= t("article.tab_price") %> : </strong><%= @article.tab_price %></li>

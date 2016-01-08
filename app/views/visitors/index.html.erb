@@ -1,45 +1,73 @@
+<div class="container-fluid more-padding">
 
+  <% if user_signed_in? %>
 
+    <% if @user.name.blank? %>
 
-    <div class="container-fluid">
+      <h4>Vous devez compléter votre profil avant de créer un événement.</h4>
 
-      <% if user_signed_in? %>
+      <%= link_to t("user.your_profile"), edit_user_path(@user), class: "btn btn-default" %>
 
-        <% if @user.name.blank? %>
+    <% else %>
 
-          <h4>Vous devez compléter votre profil avant de créer un événement.</h4>
+    Nous livrons les gobelets avant votre événement.
+    Nous les reprennons sales après.
+    Nous les nettoyons pour vous et ne vous facturons que le nettoyage, les gobelets cassés ou abimés et le transport.
+<h4><%= t("article.our_prices") %></h4>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t("article.name") %></th>
+            <th><%= t("article.washing_price") %></th>
+            <th><%= t("article.handwash_price") %></th>
+            <th><%= t("article.tab_price") %></th>
+            <th><strong><%= t("article.deposit_price") %></th>
+          </tr>
+        </thead>
+    
+      <% @rekwup_cups.each do |article| %>
 
-          <%= link_to t("user.your_profile"), edit_user_path(@user), class: "btn btn-default" %>
-
-        <% else %>
-
-          <div class="row">
-            <div class="col-lg-12">
-
-              <% if @user.client %>
-              <%= link_to t("user.your_profile"), user_path(@user), class: "btn btn-default" %>
-              <%= link_to t("event.new_event"), new_event_path, class: "btn btn-default" %>
-              <% end %>
-              <% if @user.staff %>
-              <%= link_to t("menu.your_profile"), user_path(@user), class: "btn btn-default" %>
-              <% end %>
-              <% if @user.admin %>
-              <%= link_to t("menu.your_profile"), user_path(@user), class: "btn btn-default" %>
-              <%= link_to t("event.new_event"), new_event_path, class: "btn btn-default" %>
-              <%= link_to t("article.new_article"), new_article_path, class: "btn btn-default" %>
-              <% end %>
-      
-            </div>
-          </div>
-
-        <% end %>
-     
-      <% else %>
-
-        Bienvenue chez Rekwup!
+        <tbody>
+          <tr>
+          <td><%= article.article_category %> <%= article.full_name %></td>
+          <td><%= article.washing_price %> €</td>
+          <td><%= article.handwash_price %> €</td>
+          <td>
+            <% if article.tab_price.present? %>
+              <%= article.tab_price %> €
+            <% end %>
+          </td>
+          <td><%= article.deposit_price %> €</td>
+          </tr>
+        </tbody>
 
       <% end %>
-    </div>
+    </table>
+  </div>
+
+
+
+
+
+        
+
+
+    <% end %>
+ 
+  <% else %>
+
+    Bienvenue chez Rekwup!
+
+
+
+
+
+
+
+
+  <% end %>
+</div>
 <br>
 
 

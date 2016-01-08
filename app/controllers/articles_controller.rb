@@ -79,6 +79,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:article_name, :article_content, :article_type, :article_category, :quantity_bigbox, :quantity_smallbox, :quantity_pile, :washing_price, :handwash_price, :tab_price, :deposit_price, :is_washable)
+      params.require(:article).permit(:article_name, :article_content, :article_type, :article_category, :quantity_bigbox, :quantity_smallbox, :quantity_pile, :washing_price, :handwash_price, :tab_price, :deposit_price, :is_washable, :rekwup_cup)
     end
 end
