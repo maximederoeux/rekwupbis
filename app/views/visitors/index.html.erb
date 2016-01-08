@@ -13,16 +13,17 @@
     Nous livrons les gobelets avant votre événement.
     Nous les reprennons sales après.
     Nous les nettoyons pour vous et ne vous facturons que le nettoyage, les gobelets cassés ou abimés et le transport.
+
 <h4><%= t("article.our_prices") %></h4>
     <div class="table-responsive">
       <table class="table">
         <thead>
           <tr>
             <th><%= t("article.name") %></th>
-            <th><%= t("article.washing_price") %></th>
-            <th><%= t("article.handwash_price") %></th>
-            <th><%= t("article.tab_price") %></th>
-            <th><strong><%= t("article.deposit_price") %></th>
+            <th class="text-center"><%= t("article.washing_price") %></th>
+            <th class="text-center"><%= t("article.handwash_price") %></th>
+            <th class="text-center"><%= t("article.tab_price") %></th>
+            <th class="text-center"><%= t("article.deposit_price") %></th>
           </tr>
         </thead>
     
@@ -31,14 +32,14 @@
         <tbody>
           <tr>
           <td><%= article.article_category %> <%= article.full_name %></td>
-          <td><%= article.washing_price %> €</td>
-          <td><%= article.handwash_price %> €</td>
-          <td>
+          <td class="text-center"><%= article.washing_price %> €</td>
+          <td class="text-center"><%= article.handwash_price %> €</td>
+          <td class="text-center">
             <% if article.tab_price.present? %>
               <%= article.tab_price %> €
             <% end %>
           </td>
-          <td><%= article.deposit_price %> €</td>
+          <td class="text-center"><%= article.deposit_price %> €</td>
           </tr>
         </tbody>
 
