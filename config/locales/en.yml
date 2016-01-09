@@ -208,9 +208,12 @@ en:
     proposal: "Offer proposal"
     add_box: "Add a full box to this offer"
     add_article: "Add an article to this offer"
-    pending: "Pending Offers"
+    pending: "Offers waiting for clients confirmation"
     yours: "Your Offers"
     your_pending: "Offers to be confirmed"
+    you_confirmed: "You confirmed this offer"
+    client_confirmed: "Confirmed by the client"
+    confirm: "Confirm this offer"
 
   offer_box:
     create: "Add to this offer"

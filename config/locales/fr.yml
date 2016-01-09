@@ -208,9 +208,12 @@ fr:
     proposal: "Propositon d'offre"
     add_box: "Ajouter une caisse complète à cette offre"
     add_article: "Ajouter un article à cette offre"
-    pending: "Offres en attente de confirrmation"
+    pending: "Offres en attente de confirmation du client"
     yours: "Vos offres"
     your_pending: "Vos offres en attente de confirmation"
+    you_confirmed: "Vous avez confirmé cette offre"
+    client_confirmed: "Confirmée par le client"
+    confirm: "Confirmer cette offre"
 
   offer_box:
     create: "Ajouter à cette offre"

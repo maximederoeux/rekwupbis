@@ -208,9 +208,12 @@ nl:
     proposal: "Voorstel van aanbod"
     add_box: "Een volle doos aan deze annbod toevoegen"
     add_article: "Een artikel aan deze annbod toevoegen"
-    pending: "Nog niet bevestigd anbodden"
+    pending: "Aanbodden zonder klant bevestigingen"
     yours: "Uw aanbodden"
     your_pending: "Uw aanbodden te bevestigen"
+    you_confirmed: "U heeft deze aanbod bevestigd"
+    client_confirmed: "Bevestidg door de klant"
+    confirm: "Deze aanbod bevestigen"
 
   offer_box:
     create: "Dozen toevoegen"

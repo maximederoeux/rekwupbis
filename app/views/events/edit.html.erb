@@ -1,14 +1,17 @@
-<h2><%= t("event.edit") %></h2>
+<div class="container-fluid">
 
-<% if @event.organizer_id.blank? %>
+	<h2><%= t("event.edit") %></h2>
 
-<%= render 'organizerform' %>
+	<% if @event.organizer_id.blank? %>
 
-<% else %>
+	<%= render 'organizerform' %>
 
-<%= render 'editform' %>
+	<% else %>
 
-<% end %>
+	<%= render 'editform' %>
 
-<%= link_to t("menu.show"), @event, class: "btn btn-default" %>
-<%= link_to t("menu.back"), events_path, class: "btn btn-default" %>
+	<% end %>
+
+	<%= link_to t("menu.back"), events_path, class: "btn btn-warning" %>
+
+</div>

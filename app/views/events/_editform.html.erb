@@ -1,4 +1,4 @@
-<div class="container-fluid">
+
 
   <ul class="list-group">
 
@@ -22,9 +22,13 @@
 
 
   <div class="form-inputs">
-    <li class="list-group-item">
-      <strong><%= t("event.organizer_change") %>   </strong>
-      <%= f.collection_select :organizer_id, User.all, :id, :full_name_with_company %>
+
+    <% if current_user.admin %>
+      <li class="list-group-item">
+        <strong><%= t("event.organizer_change") %>   </strong>
+        <%= f.collection_select :organizer_id, User.all, :id, :full_name_with_company %>
+      </li>
+    <% end %>
 
   </div><br>
 
@@ -104,8 +108,8 @@
   </div>
 
     <div class="form-actions">
-      <%= f.button :submit %><br>
+      <%= f.button :submit, class: "btn btn-success" %><br>
     </div>
     <br>
   <% end %>
-</div>
+

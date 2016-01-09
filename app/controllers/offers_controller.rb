@@ -86,6 +86,6 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:event_id, :organizer_id)
+      params.require(:offer).permit(:event_id, :organizer_id, :client_confirmation, :admin_confirmation)
     end
 end
