@@ -16,6 +16,9 @@ class OffersController < ApplicationController
     @new_offer_box = OfferBox.new
     @offer_boxes = OfferBox.all
     @thisofferboxes = @offer_boxes.where(:offer_id => @offer.id)
+    @new_offer_article = OfferArticle.new
+    @offer_articles = OfferArticle.all
+    @thisofferarticles = @offer_articles.where(:offer_id => @offer.id)
   end
 
   # GET /offers/new

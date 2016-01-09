@@ -200,6 +200,12 @@ en:
     box_name: "Boxes"
     quantity: "Quantity"
 
+  offer_article:
+    create: "Add to this offer"
+    destroy: "Remove from the offer"
+    article_name: "Articles"
+    quantity: "Quantity"
+
   simple_form:
     labels:
       event:
@@ -246,8 +252,14 @@ en:
         box_regular: "Regular Box - One kind of cups"
         mixed: "Mixed Box - Several kind of cups"
       boxdetail:
-        article_id: "Nom de l'article"
-        box_article_quantity: "Quantité dans la caisse"
+        article_id: "Article"
+        box_article_quantity: "Quantity in the box"
+      offer_box:
+        box_id: "Boxes"
+        quantity: "Quantity"
+      offer_article:
+        article_id: "Articles"
+        quantity: "Quantity"
 
   date:
     formats:
@@ -304,6 +316,9 @@ en:
         update: "Save changes"
       offer_box:
         create: "Add a box"
+        update: "Save changes"
+      offer_article:
+        create: "Add an article"
         update: "Save changes"
 
   notice:
