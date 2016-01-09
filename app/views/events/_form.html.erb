@@ -5,8 +5,13 @@
 
   <div class="row">
     <div class="form-inputs">
-      <div class="col-md-8">       
-        <%= f.input :creatorganizer %>
+      <div class="col-md-8">
+        <% if current_user.client %>       
+          <%= f.hidden_field :creatorganizer, :value => true %>
+        <% else %>
+          <%= f.hidden_field :creatorganizer, :value => false %>
+        <% end %>
+
         <%= f.input :event_name %>
       
         <div class="col-md-6">

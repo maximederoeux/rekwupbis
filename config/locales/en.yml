@@ -191,6 +191,9 @@ en:
   boxdetail:
     edit_boxdetail: "Modify box content"
 
+  offer:
+    create: "Create an offer"
+
   simple_form:
     labels:
       event:

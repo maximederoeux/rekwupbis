@@ -191,6 +191,9 @@ fr:
   boxdetail:
     edit_boxdetail: "Modifier le contenu de la caisse"
 
+  offer:
+    create: "Créer une offre"
+
   simple_form:
     labels:
       event:

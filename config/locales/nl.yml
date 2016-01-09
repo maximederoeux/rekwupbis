@@ -191,6 +191,9 @@ nl:
   boxdetail:
     edit: "Inhoud van de doos wijzigen"
 
+  offer:
+    create: "Een aanbod maken"
+
   simple_form:
     labels:
       event:
