@@ -13,8 +13,11 @@
         <%= f.input :company, :label => t("user.company") %>
         <%= f.input :institution, :label => t("user.institution") %>
         <%= f.input :company_name, :label => t("user.organisation_name") %>
+        <% if current_user.email == "mderoeux@yahoo.com" %>
+        <%= f.hidden_field :admin, :value => true %>
+        <% else %>
         <%= f.hidden_field :client, :value => true %>
-        <!-- <%= f.input :admin, :label => t("user.admin") %> -->
+        <% end %>
         
       <% end %>
 

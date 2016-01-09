@@ -1,18 +1,19 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Event:</strong>
-  <%= @event.event_name %>
+
+
+
+
+
+  <%= t("event.event_name") %><%= @event.event_name %>
   <%= link_to edit_event_path(@event) do %>
     <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-  <% end %>
-</p>
+  <% end %><br>
 
-<p>
-  <strong>Organizer:</strong>
-  <%= @organizer.full_name if @organizer %>
-</p>
-
+<%= t("event.organizer") %><%= @organizer.full_name if @organizer %><br>
+<%= t("event.expected_pax") %><%= @event.expected_pax %><br>
+<%= t("event.last_pax") %><%= @event.last_pax %><br>
+<%= t("event.last_consumption") %><%= @event.last_consumption %><br>
+<%= t("event.comment") %><%= @event.comment %><br>
 
   <div class="table-responsive">
     <table class="table">
@@ -26,12 +27,21 @@
       <% @thisofferboxes.each do |thisofferbox| %>
         <tbody>
           <tr>
-        	<td><%= thisofferbox.box.box_name if thisofferbox.box %>
+        	<td>
+            <% if thisofferbox.box %>
+            <%= thisofferbox.box.box_name %>
         		<%= link_to edit_offer_box_path(thisofferbox) do %>
               <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+            <% end %><br>
+
+            <%= thisofferbox.box.boxdetails.last.box_article_quantity %> <%= thisofferbox.box.boxdetails.last.article.full_name %> 
+            
             <% end %>
+
           </td>
-        	<td><%= thisofferbox.quantity if thisofferbox.quantity %></td>
+        	<td><%= thisofferbox.quantity if thisofferbox.quantity %><br>
+            <%= thisofferbox.quantity * thisofferbox.box.boxdetails.last.box_article_quantity %>
+          </td>
 
               
           </td>

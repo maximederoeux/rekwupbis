@@ -13,9 +13,11 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     @event = @offer.event
     @organizer = @offer.organizer
+
     @new_offer_box = OfferBox.new
     @offer_boxes = OfferBox.all
     @thisofferboxes = @offer_boxes.where(:offer_id => @offer.id)
+    
     @new_offer_article = OfferArticle.new
     @offer_articles = OfferArticle.all
     @thisofferarticles = @offer_articles.where(:offer_id => @offer.id)
@@ -34,9 +36,11 @@ class OffersController < ApplicationController
   # POST /offers.json
   def create
     @offer = Offer.new(offer_params)
+    @event = @offer.event
 
     respond_to do |format|
       if @offer.save
+        @offer.automatic
         format.html { redirect_to @offer, notice: 'Offer was successfully created.' }
         format.json { render :show, status: :created, location: @offer }
       else

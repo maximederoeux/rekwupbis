@@ -161,6 +161,7 @@ nl:
     rekwup_cup: "Rekwup Beker"
     our_prices: "Onze tarieven"
     your_prices: "Uw tarieven"
+    sell_price: "Prijs"
 
   negociated_price:
     add: "Onderhandeld prijzen toevoegen."
@@ -247,6 +248,7 @@ nl:
         tab_price: "Lusbehandeling Prijs"
         deposit_price: "Garantie Prijs"
         rekwup_cup: "Rekwup Beker"
+        sell_price: "Prijs"
       box:
         box_name: "Doosnaam"
         bigbox: "Grote doos"

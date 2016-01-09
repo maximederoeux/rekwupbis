@@ -161,6 +161,7 @@ fr:
     rekwup_cup: "Gobelet Rekwup"
     our_prices: "Nos tarifs"
     your prices: "Vos tarifs"
+    sell_price: "Prix"
 
   negociated_price:
     add: "Ajouter des prix négociés."
@@ -247,6 +248,7 @@ fr:
         tab_price: "Prix Manutention Languette"
         deposit_price: "Prix Caution"
         rekwup_cup: "Gobelet Rekwup"
+        sell_price: "Prix"
       box:
         box_name: "Nom de la caisse"
         bigbox: "Grande caisse"

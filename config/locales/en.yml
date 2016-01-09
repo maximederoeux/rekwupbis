@@ -161,6 +161,7 @@ en:
     rekwup_cup: "Rekwup Cup"
     our_prices: "Our prices"
     your_prices: "Your prices"
+    sell_price: "Price"
 
   negociated_price:
     add: "Add negociated prices"
@@ -193,7 +194,7 @@ en:
     edit_boxdetail: "Modify box content"
 
   offer:
-    create: "Create an new offer"
+    create: "Create a new offer"
     reference: "Offer Nr "
 
   offer_box:
@@ -247,6 +248,7 @@ en:
         tab_price: "Tab Handling Price"
         deposit_price: "Deposit Price"
         rekwup_cup: "Rekwup Cup"
+        sell_price: "Price"
       box:
         box_name: "Box Name"
         bigbox: "Big Box"
