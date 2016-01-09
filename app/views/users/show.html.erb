@@ -28,7 +28,7 @@
 
       </strong></h5></li>
 
-      <li class="list-group-item"><strong><%= t("user.user_name") %> : </strong><%= @user.name if @user.name %></li>
+      <li class="list-group-item"><strong><%= t("user.name") %> : </strong><%= @user.name if @user.name %></li>
 
       <li class="list-group-item"><strong><%= t("user.first_name") %> : </strong><%= @user.first_name if @user.first_name %></li>
 
@@ -44,6 +44,31 @@
 
       <% if @user.institution %>
        <li class="list-group-item"><strong><%= t("user.institution_name") %> : </strong><%= @user.company_name %></li>
+      <% end %>
+
+      <% if current_user.offers.any? %>
+
+        <% if current_user.company_name.present? %>
+
+          <li class="list-group-item"><strong><%= t("user.vat") %> : </strong><%= @user.vat %>
+          </li>
+        <% end %>
+
+        <li class="list-group-item"><strong><%= t("user.address") %> : </strong><%= @user.address %>
+          </li>
+
+        <li class="list-group-item"><strong><%= t("user.postcode") %> : </strong><%= @user.postcode %>
+        </li>
+
+        <li class="list-group-item"><strong><%= t("user.city") %> : </strong><%= @user.city %>
+        </li>
+
+        <li class="list-group-item"><strong><%= t("user.phone") %> : </strong><%= @user.phone %>
+        </li>
+
+        <li class="list-group-item"><strong><%= t("user.gsm") %> : </strong><%= @user.gsm %>
+        </li>
+
       <% end %>
 
     </ul>

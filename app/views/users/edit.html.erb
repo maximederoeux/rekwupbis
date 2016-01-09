@@ -58,19 +58,19 @@
 			        </tr>
 			      </thead>
 			    
-			      <% @thisuserprices.each do |thisuserprice| %>
+			      <% @myprices.each do |myprice| %>
 			        <tbody>
 			          <tr>
-			          <td><%= thisuserprice.article.full_name if thisuserprice.article %>
-                  <%= link_to edit_negociated_price_path(thisuserprice) do %>
+			          <td><%= myprice.article.full_name if myprice.article %>
+                  <%= link_to edit_negociated_price_path(myprice) do %>
                     <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
                   <% end %>
                 </td>
-			          <td><%= thisuserprice.washing_price if thisuserprice.washing_price %></td>
-			          <td><%= thisuserprice.handwash_price if thisuserprice.handwash_price %></td>
-			          <td><%= thisuserprice.tab_price if thisuserprice.tab_price %></td>
-			          <td><%= thisuserprice.deposit_price if thisuserprice.deposit_price %></td>
-			          <td><%= link_to t("box.destroy_article"), thisuserprice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			          <td><%= myprice.washing_price if myprice.washing_price %></td>
+			          <td><%= myprice.handwash_price if myprice.handwash_price %></td>
+			          <td><%= myprice.tab_price if myprice.tab_price %></td>
+			          <td><%= myprice.deposit_price if myprice.deposit_price %></td>
+			          <td><%= link_to t("box.destroy_article"), myprice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
 			        </tbody>
 			      <% end %>

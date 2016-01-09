@@ -91,6 +91,13 @@ en:
     has_negociated: "This client has negociated prices."
     has_not_negociated: "This client does not have negociated prices."
     status: "Status"
+    address: "Street & Number"
+    city: "City"
+    postcode: "Post Code"
+    country: "Country"
+    vat: "VAT Number"
+    phone: "Fixed phone"
+    gsm: "Mobile phone"
 
   event:
     new_event: "New Event"
@@ -201,6 +208,9 @@ en:
     proposal: "Offer proposal"
     add_box: "Add a full box to this offer"
     add_article: "Add an article to this offer"
+    pending: "Pending Offers"
+    yours: "Your Offers"
+    your_pending: "Offers to be confirmed"
 
   offer_box:
     create: "Add to this offer"

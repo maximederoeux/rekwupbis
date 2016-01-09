@@ -26,7 +26,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @negociated_price = NegociatedPrice.new
     @negociated_prices = NegociatedPrice.all
-    @thisuserprices = @negociated_prices.where(:client_id => @user.id)
+    @myprices = @negociated_prices.where(:client_id => @user.id)
+    @myoffers = Offer.where(:organizer_id => @user.id)
     unless @user == current_user or current_user.admin
       redirect_to :back, :alert => t("notice.access")
     end
@@ -53,7 +54,7 @@ class UsersController < ApplicationController
    
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :first_name, :individual, :company, :non_profit, :institution, :admin, :staff, :client, :company_name, :party, :dinner, :negociated_price)
+      params.require(:user).permit(:name, :first_name, :individual, :company, :non_profit, :institution, :admin, :staff, :client, :company_name, :party, :dinner, :negociated_price, :address, :postcode, :city, :country, :vat, :phone, :gsm)
     end
 
 

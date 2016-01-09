@@ -91,6 +91,13 @@ nl:
     has_negociated: "Deze klant heeft onderhandeld prijzen."
     has_not_negociated: "Deze klant heeft geen onderhandeld prijzen."
     status: "Toestand"
+    address: "Straat & Nummer"
+    city: "Stad"
+    postcode: "Postcode"
+    country: "Land"
+    vat: "BTW Nummer"
+    phone: "Vast telefoonnummer"
+    gsm: "GSM Nummer"
 
   event:
     new_event: "Nieuw evenement"
@@ -201,6 +208,9 @@ nl:
     proposal: "Voorstel van aanbod"
     add_box: "Een volle doos aan deze annbod toevoegen"
     add_article: "Een artikel aan deze annbod toevoegen"
+    pending: "Nog niet bevestigd anbodden"
+    yours: "Uw aanbodden"
+    your_pending: "Uw aanbodden te bevestigen"
 
   offer_box:
     create: "Dozen toevoegen"

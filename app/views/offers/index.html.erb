@@ -1,18 +1,37 @@
-<p id="notice"><%= notice %></p>
+<% if current_user.admin %>
 
-<h1>Listing Offers</h1>
+	<h2><%= t("offer.pending") %></h2>
 
-        <% @offers.each do |offer| %>
+	        <% @offers.each do |offer| %>
 
-          <li class="list-group-item list-group-item-info"><strong>
-            <%= t("offer.reference") %><%= offer.id %>
-            <%= link_to offer_path(offer) do %>
-              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-            <% end %>
-            <%= offer.event.event_name %>
-          </strong></li>
-          
-        <% end %>
-<br>
+	          <li class="list-group-item list-group-item-info"><strong>
+	            <%= t("offer.reference")%><%= offer.created_at.strftime("%Y") %> - <%= @offer.id %>
+	            <%= link_to offer_path(offer) do %>
+	              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+	            <% end %>
+	            <%= offer.event.event_name %>
+	          </strong></li>
+	          
+	        <% end %>
 
 
+
+<% else %>
+
+<h3><%= t("offer.your_pending") %></h3>
+
+	<% @myoffers.each do |offer| %>
+
+	  <li class="list-group-item list-group-item-info"><strong>
+	    <%= t("offer.reference")%><%= offer.created_at.strftime("%Y") %> - <%= offer.id %>
+	    <%= link_to offer_path(offer) do %>
+	      <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+	    <% end %>
+	    <%= offer.event.event_name %>
+	  </strong></li>
+		          
+	<% end %>
+
+
+
+<% end %>

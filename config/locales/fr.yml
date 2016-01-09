@@ -91,6 +91,13 @@ fr:
     has_negociated: "Ce client a des prix négociés."
     has_not_negociated: "Ce client n'a pas de prix négociés."
     status: "Statut"
+    address: "Rue et numéro"
+    city: "Ville"
+    postcode: "Code Postal"
+    country: "Pays"
+    vat: "Nr TVA"
+    phone: "Téléphone Fixe"
+    gsm: "GSM"
 
   event:
     new_event: "Nouvel événement"
@@ -201,6 +208,9 @@ fr:
     proposal: "Propositon d'offre"
     add_box: "Ajouter une caisse complète à cette offre"
     add_article: "Ajouter un article à cette offre"
+    pending: "Offres en attente de confirrmation"
+    yours: "Vos offres"
+    your_pending: "Vos offres en attente de confirmation"
 
   offer_box:
     create: "Ajouter à cette offre"

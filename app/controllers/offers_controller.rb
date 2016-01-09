@@ -5,6 +5,10 @@ class OffersController < ApplicationController
   # GET /offers.json
   def index
     @offers = Offer.all
+    @events = Event.all
+    @user = current_user
+    @myoffers = Offer.where(:organizer => current_user)
+
   end
 
   # GET /offers/1

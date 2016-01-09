@@ -32,6 +32,20 @@
         <%= f.input :institution, :label => t("user.institution") %>
         <%= f.input :company_name, :label => t("user.organisation_name") %>
 
+
+        <% if current_user.offers.any? %>
+          <% if current_user.company_name.present? %>
+            <%= f.input :vat, :label => t("user.vat"), :placeholder => t("user.vat") %>
+          <% end %>
+           <%= f.input :address, :label => t("user.address"), :placeholder => t("user.address") %>
+           <%= f.input :postcode, :label => t("user.postcode"), :placeholder => t("user.postcode") %>
+           <%= f.input :city, :label => t("user.city"), :placeholder => t("user.city") %>
+           <%= f.input :country, :label => t("user.country"), :placeholder => t("user.country") %>
+           <%= f.input :phone, :label => t("user.phone"), :placeholder => t("user.phone") %>
+           <%= f.input :gsm, :label => t("user.gsm"), :placeholder => t("user.gsm") %>
+
+        <% end %>
+
       <% end %>
 
       <% if current_user.staff %>
