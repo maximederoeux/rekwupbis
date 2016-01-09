@@ -6,15 +6,16 @@
 
       <h4>Vous devez compléter votre profil avant de créer un événement.</h4>
 
-      <%= link_to t("user.your_profile"), edit_user_path(@user), class: "btn btn-default" %>
+      <%= link_to t("user.your_profile"), edit_user_path(@user), class: "btn btn-default" %><br>
 
-    <% else %>
+    <% end %>
 
-    Nous livrons les gobelets avant votre événement.
-    Nous les reprennons sales après.
-    Nous les nettoyons pour vous et ne vous facturons que le nettoyage, les gobelets cassés ou abimés et le transport.
+      Nous livrons les gobelets avant votre événement.
+      Nous les reprennons sales après.
+      Nous les nettoyons pour vous et ne vous facturons que le nettoyage, les gobelets cassés ou abimés et le transport.
 
-<h4><%= t("article.our_prices") %></h4>
+    <h4><%= t("article.our_prices") %></h4>
+
     <div class="table-responsive">
       <table class="table">
         <thead>
@@ -43,34 +44,16 @@
           </tr>
         </tbody>
 
-      <% end %>
-    </table>
-  </div>
-
-
-
-
-
-        
-
-
-    <% end %>
- 
+        <% end %>
+      </table>
+    </div>
   <% else %>
 
-    Bienvenue chez Rekwup!
+  Vous organisez un événement et avez besoin de gobelets réutilisables?
+  Inscrivez-vous pour obtenir gratuitement une offre de service.
+      
+    <%= link_to t("menu.sign_up"), new_user_registration_path, class: "btn btn-success btn-lg btn-block" %>
 
-
-
-
-
-
-
-
-  <% end %>
+    <% end %>
+   
 </div>
-<br>
-
-
-
-

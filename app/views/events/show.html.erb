@@ -17,15 +17,15 @@
           
         <% end %>
 
-
-
-
+        <% if current_user.admin %>
           <%= simple_form_for(@new_offer) do |f| %>
             <%= f.error_notification %>
             <%= f.hidden_field :event_id, :value => @event.id %>
             <%= f.hidden_field :organizer_id, :value => @event.organizer_id %>
             <%= f.submit t("offer.create"), class: "btn btn-success" %>
+          <% end %>
         <% end %>
+
       </li>
 
       <li class="list-group-item list-group-item-success"><h6><strong><%= t("event.general_info") %></strong></h6></li>
@@ -91,8 +91,8 @@
     </ul>
   </div>
   
-<%= link_to t("menu.edit"), edit_event_path(@event), class: "btn btn-default" %>
-<%= link_to t("menu.back"), events_path, class: "btn btn-default" %>
+<%= link_to t("menu.edit"), edit_event_path(@event), class: "btn btn-success" %>
+<%= link_to t("menu.back"), events_path, class: "btn btn-warning" %>
 
 
   

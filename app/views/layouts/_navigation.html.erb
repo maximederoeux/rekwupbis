@@ -24,7 +24,9 @@
           <li><%= link_to_unless_current "EN", locale: "en" %></li>
           <li><%= link_to_unless_current "FR", locale: "fr" %></li>
           <li><%= link_to_unless_current "NL", locale: "nl" %></li>
-          <li><%= link_to t("menu.sign_out"), destroy_user_session_path, :method=>'delete' %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to t("menu.sign_out"), destroy_user_session_path, :method=>'delete' %></li>
+          <% end %>
       </ul>
 
     </div>

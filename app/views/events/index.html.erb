@@ -1,58 +1,54 @@
+<div class="container-fluid"><br>
 
+  <% if current_user.admin %>
 
-      <div class="container-fluid"><br>
+    <%= link_to t("event.create_event"), new_event_path, class: "btn btn-success" %><br>
 
-        <% if current_user.admin %>
+    <ul class="list-group">
+      <br><li class="list-group-item list-group-item-default"><h4><strong>
+        <%= t("event.listing_events") %></strong></h4></li>
+    </ul>
 
-          <%= link_to t("event.create_event"), new_event_path, class: "btn btn-success" %><br>
+    <div class="row">
+    
+      <% @events.each do |event| %>
 
-          <ul class="list-group">
-            <br><li class="list-group-item list-group-item-default"><h4><strong>
-              <%= t("event.listing_events") %></strong></h4></li>
-          </ul>
-
-        <div class="row">
-          
-            <% @events.each do |event| %>
-
-              <div class="col-xs-6 col-md-4">
-                <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
-              </div>
-
-            <% end %>
-
+        <div class="col-xs-6 col-md-4">
+          <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
         </div>
 
-        <% elsif current_user.client %>
+      <% end %>
 
-          <%= link_to t("event.new_event"), new_event_path, class: "btn btn-success" %>
+    </div>
 
-            <% if @myevents.present? %>
+  <% elsif current_user.client %>
 
-              <ul class="list-group">
-                <br><li class="list-group-item list-group-item-default"><h4><strong>
-                  <%= t("event.your_events") %></strong></h4></li>
-              </ul>
+    <%= link_to t("event.new_event"), new_event_path, class: "btn btn-success" %>
 
-              
+      <% if @myevents.present? %>
 
-              <% @myevents.each do |event| %>
+        <ul class="list-group">
+          <br><li class="list-group-item list-group-item-default"><h4><strong>
+            <%= t("event.your_events") %></strong></h4></li>
+        </ul>
 
-                <div class="col-xs-6 col-md-4">
-                  <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
-                </div>
+        <% @myevents.each do |event| %>
 
-              <% end %>
-              
-
-            <% else %>
-
-              <h4><%= t("event.no_event_yet") %></h4>
-          
-              <%= link_to t("event.new_event"), new_event_path, class: "btn btn-default" %>
-
-            <% end %>
+          <div class="col-xs-6 col-md-4">
+            <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
+          </div>
 
         <% end %>
-      </div> <!-- /#container-fluid -->
+        
+
+      <% else %>
+
+        <h4><%= t("event.no_event_yet") %></h4>
+    
+        <%= link_to t("event.new_event"), new_event_path, class: "btn btn-default" %>
+
+      <% end %>
+
+  <% end %>
+</div> <!-- /#container-fluid -->
 
