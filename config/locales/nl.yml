@@ -53,6 +53,7 @@ nl:
     articles: "Artikels"
     boxes: "Dozen"
     negociated_prices: "Onderhandeld prizen"
+    offers: "Aanbodden"
 
   user:
     name: "Naam"
@@ -192,7 +193,8 @@ nl:
     edit: "Inhoud van de doos wijzigen"
 
   offer:
-    create: "Een aanbod maken"
+    create: "Een nieuwe aanbod maken"
+    reference: "Aanbod Nr "
 
   offer_box:
     create: "Dozen toevoegen"

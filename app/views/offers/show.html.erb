@@ -3,11 +3,14 @@
 <p>
   <strong>Event:</strong>
   <%= @event.event_name %>
+  <%= link_to edit_event_path(@event) do %>
+    <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+  <% end %>
 </p>
 
 <p>
   <strong>Organizer:</strong>
-  <%= @organizer.full_name %>
+  <%= @organizer.full_name if @organizer %>
 </p>
 
 

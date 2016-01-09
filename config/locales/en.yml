@@ -53,6 +53,7 @@ en:
     articles: "Articles"
     boxes: "Boxes"
     negociated_prices: "Negociated Prices"
+    offers: "Offers"
 
   user:
     name: "Last Name"
@@ -192,7 +193,8 @@ en:
     edit_boxdetail: "Modify box content"
 
   offer:
-    create: "Create an offer"
+    create: "Create an new offer"
+    reference: "Offer Nr "
 
   offer_box:
     create: "Add to this offer"

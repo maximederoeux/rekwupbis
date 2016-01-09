@@ -19,6 +19,7 @@ class EventsController < ApplicationController
     @creator = @event.creator
     @organizer = @event.organizer
     @new_offer = Offer.new
+    @thiseventoffers = Offer.where(:event_id => @event.id)
     unless current_user.admin or current_user == @creator or current_user == @organizer
       redirect_to :back, :alert => t("notice.access")
     end

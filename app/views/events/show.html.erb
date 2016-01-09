@@ -5,6 +5,21 @@
   <div class="row">
     <ul class="list-group">
       <li class="list-group-item list-group-item-warning"><h5><strong><%= t("event.your_event") %> - Ref. <%= @event.created_at.strftime("%Y") %>-<%= @event.id %></strong></h5>
+
+        <% @thiseventoffers.each do |thiseventoffer| %>
+
+          <li class="list-group-item list-group-item-info"><strong>
+            <%= t("offer.reference") %><%= thiseventoffer.id %>
+            <%= link_to offer_path(thiseventoffer) do %>
+              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+            <% end %>
+          </strong></li>
+          
+        <% end %>
+
+
+
+
           <%= simple_form_for(@new_offer) do |f| %>
             <%= f.error_notification %>
             <%= f.hidden_field :event_id, :value => @event.id %>

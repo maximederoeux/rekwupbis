@@ -2,28 +2,17 @@
 
 <h1>Listing Offers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Event</th>
-      <th>Organizer</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <% @offers.each do |offer| %>
 
-  <tbody>
-    <% @offers.each do |offer| %>
-      <tr>
-        <td><%= offer.event_id %></td>
-        <td><%= offer.organizer_id %></td>
-        <td><%= link_to 'Show', offer %></td>
-        <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
-        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+          <li class="list-group-item list-group-item-info"><strong>
+            <%= t("offer.reference") %><%= offer.id %>
+            <%= link_to offer_path(offer) do %>
+              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+            <% end %>
+            <%= offer.event.event_name %>
+          </strong></li>
+          
+        <% end %>
 <br>
 
-<%= link_to 'New Offer', new_offer_path %>
+

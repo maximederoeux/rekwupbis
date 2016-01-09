@@ -53,6 +53,7 @@ fr:
     articles: "Articles"
     boxes: "Caisses"
     negociated_prices: "Prix négociés"
+    offers: "Offres"
 
   user:
     name: "Nom"
@@ -192,7 +193,8 @@ fr:
     edit_boxdetail: "Modifier le contenu de la caisse"
 
   offer:
-    create: "Créer une offre"
+    create: "Créer une nouvelle offre"
+    reference: "Offre N° "
 
   offer_box:
     create: "Ajouter à cette offre"
