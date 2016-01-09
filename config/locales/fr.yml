@@ -196,6 +196,11 @@ fr:
   offer:
     create: "Créer une nouvelle offre"
     reference: "Offre N° "
+    cups: "Gobelets"
+    boxes: "Caisses"
+    proposal: "Propositon d'offre"
+    add_box: "Ajouter une caisse complète à cette offre"
+    add_article: "Ajouter un article à cette offre"
 
   offer_box:
     create: "Ajouter à cette offre"

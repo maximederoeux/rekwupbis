@@ -196,6 +196,11 @@ en:
   offer:
     create: "Create a new offer"
     reference: "Offer Nr "
+    cups: "Cups"
+    boxes: "Boxes"
+    proposal: "Offer proposal"
+    add_box: "Add a full box to this offer"
+    add_article: "Add an article to this offer"
 
   offer_box:
     create: "Add to this offer"

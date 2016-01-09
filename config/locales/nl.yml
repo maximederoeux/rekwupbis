@@ -196,6 +196,11 @@ nl:
   offer:
     create: "Een nieuwe aanbod maken"
     reference: "Aanbod Nr "
+    cups: "Bekers"
+    boxes: "Dozen"
+    proposal: "Voorstel van aanbod"
+    add_box: "Een volle doos aan deze annbod toevoegen"
+    add_article: "Een artikel aan deze annbod toevoegen"
 
   offer_box:
     create: "Dozen toevoegen"
