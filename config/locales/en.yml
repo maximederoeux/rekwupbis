@@ -194,6 +194,12 @@ en:
   offer:
     create: "Create an offer"
 
+  offer_box:
+    create: "Add to this offer"
+    destroy: "Remove from the offer"
+    box_name: "Boxes"
+    quantity: "Quantity"
+
   simple_form:
     labels:
       event:
@@ -295,6 +301,9 @@ en:
         update: "Save changes"
       negociated_price:
         create: "Add a negociated price"
+        update: "Save changes"
+      offer_box:
+        create: "Add a box"
         update: "Save changes"
 
   notice:

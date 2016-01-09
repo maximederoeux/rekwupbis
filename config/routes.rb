@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :offer_boxes
   resources :offers
   resources :negociated_prices
   resources :boxdetails

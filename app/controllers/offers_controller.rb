@@ -10,6 +10,12 @@ class OffersController < ApplicationController
   # GET /offers/1
   # GET /offers/1.json
   def show
+    @offer = Offer.find(params[:id])
+    @event = @offer.event
+    @organizer = @offer.organizer
+    @new_offer_box = OfferBox.new
+    @offer_boxes = OfferBox.all
+    @thisofferboxes = @offer_boxes.where(:offer_id => @offer.id)
   end
 
   # GET /offers/new

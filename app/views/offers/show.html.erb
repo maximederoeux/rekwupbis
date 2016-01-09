@@ -2,13 +2,66 @@
 
 <p>
   <strong>Event:</strong>
-  <%= @offer.event_id %>
+  <%= @event.event_name %>
 </p>
 
 <p>
   <strong>Organizer:</strong>
-  <%= @offer.organizer_id %>
+  <%= @organizer.full_name %>
 </p>
+
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= t("offer_box.box_name") %></th>
+          <th><%= t("offer_box.quantity") %></th>
+        </tr>
+      </thead>
+    
+      <% @thisofferboxes.each do |thisofferbox| %>
+        <tbody>
+          <tr>
+        	<td><%= thisofferbox.box.box_name if thisofferbox.box %>
+        		<%= link_to edit_offer_box_path(thisofferbox) do %>
+              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+            <% end %>
+          </td>
+        	<td><%= thisofferbox.quantity if thisofferbox.quantity %></td>
+
+              
+          </td>
+          <td><%= link_to t("offer_box.destroy"), thisofferbox, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <%= simple_form_for(@new_offer_box) do |f| %>
+          <%= f.error_notification %>
+
+          
+          	<%= f.hidden_field :offer_id, :value => @offer.id %>
+             <div class="col-md-3">
+              <%= f.label :box_id %>
+              <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select"} %>
+            </div>
+            <div class="col-md-3">
+              <%= f.input :quantity %>
+            </div>
+
+            <div class="col-md-3">
+              <br>
+              <%= f.button :submit, class: "btn btn-success" %>
+            </div>
+        <% end %>
+      </div>
+    </div><br>
 
 <%= link_to 'Edit', edit_offer_path(@offer) %> |
 <%= link_to 'Back', offers_path %>

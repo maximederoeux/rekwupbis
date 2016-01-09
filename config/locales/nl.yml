@@ -194,6 +194,12 @@ nl:
   offer:
     create: "Een aanbod maken"
 
+  offer_box:
+    create: "Dozen toevoegen"
+    destroy: "Deze doos verwijderen"
+    box_name: "Dozen"
+    quantity: "Kwantiteit"
+
   simple_form:
     labels:
       event:
@@ -287,6 +293,9 @@ nl:
         update: "Opslaan"
       negociated_price:
         create: "Een onderhandeld prijs toevoegen"
+        update: "Opslaan"
+      offer_box:
+        create: "Een doos toevoegen"
         update: "Opslaan"
 
   notice:

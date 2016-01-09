@@ -194,6 +194,12 @@ fr:
   offer:
     create: "Créer une offre"
 
+  offer_box:
+    create: "Ajouter à cette offre"
+    destroy: "Retirer de cette offre"
+    box_name: "Caisses"
+    quantity: "Quantité"
+
   simple_form:
     labels:
       event:
@@ -295,6 +301,9 @@ fr:
         update: "Enregistrer les changements"
       negociated_price:
         create: "Ajouter un prix négocié"
+        update: "Enregistrer les changements"
+      offer_box:
+        create: "Ajouter une caisse"
         update: "Enregistrer les changements"
 
   notice:
