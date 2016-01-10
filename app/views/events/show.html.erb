@@ -2,7 +2,7 @@
   
   <br>
 
-  <div class="row">
+
     <ul class="list-group">
       <li class="list-group-item list-group-item-warning"><h5><strong><%= t("event.your_event") %> - Ref. <%= @event.created_at.strftime("%Y") %>-<%= @event.id %></strong></h5>
 
@@ -20,38 +20,124 @@
 
         <% @thiseventoffers.each do |thiseventoffer| %>
 
-          <li class="list-group-item list-group-item-info"><strong>
-            <%= t("offer.reference") %><%= thiseventoffer.id %>
-            <%= link_to offer_path(thiseventoffer) do %>
-              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-            <% end %>
-          </strong></li>
+          <li class="list-group-item list-group-item-info">
+            <strong>
+              <%= t("offer.reference") %><%= thiseventoffer.id %>
+              <%= link_to offer_path(thiseventoffer) do %>
+                <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+              <% end %>
+            </strong>
+          </li>
           
         <% end %>
 
 
-      <li class="list-group-item list-group-item-success"><h6><strong><%= t("event.general_info") %></strong></h6></li>
+      <li class="list-group-item list-group-item-success">
+        <h6><strong>
+          <%= t("event.general_info") %>
+        </strong></h6>
+      </li>
 
-      <li class="list-group-item"><strong><%= t("event.event_name") %> : </strong><%= @event.event_name %></li>
+      <li class="list-group-item">
+        <div class="row">
 
-      <li class="list-group-item"><strong><%= t("event.creator_name") %> </strong><%= @creator.full_name if @event.creator %><strong> <%= t("word.on_the") %> </strong><%= @event.created_at.strftime("%d/%m/%Y") %></li> 
-      <li class="list-group-item"><strong><%= t("event.organizer_name") %> </strong><%= @organizer.full_name if @event.organizer %></li>
+          <div class="col-md-6">
+            <strong><%= t("event.event_name") %> : </strong>
+            <%= @event.event_name %>
+          </div>
 
+          <div class="col-md-6">
+            <strong><%= t("event.creator_name") %> </strong>
+              <%= @creator.full_name if @event.creator %>
+            <strong> <%= t("word.on_the") %> </strong>
+              <%= @event.created_at.strftime("%d/%m/%Y") %>
+          </div>
+        </div>
+      </li>
 
-      <li class="list-group-item"><strong><%= t("event.event_start_date") %> : </strong><%= @event.event_start_date %></li>
-      <li class="list-group-item"><strong><%= t("event.event_end_date") %> : </strong><%= @event.event_end_date %></li>
+      <li class="list-group-item">
+        <strong><%= t("event.organizer_name") %> </strong>
+        <%= @organizer.full_name if @event.organizer %>
+      </li>
 
+      <li class="list-group-item">
+        <div class="row">
 
+          <div class="col-md-6">
+            <strong><%= t("event.event_start_date") %> : </strong>
+            <%= @event.event_start_date %>
+          </div>
+          <div class="col-md-6">
+            <strong><%= t("event.event_end_date") %> : </strong>
+            <%= @event.event_end_date %>
+          </div>
+      </li>
 
-      <li class="list-group-item"><strong><%= t("event.expected_pax") %> : </strong><%= @event.expected_pax %></li>
-      <li class="list-group-item"><strong><%= t("event.last_pax") %> : </strong><%= @event.last_pax %></li>
-      <li class="list-group-item"><strong><%= t("event.last_consumption") %> : </strong><%= @event.last_consumption %></li>
-      <li class="list-group-item"><strong><%= t("event.city") %> : </strong><%= @event.post_code %> <%= @event.city %>, <%= @event.country %></li>
+      <li class="list-group-item">
+        <div class="row text-center">
+
+          <div class="col-md-4">
+            <strong><%= t("event.expected_pax") %></strong><br>
+            <%= @event.expected_pax %>
+          </div>
+          <div class="col-md-4">
+            <strong><%= t("event.last_pax") %></strong><br>
+            <%= @event.last_pax %>
+          </div>
+          <div class="col-md-4">
+            <strong><%= t("event.last_consumption") %></strong><br>
+            <%= @event.last_consumption %>
+          </div>
+      </li>
 
       <% if @event.comment.present? %>
         <li class="list-group-item list-group-item-success"><strong><%= t("event.comment") %></strong></li>
         <li class="list-group-item"><%= @event.comment %></li>
       <% end %>
+
+      <li class="list-group-item list-group-item-success">
+        <h6><strong>
+          <%= t("event.delivery_info") %>
+        </strong></h6>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+
+          <div class="col-md-6">
+                <% if @event.address.present? %>
+                <%= @event.address %>  
+                <% end %>
+              <%= @event.post_code %> <%= @event.city %>, <%= @event.country %>
+          </div>
+
+          <div class="col-md-3">
+            <%= @event.contact %> 
+          </div>
+
+          <div class="col-md-3">
+            <%= @event.phone %>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+
+          <div class="col-md-6">
+            <% if @event.delivery_date.present? %>
+              <strong><%= t("event.delivery_date") %> : </strong>
+              <%= @event.delivery_date %>
+            <% end %>
+          </div>
+
+          <div class="col-md-6">
+            <strong><%= t("event.return_date") %> : </strong>
+              <%= @event.return_date %>
+          </div>
+        </div>
+      </li>
+
 
       <li class="list-group-item list-group-item-success"><h6><strong><%= t("event.selected_cups") %></strong></h6></li>
 
@@ -91,7 +177,7 @@
       <% end %>
       
     </ul>
-  </div>
+
   
 <%= link_to t("menu.edit"), edit_event_path(@event), class: "btn btn-success" %>
 <%= link_to t("menu.back"), events_path, class: "btn btn-warning" %>
