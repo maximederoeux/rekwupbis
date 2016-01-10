@@ -107,7 +107,7 @@ nl:
     event_end_date: "Eind Datum"
     expected_pax: "Verwachte aantal van gasten"
     last_pax: "Aantal gasten op de laatste editie"
-    last_consumtion: "Drank verbruik op de laatste editie"
+    last_consumption: "Drank verbruik op de laatste editie"
     post_code: "Postcode"
     city: "Stad"
     country: "Land"
@@ -214,6 +214,7 @@ nl:
     you_confirmed: "U heeft deze aanbod bevestigd"
     client_confirmed: "Bevestidg door de klant"
     confirm: "Deze aanbod bevestigen"
+    delivery: "Naar levering zenden"
 
   offer_box:
     create: "Dozen toevoegen"

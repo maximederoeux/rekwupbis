@@ -102,6 +102,7 @@ class Offer < ActiveRecord::Base
 	end
 
 	def automatic
+		offer_articles.create(:offer_id => id, :article_id => "12", :quantity => "2")
 	  if event.cuptwenty
 	  offer_boxes.create(:offer_id => id, :box_id => "1", :quantity => estimated_20_boxes)
 	  end

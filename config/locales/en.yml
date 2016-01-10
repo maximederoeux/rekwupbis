@@ -214,6 +214,7 @@ en:
     you_confirmed: "You confirmed this offer"
     client_confirmed: "Confirmed by the client"
     confirm: "Confirm this offer"
+    delivery: "Send for delivery"
 
   offer_box:
     create: "Add to this offer"

@@ -7,6 +7,15 @@
         <h4><%= t("offer.reference")%><%= @offer.created_at.strftime("%Y") %> - <%= @offer.id %>
           <% if @offer.client_confirmation? %>
             - <%= t("offer.client_confirmed") %>
+
+                  <%= simple_form_for(@offer) do |f| %>
+                    <%= f.error_notification %>           
+                      <%= f.hidden_field :admin_confirmation, :value => true %>
+                    <div class="form-actions">
+                      <%= f.submit t("offer.delivery"), class: "btn btn-success" %>
+                    </div>
+                  <% end %>
+
           <% end %>
         </h4>
       </li>
@@ -50,7 +59,10 @@
           <tr>
             <th><%= t("offer_box.box_name") %></th>
             <th><%= t("offer_box.quantity") %></th>
-            <th></th>
+            <th><%= t("article.washing_price") %></th>
+            <th><%= t("article.handwash_price") %></th>
+            <th><%= t("article.tab_price") %></th>
+            <th><%= t("article.deposit_price") %></th>
           </tr>
         </thead>
       
@@ -73,6 +85,11 @@
               <%= thisofferbox.quantity * thisofferbox.box.boxdetails.last.box_article_quantity %> <%= t("offer.cups") %>
             </td>
 
+            <td><%= thisofferbox.box.boxdetails.last.article.washing_price %></td>
+            <td><%= thisofferbox.box.boxdetails.last.article.handwash_price %></td>
+            <td><%= thisofferbox.box.boxdetails.last.article.tab_price %></td>
+            <td><%= thisofferbox.box.boxdetails.last.article.deposit_price %></td>
+
             <td><%= link_to t("offer_box.destroy"), thisofferbox, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           </tbody>
@@ -86,6 +103,7 @@
           <tr>
             <th><%= t("offer_article.article_name") %></th>
             <th><%= t("offer_article.quantity") %></th>
+            <th><%= t("article.sell_price") %></th>
             <th></th>
           </tr>
         </thead>
@@ -97,12 +115,15 @@
           		<%= link_to edit_offer_article_path(thisofferarticle) do %>
                 <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
               <% end %>
-            </td>
-          	<td><%= thisofferarticle.quantity if thisofferarticle.quantity %></td>
 
-                
-            
-            <td><%= link_to t("offer_article.destroy"), thisofferarticle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <button type="button" class="btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span><%= link_to 'Destroy', method: :delete, data: { confirm: 'Are you sure?' } %>
+              </button>
+
+            </td>
+            <td><%= thisofferarticle.quantity if thisofferarticle.quantity %></td>
+          	<td><%= thisofferarticle.article.sell_price if thisofferarticle.article.sell_price %></td>
+
             </tr>
           </tbody>
         <% end %>
@@ -252,6 +273,7 @@
           <tr>
             <th><%= t("offer_article.article_name") %></th>
             <th><%= t("offer_article.quantity") %></th>
+            <th><%= t("article.sell_price") %></th>
           </tr>
         </thead>
       
@@ -261,6 +283,7 @@
               <td><%= thisofferarticle.article.article_name if thisofferarticle.article %>
               </td>
               <td><%= thisofferarticle.quantity if thisofferarticle.quantity %></td>
+              <td><%= thisofferarticle.article.sell_price if thisofferarticle.article.sell_price %></td>
             </tr>
           </tbody>
         <% end %>

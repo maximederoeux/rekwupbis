@@ -8,6 +8,7 @@ class OffersController < ApplicationController
     @events = Event.all
     @user = current_user
     @myoffers = Offer.where(:organizer => current_user)
+    @confirmedoffers = Offer.where(:client_confirmation => true)
 
   end
 

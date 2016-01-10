@@ -214,6 +214,7 @@ fr:
     you_confirmed: "Vous avez confirmé cette offre"
     client_confirmed: "Confirmée par le client"
     confirm: "Confirmer cette offre"
+    delivery: "Envoyer pour livraison"
 
   offer_box:
     create: "Ajouter à cette offre"

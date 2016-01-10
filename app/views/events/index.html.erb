@@ -23,31 +23,33 @@
 
   <% elsif current_user.client %>
 
-    <%= link_to t("event.new_event"), new_event_path, class: "btn btn-success" %>
-
-      <% if @myevents.present? %>
-
-        <ul class="list-group">
-          <br><li class="list-group-item list-group-item-default"><h4><strong>
-            <%= t("event.your_events") %></strong></h4></li>
-        </ul>
-
-        <% @myevents.each do |event| %>
-
-          <div class="col-xs-6 col-md-4">
-            <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
-          </div>
-
-        <% end %>
-        
-
-      <% else %>
-
-        <h4><%= t("event.no_event_yet") %></h4>
     
-        <%= link_to t("event.new_event"), new_event_path, class: "btn btn-default" %>
+
+    <% if @myevents.present? %>
+
+      <%= link_to t("event.new_event"), new_event_path, class: "btn btn-success" %>
+
+      <ul class="list-group">
+        <br><li class="list-group-item list-group-item-default"><h4><strong>
+          <%= t("event.your_events") %></strong></h4></li>
+      </ul>
+
+      <% @myevents.each do |event| %>
+
+        <div class="col-xs-6 col-md-4">
+          <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
+        </div>
 
       <% end %>
+      
+
+    <% else %>
+
+      <h4><%= t("event.no_event_yet") %></h4>
+  
+      <%= link_to t("event.new_event"), new_event_path, class: "btn btn-success" %>
+
+    <% end %>
 
   <% end %>
 </div> <!-- /#container-fluid -->
