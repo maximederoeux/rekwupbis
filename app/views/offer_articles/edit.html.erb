@@ -1,6 +1,14 @@
-<h1>Editing Offer Article</h1>
+<div class="container-fluid more-padding">
+  
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-warning">
+			<h3><%= t("article.edit_article")%></h3>
+		</li>
+	</ul>
 
-<%= render 'form' %>
+<%= render 'form' %><br>
 
-<%= link_to 'Show', @offer_article %> |
-<%= link_to 'Back', offer_articles_path %>
+
+<%= link_to t("menu.back"), @offer, class: "btn btn-lg btn-warning" %>
+
+</div>

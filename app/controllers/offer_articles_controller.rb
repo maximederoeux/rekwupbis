@@ -19,6 +19,7 @@ class OfferArticlesController < ApplicationController
 
   # GET /offer_articles/1/edit
   def edit
+    @offer = @offer_article.offer
   end
 
   # POST /offer_articles
@@ -40,9 +41,10 @@ class OfferArticlesController < ApplicationController
   # PATCH/PUT /offer_articles/1
   # PATCH/PUT /offer_articles/1.json
   def update
+    @offer = @offer_article.offer
     respond_to do |format|
       if @offer_article.update(offer_article_params)
-        format.html { redirect_to @offer_article, notice: 'Offer article was successfully updated.' }
+        format.html { redirect_to @offer, notice: 'Offer article was successfully updated.' }
         format.json { render :show, status: :ok, location: @offer_article }
       else
         format.html { render :edit }
