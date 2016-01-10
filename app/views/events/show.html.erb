@@ -223,19 +223,18 @@
 
       <% if @event.dinner %>
         <li class="list-group-item"><%= t("event.dinner") %></li>
-      <% end %>
-
-
-        <%= link_to t("menu.edit"), edit_event_path(@event), class: "btn btn-lg btn-block btn-info" %>
-
-
-      
+      <% end %> 
     </ul>
 
-  
-<br>
-<%= link_to t("menu.back"), events_path, class: "btn btn-lg btn-block btn-warning" %>
+    <div class="row">
 
+      <div class="col-md-6">
+        <%= link_to t("menu.back"), events_path, class: "btn btn-lg btn-block btn-default" %>
+      </div>
+      <div class="col-md-6">
+        <%= link_to t("menu.edit"), edit_event_path(@event), class: "btn btn-lg btn-block btn-info" %>
+      </div>
+    </div>
 
   
 
