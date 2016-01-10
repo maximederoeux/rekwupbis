@@ -143,6 +143,8 @@ en:
     your_event: "Your event"
     your_events: "Your events"
     no_event_yet: "You don't have any event yet."
+    complete: "Complete your event information"
+    please_complete: "To confirm your order you have to complete your event informations so we can properly organize the delivery."
 
   article:
     article_name: "Article Name"
@@ -215,6 +217,8 @@ en:
     client_confirmed: "Confirmed by the client"
     confirm: "Confirm this offer"
     delivery: "Send for delivery"
+    your_confirmed: "Offers you confirmed"
+    waiting: "Offers to confirm"
 
   offer_box:
     create: "Add to this offer"

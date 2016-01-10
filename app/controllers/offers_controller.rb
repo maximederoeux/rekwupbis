@@ -9,6 +9,8 @@ class OffersController < ApplicationController
     @user = current_user
     @myoffers = Offer.where(:organizer => current_user)
     @confirmedoffers = Offer.where(:client_confirmation => true)
+    @myconfirmedoffers = @myoffers.where(:client_confirmation => true)
+    @mywaitingoffers = @myoffers.where(:client_confirmation => false)
 
   end
 
@@ -46,7 +48,7 @@ class OffersController < ApplicationController
     respond_to do |format|
       if @offer.save
         @offer.automatic
-        format.html { redirect_to @offer, notice: 'Offer was successfully created.' }
+        format.html { redirect_to :back, notice: 'Offer was successfully created.' }
         format.json { render :show, status: :created, location: @offer }
       else
         format.html { render :new }

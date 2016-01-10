@@ -71,7 +71,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: t("notice.event_updated") }
+        format.html { redirect_to :back, notice: t("notice.event_updated") }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -98,6 +98,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:event_name, :event_start_date, :event_end_date, :expected_pax, :last_pax, :post_code, :city, :country, :comment, :cuptwenty, :cuptwentyfive, :cupforty, :cupfifty, :cuplitre, :cupwine, :cupcava, :cupshot, :creator_id, :creatorganizer, :organizer_id, :party, :dinner, :last_consumption)
+      params.require(:event).permit(:event_name, :event_start_date, :event_end_date, :expected_pax, :last_pax, :post_code, :city, :country, :comment, :cuptwenty, :cuptwentyfive, :cupforty, :cupfifty, :cuplitre, :cupwine, :cupcava, :cupshot, :creator_id, :creatorganizer, :organizer_id, :party, :dinner, :last_consumption, :address, :delivery_date, :return_date, :contact, :phone, :is_complete)
     end
 end

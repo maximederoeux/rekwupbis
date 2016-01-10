@@ -140,9 +140,11 @@ nl:
     event_type: "Welke soort evenement is het?"
     event_type2: "Type van evenement"
     general_info: "Algemene informatie"
-    your event: "Uw evenement"
-    your events: "Uw evenementen"
+    your_event: "Uw evenement"
+    your_events: "Uw evenementen"
     no_event_yet: "U heeft nog geen evenement."
+    complete: "De informatie van uw evenement volmaken"
+    please_complete: "Om uw bestelling te bevestigen, gelieve de informatie van uw evenement in te vullen. Zo kunnen we de levering plannen."
 
   article:
     article_name: "Naam ven het artikel"
@@ -215,6 +217,8 @@ nl:
     client_confirmed: "Bevestidg door de klant"
     confirm: "Deze aanbod bevestigen"
     delivery: "Naar levering zenden"
+    your_confirmed: "Aanbodden die u bevestigd heetf."
+    waiting: "Aanbodden ter bevestiging"
 
   offer_box:
     create: "Dozen toevoegen"
