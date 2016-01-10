@@ -100,7 +100,7 @@ en:
     gsm: "Mobile phone"
 
   event:
-    new_event: "New Event"
+    new_event: "  New Event"
     listing_events: "Listing Events"
     event_name: "Event Name"
     event_start_date: "Start Date"
@@ -292,33 +292,6 @@ en:
         article_id: "Articles"
         quantity: "Quantity"
 
-  helpers:
-    submit:
-      user:
-        create: "Add %{model}"
-        update: "Save Changes"
-      event:
-        create: "Create your event"
-        update: "Save Changes"
-      article:
-        create: "Create your article"
-        update: "Save Changes"
-      boxdetail:
-        create: "Add in the box"
-        update: "Save changes"
-      box:
-        create: "Create a box"
-        update: "Save changes"
-      negociated_price:
-        create: "Add a negociated price"
-        update: "Save changes"
-      offer_box:
-        create: "Add a box"
-        update: "Save changes"
-      offer_article:
-        create: "Add an article"
-        update: "Save changes"
-
   notice:
     access: "Access denied"
     profile_updated: "Your profile was successfully updated."
@@ -469,13 +442,35 @@ en:
       header:
         one: 1 error prohibited this %{model} from being saved
         other: "%{count} errors prohibited this %{model} from being saved"
+
   helpers:
     select:
-      prompt: Please select
+      prompt: "Please select"
     submit:
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
+      user:
+        create: "Register"
+        update: "Save Changes"
+      event:
+        create: "Create your event"
+        update: "Save Changes"
+      article:
+        create: "Create your article"
+        update: "Save Changes"
+      boxdetail:
+        create: "Add in the box"
+        update: "Save changes"
+      box:
+        create: "Create a box"
+        update: "Save changes"
+      negociated_price:
+        create: "Add a negociated price"
+        update: "Save changes"
+      offer_box:
+        create: "Add a box"
+        update: "Save changes"
+      offer_article:
+        create: "Add an article"
+        update: "Save changes"
   number:
     currency:
       format:

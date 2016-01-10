@@ -100,7 +100,7 @@ fr:
     gsm: "GSM"
 
   event:
-    new_event: "Nouvel événement"
+    new_event: "  Nouvel événement"
     listing_events: "Tous les événements"
     event_name: "Nom de l'événement"
     event_start_date: "Date de début"
@@ -292,33 +292,6 @@ fr:
         article_id: "Articles"
         quantity: "Quantité"
 
-  helpers:
-    submit:
-      user:
-        create: "Créer un %{model}"
-        update: "Enregistrer les changements"
-      event:
-        create: "Créez votre événement"
-        update: "Enregistrer les changements"
-      article:
-        create: "Créez votre article"
-        update: "Enregistrer les changements"
-      boxdetail:
-        create: "Ajouter dans la caisse"
-        update: "Enregistrer les changements"
-      box:
-        create: "Créer une caisse"
-        update: "Enregistrer les changements"
-      negociated_price:
-        create: "Ajouter un prix négocié"
-        update: "Enregistrer les changements"
-      offer_box:
-        create: "Ajouter une caisse"
-        update: "Enregistrer les changements"
-      offer_article:
-        create: "Ajouter un article"
-        update: "Enregistrer les changements"
-
   notice:
     access: "Access refusé"
     profile_updated: "Votre profil a été mis à jour."
@@ -481,9 +454,30 @@ fr:
     select:
       prompt: Veuillez sélectionner
     submit:
-      create: Créer un(e) %{model}
-      submit: Enregistrer ce(tte) %{model}
-      update: Modifier ce(tte) %{model}
+      user:
+        create: "Créer un %{model}"
+        update: "Enregistrer les changements"
+      event:
+        create: "Créez votre événement"
+        update: "Enregistrer les changements"
+      article:
+        create: "Créez votre article"
+        update: "Enregistrer les changements"
+      boxdetail:
+        create: "Ajouter dans la caisse"
+        update: "Enregistrer les changements"
+      box:
+        create: "Créer une caisse"
+        update: "Enregistrer les changements"
+      negociated_price:
+        create: "Ajouter un prix négocié"
+        update: "Enregistrer les changements"
+      offer_box:
+        create: "Ajouter une caisse"
+        update: "Enregistrer les changements"
+      offer_article:
+        create: "Ajouter un article"
+        update: "Enregistrer les changements"
   number:
     currency:
       format:

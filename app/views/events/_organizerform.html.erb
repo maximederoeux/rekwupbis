@@ -1,34 +1,29 @@
-<div class="container-fluid">
+
 
   <%= simple_form_for(@event) do |f| %>
     <%= f.error_notification %>
-    <div class="row">
-      <div class="form-inputs">
-        <div class="col-md-8">
-          
+
+    <li class="list-group-item">
+  
           <% if @event.creatorganizer == "true" %>
 
-          	<h4><%= t("event.notorganizer") %></h4>
+            <%= t("event.notorganizer") %>
 
       	    <%= f.hidden_field :organizer_id, :value => current_user.id %>
 
-      	    <div class="form-actions">
-      	    	<%= f.button :submit %>
-      	  	</div>
+      	    <%= f.button :submit %>
+      	
 
           <% else %>
 
-          	<h4><%= t("event.notorganizer") %></h4>
+            <%= t("event.notorganizer") %>
 
-          	<%= t("event.organizer") %>: <%= f.collection_select :organizer_id, User.all, :id, :full_name_with_company %>
+            <%= t("event.organizer") %>: <%= f.collection_select :organizer_id, User.all, :id, :full_name_with_company %>
 
-          	<div class="form-actions">
-          		<%= f.button :submit %>
-        		</div>
+
+            <%= f.button :submit %>
+        
 
           <% end %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
+     
+  </li>

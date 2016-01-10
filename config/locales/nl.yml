@@ -100,7 +100,7 @@ nl:
     gsm: "GSM Nummer"
 
   event:
-    new_event: "Nieuw evenement"
+    new_event: "  Nieuw evenement"
     listing_events: "Alle evenementen"
     event_name: "Naam van uw evenement"
     event_start_date: "Begin Datum"
@@ -292,33 +292,6 @@ nl:
         article_id: "Artikels"
         quantity: "Quantité"
 
-  helpers:
-    submit:
-      user:
-        create: "%{model} scheppen"
-        update: "Opslaan"
-      event:
-        create: "Een evenement maken"
-        update: "Opslaan"
-      article:
-        create: "Een artikel maken"
-        update: "Opslaan"
-      boxdetail:
-        create: "In de doos toevoegen"
-        update: "Opslaan"
-      box:
-        create: "Een doos maken"
-        update: "Opslaan"
-      negociated_price:
-        create: "Een onderhandeld prijs toevoegen"
-        update: "Opslaan"
-      offer_box:
-        create: "Een doos toevoegen"
-        update: "Opslaan"
-      offer_article:
-        create: "Een artikel toevoegen"
-        update: "Opslaan"
-
   notice:
     access: "Verboden toegang"
     profile_updated: "Uw profiel werd updated."
@@ -473,9 +446,30 @@ nl:
     select:
       prompt: Please select
     submit:
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
+      user:
+        create: "%{model} scheppen"
+        update: "Opslaan"
+      event:
+        create: "Een evenement maken"
+        update: "Opslaan"
+      article:
+        create: "Een artikel maken"
+        update: "Opslaan"
+      boxdetail:
+        create: "In de doos toevoegen"
+        update: "Opslaan"
+      box:
+        create: "Een doos maken"
+        update: "Opslaan"
+      negociated_price:
+        create: "Een onderhandeld prijs toevoegen"
+        update: "Opslaan"
+      offer_box:
+        create: "Een doos toevoegen"
+        update: "Opslaan"
+      offer_article:
+        create: "Een artikel toevoegen"
+        update: "Opslaan"
   number:
     currency:
       format:

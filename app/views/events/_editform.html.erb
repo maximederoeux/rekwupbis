@@ -1,42 +1,42 @@
 
-
-  <ul class="list-group">
-
     <li class="list-group-item">
-      <strong><%= t("event.creator_name") %></strong>
-      <%= @creator.full_name if @event.creator %>
-      <strong> le </strong>
-      <%= @event.created_at.strftime("%d/%m/%Y") %>
-    </li> 
+      <div class="row">
 
-    <li class="list-group-item">
-      <strong><%= t("event.organizer_name") %></strong>
-      <%= @organizer.full_name if @event.organizer %>
+        <div class="col-md-6">
+          <strong>
+            <%= t("event.creator_name") %>
+          </strong>
+            <%= @creator.full_name if @event.creator %>
+          <strong><%= t("word.on_the") %></strong>
+            <%= @event.created_at.strftime("%d/%m/%Y") %>
+        </div>
+
+        <div class="col-md-6">
+          <strong>
+            <%= t("event.organizer_name") %>
+          </strong>
+            <%= @organizer.full_name if @event.organizer %>
+        </div>
+      </div>
     </li>
-  </ul>
-
 
   <%= simple_form_for(@event) do |f| %>
     <%= f.error_notification %>
       
-
-
-  <div class="form-inputs">
-
     <% if current_user.admin %>
+
       <li class="list-group-item">
         <strong><%= t("event.organizer_change") %>   </strong>
         <%= f.collection_select :organizer_id, User.all, :id, :full_name_with_company %>
       </li>
     <% end %>
 
-  </div><br>
+    <li class="list-group-item">
+      <%= f.input :event_name %>
+    </li>
 
-  <div class="row">
-    <div class="form-inputs">
-      <div class="col-md-12">
-
-        <%= f.input :event_name %>
+    <li class="list-group-item">
+      <div class="row">
 
         <div class="col-md-6">
           <%= f.input :event_start_date %>
@@ -44,6 +44,13 @@
         <div class="col-md-6">
           <%= f.input :event_end_date %>
         </div>
+
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
+
         <div class="col-md-4">
           <%= f.input :expected_pax %>
         </div>
@@ -53,6 +60,13 @@
         <div class="col-md-4">
           <%= f.input :last_consumption %>
         </div>
+
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
+
         <div class="col-md-4">
           <%= f.input :post_code %>
         </div>
@@ -62,39 +76,61 @@
         <div class="col-md-4">
           <%= f.input :country, only: [ "BE", "FR", "DE", "LU", "NL" ] %>
         </div>
-          <%= f.input :comment %>
 
-        <h6><strong><%= t("event.which_cups") %></strong></h6>
+      </div>
+    </li>
 
-        <div class="col-md-6">
+    <li class="list-group-item">
+      <%= f.input :comment %>
+    </li>
+
+    <li class="list-group-item list-group-item-info">
+      <strong><%= t("event.which_cups") %></strong>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
+
+        <div class="col-md-3">
           <%= f.input :cuptwenty %>
         </div>
-        <div class="col-md-6">
-          <%= f.input :cuplitre %>
-        </div>
-
-        <div class="col-md-6">
+        <div class="col-md-3">
           <%= f.input :cuptwentyfive %>
         </div>
-        <div class="col-md-6">
-          <%= f.input :cupwine %>
-        </div>
-
-        <div class="col-md-6">
+        <div class="col-md-3">
           <%= f.input :cupforty %>
         </div>
-        <div class="col-md-6">
-          <%= f.input :cupcava %>
-        </div>
-
-        <div class="col-md-6">
+        <div class="col-md-3">
           <%= f.input :cupfifty %>
         </div>
-        <div class="col-md-6">
+
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
+
+        <div class="col-md-3">
+          <%= f.input :cuplitre %>
+        </div>       
+        <div class="col-md-3">
+          <%= f.input :cupcava %>
+        </div>
+        <div class="col-md-3">
+          <%= f.input :cupwine %>
+        </div>     
+        <div class="col-md-3">
           <%= f.input :cupshot %>
         </div>
+      </div>
+    </li>
 
-        <h6><strong><%= t("event.event_type") %></strong></h6>
+    <li class="list-group-item list-group-item-info">
+      <strong><%= t("event.event_type") %></strong>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
 
         <div class="col-md-6">
           <%= f.input :party %>
@@ -104,12 +140,10 @@
         </div>
 
       </div>
-    </div>
-  </div>
+    </li>
 
-    <div class="form-actions">
-      <%= f.button :submit, class: "btn btn-success" %><br>
-    </div>
-    <br>
+      <%= f.button :submit, class: "btn btn-lg btn-block btn-info" %><br>
+
+
   <% end %>
 

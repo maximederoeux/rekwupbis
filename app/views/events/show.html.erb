@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="container-fluid more-padding">
   
-  <br>
+
 
 
     <ul class="list-group">
@@ -32,7 +32,7 @@
         <% end %>
 
 
-      <li class="list-group-item list-group-item-success">
+      <li class="list-group-item list-group-item-info">
         <h6><strong>
           <%= t("event.general_info") %>
         </strong></h6>
@@ -91,25 +91,36 @@
       </li>
 
       <% if @event.comment.present? %>
-        <li class="list-group-item list-group-item-success"><strong><%= t("event.comment") %></strong></li>
+        <li class="list-group-item list-group-item-info"><strong><%= t("event.comment") %></strong></li>
         <li class="list-group-item"><%= @event.comment %></li>
       <% end %>
 
-      <li class="list-group-item list-group-item-success">
+      <li class="list-group-item list-group-item-info">
         <h6><strong>
           <%= t("event.delivery_info") %>
         </strong></h6>
       </li>
 
+
       <li class="list-group-item">
-        <div class="row">
+        <div class="row"> 
+          <% if @event.address.present? %>
+
+            <div class="col-md-6">
+              <%= @event.address %>
+            </div>
+
+          <% end %>
 
           <div class="col-md-6">
-                <% if @event.address.present? %>
-                <%= @event.address %>  
-                <% end %>
-              <%= @event.post_code %> <%= @event.city %>, <%= @event.country %>
+            <%= @event.post_code %> <%= @event.city %>, <%= @event.country %>
           </div>
+
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
 
           <div class="col-md-3">
             <%= @event.contact %> 
@@ -124,49 +135,87 @@
       <li class="list-group-item">
         <div class="row">
 
-          <div class="col-md-6">
-            <% if @event.delivery_date.present? %>
+          <% if @event.delivery_date.present? %>
+
+            <div class="col-md-6">
               <strong><%= t("event.delivery_date") %> : </strong>
               <%= @event.delivery_date %>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
+            
 
-          <div class="col-md-6">
-            <strong><%= t("event.return_date") %> : </strong>
+          <% if @event.return_date.present? %>
+            <div class="col-md-6">
+              <strong><%= t("event.return_date") %> : </strong>
               <%= @event.return_date %>
-          </div>
+            </div>
+          <% end %>
+          
         </div>
       </li>
 
 
-      <li class="list-group-item list-group-item-success"><h6><strong><%= t("event.selected_cups") %></strong></h6></li>
+      <li class="list-group-item list-group-item-info">
+        <strong>
+          <%= t("event.selected_cups") %>
+        </strong>
+      </li>
 
-      <% if @event.cuptwenty %>
-        <li class="list-group-item"><%= t("event.cuptwenty") %></li>
-      <% end %>
-      <% if @event.cuptwentyfive %>
-        <li class="list-group-item"><%= t("event.cuptwentyfive") %></li>
-      <% end %>
-      <% if @event.cupforty %>
-        <li class="list-group-item"><%= t("event.cupforty") %></li>
-      <% end %>
-      <% if @event.cupfifty %>
-        <li class="list-group-item"><%= t("event.cupfifty") %></li>
-      <% end %>
-      <% if @event.cuplitre %>
-        <li class="list-group-item"><%= t("event.cuplitre") %></li>
-      <% end %>
-      <% if @event.cupwine %>
-        <li class="list-group-item"><%= t("event.cupwine") %></li>
-      <% end %>
-      <% if @event.cupcava %>
-        <li class="list-group-item"><%= t("event.cupcava") %></li>
-      <% end %>
-      <% if @event.cupshot %>
-       <li class="list-group-item"><%= t("event.cupshot") %></li>
-      <% end %>
+      <li class="list-group-item">
+        <div class="row">
 
-        <li class="list-group-item list-group-item-success"><h6><strong><%= t("event.event_type2") %></strong></h6></li>
+
+          <% if @event.cuptwenty %>
+            <div class="col-md-3">
+              <%= t("event.cuptwenty") %>
+            </div>
+          <% end %>
+
+          <% if @event.cuptwentyfive %>
+            <div class="col-md-3">
+              <%= t("event.cuptwentyfive") %>
+            </div>
+          <% end %>
+
+          <% if @event.cupforty %>
+            <div class="col-md-3">
+              <%= t("event.cupforty") %>
+            </div>
+          <% end %>
+
+          <% if @event.cupfifty %>
+            <div class="col-md-3">
+            <%= t("event.cupfifty") %>
+            </div>
+          <% end %>
+
+          <% if @event.cuplitre %>
+            <div class="col-md-3">
+            <%= t("event.cuplitre") %>
+            </div>
+          <% end %>
+
+          <% if @event.cupwine %>
+            <div class="col-md-3">
+            <%= t("event.cupwine") %>
+            </div>
+          <% end %>
+
+          <% if @event.cupcava %>
+            <div class="col-md-3">
+            <%= t("event.cupcava") %>
+            </div>
+          <% end %>
+
+          <% if @event.cupshot %>
+            <div class="col-md-3">
+              <%= t("event.cupshot") %>
+           </div>
+          <% end %>
+
+    </li>
+
+        <li class="list-group-item list-group-item-info"><h6><strong><%= t("event.event_type2") %></strong></h6></li>
 
       <% if @event.party %>
         <li class="list-group-item"><%= t("event.party") %></li>
@@ -175,12 +224,17 @@
       <% if @event.dinner %>
         <li class="list-group-item"><%= t("event.dinner") %></li>
       <% end %>
+
+
+        <%= link_to t("menu.edit"), edit_event_path(@event), class: "btn btn-lg btn-block btn-info" %>
+
+
       
     </ul>
 
   
-<%= link_to t("menu.edit"), edit_event_path(@event), class: "btn btn-success" %>
-<%= link_to t("menu.back"), events_path, class: "btn btn-warning" %>
+<br>
+<%= link_to t("menu.back"), events_path, class: "btn btn-lg btn-block btn-warning" %>
 
 
   
