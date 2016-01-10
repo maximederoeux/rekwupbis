@@ -1,54 +1,64 @@
-<div class="container-fluid"><br>
+<div class="container-fluid more-padding">
 
-  <% if current_user.admin %>
+<%= link_to t("event.create_event"), new_event_path, class: "btn btn-success" %>
 
-    <%= link_to t("event.create_event"), new_event_path, class: "btn btn-success" %><br>
+</div>
 
-    <ul class="list-group">
-      <br><li class="list-group-item list-group-item-default"><h4><strong>
-        <%= t("event.listing_events") %></strong></h4></li>
-    </ul>
+<div class="container-fluid more-padding">
 
-    <div class="row">
-    
-      <% @events.each do |event| %>
+    <% if current_user.admin %>
 
-        <div class="col-xs-6 col-md-4">
-          <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
-        </div>
+      <ul class="list-group more-padding">
+       
+        <li class="list-group-item list-group-item-default"><h4><strong>
+          <%= t("event.listing_events") %></strong></h4>
+        </li>
 
-      <% end %>
+        <li class="list-group-item">
+          <div class="row">
+      
+            <% @events.each do |event| %>
 
-    </div>
-
-  <% elsif current_user.client %>
-
-    
-
-    <% if @myevents.present? %>
-
-      <%= link_to t("event.new_event"), new_event_path, class: "btn btn-success" %>
-
-      <ul class="list-group">
-        <br><li class="list-group-item list-group-item-default"><h4><strong>
-          <%= t("event.your_events") %></strong></h4></li>
+              <div class="col-xs-6 col-md-6">
+                <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
+              </div>
+            <% end %>
+          </div>
+        </li>
       </ul>
 
-      <% @myevents.each do |event| %>
+    <% elsif current_user.client %>
 
-        <div class="col-xs-6 col-md-4">
-          <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
-        </div>
+      <ul class="list-group">
+     
+        <li class="list-group-item list-group-item-default">
+          <h4><strong>
+            <%= t("event.your_events") %>
+          </strong></h4>
+        </li>
+    
+        <% if @myevents.present? %>
+          
+          <li class="list-group-item">
+            <div class="row">
+              <% @myevents.each do |event| %>
+          
+                <div class="col-xs-6 col-md-6">
+                  <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
+                </div>
 
-      <% end %>
+              <% end %>
+            </div>
       
-
-    <% else %>
-
-      <h4><%= t("event.no_event_yet") %></h4>
+          <% else %>
+        
+          <li class="list-group-item list-group-item-default">
+            <h4><strong>
+              <%= t("event.no_event_yet") %></h4></strong>
   
-      <%= link_to t("event.new_event"), new_event_path, class: "btn btn-success" %>
-
+              <%= link_to t("event.new_event"), new_event_path, class: "btn btn-success" %>
+          </li>
+        </ul>
     <% end %>
 
   <% end %>
