@@ -48,7 +48,7 @@ class OffersController < ApplicationController
     respond_to do |format|
       if @offer.save
         @offer.automatic
-        format.html { redirect_to :back, notice: 'Offer was successfully created.' }
+        format.html { redirect_to @offer, notice: 'Offer was successfully created.' }
         format.json { render :show, status: :created, location: @offer }
       else
         format.html { render :new }
