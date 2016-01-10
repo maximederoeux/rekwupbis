@@ -1,0 +1,38 @@
+<% if current_user.admin %>
+
+
+    
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-warning">
+          <h5><strong><%= t("offer.add_box")%></strong></h5>
+        </li>
+      
+
+        <li class="list-group-item">
+          <div class="row">
+            <%= simple_form_for(@new_offer_box) do |f| %>
+              <%= f.error_notification %>
+
+            	<%= f.hidden_field :offer_id, :value => @offer.id %>
+
+              <div class="col-md-4">
+                <%= f.label :box_id %>
+                <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select"} %>
+              </div>
+
+              <div class="col-md-4">
+                <%= f.input :quantity %>
+              </div>
+
+              <div class="col-md-4">
+                <br>
+                <%= f.button :submit, class: "btn btn-success" %>
+              </div>
+
+            <% end %>
+          </div>
+        </li>
+      </ul>
+
+
+<% end %>

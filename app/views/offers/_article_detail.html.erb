@@ -1,0 +1,56 @@
+					<ul class="list-group">
+					  <li class="list-group-item">
+					    <div class="row text-center">
+					      <strong>
+
+					        <div class="col-md-4">
+					          <%= t("offer_article.article_name") %>
+					        </div>
+
+					        <div class="col-md-4">
+					            <%= t("offer_article.quantity") %>  
+					        </div>
+
+					        <div class="col-md-4">
+					            <%= t("article.sell_price") %>
+					        </div>
+					      
+					    	</strong>
+					    </div>
+					  </li>
+					
+
+        <% @thisofferarticles.each do |thisofferarticle| %>
+
+					
+					  <li class="list-group-item">
+					    <div class="row text-center">
+
+					    	<div class="col-md-4">
+						      <%= thisofferarticle.article.article_name if thisofferarticle.article %>
+						          
+						          <% if current_user.admin %>
+												<%= link_to edit_offer_article_path(thisofferarticle) do %>
+											     <%= content_tag(:i, "", class: "fa fa-pencil-square-o btn btn-xs btn-default pull-right") %> 
+											  <% end %>
+
+			                	<%= link_to thisofferarticle, method: :delete, data: { confirm: 'Are you sure?' } do %>
+											  	<%= content_tag(:i, "", class: "fa fa-times btn btn-xs btn-default pull-right") %>
+											  <% end %>
+											 <% end %>
+
+					    	</div>
+
+					      <div class="col-md-4">
+					        <%= thisofferarticle.quantity if thisofferarticle.quantity %>
+					      </div>
+
+					      <div class="col-md-4">
+					          <%= thisofferarticle.article.sell_price if thisofferarticle.article %>
+					      </div>
+
+					    
+					    </div>
+					  </li>
+					<% end %>   
+        </ul>

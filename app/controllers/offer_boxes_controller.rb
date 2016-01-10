@@ -19,6 +19,7 @@ class OfferBoxesController < ApplicationController
 
   # GET /offer_boxes/1/edit
   def edit
+    @offer = @offer_box.offer
   end
 
   # POST /offer_boxes
@@ -40,9 +41,11 @@ class OfferBoxesController < ApplicationController
   # PATCH/PUT /offer_boxes/1
   # PATCH/PUT /offer_boxes/1.json
   def update
+    @offer = @offer_box.offer
+
     respond_to do |format|
       if @offer_box.update(offer_box_params)
-        format.html { redirect_to @offer_box, notice: 'Offer box was successfully updated.' }
+        format.html { redirect_to @offer, notice: 'Offer box was successfully updated.' }
         format.json { render :show, status: :ok, location: @offer_box }
       else
         format.html { render :edit }
@@ -54,6 +57,7 @@ class OfferBoxesController < ApplicationController
   # DELETE /offer_boxes/1
   # DELETE /offer_boxes/1.json
   def destroy
+    @offer = @offer_box.offer
     @offer_box.destroy
     respond_to do |format|
       format.html { redirect_to :back, notice: 'Offer box was successfully destroyed.' }

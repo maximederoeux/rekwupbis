@@ -56,7 +56,7 @@ class OfferArticlesController < ApplicationController
   def destroy
     @offer_article.destroy
     respond_to do |format|
-      format.html { redirect_to offer_articles_url, notice: 'Offer article was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Offer article was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
