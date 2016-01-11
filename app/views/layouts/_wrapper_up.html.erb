@@ -57,13 +57,18 @@
           <li>
             <a href="#"><%= link_to t("user.your_profile"), user_path(current_user) %></a>
           </li>
-          <li>
-            <a href="#"><%= link_to t("event.your_events"), events_path %></a>
-          </li>
-          <li>
-            <a href="#"><%= link_to t("offer.yours"), offers_path %></a>
-          </li>
-       
+
+          <% if current_user.events.any? %>
+            <li>
+              <a href="#"><%= link_to t("event.your_events"), events_path %></a>
+            </li>
+          <% end %>
+
+          <% if current_user.offers.any? %>
+            <li>
+              <a href="#"><%= link_to t("offer.yours"), offers_path %></a>
+            </li>
+          <% end %>
 
         <% end %>
 

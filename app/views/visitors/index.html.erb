@@ -4,15 +4,44 @@
 
     <% if @user.name.blank? %>
 
-      <h4>Vous devez compléter votre profil avant de créer un événement.</h4>
+        <div class="jumbotron">
+          <h2 class="text-center">Prêt de gobelets réutilisables</h2>
 
-      <%= link_to t("user.your_profile"), edit_user_path(@user), class: "btn btn-default" %><br>
+
+          <p>
+            Nous vous livrons suffisamment de gobelets propres pour votre événement, nous les reprenons sales en fin d'événement. Vous ne vous occupez que de gérer les cautions, vous ne payez que le transport et le lavage.
+            Vous pouvez déjà disposer de nos gobelets à partir d’une commande minimale de 500 gobelets ;  il n'y a pas de limite maximale, nous sommes capables de fournir les plus grands événements d'Europe.
+
+            Complétez votre profil et créez votre événement pour obtenir une offre de prix
+
+            <%= link_to edit_user_path(@user) do %>
+              <%= content_tag(:i, t("user.your_profile"), class: "fa fa-plus-circle btn btn-lg btn-block btn-info") %> 
+            <% end %>
+          </p>
+
+     
+
+
+      
 
     <% end %>
 
-      Nous livrons les gobelets avant votre événement.
-      Nous les reprennons sales après.
-      Nous les nettoyons pour vous et ne vous facturons que le nettoyage, les gobelets cassés ou abimés et le transport.
+        <div class="jumbotron">
+          <h2 class="text-center">Prêt de gobelets réutilisables</h2>
+
+
+          <p>
+            Nous vous livrons suffisamment de gobelets propres pour votre événement, nous les reprenons sales en fin d'événement. Vous ne vous occupez que de gérer les cautions, vous ne payez que le transport et le lavage.
+            Vous pouvez déjà disposer de nos gobelets à partir d’une commande minimale de 500 gobelets ;  il n'y a pas de limite maximale, nous sommes capables de fournir les plus grands événements d'Europe.
+
+            Créez votre événement pour obtenir une offre de prix
+          </p>
+      
+
+        <%= link_to new_event_path do %>
+          <%= content_tag(:i, t("event.new_event"), class: "fa fa-plus-circle btn btn-lg btn-block btn-info") %> 
+        <% end %>
+      </div>
 
     <h4><%= t("article.our_prices") %></h4>
 
@@ -49,10 +78,21 @@
     </div>
   <% else %>
 
-  Vous organisez un événement et avez besoin de gobelets réutilisables?
-  Inscrivez-vous pour obtenir gratuitement une offre de service.
-      
-    <%= link_to t("menu.sign_up"), new_user_registration_path, class: "btn btn-success btn-lg btn-block" %>
+        <div class="jumbotron text-justify">
+          <h2 class="text-center">Prêt de gobelets réutilisables</h2>
+
+
+          <p>
+            Nous vous livrons suffisamment de gobelets propres pour votre événement, nous les reprenons sales en fin d'événement. Vous ne vous occupez que de gérer les cautions, vous ne payez que le transport et le lavage.
+            Vous pouvez déjà disposer de nos gobelets à partir d’une commande minimale de 500 gobelets ;  il n'y a pas de limite maximale, nous sommes capables de fournir les plus grands événements d'Europe.
+
+            Enregistrez-vous, puis créez votre événement pour obtenir une offre de prix
+          </p>
+
+            <%= link_to new_user_registration_path do %>
+              <%= content_tag(:i, t("menu.sign_up"), class: "fa fa-plus-circle btn btn-lg btn-block btn-info") %> 
+            <% end %>
+          
 
     <% end %>
    
