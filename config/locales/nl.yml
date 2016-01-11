@@ -40,7 +40,7 @@ nl:
     about: "Over ons"
     edit_account: "Wachtwoord bewerken"
     edit_profile: "Profiel bewerken"
-    sign_up: "Registreren"
+    sign_up: "  Registreren"
     sign_in: "Aanmelden"
     sign_out: "Afmelden"
     users: "Gebruikers"
@@ -99,6 +99,7 @@ nl:
     vat: "BTW Nummer"
     phone: "Vast telefoonnummer"
     gsm: "GSM Nummer"
+    no_status: "Zonder categorie"
 
   event:
     new_event: "  Nieuw evenement"

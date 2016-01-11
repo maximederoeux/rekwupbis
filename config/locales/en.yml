@@ -40,7 +40,7 @@ en:
     about: "About"
     edit_account: "Edit Password"
     edit_profile: "Edit Profile"
-    sign_up: "Sign Up"
+    sign_up: "  Sign Up"
     sign_in: "Sign In"
     sign_out: "Sign Out"
     users: "Users"
@@ -99,6 +99,7 @@ en:
     vat: "VAT Number"
     phone: "Fixed phone"
     gsm: "Mobile phone"
+    no_status: "No category"
 
   event:
     new_event: "  New Event"

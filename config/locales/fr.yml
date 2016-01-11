@@ -40,7 +40,7 @@ fr:
     about: "A propos"
     edit_account: "Modifier votre mot de passe"
     edit_profile: "Modifier votre profil"
-    sign_up: "S'enregistrer"
+    sign_up: "  S'enregistrer"
     sign_in: "Se connecter"
     sign_out: "Se déconnecter"
     users: "Utilisateurs"
@@ -99,6 +99,7 @@ fr:
     vat: "Nr TVA"
     phone: "Téléphone Fixe"
     gsm: "GSM"
+    no_status: "Sans catégorie"
 
   event:
     new_event: "  Nouvel événement"
