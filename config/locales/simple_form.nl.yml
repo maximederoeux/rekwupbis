@@ -1,0 +1,85 @@
+nl:
+  simple_form:
+    "yes": 'Ja'
+    "no": 'Nee'
+    required:
+      text: 'verplicht'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Sommige velden zijn verplicht"
+    # Examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+    # include_blanks:
+    #   defaults:
+    #     age: 'Rather not say'
+    # prompts:
+    #   defaults:
+    #     age: 'Select your age'
+    labels:
+      event:
+        event_name: "Naam van uw evenement"
+        vent_start_date: "Begin Datum"
+        event_end_date: "Eind Datum"
+        expected_pax: "Verwachte aantal van gasten"
+        last_consumtion: "Drank verbruik op de laatste editie"
+        last_pax: "Aantal gasten op de laatste editie"
+        post_code: "Postcode"
+        city: "Stad"
+        country: "Land"
+        comment: "Aanmerkingen"
+        cuptwenty: "20CL bekers"
+        cuptwentyfive: "25CL bekers"
+        cupforty: "40CL bekers"
+        cupfifty: "50CL bekers"
+        cuplitre: "1L kruiken"
+        cupwine: "Wijnbekers"
+        cupcava: "Champagnebekers"
+        cupshot: "Shotbekers"
+        creatorganizer: "Ik organiseer het evenement"
+        party: "Feest, concert, festival"
+        dinner: "Maaltijd"
+      article:
+        article_name: "Naam ven het artikel"
+        article_id: "Artikel Code"
+        article_content: "Inhoud"
+        article_type: "Type"
+        article_category: "Categorie"
+        quantity_bigbox: "Kwantiteit per groot doos"
+        quantity_smallbox: "Kwantiteit per klein doos"
+        quantity_pile: "Kwantitieit per stapel"
+        is_washable: "Dit artikel is wasbaar."
+        washing_price: "Was Prijs"
+        handwash_price: "Handwas Prijs"
+        tab_price: "Lusbehandeling Prijs"
+        deposit_price: "Garantie Prijs"
+        rekwup_cup: "Rekwup Beker"
+        sell_price: "Prijs"
+      box:
+        box_name: "Doosnaam"
+        bigbox: "Grote doos"
+        smallbox: "Kleine doos"
+        box_regular: "Normale doos - Een beker soort"
+        mixed: "Gemengde doos - Verschijdene soorten van bekers"
+      boxdetail:
+        article_id: "Artikelnaam"
+        box_article_quantity: "Kwantiteit in de doos"
+      offer_box:
+        box_id: "Dozen"
+        quantity: "Quantité"
+      offer_article:
+        article_id: "Artikels"
+        quantity: "Quantité"

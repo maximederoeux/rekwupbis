@@ -9,7 +9,7 @@ en:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: "Some fields are mandatory"
     # Examples
     # labels:
     #   defaults:
@@ -29,3 +29,57 @@ en:
     # prompts:
     #   defaults:
     #     age: 'Select your age'
+    labels:
+      event:
+        event_name: "Event Name"
+        event_start_date: "Start Date"
+        event_end_date: "End Date"
+        expected_pax: "Expected number of guests"
+        last_pax: "Number of guests on last edition"
+        last_consumption: "Beverage consumtion on last edition"
+        post_code: "Post Code"
+        city: "City"
+        country: "Country"
+        comment: "Comments"
+        cuptwenty: "20CL cups"
+        cuptwentyfive: "25CL cups"
+        cupforty: "40CL cups"
+        cupfifty: "50CL cups"
+        cuplitre: "1L jugs"
+        cupwine: "Wine cups"
+        cupcava: "Champagne cups"
+        cupshot: "Shot cups"
+        creatorganizer: "I am the orhanizer of the event"
+        party: "Party, concert, festival"
+        dinner: "Meal"
+      article:
+        article_name: "Article Name"
+        article_id: "Article Code"
+        article_content: "Content"
+        article_type: "Type"
+        article_category: "Category"
+        quantity_bigbox: "Quantity in big box"
+        quantity_smallbox: "Quantity in small box"
+        quantity_pile: "Quantity in pile"
+        is_washable: "This article is washable"
+        washing_price: "Washing Price"
+        handwash_price: "Handwash Price"
+        tab_price: "Tab Handling Price"
+        deposit_price: "Deposit Price"
+        rekwup_cup: "Rekwup Cup"
+        sell_price: "Price"
+      box:
+        box_name: "Box Name"
+        bigbox: "Big Box"
+        smallbox: "Small Box"
+        box_regular: "Regular Box - One kind of cups"
+        mixed: "Mixed Box - Several kind of cups"
+      boxdetail:
+        article_id: "Article"
+        box_article_quantity: "Quantity in the box"
+      offer_box:
+        box_id: "Boxes"
+        quantity: "Quantity"
+      offer_article:
+        article_id: "Articles"
+        quantity: "Quantity"

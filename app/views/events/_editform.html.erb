@@ -26,8 +26,14 @@
     <% if current_user.admin %>
 
       <li class="list-group-item">
-        <strong><%= t("event.organizer_change") %>   </strong>
-        <%= f.collection_select :organizer_id, User.all, :id, :full_name_with_company %>
+        <div class="row">
+          <div class="col-md-6">
+            <strong><%= t("event.organizer_change") %>   </strong>
+          </div>
+          <div class="col-md-6">
+            <%= f.collection_select :organizer_id, User.all.order('name ASC'), :id, :full_name_with_company, {prompt: false}, {class: "form-control styled-select"} %>
+          </div>
+        </div>
       </li>
     <% end %>
 

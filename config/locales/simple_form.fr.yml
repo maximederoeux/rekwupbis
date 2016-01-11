@@ -1,0 +1,85 @@
+fr:
+  simple_form:
+    "yes": 'Oui'
+    "no": 'Non'
+    required:
+      text: 'obligatoire'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Certains champs sont obligatoires"
+    # Examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+    # include_blanks:
+    #   defaults:
+    #     age: 'Rather not say'
+    # prompts:
+    #   defaults:
+    #     age: 'Select your age'
+    labels:
+      event:
+        event_name: "Nom de l'événement"
+        event_start_date: "Date de début"
+        event_end_date: "Date de fin"
+        expected_pax: "Estimation du nombre de visiteurs"
+        last_pax: "Nombre de visiteurs de l'édition précédente"
+        last_consumption: "Consommation de boissons à la dernière édition"
+        post_code: "Code postal"
+        city: "Ville"
+        country: "Pays"
+        comment: "Commentaires"
+        cuptwenty: "Gobelets 20CL"
+        cuptwentyfive: "Gobelets 25CL"
+        cupforty: "Gobelets 40CL"
+        cupfifty: "Gobelets 50CL"
+        cuplitre: "Cruches 1L"
+        cupwine: "Gobelets à vin"
+        cupcava: "Gobelets à champagne"
+        cupshot: "Gobelets à shot"
+        creatorganizer: "Je suis l'organisateur de l'événement"
+        party: "Soirée, concert, festival"
+        dinner: "Repas"
+      article:
+        article_name: "Nom de l'article"
+        article_id: "Code de l'article"
+        article_content: "Contenance"
+        article_type: "Type"
+        article_category: "Categorie"
+        quantity_bigbox: "Quantité par grande caisse"
+        quantity_smallbox: "Quantité par petite caisse"
+        quantity_pile: "Quantité par pile"
+        is_washable: "Cet article est lavable"
+        washing_price: "Prix Lavage"
+        handwash_price: "Prix Lavage Manuel"
+        tab_price: "Prix Manutention Languette"
+        deposit_price: "Prix Caution"
+        rekwup_cup: "Gobelet Rekwup"
+        sell_price: "Prix"
+      box:
+        box_name: "Nom de la caisse"
+        bigbox: "Grande caisse"
+        smallbox: "Petite caisse"
+        box_regular: "Caisse normale - Un modèle de gobelets"
+        mixed: "Caisse mixte - Plusieurs modèles de gobelets"
+      boxdetail:
+        article_id: "Nom de l'article"
+        box_article_quantity: "Quantité dans la caisse"
+      offer_box:
+        box_id: "Caisses"
+        quantity: "Quantité"
+      offer_article:
+        article_id: "Articles"
+        quantity: "Quantité"
