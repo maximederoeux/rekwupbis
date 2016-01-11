@@ -1,7 +1,4 @@
 <div class="container-fluid more-padding">
-  
-
-
 
     <ul class="list-group">
       <li class="list-group-item list-group-item-warning"><h5><strong><%= t("event.your_event") %> - Ref. <%= @event.created_at.strftime("%Y") %>-<%= @event.id %></strong></h5>
@@ -11,7 +8,6 @@
               <%= f.error_notification %>
               <%= f.hidden_field :event_id, :value => @event.id %>
               <%= f.hidden_field :organizer_id, :value => @event.organizer_id %>
-              <%= f.hidden_field :client_confirmation, :value => false %>
               <%= f.submit t("offer.create"), class: "btn btn-success" %>
             <% end %>
           <% end %>

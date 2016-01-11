@@ -225,6 +225,8 @@ fr:
     delivery: "Envoyer pour livraison"
     your_confirmed: "Offres que vous avez confirmées"
     waiting: "Offres à confirmer"
+    your_rejected: "Offres que vous avez rejetées"
+    you_rejected: "Vous avez rejeté cette offre"
 
   offer_box:
     create: "Ajouter à cette offre"

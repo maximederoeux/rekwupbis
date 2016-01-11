@@ -223,8 +223,10 @@ nl:
     client_confirmed: "Bevestidg door de klant"
     confirm: "Deze aanbod bevestigen"
     delivery: "Naar levering zenden"
-    your_confirmed: "Aanbodden die u bevestigd heetf."
+    your_confirmed: "Aanbodden die u goedgekeurd heeft"
     waiting: "Aanbodden ter bevestiging"
+    your_rejected: "Aanbodden die u afgekeurd heeft"
+    you_rejected: "U heeft die offer afgekeurd"
 
   offer_box:
     create: "Dozen toevoegen"

@@ -7,5 +7,9 @@ class Event < ActiveRecord::Base
 	validates :event_start_date, presence: true
 	validates :event_end_date, presence: true
 	validates :expected_pax, presence: true
+	validates :address, presence: true
+	validates :contact, presence: true
+	validates :phone, presence: true
+
 
 end

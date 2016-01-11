@@ -9,8 +9,11 @@ class OffersController < ApplicationController
     @user = current_user
     @myoffers = Offer.where(:organizer => current_user)
     @confirmedoffers = Offer.where(:client_confirmation => true)
+    @rejectedoffers = Offer.where(:client_confirmation => false)
+    @pendingoffers = Offer.where(:client_confirmation => nil)
     @myconfirmedoffers = @myoffers.where(:client_confirmation => true)
-    @mywaitingoffers = @myoffers.where(:client_confirmation => false)
+    @myrejectedoffers = @myoffers.where(:client_confirmation => false)
+    @mypendingoffers = @myoffers.where(:client_confirmation => nil)
 
   end
 
@@ -18,6 +21,7 @@ class OffersController < ApplicationController
   # GET /offers/1.json
   def show
     @offer = Offer.find(params[:id])
+    @user = current_user
     @event = @offer.event
     @organizer = @offer.organizer
 

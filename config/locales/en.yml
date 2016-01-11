@@ -225,6 +225,8 @@ en:
     delivery: "Send for delivery"
     your_confirmed: "Offers you confirmed"
     waiting: "Offers to confirm"
+    your_rejected: "Offers you rejected"
+    you_rejected: "You rejected this offer"
 
   offer_box:
     create: "Add to this offer"

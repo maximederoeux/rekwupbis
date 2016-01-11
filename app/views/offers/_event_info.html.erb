@@ -1,34 +1,67 @@
 <ul class="list-group">
   <li class="list-group-item list-group-item-success">
-    <div class="row">
+
+
+
       <div class="col-md-6">
         <h4><%= t("offer.reference")%><%= @offer.created_at.strftime("%Y") %> - <%= @offer.id %>
-          <% if @offer.client_confirmation? %>
-            - <%= t("offer.client_confirmed") %>
+
+          <% if @offer.client_confirmation = true %>
+            - <%= t("offer.client_confirmed") %></h4>
           <% end %>
-        </h4>
+
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-2">
+
+        <% if @offer.client_confirmation = true %>
+
+            <% if @organizer = @user %>
+
+                    <%= simple_form_for(@offer) do |f| %>
+                      <%= f.error_notification %>
+
+                        <%= f.hidden_field :client_confirmation, :value => false %>             
+                        <%= f.submit t("menu.cancel"), class: "btn btn-xs btn-default" %>
+
+                    <% end %>
+            <% end %>
+
+        <% else %>
+
+            <%= simple_form_for(@offer) do |f| %>
+              <%= f.error_notification %>       
+
+                <%= f.hidden_field :client_confirmation, :value => true %>             
+                <%= f.submit t("offer.confirm"), class: "btn btn-info pull-right" %>
+
+            <% end %>
+      </div>
+          <% end %>
+
+      <div class="col-md-4">
         <% if current_user.admin %>
-          <%= simple_form_for(@offer) do |f| %>
-            <%= f.error_notification %>           
-              <%= f.hidden_field :admin_confirmation, :value => true %>
+          <% if @offer.client_confirmation? %>
 
-            <div class="form-actions">
-              <%= f.submit t("offer.delivery"), class: "btn btn-success" %>
-            </div>
+            <%= simple_form_for(@offer) do |f| %>
+              <%= f.error_notification %>           
+                <%= f.hidden_field :admin_confirmation, :value => true %>
 
+              <div class="form-actions">
+                <%= f.submit t("offer.delivery"), class: "btn btn-success" %>
+              </div>
+
+            <% end %>
           <% end %>
         <% end %>
       </div>
-    </div>
+  
   </li>
 
   <li class="list-group-item"><strong><%= @event.event_name %></strong>
     <%= link_to edit_event_path(@event) do %>
-      <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-    <% end %><br>
+      <%= content_tag(:i, "", class: "fa fa-pencil") %> 
+    <% end %>
   </li>
 
   <li class="list-group-item">
