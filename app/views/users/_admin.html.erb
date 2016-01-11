@@ -1,0 +1,124 @@
+
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+  <ul class="list-group">
+
+    <li class="list-group-item">
+      <div class="row">
+
+        <div class="col-md-3">
+          <h6><strong><%= t("user.status") %></strong></h6>
+        </div>
+        <div class="col-md-3">
+          <%= f.input :admin, :label => t("user.admin") %>
+        </div>
+        <div class="col-md-3">
+          <%= f.input :staff, :label => t("user.staff") %>
+        </div>
+        <div class="col-md-3">
+          <%= f.input :client, :label => t("user.client") %>
+        </div>
+       
+
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
+
+        <div class="col-md-6">
+          <%= f.input :name, :label => t("user.name"), :placeholder => t("user.name") %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :first_name, :label => t("user.first_name"), :placeholder => t("user.first_name") %>
+        </div>
+
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <%= f.input :email, :label => t("user.email"), :placeholder => t("user.email") %>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
+
+        <div class="col-md-3">
+          <%= f.input :individual, :label => t("user.individual") %>
+        </div>
+
+        <div class="col-md-3">
+          <%= f.input :non_profit, :label => t("user.non_profit") %>
+        </div>
+
+        <div class="col-md-3">
+          <%= f.input :company, :label => t("user.company") %>
+        </div>
+
+        <div class="col-md-3">
+          <%= f.input :institution, :label => t("user.institution") %>
+        </div>
+
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
+
+        <div class="col-md-6">
+      		<%= f.input :company_name, :label => t("user.organisation_name") %>
+    		</div>
+
+	  <% if @user.offers.any? %>
+
+	    <% if @user.company_name.present? %>
+
+					<div class="col-md-6">
+		      	<%= f.input :vat, :label => t("user.vat"), :placeholder => t("user.vat") %>
+		      </div>
+		  <% end %>
+
+	    </div>
+    </li>
+	     
+    <li class="list-group-item">
+      <div class="row">
+
+        <div class="col-md-5">
+          <%= f.input :address, :label => t("user.address"), :placeholder => t("user.address") %>
+        </div>
+
+        <div class="col-md-2">
+          <%= f.input :postcode, :label => t("user.postcode"), :placeholder => t("user.postcode") %>
+        </div>
+
+        <div class="col-md-3">
+          <%= f.input :city, :label => t("user.city"), :placeholder => t("user.city") %>
+        </div>
+
+        <div class="col-md-2">
+          <%= f.input :country, :label => t("user.country"), :placeholder => t("user.country") %>
+        </div>
+
+      </div>
+    </li>
+	     
+    <li class="list-group-item">
+      <div class="row">
+
+        <div class="col-md-6">
+          <%= f.input :phone, :label => t("user.phone"), :placeholder => t("user.phone") %>
+        </div>
+
+        <div class="col-md-6">
+          <%= f.input :gsm, :label => t("user.gsm"), :placeholder => t("user.gsm") %>
+        </div>
+
+      </div>
+    </li>
+	     
+	  <% end %>
+	  
+	</ul>
+<% end %>

@@ -1,0 +1,24 @@
+  <%= simple_form_for(@user) do |f| %>
+    <%= f.error_notification %>
+
+	  <ul class="list-group">
+	    <li class="list-group-item">
+	      <div class="row">
+
+	        <div class="col-md-6">
+	          <%= f.input :name, :label => t("user.name"), :placeholder => t("user.name") %>
+	        </div>
+	        <div class="col-md-6">
+	          <%= f.input :first_name, :label => t("user.first_name"), :placeholder => t("user.first_name") %>
+	        </div>
+
+	      </div>
+	    </li>
+
+	    <li class="list-group-item">
+	      <%= f.input :email, :label => t("user.email"), :placeholder => t("user.email") %>
+	    </li>
+
+	  </ul>
+
+  <% end %>

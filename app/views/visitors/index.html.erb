@@ -2,31 +2,9 @@
 
   <% if user_signed_in? %>
 
-    <% if @user.name.blank? %>
+    <% if @user.name.present? %>
 
-        <div class="jumbotron">
-          <h2 class="text-center">Prêt de gobelets réutilisables</h2>
-
-
-          <p>
-            Nous vous livrons suffisamment de gobelets propres pour votre événement, nous les reprenons sales en fin d'événement. Vous ne vous occupez que de gérer les cautions, vous ne payez que le transport et le lavage.
-            Vous pouvez déjà disposer de nos gobelets à partir d’une commande minimale de 500 gobelets ;  il n'y a pas de limite maximale, nous sommes capables de fournir les plus grands événements d'Europe.
-
-            Complétez votre profil et créez votre événement pour obtenir une offre de prix
-
-            <%= link_to edit_user_path(@user) do %>
-              <%= content_tag(:i, t("user.your_profile"), class: "fa fa-plus-circle btn btn-lg btn-block btn-info") %> 
-            <% end %>
-          </p>
-
-     
-
-
-      
-
-    <% end %>
-
-        <div class="jumbotron">
+              <div class="jumbotron">
           <h2 class="text-center">Prêt de gobelets réutilisables</h2>
 
 
@@ -38,45 +16,73 @@
           </p>
       
 
-        <%= link_to new_event_path do %>
-          <%= content_tag(:i, t("event.new_event"), class: "fa fa-plus-circle btn btn-lg btn-block btn-info") %> 
-        <% end %>
-      </div>
-
-    <h4><%= t("article.our_prices") %></h4>
-
-    <div class="table-responsive">
-      <table class="table">
-        <thead>
-          <tr>
-            <th><%= t("article.name") %></th>
-            <th class="text-center"><%= t("article.washing_price") %></th>
-            <th class="text-center"><%= t("article.handwash_price") %></th>
-            <th class="text-center"><%= t("article.tab_price") %></th>
-            <th class="text-center"><%= t("article.deposit_price") %></th>
-          </tr>
-        </thead>
-    
-      <% @rekwup_cups.each do |article| %>
-
-        <tbody>
-          <tr>
-          <td><%= article.article_category %> <%= article.full_name %></td>
-          <td class="text-center"><%= article.washing_price %> €</td>
-          <td class="text-center"><%= article.handwash_price %> €</td>
-          <td class="text-center">
-            <% if article.tab_price.present? %>
-              <%= article.tab_price %> €
+            <%= link_to new_event_path do %>
+              <%= content_tag(:i, t("event.new_event"), class: "fa fa-plus-circle btn btn-lg btn-block btn-info") %> 
             <% end %>
-          </td>
-          <td class="text-center"><%= article.deposit_price %> €</td>
-          </tr>
-        </tbody>
+        </div>
 
-        <% end %>
-      </table>
-    </div>
-  <% else %>
+        <h4><%= t("article.our_prices") %></h4>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th><%= t("article.name") %></th>
+                <th class="text-center"><%= t("article.washing_price") %></th>
+                <th class="text-center"><%= t("article.handwash_price") %></th>
+                <th class="text-center"><%= t("article.tab_price") %></th>
+                <th class="text-center"><%= t("article.deposit_price") %></th>
+              </tr>
+            </thead>
+        
+          <% @rekwup_cups.each do |article| %>
+
+            <tbody>
+              <tr>
+              <td><%= article.article_category %> <%= article.full_name %></td>
+              <td class="text-center"><%= article.washing_price %> €</td>
+              <td class="text-center"><%= article.handwash_price %> €</td>
+              <td class="text-center">
+                <% if article.tab_price.present? %>
+                  <%= article.tab_price %> €
+                <% end %>
+              </td>
+              <td class="text-center"><%= article.deposit_price %> €</td>
+              </tr>
+            </tbody>
+
+            <% end %>
+          </table>
+        </div>
+
+
+
+
+    <% else %>
+
+        <div class="jumbotron">
+          <h2 class="text-center">Prêt de gobelets réutilisables</h2>
+
+
+          <p>
+            Nous vous livrons suffisamment de gobelets propres pour votre événement, nous les reprenons sales en fin d'événement. Vous ne vous occupez que de gérer les cautions, vous ne payez que le transport et le lavage.
+            Vous pouvez déjà disposer de nos gobelets à partir d’une commande minimale de 500 gobelets ;  il n'y a pas de limite maximale, nous sommes capables de fournir les plus grands événements d'Europe.
+
+            Complétez votre profil et créez votre événement pour obtenir une offre de prix
+
+          </p>
+
+          <%= link_to edit_user_path(@user) do %>
+            <%= content_tag(:i, t("user.fill_profile"), class: "fa fa-plus-circle btn btn-lg btn-block btn-info") %> 
+          <% end %>
+
+        </div>
+
+
+
+    <% end %>
+
+    <% else %>
 
         <div class="jumbotron text-justify">
           <h2 class="text-center">Prêt de gobelets réutilisables</h2>
@@ -93,7 +99,7 @@
               <%= content_tag(:i, t("menu.sign_up"), class: "fa fa-plus-circle btn btn-lg btn-block btn-info") %> 
             <% end %>
           
-
     <% end %>
+
    
 </div>

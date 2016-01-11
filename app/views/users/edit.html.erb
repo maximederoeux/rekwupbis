@@ -1,107 +1,36 @@
 <div class="container-fluid more-padding">
 
 
-<%= render 'user' %>
+
+    <% if current_user.client.blank? && current_user.admin.blank? && current_user.staff.blank? %>
+
+      <%= render 'new_user' %>
+
+    <% end %>
+
+    <% if current_user.client %>
+
+      <%= render 'client' %>
+
+    <% end %>
+
+    <% if current_user.staff %>
+
+      <%= render 'client' %>
+
+    <% end %>
+
+    <% if current_user.admin %>
+
+      <%= render 'admin' %>
+
+      <% if @user.negociated_price %>
+
+        <%= render 'negociated_prices' %>
+
+      <% end %>
+
+    <% end %>
 
 </div>
 
-<% if current_user.admin %>
-
-  <div class="container-fluid more-padding">
-    <div class="row">
-      <% if @user.negociated_price %>
-        <div class="col-md-3">
-          <h6><strong><%= t("user.has_negociated") %></strong></h6>
-        </div>
-        <div class="col-md-3">
-          <%= simple_form_for(@user) do |f| %>
-            <%= f.error_notification %>
-            <%= f.hidden_field :negociated_price, :value => false %>
-            <%= f.submit t("negociated_price.remove"), class: "btn btn-warning" %>
-          <% end %>
-        </div>  
-
-      <% else %>
-
-        <div class="col-md-3">
-          <h6><strong><%= t("user.has_not_negociated") %></strong></h6>
-        </div>
-        <div class="col-md-3">
-          <%= simple_form_for(@user) do |f| %>
-            <%= f.error_notification %>
-              <%= f.hidden_field :negociated_price, :value => true %>
-              <%= f.submit t("negociated_price.add"), class: "btn btn-success" %>
-          <% end %>
-        </div> 
-      <% end %>
-    </div>
-  </div>
-
-
-  <% if @user.negociated_price %>
-
-    <div class="container-fluid">
-      <div class="row">
-
-  			<h4><%= t("menu.negociated_prices") %></h4>
-
-			  <div class="table-responsive">
-			    <table class="table">
-			      <thead>
-			        <tr>
-			          <th><%= t("article.article_name") %></th>
-			          <th><%= t("article.washing_price") %></th>
-			          <th><%= t("article.handwash_price") %></th>
-			          <th><%= t("article.tab_price") %></th>
-			          <th><%= t("article.deposit_price") %></th>
-			          <th></th>
-			        </tr>
-			      </thead>
-			    
-			      <% @myprices.each do |myprice| %>
-			        <tbody>
-			          <tr>
-			          <td><%= myprice.article.full_name if myprice.article %>
-                  <%= link_to edit_negociated_price_path(myprice) do %>
-                    <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-                  <% end %>
-                </td>
-			          <td><%= myprice.washing_price if myprice.washing_price %></td>
-			          <td><%= myprice.handwash_price if myprice.handwash_price %></td>
-			          <td><%= myprice.tab_price if myprice.tab_price %></td>
-			          <td><%= myprice.deposit_price if myprice.deposit_price %></td>
-			          <td><%= link_to t("box.destroy_article"), myprice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-			        </tbody>
-			      <% end %>
-			    </table>
-			  </div>
-
-        <%= simple_form_for(@negociated_price) do |f| %>
-          <%= f.error_notification %>
-
-            <%= f.hidden_field :client_id, :value => @user.id %>
-             <div class="col-md-6">
-              <%= f.label :article_id %>
-              <%= f.collection_select :article_id, Article.all.order('article_name ASC'), :id, :full_name, {prompt: true}, {class: "form-control styled-select"} %><br>
-              <%= f.button :submit, class: "btn btn-success" %>
-            </div>
-            <div class="col-md-3">
-              <%= f.input :washing_price %>
-            </div>  
-            <div class="col-md-3">
-              <%= f.input :handwash_price %>
-            </div>  
-            <div class="col-md-3">
-              <%= f.input :tab_price %>
-            </div>  
-            <div class="col-md-3">
-              <%= f.input :deposit_price %>
-            </div>  
-  
-        <% end %>
-      </div>
-    </div><br>
-
-  <% end %>
-<% end %>

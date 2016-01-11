@@ -1,10 +1,10 @@
-<div class="container-fluid">
+<div class="container-fluid more-padding">
 
-  <br>
+  <ul class="list-group">
 
-  <div class="row">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-success"><h5><strong><%= t("user.your_profile") %>
+    <li class="list-group-item list-group-item-info">
+
+    <h5><strong><%= t("user.your_profile") %>
 
       <% if @user.staff %>
        - <%= t("user.list_staff") %>
@@ -26,54 +26,110 @@
        - <%= t("user.institution") %>
       <% end %>
 
-      </strong></h5></li>
+      </strong></h5>
 
-      <li class="list-group-item"><strong><%= t("user.name") %> : </strong><%= @user.name if @user.name %></li>
+    </li>
 
-      <li class="list-group-item"><strong><%= t("user.first_name") %> : </strong><%= @user.first_name if @user.first_name %></li>
 
-      <li class="list-group-item"><strong><%= t("user.email") %> : </strong><%= @user.email %></li>
+    <li class="list-group-item">
+      <div class="row">
 
-      <% if @user.company %>
-       <li class="list-group-item"><strong><%= t("user.company_name") %> : </strong><%= @user.company_name %></li>
+        <div class="col-md-6">
+          <strong><%= t("user.name") %> : </strong><%= @user.name if @user.name %>
+        </div>
+        <div class="col-md-6">
+          <strong><%= t("user.first_name") %> : </strong><%= @user.first_name if @user.first_name %>
+        </div>
+
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <strong><%= t("user.email") %> : </strong><%= @user.email %>
+    </li>
+
+
+
+
+
+    <li class="list-group-item">
+      <div class="row">
+
+        <div class="col-md-6">
+
+          <% if @user.company %>
+            <strong><%= t("user.company_name") %> : </strong><%= @user.company_name %>
+          <% end %>
+
+          <% if @user.non_profit %>
+            <strong><%= t("user.non_profit_name") %> : </strong><%= @user.company_name %>
+          <% end %>
+
+          <% if @user.institution %>
+            <strong><%= t("user.institution_name") %> : </strong><%= @user.company_name %>
+          <% end %>
+        </div>
+
+  <% if current_user.offers.any? %>
+
+    <% if current_user.company_name.present? %>
+
+        <div class="col-md-6">
+          <strong><%= t("user.vat") %> : </strong><%= @user.vat %>
+        </div>
+      </div>
+     </li>
+     
+    <% end %>
+
+    <li class="list-group-item">
+      <div class="row">
+
+        <div class="col-md-5">
+          <strong><%= t("user.address") %> : </strong><%= @user.address %>
+        </div>
+
+        <div class="col-md-2">
+          <strong><%= t("user.postcode") %> : </strong><%= @user.postcode %>
+        </div>
+
+        <div class="col-md-3">
+          <strong><%= t("user.city") %> : </strong><%= @user.city %>
+        </div>
+
+        <div class="col-md-2">
+          <strong><%= t("user.country") %> : </strong><%= @user.country %>
+        </div>
+
+      </div>
+    </li>
+     
+    <li class="list-group-item">
+      <div class="row">
+
+        <div class="col-md-6">
+          <strong><%= t("user.phone") %> : </strong><%= @user.phone %>
+        </div>
+
+        <div class="col-md-6">
+          <strong><%= t("user.gsm") %> : </strong><%= @user.gsm %>
+        </div>
+
+      </div>
+    </li>
+     
+  <% end %>
+  
+</ul>
+
+      <%= link_to edit_user_path(@user) do %>
+        <%= content_tag(:i, t("menu.edit"), class: "fa fa-pencil-square-o btn btn-default") %> 
       <% end %>
 
-      <% if @user.non_profit %>
-       <li class="list-group-item"><strong><%= t("user.non_profit_name") %> : </strong><%= @user.company_name %></li>
-      <% end %>
+</div>
 
-      <% if @user.institution %>
-       <li class="list-group-item"><strong><%= t("user.institution_name") %> : </strong><%= @user.company_name %></li>
-      <% end %>
 
-      <% if current_user.offers.any? %>
 
-        <% if current_user.company_name.present? %>
-
-          <li class="list-group-item"><strong><%= t("user.vat") %> : </strong><%= @user.vat %>
-          </li>
-        <% end %>
-
-        <li class="list-group-item"><strong><%= t("user.address") %> : </strong><%= @user.address %>
-          </li>
-
-        <li class="list-group-item"><strong><%= t("user.postcode") %> : </strong><%= @user.postcode %>
-        </li>
-
-        <li class="list-group-item"><strong><%= t("user.city") %> : </strong><%= @user.city %>
-        </li>
-
-        <li class="list-group-item"><strong><%= t("user.phone") %> : </strong><%= @user.phone %>
-        </li>
-
-        <li class="list-group-item"><strong><%= t("user.gsm") %> : </strong><%= @user.gsm %>
-        </li>
-
-      <% end %>
-
-    </ul>
-
-    <%= link_to t("menu.edit"), edit_user_path(@user), class: "btn btn-default" %>
     
   </div>
 
