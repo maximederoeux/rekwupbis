@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     @company = @users.where(:company => true)
     @non_profit = @users.where(:non_profit => true)
     @institution = @users.where(:institution => true)
-    @client_no_status = @client.where.not(:institution => true).where.not(:company => true).where.not(:individual => true).where.not(:non_profit => true).where.not(:staff => true)
+    @client_no_status = @client.where(:institution => false).where(:company => false).where(:individual => false).where(:non_profit => false)
+
   end
 
   def show
