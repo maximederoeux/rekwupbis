@@ -1,0 +1,80 @@
+ADMIN
+
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="list-group">
+
+        <li class="list-group-item">
+          <h4><%= t("delivery.prepare") %></h4>
+        </li>
+      </ul>
+
+
+			<ul class="list-group">
+				
+	      	
+  			
+  				<div class="row">
+
+  					<% @deliveries.each do |delivery| %>
+
+							<div class="col-md-6">
+								<li class="list-group-item text-center">
+	      	
+			          <strong>
+			            <%= delivery.offer.event.event_name %>
+				            <%= link_to edit_delivery_path(delivery) do %>
+				              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+				            <% end %>
+			            <br>
+			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+			          </strong>
+								</li>
+		          </div>
+	        	<% end %>
+          </div>
+	      
+     	</ul>
+      
+      
+    </div>
+        
+    <div class="col-md-6">
+      <ul class="list-group">
+
+        <li class="list-group-item">
+          <h4><%= t("delivery.ready") %></h4>
+        </li>
+      </ul>
+
+
+			<ul class="list-group">
+				
+	      	
+  			
+  				<div class="row">
+
+        <% @deliveries.this_day.each do |delivery| %>
+
+							<div class="col-md-6">
+								<li class="list-group-item text-center">
+	      	
+			          <strong>
+			            <%= delivery.offer.event.event_name %>
+				            <%= link_to edit_delivery_path(delivery) do %>
+				              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+				            <% end %>
+			            <br>
+			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+			          </strong>
+								</li>
+		          </div>
+	        	<% end %>
+          </div>
+	      
+     	</ul>
+      
+      
+    </div>

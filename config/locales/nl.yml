@@ -163,6 +163,8 @@ nl:
     weight: "Totaal gewicht van de bestelling"
     reference: "Levering Ref. - "
     detail: "Details van de levering"
+    prepare: "Om klaar te maken"
+    ready: "Klaar voor de chauffeur"
 
   article:
     article_name: "Naam ven het artikel"

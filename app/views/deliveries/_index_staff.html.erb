@@ -1,0 +1,52 @@
+STAFF
+
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="list-group">
+
+        <li class="list-group-item">
+          <h4>All deliveries</h4>
+        </li>
+
+      <% @deliveries.each do |delivery| %>
+
+        <li class="list-group-item">
+          <strong>
+            <%= delivery.offer.event.event_name %><br>
+            <%= delivery.delivery_date %><br>
+            <%= delivery.total_boxes %> <%= t("menu.boxes") %>
+
+            <%= link_to delivery_path(delivery) do %>
+              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+            <% end %>
+          </strong>
+        </li>
+      
+      <% end %>
+      </ul>
+    </div>
+        
+    <div class="col-md-6">
+      <ul class="list-group">
+
+        <li class="list-group-item">
+          <h4>Test</h4>
+        </li>
+
+        <% @deliveries.each do |delivery| %>
+
+          <li class="list-group-item">
+            <strong>
+              <%= delivery.offer_id %><br>
+              <%= delivery.delivery_date %>
+
+              <%= link_to delivery_path(delivery) do %>
+                <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+              <% end %>
+            </strong>
+          </li>
+
+        <% end %>
+      </ul>
+    </div>
+  </div>
