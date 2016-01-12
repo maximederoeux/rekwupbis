@@ -6,6 +6,10 @@ class Boxdetail < ActiveRecord::Base
 
 
 	def weight
+		if self.article.weight.present?
 		self.box_article_quantity * self.article.weight
+		else
+		0
+		end
 	end
 end

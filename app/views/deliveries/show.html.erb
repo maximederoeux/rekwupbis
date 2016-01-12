@@ -72,8 +72,11 @@
       		<div class="col-md-6">
       			<strong><%= t("box.box_name") %></strong>
       		</div>
-      		<div class="col-md-2 text-center">
+      		<div class="col-md-3 text-center">
       			<strong><%= t("offer_box.quantity") %></strong>
+      		</div>
+      		<div class="col-md-3 text-center">
+      			<strong><%= t("delivery.weight") %></strong>
       		</div>
       	</div>
       </li>
@@ -87,8 +90,11 @@
       		<div class="col-md-6">
             <%= offer_box.box.box_name %>
             </div>
-          <div class="col-md-2 text-center">
+          <div class="col-md-3 text-center">
           	<%= offer_box.quantity %>
+          </div>
+          <div class="col-md-3 text-center">
+          	<%= offer_box.weight %> KG
           </div>
         </div>
 			</li>
@@ -100,12 +106,15 @@
       		<div class="col-md-6">
             <strong><%= t("delivery.parcels") %></strong>
             </div>
-          <div class="col-md-2 text-center">
+          <div class="col-md-3 text-center">
           	<strong><%= @delivery.total_boxes %></strong>
+          </div>
+          <div class="col-md-3 text-center">
+          	<strong><%= @delivery.offer.weight %> KG</strong>
           </div>
         </div>
 			</li>
-			
+
 </ul>
 </div>
 
