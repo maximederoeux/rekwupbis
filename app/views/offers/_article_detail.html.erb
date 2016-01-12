@@ -98,20 +98,6 @@
 
       	</ul>
 
-ID : <%= @offer.id %><br>
-Organizer: <%= @offer.organizer_id %><br>
-Organizer Name: <%= @offer.organizer.name %><br>
-Event: <%= @offer.event_id %><br>
-Event Name: <%= @offer.event.event_name %><br>
-Client Confirm: <%= @offer.client_confirmation %><br>
-Admin Confirm: <%= @offer.admin_confirmation %><br>
-<%= @confirmation %>
-
-<% if @confirmation == true %>
-Confirmé
-<% elsif @confirmation == false %>
-Pas confirmé
-<% end %>
 
 	
 
