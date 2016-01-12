@@ -4,7 +4,7 @@
       <li class="list-group-item list-group-item-success">
 
       	<h5><strong>
-      		<%= t("delivery.reference") %><%= @delivery.delivery_date.strftime("%Y") %> - <%= @delivery.offer_id %>
+      		<%= t("delivery.reference") %><%= @delivery.delivery_date.strftime("%Y") if @delivery.delivery_date %> - <%= @delivery.offer_id %>
       	</strong></h5>
 
       </li>
@@ -21,11 +21,11 @@
 
           <div class="col-md-6">
             <strong><%= t("event.delivery_date") %></strong><br>
-            <h4><strong><%= @delivery.delivery_date.strftime("%d/%m/%Y") %></strong></h4>
+            <h4><strong><%= @delivery.delivery_date.strftime("%d/%m/%Y") if @delivery.delivery_date %></strong></h4>
           </div>
           <div class="col-md-6">
             <strong><%= t("event.return_date") %></strong><br>
-            <h4><strong><%= @delivery.return_date.strftime("%d/%m/%Y") %></strong></h4>
+            <h4><strong><%= @delivery.return_date.strftime("%d/%m/%Y") if @delivery.return_date %></strong></h4>
           </div>
       </li>
 
