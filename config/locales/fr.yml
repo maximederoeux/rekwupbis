@@ -54,6 +54,7 @@ fr:
     boxes: "Caisses"
     negociated_prices: "Prix négociés"
     offers: "Offres"
+    deliveries: "Livraisons"
 
   user:
     name: "Nom"

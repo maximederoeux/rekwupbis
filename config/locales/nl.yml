@@ -54,6 +54,7 @@ nl:
     boxes: "Dozen"
     negociated_prices: "Onderhandeld prizen"
     offers: "Aanbodden"
+    deliveries: "Leveringen"
 
   user:
     name: "Naam"

@@ -26,9 +26,12 @@
 
           <% if @confirmation == true %>
 
-            <%= simple_form_for(@offer) do |f| %>
-              <%= f.error_notification %>           
-                <%= f.hidden_field :admin_confirmation, :value => true %>
+            <%= simple_form_for(@new_delivery) do |f| %>
+              <%= f.error_notification %>
+
+                <%= f.hidden_field :offer_id, :value => @offer.id %>
+                <%= f.hidden_field :delivery_date, :value => @offer.event.delivery_date %>
+                <%= f.hidden_field :return_date, :value => @offer.event.return_date %>
 
               <div class="form-actions">
                 <%= f.submit t("offer.delivery"), class: "btn btn-info" %>

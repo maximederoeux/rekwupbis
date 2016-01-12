@@ -51,7 +51,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
         if @event.creatorganizer
-          @event.update_attribute(:organizer_id, current_user.id)
+          @event.update_attributes(:organizer_id, current_user.id)
           format.html { redirect_to @event, notice: t("notice.event_created") }
           format.json { render :show, status: :created, location: @event }
         else

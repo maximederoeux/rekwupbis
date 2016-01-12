@@ -36,6 +36,8 @@ class OffersController < ApplicationController
     @offer_articles = OfferArticle.all
     @thisofferarticles = @offer_articles.where(:offer_id => @offer.id)
 
+    @new_delivery = Delivery.new
+
     unless current_user.admin or current_user == @organizer
       redirect_to :back, :alert => t("notice.access")
     end

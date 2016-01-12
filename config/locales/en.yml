@@ -54,6 +54,7 @@ en:
     boxes: "Boxes"
     negociated_prices: "Negociated Prices"
     offers: "Offers"
+    deliveries: "Deliveries"
 
   user:
     name: "Last Name"

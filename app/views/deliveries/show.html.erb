@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+Order:
+  <%= @delivery.offer_id %><br>
+
+
+Delivery date:
+  <%= @delivery.delivery_date %><br>
+
+Return date:
+  <%= @delivery.return_date %><br>
+
+<%= @delivery.offer.event.event_name %><br>
+
+<hr>
+
+<% @delivery.offer.offer_boxes.each do |offer_box| %>
+
+ <%= offer_box.box.box_name %>    <%= offer_box.quantity %><br>
+
+<% end %>
+
+<hr>
+
+
+<%= link_to 'Edit', edit_delivery_path(@delivery) %> |
+<%= link_to 'Back', deliveries_path %>

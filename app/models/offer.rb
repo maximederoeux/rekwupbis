@@ -3,6 +3,7 @@ class Offer < ActiveRecord::Base
 	belongs_to :event
 	has_many :offer_boxes
 	has_many :offer_articles
+	has_many :deliveries
 
 
 	def estimated_20_cups
