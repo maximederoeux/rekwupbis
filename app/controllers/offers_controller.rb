@@ -7,10 +7,12 @@ class OffersController < ApplicationController
     @offers = Offer.all
     @events = Event.all
     @user = current_user
-    @myoffers = Offer.where(:organizer => current_user)
+
     @confirmedoffers = Offer.where(:client_confirmation => true)
     @rejectedoffers = Offer.where(:client_confirmation => false)
     @pendingoffers = Offer.where(:client_confirmation => nil)
+
+    @myoffers = Offer.where(:organizer => current_user)
     @myconfirmedoffers = @myoffers.where(:client_confirmation => true)
     @myrejectedoffers = @myoffers.where(:client_confirmation => false)
     @mypendingoffers = @myoffers.where(:client_confirmation => nil)
@@ -24,6 +26,7 @@ class OffersController < ApplicationController
     @user = current_user
     @event = @offer.event
     @organizer = @offer.organizer
+    @confirmation = @offer.client_confirmation
 
     @new_offer_box = OfferBox.new
     @offer_boxes = OfferBox.all
@@ -32,22 +35,37 @@ class OffersController < ApplicationController
     @new_offer_article = OfferArticle.new
     @offer_articles = OfferArticle.all
     @thisofferarticles = @offer_articles.where(:offer_id => @offer.id)
+
+    unless current_user.admin or current_user == @organizer
+      redirect_to :back, :alert => t("notice.access")
+    end
   end
 
   # GET /offers/new
   def new
     @offer = Offer.new
+    unless current_user.admin
+      redirect_to :back, :alert => t("notice.access")
+    end
   end
 
   # GET /offers/1/edit
   def edit
+    @offer = Offer.find(params[:id])
+    @user = @offer.organizer
+    @event = @offer.event
+    unless current_user.admin
+      redirect_to :back, :alert => t("notice.access")
+    end
   end
 
   # POST /offers
   # POST /offers.json
   def create
     @offer = Offer.new(offer_params)
-    @event = @offer.event
+    unless current_user.admin
+      redirect_to :back, :alert => t("notice.access")
+    end
 
     respond_to do |format|
       if @offer.save
@@ -64,6 +82,7 @@ class OffersController < ApplicationController
   # PATCH/PUT /offers/1
   # PATCH/PUT /offers/1.json
   def update
+    @offer = Offer.find(params[:id])
     respond_to do |format|
       if @offer.update(offer_params)
         format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }

@@ -51,6 +51,72 @@
 
 					    
 					    </div>
-					  </li>
-					<% end %>   
-        </ul>
+					  </li>		  
+					<% end %>
+
+					<% if @user == @organizer %>
+
+						<li class="list-group-item">
+							<div class="row">
+
+							
+
+								<% if @confirmation == true %>
+
+								  <%= simple_form_for(@offer) do |f| %>
+		                <%= f.error_notification %>       
+
+		                  <%= f.hidden_field :client_confirmation, :value => false %>             
+		                  <%= f.submit t("offer.cancel"), class: "btn btn-default pull-right" %>
+		              <% end %>
+
+		            <% elsif @confirmation == nil %>
+
+								  <%= simple_form_for(@offer) do |f| %>
+		                <%= f.error_notification %>       
+
+		                  <%= f.hidden_field :client_confirmation, :value => true %>             
+		                  <%= f.submit t("offer.confirm"), class: "btn btn-info pull-right" %>     
+
+		              <% end %>
+
+								<% elsif @confirmation == false %>
+
+								  <%= simple_form_for(@offer) do |f| %>
+		                <%= f.error_notification %>       
+
+		                  <%= f.hidden_field :client_confirmation, :value => true %>             
+		                  <%= f.submit t("offer.confirm"), class: "btn btn-info pull-right" %>     
+
+		              <% end %>
+
+								<% end %>
+
+							</div>
+						</li>
+					<% end %>      		
+
+      	</ul>
+
+ID : <%= @offer.id %><br>
+Organizer: <%= @offer.organizer_id %><br>
+Organizer Name: <%= @offer.organizer.name %><br>
+Event: <%= @offer.event_id %><br>
+Event Name: <%= @offer.event.event_name %><br>
+Client Confirm: <%= @offer.client_confirmation %><br>
+Admin Confirm: <%= @offer.admin_confirmation %><br>
+<%= @confirmation %>
+
+<% if @confirmation == true %>
+Confirmé
+<% elsif @confirmation == false %>
+Pas confirmé
+<% end %>
+
+	
+
+
+
+
+
+

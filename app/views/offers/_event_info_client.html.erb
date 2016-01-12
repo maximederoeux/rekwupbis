@@ -1,0 +1,70 @@
+<ul class="list-group">
+  <li class="list-group-item list-group-item-success">
+
+CLIENT
+
+    <div class="row">
+
+      <div class="col-md-6">
+        <h4><%= t("offer.reference")%><%= @offer.created_at.strftime("%Y") %> - <%= @offer.id %>
+
+          <% if @confirmation == true %>
+            - <%= t("offer.you_confirmed") %>
+          <% end %></h4>
+
+      </div>
+
+      <div class="col-md-2">
+
+
+        <% unless @offer.client_confirmation %>
+
+            <%= simple_form_for(@offer) do |f| %>
+              <%= f.error_notification %>       
+
+                <%= f.hidden_field :client_confirmation, :value => true %>             
+                <%= f.submit t("offer.confirm"), class: "btn btn-info pull-right" %>
+
+            <% end %>
+        <% end %>
+
+      </div>
+          
+
+      <div class="col-md-4">
+
+      </div>
+    </div>
+  </li>
+
+  <li class="list-group-item"><strong><%= @event.event_name %></strong>
+    <%= link_to edit_event_path(@event) do %>
+      <%= content_tag(:i, "", class: "fa fa-pencil") %> 
+    <% end %>
+  </li>
+
+  <li class="list-group-item">
+    <strong><%= t("event.organizer_name") %> </strong><%= @organizer.full_name if @organizer %>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row text-center">
+
+      <div class="col-md-4">
+        <strong><%= t("event.expected_pax") %></strong><br><br><%= @event.expected_pax %>
+      </div>
+
+      <div class="col-md-4">
+        <strong><%= t("event.last_pax") %></strong><br><%= @event.last_pax %>      
+      </div>
+
+      <div class="col-md-4">
+        <strong><%= t("event.last_consumption") %></strong><br><%= @event.last_consumption %>   
+      </div>
+
+    </div>
+  </li>
+    
+  <li class="list-group-item"><strong><%= t("event.comment") %></strong><br><%= @event.comment %></li>
+
+</ul>

@@ -1,14 +1,32 @@
 <div class="container-fluid more-padding">
-    
-<%= render 'event_info' %>
 
-<%= render 'box_detail' %>
+	<% if current_user.admin %>
+	    
+		<%= render 'event_info_admin' %>
 
-<%= render 'add_box' %>
+	<% end %>
 
-<%= render 'article_detail' %>
+	<% if current_user == @organizer %>
 
-<%= render 'add_article' %>
+		<%= render 'event_info_client' %>
+
+	<% end %>
+
+	<%= render 'box_detail' %>
+
+	<% if current_user.admin %>
+
+		<%= render 'add_box' %>
+
+	<% end %>
+
+		<%= render 'article_detail' %>
+
+	<% if current_user.admin %>
+
+		<%= render 'add_article' %>
+
+	<% end %>
 
 </div>
 

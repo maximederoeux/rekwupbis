@@ -2,6 +2,7 @@
 
     <% if current_user.admin %>
 
+
       <%= link_to new_event_path do %>
         <%= content_tag(:i, t("event.new_event"), class: "fa fa-plus-circle btn btn-lg btn-block btn-info") %> 
       <% end %>
@@ -17,9 +18,11 @@
       
             <% @events.each do |event| %>
 
+
               <div class="col-xs-6 col-md-6">
                 <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
               </div>
+
             <% end %>
           </div>
         </li>
