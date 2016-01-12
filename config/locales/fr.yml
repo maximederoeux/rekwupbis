@@ -163,8 +163,12 @@ fr:
     weight: "Poids total de la commande"
     reference: "Réf. Livraison - "
     detail: "Détails de la livraison"
-    prepare: "A préparer"
+    prepare: "Commandes à préparer"
     ready: "Prete pour le transporteur"
+    today: "Pour aujourd'hui"
+    tomorrow: "Pour demain"
+    twodays: "Dans 2 jours"
+    threedays: "Dans 3 jours"
 
   article:
     article_name: "Nom Article"

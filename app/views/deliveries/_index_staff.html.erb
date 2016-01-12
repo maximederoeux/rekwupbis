@@ -1,52 +1,116 @@
 STAFF
 
+<div class="row">
+<ul class="list-group">
+	        <li class="list-group-item list-group-item-warning ">
+	          <h4><%= t("delivery.prepare") %></h4>
+	        </li>
+</ul>
+</div>
+
   <div class="row">
-    <div class="col-md-6">
-      <ul class="list-group">
+    <div class="col-md-6">    
+    	<div class="col-md-6">
+    		<ul class="list-group">
+	        <li class="list-group-item text-center">
+	          <h4><%= t("delivery.today") %></h4>
+	        </li>
+  			
+  					<% @deliveries.this_day.not_ready.each do |delivery| %>
 
-        <li class="list-group-item">
-          <h4>All deliveries</h4>
-        </li>
 
-      <% @deliveries.each do |delivery| %>
+								<li class="list-group-item text-center">
+	      	
+			          <strong>
+			            <%= delivery.offer.event.event_name %>
+				            <%= link_to delivery_path(delivery) do %>
+				              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+				            <% end %>
+			            <br>
+			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+			          </strong>
+								</li>
+	        	<% end %>
+	     	</ul>
+	    </div>
 
-        <li class="list-group-item">
-          <strong>
-            <%= delivery.offer.event.event_name %><br>
-            <%= delivery.delivery_date %><br>
-            <%= delivery.total_boxes %> <%= t("menu.boxes") %>
+			<div class="col-md-6">
+				<ul class="list-group">
+	        <li class="list-group-item text-center">
+	          <h4><%= t("delivery.tomorrow") %></h4>
+	        </li>
 
-            <%= link_to delivery_path(delivery) do %>
-              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-            <% end %>
-          </strong>
-        </li>
+  					<% @deliveries.next_day.each do |delivery| %>
+
+
+							<li class="list-group-item text-center">
+      	
+			          <strong>
+			            <%= delivery.offer.event.event_name %>
+				            <%= link_to delivery_path(delivery) do %>
+				              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+				            <% end %>
+			            <br>
+			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+			          </strong>
+							</li>
+	        	<% end %>	      
+     		</ul>
+     	</div>
       
-      <% end %>
-      </ul>
-    </div>
+    </div>  
+
         
     <div class="col-md-6">
-      <ul class="list-group">
+    	<div class="col-md-6">
+    		<ul class="list-group">
+	        <li class="list-group-item text-center">
+	          <h4><%= t("delivery.twodays") %></h4>
+	        </li>
+  			
+  					<% @deliveries.three_days.each do |delivery| %>
 
-        <li class="list-group-item">
-          <h4>Test</h4>
-        </li>
+							<li class="list-group-item text-center">
+      	
+			          <strong>
+			            <%= delivery.offer.event.event_name %>
+				            <%= link_to delivery_path(delivery) do %>
+				              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+				            <% end %>
+			            <br>
+			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+			          </strong>
+							</li>
+        	<% end %>
+	     	</ul>
+	    </div>
 
-        <% @deliveries.each do |delivery| %>
+			<div class="col-md-6">
+				<ul class="list-group">
+	        <li class="list-group-item text-center">
+	          <h4><%= t("delivery.threedays") %></h4>
+	        </li>
 
-          <li class="list-group-item">
-            <strong>
-              <%= delivery.offer_id %><br>
-              <%= delivery.delivery_date %>
+  					<% @deliveries.four_days.each do |delivery| %>
 
-              <%= link_to delivery_path(delivery) do %>
-                <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-              <% end %>
-            </strong>
-          </li>
 
-        <% end %>
-      </ul>
-    </div>
-  </div>
+							<li class="list-group-item text-center">
+      	
+			          <strong>
+			            <%= delivery.offer.event.event_name %>
+				            <%= link_to delivery_path(delivery) do %>
+				              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+				            <% end %>
+			            <br>
+			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+			          </strong>
+							</li>
+	        	<% end %>	      
+     		</ul>
+     	</div>
+		</div>
+	</div>

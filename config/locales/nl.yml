@@ -163,7 +163,11 @@ nl:
     weight: "Totaal gewicht van de bestelling"
     reference: "Levering Ref. - "
     detail: "Details van de levering"
-    prepare: "Om klaar te maken"
+    prepare: "Bestelling te voorbereiden"
+    today: "Voor vandaag"
+    tomorrow: "Voor morgen"
+    twodays: "In 2 dagen"
+    threedays: "In 3 dagen"
     ready: "Klaar voor de chauffeur"
 
   article:

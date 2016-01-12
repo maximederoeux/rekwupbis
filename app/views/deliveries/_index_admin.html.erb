@@ -1,24 +1,23 @@
 ADMIN
+<div class="row">
+<ul class="list-group">
+	        <li class="list-group-item list-group-item-warning ">
+	          <h4><%= t("delivery.prepare") %></h4>
+	        </li>
+</ul>
+</div>
 
   <div class="row">
-    <div class="col-md-6">
-      <ul class="list-group">
-
-        <li class="list-group-item">
-          <h4><%= t("delivery.prepare") %></h4>
-        </li>
-      </ul>
-
-
-			<ul class="list-group">
-				
-	      	
+    <div class="col-md-6">    
+    	<div class="col-md-6">
+    		<ul class="list-group">
+	        <li class="list-group-item text-center">
+	          <h4><%= t("delivery.today") %></h4>
+	        </li>
   			
-  				<div class="row">
+  					<% @deliveries.this_day.each do |delivery| %>
 
-  					<% @deliveries.each do |delivery| %>
 
-							<div class="col-md-6">
 								<li class="list-group-item text-center">
 	      	
 			          <strong>
@@ -31,35 +30,49 @@ ADMIN
 			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 			          </strong>
 								</li>
-		          </div>
 	        	<% end %>
-          </div>
-	      
-     	</ul>
+	     	</ul>
+	    </div>
+
+			<div class="col-md-6">
+				<ul class="list-group">
+	        <li class="list-group-item text-center">
+	          <h4><%= t("delivery.tomorrow") %></h4>
+	        </li>
+
+  					<% @deliveries.next_day.each do |delivery| %>
+
+
+							<li class="list-group-item text-center">
+      	
+			          <strong>
+			            <%= delivery.offer.event.event_name %>
+				            <%= link_to edit_delivery_path(delivery) do %>
+				              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+				            <% end %>
+			            <br>
+			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+			          </strong>
+							</li>
+	        	<% end %>	      
+     		</ul>
+     	</div>
       
-      
-    </div>
+    </div>  
+
         
     <div class="col-md-6">
-      <ul class="list-group">
-
-        <li class="list-group-item">
-          <h4><%= t("delivery.ready") %></h4>
-        </li>
-      </ul>
-
-
-			<ul class="list-group">
-				
-	      	
+    	<div class="col-md-6">
+    		<ul class="list-group">
+	        <li class="list-group-item text-center">
+	          <h4><%= t("delivery.twodays") %></h4>
+	        </li>
   			
-  				<div class="row">
+  					<% @deliveries.three_days.each do |delivery| %>
 
-        <% @deliveries.this_day.each do |delivery| %>
-
-							<div class="col-md-6">
-								<li class="list-group-item text-center">
-	      	
+							<li class="list-group-item text-center">
+      	
 			          <strong>
 			            <%= delivery.offer.event.event_name %>
 				            <%= link_to edit_delivery_path(delivery) do %>
@@ -69,12 +82,34 @@ ADMIN
 			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
 			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 			          </strong>
-								</li>
-		          </div>
-	        	<% end %>
-          </div>
-	      
-     	</ul>
-      
-      
-    </div>
+							</li>
+        	<% end %>
+	     	</ul>
+	    </div>
+
+			<div class="col-md-6">
+				<ul class="list-group">
+	        <li class="list-group-item text-center">
+	          <h4><%= t("delivery.threedays") %></h4>
+	        </li>
+
+  					<% @deliveries.four_days.each do |delivery| %>
+
+
+							<li class="list-group-item text-center">
+      	
+			          <strong>
+			            <%= delivery.offer.event.event_name %>
+				            <%= link_to edit_delivery_path(delivery) do %>
+				              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+				            <% end %>
+			            <br>
+			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+			          </strong>
+							</li>
+	        	<% end %>	      
+     		</ul>
+     	</div>
+		</div>
+	</div>
