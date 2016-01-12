@@ -8,8 +8,6 @@ class EventsController < ApplicationController
     @events = Event.all
     @user = current_user
     @myevents = @events.where(:creator_id => current_user.id) | @events.where(:organizer_id => current_user.id)
-    @offers = Offer.all
-
   end
 
   # GET /events/1

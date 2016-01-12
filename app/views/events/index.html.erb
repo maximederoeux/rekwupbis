@@ -8,9 +8,34 @@
       <% end %>
 
       <ul class="list-group more-padding">
+        <li class="list-group-item list-group-item-success"><h4><strong>
+          <%= t("event.no_offer") %></strong></h4>
+        </li>
+
+        <li class="list-group-item">        
+          <div class="row">
+            <% @events.each do |event| %>
+
+              <% unless event.offers.any? %>
+
+
+
+                <div class="col-xs-6 col-md-6">
+                  
+                  <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
+                
+                </div>
+
+              <% end %>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="list-group more-padding">
        
-        <li class="list-group-item list-group-item-default"><h4><strong>
-          <%= t("event.listing_events") %></strong></h4>
+        <li class="list-group-item list-group-item-warning"><h4><strong>
+          <%= t("event.yes_offer") %></strong></h4>
         </li>
 
         <li class="list-group-item">
@@ -18,44 +43,83 @@
       
             <% @events.each do |event| %>
 
+              <% if event.offers.any? %>
 
-              <div class="col-xs-6 col-md-6">
-                <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
-              </div>
 
+
+                <div class="col-xs-6 col-md-6">
+                  
+                  <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
+                
+                </div>
+
+              <% end %>
             <% end %>
           </div>
         </li>
       </ul>
 
+
     <% elsif current_user.client %>
 
+      <% if @myevents.present? %>
 
-    
-        <% if @myevents.present? %>
+        <%= link_to new_event_path do %>
+          <%= content_tag(:i, t("event.new_event"), class: "fa fa-plus-circle btn btn-lg btn-block btn-info") %> 
+        <% end %>
 
-      <%= link_to new_event_path do %>
-        <%= content_tag(:i, t("event.new_event"), class: "fa fa-plus-circle btn btn-lg btn-block btn-info") %> 
-      <% end %>
+      <ul class="list-group more-padding">
+       
+        <li class="list-group-item list-group-item-success"><h4><strong>
+          <%= t("event.yes_offer") %></strong></h4>
+        </li>
 
-        <ul class="list-group">
-     
-          <li class="list-group-item list-group-item-default">
-            <h4><strong>
-              <%= t("event.your_events") %>
-            </strong></h4>
-          </li>
-          
-          <li class="list-group-item">
-            <div class="row">
-              <% @myevents.each do |event| %>
-          
+        <li class="list-group-item">
+          <div class="row">
+      
+            <% @myevents.each do |event| %>
+
+              <% if event.offers.any? %>
+
+
+
                 <div class="col-xs-6 col-md-6">
+                  
                   <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
+                
                 </div>
 
               <% end %>
-            </div>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="list-group more-padding">
+        <li class="list-group-item list-group-item-warning"><h4><strong>
+          <%= t("event.no_offer") %></strong></h4>
+        </li>
+
+        <li class="list-group-item">        
+          <div class="row">
+            <% @myevents.each do |event| %>
+
+              <% unless event.offers.any? %>
+
+
+
+                <div class="col-xs-6 col-md-6">
+                  
+                  <%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %> 
+                
+                </div>
+
+              <% end %>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+
       
           <% else %>
         
@@ -73,3 +137,4 @@
   <% end %>
 </div> <!-- /#container-fluid -->
 
+          

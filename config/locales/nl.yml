@@ -151,6 +151,8 @@ nl:
     delivery_address: "Leveringsadres"
     delivery_date: "Leveringsdatum (tussen 9u en 18u tijdens de week)"
     return_date: "Verwijderingsdatum (tussen 9u en 18u tijdens de week)"
+    no_offer: "Evenementen zonder aanbod"
+    yes_offer: "Evenementen met aanbod"
 
   article:
     article_name: "Naam ven het artikel"

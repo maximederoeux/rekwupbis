@@ -151,6 +151,8 @@ en:
     delivery_address: "Delivery address"
     delivery_date: "Delivery date (between 9am and 6pm on weekdays)"
     return_date: "Return date (between 9am and 6pm on weekdays)"
+    no_offer: "Events without offer"
+    yes_offer: "Events with offer"
 
   article:
     article_name: "Article Name"
