@@ -52,6 +52,11 @@ en:
         creatorganizer: "I am the orhanizer of the event"
         party: "Party, concert, festival"
         dinner: "Meal"
+        delivery_date: "Delivery date (between 9am and 6pm on weekdays)"
+        return_date: "Return date (between 9am and 6pm on weekdays)"
+        address: "Address"
+        contact: "Contact for delivery"
+        phone: "Contact Phone"
       article:
         article_name: "Article Name"
         article_id: "Article Code"
@@ -83,3 +88,4 @@ en:
       offer_article:
         article_id: "Articles"
         quantity: "Quantity"
+      

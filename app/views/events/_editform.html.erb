@@ -37,118 +37,138 @@
       </li>
     <% end %>
 
-    <li class="list-group-item">
-      <%= f.input :event_name %>
-    </li>
+      <li class="list-group-item">
+        <%= f.input :event_name %>
+      </li>
 
-    <li class="list-group-item">
-      <div class="row">
-
-        <div class="col-md-6">
-          <%= f.input :event_start_date %>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :event_start_date %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :event_end_date %>
+          </div>
         </div>
-        <div class="col-md-6">
-          <%= f.input :event_end_date %>
-        </div>
+      </li>
+      
+      <li class="list-group-item">
+        <%= f.input :address %>
+      </li>
 
-      </div>
-    </li>
-
-    <li class="list-group-item">
-      <div class="row">
-
-        <div class="col-md-4">
-          <%= f.input :expected_pax %>
-        </div>
-        <div class="col-md-4">
-          <%= f.input :last_pax %>
-        </div>
-        <div class="col-md-4">
-          <%= f.input :last_consumption %>
-        </div>
-
-      </div>
-    </li>
-
-    <li class="list-group-item">
-      <div class="row">
-
-        <div class="col-md-4">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-4">
           <%= f.input :post_code %>
+          </div>
+          <div class="col-md-4">
+            <%= f.input :city %>
+          </div>
+          <div class="col-md-4">
+            <%= f.input :country, only: [ "BE", "FR", "DE", "LU", "NL" ] %>
+          </div>
         </div>
-        <div class="col-md-4">
-          <%= f.input :city %>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-4">
+            <%= f.input :expected_pax %>
+          </div>
+          <div class="col-md-4">
+            <%= f.input :last_pax %>
+          </div>
+          <div class="col-md-4">
+            <%= f.input :last_consumption %>
+          </div>
         </div>
-        <div class="col-md-4">
-          <%= f.input :country, only: [ "BE", "FR", "DE", "LU", "NL" ] %>
+      </li>
+
+      <li class="list-group-item">
+        <%= f.input :comment %>
+      </li>
+
+      <li class="list-group-item">
+        <h6><strong><%= t("event.which_cups") %></strong></h6>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-3">
+            <%= f.input :cuptwenty %>
+          </div>
+          <div class="col-md-3">
+            <%= f.input :cuptwentyfive %>
+          </div>
+
+          <div class="col-md-3">
+            <%= f.input :cupforty %>
+          </div>
+          <div class="col-md-3">
+            <%= f.input :cupfifty %>
+          </div>
         </div>
+      </li>
 
-      </div>
-    </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-3">
+            <%= f.input :cuplitre %>
+          </div>
+          <div class="col-md-3">
+            <%= f.input :cupcava %>
+          </div>
 
-    <li class="list-group-item">
-      <%= f.input :comment %>
-    </li>
-
-    <li class="list-group-item list-group-item-info">
-      <strong><%= t("event.which_cups") %></strong>
-    </li>
-
-    <li class="list-group-item">
-      <div class="row">
-
-        <div class="col-md-3">
-          <%= f.input :cuptwenty %>
+          <div class="col-md-3">
+            <%= f.input :cupwine %>
+          </div>
+          <div class="col-md-3">
+            <%= f.input :cupshot %>
+          </div>
         </div>
-        <div class="col-md-3">
-          <%= f.input :cuptwentyfive %>
+      </li>
+
+      <li class="list-group-item">
+          <h6><strong><%= t("event.event_type") %></strong></h6>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :party %>
+          </div>
+
+          <div class="col-md-6">
+            <%= f.input :dinner %>
+          </div>
         </div>
-        <div class="col-md-3">
-          <%= f.input :cupforty %>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :delivery_date %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :return_date %>
+          </div>
         </div>
-        <div class="col-md-3">
-          <%= f.input :cupfifty %>
+      </li>
+      
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+          <%= f.input :contact %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :phone %>
+          </div>
         </div>
+      </li>
 
-      </div>
-    </li>
-
-    <li class="list-group-item">
-      <div class="row">
-
-        <div class="col-md-3">
-          <%= f.input :cuplitre %>
-        </div>       
-        <div class="col-md-3">
-          <%= f.input :cupcava %>
-        </div>
-        <div class="col-md-3">
-          <%= f.input :cupwine %>
-        </div>     
-        <div class="col-md-3">
-          <%= f.input :cupshot %>
-        </div>
-      </div>
-    </li>
-
-    <li class="list-group-item list-group-item-info">
-      <strong><%= t("event.event_type") %></strong>
-    </li>
-
-    <li class="list-group-item">
-      <div class="row">
-
-        <div class="col-md-6">
-          <%= f.input :party %>
-        </div>
-        <div class="col-md-6">
-          <%= f.input :dinner %>
-        </div>
-
-      </div>
-    </li><br>
-
-      <%= f.button :submit, class: "btn btn-lg btn-block btn-info" %><br>
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-info btn-lg btn-block" %>
+    </div>
 
 
   <% end %>

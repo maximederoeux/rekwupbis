@@ -52,6 +52,11 @@ nl:
         creatorganizer: "Ik organiseer het evenement"
         party: "Feest, concert, festival"
         dinner: "Maaltijd"
+        delivery_date: "Leveringsdatum (tussen 9u en 18u tijdens de week)"
+        return_date: "Verwijderingsdatum (tussen 9u en 18u tijdens de week)"
+        address: "Adres"
+        contact: "Contact voor de levering"
+        phone: "Telefoon van de contact"
       article:
         article_name: "Naam ven het artikel"
         article_id: "Artikel Code"

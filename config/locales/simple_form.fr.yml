@@ -52,6 +52,11 @@ fr:
         creatorganizer: "Je suis l'organisateur de l'événement"
         party: "Soirée, concert, festival"
         dinner: "Repas"
+        delivery_date: "Date de livraison (entre 9h et 18h en semaine)"
+        return_date: "Date de retour (entre 9h et 18h en semaine)"
+        address: "Adresse"
+        contact: "Personne de contact pour la livraison"
+        phone: "Téléphone du contact"
       article:
         article_name: "Nom de l'article"
         article_id: "Code de l'article"
