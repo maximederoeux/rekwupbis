@@ -17,6 +17,8 @@ class OffersController < ApplicationController
     @myrejectedoffers = @myoffers.where(:client_confirmation => false)
     @mypendingoffers = @myoffers.where(:client_confirmation => nil)
 
+    @new_delivery = Delivery.new
+
   end
 
   # GET /offers/1
