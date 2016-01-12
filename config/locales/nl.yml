@@ -154,6 +154,15 @@ nl:
     return_date: "Verwijderingsdatum (tussen 9u en 18u tijdens de week)"
     no_offer: "Evenementen zonder aanbod"
     yes_offer: "Evenementen met aanbod"
+    address: "Adres"
+    contact: "Contact voor de levering"
+    phone: "Telefoon van de contact"
+
+  delivery:
+    parcels: "Totaal nummer van dozen"
+    weight: "Totaal gewicht van de bestelling"
+    reference: "Levering Ref. - "
+    detail: "Details van de levering"
 
   article:
     article_name: "Naam ven het artikel"

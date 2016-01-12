@@ -1,29 +1,115 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid more-padding">
 
-Order :
-  <%= @delivery.offer_id %><br>
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-success">
+
+      	<h5><strong>
+      		<%= t("delivery.reference") %><%= @delivery.delivery_date.strftime("%Y") %> - <%= @delivery.offer_id %>
+      	</strong></h5>
+
+      </li>
+
+      <li class="list-group-item">
+
+            <strong><%= t("event.event_name") %> : </strong>
+            <%= @delivery.offer.event.event_name %>
+
+      </li>
+
+      <li class="list-group-item">
+        <div class="row text-center">
+
+          <div class="col-md-6">
+            <strong><%= t("event.delivery_date") %></strong><br>
+            <h4><strong><%= @delivery.delivery_date.strftime("%d/%m/%Y") %></strong></h4>
+          </div>
+          <div class="col-md-6">
+            <strong><%= t("event.return_date") %></strong><br>
+            <h4><strong><%= @delivery.return_date.strftime("%d/%m/%Y") %></strong></h4>
+          </div>
+      </li>
+
+      <li class="list-group-item">
+      	<h4><strong><%= t("event.address") %> : </strong><%= @delivery.offer.event.address %> - <%= @delivery.offer.event.post_code %> <%= @delivery.offer.event.city %>, <%= @delivery.offer.event.country %></h4> 
+      </li>
+
+      <li class="list-group-item">
+        <div class="row text-center">
+
+          <div class="col-md-6">
+            <strong><%= t("event.contact") %></strong><br>
+            <h4><strong><%= @delivery.offer.event.contact %></strong></h4>
+          </div>
+          <div class="col-md-6">
+            <strong><%= t("event.phone") %></strong><br>
+            <h4><strong><%= @delivery.offer.event.phone %></strong></h4>
+          </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row text-center">
+
+          <div class="col-md-6">
+            <strong><%= t("delivery.parcels") %></strong><br>
+            <h4><strong><%= @delivery.total_boxes %></strong></h4>
+          </div>
+          <div class="col-md-6">
+            <strong><%= t("delivery.weight") %></strong><br>
+            <h4><strong><%= @delivery.offer.weight %> KG</strong></h4>
+          </div>
+      </li>
+
+			<li class="list-group-item list-group-item-warning">
+
+      	<h5><strong>
+      		<%= t("delivery.detail") %>
+      	</strong></h5>
+
+      </li>
+
+      <li class="list-group-item">
+      	<div class="row">
+      		<div class="col-md-6">
+      			<strong><%= t("box.box_name") %></strong>
+      		</div>
+      		<div class="col-md-2 text-center">
+      			<strong><%= t("offer_box.quantity") %></strong>
+      		</div>
+      	</div>
+      </li>
 
 
-Delivery date :
-  <%= @delivery.delivery_date %><br>
 
-Return date :
-  <%= @delivery.return_date %><br>
-Evennt name :
-<%= @delivery.offer.event.event_name %><br>
+        <% @delivery.offer.offer_boxes.each do |offer_box| %>
 
-<hr>
+      <li class="list-group-item">
+      	<div class="row">
+      		<div class="col-md-6">
+            <%= offer_box.box.box_name %>
+            </div>
+          <div class="col-md-2 text-center">
+          	<%= offer_box.quantity %>
+          </div>
+        </div>
+			</li>
+          
+        <% end %>
 
-<% @delivery.offer.offer_boxes.each do |offer_box| %>
+      <li class="list-group-item">
+      	<div class="row">
+      		<div class="col-md-6">
+            <strong><%= t("delivery.parcels") %></strong>
+            </div>
+          <div class="col-md-2 text-center">
+          	<strong><%= @delivery.total_boxes %></strong>
+          </div>
+        </div>
+			</li>
+			
+</ul>
+</div>
 
- Box name : <%= offer_box.box.box_name %>  Quantity :  <%= offer_box.quantity %><br>
 
-<% end %>
-
-Total boxes : <%= @delivery.total_boxes %>
-
-
-<hr>
 
 <%= link_to 'Edit', edit_delivery_path(@delivery) %> |
 <%= link_to 'Back', deliveries_path %>

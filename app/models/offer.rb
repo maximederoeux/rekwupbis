@@ -130,4 +130,12 @@ class Offer < ActiveRecord::Base
 	  end
 	end
 
+	def weight
+		weight = 0
+		self.offer_boxes.each do |offer_box|
+			weight += offer_box.weight
+		end
+		weight
+	end
+	
 end

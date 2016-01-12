@@ -154,6 +154,15 @@ en:
     return_date: "Return date (between 9am and 6pm on weekdays)"
     no_offer: "Events without offer"
     yes_offer: "Events with offer"
+    address: "Address"
+    contact: "Contact for delivery"
+    phone: "Contact Phone"
+
+  delivery:
+    parcels: "Total number of parcels"
+    weight: "Total weight of the order"
+    reference: "Delivery Ref. - "
+    detail: "Delivery Details"
 
   article:
     article_name: "Article Name"

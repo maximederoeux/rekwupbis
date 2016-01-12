@@ -154,6 +154,15 @@ fr:
     return_date: "Date de retour (entre 9h et 18h en semaine)"
     no_offer: "Evénements sans offre"
     yes_offer: "Evénements avec offre"
+    address: "Adresse"
+    contact: "Personne de contact pour la livraison"
+    phone: "Téléphone du contact"
+
+  delivery:
+    parcels: "Nombre total de caisses"
+    weight: "Poids total de la commande"
+    reference: "Réf. Livraison - "
+    detail: "Détails de la livraison"
 
   article:
     article_name: "Nom Article"
