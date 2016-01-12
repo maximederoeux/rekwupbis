@@ -246,6 +246,7 @@ fr:
     confirmed_by_clients: "Offres confirmées par les clients"
     your_rejected: "Offres que vous avez rejetées"
     you_rejected: "Vous avez rejeté cette offre"
+    reject: "Rejeter cette offre"
 
   offer_box:
     create: "Ajouter à cette offre"

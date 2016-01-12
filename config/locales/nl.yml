@@ -246,6 +246,7 @@ nl:
     confirmed_by_clients: "Aanbodden door de klanten goedgekeurd"
     your_rejected: "Aanbodden die u afgekeurd heeft"
     you_rejected: "U heeft die offer afgekeurd"
+    reject: "Deze aanbod afkeuren"
 
   offer_box:
     create: "Dozen toevoegen"

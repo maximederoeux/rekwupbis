@@ -52,21 +52,29 @@
       </li>
 
       <li class="list-group-item">
-        <strong><%= t("event.organizer_name") %> </strong>
-        <%= @organizer.full_name if @event.organizer %>
-      </li>
+        <div class="row text-center">
 
-      <li class="list-group-item">
-        <div class="row">
+          <div class="col-md-4">
+            <strong>
+              <%= t("event.organizer_name") %>
+            </strong><br>
+              <%= @organizer.full_name if @event.organizer %>
+          </div>
 
-          <div class="col-md-6">
-            <strong><%= t("event.event_start_date") %> : </strong>
-            <%= @event.event_start_date %>
+          <div class="col-md-4">
+            <strong>
+              <%= t("event.event_start_date") %>
+            </strong><br>
+              <%= @event.event_start_date.strftime("%d/%m/%Y") %>
           </div>
-          <div class="col-md-6">
-            <strong><%= t("event.event_end_date") %> : </strong>
-            <%= @event.event_end_date %>
+
+          <div class="col-md-4">
+            <strong>
+              <%= t("event.event_end_date") %>
+            </strong><br>
+            <%= @event.event_end_date.strftime("%d/%m/%Y") %>
           </div>
+        </div>
       </li>
 
       <li class="list-group-item">
@@ -135,7 +143,7 @@
 
             <div class="col-md-6">
               <strong><%= t("event.delivery_date") %> : </strong>
-              <%= @event.delivery_date %>
+              <%= @event.delivery_date.strftime("%d/%m/%Y") %>
             </div>
           <% end %>
             
@@ -143,7 +151,7 @@
           <% if @event.return_date.present? %>
             <div class="col-md-6">
               <strong><%= t("event.return_date") %> : </strong>
-              <%= @event.return_date %>
+              <%= @event.return_date.strftime("%d/%m/%Y") %>
             </div>
           <% end %>
           

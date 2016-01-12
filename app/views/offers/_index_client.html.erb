@@ -1,184 +1,221 @@
-	<ul class="list-group">
+<ul class="list-group">
 
-		<li class="list-group-item list-group-item-warning">
-			<h4><%= t("offer.waiting") %></h4>
-		</li>
+	<li class="list-group-item list-group-item-warning">
+		<h4><%= t("offer.waiting") %></h4>
+	</li>
 
-			<% @mypendingoffers.each do |offer| %>
-														
-    		<% if offer.event.is_complete %>
+		<% @mypendingoffers.each do |offer| %>
+													
+  		<% if offer.event.address.present? %>
+
+				<li class="list-group-item">
+					<div class="row">
+
+						<div class="col-md-6">			
+							<strong>
+								<%= t("offer.reference")%><%= offer.created_at.strftime("%Y") %> - <%= offer.id %>
+								<br>
+								<%= offer.event.event_name %>
+							</strong>
+						</div>
+
+						<div class="col-md-2">
+
+								<%= link_to offer_path(offer) do %>
+									<%= content_tag(:i, "", class: "fa fa-info fa-2x") %> 
+								<% end %>
+    		    </div>
+
+						<div class="col-md-4">
+
+							<%= simple_form_for(offer) do |f| %>
+	    					<%= f.error_notification %>				
+
+									<%= f.hidden_field :client_confirmation, :value => true %>			       
+				      		<%= f.submit t("offer.confirm"), class: "btn btn-info" %>
+
+      				<% end %> <!-- offer form -->
+    		    </div>
+			    </div>
+				</li>
+
+  		<% else %> <!-- address present -->
+
+			    <li class="list-group-item list-group-item-success">
+						<strong><%= t("event.please_complete") %></strong>
+					</li>
+
+        		<%= simple_form_for(offer.event) do |f| %>
+    					<%= f.error_notification %>
+
+		    			<li class="list-group-item">
+		    				<strong>
+										<%= t("offer.reference")%><%= offer.created_at.strftime("%Y") %> - <%= offer.id %>
+										<br>
+										<%= offer.event.event_name %>
+									</strong>
+							</li>
+
+							<li class="list-group-item">
+
+		    				<div class="row">
+
+		    					<div class="col-md-5">			
+										<%= f.input :address %>
+									</div>
+
+									<div class="col-md-2">
+										<%= f.input :post_code %>
+									</div>
+
+									<div class="col-md-3">
+										<%= f.input :city %>
+									</div>
+
+									<div class="col-md-2">
+										<%= f.input :country %>
+									</div>
+
+								</div>
+							</li>
+
+							<li class="list-group-item">
+								<div class="row">
+
+									<div class="col-md-6">
+										<%= f.input :delivery_date %>
+									</div>
+
+										<div class="col-md-6">
+										<%= f.input :return_date %>
+									</div>
+
+								</div>
+							</li>
+
+							<li class="list-group-item">
+
+								<div class="row">
+									<div class="col-md-6">
+										<%= f.input :contact %>
+									</div>
+
+									<div class="col-md-6">
+										<%= f.input :phone %>
+									</div>
+
+										<%= f.hidden_field :is_complete, :value => true %>
+			        	</div>
+
+			        </li>
+
+	        		<li class="list-group-item">
+	        			<div class="row">
+
+	        			<%= f.submit t("event.complete"), class: "btn btn-info pull-right" %>
+	       
+	        		<% end %> <!-- event form -->
+
+					      	<%= simple_form_for(offer) do |f| %>
+			    					<%= f.error_notification %>				
+
+											<%= f.hidden_field :client_confirmation, :value => false %>			       
+						      		<%= f.submit t("offer.reject"), class: "btn btn-default pull-left" %>
+						      <% end %>
+						    </div>
+			    		</li>
+					    		
+    				 
+
+		<% end %>  <!-- pending offers -->
+		
+		<% end %>	<!-- my pending offers do -->	
+</ul>          	
+
+<ul class="list-group">
+				<li class="list-group-item list-group-item-warning">
+					<h4><%= t("offer.your_confirmed") %></h4>
+				</li>
+
+				<% @myconfirmedoffers.each do |offer| %>
 
 					<li class="list-group-item">
 						<div class="row">
 
-							<div class="col-md-6">			
+							<div class="col-md-6">
 								<strong>
 									<%= t("offer.reference")%><%= offer.created_at.strftime("%Y") %> - <%= offer.id %>
-									<br>
+								<br>
 									<%= offer.event.event_name %>
 								</strong>
 							</div>
 
-							<div class="col-md-2">
+						<div class="col-md-2">
 
-									<%= link_to offer_path(offer) do %>
-										<%= content_tag(:i, "", class: "fa fa-info fa-2x") %> 
-									<% end %>
-      		    </div>
+								<%= link_to offer_path(offer) do %>
+									<%= content_tag(:i, "", class: "fa fa-info fa-2x") %> 
+								<% end %>
+    		    </div>
 
 							<div class="col-md-4">
+								
 
-								<%= simple_form_for(offer) do |f| %>
-		    					<%= f.error_notification %>				
-
-										<%= f.hidden_field :client_confirmation, :value => true %>			       
-					      		<%= f.submit t("offer.confirm"), class: "btn btn-info" %>
-
-	      				<% end %> <!-- offer form -->
       		    </div>
+
 				    </div>
 					</li>
+				<% end %>
 
-    		<% else %> <!-- event complete -->
+				<li class="list-group-item list-group-item-warning">
+					<h4><%= t("offer.your_rejected") %></h4>
+				</li>
 
-				    <li class="list-group-item list-group-item-success">
-							<strong><%= t("event.please_complete") %></strong>
-						</li>
+				<% @myrejectedoffers.each do |offer| %>
 
-						<li class="list-group-item">
+					<li class="list-group-item">
+						<div class="row">
 
-          		<%= simple_form_for(offer.event) do |f| %>
-	    					<%= f.error_notification %>
-
-	    				<div class="row">
-	    					<div class="col-md-5">			
-									<%= f.input :address %>
-								</div>
-								<div class="col-md-2">
-									<%= f.input :post_code %>
-								</div>
-								<div class="col-md-3">
-									<%= f.input :city %>
-								</div>
-								<div class="col-md-2">
-									<%= f.input :country %>
-								</div>
+							<div class="col-md-6">
+								<strong>
+									<%= t("offer.reference")%><%= offer.created_at.strftime("%Y") %> - <%= offer.id %>
+								<br>
+									<%= offer.event.event_name %>
+									<%= offer.client_confirmation %>
+								</strong>
 							</div>
-						</li>
 
-						<li class="list-group-item">
-							<div class="row">
-								<div class="col-md-6">
-									<%= f.input :delivery_date %>
-								</div>
-									<div class="col-md-6">
-									<%= f.input :return_date %>
-								</div>
-								</div>
+						<div class="col-md-2">
 
-							<div class="row">
-								<div class="col-md-6">
-									<%= f.input :contact %>
-									</div>
-									<div class="col-md-6">
-									<%= f.input :phone %>
-								</div>
-									<%= f.hidden_field :is_complete, :value => true %>
-		        		
-		        		<div class="form-actions">
-				      		<%= f.submit t("event.complete"), class: "btn btn-info pull-right" %>
-				    		</div>
-				    	</div>
-									    		
-      				<% end %> <!-- event form -->
-						</li>
-  			<% end %>  <!-- event complete -->
+								<%= link_to offer_path(offer) do %>
+									<%= content_tag(:i, "", class: "fa fa-info fa-2x") %> 
+								<% end %>
+    		    </div>
+
+      		    <div class="col-md-4">
+								
+							<%= simple_form_for(offer) do |f| %>
+	    					<%= f.error_notification %>				
+
+									<%= f.hidden_field :client_confirmation, :value => true %>			       
+				      		<%= f.submit t("offer.confirm"), class: "btn btn-info" %>
+				      <% end %>
+
+      		    </div>
+
+				    </div>
+					</li>
+				<% end %>	
+</ul>	<!-- list-group -->
+
+
+
+
+
+
+
+
+
+
+
 			
-			<% end %>	<!-- my pending offers do -->	          	
-
-					<li class="list-group-item list-group-item-warning">
-						<h4><%= t("offer.your_confirmed") %></h4>
-					</li>
-
-					<% @myconfirmedoffers.each do |offer| %>
-
-						<li class="list-group-item">
-							<div class="row">
-
-								<div class="col-md-6">
-									<strong>
-										<%= t("offer.reference")%><%= offer.created_at.strftime("%Y") %> - <%= offer.id %>
-									<br>
-										<%= offer.event.event_name %>
-									</strong>
-								</div>
-
-							<div class="col-md-2">
-
-									<%= link_to offer_path(offer) do %>
-										<%= content_tag(:i, "", class: "fa fa-info fa-2x") %> 
-									<% end %>
-      		    </div>
-
-								<div class="col-md-4">
-									
-
-	      		    </div>
-
-					    </div>
-						</li>
-					<% end %>
-
-					<li class="list-group-item list-group-item-warning">
-						<h4><%= t("offer.your_rejected") %></h4>
-					</li>
-
-					<% @myrejectedoffers.each do |offer| %>
-
-						<li class="list-group-item">
-							<div class="row">
-
-								<div class="col-md-6">
-									<strong>
-										<%= t("offer.reference")%><%= offer.created_at.strftime("%Y") %> - <%= offer.id %>
-									<br>
-										<%= offer.event.event_name %>
-										<%= offer.client_confirmation %>
-									</strong>
-								</div>
-
-							<div class="col-md-2">
-
-									<%= link_to offer_path(offer) do %>
-										<%= content_tag(:i, "", class: "fa fa-info fa-2x") %> 
-									<% end %>
-      		    </div>
-
-	      		    <div class="col-md-4">
-									
-								<%= simple_form_for(offer) do |f| %>
-		    					<%= f.error_notification %>				
-
-										<%= f.hidden_field :client_confirmation, :value => true %>			       
-					      		<%= f.submit t("offer.confirm"), class: "btn btn-info" %>
-					      <% end %>
-
-	      		    </div>
-
-					    </div>
-						</li>
-					<% end %>	
-	</ul>	<!-- list-group -->
-
-
-
-
-
-
-
-
-
-
-
-				
 

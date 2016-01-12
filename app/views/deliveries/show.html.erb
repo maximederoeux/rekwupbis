@@ -118,7 +118,13 @@
 </ul>
 </div>
 
+    <div class="row">
 
+      <div class="col-md-6">
+        <%= link_to t("menu.back"), deliveries_path, class: "btn btn-lg btn-block btn-default" %>
+      </div>
+      <div class="col-md-6">
+        <%= link_to t("menu.edit"), edit_delivery_path(@delivery), class: "btn btn-lg btn-block btn-info" %>
+      </div>
+    </div>
 
-<%= link_to 'Edit', edit_delivery_path(@delivery) %> |
-<%= link_to 'Back', deliveries_path %>
