@@ -1,27 +1,112 @@
-<%= simple_form_for(@article) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :article_name %>
-    <%= f.input :article_content %>
-    <%= f.input :article_type %>
-    <%= f.input :article_category %>
-    <%= f.input :quantity_bigbox %>
-    <%= f.input :quantity_smallbox %>
-    <%= f.input :quantity_pile %>
-    <%= f.input :rekwup_cup %>
-    <%= f.input :is_washable %>
-    <%= f.input :washing_price %>
-    <%= f.input :handwash_price %>
-    <%= f.input :tab_price %>
-    <%= f.input :deposit_price %>
-    <%= f.input :sell_price %>
-    <%= f.input :weight %>
+    <ul class="list-group">
+
+      <%= simple_form_for(@article) do |f| %>
+        <%= f.error_notification %>
+
+
+        <li class="list-group-item list-group-item-warning">
+          <h4><strong><%= t("article.edit_article") %></strong></h4>
+        </li>
+        <li class="list-group-item">
+          <div class="row")>
+            <div class="col-md-4">
+              <strong>
+                <%= f.input :article_name %>
+              </strong>
+            </div>
+
+            <div class="col-md-4">
+              <br><%= f.input :rekwup_cup %>
+            </div>
+
+            <div class="col-md-4">
+              <br><%= f.input :is_washable %>
+            </div>
+          </div>
+        </li>
+
+        <li class="list-group-item">
+          <div class="row text-center")>
+
+            <div class="col-md-4">
+              <%= f.input :article_category %>
+            </div>
+
+            <div class="col-md-4">
+              <%= f.input :article_content %>
+            </div>
+
+            <div class="col-md-4">
+              <%= f.input :article_type %>
+            </div>
+
+        </div>
+      </li>
+
+
+        <li class="list-group-item">
+          <div class="row text-center")>
+            <div class="col-md-3">
+              <%= f.input :quantity_bigbox %>
+            </div>
+
+            <div class="col-md-3">
+              <%= f.input :quantity_smallbox %>
+            </div>
+
+            <div class="col-md-3">
+              <%= f.input :quantity_pile %>
+            </div>
+
+            <div class="col-md-3">
+                <%= f.input :weight %>
+            </div>            
+          </div>
+        </li>
+
+        <li class="list-group-item">
+          <div class="row text-center")>
+            <div class="col-md-2">
+              <%= f.input :washing_price %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :handwash_price %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :tab_price %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :deposit_price %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :sell_price %>
+            </div>
+          </div>
+        </li>
+
+          <div class="row more-padding">
+
+            <div class="col-md-6">
+              <%= link_to t("menu.back"), articles_path, class: "btn btn-lg btn-block btn-default" %>
+            </div>
+            <div class="col-md-6">
+              <% if @user.admin %>
+                <%= f.button :submit, class: "btn btn-info btn-lg btn-block" %>
+              <% end %>
+            </div>
+
+          </div>
+
+      
+      <% end %>
+    </ul>
+
+
+
+    
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-success" %>
-  </div>
-<% end %><br>
-<%= link_to t("menu.cancel"), articles_path, class: "btn btn-warning" %>
-

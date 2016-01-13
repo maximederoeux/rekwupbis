@@ -4,49 +4,157 @@
 
 <% else %>
 
-  <div class="container-fluid">
-    
-    <br>
+  <div class="container-fluid more-padding">
+    <ul class="list-group">
+      
+
+        <li class="list-group-item list-group-item-success">
+          <div class="row")>
+            <div class="col-md-4">
+              <strong>
+                <%= @article.id %> - <%= @article.full_name %>
+              </strong>
+            </div>
+
+            <div class="col-md-4">
+                <% if @article.rekwup_cup %>
+                  <strong>
+                    <%= t("article.rekwup_cup") %>
+                  </strong>
+                <% end %>
+            </div>
+
+            <div class="col-md-4">
+
+            </div>
+          </div>
+        </li>
+
+        <li class="list-group-item">
+          <div class="row text-center")>
+
+          <div class="col-md-3">
+            <% if @article.is_washable %>
+              <strong>
+                <%= t("article.is_washable") %>
+              </strong>
+            <% end %>
+          </div>
+
+            <div class="col-md-3">
+              <strong>
+                <%= t("article.article_category") %><br>
+              </strong>
+              <%= @article.article_category %>
+            </div>
+
+            <div class="col-md-3">
+              <strong>
+                <%= t("article.article_content") %><br>
+              </strong>
+              <%= @article.article_content %> CL
+            </div>
+
+            <div class="col-md-3">
+              <strong>
+                <%= t("article.article_type") %><br>
+              </strong>
+              <%= @article.article_type %>
+            </div>
+
+        </div>
+      </li>
+
+
+        <li class="list-group-item">
+          <div class="row text-center")>
+            <div class="col-md-3">
+              <strong>
+                <%= t("article.quantity_bigbox") %><br>
+              </strong>
+              <%= @article.quantity_bigbox %>
+            </div>
+
+            <div class="col-md-3">
+              <strong>
+                <%= t("article.quantity_smallbox") %><br>
+              </strong>
+              <%= @article.quantity_smallbox %>
+            </div>
+
+            <div class="col-md-3">
+              <strong>
+                <%= t("article.quantity_pile") %><br>
+              </strong>
+              <%= @article.quantity_pile %>
+            </div>
+
+            <div class="col-md-3">
+              <strong>
+                <%= t("article.weight") %><br>
+              </strong>
+                <%= @article.weight %> kg
+            </div>            
+          </div>
+        </li>
+
+        <li class="list-group-item">
+          <div class="row text-center")>
+            <div class="col-md-2">
+              <strong>
+                <%= t("article.washing_price") %><br>
+              </strong>
+              <%= @article.washing_price %>€
+            </div>
+
+            <div class="col-md-2">
+              <strong>
+                <%= t("article.handwash_price") %><br>
+              </strong>
+              <%= @article.handwash_price %>€
+            </div>
+
+            <div class="col-md-2">
+              <strong>
+                <%= t("article.tab_price") %><br>
+              </strong>
+                <%= @article.tab_price %>€
+            </div>
+
+            <div class="col-md-2">
+              <strong>
+                <%= t("article.deposit_price") %><br>
+              </strong>
+              <%= @article.deposit_price %>€
+            </div>
+
+            <div class="col-md-2">
+              <strong>
+                <%= t("article.sell_price") %><br>
+              </strong>
+              <%= @article.sell_price %>€
+            </div>
+          </div>
+        </li>          
+    </ul>
+
 
     <div class="row">
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-success"><h5><strong><%= @article.full_name %></strong></h5></li>
 
-        <li class="list-group-item"><strong><%= t("article.article_id") %> : </strong><%= @article.id %></li>
-
-        <li class="list-group-item"><strong><%= t("article.article_name") %> : </strong><%= @article.article_name %></li>
-
-        <li class="list-group-item"><strong><%= t("article.article_content") %> : </strong><%= @article.article_content %> CL</li> 
-        <li class="list-group-item"><strong><%= t("article.article_type") %> : </strong><%= @article.article_type %></li>
-
-
-        <li class="list-group-item"><strong><%= t("article.article_category") %> : </strong><%= @article.article_category %></li>
-        <li class="list-group-item"><strong><%= t("article.quantity_bigbox") %> : </strong><%= @article.quantity_bigbox %></li>
-        <li class="list-group-item"><strong><%= t("article.quantity_smallbox") %> : </strong><%= @article.quantity_smallbox %></li>
-        <li class="list-group-item"><strong><%= t("article.quantity_pile") %> : </strong><%= @article.quantity_pile %></li>
-
-        <% if @article.rekwup_cup %>
-          <li class="list-group-item"><strong><%= t("article.rekwup_cup") %>
+      <div class="col-md-6">
+        <%= link_to t("menu.back"), articles_path, class: "btn btn-lg btn-block btn-default" %>
+      </div>
+      <div class="col-md-6">
+        <% if @user.admin %>
+          <%= link_to t("menu.edit"), edit_article_path(@article), class: "btn btn-lg btn-block btn-info" %>
         <% end %>
-        <% if @article.is_washable %>
-          <li class="list-group-item"><strong><%= t("article.is_washable") %>
-        <% end %>
-
-        <li class="list-group-item"><strong><%= t("article.washing_price") %> : </strong><%= @article.washing_price %></li>
-        <li class="list-group-item"><strong><%= t("article.handwash_price") %> : </strong><%= @article.handwash_price %></li>
-        <li class="list-group-item"><strong><%= t("article.tab_price") %> : </strong><%= @article.tab_price %></li>
-        <li class="list-group-item"><strong><%= t("article.deposit_price") %> : </strong><%= @article.deposit_price %></li>
-        <li class="list-group-item"><strong><%= t("article.sell_price") %> : </strong><%= @article.sell_price %></li>
-        <li class="list-group-item"><strong><%= t("article.weight") %> : </strong><%= @article.weight %></li>
-        
-      </ul>
+      </div>
     </div>
+    
   </div>
 
-  <% if @user.admin %>
-    <%= link_to t("menu.edit"), edit_article_path(@article), class: "btn btn-lg btn-success" %>
+
+
+  
   <% end %>
-  <%= link_to t("menu.back"), articles_path, class: "btn btn-lg btn-warning" %>
 
-
-<% end %>

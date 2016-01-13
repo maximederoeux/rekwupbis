@@ -200,12 +200,13 @@ fr:
     is_washable: "Cet article est lavable"
     washing_price: "Lavage"
     handwash_price: "Lavage Manuel"
-    tab_price: "Manutention Languette"
+    tab_price: "Manutention"
     deposit_price: "Caution"
     rekwup_cup: "Gobelet Rekwup"
     our_prices: "Nos tarifs"
     your prices: "Vos tarifs"
     sell_price: "Prix"
+    weight: "Poids"
 
   negociated_price:
     add: "Ajouter des prix négociés."

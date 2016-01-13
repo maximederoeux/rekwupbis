@@ -1,15 +1,37 @@
-<%= simple_form_for(@boxdetail) do |f| %>
-  <%= f.error_notification %>
+    
 
-  <div class="form-inputs">
-  	<h6><strong><%= t("article.select_article")%></strong></h6>
-    <%= f.collection_select :article_id, Article.all.order('article_name ASC'), :id, :full_name, {prompt: false}, {class: "form-control styled-select"} %><br>
-    <%= f.input :box_article_quantity %>
+			<%= simple_form_for(@boxdetail) do |f| %>
+			  <%= f.error_notification %>
 
-  </div>
+	    <div class="row")>
+	      <div class="col-md-4">
 
-  <div class="form-actions">
-  	<%= f.submit t("menu.update"), class: "btn btn-success" %>
-  </div>
+	      	<ul class="list-group">
+
+		        <li class="list-group-item list-group-item-warning">
+		          <h4><strong><%= t("boxdetail.edit_boxdetail") %></strong></h4>
+		        </li>
+
+		        <li class="list-group-item">
+
+		            	<strong>
+		            		<%= t("article.article_select") %>
+		            	</strong><br><br>
+		              
+		                <%= f.collection_select :article_id, Article.all.order('article_name ASC'), :id, :full_name, {prompt: false}, {class: "form-control styled-select"} %>
+		        </li>
+
+	          <li class="list-group-item">
+	            <%= f.input :box_article_quantity %>
+	          </li>
+
+		    
+	          	
+		  
+	      </ul>
+	      <%= f.submit t("menu.update"), class: "btn btn-info btn-block" %>
+	    </div>
+	  </div>
 <% end %>
+	
 
