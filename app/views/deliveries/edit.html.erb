@@ -1,6 +1,16 @@
-<h1>Editing Delivery</h1>
+<div class="container-fluid"><br>
 
-<%= render 'form' %>
+<% if current_user.admin %>
 
-<%= link_to 'Show', @delivery %> |
-<%= link_to 'Back', deliveries_path %>
+  <%= render 'form' %>
+
+<% end %>
+
+<% if current_user.staff %>
+
+<%= render 'show_staff' %>
+
+<% end %>
+
+
+</div>

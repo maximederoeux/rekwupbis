@@ -1,5 +1,6 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /offers
   # GET /offers.json
@@ -41,26 +42,32 @@ class OffersController < ApplicationController
 
     @new_delivery = Delivery.new
 
-    unless current_user.admin or current_user == @organizer
-      redirect_to :back, :alert => t("notice.access")
+    @admin = @user.admin
+    unless @admin or @organizer
+      redirect_to :root, :alert => t("notice.access")
     end
   end
 
   # GET /offers/new
   def new
     @offer = Offer.new
-    unless current_user.admin
-      redirect_to :back, :alert => t("notice.access")
+    @user =current_user
+    @admin = @user.admin
+    unless @admin
+      redirect_to :root, :alert => t("notice.access")
     end
   end
 
   # GET /offers/1/edit
   def edit
     @offer = Offer.find(params[:id])
-    @user = @offer.organizer
+    @user = current_user
+    @organizer = @offer.organizer
     @event = @offer.event
-    unless current_user.admin
-      redirect_to :back, :alert => t("notice.access")
+    @admin = @user.admin
+    @staff = @user.staff
+    unless @admin or @organizer or @staff
+      redirect_to :root, :alert => t("notice.access")
     end
   end
 
@@ -68,8 +75,10 @@ class OffersController < ApplicationController
   # POST /offers.json
   def create
     @offer = Offer.new(offer_params)
-    unless current_user.admin
-      redirect_to :back, :alert => t("notice.access")
+    @user =current_user
+    @admin = @user.admin
+    unless @admin
+      redirect_to :root, :alert => t("notice.access")
     end
 
     respond_to do |format|

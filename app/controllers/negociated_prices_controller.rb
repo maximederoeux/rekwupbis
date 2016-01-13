@@ -1,5 +1,6 @@
 class NegociatedPricesController < ApplicationController
   before_action :set_negociated_price, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /negociated_prices
   # GET /negociated_prices.json
@@ -8,7 +9,9 @@ class NegociatedPricesController < ApplicationController
     @users = User.all
     @clients = @users.where(:client => true).order('name ASC')
     @contracted = @clients.where(:negociated_price => true).order('name ASC')
-    unless @user == current_user.admin
+    @user = current_user
+    @admin = @user.admin
+    unless @admin
       redirect_to :root, :alert => t("notice.access")
     end
   end
@@ -17,7 +20,8 @@ class NegociatedPricesController < ApplicationController
   # GET /negociated_prices/1.json
   def show
     @user = current_user
-    unless current_user.admin
+    @admin = @user.admin
+    unless @admin
       redirect_to :root, :alert => t("notice.access")
     end
   end
@@ -30,14 +34,17 @@ class NegociatedPricesController < ApplicationController
     @contracted = @clients.where(:negociated_price => true).order('name ASC')
     @articles = Article.all.order('article_name ASC')
     @user = current_user
-    unless @user == current_user.admin
+    @admin = @user.admin
+    unless @admin
       redirect_to :root, :alert => t("notice.access")
     end
   end
 
   # GET /negociated_prices/1/edit
   def edit
-    unless current_user.admin
+    @user = current_user
+    @admin = @user.admin
+    unless @admin
       redirect_to :root, :alert => t("notice.access")
     end
   end

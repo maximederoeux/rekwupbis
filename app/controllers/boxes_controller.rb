@@ -1,14 +1,16 @@
 class BoxesController < ApplicationController
   before_action :set_box, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /boxes
   # GET /boxes.json
   def index
     @boxes = Box.all.order('box_name ASC')
     @user = current_user
+    @staff = @user.staff
+    @admin = @user.admin
     @closed_boxes = @boxes.where(:box_is_full => true)
-    #@open_boxes = @boxes.where.not(:box_is_full => true)
-    unless @user == current_user.staff or current_user.admin
+    unless @admin or @staff
       redirect_to :root, :alert => t("notice.access")
     end
   end
@@ -17,12 +19,14 @@ class BoxesController < ApplicationController
   # GET /boxes/1.json
   def show
     @user = current_user
+    @staff = @user.staff
+    @admin = @user.admin
     @box = Box.find(params[:id])
     @new_boxdetail = Boxdetail.new
     @boxdetails = Boxdetail.all
     @articles = Article.all
     @thisboxdetails = @boxdetails.where(:box_id => @box.id)
-    unless @user == current_user.staff or current_user.admin
+    unless @admin or @staff
       redirect_to :root, :alert => t("notice.access")
     end
   end
@@ -31,7 +35,9 @@ class BoxesController < ApplicationController
   def new
     @box = Box.new
     @user = current_user
-    unless @user == current_user.staff or current_user.admin
+    @staff = @user.staff
+    @admin = @user.admin
+    unless @user == @admin or @staff
       redirect_to :root, :alert => t("notice.access")
     end
   end
@@ -39,7 +45,9 @@ class BoxesController < ApplicationController
   # GET /boxes/1/edit
   def edit
     @user = current_user
-    unless @user == current_user.staff or current_user.admin
+    @staff = @user.staff
+    @admin = @user.admin
+    unless @admin or @staff
       redirect_to :root, :alert => t("notice.access")
     end
   end

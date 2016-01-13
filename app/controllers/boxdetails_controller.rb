@@ -1,11 +1,17 @@
 class BoxdetailsController < ApplicationController
   before_action :set_boxdetail, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /boxdetails
   # GET /boxdetails.json
   def index
     @boxdetails = Boxdetail.all
     @user = current_user
+    @staff = @user.staff
+    @admin = @user.admin
+    unless @admin or @staff
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # GET /boxdetails/1
@@ -13,6 +19,11 @@ class BoxdetailsController < ApplicationController
   def show
     @user = current_user
     @article = Article.all
+    @staff = @user.staff
+    @admin = @user.admin
+    unless @admin or @staff
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # GET /boxdetails/new
@@ -21,11 +32,21 @@ class BoxdetailsController < ApplicationController
     @box = Box.find(params[:id])
     @article = Article.all
     @user = current_user
+    @staff = @user.staff
+    @admin = @user.admin
+    unless @admin or @staff
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # GET /boxdetails/1/edit
   def edit
     @user = current_user
+    @staff = @user.staff
+    @admin = @user.admin
+    unless @admin or @staff
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # POST /boxdetails

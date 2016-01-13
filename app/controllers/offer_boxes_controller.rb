@@ -5,6 +5,11 @@ class OfferBoxesController < ApplicationController
   # GET /offer_boxes.json
   def index
     @offer_boxes = OfferBox.all
+    @user = current_user
+    @admin = @user.admin
+    unless @admin
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # GET /offer_boxes/1
@@ -15,11 +20,21 @@ class OfferBoxesController < ApplicationController
   # GET /offer_boxes/new
   def new
     @offer_box = OfferBox.new
+    @user = current_user
+    @admin = @user.admin
+    unless @admin
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # GET /offer_boxes/1/edit
   def edit
     @offer = @offer_box.offer
+    @user = current_user
+    @admin = @user.admin
+    unless @admin
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # POST /offer_boxes

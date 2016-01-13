@@ -21,14 +21,22 @@ class DeliveriesController < ApplicationController
   def new
     @delivery = Delivery.new
     @offer = @delivery.offer
-    unless current_user.admin
-      redirect_to :back, :alert => t("notice.access")
+    @user = current_user
+    @admin = @user.admin
+    unless @admin
+      redirect_to :root, :alert => t("notice.access")
     end
   end
 
   # GET /deliveries/1/edit
   def edit
-    unless current_user.admin or current_user == @creator or current_user == @organizer
+    @user = current_user
+    @delivery = Delivery.find(params[:id])
+    @offer = @delivery.offer
+    @organizer = @offer.organizer
+    @admin = @user.admin
+    @staff = @user.staff
+    unless @admin or @organizer or @staff
       redirect_to :back, :alert => t("notice.access")
     end
   end

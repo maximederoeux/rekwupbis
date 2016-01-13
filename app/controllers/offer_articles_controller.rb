@@ -5,6 +5,12 @@ class OfferArticlesController < ApplicationController
   # GET /offer_articles.json
   def index
     @offer_articles = OfferArticle.all
+    @user = current_user
+    @staff = @user.staff
+    @admin = @user.admin
+    unless @admin or @staff
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # GET /offer_articles/1
@@ -15,11 +21,21 @@ class OfferArticlesController < ApplicationController
   # GET /offer_articles/new
   def new
     @offer_article = OfferArticle.new
+    @user = current_user
+    @admin = @user.admin
+    unless @admin
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # GET /offer_articles/1/edit
   def edit
     @offer = @offer_article.offer
+    @user = current_user
+    @admin = @user.admin
+    unless @admin
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # POST /offer_articles
