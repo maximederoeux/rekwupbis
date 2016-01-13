@@ -4,11 +4,15 @@ class Delivery < ActiveRecord::Base
 
 	scope :this_day, lambda {where(:delivery_date => Date.today)}
 	scope :next_day, lambda {where(:delivery_date => Date.today + 1.day)}
-	scope :three_days, lambda {where(:delivery_date => Date.today + 2.days)}
-	scope :four_days, lambda {where(:delivery_date => Date.today + 3.days)}
-	scope :five_days, lambda {where(:delivery_date => Date.today + 4.days)}
-	scope :six_days, lambda {where(:delivery_date => Date.today + 5.days)}
-	scope :not_ready, lambda {where(:is_ready => nil)}
+	scope :two_days, lambda {where(:delivery_date => Date.today + 2.days)}
+	scope :three_days, lambda {where(:delivery_date => Date.today + 3.days)}
+	scope :next_two_weeks, lambda {where(:delivery_date => ((Date.today + 4.days)..(Date.today + 15.days)))}
+	scope :next_year, lambda {where(:delivery_date => ((Date.today + 15.days)..(Date.today + 365.days)))}
+	scope :previous_day, lambda {where(:delivery_date => Date.today - 1.day)}
+	scope :two_days_ago, lambda {where(:delivery_date => Date.today - 2.days)}
+	scope :three_days_ago, lambda {where(:delivery_date => Date.today - 3.days)}
+	scope :ready, lambda {where(:is_ready => true) && where(:is_gone => nil)}
+	scope :gone, lambda {where(:is_gone => true) && where(:is_gone => true)}
 
 
 	def offer_boxes
@@ -17,6 +21,10 @@ class Delivery < ActiveRecord::Base
 
 	def total_boxes
 		offer_boxes.sum("quantity")
+	end
+
+	def not_ready
+		self.where(:is_ready => nil)
 	end
 
 end

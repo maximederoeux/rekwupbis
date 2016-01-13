@@ -1,25 +1,36 @@
 class DeliveriesController < ApplicationController
   before_action :set_delivery, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /deliveries
   # GET /deliveries.json
   def index
     @deliveries = Delivery.all
+    @not_ready = Delivery.where(:is_ready => nil).where(:is_gone => nil)
+    @not_gone = Delivery.where(:is_ready => true).where(:is_gone => nil)
+    @gone = Delivery.where(:is_ready => true).where(:is_gone => true)
   end
 
   # GET /deliveries/1
   # GET /deliveries/1.json
   def show
+    @delivery = Delivery.find(params[:id])
   end
 
   # GET /deliveries/new
   def new
     @delivery = Delivery.new
     @offer = @delivery.offer
+    unless current_user.admin
+      redirect_to :back, :alert => t("notice.access")
+    end
   end
 
   # GET /deliveries/1/edit
   def edit
+    unless current_user.admin or current_user == @creator or current_user == @organizer
+      redirect_to :back, :alert => t("notice.access")
+    end
   end
 
   # POST /deliveries
@@ -45,7 +56,7 @@ class DeliveriesController < ApplicationController
   def update
     respond_to do |format|
       if @delivery.update(delivery_params)
-        format.html { redirect_to @delivery, notice: 'Delivery was successfully updated.' }
+        format.html { redirect_to deliveries_path, notice: 'Delivery was successfully updated.' }
         format.json { render :show, status: :ok, location: @delivery }
       else
         format.html { render :edit }
@@ -72,6 +83,6 @@ class DeliveriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def delivery_params
-      params.require(:delivery).permit(:offer_id, :delivery_date, :return_date, :is_ready, :is_gone)
+      params.require(:delivery).permit(:offer_id, :delivery_date, :return_date, :is_ready, :is_gone, :ready_time, :ready_by, :gone_time, :sent_by)
     end
 end
