@@ -234,6 +234,7 @@ fr:
     open_boxes: "Caisses ouvertes"
     box_size: "Taille de la caisse"
     box_type: "Type de caisse"
+    weight: "Poids de la caisse"
 
   boxdetail:
     edit_boxdetail: "Modifier le contenu de la caisse"

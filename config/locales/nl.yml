@@ -235,6 +235,7 @@ nl:
     open_boxes: "Open dozen"
     box_size: "Maat van de doos"
     box_type: "Type van de doos"
+    weight: "Gewicht vand e doos"
 
   boxdetail:
     edit: "Inhoud van de doos wijzigen"

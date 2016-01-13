@@ -9,13 +9,13 @@
             <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
           <% end %>
 
-        <%= @box.weight %>
+        
       </strong>
     </li>
         
     <li class="list-group-item">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-3">
           <strong>
 
             <% if @box.box_regular %>
@@ -31,7 +31,12 @@
           </strong>
         </div>
 
-
+        <div class="col-md-3 text-center">
+          <strong>
+            <%= t("box.weight") %>
+          </strong><br>
+            <%= @box.weight %> kg
+        </div>
 
           <% if current_user.admin %>
 

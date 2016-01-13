@@ -234,6 +234,7 @@ en:
     open_boxes: "Open boxes"
     box_size: "Size of the box"
     box_type: "Box Type"
+    weight: "Box weight"
 
   boxdetail:
     edit_boxdetail: "Modify box content"
