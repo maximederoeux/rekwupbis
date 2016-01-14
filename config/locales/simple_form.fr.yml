@@ -97,3 +97,6 @@ fr:
         default: "%d-%m-%Y"
         long: "%d %B, %Y"
         short: "%d %b"
+    prompts:
+      default:
+        date: "jj-mm-aaaa"
