@@ -44,10 +44,12 @@
       <li class="list-group-item">
         <div class="row">
           <div class="col-md-6">
-            <%= f.input :event_start_date %>
+            <strong><%= t("event.event_start_date") %></strong><br>
+            <%= f.text_field :event_start_date, :placeholder => t("event.date_placeholder"), class: "datepicker" %>
           </div>
           <div class="col-md-6">
-            <%= f.input :event_end_date %>
+            <strong><%= t("event.event_end_date") %></strong><br>
+            <%= f.text_field :event_end_date, :placeholder => t("event.date_placeholder"), class: "datepicker" %>
           </div>
         </div>
       </li>
@@ -147,13 +149,15 @@
       <li class="list-group-item">
         <div class="row">
           <div class="col-md-6">
-            <%= f.label :delivery_date %>
-            <%= f.text_field :delivery_date, class: "datepicker" %>
+            <strong><%= t("event.delivery_date") %></strong><br>
+            <strong><%= t("event.time") %></strong><br>
+            <%= f.text_field :delivery_date, :placeholder => t("event.date_placeholder"), class: "datepicker" %>
           </div>
           <div class="col-md-6">
-             <%= f.label :return_date %>
-            <%= f.text_field :return_date, class: "datepicker" %>
-          </div>
+            <strong><%= t("event.return_date") %></strong><br>
+            <strong><%= t("event.time") %></strong><br>
+            <%= f.text_field :return_date, :placeholder => t("event.date_placeholder"), class: "datepicker" %>
+    </div>
         </div>
       </li>
       

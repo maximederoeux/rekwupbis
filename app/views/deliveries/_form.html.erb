@@ -18,13 +18,13 @@
 				    <li class="list-group-item">
 							<div class="row text-center")>
 						      <div class="col-md-6">
-						        	<strong><%= t("event.event_start_date") %></strong><br>
-						          <%= @delivery.offer.event.event_start_date %>
+						        	<strong><%= t("event.start_date") %></strong><br>
+						          <%= @delivery.offer.event.event_start_date.strftime("%d/%m/%Y") %>
 						      </div>
 
 						    	<div class="col-md-6">
-						        	<strong><%= t("event.event_end_date") %></strong><br>
-						          <%= @delivery.offer.event.event_end_date %>
+						        	<strong><%= t("event.end_date") %></strong><br>
+						          <%= @delivery.offer.event.event_end_date.strftime("%d/%m/%Y") %>
 						      </div>
 							</div>
 					  </li>
@@ -32,13 +32,15 @@
 		        <li class="list-group-item">
 							<div class="row text-center")>
 					      <div class="col-md-6">
-					      	<%= f.label :delivery_date %><br>
-            			<%= f.text_field :delivery_date, class: "datepicker" %>
+					      	<strong><%= t("event.delivery_date") %></strong><br>
+					      	<strong><%= t("event.time") %></strong><br>
+            			<%= f.text_field :delivery_date, :placeholder => t("event.date_placeholder"), class: "datepicker" %>
 						     </div>
 
 						    <div class="col-md-6">
-			            <%= f.label :return_date %><br>
-            			<%= f.text_field :return_date, class: "datepicker" %>
+			            <strong><%= t("event.return_date") %></strong><br>
+					      	<strong><%= t("event.time") %></strong><br>
+            			<%= f.text_field :return_date, :placeholder => t("event.date_placeholder"), class: "datepicker" %>
 								</div>
 							</div>
 	          </li>
