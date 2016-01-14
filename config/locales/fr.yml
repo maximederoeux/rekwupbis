@@ -157,6 +157,7 @@ fr:
     address: "Adresse"
     contact: "Personne de contact pour la livraison"
     phone: "Téléphone du contact"
+    date_placeholder: "jj/mm/aaaa"
 
   delivery:
     parcels: "Nombre total de caisses"

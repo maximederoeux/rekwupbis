@@ -92,3 +92,8 @@ nl:
       delivery:
         delivery_date: "Leverinsdatum"
         return_date: "Terug datum"
+    date:
+      format:
+        default: "%d-%m-%Y"
+        long: "%d %B, %Y"
+        short: "%d %b"

@@ -10,7 +10,6 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'i18n'
 gem 'country_select'
-gem 'bootstrap-datepicker-rails'
 
 
 group :development, :test do

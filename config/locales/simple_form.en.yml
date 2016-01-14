@@ -92,4 +92,8 @@ en:
       delivery:
         delivery_date: "Delivery Date"
         return_date: "Return Date"
-      
+    date:
+      format:
+        default: "%d-%m-%Y"
+        long: "%d %B, %Y"
+        short: "%d %b"

@@ -30,7 +30,7 @@
 				              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
 				            <% end %>
 			            <br>
-			            <%= delivery.delivery_date.strftime("%d/%m/%Y") if delivery.delivery_date %><br>
+			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
 			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 			          </strong>
 								</li>

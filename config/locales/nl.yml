@@ -157,6 +157,7 @@ nl:
     address: "Adres"
     contact: "Contact voor de levering"
     phone: "Telefoon van de contact"
+    date_placeholder: "dd/mm/jjjj"
 
   delivery:
     parcels: "Totaal nummer van dozen"

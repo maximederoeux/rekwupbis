@@ -157,6 +157,7 @@ en:
     address: "Address"
     contact: "Contact for delivery"
     phone: "Contact Phone"
+    date_placeholder: "dd/mm/yyyy"
 
   delivery:
     parcels: "Total number of parcels"
