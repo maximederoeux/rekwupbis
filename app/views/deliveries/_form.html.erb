@@ -32,11 +32,13 @@
 		        <li class="list-group-item">
 							<div class="row text-center")>
 					      <div class="col-md-6">
-            			<%= f.input :delivery_date %>
+					      	<%= f.label :delivery_date %><br>
+            			<%= f.text_field :delivery_date, class: "datepicker" %>
 						     </div>
 
 						    <div class="col-md-6">
-			            <%= f.input :return_date %>
+			            <%= f.label :return_date %><br>
+            			<%= f.text_field :return_date, class: "datepicker" %>
 								</div>
 							</div>
 	          </li>
