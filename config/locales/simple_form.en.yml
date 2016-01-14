@@ -89,4 +89,7 @@ en:
       offer_article:
         article_id: "Articles"
         quantity: "Quantity"
+      delivery:
+        delivery_date: "Delivery Date"
+        return_date: "Return Date"
       

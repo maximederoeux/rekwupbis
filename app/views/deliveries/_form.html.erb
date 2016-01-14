@@ -1,13 +1,64 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+</script>
+
+
+
 <%= simple_form_for(@delivery) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :offer_id %>
-    <%= f.input :delivery_date %>
-    <%= f.input :return_date %>
-  </div>
+	    <div class="row")>
+	      <div class="col-md-6">
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+	      	<ul class="list-group">
+
+		        <li class="list-group-item">
+		          <h4><strong><%= t("offer.edit") %></strong></h4>
+		        </li>
+
+		        <li class="list-group-item">
+		          <strong><%= @delivery.offer.event.event_name %></strong>
+		        </li>
+
+				    <li class="list-group-item">
+							<div class="row text-center")>
+						      <div class="col-md-6">
+						        	<strong><%= t("event.event_start_date") %></strong><br>
+						          <%= @delivery.offer.event.event_start_date %>
+						      </div>
+
+						    	<div class="col-md-6">
+						        	<strong><%= t("event.event_end_date") %></strong><br>
+						          <%= @delivery.offer.event.event_end_date %>
+						      </div>
+							</div>
+					  </li>
+
+		        <li class="list-group-item">
+							<div class="row text-center")>
+					      <div class="col-md-6">
+             			<%= f.label :delivery_date %><br>
+            			<%= f.text_field :delivery_date, class: "datepicker" %>
+						     </div>
+
+						    <div class="col-md-6">
+				          <%= f.label :return_date %><br>
+			            <%= f.text_field :return_date, class: "datepicker" %>
+								</div>
+							</div>
+	          </li>
+
+		    
+	  	      <%= f.submit t("menu.update"), class: "btn btn-info btn-block" %>        	
+		  		<% end %>
+	      </ul>
+	    </div>
+
+	    <div class="col-md-6">
+	    </div>
+
+	  </div>
+
+

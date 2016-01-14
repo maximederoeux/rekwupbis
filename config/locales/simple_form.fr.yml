@@ -89,3 +89,6 @@ fr:
       offer_article:
         article_id: "Articles"
         quantity: "Quantité"
+      delivery:
+        delivery_date: "Date de livraison"
+        return_date: "Date de retour"

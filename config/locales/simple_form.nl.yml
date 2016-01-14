@@ -89,3 +89,6 @@ nl:
       offer_article:
         article_id: "Artikels"
         quantity: "Quantité"
+      delivery:
+        delivery_date: "Leverinsdatum"
+        return_date: "Terug datum"
