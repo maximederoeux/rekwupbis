@@ -37,7 +37,7 @@ class BoxesController < ApplicationController
     @user = current_user
     @staff = @user.staff
     @admin = @user.admin
-    unless @user == @admin or @staff
+    unless @admin or @staff
       redirect_to :root, :alert => t("notice.access")
     end
   end
