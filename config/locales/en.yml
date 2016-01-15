@@ -55,6 +55,7 @@ en:
     negociated_prices: "Negociated Prices"
     offers: "Offers"
     deliveries: "Deliveries"
+    returns: "Returns"
 
   user:
     name: "Last Name"
@@ -297,6 +298,11 @@ en:
     boxdetail_created: "This box content was successfully created."
     boxdetail_updated: "This box content was successfully updated."
     boxdetail_destroyed: "This box content was successfully destroyed"
+
+  return:
+    receive: "Returns to receive"
+    control: "Returns to control"
+    controlled: "Returns controlled"
 
   word:
     from: "from"

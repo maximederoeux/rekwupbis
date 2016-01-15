@@ -5,6 +5,10 @@ class ReturnBoxesController < ApplicationController
   # GET /return_boxes.json
   def index
     @return_boxes = ReturnBox.all
+
+    @not_back = ReturnBox.where(:is_back => nil).where(:is_controlled => nil)
+    @not_controlled = ReturnBox.where(:is_back => true).where(:is_controlled => nil)
+    @controlled = ReturnBox.where(:is_back => true).where(:is_controlled => true)
   end
 
   # GET /return_boxes/1

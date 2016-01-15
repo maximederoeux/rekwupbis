@@ -13,7 +13,7 @@ class Delivery < ActiveRecord::Base
 	scope :two_days_ago, lambda {where(:delivery_date => Date.today - 2.days)}
 	scope :three_days_ago, lambda {where(:delivery_date => Date.today - 3.days)}
 	scope :ready, lambda {where(:is_ready => true) && where(:is_gone => nil)}
-	scope :gone, lambda {where(:is_gone => true) && where(:is_gone => true)}
+	scope :gone, lambda {where(:is_ready => true) && where(:is_gone => true)}
 
 
 	def offer_boxes

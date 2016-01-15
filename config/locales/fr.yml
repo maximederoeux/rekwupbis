@@ -55,6 +55,7 @@ fr:
     negociated_prices: "Prix négociés"
     offers: "Offres"
     deliveries: "Livraisons"
+    returns: "Retours"
 
   user:
     name: "Nom"
@@ -297,6 +298,11 @@ fr:
     boxdetail_updated: "Le contenu de la caisse a été mis à jour."
     boxdetail_created: "Le contenu de la caisse a bien été créé."
     boxdetail_destroyed: "Le contenu de la caisse a bien été supprimé."
+
+  return:
+    receive: "Retours à recevoir"
+    control: "Retours à contrôler"
+    controlled: "Retours contrôlés"
 
   word:
     from: "de"
