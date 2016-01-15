@@ -435,7 +435,7 @@
 					              <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
 					            <% end %>
 				            <br>
-				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+				            <%= delivery.delivery_date.strftime("%d/%m/%Y") if delivery.delivery_date %><br>
 				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 				          </strong>
 								</li>

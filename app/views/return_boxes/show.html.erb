@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Delivery:</strong>
+  <%= @return_box.delivery_id %>
+</p>
+
+<p>
+  <strong>Return time:</strong>
+  <%= @return_box.return_time %>
+</p>
+
+<p>
+  <strong>Return date:</strong>
+  <%= @return_box.return_date %>
+</p>
+
+<p>
+  <strong>Is back:</strong>
+  <%= @return_box.is_back %>
+</p>
+
+<p>
+  <strong>Receptionist:</strong>
+  <%= @return_box.receptionist %>
+</p>
+
+<p>
+  <strong>Ctrl time:</strong>
+  <%= @return_box.ctrl_time %>
+</p>
+
+<p>
+  <strong>Ctrler:</strong>
+  <%= @return_box.ctrler %>
+</p>
+
+<p>
+  <strong>Is controlled:</strong>
+  <%= @return_box.is_controlled %>
+</p>
+
+<%= link_to 'Edit', edit_return_box_path(@return_box) %> |
+<%= link_to 'Back', return_boxes_path %>

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Return Boxes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Delivery</th>
+      <th>Return Date</th>
+      <th>Return time</th>
+      <th>Is back</th>
+      <th>Receptionist</th>
+      <th>Ctrl time</th>
+      <th>Ctrler</th>
+      <th>Is controlled</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @return_boxes.each do |return_box| %>
+      <tr>
+        <td><%= return_box.delivery_id %></td>
+        <td><%= return_box.return_date %></td>
+        <td><%= return_box.return_time %></td>
+        <td><%= return_box.is_back %></td>
+        <td><%= return_box.receptionist %></td>
+        <td><%= return_box.ctrl_time %></td>
+        <td><%= return_box.ctrler %></td>
+        <td><%= return_box.is_controlled %></td>
+        <td><%= link_to 'Show', return_box %></td>
+        <td><%= link_to 'Edit', edit_return_box_path(return_box) %></td>
+        <td><%= link_to 'Destroy', return_box, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Return box', new_return_box_path %>

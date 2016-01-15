@@ -15,6 +15,8 @@ class DeliveriesController < ApplicationController
   # GET /deliveries/1.json
   def show
     @delivery = Delivery.find(params[:id])
+
+    @return_box = ReturnBox.new
   end
 
   # GET /deliveries/new
@@ -64,6 +66,7 @@ class DeliveriesController < ApplicationController
   def update
     respond_to do |format|
       if @delivery.update(delivery_params)
+        @delivery.create_return
         format.html { redirect_to deliveries_path, notice: 'Delivery was successfully updated.' }
         format.json { render :show, status: :ok, location: @delivery }
       else

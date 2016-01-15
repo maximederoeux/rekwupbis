@@ -1,5 +1,6 @@
 class Delivery < ActiveRecord::Base
 	belongs_to :offer
+	has_many :return_boxes
 
 
 	scope :this_day, lambda {where(:delivery_date => Date.today)}
@@ -25,6 +26,12 @@ class Delivery < ActiveRecord::Base
 
 	def not_ready
 		self.where(:is_ready => nil)
+	end
+
+	def create_return
+	  if is_gone
+	  return_boxes.create(:delivery_id => id, :return_date => return_date)
+	  end
 	end
 
 end

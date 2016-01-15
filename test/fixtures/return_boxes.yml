@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  delivery_id: 1
+  return_time: 2016-01-15 07:21:38
+  is_back: false
+  receptionist: 1
+  ctrl_time: 2016-01-15 07:21:38
+  ctrler: 1
+  is_controlled: false
+
+two:
+  delivery_id: 1
+  return_time: 2016-01-15 07:21:38
+  is_back: false
+  receptionist: 1
+  ctrl_time: 2016-01-15 07:21:38
+  ctrler: 1
+  is_controlled: false
