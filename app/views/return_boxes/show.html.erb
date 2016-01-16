@@ -1,4 +1,75 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid more-padding">
+  <ul class="list-group">
+    <li class="list-group-item">
+
+      <strong>
+        <%= @return_box.id %> - <%= @return_box.offer.event.event_name %>
+
+          <%= link_to edit_box_path(@return_box) do %>
+            <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+          <% end %>
+
+        
+      </strong>
+    </li>
+  
+
+    <li class="list-group-item list-group-item-warning">
+      Caisses
+    </li>
+  
+    <li class="list-group-item">
+
+
+        <% @thisreturndetails.each do |thisreturndetail| %>
+
+          <div class="row">
+
+            <%= simple_form_for(thisreturndetail) do |f| %>
+              <%= f.error_notification %>
+
+            <div class="col-md-4">
+              <%= t("box.box_name") %><br>
+              <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select"} %>
+            </div>
+
+
+            <div class="col-md-2">
+              <%= f.input :dirty %>
+            </div>
+         
+            <div class="col-md-2">
+              <%= f.input :sealed %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :clean %>
+            </div>
+
+              <div class="col-md-2">
+                <%= f.button :submit, class: "btn btn-xs" %>
+              </div>
+
+              <% end %>
+
+          </div>      
+        <% end %>  
+
+    </li>
+  </ul>
+
+
+    <div class="row">
+
+      <div class="col-md-6">
+        
+      </div>
+      <div class="col-md-6">
+        <%= link_to t("menu.back"), boxes_path, class: "btn btn-lg btn-block btn-default" %>
+      </div>
+    </div>
+
+</div>
 
 <p>
   <strong>Delivery:</strong>

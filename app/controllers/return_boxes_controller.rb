@@ -16,6 +16,9 @@ class ReturnBoxesController < ApplicationController
   def show
     @return_box = ReturnBox.find(params[:id])
     @return_detail = ReturnDetail.new
+    @return_details = ReturnDetail.all
+    @boxes = Box.all
+    @thisreturndetails = @return_details.where(:return_box_id => @return_box.id)
   end
 
   # GET /return_boxes/new
