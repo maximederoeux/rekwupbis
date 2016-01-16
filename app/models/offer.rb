@@ -6,6 +6,34 @@ class Offer < ActiveRecord::Base
 	has_many :deliveries
 
 
+	def automatic
+		offer_articles.create(:offer_id => id, :article_id => "12", :quantity => "2")
+	  if event.cuptwenty
+	  offer_boxes.create(:offer_id => id, :box_id => "1", :quantity => estimated_20_boxes)
+	  end
+	  if event.cuptwentyfive
+	  offer_boxes.create(:offer_id => id, :box_id => "2", :quantity => estimated_25_boxes)
+	  end
+	  if event.cupforty
+	  offer_boxes.create(:offer_id => id, :box_id => "3", :quantity => estimated_40_boxes)
+	  end
+	  if event.cupfifty
+	  offer_boxes.create(:offer_id => id, :box_id => "4", :quantity => estimated_50_boxes)
+	  end
+	  if event.cuplitre
+	  offer_boxes.create(:offer_id => id, :box_id => "5", :quantity => estimated_100_boxes)
+	  end        
+	  if event.cupcava
+	  offer_boxes.create(:offer_id => id, :box_id => "6", :quantity => estimated_cava_boxes)
+	  end
+	  if event.cupwine
+	  offer_boxes.create(:offer_id => id, :box_id => "7", :quantity => estimated_wine_boxes)
+	  end
+	  if event.cupshot
+	  offer_boxes.create(:offer_id => id, :box_id => "8", :quantity => estimated_shot_boxes)
+	  end
+	end
+
 	def estimated_20_cups
 		if event.expected_pax
 		event.expected_pax * 8
@@ -102,33 +130,7 @@ class Offer < ActiveRecord::Base
 		end
 	end
 
-	def automatic
-		offer_articles.create(:offer_id => id, :article_id => "12", :quantity => "2")
-	  if event.cuptwenty
-	  offer_boxes.create(:offer_id => id, :box_id => "1", :quantity => estimated_20_boxes)
-	  end
-	  if event.cuptwentyfive
-	  offer_boxes.create(:offer_id => id, :box_id => "2", :quantity => estimated_25_boxes)
-	  end
-	  if event.cupforty
-	  offer_boxes.create(:offer_id => id, :box_id => "3", :quantity => estimated_40_boxes)
-	  end
-	  if event.cupfifty
-	  offer_boxes.create(:offer_id => id, :box_id => "4", :quantity => estimated_50_boxes)
-	  end
-	  if event.cuplitre
-	  offer_boxes.create(:offer_id => id, :box_id => "5", :quantity => estimated_100_boxes)
-	  end        
-	  if event.cupcava
-	  offer_boxes.create(:offer_id => id, :box_id => "6", :quantity => estimated_cava_boxes)
-	  end
-	  if event.cupwine
-	  offer_boxes.create(:offer_id => id, :box_id => "7", :quantity => estimated_wine_boxes)
-	  end
-	  if event.cupshot
-	  offer_boxes.create(:offer_id => id, :box_id => "8", :quantity => estimated_shot_boxes)
-	  end
-	end
+
 
 	def weight
 		weight = 0

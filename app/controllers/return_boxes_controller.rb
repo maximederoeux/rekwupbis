@@ -14,6 +14,8 @@ class ReturnBoxesController < ApplicationController
   # GET /return_boxes/1
   # GET /return_boxes/1.json
   def show
+    @return_box = ReturnBox.find(params[:id])
+    @return_detail = ReturnDetail.new
   end
 
   # GET /return_boxes/new
@@ -29,9 +31,13 @@ class ReturnBoxesController < ApplicationController
   # POST /return_boxes.json
   def create
     @return_box = ReturnBox.new(return_box_params)
+    @delivery = @return_box.delivery
 
     respond_to do |format|
       if @return_box.save
+        #@return_box.automatic
+       
+        
         format.html { redirect_to @return_box, notice: 'Return box was successfully created.' }
         format.json { render :show, status: :created, location: @return_box }
       else

@@ -17,6 +17,8 @@ class DeliveriesController < ApplicationController
     @delivery = Delivery.find(params[:id])
 
     @return_box = ReturnBox.new
+    @return_detail = ReturnDetail.new
+    @return_details = @return_box.return_details.build(:return_box_id => @return_box.id)
   end
 
   # GET /deliveries/new
@@ -64,9 +66,16 @@ class DeliveriesController < ApplicationController
   # PATCH/PUT /deliveries/1
   # PATCH/PUT /deliveries/1.json
   def update
+    @return_box = ReturnBox.last
     respond_to do |format|
       if @delivery.update(delivery_params)
-        @delivery.create_return
+        #@delivery.create_return
+        if @delivery.is_gone
+          ReturnBox.create(:delivery_id => @delivery.id, :return_date => @delivery.return_date)
+          @delivery.offer.offer_boxes.each do |offer_box|
+            ReturnDetail.create(:return_box_id => @return_box.id, :box_id => offer_box.box_id)
+          end
+        end
         format.html { redirect_to deliveries_path, notice: 'Delivery was successfully updated.' }
         format.json { render :show, status: :ok, location: @delivery }
       else

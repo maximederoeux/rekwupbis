@@ -427,7 +427,7 @@
                         <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
                       <% end %>
                     <br>
-                    <%= return_box.return_date.strftime("%d/%m/%Y") if return_box.delivery.delivery_date %><br>
+                    <%= return_box.return_date.strftime("%d/%m/%Y") if return_box.return_date %><br>
                     <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %> 
                   </strong>
                 </li>

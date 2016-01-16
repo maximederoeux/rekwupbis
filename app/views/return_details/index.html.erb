@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Return Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Return box</th>
+      <th>Box</th>
+      <th>Dirty</th>
+      <th>Sealed</th>
+      <th>Clean</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @return_details.each do |return_detail| %>
+      <tr>
+        <td><%= return_detail.return_box_id %></td>
+        <td><%= return_detail.box_id %></td>
+        <td><%= return_detail.dirty %></td>
+        <td><%= return_detail.sealed %></td>
+        <td><%= return_detail.clean %></td>
+        <td><%= link_to 'Show', return_detail %></td>
+        <td><%= link_to 'Edit', edit_return_detail_path(return_detail) %></td>
+        <td><%= link_to 'Destroy', return_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Return detail', new_return_detail_path %>

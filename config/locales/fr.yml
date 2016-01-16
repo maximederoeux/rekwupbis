@@ -270,6 +270,7 @@ fr:
     your_rejected: "Offres que vous avez rejetées"
     you_rejected: "Vous avez rejeté cette offre"
     reject: "Rejeter cette offre"
+    confirm_for_client: "Confirmer pour le client"
 
   offer_box:
     create: "Ajouter à cette offre"

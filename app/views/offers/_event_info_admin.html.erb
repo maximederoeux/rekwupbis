@@ -10,11 +10,43 @@
             - <%= t("offer.confirmed_by_client") %>
           <% elsif @confirmation == nil %>
             - <%= t("offer.waiting_for_client") %>
+
           <% elsif @confirmation == false %>
             - <%= t("offer.rejected_by_client") %>            
           <% end %></h4>
 
       </div>
+
+          <% if @confirmation == true %>
+
+          <% elsif @confirmation == nil %>
+
+            <% unless @offer.client_confirmation %>
+
+              <%= simple_form_for(@offer) do |f| %>
+                <%= f.error_notification %>       
+
+                  <%= f.hidden_field :client_confirmation, :value => true %>             
+                  <%= f.submit t("offer.confirm_for_client"), class: "btn btn-info" %>
+
+              <% end %>
+            <% end %>
+
+          <% elsif @confirmation == false %>
+
+            <% unless @offer.client_confirmation %>
+           
+              <%= simple_form_for(@offer) do |f| %>
+                <%= f.error_notification %>       
+
+                  <%= f.hidden_field :client_confirmation, :value => true %>             
+                  <%= f.submit t("offer.confirm_for_client"), class: "btn btn-info" %>
+
+              <% end %>
+            <% end %>
+
+
+          <% end %></h4>
 
       <div class="col-md-2">
 
