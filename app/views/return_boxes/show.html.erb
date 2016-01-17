@@ -58,6 +58,50 @@
     </li>
   </ul>
 
+    <li class="list-group-item list-group-item-warning">
+      All of them
+    </li>
+  
+    <li class="list-group-item">
+
+
+        <% @return_details.each do |returndetail| %>
+
+          <div class="row">
+
+            <%= simple_form_for(returndetail) do |f| %>
+              <%= f.error_notification %>
+
+            <div class="col-md-4">
+              <%= t("box.box_name") %><br>
+              <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select"} %>
+            </div>
+
+
+            <div class="col-md-2">
+              <%= f.input :dirty %>
+            </div>
+         
+            <div class="col-md-2">
+              <%= f.input :sealed %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :clean %>
+            </div>
+
+              <div class="col-md-2">
+                <%= f.button :submit, class: "btn btn-xs" %>
+              </div>
+
+              <% end %>
+
+          </div>      
+        <% end %>  
+
+    </li>
+  </ul>
+
 
     <div class="row">
 

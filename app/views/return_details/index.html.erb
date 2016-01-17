@@ -6,6 +6,8 @@
   <thead>
     <tr>
       <th>Return box</th>
+      <th>Event</th>
+      <th>Created at</th>
       <th>Box</th>
       <th>Dirty</th>
       <th>Sealed</th>
@@ -18,6 +20,8 @@
     <% @return_details.each do |return_detail| %>
       <tr>
         <td><%= return_detail.return_box_id %></td>
+        <td><%= return_detail.return_box.offer.event.event_name %></td>
+        <td><%= return_detail.created_at %></td>
         <td><%= return_detail.box_id %></td>
         <td><%= return_detail.dirty %></td>
         <td><%= return_detail.sealed %></td>

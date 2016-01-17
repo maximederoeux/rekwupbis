@@ -37,10 +37,7 @@ class ReturnBoxesController < ApplicationController
     @delivery = @return_box.delivery
 
     respond_to do |format|
-      if @return_box.save
-        #@return_box.automatic
-       
-        
+      if @return_box.save   
         format.html { redirect_to @return_box, notice: 'Return box was successfully created.' }
         format.json { render :show, status: :created, location: @return_box }
       else
