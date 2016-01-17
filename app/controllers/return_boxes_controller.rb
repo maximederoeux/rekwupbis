@@ -1,5 +1,6 @@
 class ReturnBoxesController < ApplicationController
   before_action :set_return_box, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /return_boxes
   # GET /return_boxes.json

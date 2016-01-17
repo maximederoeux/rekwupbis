@@ -3,9 +3,9 @@
     <li class="list-group-item">
 
       <strong>
-        <%= @return_box.id %> - <%= @return_box.offer.event.event_name %>
+        <%= @return_box.id %> - <%= @return_box.offer.event.event_name %> - Boxes sent :<%= @return_box.delivery.total_boxes %> - Boxes return : <%= @return_box.total_boxes %>
 
-          <%= link_to edit_box_path(@return_box) do %>
+          <%= link_to edit_return_box_path(@return_box) do %>
             <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
           <% end %>
 
@@ -28,8 +28,13 @@
             <%= simple_form_for(thisreturndetail) do |f| %>
               <%= f.error_notification %>
 
+            <%= f.hidden_field :is_back, :value => true %>
+            <%= f.hidden_field :receptionist, :value => current_user.id %>
+            <%= f.hidden_field :return_time, :value => Time.now %>
+
+
             <div class="col-md-4">
-              <%= t("box.box_name") %><br>
+              <strong><%= t("box.box_name") %></strong><br>
               <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select"} %>
             </div>
 
@@ -51,29 +56,28 @@
               </div>
 
               <% end %>
-
-          </div>      
-        <% end %>  
+          </div>
+          Total Boxes: <%= thisreturndetail.count %>
+        <% end %>
 
     </li>
   </ul>
 
-    <li class="list-group-item list-group-item-warning">
-      All of them
-    </li>
-  
-    <li class="list-group-item">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-warning">
+          <h5><strong><%= t("offer.add_box")%></strong></h5>
+        </li>
+      
 
-
-        <% @return_details.each do |returndetail| %>
-
+        <li class="list-group-item">
           <div class="row">
-
-            <%= simple_form_for(returndetail) do |f| %>
+            <%= simple_form_for(@return_detail) do |f| %>
               <%= f.error_notification %>
 
+              <%= f.hidden_field :return_box_id, :value => @return_box.id %>
+
             <div class="col-md-4">
-              <%= t("box.box_name") %><br>
+              <strong><%= t("box.box_name") %></strong><br>
               <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select"} %>
             </div>
 
@@ -95,12 +99,10 @@
               </div>
 
               <% end %>
+          </div>
+        </li>
+      </ul>
 
-          </div>      
-        <% end %>  
-
-    </li>
-  </ul>
 
 
     <div class="row">

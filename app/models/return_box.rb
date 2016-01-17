@@ -22,13 +22,13 @@ def offer_boxes
 	offer.offer_boxes
 end
 
-
-def automatic
-	if delivery_id
-		offer_boxes.each do |offer_box|
-			return_details.create(:return_box_id => id, :box_id => offer_box.box_id)
-		end
+def total_boxes
+	total_boxes = 0
+	self.return_details.each do |box|
+		total_boxes += box.count
 	end
+	total_boxes
+	
 end
 
 end

@@ -28,7 +28,7 @@ class ReturnDetailsController < ApplicationController
 
     respond_to do |format|
       if @return_detail.save
-        format.html { redirect_to @return_detail, notice: 'Return detail was successfully created.' }
+        format.html { redirect_to :back, notice: 'Return detail was successfully created.' }
         format.json { render :show, status: :created, location: @return_detail }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ReturnDetailsController < ApplicationController
   def update
     respond_to do |format|
       if @return_detail.update(return_detail_params)
-        format.html { redirect_to @return_detail, notice: 'Return detail was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Return detail was successfully updated.' }
         format.json { render :show, status: :ok, location: @return_detail }
       else
         format.html { render :edit }
