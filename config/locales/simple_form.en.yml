@@ -92,6 +92,11 @@ en:
       delivery:
         delivery_date: "Delivery Date"
         return_date: "Return Date"
+      return_detail:
+        box_id: "Box type"
+        dirty: "Dirty"
+        sealed: "Sealed dirty"
+        clean: "Clean"
     date:
       format:
         default: "%d-%m-%Y"

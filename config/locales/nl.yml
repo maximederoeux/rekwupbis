@@ -285,6 +285,20 @@ nl:
     article_name: "Artikels"
     quantity: "Kwantiteit"
 
+  return:
+    receive: "Verwachte terugkeren"
+    control: "Terugkeren te controleren"
+    controlled: "Gecontroleerd terugkeren"
+    sent_boxes: "Gestuurd dozen"
+    received_boxes: "Teruggekregen dozen"
+    add_box: "Een doostype toevoegen"
+    reference: "Terugkeer Ref - "
+    no_difference: "Al de dozen zijn terug"
+    positive_difference: "U heeft %{difference} dozen meer gekregen"
+    negative_difference: "U heeft %{difference} dozen meer gekregen"
+    not_received_yet: "U heeft nog niets gekregen"
+    receive: "Deze terugkeer ontvangen"
+
   notice:
     access: "Verboden toegang"
     profile_updated: "Uw profiel werd updated."
@@ -301,11 +315,6 @@ nl:
     boxdetail_created_m: "De inhoud van de doos werd geschept."
     boxdetail_destroyed_f: "De inhoud van de doos werd gewijgerd."
 
-  return:
-    receive: "Verwachte terugkeren"
-    control: "Terugkeren te controleren"
-    controlled: "Gecontroleerd terugkeren"
-    
   word:
     from: "van"
     on_the: "op"
@@ -467,6 +476,9 @@ nl:
         update: "Opslaan"
       offer_article:
         create: "Een artikel toevoegen"
+        update: "Opslaan"
+      return_detail:
+        create: "Toevoegen"
         update: "Opslaan"
   number:
     currency:

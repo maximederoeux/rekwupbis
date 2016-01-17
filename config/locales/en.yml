@@ -284,6 +284,20 @@ en:
     article_name: "Articles"
     quantity: "Quantity"
 
+  return:
+    receive: "Returns to receive"
+    control: "Returns to control"
+    controlled: "Returns controlled"
+    sent_boxes: "Sent boxes"
+    reveived_boxes: "Received Boxes"
+    add_box: "Add a box type"
+    reference: "Return Ref - "
+    no_difference: "All sent boxes are back"
+    positive_difference: "You have received %{difference} boxes more"
+    negative_difference: "You have received %{difference} boxes left"
+    not_received_yet: "You haven't received anything yet"
+    receive: "Save this return"
+
   notice:
     access: "Access denied"
     profile_updated: "Your profile was successfully updated."
@@ -299,11 +313,6 @@ en:
     boxdetail_created: "This box content was successfully created."
     boxdetail_updated: "This box content was successfully updated."
     boxdetail_destroyed: "This box content was successfully destroyed"
-
-  return:
-    receive: "Returns to receive"
-    control: "Returns to control"
-    controlled: "Returns controlled"
 
   word:
     from: "from"
@@ -468,6 +477,9 @@ en:
       offer_article:
         create: "Add an article"
         update: "Save changes"
+      return_detail:
+        create: "Add"
+        update: "Save"
   number:
     currency:
       format:

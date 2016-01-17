@@ -92,6 +92,11 @@ fr:
       delivery:
         delivery_date: "Date de livraison"
         return_date: "Date de retour"
+      return_detail:
+        box_id: "Type de caisse"
+        dirty: "Sale"
+        sealed: "Scellées sales"
+        clean: "Propres"
     date:
       format:
         default: "%d-%m-%Y"

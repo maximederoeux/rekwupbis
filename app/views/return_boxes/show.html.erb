@@ -3,19 +3,20 @@
     <li class="list-group-item">
 
       <strong>
-        <%= @return_box.id %> - <%= @return_box.offer.event.event_name %> - Boxes sent :<%= @return_box.delivery.total_boxes %> - Boxes return : <%= @return_box.total_boxes %>
-
-          <%= link_to edit_return_box_path(@return_box) do %>
-            <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-          <% end %>
-
-        
+        <%= t("return.reference") %><%= @return_box.id %> <%= t("word.from") %> <%= @return_box.offer.event.event_name %>    
       </strong>
+    </li>
+
+    <li class="list-group-item list-group-item-warning">
+
+      <h5><strong>
+        <%= @return_box.display_difference %>    
+      </strong></h5>
     </li>
   
 
-    <li class="list-group-item list-group-item-warning">
-      Caisses
+    <li class="list-group-item">
+     <h5><strong><%= t("return.received_boxes") %></h5></strong>
     </li>
   
     <li class="list-group-item">
@@ -33,39 +34,38 @@
             <%= f.hidden_field :return_time, :value => Time.now %>
 
 
-            <div class="col-md-4">
+            <div class="col-md-4 text-center">
               <strong><%= t("box.box_name") %></strong><br>
-              <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select"} %>
+              <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
             </div>
 
 
-            <div class="col-md-2">
+            <div class="col-md-2 text-center">
               <%= f.input :dirty %>
             </div>
          
-            <div class="col-md-2">
+            <div class="col-md-2 text-center">
               <%= f.input :sealed %>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-2 text-center">
               <%= f.input :clean %>
             </div>
 
-              <div class="col-md-2">
-                <%= f.button :submit, class: "btn btn-xs" %>
+              <div class="col-md-2 text-center">
+                <br><%= f.button :submit, class: "btn btn-default btn-info" %>
               </div>
 
               <% end %>
           </div>
-          Total Boxes: <%= thisreturndetail.count %>
         <% end %>
 
     </li>
   </ul>
 
       <ul class="list-group">
-        <li class="list-group-item list-group-item-warning">
-          <h5><strong><%= t("offer.add_box")%></strong></h5>
+        <li class="list-group-item">
+          <h5><strong><%= t("return.add_box")%></strong></h5>
         </li>
       
 
@@ -76,26 +76,26 @@
 
               <%= f.hidden_field :return_box_id, :value => @return_box.id %>
 
-            <div class="col-md-4">
+            <div class="col-md-4 text-center">
               <strong><%= t("box.box_name") %></strong><br>
-              <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select"} %>
+              <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
             </div>
 
 
-            <div class="col-md-2">
+            <div class="col-md-2 text-center">
               <%= f.input :dirty %>
             </div>
          
-            <div class="col-md-2">
+            <div class="col-md-2 text-center">
               <%= f.input :sealed %>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-2 text-center">
               <%= f.input :clean %>
             </div>
 
-              <div class="col-md-2">
-                <%= f.button :submit, class: "btn btn-xs" %>
+              <div class="col-md-2 text-center">
+                <br><%= f.button :submit, class: "btn btn-default btn-info" %>
               </div>
 
               <% end %>
@@ -108,54 +108,19 @@
     <div class="row">
 
       <div class="col-md-6">
-        
+        <%= link_to t("menu.back"), boxes_path, class: "btn btn-lg btn-block btn-default" %>
       </div>
       <div class="col-md-6">
-        <%= link_to t("menu.back"), boxes_path, class: "btn btn-lg btn-block btn-default" %>
+          <%= simple_form_for(@return_box) do |f| %>
+              <%= f.error_notification %>
+
+            <%= f.hidden_field :is_back, :value => true %>
+            <%= f.hidden_field :receptionist, :value => current_user.id %>
+            <%= f.hidden_field :return_time, :value => Time.now %>
+            <%= f.submit t("return.receive"), class: "btn btn-lg btn-block btn-info" %>
+            <% end %>
       </div>
     </div>
 
 </div>
 
-<p>
-  <strong>Delivery:</strong>
-  <%= @return_box.delivery_id %>
-</p>
-
-<p>
-  <strong>Return time:</strong>
-  <%= @return_box.return_time %>
-</p>
-
-<p>
-  <strong>Return date:</strong>
-  <%= @return_box.return_date %>
-</p>
-
-<p>
-  <strong>Is back:</strong>
-  <%= @return_box.is_back %>
-</p>
-
-<p>
-  <strong>Receptionist:</strong>
-  <%= @return_box.receptionist %>
-</p>
-
-<p>
-  <strong>Ctrl time:</strong>
-  <%= @return_box.ctrl_time %>
-</p>
-
-<p>
-  <strong>Ctrler:</strong>
-  <%= @return_box.ctrler %>
-</p>
-
-<p>
-  <strong>Is controlled:</strong>
-  <%= @return_box.is_controlled %>
-</p>
-
-<%= link_to 'Edit', edit_return_box_path(@return_box) %> |
-<%= link_to 'Back', return_boxes_path %>

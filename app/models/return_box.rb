@@ -14,21 +14,37 @@ class ReturnBox < ActiveRecord::Base
 	scope :received, lambda {where(:is_back => true) && where(:is_controlled => nil)}
 	scope :gone, lambda {where(:is_back => true) && where(:is_controlled => true)}
 
-def offer
-	self.delivery.offer
-end
-
-def offer_boxes
-	offer.offer_boxes
-end
-
-def total_boxes
-	total_boxes = 0
-	self.return_details.each do |box|
-		total_boxes += box.count
+	def offer
+		self.delivery.offer
 	end
-	total_boxes
-	
-end
 
+	def offer_boxes
+		offer.offer_boxes
+	end
+
+	def total_boxes
+		total_boxes = 0
+		self.return_details.each do |box|
+			total_boxes += box.count
+		end
+		total_boxes
+	end
+
+	def difference
+		total_boxes - self.delivery.total_boxes
+	end
+
+	def display_difference
+		if total_boxes == 0
+			I18n.t('return.not_received_yet')
+		else
+			if difference == 0
+				I18n.t('return.no_difference')
+			elsif difference >= 0
+				I18n.t('return.positive_difference', :difference => difference)
+			elsif difference <= 0
+				I18n.t('return.negative_difference', :difference => (0 - difference))
+			end
+		end
+	end
 end

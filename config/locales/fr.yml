@@ -284,6 +284,20 @@ fr:
     article_name: "Articles"
     quantity: "Quantité"
 
+  return:
+    receive: "Retours à recevoir"
+    control: "Retours à contrôler"
+    controlled: "Retours contrôlés"
+    sent_boxes: "Caisses envoyées"
+    received_boxes: "Caisses reçues"
+    add_box: "Ajouter un type de caisse"
+    reference: "Retour Ref - "
+    no_difference: "Toutes les caisses sont revenues"
+    positive_difference: "Vous avez reçu  %{difference} caisses en plus"
+    negative_difference: "Vous avez reçu  %{difference} caisses en moins"
+    not_received_yet: "Vous n'avez encore rien reçu"
+    receive: "Enregistrer ce retour"
+
   notice:
     access: "Access refusé"
     profile_updated: "Votre profil a été mis à jour."
@@ -299,11 +313,6 @@ fr:
     boxdetail_updated: "Le contenu de la caisse a été mis à jour."
     boxdetail_created: "Le contenu de la caisse a bien été créé."
     boxdetail_destroyed: "Le contenu de la caisse a bien été supprimé."
-
-  return:
-    receive: "Retours à recevoir"
-    control: "Retours à contrôler"
-    controlled: "Retours contrôlés"
 
   word:
     from: "de"
@@ -475,6 +484,9 @@ fr:
       offer_article:
         create: "Ajouter un article"
         update: "Enregistrer les changements"
+      return_detail:
+        create: "Ajouter"
+        update: "Enregistrer"
   number:
     currency:
       format:

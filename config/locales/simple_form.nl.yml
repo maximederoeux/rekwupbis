@@ -92,6 +92,12 @@ nl:
       delivery:
         delivery_date: "Leverinsdatum"
         return_date: "Terug datum"
+      return_detail:
+        box_id: "Doostype"
+        dirty: "Vuil"
+        sealed: "Vuil verzegeld"
+        clean: "Schoon"
+
     date:
       format:
         default: "%d-%m-%Y"
