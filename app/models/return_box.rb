@@ -47,4 +47,31 @@ class ReturnBox < ActiveRecord::Base
 			end
 		end
 	end
+
+		def total_ctrl_boxes
+		total_ctrl_boxes = 0
+		self.return_details.each do |box|
+			total_ctrl_boxes += box.count_ctrl
+		end
+		total_ctrl_boxes
+	end
+
+	def difference_ctrl
+		total_ctrl_boxes - total_boxes
+	end
+
+	def display_difference_ctrl
+		if total_ctrl_boxes == 0
+			I18n.t('return.not_controlled_yet')
+		else
+			if difference_ctrl == 0
+				I18n.t('return.no_difference_ctrl')
+			elsif difference_ctrl >= 0
+				I18n.t('return.positive_difference_ctrl', :difference => difference_ctrl)
+			elsif difference_ctrl <= 0
+				I18n.t('return.negative_difference_ctrl', :difference => (0 - difference_ctrl))
+			end
+		end
+	end
+
 end

@@ -29,5 +29,33 @@ class ReturnDetail < ActiveRecord::Base
 	def count
 		dirty_value + sealed_value + clean_value
 	end
-	
+
+	def dirty_ctrl_value
+		if dirty_ctrl.present?
+			dirty_ctrl
+		else
+			0
+		end
+	end
+
+	def sealed_ctrl_value
+		if sealed_ctrl.present?
+			sealed_ctrl
+		else
+			0
+		end
+	end
+
+	def clean_ctrl_value
+		if clean_ctrl.present?
+			clean_ctrl
+		else
+			0
+		end
+	end
+
+	def count_ctrl
+		dirty_ctrl_value + sealed_ctrl_value + clean_ctrl_value
+	end
+
 end
