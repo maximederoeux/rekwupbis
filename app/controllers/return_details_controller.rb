@@ -5,6 +5,12 @@ class ReturnDetailsController < ApplicationController
   # GET /return_details.json
   def index
     @return_details = ReturnDetail.all
+    @user = current_user
+    @staff = @user.staff
+    @admin = @user.admin
+    unless @admin or @staff
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # GET /return_details/1
@@ -15,10 +21,23 @@ class ReturnDetailsController < ApplicationController
   # GET /return_details/new
   def new
     @return_detail = ReturnDetail.new
+
+    @user = current_user
+    @staff = @user.staff
+    @admin = @user.admin
+    unless @admin or @staff
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # GET /return_details/1/edit
   def edit
+    @user = current_user
+    @staff = @user.staff
+    @admin = @user.admin
+    unless @admin or @staff
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # POST /return_details

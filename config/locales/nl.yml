@@ -180,6 +180,7 @@ nl:
     thisgone: "Gestuurd bestelling"
     send: "Stuur deze bestelling"
     gone_today: "Vandaag"
+    tomorrow2: "Morgen"
     gone_yesterday: "Gisteren"
     gone_two_days: "2 dagen geleden"
     gone_three_days: "3 dagen geleden"
@@ -287,7 +288,7 @@ nl:
 
   return:
     receive: "Verwachte terugkeren"
-    control: "Terugkeren te controleren"
+    control: "Terugkeren te controleren die kwamen terug"
     controlled: "Gecontroleerd terugkeren"
     sent_boxes: "Gestuurd dozen"
     received_boxes: "Teruggekregen dozen"

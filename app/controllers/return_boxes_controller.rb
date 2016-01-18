@@ -10,6 +10,13 @@ class ReturnBoxesController < ApplicationController
     @not_back = ReturnBox.where(:is_back => nil).where(:is_controlled => nil)
     @not_controlled = ReturnBox.where(:is_back => true).where(:is_controlled => nil)
     @controlled = ReturnBox.where(:is_back => true).where(:is_controlled => true)
+
+    @user = current_user
+    @staff = @user.staff
+    @admin = @user.admin
+    unless @admin or @staff
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # GET /return_boxes/1
@@ -20,15 +27,34 @@ class ReturnBoxesController < ApplicationController
     @return_details = ReturnDetail.all
     @boxes = Box.all
     @thisreturndetails = @return_details.where(:return_box_id => @return_box.id)
+
+    @user = current_user
+    @staff = @user.staff
+    @admin = @user.admin
+    unless @admin or @staff
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # GET /return_boxes/new
   def new
     @return_box = ReturnBox.new
+
+    @user = current_user
+    @admin = @user.admin
+    unless @admin
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # GET /return_boxes/1/edit
   def edit
+    @user = current_user
+    @staff = @user.staff
+    @admin = @user.admin
+    unless @admin or @staff
+      redirect_to :root, :alert => t("notice.access")
+    end
   end
 
   # POST /return_boxes

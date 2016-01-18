@@ -180,6 +180,7 @@ en:
     thisgone: "Order sent"
     send: "Send this order"
     gone_today: "Today"
+    tomorrow2: "Tomorrow"
     gone_yesterday: "Yesterday"
     gone_two_days: "2 days ago"
     gone_three_days: "3 days ago"
@@ -286,7 +287,7 @@ en:
 
   return:
     receive: "Returns to receive"
-    control: "Returns to control"
+    control: "Returns to control that came back"
     controlled: "Returns controlled"
     sent_boxes: "Sent boxes"
     reveived_boxes: "Received Boxes"
