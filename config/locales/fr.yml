@@ -308,6 +308,10 @@ fr:
     dirty: "Sale"
     sealed: "Scellées sales"
     clean: "Propres"
+    sen: "Env"
+    rec: "Reç."
+    con: "Cont."
+    dif: "Diff."
 
   notice:
     access: "Access refusé"

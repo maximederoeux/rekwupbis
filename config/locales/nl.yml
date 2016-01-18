@@ -309,6 +309,10 @@ nl:
     dirty: "Vuil"
     sealed: "Vuil verzegeld"
     clean: "Schoon"
+    sen: "Gestu."
+    rec: "Gekreg."
+    con: "Gecont."
+    dif: "Versch."
 
   notice:
     access: "Verboden toegang"

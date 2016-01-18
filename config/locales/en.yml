@@ -308,6 +308,10 @@ en:
     dirty: "Dirty"
     sealed: "Sealed dirty"
     clean: "Clean"
+    sen: "Sent"
+    rec: "Rec."
+    con: "Cont."
+    dif: "Diff."
 
 
   notice:
