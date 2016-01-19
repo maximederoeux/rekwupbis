@@ -284,7 +284,7 @@
 		          <h4><%= t("delivery.gone_today") %></h4>
 		        </li>
 	  			
-	  					<% @gone.this_day.each do |delivery| %>
+	  					<% @gone.sent_this_day.each do |delivery| %>
 
 
 									<li class="list-group-item text-center">
@@ -300,7 +300,8 @@
 					              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
 					            <% end %>
 				            <br>
-				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+				            <%= delivery.gone_time.strftime("%d/%m/%Y") %><br>
+				            <%= delivery.gone_time.strftime("%H:%M") %><br>
 				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 				          </strong>
 									</li>
@@ -314,7 +315,7 @@
 		          <h4><%= t("delivery.gone_yesterday") %></h4>
 		        </li>
 
-	  					<% @gone.previous_day.each do |delivery| %>
+	  					<% @gone.sent_previous_day.each do |delivery| %>
 
 
 								<li class="list-group-item text-center">
@@ -330,7 +331,8 @@
 					              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
 					            <% end %>
 				            <br>
-				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+				            <%= delivery.gone_time.strftime("%d/%m/%Y") %><br>
+				            <%= delivery.gone_time.strftime("%H:%M") %><br>
 				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 				          </strong>
 								</li>
@@ -348,7 +350,7 @@
 		          <h4><%= t("delivery.gone_two_days") %></h4>
 		        </li>
 	  			
-	  					<% @gone.two_days_ago.each do |delivery| %>
+	  					<% @gone.sent_two_days_ago.each do |delivery| %>
 
 								<li class="list-group-item text-center">
 	      	
@@ -363,7 +365,8 @@
 					              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
 					            <% end %>
 				            <br>
-				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+				            <%= delivery.gone_time.strftime("%d/%m/%Y") %><br>
+				            <%= delivery.gone_time.strftime("%H:%M") %><br>
 				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 				          </strong>
 								</li>
@@ -377,7 +380,7 @@
 		          <h4><%= t("delivery.gone_three_days") %></h4>
 		        </li>
 
-	  					<% @gone.three_days_ago.each do |delivery| %>
+	  					<% @gone.sent_three_days_ago.each do |delivery| %>
 
 
 								<li class="list-group-item text-center">
@@ -393,7 +396,8 @@
 					              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
 					            <% end %>
 				            <br>
-				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+				            <%= delivery.gone_time.strftime("%d/%m/%Y") %><br>
+				            <%= delivery.gone_time.strftime("%H:%M") %><br>
 				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 				          </strong>
 								</li>

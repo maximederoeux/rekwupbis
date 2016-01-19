@@ -315,6 +315,7 @@ fr:
     rec: "Reç."
     con: "Cont."
     dif: "Diff."
+    is_controlled: "Ce retour a été contrôlé"
 
   wash:
     start: "Début du lavage"
@@ -327,6 +328,12 @@ fr:
     delivery: "Date de livraison"
     return: "Date de retour"
     received: "Reçu par"
+    to_start: "Lots à laver"
+    started: "Lavages commencés"
+    started2: "Commencé à "
+    finished: "Lavages terminés"
+    finished2: "Terminé à "
+    back: "Rentré le "
 
   notice:
     access: "Access refusé"
@@ -347,6 +354,7 @@ fr:
   word:
     from: "de"
     on_the: "le"
+    at: " à "
 
   activerecord:
     errors:

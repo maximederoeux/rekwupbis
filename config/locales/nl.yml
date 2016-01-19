@@ -316,6 +316,7 @@ nl:
     rec: "Gekreg."
     con: "Gecont."
     dif: "Versch."
+    is_controlled: "Deze terugkeer werd gecontroleerd"
 
   wash:
     start: "Start tijd"
@@ -328,6 +329,12 @@ nl:
     delivery: "Levering datum"
     return: "terugkeer datum"
     received: "Gekregen door"
+    to_start: "Batch te wassen"
+    started: "Gestart wassen"
+    started2: "Gestart om "
+    finished: "Geeindigd wassen"
+    finished: "Geeindigd om "
+    back: "Terug op "
 
   notice:
     access: "Verboden toegang"
@@ -348,6 +355,7 @@ nl:
   word:
     from: "van"
     on_the: "op"
+    at: " om "
 
   date:
     abbr_day_names:

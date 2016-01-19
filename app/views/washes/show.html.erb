@@ -35,7 +35,7 @@
 
       <div class="col-md-3">
 
-        <% if @wash.start_time.present? %>
+        <% if @wash.start_time.present? && @wash.end_time == nil %>
 
             <%= simple_form_for(@wash) do |f| %>
               <%= f.error_notification %>
@@ -49,6 +49,8 @@
 
             <% end %>
 
+        <% elsif @wash.start_time.present? && @wash.end_time.present? %>
+        Lavage terminé
         <% end %>
 
       

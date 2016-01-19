@@ -5,6 +5,11 @@ class WashesController < ApplicationController
   # GET /washes.json
   def index
     @washes = Wash.all
+
+    @to_start = Wash.where(:start_time => nil).where(:end_time => nil)
+    @started = Wash.where.not(:start_time => nil).where(:end_time => nil)
+    @finished = Wash.where.not(:start_time => nil).where.not(:end_time => nil)
+
   end
 
   # GET /washes/1

@@ -1,0 +1,122 @@
+  <div class="row">
+    <ul class="list-group">
+            <li class="list-group-item list-group-item-warning ">
+              <h4><%= t("wash.to_start") %></h4>
+            </li>
+    </ul>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">    
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item text-center">
+            <h4><%= t("delivery.gone_today") %></h4>
+          </li>
+        
+            <% @to_start.this_day.each do |wash| %>
+
+
+                <li class="list-group-item text-center">
+          
+                <strong>
+                  <%= wash.return_box.delivery.offer.event.event_name %><br>
+
+                    <%= link_to wash_path(wash) do %>
+                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                    <% end %>
+                  
+                  <br>
+                  <%= t("wash.back") %><%= wash.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.return_box.return_time.strftime("%H:%M") %><br>
+                  <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %> 
+                </strong>
+                </li>
+            <% end %>
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item text-center">
+            <h4><%= t("delivery.gone_yesterday") %></h4>
+          </li>
+
+            <% @to_start.previous_day.each do |wash| %>
+
+
+                <li class="list-group-item text-center">
+          
+                <strong>
+                  <%= wash.return_box.delivery.offer.event.event_name %><br>
+
+                    <%= link_to wash_path(wash) do %>
+                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                    <% end %>
+                  
+                  <br>
+                  <%= t("wash.back") %><%= wash.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.return_box.return_time.strftime("%H:%M") %><br>
+                  <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %> 
+                </strong>
+                </li>
+            <% end %>       
+        </ul>
+      </div>
+      
+    </div>  
+
+        
+    <div class="col-md-6">
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item text-center">
+            <h4><%= t("delivery.gone_two_days") %></h4>
+          </li>
+        
+            <% @to_start.two_days_ago.each do |wash| %>
+
+                <li class="list-group-item text-center">
+          
+                <strong>
+                  <%= wash.return_box.delivery.offer.event.event_name %><br>
+
+                    <%= link_to wash_path(wash) do %>
+                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                    <% end %>
+                  
+                  <br>
+                  <%= t("wash.back") %><%= wash.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.return_box.return_time.strftime("%H:%M") %><br>
+                  <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %> 
+                </strong>
+                </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item text-center">
+            <h4><%= t("delivery.gone_three_days") %></h4>
+          </li>
+
+            <% @to_start.three_days_ago.each do |wash| %>
+
+
+                <li class="list-group-item text-center">
+          
+                <strong>
+                  <%= wash.return_box.delivery.offer.event.event_name %><br>
+
+                    <%= link_to wash_path(wash) do %>
+                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                    <% end %>
+                  
+                  <br>
+                  <%= t("wash.back") %><%= wash.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.return_box.return_time.strftime("%H:%M") %><br>
+                  <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %> 
+                </strong>
+                </li>
+            <% end %>       
+        </ul>
+      </div>
+    </div>
+  </div>

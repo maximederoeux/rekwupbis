@@ -315,6 +315,7 @@ en:
     rec: "Rec."
     con: "Cont."
     dif: "Diff."
+    is_controlled: "This return has been controlled"
 
   wash:
     start: "Start time"
@@ -327,6 +328,12 @@ en:
     delivery: "Delivery date"
     return: "Return date"
     received: "Received by"
+    to_start: "Washes to do"
+    started: "Started washes"
+    started2: "Started at "
+    finished: "Finished washes"
+    finished2: "Finished at "
+    back: "Back on "
 
 
   notice:
@@ -348,6 +355,7 @@ en:
   word:
     from: "from"
     on_the: "on the"
+    at: " at "
 
   date:
     abbr_day_names:

@@ -4,14 +4,15 @@ class ReturnBox < ActiveRecord::Base
 	has_many :washes
 
 	scope :this_day, lambda {where(:return_date => Date.today)}
+	scope :back_this_day, lambda {where(:return_time => (Date.current.beginning_of_day..Date.current.end_of_day))}
 	scope :next_day, lambda {where(:return_date => Date.today + 1.day)}
 	scope :two_days, lambda {where(:return_date => Date.today + 2.days)}
 	scope :three_days, lambda {where(:return_date => Date.today + 3.days)}
 	scope :next_two_weeks, lambda {where(:return_date => ((Date.today + 4.days)..(Date.today + 15.days)))}
 	scope :next_year, lambda {where(:return_date => ((Date.today + 15.days)..(Date.today + 365.days)))}
-	scope :previous_day, lambda {where(:return_date => Date.today - 1.day)}
-	scope :two_days_ago, lambda {where(:return_date => Date.today - 2.days)}
-	scope :three_days_ago, lambda {where(:return_date => Date.today - 3.days)}
+	scope :back_previous_day, lambda {where(:return_time => (1.day.ago.beginning_of_day..1.day.ago.end_of_day))}
+	scope :back_two_days_ago, lambda {where(:return_time => (2.days.ago.beginning_of_day..2.days.ago.end_of_day))}
+	scope :back_three_days_ago, lambda {where(:return_time => (3.days.ago.beginning_of_day..3.days.ago.end_of_day))}
 	scope :received, lambda {where(:is_back => true) && where(:is_controlled => nil)}
 	scope :gone, lambda {where(:is_back => true) && where(:is_controlled => true)}
 
