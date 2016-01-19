@@ -162,6 +162,8 @@ nl:
     contact: "Contact voor de levering"
     phone: "Telefoon van de contact"
     time: "(tussen 9u en 18u tijdens de week)"
+    bar: "Aantal bars"
+    beertap: "Aantal biertappen"
 
   delivery:
     parcels: "Totaal nummer van dozen"
@@ -329,7 +331,7 @@ nl:
     delivery: "Levering datum"
     return: "terugkeer datum"
     received: "Gekregen door"
-    to_start: "Batch te wassen"
+    to_start: "Lotten te wassen terug sinds"
     started: "Gestart wassen"
     started2: "Gestart om "
     finished: "Geeindigd wassen"

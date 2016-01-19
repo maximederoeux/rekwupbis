@@ -98,6 +98,20 @@
           </div>
       </li>
 
+      <li class="list-group-item">
+        <div class="row text-center">
+
+          <div class="col-md-6">
+            <strong><%= t("event.bar") %></strong><br>
+            <%= @event.bar %>
+          </div>
+          <div class="col-md-4">
+            <strong><%= t("event.beertap") %></strong><br>
+            <%= @event.beertap %>
+          </div>
+        </div>
+      </li>
+
       <% if @event.comment.present? %>
         <li class="list-group-item list-group-item-info"><strong><%= t("event.comment") %></strong></li>
         <li class="list-group-item"><%= @event.comment %></li>

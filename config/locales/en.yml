@@ -162,6 +162,8 @@ en:
     contact: "Contact for delivery"
     phone: "Contact Phone"
     time: "(between 9am and 6pm on weekdays)"
+    bar: "Number of bars"
+    beertap: "Number of beertaps"
 
   delivery:
     parcels: "Total number of parcels"
@@ -328,7 +330,7 @@ en:
     delivery: "Delivery date"
     return: "Return date"
     received: "Received by"
-    to_start: "Washes to do"
+    to_start: "Washes to do back since"
     started: "Started washes"
     started2: "Started at "
     finished: "Finished washes"

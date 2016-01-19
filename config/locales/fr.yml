@@ -162,6 +162,8 @@ fr:
     contact: "Personne de contact pour la livraison"
     phone: "Téléphone du contact"
     time: "(entre 9h et 18h en semaine)"
+    bar: "Nombre de bars"
+    beertap: "Nombre de pompes"
 
   delivery:
     parcels: "Nombre total de caisses"
@@ -328,7 +330,7 @@ fr:
     delivery: "Date de livraison"
     return: "Date de retour"
     received: "Reçu par"
-    to_start: "Lots à laver"
+    to_start: "Lots à laver rentrés depuis"
     started: "Lavages commencés"
     started2: "Commencé à "
     finished: "Lavages terminés"

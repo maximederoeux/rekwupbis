@@ -57,6 +57,8 @@ fr:
         address: "Adresse"
         contact: "Personne de contact pour la livraison"
         phone: "Téléphone du contact"
+        bar: "Nombre de bars"
+        beertap: "Nombre de pompes"
       article:
         article_name: "Nom de l'article"
         article_id: "Code de l'article"

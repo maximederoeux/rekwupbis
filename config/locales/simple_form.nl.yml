@@ -57,6 +57,8 @@ nl:
         address: "Adres"
         contact: "Contact voor de levering"
         phone: "Telefoon van de contact"
+        bar: "Aantal bars"
+        beertap: "Aantal biertappen"
       article:
         article_name: "Naam ven het artikel"
         article_id: "Artikel Code"

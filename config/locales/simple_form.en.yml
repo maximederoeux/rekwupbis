@@ -57,6 +57,8 @@ en:
         address: "Address"
         contact: "Contact for delivery"
         phone: "Contact Phone"
+        bar: "Number of bars"
+        beertap: "Number of beertaps"
       article:
         article_name: "Article Name"
         article_id: "Article Code"
