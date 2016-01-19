@@ -288,6 +288,7 @@ en:
 
   return:
     receive: "Returns to receive"
+    receive2: "Receive this return"
     control: "Returns to control that came back"
     controlled: "Returns controlled"
     sent_boxes: "Sent boxes"

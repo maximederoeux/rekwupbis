@@ -288,6 +288,7 @@ fr:
 
   return:
     receive: "Retours à recevoir"
+    receive2: "Recevoir ce retour"
     control: "Retours à contrôler qui sont revenus"
     controlled: "Retours contrôlés"
     sent_boxes: "Caisses envoyées"

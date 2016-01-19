@@ -289,6 +289,7 @@ nl:
 
   return:
     receive: "Verwachte terugkeren"
+    receive2: "Deze terugkeer ontvangen"
     control: "Terugkeren te controleren die kwamen terug"
     controlled: "Gecontroleerd terugkeren"
     sent_boxes: "Gestuurd dozen"
