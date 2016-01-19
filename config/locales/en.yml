@@ -56,6 +56,7 @@ en:
     offers: "Offers"
     deliveries: "Deliveries"
     returns: "Returns"
+    washes: "Washing"
 
   user:
     name: "Last Name"
@@ -313,6 +314,18 @@ en:
     rec: "Rec."
     con: "Cont."
     dif: "Diff."
+
+  wash:
+    start: "Start time"
+    end: "End time"
+    event: "Event"
+    starter: "Started by "
+    ender: "Ended by "
+    go: "Start this wash"
+    stop: "End this wash"
+    delivery: "Delivery date"
+    return: "Return date"
+    received: "Received by"
 
 
   notice:

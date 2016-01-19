@@ -1,6 +1,7 @@
 class ReturnBox < ActiveRecord::Base
 	belongs_to :delivery
 	has_many :return_details
+	has_many :washes
 
 	scope :this_day, lambda {where(:return_date => Date.today)}
 	scope :next_day, lambda {where(:return_date => Date.today + 1.day)}

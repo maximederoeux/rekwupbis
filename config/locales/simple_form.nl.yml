@@ -97,6 +97,9 @@ nl:
         dirty: "Vuil"
         sealed: "Vuil verzegeld"
         clean: "Schoon"
+        dirty_ctrl: "Vuil"
+        sealed_ctrl: "Vuil verzegeld"
+        clean_ctrl: "Schoon"
 
     date:
       format:

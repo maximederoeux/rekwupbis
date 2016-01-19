@@ -1,0 +1,155 @@
+<div class="container-fluid more-padding">
+<ul class="list-group">
+  <li class="list-group-item list-group-item-success">
+
+    <div class="row">
+
+      <div class="col-md-6">
+        <h4>
+          <strong><%= t("wash.event") %> : </strong><%= @wash.return_box.delivery.offer.event.event_name %>
+        </h4>
+
+      </div>
+
+
+      <div class="col-md-3">
+
+        <% if @wash.start_time == nil %>
+
+            <%= simple_form_for(@wash) do |f| %>
+              <%= f.error_notification %>
+
+                <%= f.hidden_field :start_time, :value => Time.now %>
+                <%= f.hidden_field :washer, :value => current_user.id %>
+
+              <div class="form-actions">
+                <%= f.submit t("wash.go"), class: "btn btn-info" %>
+              </div>
+
+            <% end %>
+
+        <% end %>
+
+      </div>
+
+
+      <div class="col-md-3">
+
+        <% if @wash.start_time.present? %>
+
+            <%= simple_form_for(@wash) do |f| %>
+              <%= f.error_notification %>
+
+                <%= f.hidden_field :end_time, :value => Time.now %>
+                <%= f.hidden_field :ender, :value => current_user.id %>
+
+              <div class="form-actions">
+                <%= f.submit t("wash.stop"), class: "btn btn-info" %>
+              </div>
+
+            <% end %>
+
+        <% end %>
+
+      
+      </div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+
+    <div class="row text-center">
+
+      <div class="col-md-4">
+        <strong>
+          <%= t("wash.delivery") %>
+        </strong><br>
+        <%= @wash.return_box.delivery.gone_time.strftime("%d/%m/%Y") %><br>
+        <%= @wash.return_box.delivery.gone_time.strftime("%H:%M") %>
+      </div>
+
+      <div class="col-md-4">
+        <strong>
+          <%= t("wash.return") %>
+        </strong><br>
+        <%= @wash.return_box.return_time.strftime("%d/%m/%Y") %><br>
+        <%= @wash.return_box.return_time.strftime("%H:%M") %>
+      </div>
+
+      <div class="col-md-4">
+        <strong>
+          <%= t("wash.received") %>
+        </strong><br>
+          <% @users.each do |user| %>
+            <% if user.id == @wash.return_box.receptionist %>
+           
+              <%= user.full_name %>
+
+            <% end %>
+          <% end %>
+      </div>
+  </li>
+
+  <li class="list-group-item">
+
+    <div class="row text-center">
+
+      <div class="col-md-6">
+        <strong>
+          <%= t("wash.start") %>
+        </strong><br><br>
+        <%= @wash.start_time.strftime("%d/%m/%Y") if @wash.start_time %><br>
+        <%= @wash.start_time.strftime("%H:%M") if @wash.start_time %><br>
+      </div>
+
+      <div class="col-md-6">
+        <strong>
+          <%= t("wash.starter") %>
+        </strong><br><br>
+
+        <% @users.each do |user| %>
+
+            <% if user.id == @wash.washer %>
+           
+              <%= user.full_name %>
+
+            <% end %>
+          <% end %>
+
+      </div>
+
+  </li>
+
+  <li class="list-group-item">
+
+    <div class="row text-center">
+
+      <div class="col-md-6">
+        <strong>
+          <%= t("wash.end") %>
+        </strong><br><br>
+        <%= @wash.end_time.strftime("%d/%m/%Y") if @wash.end_time %><br>
+        <%= @wash.end_time.strftime("%H:%M") if @wash.end_time %><br>
+      </div>
+
+      <div class="col-md-6">
+        <strong>
+          <%= t("wash.ender") %>
+        </strong><br><br>
+          <% @users.each do |user| %>
+
+            <% if user.id == @wash.ender %>
+           
+              <%= user.full_name %>
+
+            <% end %>
+          <% end %>
+      </div>
+
+  </li>
+
+</ul>
+
+</div>
+<%= link_to 'Edit', edit_wash_path(@wash) %> |
+<%= link_to 'Back', washes_path %>

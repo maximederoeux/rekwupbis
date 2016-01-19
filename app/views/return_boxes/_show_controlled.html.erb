@@ -150,7 +150,7 @@
                   <div class="row">
 
                     <div class="col-md-4 text-danger text-center">
-                      <strong><%= @return_box.delivery.offer.offer_boxes.where(:box_id => thisreturndetail.box_id).last.quantity %></strong>
+                      <strong><%= @return_box.delivery.offer.offer_boxes.where(:box_id => thisreturndetail.box_id).first.quantity %></strong>
                     </div>
                     <div class="col-md-4 text-danger text-center">
                       <strong><%= thisreturndetail.count %></strong>

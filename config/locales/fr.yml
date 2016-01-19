@@ -56,6 +56,7 @@ fr:
     offers: "Offres"
     deliveries: "Livraisons"
     returns: "Retours"
+    washes: "Lavages"
 
   user:
     name: "Nom"
@@ -313,6 +314,18 @@ fr:
     rec: "Reç."
     con: "Cont."
     dif: "Diff."
+
+  wash:
+    start: "Début du lavage"
+    end: "Fin du lavage"
+    event: "Evénement"
+    starter: "Commencé par "
+    ender: "Fini par "
+    go: "Commencer ce lavage"
+    stop: "Finir ce lavage"
+    delivery: "Date de livraison"
+    return: "Date de retour"
+    received: "Reçu par"
 
   notice:
     access: "Access refusé"

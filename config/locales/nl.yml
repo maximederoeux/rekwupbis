@@ -56,6 +56,7 @@ nl:
     offers: "Aanbodden"
     deliveries: "Leveringen"
     returns: "Terugkeren"
+    washes: "Wassen"
 
   user:
     name: "Naam"
@@ -314,6 +315,18 @@ nl:
     rec: "Gekreg."
     con: "Gecont."
     dif: "Versch."
+
+  wash:
+    start: "Start tijd"
+    end: "Eind tijd"
+    event: "Evenement"
+    starter: "Gestart door "
+    ender: "Geeindigd door "
+    go: "Start dit wassen"
+    stop: "Eind dit wassen"
+    delivery: "Levering datum"
+    return: "terugkeer datum"
+    received: "Gekregen door"
 
   notice:
     access: "Verboden toegang"

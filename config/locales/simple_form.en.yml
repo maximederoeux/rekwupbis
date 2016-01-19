@@ -97,6 +97,9 @@ en:
         dirty: "Dirty"
         sealed: "Sealed dirty"
         clean: "Clean"
+        dirty_ctrl: "Dirty"
+        sealed_ctrl: "Sealed dirty"
+        clean_ctrl: "Clean"
     date:
       format:
         default: "%d-%m-%Y"

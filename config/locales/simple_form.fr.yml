@@ -94,9 +94,12 @@ fr:
         return_date: "Date de retour"
       return_detail:
         box_id: "Type de caisse"
-        dirty: "Sale"
+        dirty: "Sales"
         sealed: "Scellées sales"
         clean: "Propres"
+        dirty_ctrl: "Sales"
+        sealed_ctrl: "Scellées sales"
+        clean_ctrl: "Propres"
     date:
       format:
         default: "%d-%m-%Y"

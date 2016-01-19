@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :washes
   resources :return_details
   resources :return_boxes
   resources :deliveries

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118065214) do
+ActiveRecord::Schema.define(version: 20160119094442) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -200,5 +200,15 @@ ActiveRecord::Schema.define(version: 20160118065214) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "washes", force: :cascade do |t|
+    t.integer  "return_box_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "washer"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "ender"
+  end
 
 end
