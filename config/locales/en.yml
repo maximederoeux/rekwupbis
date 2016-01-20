@@ -335,6 +335,8 @@ en:
     started2: "Started at "
     finished: "Finished washes"
     finished2: "Finished at "
+    finished3: "This wash is finished "
+    new: "Start a new wash"
     back: "Back on "
 
 

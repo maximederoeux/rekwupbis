@@ -335,6 +335,8 @@ fr:
     started2: "Commencé à "
     finished: "Lavages terminés"
     finished2: "Terminé à "
+    finished3: "Ce lavage est terminé"
+    new: "Commencer un nouveau lavage"
     back: "Rentré le "
 
   notice:

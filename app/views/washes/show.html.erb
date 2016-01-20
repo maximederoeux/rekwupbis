@@ -8,11 +8,13 @@
         <h4>
           <strong><%= t("wash.event") %> : </strong><%= @wash.return_box.delivery.offer.event.event_name %>
         </h4>
-
+          <% if @wash.start_time.present? && @wash.end_time.present? %>
+              <strong><%= t("wash.finished3") %></strong>
+          <% end %>
       </div>
 
 
-      <div class="col-md-3">
+      <div class="col-md-6">
 
         <% if @wash.start_time == nil %>
 
@@ -30,10 +32,6 @@
 
         <% end %>
 
-      </div>
-
-
-      <div class="col-md-3">
 
         <% if @wash.start_time.present? && @wash.end_time == nil %>
 
@@ -50,7 +48,21 @@
             <% end %>
 
         <% elsif @wash.start_time.present? && @wash.end_time.present? %>
-        Lavage terminé
+
+         <br>
+
+          <%= simple_form_for(@new_wash) do |f| %>
+            <%= f.error_notification %>
+
+            <%= f.hidden_field :start_time, :value => Time.now %>
+            <%= f.hidden_field :washer, :value => current_user.id %>
+            <%= f.hidden_field :return_box_id, :value => @return %>
+
+
+            <%= f.submit t("wash.new"), class: "btn btn-info"  %>
+
+          <% end %>
+
         <% end %>
 
       
@@ -151,6 +163,10 @@
   </li>
 
 </ul>
+
+
+
+
 
 </div>
 <%= link_to 'Edit', edit_wash_path(@wash) %> |

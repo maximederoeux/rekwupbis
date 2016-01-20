@@ -16,6 +16,8 @@ class WashesController < ApplicationController
   # GET /washes/1.json
   def show
     @wash = Wash.find(params[:id])
+    @return = @wash.return_box_id
+    @new_wash = Wash.new
     @users = User.all
   end
 

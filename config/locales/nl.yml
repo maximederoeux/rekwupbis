@@ -335,7 +335,9 @@ nl:
     started: "Gestart wassen"
     started2: "Gestart om "
     finished: "Geeindigd wassen"
-    finished: "Geeindigd om "
+    finished2: "Geeindigd om "
+    finished3: "Dit was wordt geeindigd "
+    new: "Begin een nieuw was"
     back: "Terug op "
 
   notice:
