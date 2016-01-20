@@ -144,6 +144,9 @@
 
                 <div class="col-md-6 text-center">
                   <%= thisreturndetail.box.box_name %>
+                  <%= link_to edit_return_detail_path(thisreturndetail) do %>
+                    <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+                  <% end %>
                 </div>
                 
                 <div class="col-md-6 text-center">

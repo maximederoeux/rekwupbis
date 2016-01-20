@@ -36,7 +36,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_20_cups
 		if event.expected_pax
-		event.expected_pax * 8
+		event.expected_pax * 2
 		end
 	end
 
@@ -48,7 +48,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_25_cups
 		if event.expected_pax
-		event.expected_pax * 8
+		event.expected_pax * 5
 		end
 	end
 
@@ -60,7 +60,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_40_cups
 		if event.expected_pax
-		event.expected_pax * 4
+		event.expected_pax * 2
 		end
 	end
 
@@ -72,7 +72,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_50_cups
 		if event.expected_pax
-		event.expected_pax * 4
+		event.expected_pax * 2
 		end
 	end
 
@@ -84,7 +84,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_100_cups
 		if event.expected_pax
-		event.expected_pax * 1
+		event.expected_pax * 0.5
 		end
 	end
 
@@ -96,7 +96,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_cava_cups
 		if event.expected_pax
-		event.expected_pax * 4
+		event.expected_pax * 2
 		end
 	end
 
@@ -108,7 +108,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_wine_cups
 		if event.expected_pax
-		event.expected_pax * 4
+		event.expected_pax * 2
 		end
 	end
 
@@ -120,7 +120,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_shot_cups
 		if event.expected_pax
-		event.expected_pax * 4
+		event.expected_pax * 2
 		end
 	end
 

@@ -319,6 +319,8 @@ nl:
     con: "Gecont."
     dif: "Versch."
     is_controlled: "Deze terugkeer werd gecontroleerd"
+    modify_return: "Deze terugkeer wijzigen"
+    modify_control: "Dit controle wijzigen"
 
   wash:
     start: "Start tijd"

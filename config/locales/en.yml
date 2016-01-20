@@ -318,6 +318,8 @@ en:
     con: "Cont."
     dif: "Diff."
     is_controlled: "This return has been controlled"
+    modify_return: "Modify this return"
+    modify_control: "Modify this control"
 
   wash:
     start: "Start time"

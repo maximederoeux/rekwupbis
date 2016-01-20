@@ -32,6 +32,9 @@ class ReturnDetailsController < ApplicationController
 
   # GET /return_details/1/edit
   def edit
+    @return_detail = ReturnDetail.find(params[:id])
+    @return_box = @return_detail.return_box
+    @new_return_detail = ReturnDetail.new
     @user = current_user
     @staff = @user.staff
     @admin = @user.admin

@@ -318,6 +318,8 @@ fr:
     con: "Cont."
     dif: "Diff."
     is_controlled: "Ce retour a été contrôlé"
+    modify_return: "Modifier ce retour"
+    modify_control: "Modifier ce contrôle"
 
   wash:
     start: "Début du lavage"

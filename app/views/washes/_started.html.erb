@@ -14,7 +14,7 @@
             <h4><%= t("delivery.gone_today") %></h4>
           </li>
         
-            <% @started.this_day.each do |wash| %>
+            <% @started.started_this_day.each do |wash| %>
 
 
                 <li class="list-group-item text-center">
@@ -42,7 +42,7 @@
             <h4><%= t("delivery.gone_yesterday") %></h4>
           </li>
 
-            <% @started.previous_day.each do |wash| %>
+            <% @started.started_previous_day.each do |wash| %>
 
 
                 <li class="list-group-item text-center">
@@ -74,7 +74,7 @@
             <h4><%= t("delivery.gone_two_days") %></h4>
           </li>
         
-            <% @started.two_days_ago.each do |wash| %>
+            <% @started.started_two_days_ago.each do |wash| %>
 
                 <li class="list-group-item text-center">
           
@@ -101,7 +101,7 @@
             <h4><%= t("delivery.gone_three_days") %></h4>
           </li>
 
-            <% @started.three_days_ago.each do |wash| %>
+            <% @started.started_three_days_ago.each do |wash| %>
 
 
                 <li class="list-group-item text-center">

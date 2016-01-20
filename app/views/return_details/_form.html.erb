@@ -1,1 +1,108 @@
+    <ul class="list-group">
+      <li class="list-group-item">
+
+        <strong>
+          <%= t("return.reference") %><%= @return_box.id %> <%= t("word.from") %> <%= @return_box.offer.event.event_name %>    
+        </strong>
+      </li>
+
+      <li class="list-group-item list-group-item-warning">
+
+        <h5><strong>
+          <%= @return_box.display_difference %>    
+        </strong></h5>
+      </li>
+    
+
+      <li class="list-group-item">
+       <h5><strong><%= t("return.modify_return") %></h5></strong>
+      </li>
+    
+      <li class="list-group-item">
+
+
+            <div class="row">
+
+              <%= simple_form_for(@return_detail) do |f| %>
+                <%= f.error_notification %>
+
+              <div class="col-md-4 text-center">
+                <strong><%= t("box.box_name") %></strong><br>
+                <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+              </div>
+
+
+              <div class="col-md-2 text-center">
+                <%= f.input :dirty %>
+              </div>
+           
+              <div class="col-md-2 text-center">
+                <%= f.input :sealed %>
+              </div>
+
+              <div class="col-md-2 text-center">
+                <%= f.input :clean %>
+              </div>
+
+                <div class="col-md-2 text-center">
+                  <br><%= f.button :submit, class: "btn btn-default btn-info" %>
+                </div>
+
+                <% end %>
+            </div>
+
+      </li>
+    </ul>
+
+     <ul class="list-group">
+
+      <li class="list-group-item">
+       <h5><strong><%= t("return.modify_control") %></h5></strong>
+      </li>
+    
+      <li class="list-group-item">
+
+
+            <div class="row">
+
+              <%= simple_form_for(@return_detail) do |f| %>
+                <%= f.error_notification %>
+
+              <div class="col-md-4 text-center">
+                <strong><%= t("box.box_name") %></strong><br>
+                <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+              </div>
+
+
+              <div class="col-md-2 text-center">
+                <%= f.input :dirty_ctrl %>
+              </div>
+           
+              <div class="col-md-2 text-center">
+                <%= f.input :sealed_ctrl %>
+              </div>
+
+              <div class="col-md-2 text-center">
+                <%= f.input :clean_ctrl %>
+              </div>
+
+                <div class="col-md-2 text-center">
+                  <br><%= f.button :submit, class: "btn btn-default btn-info" %>
+                </div>
+
+                <% end %>
+            </div>
+
+      </li>
+    </ul>
+
+    <div class="row">
+
+      <div class="col-md-6">
+        
+      </div>
+      <div class="col-md-6">
+        <%= link_to t("menu.back"), return_box_path(@return_box), class: "btn btn-lg btn-block btn-default" %>
+      </div>
+    </div>
 
