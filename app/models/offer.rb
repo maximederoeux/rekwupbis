@@ -34,6 +34,10 @@ class Offer < ActiveRecord::Base
 	  end
 	end
 
+	def event_name
+		event.event_name	
+	end
+
 	def estimated_20_cups
 		if event.expected_pax
 		event.expected_pax * 2

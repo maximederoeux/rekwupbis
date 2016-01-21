@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119152018) do
+ActiveRecord::Schema.define(version: 20160121135206) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 20160119152018) do
     t.datetime "updated_at",          null: false
     t.boolean  "client_confirmation"
     t.boolean  "admin_confirmation"
+    t.boolean  "send_email"
   end
 
   create_table "return_boxes", force: :cascade do |t|

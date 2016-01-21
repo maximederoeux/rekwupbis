@@ -75,10 +75,32 @@
     </div>
   </li>
 
-  <li class="list-group-item"><strong><%= @event.event_name %></strong>
-    <%= link_to edit_event_path(@event) do %>
-      <%= content_tag(:i, "", class: "fa fa-pencil") %> 
-    <% end %>
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-md-6">
+        <strong>
+          <%= @event.event_name %>
+        </strong>
+          <%= link_to edit_event_path(@event) do %>
+            <%= content_tag(:i, "", class: "fa fa-pencil") %> 
+          <% end %>
+      </div>
+
+      <div class="col-md-6">
+        <% unless @offer.send_email %>
+
+          <%= simple_form_for(@offer) do |f| %>
+            <%= f.error_notification %>       
+
+              <%= f.hidden_field :send_email, :value => true %>             
+              <%= f.submit t("offer.send_email"), class: "btn btn-info" %>
+
+          <% end %>
+        <% end %>
+
+      </div>
+
+    </div>
   </li>
 
   <li class="list-group-item">

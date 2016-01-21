@@ -59,6 +59,9 @@ nl:
     washes: "Wassen"
     construction: "Deze site is nog niet klaar. Deinformatie zijn niet altijd correct and kunnen niet gebruikt worden om een bestelling te maken"
 
+  mail:
+    offer_title: "Aanbod voor uw evenement %{event_name}"
+    
   user:
     name: "Naam"
     first_name: "Voornaam"
@@ -277,6 +280,7 @@ nl:
     you_rejected: "U heeft die offer afgekeurd"
     reject: "Deze aanbod afkeuren"
     confirm_for_client: "Voor de klant bevestigen"
+    send_email: "Deze aanbod sturen"
 
   offer_box:
     create: "Dozen toevoegen"

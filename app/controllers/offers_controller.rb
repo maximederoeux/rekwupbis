@@ -99,8 +99,14 @@ class OffersController < ApplicationController
   # PATCH/PUT /offers/1.json
   def update
     @offer = Offer.find(params[:id])
+    @user = @offer.organizer
+           
     respond_to do |format|
       if @offer.update(offer_params)
+        # if @offer.send_email
+        #   UserMailer.offer_email(@user, @offer).deliver_later
+        #   @offer.update_attributes(:send_email => false)
+        end
         format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
         format.json { render :show, status: :ok, location: @offer }
       else
@@ -128,6 +134,6 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:event_id, :organizer_id, :client_confirmation, :admin_confirmation)
+      params.require(:offer).permit(:event_id, :organizer_id, :client_confirmation, :admin_confirmation, :send_email)
     end
 end
