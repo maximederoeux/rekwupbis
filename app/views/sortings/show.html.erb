@@ -1,29 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid more-padding">
 
-<p>
-  <strong>Return box:</strong>
-  <%= @sorting.return_box_id %>
-</p>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @sorting.start_time %>
-</p>
+<% if @sorting.return_box.washes.where.not(:start_time => nil).count == 0 %>
+                      <h4><%= t("wash.no_wash") %></h4>
+<% else %>
 
-<p>
-  <strong>End time:</strong>
-  <%= @sorting.end_time %>
-</p>
+Ce retour peut être trié
+<% end %>
 
-<p>
-  <strong>Starter:</strong>
-  <%= @sorting.starter %>
-</p>
-
-<p>
-  <strong>Ender:</strong>
-  <%= @sorting.ender %>
-</p>
-
-<%= link_to 'Edit', edit_sorting_path(@sorting) %> |
-<%= link_to 'Back', sortings_path %>
+</div>
