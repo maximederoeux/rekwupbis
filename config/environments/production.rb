@@ -81,7 +81,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {:host => 'rekwup.be'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.rails_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = false
 
   # Ma,ndrill integration
   config.action_mailer.smptp_settings = {
