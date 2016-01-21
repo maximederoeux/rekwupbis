@@ -3,6 +3,7 @@ class Box < ActiveRecord::Base
   has_many :offer_boxes
   has_many :return_details
 
+  scope :closed, lambda {where(:box_is_full => true)}
 
 	def automatic
       boxdetails.create(:box_id => id, :article_id => "11", :box_article_quantity => "1")
@@ -20,6 +21,5 @@ class Box < ActiveRecord::Base
     end
     weight
   end
-
 
 end

@@ -32,6 +32,8 @@ class OffersController < ApplicationController
     @organizer = @offer.organizer
     @confirmation = @offer.client_confirmation
 
+    @articles = Article.all
+
     @new_offer_box = OfferBox.new
     @offer_boxes = OfferBox.all
     @thisofferboxes = @offer_boxes.where(:offer_id => @offer.id)

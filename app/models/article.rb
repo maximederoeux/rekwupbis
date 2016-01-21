@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
 	has_many :negociated_prices
 	has_many :offer_articles
 
-
+	scope :not_washable, lambda {where.not(:is_washable => true)}
 
 
 	def full_name

@@ -17,7 +17,7 @@
 
               <div class="col-md-4">
                 <%= f.label :box_id %>
-                <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select"} %>
+                <%= f.collection_select :box_id, Box.closed.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select"} %>
               </div>
 
               <div class="col-md-4">
