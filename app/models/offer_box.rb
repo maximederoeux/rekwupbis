@@ -5,5 +5,5 @@ class OfferBox < ActiveRecord::Base
 	def weight
 		self.box.weight * quantity
 	end
-	
+
 end

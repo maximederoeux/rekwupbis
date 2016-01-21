@@ -66,19 +66,19 @@
 			          </div>
 
 			          <div class="col-md-1 text-center">
-			             <%= thisofferbox.box.boxdetails.last.article.washing_price %>
+			             <%= number_to_currency(thisofferbox.box.boxdetails.last.article.washing_price,:unit=>'€') %>
 			          </div>
 
 			          <div class="col-md-1 text-center">
-			            <%= thisofferbox.box.boxdetails.last.article.handwash_price %>
+			          	<%= number_to_currency(thisofferbox.box.boxdetails.last.article.handwash_price,:unit=>'€') %>
 			          </div>
 
 			          <div class="col-md-1 text-center">
-			            <%= thisofferbox.box.boxdetails.last.article.tab_price %>
+			          	<%= number_to_currency(thisofferbox.box.boxdetails.last.article.tab_price,:unit=>'€') %>
 			          </div>
 
 			          <div class="col-md-1 text-center">
-			            <%= thisofferbox.box.boxdetails.last.article.deposit_price %>
+			          	<%= number_to_currency(thisofferbox.box.boxdetails.last.article.deposit_price,:unit=>'€') %>
 			          </div>
 			        
 			        </div>
