@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Return box:</strong>
+  <%= @sorting.return_box_id %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @sorting.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @sorting.end_time %>
+</p>
+
+<p>
+  <strong>Starter:</strong>
+  <%= @sorting.starter %>
+</p>
+
+<p>
+  <strong>Ender:</strong>
+  <%= @sorting.ender %>
+</p>
+
+<%= link_to 'Edit', edit_sorting_path(@sorting) %> |
+<%= link_to 'Back', sortings_path %>

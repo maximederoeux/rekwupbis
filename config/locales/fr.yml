@@ -57,6 +57,7 @@ fr:
     deliveries: "Livraisons"
     returns: "Retours"
     washes: "Lavages"
+    sortings: "Rangement"
     construction: "Ce site est toujours en construction. Les informations que vous y trouverez ne sont pas entièrement fiables et aucun service ne sera fourni pour le moment à partir de ce site"
 
   mail:
@@ -325,6 +326,7 @@ fr:
     is_controlled: "Ce retour a été contrôlé"
     modify_return: "Modifier ce retour"
     modify_control: "Modifier ce contrôle"
+    wash: "Envoyer au lavage"
 
   wash:
     start: "Début du lavage"

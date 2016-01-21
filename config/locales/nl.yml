@@ -57,6 +57,7 @@ nl:
     deliveries: "Leveringen"
     returns: "Terugkeren"
     washes: "Wassen"
+    sortings: "Opruimen"
     construction: "Deze site is nog niet klaar. Deinformatie zijn niet altijd correct and kunnen niet gebruikt worden om een bestelling te maken"
 
   mail:
@@ -326,6 +327,7 @@ nl:
     is_controlled: "Deze terugkeer werd gecontroleerd"
     modify_return: "Deze terugkeer wijzigen"
     modify_control: "Dit controle wijzigen"
+    wash: "Stuur naar het wassen"
 
   wash:
     start: "Start tijd"

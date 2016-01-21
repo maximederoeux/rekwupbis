@@ -57,6 +57,7 @@ en:
     deliveries: "Deliveries"
     returns: "Returns"
     washes: "Washing"
+    sortings: "Arrangement"
     construction: "This site is still under construction. The informations are not reliable and no service will be provided through this site at the moment"
 
   mail:
@@ -325,6 +326,7 @@ en:
     is_controlled: "This return has been controlled"
     modify_return: "Modify this return"
     modify_control: "Modify this control"
+    wash: "Send for washing"
 
   wash:
     start: "Start time"

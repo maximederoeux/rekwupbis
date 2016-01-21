@@ -77,10 +77,12 @@ class ReturnBoxesController < ApplicationController
   # PATCH/PUT /return_boxes/1
   # PATCH/PUT /return_boxes/1.json
   def update
+    @return_box = ReturnBox.find(params[:id])
     respond_to do |format|
       if @return_box.update(return_box_params)
         if @return_box.is_back && @return_box.is_controlled
           Wash.create(:return_box_id => @return_box.id)
+          Sorting.create(:return_box_id => @return_box.id)
         end
         format.html { redirect_to @return_box, notice: 'Return box was successfully updated.' }
         format.json { render :show, status: :ok, location: @return_box }

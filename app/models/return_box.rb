@@ -2,6 +2,7 @@ class ReturnBox < ActiveRecord::Base
 	belongs_to :delivery
 	has_many :return_details
 	has_many :washes
+	has_many :sortings
 
 	scope :this_day, lambda {where(:return_date => Date.today)}
 	scope :back_this_day, lambda {where(:return_time => (Date.current.beginning_of_day..Date.current.end_of_day))}
