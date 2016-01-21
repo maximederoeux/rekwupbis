@@ -46,7 +46,7 @@
 					      </div>
 
 					      <div class="col-md-4">
-					      	<% if thisofferarticle.article_id = 12 %>
+					      	<% if thisofferarticle.article_id == 12 %>
 					          <%= number_to_currency(@offer.transport_price,:unit=>'€') %>
 					        <% else %>
 					        	<%= number_to_currency(thisofferarticle.article.sell_price,:unit=>'€') if thisofferarticle.article %>
