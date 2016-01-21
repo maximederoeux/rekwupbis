@@ -1,0 +1,130 @@
+  <div class="row">
+    <ul class="list-group">
+            <li class="list-group-item list-group-item-warning ">
+              <h4><%= t("sorting.finished") %></h4>
+            </li>
+    </ul>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">    
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item text-center">
+            <h4><%= t("delivery.gone_today") %></h4>
+          </li>
+        
+            <% @finished.ended_this_day.each do |sorting| %>
+
+
+                <li class="list-group-item text-center">
+          
+                <strong>
+                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
+
+                    <%= link_to sorting_path(sorting) do %>
+                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                    <% end %>
+                  
+                  <br>
+                  <%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><br>
+                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
+                  <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %> 
+                </strong>
+                </li>
+            <% end %>
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item text-center">
+            <h4><%= t("delivery.gone_yesterday") %></h4>
+          </li>
+
+            <% @finished.ended_previous_day.each do |sorting| %>
+
+
+                <li class="list-group-item text-center">
+          
+                <strong>
+                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
+
+                    <%= link_to sorting_path(sorting) do %>
+                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                    <% end %>
+                  
+                  <br>
+                  <%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><br>
+                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
+                  <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %>   
+                </strong>
+                </li>
+            <% end %>       
+        </ul>
+      </div>
+      
+    </div>  
+
+        
+    <div class="col-md-6">
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item text-center">
+            <h4><%= t("delivery.gone_two_days") %></h4>
+          </li>
+        
+            <% @finished.ended_two_days_ago.each do |sorting| %>
+
+                <li class="list-group-item text-center">
+          
+                <strong>
+                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
+
+                    <%= link_to sorting_path(sorting) do %>
+                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                    <% end %>
+                  
+                  <br>
+                  <%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><br>
+                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
+                  <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %>   
+                </strong>
+                </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item text-center">
+            <h4><%= t("delivery.gone_three_days") %></h4>
+          </li>
+
+            <% @finished.ended_three_days_ago.each do |sorting| %>
+
+
+                <li class="list-group-item text-center">
+          
+                <strong>
+                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
+
+                    <%= link_to sorting_path(sorting) do %>
+                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                    <% end %>
+                  
+                  <br>
+                  <%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><br>
+                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
+                  <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %>   
+                </strong>
+                </li>
+            <% end %>       
+        </ul>
+      </div>
+    </div>
+  </div>

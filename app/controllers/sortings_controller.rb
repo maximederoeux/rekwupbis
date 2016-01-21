@@ -5,6 +5,10 @@ class SortingsController < ApplicationController
   # GET /sortings.json
   def index
     @sortings = Sorting.all
+
+    @to_start = Sorting.where(:start_time => nil).where(:end_time => nil)
+    @started = Sorting.where.not(:start_time => nil).where(:end_time => nil)
+    @finished = Sorting.where.not(:start_time => nil).where.not(:end_time => nil)
   end
 
   # GET /sortings/1

@@ -347,7 +347,28 @@ en:
     finished3: "This wash is finished "
     new: "Start a new wash"
     back: "Back on "
+    wash: "Wash"
+    no_wash: "No wash yet"
 
+  sorting:
+    start: "Start time"
+    end: "End time"
+    event: "Event"
+    starter: "Started by "
+    ender: "Ended by "
+    go: "Start this sorting"
+    stop: "End this sorting"
+    delivery: "Delivery date"
+    return: "Return date"
+    received: "Received by"
+    to_start: "Sortings to do back since"
+    started: "Started sortings"
+    started2: "Started at "
+    finished: "Finished sortings"
+    finished2: "Finished at "
+    finished3: "This sorting is finished "
+    new: "Start a new sorting"
+    back: "Back on "
 
   notice:
     access: "Access denied"

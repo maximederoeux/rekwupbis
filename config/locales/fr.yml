@@ -347,6 +347,28 @@ fr:
     finished3: "Ce lavage est terminé"
     new: "Commencer un nouveau lavage"
     back: "Rentré le "
+    wash: "Lavage"
+    no_wash: "Pas encore de lavage"
+
+  sorting:
+    start: "Début du rangement"
+    end: "Fin du rangement"
+    event: "Evénement"
+    starter: "Commencé par "
+    ender: "Fini par "
+    go: "Commencer ce rangement"
+    stop: "Finir ce rangement"
+    delivery: "Date de livraison"
+    return: "Date de retour"
+    received: "Reçu par"
+    to_start: "Lots à ranger rentrés depuis"
+    started: "Rangements commencés"
+    started2: "Commencé à "
+    finished: "Rangements terminés"
+    finished2: "Terminé à "
+    finished3: "Ce rangement est terminé"
+    new: "Commencer un nouveau rangement"
+    back: "Rentré le "
 
   notice:
     access: "Access refusé"

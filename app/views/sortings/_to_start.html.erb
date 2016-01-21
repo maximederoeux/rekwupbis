@@ -1,0 +1,166 @@
+  <div class="row">
+    <ul class="list-group">
+            <li class="list-group-item list-group-item-warning ">
+              <h4><%= t("sorting.to_start") %></h4>
+            </li>
+    </ul>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">    
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item text-center">
+            <h4><%= t("delivery.gone_today") %></h4>
+          </li>
+        
+            <% @to_start.this_day.each do |sorting| %>
+
+
+                <li class="list-group-item text-center">
+          
+                <strong>
+                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
+
+                    <%= link_to sorting_path(sorting) do %>
+                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                    <% end %>
+                  
+                  <br>
+                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
+                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+
+	                  <% if sorting.return_box.washes.where.not(:end_time => nil).count == 0 %>
+	                  	<%= t("wash.no_wash") %>
+	                  <% elsif sorting.return_box.washes.where.not(:end_time => nil).count == 1 %>
+	                  	<%= sorting.return_box.washes.where.not(:end_time => nil).count %>
+	                  	<%= t("wash.wash") %>
+	                  <% elsif sorting.return_box.washes.where.not(:end_time => nil).count == 2 %>
+											<%= sorting.return_box.washes.where.not(:end_time => nil).count %>
+											<%= t("menu.washes") %>
+	                  <% end %>
+
+                </strong>
+                </li>
+            <% end %>
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item text-center">
+            <h4><%= t("delivery.gone_yesterday") %></h4>
+          </li>
+
+            <% @to_start.previous_day.each do |sorting| %>
+
+
+                <li class="list-group-item text-center">
+          
+                <strong>
+                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
+
+                    <%= link_to sorting_path(sorting) do %>
+                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                    <% end %>
+                  
+                  <br>
+                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
+                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+
+	                  <% if sorting.return_box.washes.where.not(:end_time => nil).count == 0 %>
+	                  	<%= t("wash.no_wash") %>
+	                  <% elsif sorting.return_box.washes.where.not(:end_time => nil).count == 1 %>
+	                  	<%= sorting.return_box.washes.where.not(:end_time => nil).count %>
+	                  	<%= t("wash.wash") %>
+	                  <% elsif sorting.return_box.washes.where.not(:end_time => nil).count == 2 %>
+											<%= sorting.return_box.washes.where.not(:end_time => nil).count %>
+											<%= t("menu.washes") %>
+	                  <% end %>
+	                  
+                </strong>
+                </li>
+            <% end %>       
+        </ul>
+      </div>
+      
+    </div>  
+
+        
+    <div class="col-md-6">
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item text-center">
+            <h4><%= t("delivery.gone_two_days") %></h4>
+          </li>
+        
+            <% @to_start.two_days_ago.each do |sorting| %>
+
+                <li class="list-group-item text-center">
+          
+                <strong>
+                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
+
+                    <%= link_to sorting_path(sorting) do %>
+                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                    <% end %>
+                  
+                  <br>
+                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
+                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+
+	                  <% if sorting.return_box.washes.where.not(:end_time => nil).count == 0 %>
+	                  	<%= t("wash.no_wash") %>
+	                  <% elsif sorting.return_box.washes.where.not(:end_time => nil).count == 1 %>
+	                  	<%= sorting.return_box.washes.where.not(:end_time => nil).count %>
+	                  	<%= t("wash.wash") %>
+	                  <% elsif sorting.return_box.washes.where.not(:end_time => nil).count == 2 %>
+											<%= sorting.return_box.washes.where.not(:end_time => nil).count %>
+											<%= t("menu.washes") %>
+	                  <% end %>
+	                  
+                </strong>
+                </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item text-center">
+            <h4><%= t("delivery.gone_three_days") %></h4>
+          </li>
+
+            <% @to_start.three_days_ago.each do |sorting| %>
+
+
+                <li class="list-group-item text-center">
+          
+                <strong>
+                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
+
+                    <%= link_to sorting_path(sorting) do %>
+                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                    <% end %>
+                  
+                  <br>
+                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
+                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+
+	                  <% if sorting.return_box.washes.where.not(:end_time => nil).count == 0 %>
+	                  	<%= t("wash.no_wash") %>
+	                  <% elsif sorting.return_box.washes.where.not(:end_time => nil).count == 1 %>
+	                  	<%= sorting.return_box.washes.where.not(:end_time => nil).count %>
+	                  	<%= t("wash.wash") %>
+	                  <% elsif sorting.return_box.washes.where.not(:end_time => nil).count == 2 %>
+											<%= sorting.return_box.washes.where.not(:end_time => nil).count %>
+											<%= t("menu.washes") %>
+	                  <% end %>
+	                  
+                </strong>
+                </li>
+            <% end %>       
+        </ul>
+      </div>
+    </div>
+  </div>

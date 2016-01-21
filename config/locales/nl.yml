@@ -348,6 +348,28 @@ nl:
     finished3: "Dit was wordt geeindigd "
     new: "Begin een nieuw was"
     back: "Terug op "
+    wash: "Was"
+    no_wash: "Nog geen was"
+
+  sorting:
+    start: "Start tijd"
+    end: "Eind tijd"
+    event: "Evenement"
+    starter: "Gestart door "
+    ender: "Geeindigd door "
+    go: "Start dit arrangement"
+    stop: "Eind dit arrangement"
+    delivery: "Levering datum"
+    return: "Terugkeer datum"
+    received: "Gekregen door"
+    to_start: "Lotten op te ruimen terug sinds"
+    started: "Gestart arrangement"
+    started2: "Gestart om "
+    finished: "Geeindigd arrangement"
+    finished2: "Geeindigd om "
+    finished3: "Dit arrengement wordt geeindigd "
+    new: "Begin een nieuw arrangement"
+    back: "Terug op "
 
   notice:
     access: "Verboden toegang"
