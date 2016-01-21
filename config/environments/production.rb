@@ -76,4 +76,23 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Action Mailer Set Up
+  config.action_mailer.default_url_options = {:host => 'rekwup.be'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.rails_delivery_errors = false
+
+  # Ma,ndrill integration
+  config.action_mailer.smptp_settings = {
+    :address => "smtp.mandrillapp.com",
+    :port => 587,
+    :enable_starttls_auto => true,
+    :user_name => ENV["MANDRILL_USERNAME"],
+    :password  => ENV["MANDRILL_PASSWORD"],
+    :authentication => 'login',
+    :domain => 'rekwup.be'
+
+  }
+
 end

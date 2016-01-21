@@ -102,7 +102,21 @@
 
     </div>
   </li>
-    
+
+  <li class="list-group-item">
+    <div class="row text-center">
+
+      <div class="col-md-6">
+        <strong><%= t("event.bar") %></strong><br><br><%= @event.bar %>
+      </div>
+
+      <div class="col-md-6">
+        <strong><%= t("event.beertap") %></strong><br><%= @event.beertap %>      
+      </div>
+
+    </div>
+  </li>
+
   <li class="list-group-item"><strong><%= t("event.comment") %></strong><br><%= @event.comment %></li>
 
 

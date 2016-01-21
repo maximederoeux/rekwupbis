@@ -57,6 +57,7 @@ fr:
     deliveries: "Livraisons"
     returns: "Retours"
     washes: "Lavages"
+    construction: "Ce site est toujours en construction. Les informations que vous y trouverez ne sont pas entièrement fiables et aucun service ne sera fourni pour le moment à partir de ce site"
 
   user:
     name: "Nom"
