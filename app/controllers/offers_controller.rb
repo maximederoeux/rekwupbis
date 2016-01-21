@@ -103,10 +103,10 @@ class OffersController < ApplicationController
            
     respond_to do |format|
       if @offer.update(offer_params)
-        # if @offer.send_email
-        #   UserMailer.offer_email(@user, @offer).deliver_later
-        #   @offer.update_attributes(:send_email => false)
-        # end
+        if @offer.send_email
+          UserMailer.offer_email(@user, @offer).deliver_later
+          @offer.update_attributes(:send_email => false)
+        end
         format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
         format.json { render :show, status: :ok, location: @offer }
       else
