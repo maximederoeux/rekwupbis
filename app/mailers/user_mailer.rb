@@ -12,7 +12,7 @@ class UserMailer < ApplicationMailer
 	def offer_email(user, offer)
 		@offer = offer
     @organizer = user
-    @url  = 'http://http://clients.rekwup.be/users/sign_in?locale=fr'
+    @url  = 'clients.rekwup.be/users/sign_in?locale=fr'
     mail(
     	to: @organizer.email, 
     	subject: I18n.t('mail.offer_title', :event_name => @offer.event.event_name)

@@ -1,14 +1,16 @@
-Cher(e) <%= @offer.organizer.full_name %>
+<p>Cher(e) <%= @offer.organizer.full_name %></p><br>
 
-Vous trouverez sur votre compte Rekwup notre offre de service numéro <%= @offer.created_at.strftime("%Y") %> - <%= @offer.id %> pour votre événement <%= @offer.event.event_name %>
+<p>Nous avons pris connaissance de votre demande d'offre pour votre événement <strong><%= @offer.event.event_name %></strong></p>
 
-Vous pourrez confirmer directement sur votre compte. Pour vous connecter, suivez ce lien <%= @url %>
+<p>Vous trouverez sur votre compte Rekwup notre offre de service numéro <%= @offer.created_at.strftime("%Y") %> - <%= @offer.id %></p>
 
-N'hésitez pas à nous contacter si vous désirez davantage d'explications.
+<p>Vous pourrez confirmer directement sur votre compte. Pour vous connecter, suivez ce lien <%= @url %></p>
 
-Bien à vous,
+<p>N'hésitez pas à nous contacter si vous désirez davantage d'explications.</p>
 
-L'équipe Rekwup
+<p>Bien à vous,<br>
+
+<p>L'équipe Rekwup</p>
 
 
 
