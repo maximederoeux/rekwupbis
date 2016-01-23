@@ -71,6 +71,8 @@ class DeliveriesController < ApplicationController
           ReturnBox.create(:delivery_id => @delivery.id, :return_date => @delivery.return_date)
           @delivery.offer.offer_boxes.each do |offer_box|
             ReturnDetail.create(:return_box_id => ReturnBox.last.id, :box_id => offer_box.box_id)
+            # ReturnBox.last.return_details.build(params[:return_box_id => ReturnBox.last.id, :box_id => offer_box.box_id])
+
           end
         end
         format.html { redirect_to deliveries_path, notice: 'Delivery was successfully updated.' }

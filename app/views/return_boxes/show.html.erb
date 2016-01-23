@@ -1,15 +1,11 @@
 <div class="container-fluid more-padding">
 
-  <% if @return_box.is_back == nil && @return_box.is_controlled == nil %>
+  <% if @return_box.is_controlled == nil %>
 
     <%= render 'show_not_back' %>
 
-  <% elsif @return_box.is_back == true && @return_box.is_controlled == nil %>
 
-    <%= render 'show_not_controlled' %>
-
-
-  <% elsif @return_box.is_back == true && @return_box.is_controlled == true %>
+  <% elsif @return_box.is_controlled == true %>
 
     <%= render 'show_controlled' %>
 
@@ -18,7 +14,7 @@
     <div class="row">
 
       <div class="col-md-6">
-        <%= link_to t("menu.back"), boxes_path, class: "btn btn-lg btn-block btn-default" %>
+        <%= link_to t("menu.back"), return_boxes_path, class: "btn btn-lg btn-block btn-default" %>
       </div>
       <div class="col-md-6">
 

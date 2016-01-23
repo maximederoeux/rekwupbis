@@ -35,6 +35,14 @@ en:
         party: "Party, concert, festival"
         dinner: "Meal"
 
+
+  form:
+    labels:
+      return_details:
+        dirty: "Dirty"
+        sealed: "Sealed dirty"
+        clean: "Clean"
+        
   menu:
     home: "Home"
     about: "About"

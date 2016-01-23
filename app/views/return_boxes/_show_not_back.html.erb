@@ -17,45 +17,93 @@
       <li class="list-group-item">
        <h5><strong><%= t("return.received_boxes") %></h5></strong>
       </li>
-    
-      <li class="list-group-item">
 
 
-          <% @thisreturndetails.each do |thisreturndetail| %>
-
-            <div class="row">
-
-              <%= simple_form_for(thisreturndetail) do |f| %>
-                <%= f.error_notification %>
-
-              <div class="col-md-4 text-center">
-                <strong><%= t("box.box_name") %></strong><br>
-                <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
-              </div>
+      <%= form_for @return_box, method: :put do |f| %>
 
 
-              <div class="col-md-2 text-center">
-                <%= f.input :dirty %>
-              </div>
-           
-              <div class="col-md-2 text-center">
-                <%= f.input :sealed %>
-              </div>
+            <%= f.fields_for :return_details, method: :put do |return_form| %>
 
-              <div class="col-md-2 text-center">
-                <%= f.input :clean %>
-              </div>
+              <li class="list-group-item">
+                <div class="row">
 
-                <div class="col-md-2 text-center">
-                  <br><%= f.button :submit, class: "btn btn-default btn-info" %>
-                </div>
+                  <div class="col-md-4 text-center">
+                    <strong><%= t("box.box_name") %></strong><br>
+                    <%= return_form.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                  </div>
+
+                <% if @return_box.is_back == nil && @return_box.is_controlled == nil %>
+
+                  <div class="col-md-2 text-center">
+                    <strong><%= t("return.dirty") %></strong><br>
+                    <%= return_form.number_field :dirty %>
+                  </div>
+               
+                  <div class="col-md-2 text-center">
+                    <strong><%= t("return.sealed") %></strong><br>
+                    <%= return_form.number_field :sealed %>
+                  </div>
+
+                  <div class="col-md-2 text-center">
+                    <strong><%= t("return.clean") %></strong><br>
+                    <%= return_form.number_field :clean %>
+                  </div>
+
+                <% elsif @return_box.is_back == true && @return_box.is_controlled == nil %>
+
+                  <div class="col-md-2 text-center">
+                    <strong><%= t("return.dirty") %></strong><br>
+                    <%= return_form.number_field :dirty_ctrl %>
+                  </div>
+               
+                  <div class="col-md-2 text-center">
+                    <strong><%= t("return.sealed") %></strong><br>
+                    <%= return_form.number_field :sealed_ctrl %>
+                  </div>
+
+                  <div class="col-md-2 text-center">
+                    <strong><%= t("return.clean") %></strong><br>
+                    <%= return_form.number_field :clean_ctrl %>
+                  </div>
 
                 <% end %>
-            </div>
-          <% end %>
 
-      </li>
+                  <div class="col-md-2 text-center">
+                    <br>
+                  </div>
+                </div>
+              </li>
+            <% end %>
     </ul>
+
+      <div class="row more-padding">
+
+        <div class="col-md-6">
+          <%= link_to t("menu.back"), return_boxes_path, class: "btn btn-lg btn-block btn-default" %>
+        </div>
+
+        <div class="col-md-6">
+
+          <% if @return_box.is_back == nil && @return_box.is_controlled == nil %>
+
+              <%= f.hidden_field :is_back, :value => true %>
+              <%= f.hidden_field :receptionist, :value => current_user.id %>
+              <%= f.hidden_field :return_time, :value => Time.now %>
+              <%= f.submit t("return.receive2"), class: "btn btn-lg btn-block btn-info" %>
+
+          <% elsif @return_box.is_back == true && @return_box.is_controlled == nil %>
+
+              <%= f.hidden_field :is_controlled, :value => true %>
+              <%= f.hidden_field :ctrler, :value => current_user.id %>
+              <%= f.hidden_field :ctrl_time, :value => Time.now %>
+              <%= f.submit t("return.ctrl"), class: "btn btn-lg btn-block btn-info" %>
+
+          <% end %>
+        </div>
+      </div>
+
+      <% end %>
+
 
       <ul class="list-group">
         <li class="list-group-item">

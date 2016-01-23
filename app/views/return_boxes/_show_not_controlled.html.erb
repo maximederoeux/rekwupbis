@@ -18,44 +18,58 @@
      <h5><strong><%= t("return.controlled_boxes") %></h5></strong>
     </li>
   
-    <li class="list-group-item">
+      <%= form_for @return_box do |f| %>
 
 
-        <% @thisreturndetails.each do |thisreturndetail| %>
+            <%= f.fields_for :return_details do |return_form| %>
 
-          <div class="row">
+              <li class="list-group-item">
+                <div class="row">
 
-            <%= simple_form_for(thisreturndetail) do |f| %>
-              <%= f.error_notification %>
-
-            <div class="col-md-4 text-center">
-              <strong><%= t("box.box_name") %></strong><br>
-              <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
-            </div>
+                  <div class="col-md-4 text-center">
+                    <strong><%= t("box.box_name") %></strong><br>
+                    <%= return_form.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                  </div>
 
 
-            <div class="col-md-2 text-center">
-              <%= f.input :dirty_ctrl %>
-            </div>
-         
-            <div class="col-md-2 text-center">
-              <%= f.input :sealed_ctrl %>
-            </div>
+                  <div class="col-md-2 text-center">
+                    <strong><%= t("return.dirty") %></strong><br>
+                    <%= return_form.number_field :dirty_ctrl %>
+                  </div>
+               
+                  <div class="col-md-2 text-center">
+                    <strong><%= t("return.sealed") %></strong><br>
+                    <%= return_form.number_field :sealed_ctrl %>
+                  </div>
 
-            <div class="col-md-2 text-center">
-              <%= f.input :clean_ctrl %>
-            </div>
+                  <div class="col-md-2 text-center">
+                    <strong><%= t("return.clean") %></strong><br>
+                    <%= return_form.number_field :clean_ctrl %>
+                  </div>
 
-              <div class="col-md-2 text-center">
-                <br><%= f.button :submit, class: "btn btn-default btn-info" %>
-              </div>
+                  <div class="col-md-2 text-center">
+                    <br>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+    </ul>
 
-              <% end %>
-          </div>
-        <% end %>
+      <div class="row more-padding">
 
-    </li>
-  </ul>
+        <div class="col-md-6">
+          <%= link_to t("menu.back"), return_boxes_path, class: "btn btn-lg btn-block btn-default" %>
+        </div>
+
+        <div class="col-md-6">
+            <%= f.hidden_field :is_controlled, :value => true %>
+            <%= f.hidden_field :ctrler, :value => current_user.id %>
+            <%= f.hidden_field :ctrl_time, :value => Time.now %>
+            <%= f.submit t("return.ctrl"), class: "btn btn-lg btn-block btn-info" %>
+        </div>
+      </div>
+      
+      <% end %>
 
       <ul class="list-group">
         <li class="list-group-item">

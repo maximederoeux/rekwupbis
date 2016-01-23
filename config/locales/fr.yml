@@ -35,6 +35,14 @@ fr:
         party: "Soirée, concert, festival"
         dinner: "Repas"
 
+
+  form:
+    labels:
+      return_details:
+        dirty: "Sales"
+        sealed: "Scellées sales"
+        clean: "Propres"
+        
   menu:
     home: "Accueil"
     about: "A propos"

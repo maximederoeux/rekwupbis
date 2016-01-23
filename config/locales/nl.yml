@@ -35,6 +35,13 @@ nl:
         party: "Feest, concert, festival"
         dinner: "Maaltijd"
 
+  form:
+    labels:
+      return_details:
+        dirty: "Vuil"
+        sealed: "Vuil verzegeld"
+        clean: "Schoon"    
+
   menu:
     home: "Home"
     about: "Over ons"
