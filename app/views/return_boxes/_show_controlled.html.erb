@@ -12,16 +12,10 @@
         <%= t("return.is_controlled") %><br>   
       </strong></h5>
     </li>
-  
 
-    <li class="list-group-item">
-     <h5><strong><%= t("return.controlled_boxes") %></h5></strong>
-    </li>
-
-    <ul class="list-group">
       <li class="list-group-item">
 
-          <%= @return_box.display_difference %>
+          <strong><%= @return_box.display_difference %></strong>
 
       </li>
 
@@ -242,7 +236,100 @@
               </div>
             <% end %>
 
+            <% unless @return_box.difference == 0 %>
 
+              <!-- Large modal -->
+              <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#return_detail_<%= detail.id %>">
+                <%= detail.box.box_name %><br>
+
+
+              </button>
+
+              <div class="modal fade" id="return_detail_<%= detail.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+
+                    <%= simple_form_for detail do |f| %>
+
+                      <div class="modal-header">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
+
+                          <h4 class="modal-title" id="myModalLabel">
+
+                            <div class="row text-center">
+
+                              <div class="col-md-4">
+                                 <%= t("box.box_type") %>
+                              </div>
+
+                              <div class="col-md-6">
+                                 <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                              </div>
+
+                              <div class="col-md-2">
+                              </div>
+
+                            </div>                     
+                           
+                          </h4>
+                      </div>
+
+                      <div class="modal-body">
+                        <div class="row text-center">
+
+                          <div class="col-md-4">
+                            <%= t("return.return") %><br>
+                            <%= f.input :dirty %>
+                          </div>
+
+                          <div class="col-md-4">
+                            <%= t("return.return") %><br>
+                            <%= f.input :sealed %>
+                          </div>
+
+                          <div class="col-md-4">
+                            <%= t("return.return") %><br>
+                            <%= f.input :clean %>
+                          </div>
+
+                        </div>
+
+                        <div class="row text-center">                        
+
+                          <div class="col-md-4">
+                            <%= t("return.control") %><br>
+                            <%= f.input :dirty_ctrl %>
+                          </div>
+
+                          <div class="col-md-4">
+                            <%= t("return.control") %><br>
+                            <%= f.input :sealed_ctrl %>
+                          </div>
+
+                          <div class="col-md-4">
+                            <%= t("return.control") %><br>
+                            <%= f.input :clean_ctrl %>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="modal-footer">
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                          <%= t("menu.close") %>
+                        </button>
+                
+                          <%= f.button :submit, class: "btn btn-info" %>
+          
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
         <% end %>
       </li>
     </ul>

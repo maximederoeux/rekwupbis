@@ -339,6 +339,7 @@ nl:
     wash: "Stuur naar het wassen"
     return: "Terug"
     control: "Control"
+    difference: "Er zijn dozen die niet evenaren voor "
 
   wash:
     start: "Start tijd"

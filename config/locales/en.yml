@@ -340,7 +340,7 @@ en:
     wash: "Send for washing"
     return: "Return"
     control: "Control"
-
+    difference: "There are boxes that do not match for "
 
   wash:
     start: "Start time"
