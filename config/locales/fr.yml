@@ -334,10 +334,11 @@ fr:
     rec: "Reç."
     con: "Cont."
     dif: "Diff."
-    is_controlled: "Ce retour a été contrôlé"
     modify_return: "Modifier ce retour"
     modify_control: "Modifier ce contrôle"
     wash: "Envoyer au lavage"
+    return: "Retour"
+    control: "Contrôle"
 
   wash:
     start: "Début du lavage"

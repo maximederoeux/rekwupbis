@@ -338,6 +338,9 @@ en:
     modify_return: "Modify this return"
     modify_control: "Modify this control"
     wash: "Send for washing"
+    return: "Return"
+    control: "Control"
+
 
   wash:
     start: "Start time"

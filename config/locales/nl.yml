@@ -334,10 +334,11 @@ nl:
     rec: "Gekreg."
     con: "Gecont."
     dif: "Versch."
-    is_controlled: "Deze terugkeer werd gecontroleerd"
     modify_return: "Deze terugkeer wijzigen"
     modify_control: "Dit controle wijzigen"
     wash: "Stuur naar het wassen"
+    return: "Terug"
+    control: "Control"
 
   wash:
     start: "Start tijd"

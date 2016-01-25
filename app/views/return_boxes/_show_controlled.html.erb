@@ -9,8 +9,7 @@
     <li class="list-group-item list-group-item-warning">
 
       <h5><strong>
-        <%= @return_box.washes.count %>
-        <%= t("return.is_controled") %><br>   
+        <%= t("return.is_controlled") %><br>   
       </strong></h5>
     </li>
   
@@ -19,222 +18,232 @@
      <h5><strong><%= t("return.controlled_boxes") %></h5></strong>
     </li>
 
-    <li class="list-group-item">
+    <ul class="list-group">
+      <li class="list-group-item">
 
-          <div class="row">
+          <%= @return_box.display_difference %>
 
-            <div class="col-md-4 text-center">
+      </li>
 
-              <strong><%= t("return.box_id") %></strong>
+      <li class="list-group-item">
 
-              <div class="row">
+          <% @thisreturndetails.each do |detail| %>
 
-                <div class="col-md-6 text-center">
-                </div>
+            <% unless detail.dirty_ctrl_value - detail.dirty_value == 0 %>
 
-                <div class="col-md-6 text-center">
-                  <strong><%= t("return.total") %></strong>
-                </div>
+              <!-- Large modal -->
+              <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#return_detail_<%= detail.id %>">
+                <%= detail.box.box_name %><br>
+                <%= t("return.dirty") %>
 
-              </div>
+              </button>
 
-              <div class="row">
+              <div class="modal fade" id="return_detail_<%= detail.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
 
-                <div class="col-md-6 text-center">
-                   <strong><%= t("box.box_name") %></strong>
-                </div>
+                    <%= simple_form_for detail do |f| %>
+
+                      <div class="modal-header">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
+
+                          <h4 class="modal-title" id="myModalLabel">
+
+                            <div class="row text-center">
+
+                              <div class="col-md-4">
+                                 <%= t("box.box_type") %>
+                              </div>
+
+                              <div class="col-md-6">
+                                 <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                              </div>
+
+                              <div class="col-md-2">
+                              </div>
+
+                            </div>                     
+                           
+                          </h4>
+                      </div>
+
+                      <div class="modal-body">
+                        <div class="row text-center">
+
+                          <div class="col-md-6">
+                            <%= t("return.return") %><br>
+                            <%= f.input :dirty %>
+                          </div>
+
+                          <div class="col-md-6">
+                            <%= t("return.control") %><br>
+                            <%= f.input :dirty_ctrl %>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="modal-footer">
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                          <%= t("menu.close") %>
+                        </button>
                 
-                <div class="col-md-6 text-center">
-
-                  <div class="row">
-
-                    <div class="col-md-4 text-center">
-                      <strong><%= t("return.sen") %></strong>
-                    </div>
-                    <div class="col-md-4 text-center">
-                      <strong><%= t("return.rec") %></strong>
-                    </div>
-                    <div class="col-md-4 text-center">
-                      <strong><%= t("return.dif") %></strong>
-                    </div>
-
+                          <%= f.button :submit, class: "btn btn-info" %>
+          
+                      </div>
+                    <% end %>
                   </div>
-                  
                 </div>
               </div>
+            <% end %>
 
-            </div>
+            <% unless detail.sealed_ctrl_value - detail.sealed_value == 0 %>
 
-            <div class="col-md-8 text-center">
+              <!-- Large modal -->
+              <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#return_detail_<%= detail.id %>">
+                <%= detail.box.box_name %><br>
+                <%= t("return.sealed") %>
 
-              <div class="row">
+              </button>
 
-                <div class="col-md-4 text-center">
-                  <strong><%= t("return.dirty") %></strong>
+              <div class="modal fade" id="return_detail_<%= detail.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
 
-                  <div class="row"><br>
+                    <%= simple_form_for detail do |f| %>
 
-                    <div class="col-md-4 text-center">
-                      <strong><%= t("return.rec") %></strong>
-                    </div>
-                    <div class="col-md-4 text-center">
-                      <strong><%= t("return.con") %></strong>
-                    </div>
-                    <div class="col-md-4 text-center">
-                      <strong><%= t("return.dif") %></strong>
-                    </div>
+                      <div class="modal-header">
 
-                  </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
 
-                </div>
-             
-                <div class="col-md-4 text-center">
-                  <strong><%= t("return.sealed") %></strong>
+                          <h4 class="modal-title" id="myModalLabel">
 
-                  <div class="row"><br>
-                    <div class="col-md-4 text-center">
-                      <strong><%= t("return.rec") %></strong>
-                    </div>
-                    <div class="col-md-4 text-center">
-                      <strong><%= t("return.con") %></strong>
-                    </div>
-                    <div class="col-md-4 text-center">
-                      <strong><%= t("return.dif") %></strong>
-                    </div>
-                  </div>
+                            <div class="row text-center">
 
-                </div>
+                              <div class="col-md-4">
+                                 <%= t("box.box_type") %>
+                              </div>
 
-                <div class="col-md-4 text-center">
-                  <strong><%= t("return.clean") %></strong>
+                              <div class="col-md-6">
+                                 <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                              </div>
 
-                  <div class="row"><br>
+                              <div class="col-md-2">
+                              </div>
 
-                    <div class="col-md-4 text-center">
-                      <strong><%= t("return.rec") %></strong>
-                    </div>
-                    <div class="col-md-4 text-center">
-                      <strong><%= t("return.con") %></strong>
-                    </div>
-                    <div class="col-md-4 text-center">
-                      <strong><%= t("return.dif") %></strong>
-                    </div>
+                            </div>                     
+                           
+                          </h4>
+                      </div>
 
-                  </div>
-                </div>
+                      <div class="modal-body">
+                        <div class="row text-center">
 
-              </div>
+                          <div class="col-md-6">
+                            <%= t("return.return") %><br>
+                            <%= f.input :sealed %>
+                          </div>
 
-            </div>
+                          <div class="col-md-6">
+                            <%= t("return.control") %><br>
+                            <%= f.input :sealed_ctrl %>
+                          </div>
 
-            
-          </div>
+                        </div>
+                      </div>
 
-    </li>
+                      <div class="modal-footer">
 
-    <li class="list-group-item">
-
-        <% @thisreturndetails.each do |thisreturndetail| %>
-
-          <div class="row">
-
-            <div class="col-md-4 text-center">
-
-              <div class="row">
-
-                <div class="col-md-6 text-center">
-                  <%= thisreturndetail.box.box_name %>
-                  <%= link_to edit_return_detail_path(thisreturndetail) do %>
-                    <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
-                  <% end %>
-
-                  <%= link_to thisreturndetail, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                    <%= content_tag(:i, "", class: "fa fa-times") %>
-                  <% end %> 
-                </div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                          <%= t("menu.close") %>
+                        </button>
                 
-                <div class="col-md-6 text-center">
-
-                  <div class="row">
-
-                    <div class="col-md-4 text-danger text-center">
-                      <strong><%= @return_box.delivery.offer.offer_boxes.where(:box_id => thisreturndetail.box_id).first.quantity %></strong>
-                    </div>
-                    <div class="col-md-4 text-danger text-center">
-                      <strong><%= thisreturndetail.count %></strong>
-                    </div>
-                    <div class="col-md-4 text-danger text-center">
-                      <strong><%= @return_box.delivery.offer.offer_boxes.where(:box_id => thisreturndetail.box_id).last.quantity - thisreturndetail.count %></strong>
-                    </div>
-
+                          <%= f.button :submit, class: "btn btn-info" %>
+          
+                      </div>
+                    <% end %>
                   </div>
-                  
                 </div>
               </div>
+            <% end %>
 
-            </div>
+            <% unless detail.clean_ctrl_value - detail.clean_value == 0 %>
 
-            <div class="col-md-8 text-center">
+              <!-- Large modal -->
+              <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#return_detail_<%= detail.id %>">
+                <%= detail.box.box_name %><br>
+                <%= t("return.sealed") %>
 
-              <div class="row">
+              </button>
 
-                <div class="col-md-4 text-center">
+              <div class="modal fade" id="return_detail_<%= detail.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
 
-                  <div class="row">
-                    <div class="col-md-4 text-center">
-                      <%= thisreturndetail.dirty_value %>
-                    </div>
-                    <div class="col-md-4 text-center">
-                      <%= thisreturndetail.dirty_ctrl_value %>
-                    </div>
-                    <div class="col-md-4 text-center">
-                      <%= thisreturndetail.dirty_ctrl_value - thisreturndetail.dirty_value %>
-                    </div>
-                  </div>
+                    <%= simple_form_for detail do |f| %>
 
-                </div>
-             
-                <div class="col-md-4 text-center">
+                      <div class="modal-header">
 
-                  <div class="row">
-                    <div class="col-md-4 text-center">
-                      <%= thisreturndetail.sealed_value %>
-                    </div>
-                    <div class="col-md-4 text-center">
-                      <%= thisreturndetail.sealed_ctrl_value %>
-                    </div>
-                    <div class="col-md-4 text-center">
-                      <%= thisreturndetail.sealed_ctrl_value - thisreturndetail.sealed_value %>
-                    </div>
-                  </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
 
-                </div>
+                          <h4 class="modal-title" id="myModalLabel">
 
-                <div class="col-md-4 text-center">
+                            <div class="row text-center">
 
-                  <div class="row">
+                              <div class="col-md-4">
+                                 <%= t("box.box_type") %>
+                              </div>
 
-                    <div class="col-md-4 text-center">
-                      <%= thisreturndetail.clean_value %>
-                    </div>
-                    <div class="col-md-4 text-center">
-                      <%= thisreturndetail.clean_ctrl_value %>
-                    </div>
-                    <div class="col-md-4 text-center">
-                      <%= thisreturndetail.clean_ctrl_value - thisreturndetail.clean_value %>
-                    </div>
+                              <div class="col-md-6">
+                                 <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                              </div>
 
-                  </div>
+                              <div class="col-md-2">
+                              </div>
 
-                </div>
+                            </div>                     
+                           
+                          </h4>
+                      </div>
+
+                      <div class="modal-body">
+                        <div class="row text-center">
+
+                          <div class="col-md-6">
+                            <%= t("return.return") %><br>
+                            <%= f.input :clean %>
+                          </div>
+
+                          <div class="col-md-6">
+                            <%= t("return.control") %><br>
+                            <%= f.input :clean_ctrl %>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="modal-footer">
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                          <%= t("menu.close") %>
+                        </button>
                 
+                          <%= f.button :submit, class: "btn btn-info" %>
+          
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
               </div>
+            <% end %>
 
-            </div>
 
-            
-          </div>
-      <% end %> 
-    </li>
+        <% end %>
+      </li>
+    </ul>
 
-  </ul>
