@@ -1,15 +1,18 @@
 <div class="container-fluid more-padding">
 
-  <% if @return_box.is_controlled == nil %>
+    <% if @return_box.is_back == nil && @return_box.is_controlled == nil %>
 
-    <%= render 'show_not_back' %>
+      <%= render 'show_not_back' %>
 
+    <% elsif @return_box.is_back == true && @return_box.is_controlled == nil %>
 
-  <% elsif @return_box.is_controlled == true %>
+      <%= render 'show_not_controlled' %>
+
+    <% elsif @return_box.is_back == true && @return_box.is_controlled == true %>
 
     <%= render 'show_controlled' %>
 
-  <% end %>
+    <% end %>
 
     <div class="row">
 

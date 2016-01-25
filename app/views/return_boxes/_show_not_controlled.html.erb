@@ -1,112 +1,109 @@
-  <ul class="list-group">
-    <li class="list-group-item">
+    <ul class="list-group">
+      <li class="list-group-item">
 
-      <strong>
-        <%= t("return.reference") %><%= @return_box.id %> <%= t("word.from") %> <%= @return_box.offer.event.event_name %>    
-      </strong>
-    </li>
+        <strong>
+          <%= t("return.reference") %><%= @return_box.id %> <%= t("word.from") %> <%= @return_box.offer.event.event_name %>    
+        </strong>
+      </li>
 
-    <li class="list-group-item list-group-item-warning">
+      <li class="list-group-item list-group-item-warning">
 
-      <h5><strong>  
-        <%= @return_box.display_difference_ctrl %><br>   
-      </strong></h5>
-    </li>
-  
+        <h5><strong>
+          <%= @return_box.display_difference_ctrl %>    
+        </strong></h5>
+      </li>
+    
 
-    <li class="list-group-item">
-     <h5><strong><%= t("return.controlled_boxes") %></h5></strong>
-    </li>
-  
-      <%= form_for @return_box do |f| %>
-
-
-            <%= f.fields_for :return_details do |return_form| %>
-
-              <li class="list-group-item">
-                <div class="row">
-
-                  <div class="col-md-4 text-center">
-                    <strong><%= t("box.box_name") %></strong><br>
-                    <%= return_form.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
-                  </div>
-
-
-                  <div class="col-md-2 text-center">
-                    <strong><%= t("return.dirty") %></strong><br>
-                    <%= return_form.number_field :dirty_ctrl %>
-                  </div>
-               
-                  <div class="col-md-2 text-center">
-                    <strong><%= t("return.sealed") %></strong><br>
-                    <%= return_form.number_field :sealed_ctrl %>
-                  </div>
-
-                  <div class="col-md-2 text-center">
-                    <strong><%= t("return.clean") %></strong><br>
-                    <%= return_form.number_field :clean_ctrl %>
-                  </div>
-
-                  <div class="col-md-2 text-center">
-                    <br>
-                  </div>
-                </div>
-              </li>
-            <% end %>
+      <li class="list-group-item">
+       <h5><strong><%= t("return.to_control_boxes") %></h5></strong>
+      </li>
     </ul>
 
-      <div class="row more-padding">
+ <ul class="list-group">
+      <li class="list-group-item">
 
-        <div class="col-md-6">
-          <%= link_to t("menu.back"), return_boxes_path, class: "btn btn-lg btn-block btn-default" %>
-        </div>
+      <% @thisreturndetails.each do |detail| %>
 
-        <div class="col-md-6">
-            <%= f.hidden_field :is_controlled, :value => true %>
-            <%= f.hidden_field :ctrler, :value => current_user.id %>
-            <%= f.hidden_field :ctrl_time, :value => Time.now %>
-            <%= f.submit t("return.ctrl"), class: "btn btn-lg btn-block btn-info" %>
-        </div>
-      </div>
-      
-      <% end %>
+        <!-- Large modal -->
+        <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#return_detail_<%= detail.id %>">
 
-      <ul class="list-group">
-        <li class="list-group-item">
-          <h5><strong><%= t("return.add_box")%></strong></h5>
-        </li>
-      
-
-        <li class="list-group-item">
-          <div class="row">
-            <%= simple_form_for(@return_detail) do |f| %>
-              <%= f.error_notification %>
-
-              <%= f.hidden_field :return_box_id, :value => @return_box.id %>
-
-            <div class="col-md-4 text-center">
-              <strong><%= t("box.box_name") %></strong><br>
-              <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
-            </div>
+          <%= detail.box.box_name %><br>
+          <% if detail.count_ctrl >= 0 %>
+            <%= detail.count_ctrl %>
+          <% end %>
 
 
-            <div class="col-md-2 text-center">
-              <%= f.input :dirty_ctrl %>
-            </div>
-         
-            <div class="col-md-2 text-center">
-              <%= f.input :sealed_ctrl %>
-            </div>
+        </button>
 
-            <div class="col-md-2 text-center">
-              <%= f.input :clean_ctrl %>
-            </div>
+        <div class="modal fade" id="return_detail_<%= detail.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
 
-              <div class="col-md-2 text-center">
-                <br><%= f.button :submit, class: "btn btn-default btn-info" %>
-              </div>
+              <%= simple_form_for detail do |f| %>
+
+                <div class="modal-header">
+
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                  </button>
+
+                    <h4 class="modal-title" id="myModalLabel">
+
+                      <div class="row text-center">
+
+                        <div class="col-md-4">
+                           <%= t("box.box_type") %>
+                        </div>
+
+                        <div class="col-md-6">
+                           <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                        </div>
+
+                        <div class="col-md-2">
+                        </div>
+
+                      </div>                     
+                     
+                    </h4>
+                </div>
+
+                <div class="modal-body">
+                  <div class="row text-center">
+
+                    <div class="col-md-4">
+                      <%= f.input :dirty_ctrl %>
+                    </div>
+
+                    <div class="col-md-4">
+                      <%= f.input :sealed_ctrl %>
+                    </div>
+
+                    <div class="col-md-4">
+                      <%= f.input :clean_ctrl %>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="modal-footer">
+
+                  <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <%= t("menu.close") %>
+                  </button>
+
+                 
+                    <%= f.button :submit, class: "btn btn-info" %>
+    
+
+                </div>
 
               <% end %>
+       
+
+            </div>
           </div>
-        </li>
-      </ul>
+        </div>
+
+      <% end %>
+      </li>
+    </ul>
+

@@ -66,6 +66,7 @@ en:
     returns: "Returns"
     washes: "Washing"
     sortings: "Arrangement"
+    close: "Close"
     construction: "This site is still under construction. The informations are not reliable and no service will be provided through this site at the moment"
 
   mail:
@@ -308,6 +309,8 @@ en:
     control: "Returns to control that came back"
     controlled: "Returns controlled"
     sent_boxes: "Sent boxes"
+    to_receive_boxes: "Boxes to receive"
+    to_control_boxes: "Boxes to control"
     reveived_boxes: "Received Boxes"
     add_box: "Add a box type"
     reference: "Return Ref - "

@@ -66,6 +66,7 @@ fr:
     returns: "Retours"
     washes: "Lavages"
     sortings: "Rangement"
+    close: "Fermer"
     construction: "Ce site est toujours en construction. Les informations que vous y trouverez ne sont pas entièrement fiables et aucun service ne sera fourni pour le moment à partir de ce site"
 
   mail:
@@ -308,6 +309,8 @@ fr:
     control: "Retours à contrôler qui sont revenus"
     controlled: "Retours contrôlés"
     sent_boxes: "Caisses envoyées"
+    to_receive_boxes: "Caisses à recevoir"
+    to_control_boxes: "Caisses à contrôler"
     received_boxes: "Caisses reçues"
     add_box: "Ajouter un type de caisse"
     reference: "Retour Ref - "

@@ -4,7 +4,7 @@ class ReturnBox < ActiveRecord::Base
 	has_many :washes
 	has_many :sortings
 
-	accepts_nested_attributes_for :return_details
+	accepts_nested_attributes_for :return_details, :allow_destroy => true
 
 	scope :this_day, lambda {where(:return_date => Date.today)}
 	scope :back_this_day, lambda {where(:return_time => (Date.current.beginning_of_day..Date.current.end_of_day))}
