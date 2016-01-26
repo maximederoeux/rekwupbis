@@ -375,6 +375,8 @@ en:
     add_broken: "Add a broken article"
     add_handling: "Add handling article"
     wash: "Washing Date"
+    missing: "Missing"
+    sent_cups: "Sent Cups"
 
   wash:
     start: "Start time"

@@ -1,7 +1,11 @@
 class Offer < ActiveRecord::Base
 	belongs_to :organizer, :class_name => "User"
 	belongs_to :event
+
 	has_many :offer_boxes
+	has_many :boxes, through: :offer_boxes
+	has_many :articles, through: :boxes
+
 	has_many :offer_articles
 	has_many :deliveries
 

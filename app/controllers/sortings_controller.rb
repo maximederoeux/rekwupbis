@@ -14,6 +14,7 @@ class SortingsController < ApplicationController
   # GET /sortings/1
   # GET /sortings/1.json
   def show
+    @articles = Article.all
     @sorting = Sorting.find(params[:id])
     @new_sorting_detail = SortingDetail.new
     @sorting_cups = @sorting.sorting_details

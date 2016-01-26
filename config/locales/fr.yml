@@ -375,6 +375,8 @@ fr:
     add_broken: "Ajouter un article cassé"
     add_handling: "Ajouter une manutention"
     wash: "Date de lavage"
+    missing: "Manquant"
+    sent_cups: "Gobelets envoyés"
 
   wash:
     start: "Début du lavage"

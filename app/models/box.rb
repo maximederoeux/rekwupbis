@@ -1,6 +1,11 @@
 class Box < ActiveRecord::Base
-	has_many :boxdetails
+	
+  has_many :boxdetails
+  has_many :articles, through: :boxdetails
+  
   has_many :offer_boxes
+  has_many :offers, through: :offer_boxes
+
   has_many :return_details
 
   scope :closed, lambda {where(:box_is_full => true)}

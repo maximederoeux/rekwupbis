@@ -375,6 +375,8 @@ nl:
     add_broken: "Een gebroken artikel toevoegen"
     add_handling: "Een behandeling toevoegen"
     wash: "Was datum"
+    missing: "Vermist"
+    sent_cups: "Gestuurd bekers"
 
   wash:
     start: "Start tijd"
