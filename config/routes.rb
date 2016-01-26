@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sorting_details
   resources :sortings
   resources :washes
   resources :return_details

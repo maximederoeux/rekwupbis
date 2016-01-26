@@ -1,0 +1,99 @@
+<li class="list-group-item list-group-item-warning">
+	 <div class="row">
+		<div class="col-md-6">
+			Gobelets cassés
+			</div>
+		<div class="col-md-6">
+			<%= render 'add_broken' %>
+		</div>
+	</div>
+</li>
+
+<li class="list-group-item">
+
+		<% @brokens.each do |detail| %>
+
+        <!-- Large modal -->
+        <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#sorting_detail_<%= detail.id %>">
+
+          <%= detail.article.full_name %><br>
+          <% if detail.broken %>
+          	Cassés
+          <% else %>
+          Pas cassés
+          <% end %>
+
+
+        </button>
+
+        <div class="modal fade" id="sorting_detail_<%= detail.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+              <%= simple_form_for detail do |f| %>
+
+                <div class="modal-header">
+
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                  </button>
+
+                    <h4 class="modal-title" id="myModalLabel">
+
+                      <div class="row text-center">
+
+                        <div class="col-md-4">
+                           <%= t("article.article_name") %>
+                        </div>
+
+                        <div class="col-md-6">
+                           <%= f.collection_select :article_id, Article.all.order('article_name ASC'), :id, :full_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                        </div>
+
+                        <div class="col-md-2">
+                        </div>
+
+                      </div>                     
+                     
+                    </h4>
+                </div>
+
+                <div class="modal-body">
+                  <div class="row text-center">
+
+                    <div class="col-md-4">
+                      <%= f.input :box_qtty %>
+                    </div>
+
+                    <div class="col-md-4">
+                      <%= f.input :pile_qtty %>
+                    </div>
+
+                    <div class="col-md-4">
+                      <%= f.input :unit_qtty %>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="modal-footer">
+
+                  <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <%= t("menu.close") %>
+                  </button>
+
+                    <%= f.button :submit, class: "btn btn-info" %>
+    
+
+                </div>
+
+              <% end %>
+       
+
+            </div>
+          </div>
+        </div>
+
+  <% end %>
+</li>
+
+

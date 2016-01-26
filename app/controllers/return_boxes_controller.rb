@@ -83,6 +83,13 @@ class ReturnBoxesController < ApplicationController
         if @return_box.is_back && @return_box.is_controlled
           Wash.create(:return_box_id => @return_box.id)
           Sorting.create(:return_box_id => @return_box.id)
+          @return_box.delivery.offer.offer_boxes.each do |offer_box|
+            offer_box.box.boxdetails.each do |boxdetail|
+              if boxdetail.article.is_cup
+              SortingDetail.create(:sorting_id => Sorting.last.id, :article_id => boxdetail.article.id, :clean => true)
+              end
+            end
+          end
         end
         format.html { redirect_to @return_box, notice: 'Return box was successfully updated.' }
         format.json { render :show, status: :ok, location: @return_box }

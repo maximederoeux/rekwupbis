@@ -76,6 +76,7 @@ en:
         rekwup_cup: "Rekwup Cup"
         sell_price: "Price"
         weight: "Weight in kg"
+        is_cup: "Cup"
       box:
         box_name: "Box Name"
         bigbox: "Big Box"

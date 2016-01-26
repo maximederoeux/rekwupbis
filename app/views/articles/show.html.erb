@@ -25,7 +25,13 @@
             </div>
 
             <div class="col-md-4">
-
+            <div class="col-md-4">
+                <% if @article.is_cup %>
+                  <strong>
+                    <%= t("article.is_cup") %>
+                  </strong>
+                <% end %>
+            </div>
             </div>
           </div>
         </li>

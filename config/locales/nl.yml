@@ -229,6 +229,7 @@ nl:
     your_prices: "Uw tarieven"
     sell_price: "Prijs"
     weight: "Gewicht"
+    is_cup: "Beker"
 
   negociated_price:
     add: "Onderhandeld prijzen toevoegen."

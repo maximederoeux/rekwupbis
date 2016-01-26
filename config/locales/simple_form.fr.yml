@@ -76,6 +76,7 @@ fr:
         rekwup_cup: "Gobelet Rekwup"
         sell_price: "Prix €"
         weight: "Poids en kg"
+        is_cup: "Gobelet"
       box:
         box_name: "Nom de la caisse"
         bigbox: "Grande caisse"

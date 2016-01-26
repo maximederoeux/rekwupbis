@@ -229,6 +229,7 @@ en:
     your_prices: "Your prices"
     sell_price: "Price"
     weight: "Weight"
+    is_cup: "Cup"
 
   negociated_price:
     add: "Add negociated prices"

@@ -1,0 +1,19 @@
+<%= simple_form_for(@sorting_detail) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :sorting_id %>
+    <%= f.input :article_id %>
+    <%= f.input :box_qtty %>
+    <%= f.input :pile_qtty %>
+    <%= f.input :unit_qtty %>
+    <%= f.input :clean %>
+    <%= f.input :very_dirty %>
+    <%= f.input :broken %>
+    <%= f.input :handling %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

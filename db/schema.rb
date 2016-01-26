@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121155455) do
+ActiveRecord::Schema.define(version: 20160126063028) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160121155455) do
     t.boolean  "is_washable"
     t.boolean  "rekwup_cup"
     t.decimal  "weight"
+    t.boolean  "is_cup"
   end
 
   create_table "boxdetails", force: :cascade do |t|
@@ -167,6 +168,20 @@ ActiveRecord::Schema.define(version: 20160121155455) do
     t.integer  "dirty_ctrl"
     t.integer  "sealed_ctrl"
     t.integer  "clean_ctrl"
+  end
+
+  create_table "sorting_details", force: :cascade do |t|
+    t.integer  "sorting_id"
+    t.integer  "article_id"
+    t.integer  "box_qtty"
+    t.integer  "pile_qtty"
+    t.integer  "unit_qtty"
+    t.boolean  "clean"
+    t.boolean  "very_dirty"
+    t.boolean  "broken"
+    t.boolean  "handling"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sortings", force: :cascade do |t|

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sorting_id: 1
+  article_id: 1
+  box_qtty: 1
+  pile_qtty: 1
+  unit_qtty: 1
+  clean: false
+  very_dirty: false
+  broken: false
+  handling: false
+
+two:
+  sorting_id: 1
+  article_id: 1
+  box_qtty: 1
+  pile_qtty: 1
+  unit_qtty: 1
+  clean: false
+  very_dirty: false
+  broken: false
+  handling: false

@@ -1,0 +1,2 @@
+module SortingDetailsHelper
+end

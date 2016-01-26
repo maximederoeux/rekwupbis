@@ -76,6 +76,7 @@ nl:
         rekwup_cup: "Rekwup Beker"
         sell_price: "Prijs €"
         weight: "Gewicht in kg"
+        is_cup: "Beker"
       box:
         box_name: "Doosnaam"
         bigbox: "Grote doos"

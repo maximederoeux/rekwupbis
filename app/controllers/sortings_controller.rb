@@ -14,6 +14,13 @@ class SortingsController < ApplicationController
   # GET /sortings/1
   # GET /sortings/1.json
   def show
+    @sorting = Sorting.find(params[:id])
+    @new_sorting_detail = SortingDetail.new
+    @sorting_cups = @sorting.sorting_details
+    @cleans = @sorting_cups.where(:clean => true)
+    @brokens = @sorting_cups.where(:broken => true)
+    @very_dirtys = @sorting_cups.where(:very_dirty => true)
+    @handlings = @sorting_cups.where(:handling => true)
   end
 
   # GET /sortings/new

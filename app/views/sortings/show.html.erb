@@ -2,10 +2,22 @@
 
 
 <% if @sorting.return_box.washes.where.not(:start_time => nil).count == 0 %>
+
   <h4><%= t("wash.no_wash") %></h4>
+
 <% else %>
 
-Ce retour peut être trié
+<%= render 'show_general_info' %>
+<%= render 'show_clean' %>
+<%= render 'show_broken' %>
+<%= render 'show_very_dirty' %>
+<%= render 'show_handling' %>
+
+
+
+
+
+
 <% end %>
 
 </div>

@@ -1,0 +1,25 @@
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-warning">
+      	<h5><strong>
+      		<%= @sorting.return_box.delivery.offer.event.event_name %> - Ref. <%= @sorting.return_box.delivery.offer.event.created_at.strftime("%Y") %>-<%= @sorting.return_box.delivery.offer.event.id %>
+      	</strong></h5>
+      </li>
+
+      <li class="list-group-item">
+      	<div class="row">
+
+      		<div class="col-md-4">
+						Livré le : <%= @sorting.return_box.delivery.gone_time.strftime("%d/%m/%Y") %>
+      		</div>
+
+      		<div class="col-md-4">
+						Retour le : <%= @sorting.return_box.return_time.strftime("%d/%m/%Y") %>
+      		</div>
+
+      		<div class="col-md-4">
+						Lavage le : <%= @sorting.return_box.washes.last.start_time.strftime("%d/%m/%Y") %>
+      		</div>
+
+      	</div>
+ 
+      </li>
