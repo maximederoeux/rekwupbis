@@ -342,6 +342,40 @@ fr:
     control: "Contrôle"
     difference: "Il y a des caisses qui ne correspondent pas pour "
 
+
+  sorting:
+    start: "Début du rangement"
+    end: "Fin du rangement"
+    event: "Evénement"
+    starter: "Commencé par "
+    ender: "Fini par "
+    go: "Commencer ce rangement"
+    stop: "Finir ce rangement"
+    delivery: "Date de livraison"
+    return: "Date de retour"
+    received: "Reçu par"
+    to_start: "Lots à ranger rentrés depuis"
+    started: "Rangements commencés"
+    started2: "Commencé à "
+    finished: "Rangements terminés"
+    finished2: "Terminé à "
+    finished3: "Ce rangement est terminé"
+    new: "Commencer un nouveau rangement"
+    back: "Rentré le "
+    clean_cups: "Gobelets propres"
+    very_dirty_cups: "Gobelets très sales"
+    broken_cups: "Gobelets cassés"
+    handling_cups: "Manutention"
+    clean: "Propres"
+    very_dirty: "Très sales"
+    broken: "Cassés"
+    handling: "Manutention"
+    add_clean: "Ajouter un article propre"
+    add_very_dirty: "Ajouter un article très sale"
+    add_broken: "Ajouter un article cassé"
+    add_handling: "Ajouter une manutention"
+    wash: "Date de lavage"
+
   wash:
     start: "Début du lavage"
     end: "Fin du lavage"
@@ -364,25 +398,7 @@ fr:
     wash: "Lavage"
     no_wash: "Pas encore de lavage"
 
-  sorting:
-    start: "Début du rangement"
-    end: "Fin du rangement"
-    event: "Evénement"
-    starter: "Commencé par "
-    ender: "Fini par "
-    go: "Commencer ce rangement"
-    stop: "Finir ce rangement"
-    delivery: "Date de livraison"
-    return: "Date de retour"
-    received: "Reçu par"
-    to_start: "Lots à ranger rentrés depuis"
-    started: "Rangements commencés"
-    started2: "Commencé à "
-    finished: "Rangements terminés"
-    finished2: "Terminé à "
-    finished3: "Ce rangement est terminé"
-    new: "Commencer un nouveau rangement"
-    back: "Rentré le "
+
 
   notice:
     access: "Access refusé"
@@ -572,6 +588,9 @@ fr:
         create: "Ajouter un article"
         update: "Enregistrer les changements"
       return_detail:
+        create: "Ajouter"
+        update: "Enregistrer"
+      sorting_detail:
         create: "Ajouter"
         update: "Enregistrer"
   number:

@@ -342,6 +342,40 @@ nl:
     control: "Control"
     difference: "Er zijn dozen die niet evenaren voor "
 
+
+  sorting:
+    start: "Start tijd"
+    end: "Eind tijd"
+    event: "Evenement"
+    starter: "Gestart door "
+    ender: "Geeindigd door "
+    go: "Start dit arrangement"
+    stop: "Eind dit arrangement"
+    delivery: "Levering datum"
+    return: "Terugkeer datum"
+    received: "Gekregen door"
+    to_start: "Lotten op te ruimen terug sinds"
+    started: "Gestart arrangement"
+    started2: "Gestart om "
+    finished: "Geeindigd arrangement"
+    finished2: "Geeindigd om "
+    finished3: "Dit arrengement wordt geeindigd "
+    new: "Begin een nieuw arrangement"
+    back: "Terug op "
+    clean_cups: "Schone bekers"
+    very_dirty_cups: "Heel vuile bekers"
+    broken_cups: "Gebroken bekers"
+    handling_cups: "Behandeling"
+    clean: "Schoon"
+    very_dirty: "Heel vuil"
+    broken: "Gebroken"
+    handling: "Behandeling"
+    add_clean: "Een schoon artikel toevoegen"
+    add_very_dirty: "Een heel vuil artikel toevoegen"
+    add_broken: "Een gebroken artikel toevoegen"
+    add_handling: "Een behandeling toevoegen"
+    wash: "Was datum"
+
   wash:
     start: "Start tijd"
     end: "Eind tijd"
@@ -364,25 +398,7 @@ nl:
     wash: "Was"
     no_wash: "Nog geen was"
 
-  sorting:
-    start: "Start tijd"
-    end: "Eind tijd"
-    event: "Evenement"
-    starter: "Gestart door "
-    ender: "Geeindigd door "
-    go: "Start dit arrangement"
-    stop: "Eind dit arrangement"
-    delivery: "Levering datum"
-    return: "Terugkeer datum"
-    received: "Gekregen door"
-    to_start: "Lotten op te ruimen terug sinds"
-    started: "Gestart arrangement"
-    started2: "Gestart om "
-    finished: "Geeindigd arrangement"
-    finished2: "Geeindigd om "
-    finished3: "Dit arrengement wordt geeindigd "
-    new: "Begin een nieuw arrangement"
-    back: "Terug op "
+
 
   notice:
     access: "Verboden toegang"
@@ -564,6 +580,9 @@ nl:
         create: "Een artikel toevoegen"
         update: "Opslaan"
       return_detail:
+        create: "Toevoegen"
+        update: "Opslaan"
+      sorting_detail:
         create: "Toevoegen"
         update: "Opslaan"
   number:

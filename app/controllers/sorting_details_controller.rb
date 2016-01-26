@@ -42,7 +42,7 @@ class SortingDetailsController < ApplicationController
   def update
     respond_to do |format|
       if @sorting_detail.update(sorting_detail_params)
-        format.html { redirect_to @sorting_detail, notice: 'Sorting detail was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Sorting detail was successfully updated.' }
         format.json { render :show, status: :ok, location: @sorting_detail }
       else
         format.html { render :edit }

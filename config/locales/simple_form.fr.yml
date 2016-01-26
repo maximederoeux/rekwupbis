@@ -103,6 +103,11 @@ fr:
         dirty_ctrl: "Sales"
         sealed_ctrl: "Scellées sales"
         clean_ctrl: "Propres"
+      sorting_detail:
+        box_qtty: "Caisses"
+        pile_qtty: "Piles"
+        unit_qtty: "Unités"
+        article_id: "Article"
     date:
       format:
         default: "%d-%m-%Y"

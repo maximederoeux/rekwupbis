@@ -103,6 +103,11 @@ en:
         dirty_ctrl: "Dirty"
         sealed_ctrl: "Sealed dirty"
         clean_ctrl: "Clean"
+      sorting_detail:
+        box_qtty: "Boxes"
+        pile_qtty: "Piles"
+        unit_qtty: "Units"
+        article_id: "Article"
     date:
       format:
         default: "%d-%m-%Y"

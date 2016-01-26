@@ -1,7 +1,9 @@
 <li class="list-group-item list-group-item-warning">
 	 <div class="row">
 		<div class="col-md-6">
-			Gobelets propres
+      <h5><strong>
+			 <%= t("sorting.clean_cups") %>
+      </strong></h5>
 			</div>
 		<div class="col-md-6">
 			<%= render 'add_clean' %>
@@ -14,14 +16,11 @@
 		<% @cleans.each do |detail| %>
 
         <!-- Large modal -->
-        <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#sorting_detail_<%= detail.id %>">
-
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sorting_detail_<%= detail.id %>">
+          <%= detail.total_cups %><br>
           <%= detail.article.full_name %><br>
-          <% if detail.clean %>
-          	Propres
-          <% else %>
-          Pas propre
-          <% end %>
+          <%= t("sorting.clean") %>
+
 
 
         </button>
@@ -46,7 +45,7 @@
                         </div>
 
                         <div class="col-md-6">
-                           <%= f.collection_select :article_id, Article.all.order('article_name ASC'), :id, :article_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                           <%= f.collection_select :article_id, Article.all.order('article_name ASC'), :id, :full_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
                         </div>
 
                         <div class="col-md-2">

@@ -103,6 +103,11 @@ nl:
         dirty_ctrl: "Vuil"
         sealed_ctrl: "Vuil verzegeld"
         clean_ctrl: "Schoon"
+      sorting_detail:
+        box_qtty: "Dozen"
+        pile_qtty: "Stapels"
+        unit_qtty: "Eenheden"
+        article_id: "Artikel"
 
     date:
       format:

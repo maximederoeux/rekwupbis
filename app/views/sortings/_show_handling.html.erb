@@ -1,7 +1,9 @@
 <li class="list-group-item list-group-item-warning">
 	 <div class="row">
 		<div class="col-md-6">
-			Languettes
+      <h5><strong>
+       <%= t("sorting.handling_cups") %>
+      </strong></h5>
 			</div>
 		<div class="col-md-6">
 			<%= render 'add_handling' %>
@@ -14,14 +16,10 @@
 		<% @handlings.each do |detail| %>
 
         <!-- Large modal -->
-        <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#sorting_detail_<%= detail.id %>">
-
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sorting_detail_<%= detail.id %>">
+          <%= detail.total_cups %><br>
           <%= detail.article.full_name %><br>
-          <% if detail.handling %>
-          	Languette
-          <% else %>
-          Pas languette
-          <% end %>
+          <%= t("sorting.handling") %>
 
 
         </button>

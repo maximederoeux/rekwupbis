@@ -343,6 +343,39 @@ en:
     control: "Control"
     difference: "There are boxes that do not match for "
 
+  sorting:
+    start: "Start time"
+    end: "End time"
+    event: "Event"
+    starter: "Started by "
+    ender: "Ended by "
+    go: "Start this sorting"
+    stop: "End this sorting"
+    delivery: "Delivery date"
+    return: "Return date"
+    received: "Received by"
+    to_start: "Sortings to do back since"
+    started: "Started sortings"
+    started2: "Started at "
+    finished: "Finished sortings"
+    finished2: "Finished at "
+    finished3: "This sorting is finished "
+    new: "Start a new sorting"
+    back: "Back on "
+    clean_cups: "Clean Cups"
+    very_dirty_cups: "Very Dirty Cups"
+    broken_cups: "Broken Cups"
+    handling_cups: "Handling"
+    clean: "Clean"
+    very_dirty: "Very Dirty"
+    broken: "Broken"
+    handling: "Handling"
+    add_clean: "Add a clean article"
+    add_very_dirty: "Add a very dirty article"
+    add_broken: "Add a broken article"
+    add_handling: "Add handling article"
+    wash: "Washing Date"
+
   wash:
     start: "Start time"
     end: "End time"
@@ -365,25 +398,6 @@ en:
     wash: "Wash"
     no_wash: "No wash yet"
 
-  sorting:
-    start: "Start time"
-    end: "End time"
-    event: "Event"
-    starter: "Started by "
-    ender: "Ended by "
-    go: "Start this sorting"
-    stop: "End this sorting"
-    delivery: "Delivery date"
-    return: "Return date"
-    received: "Received by"
-    to_start: "Sortings to do back since"
-    started: "Started sortings"
-    started2: "Started at "
-    finished: "Finished sortings"
-    finished2: "Finished at "
-    finished3: "This sorting is finished "
-    new: "Start a new sorting"
-    back: "Back on "
 
   notice:
     access: "Access denied"
@@ -568,6 +582,9 @@ en:
       return_detail:
         create: "Add"
         update: "Save"
+      sorting_detail:
+        create: "Add"
+        update: "Save"        
   number:
     currency:
       format:
