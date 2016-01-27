@@ -43,9 +43,14 @@
             <%= f.submit t("return.ctrl"), class: "btn btn-lg btn-block btn-info" %>
             <% end %>
 
-        <% else %>
+        <% elsif @return_box.is_back == true && @return_box.is_controlled == true %>
 
-            <%= link_to t("return.is_controlled"), return_boxes_path, class: "btn btn-lg btn-block btn-info" %>
+            <%= simple_form_for(@return_box) do |f| %>
+              <%= f.error_notification %>
+
+            <%= f.hidden_field :send_wash, :value => true %>
+            <%= f.submit t("return.wash"), class: "btn btn-lg btn-block btn-info" %>
+            <% end %>
 
         <% end %>
 
@@ -53,4 +58,3 @@
     </div>
 
 </div>
-

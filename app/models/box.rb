@@ -8,6 +8,8 @@ class Box < ActiveRecord::Base
 
   has_many :return_details
 
+  has_many :parcels
+
   scope :closed, lambda {where(:box_is_full => true)}
 
 	def automatic

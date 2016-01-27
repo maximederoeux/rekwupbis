@@ -3,6 +3,7 @@ class ReturnBox < ActiveRecord::Base
 	has_many :return_details
 	has_many :washes
 	has_many :sortings
+	has_many :parcels
 
 	accepts_nested_attributes_for :return_details, :allow_destroy => true
 

@@ -1,16 +1,63 @@
 
 
-<% current_user.deliveries.each do |delivery| %>
+
+<ul class="list-group">
+
+	<li class="list-group-item list-group-item-warning">
+		<h4><%= t("delivery.to_come") %></h4>
+	</li>
+
+		<% current_user.deliveries.each do |delivery| %>
+													
+
+				<li class="list-group-item">
+					<div class="row">
+
+						<div class="col-md-4">			
+							<strong>
+								<%= delivery.offer.event.event_name %>
+							</strong>
+
+						</div>
+
+						<div class="col-md-2">
+
+								<strong><%= delivery.delivery_date.strftime("%d/%m/%Y") %></strong>
+    		    </div>
+
+						<div class="col-md-2">
+
+								<%= link_to delivery_path(delivery) do %>
+									<%= content_tag(:i, "", class: "fa fa-info fa-2x") %> 
+								<% end %>
+    		    </div>
+
+						<div class="col-md-4">
+							<% if delivery.is_ready && delivery.is_gone == nil %>
+								<strong><%= t("delivery.your_ready") %></strong>
+							<% elsif delivery.is_ready && delivery.is_gone %>
+								<strong><%= t("delivery.your_gone") %></strong>
+							<% end %>
+    		    </div>
+			    </div>
+				</li>
+	<% end %>
+</ul>          	
 
 
 
-<%= delivery.id %>
-<%= delivery.offer.id %>
-<%= delivery.offer.organizer.name %><br>
 
 
 
 
 
-<% end %>
+
+
+
+
+			
+
+
+
+
 

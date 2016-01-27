@@ -5,7 +5,7 @@ class DeliveriesController < ApplicationController
   # GET /deliveries
   # GET /deliveries.json
   def index
-    @deliveries = Delivery.all
+    @deliveries = Delivery.order('delivery_date DESC').all
     @not_ready = Delivery.where(:is_ready => nil).where(:is_gone => nil)
     @not_gone = Delivery.where(:is_ready => true).where(:is_gone => nil)
     @gone = Delivery.where(:is_ready => true).where(:is_gone => true)

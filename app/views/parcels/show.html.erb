@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Return box:</strong>
+  <%= @parcel.return_box_id %>
+</p>
+
+<p>
+  <strong>Box:</strong>
+  <%= @parcel.box_id %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @parcel.quantity %>
+</p>
+
+<%= link_to 'Edit', edit_parcel_path(@parcel) %> |
+<%= link_to 'Back', parcels_path %>

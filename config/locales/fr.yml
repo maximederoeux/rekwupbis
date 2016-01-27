@@ -206,6 +206,8 @@ fr:
     yours: "Vos livraisons"
     to_come: "Livraisons à venir"
     left_rekwup: "Livraisons en route"
+    your_ready: "Votre livraison est prête à partir"
+    your_gone: "Votre livraison est partie"
 
   article:
     article_name: "Nom Article"

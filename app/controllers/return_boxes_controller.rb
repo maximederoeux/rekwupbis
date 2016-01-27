@@ -90,6 +90,11 @@ class ReturnBoxesController < ApplicationController
               end
             end
           end
+          if @return_box.send_wash
+            @return_box.return_details.where("clean > ?", 0).each do |detail|
+            Parcel.create(:return_box_id => @return_box.id, :box_id => detail.box_id, :quantity => detail.clean)
+            end
+          end
         end
         format.html { redirect_to @return_box, notice: 'Return box was successfully updated.' }
         format.json { render :show, status: :ok, location: @return_box }
@@ -118,6 +123,6 @@ class ReturnBoxesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def return_box_params
-      params.require(:return_box).permit(:delivery_id, :return_time, :is_back, :receptionist, :ctrl_time, :ctrler, :is_controlled, :return_date, return_details_attributes: [:box_id, :dirty, :sealed, :clean, :dirty_ctrl, :sealed_ctrl, :clean_ctrl])
+      params.require(:return_box).permit(:delivery_id, :return_time, :is_back, :receptionist, :ctrl_time, :ctrler, :is_controlled, :return_date, :send_wash, return_details_attributes: [:box_id, :dirty, :sealed, :clean, :dirty_ctrl, :sealed_ctrl, :clean_ctrl])
     end
 end

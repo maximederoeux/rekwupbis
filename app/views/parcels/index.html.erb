@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Parcels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Return box</th>
+      <th>Box</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parcels.each do |parcel| %>
+      <tr>
+        <td><%= parcel.return_box_id %></td>
+        <td><%= parcel.box_id %></td>
+        <td><%= parcel.quantity %></td>
+        <td><%= link_to 'Show', parcel %></td>
+        <td><%= link_to 'Edit', edit_parcel_path(parcel) %></td>
+        <td><%= link_to 'Destroy', parcel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parcel', new_parcel_path %>
