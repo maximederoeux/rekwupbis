@@ -66,6 +66,7 @@ nl:
     washes: "Wassen"
     sortings: "Opruimen"
     close: "Sluiten"
+    are_you_sure: "Bent u zeker?"
     construction: "Deze site is nog niet klaar. Deinformatie zijn niet altijd correct and kunnen niet gebruikt worden om een bestelling te maken"
 
   mail:
@@ -121,9 +122,9 @@ nl:
     new_event: "  Nieuw evenement"
     listing_events: "Alle evenementen"
     event_name: "Naam van uw evenement"
-    event_start_date: "Begin Datum (dd-mm-jjjj)"
+    event_start_date: "Begin Datum"
     start_date: "Begin Datum"
-    event_end_date: "Eind Datum (dd-mm-jjjj)"
+    event_end_date: "Eind Datum "
     end_date: "Eind Datum"
     expected_pax: "Verwachte aantal van gasten"
     last_pax: "Aantal gasten op de laatste editie"
@@ -167,8 +168,8 @@ nl:
     please_complete: "Om uw bestelling te bevestigen, gelieve de informatie van uw evenement in te vullen. Zo kunnen we de levering plannen."
     delivery_info: "Informatie voor de levering"
     delivery_address: "Leveringsadres"
-    delivery_date: "Leveringsdatum (dd-mm-jjjj)"
-    return_date: "Verwijderingsdatum (dd-mm-jjjj)"
+    delivery_date: "Leveringsdatum"
+    return_date: "Verwijderingsdatum"
     no_offer: "Evenementen zonder aanbod"
     yes_offer: "Evenementen met aanbod"
     address: "Adres"
@@ -291,6 +292,7 @@ nl:
     reject: "Deze aanbod afkeuren"
     confirm_for_client: "Voor de klant bevestigen"
     send_email: "Deze aanbod sturen"
+    complete_profile: "U heeft een aanbod bevestigd. Om verder te gaan nodigen u uit om uw profiel in te vullen"
 
   offer_box:
     create: "Dozen toevoegen"

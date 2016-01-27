@@ -1,0 +1,15 @@
+
+
+<% @deliveries.each do |delivery| %>
+
+<% if delivery.offer.organizer == current_user %>
+
+<%= delivery.id %>
+<%= delivery.offer.id %>
+<%= delivery.offer.organizer.name %><br>
+
+<% end %>
+
+
+
+<% end %>

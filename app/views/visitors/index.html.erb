@@ -40,14 +40,14 @@
             <tbody>
               <tr>
               <td><%= article.article_category %> <%= article.full_name %></td>
-              <td class="text-center"><%= article.washing_price %> €</td>
-              <td class="text-center"><%= article.handwash_price %> €</td>
+              <td class="text-center"><%= number_to_currency(article.washing_price,:unit=>'€', :precision => 4) %></td>
+              <td class="text-center"><%= number_to_currency(article.handwash_price,:unit=>'€', :precision => 4) %></td>
               <td class="text-center">
                 <% if article.tab_price.present? %>
-                  <%= article.tab_price %> €
+                  <%= number_to_currency(article.tab_price,:unit=>'€', :precision => 4) %>
                 <% end %>
               </td>
-              <td class="text-center"><%= article.deposit_price %> €</td>
+              <td class="text-center"><%= number_to_currency(article.deposit_price,:unit=>'€', :precision => 4) %></td>
               </tr>
             </tbody>
 

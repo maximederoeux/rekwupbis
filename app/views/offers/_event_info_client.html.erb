@@ -1,3 +1,22 @@
+<% if @user.offers.where(:client_confirmation => true).any? %>
+
+  <% if @user.address.blank? %>
+
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-warning">
+        <h4><%= t("offer.complete_profile") %></h4>
+      </li>
+    </ul>
+
+      <%= link_to t("user.fill_profile"), edit_user_path(@user), class: "btn btn-lg btn-block btn-info" %>
+
+      <br>
+  <% end %>
+
+<% end %>
+
+
+
 <ul class="list-group">
   <li class="list-group-item list-group-item-success">
     <div class="row">
@@ -14,7 +33,7 @@
       <div class="col-md-2">
 
 
-        <% unless @offer.client_confirmation %>
+        <% unless @confirmation %>
 
             <%= simple_form_for(@offer) do |f| %>
               <%= f.error_notification %>       

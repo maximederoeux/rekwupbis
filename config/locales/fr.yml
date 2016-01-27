@@ -67,6 +67,7 @@ fr:
     washes: "Lavages"
     sortings: "Rangement"
     close: "Fermer"
+    are_you_sure: "Etes-vous sûr?"
     construction: "Ce site est toujours en construction. Les informations que vous y trouverez ne sont pas entièrement fiables et aucun service ne sera fourni pour le moment à partir de ce site"
 
   mail:
@@ -99,7 +100,7 @@ fr:
     list_staff: "Staff"
     list_client: "Clients"
     your_profile: "Votre profil"
-    fill_profile: "  Remplissez votre profil"
+    fill_profile: "  Complétez votre profil"
     leave_fields_blank: "Laissez ces champs vides si vous ne voulez pas changer votre mot de passe."
     must_enter_password: "Vous devez entrer votre mot de passe actuel pour faire les changements."
     cancel_account: "Annuler votre compte"
@@ -122,9 +123,9 @@ fr:
     new_event: "  Nouvel événement"
     listing_events: "Tous les événements"
     event_name: "Nom de l'événement"
-    event_start_date: "Date de début (jj-mm-aaaa)"
+    event_start_date: "Date de début"
     start_date: "Date de début"
-    event_end_date: "Date de fin (jj-mm-aaaa)"
+    event_end_date: "Date de fin"
     end_date: "Date de fin"
     expected_pax: "Estimation du nombre de visiteurs"
     last_pax: "Nombre de visiteurs de l'édition précédente"
@@ -168,8 +169,8 @@ fr:
     please_complete: "Pour confirmer votre commande, veuillez tout d'abord compléter les informations de votre événement afin que nous puissions organiser au mieux la livraison."
     delivery_info: "Informations pour la livraison"
     delivery_address: "Adresse de livraison"
-    delivery_date: "Date de livraison (jj-mm-aaaa)"
-    return_date: "Date de retour (jj-mm-aaaa)"
+    delivery_date: "Date de livraison"
+    return_date: "Date de retour"
     no_offer: "Evénements sans offre"
     yes_offer: "Evénements avec offre"
     address: "Adresse"
@@ -291,6 +292,7 @@ fr:
     reject: "Rejeter cette offre"
     confirm_for_client: "Confirmer pour le client"
     send_email: "Envoyer cette offre"
+    complete_profile: "Vous avez confirmé une offre. Nous avons besoin que vous complétiez votre profil pour pouvoir la valider"
 
   offer_box:
     create: "Ajouter à cette offre"

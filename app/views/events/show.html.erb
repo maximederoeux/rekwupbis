@@ -1,5 +1,29 @@
 <div class="container-fluid more-padding">
 
+  <% if @event.delivery_date.strftime("%u") == "6" or @event.delivery_date.strftime("%u") == "7" %>
+
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-danger">
+
+        Attention! Votre date de livraison est dans un week-end. Tous les transports effectués en dehors des jours de semaine entre 9h et 18h sont majorés.
+
+      </li>
+    </ul>
+
+  <% end %>
+
+  <% if @event.return_date.strftime("%u") == "6" or @event.return_date.strftime("%u") == "7" %>
+
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-danger">
+
+        Attention! Votre date de retour est dans un week-end. Tous les transports effectués en dehors des jours de semaine entre 9h et 18h sont majorés.
+
+      </li>
+    </ul>
+
+  <% end %>
+
     <ul class="list-group">
       <li class="list-group-item list-group-item-warning"><h5><strong><%= t("event.your_event") %> - Ref. <%= @event.created_at.strftime("%Y") %>-<%= @event.id %></strong></h5>
 

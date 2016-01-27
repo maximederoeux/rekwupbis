@@ -122,16 +122,20 @@
   
 </ul>
 
-      <%= link_to edit_user_path(@user) do %>
-        <%= content_tag(:i, t("menu.edit"), class: "fa fa-pencil-square-o btn btn-default") %> 
-      <% end %>
 
-</div>
+    <div class="row">
+
+      <div class="col-md-6">
+        <%= link_to t("menu.back"), root_path, class: "btn btn-lg btn-block btn-default" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= link_to t("menu.edit"), edit_user_path(@user), class: "btn btn-lg btn-block btn-info" %>
+      </div>
+      
+    </div>
 
 
-
-    
-  </div>
 
   <% if @user.negociated_price %>
 

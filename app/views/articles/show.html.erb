@@ -110,35 +110,35 @@
               <strong>
                 <%= t("article.washing_price") %><br>
               </strong>
-              <%= @article.washing_price %>€
+              <%= number_to_currency(@article.washing_price,:unit=>'€', :precision => 4) %>
             </div>
 
             <div class="col-md-2">
               <strong>
                 <%= t("article.handwash_price") %><br>
               </strong>
-              <%= @article.handwash_price %>€
+              <%= number_to_currency(@article.handwash_price,:unit=>'€', :precision => 4) %>
             </div>
 
             <div class="col-md-2">
               <strong>
                 <%= t("article.tab_price") %><br>
               </strong>
-                <%= @article.tab_price %>€
+              <%= number_to_currency(@article.tab_price,:unit=>'€', :precision => 4) %>
             </div>
 
             <div class="col-md-2">
               <strong>
                 <%= t("article.deposit_price") %><br>
               </strong>
-              <%= @article.deposit_price %>€
+              <%= number_to_currency(@article.deposit_price,:unit=>'€', :precision => 4) %>
             </div>
 
             <div class="col-md-2">
               <strong>
                 <%= t("article.sell_price") %><br>
               </strong>
-              <%= @article.sell_price %>€
+              <%= number_to_currency(@article.sell_price,:unit=>'€', :precision => 4) %>
             </div>
           </div>
         </li>          

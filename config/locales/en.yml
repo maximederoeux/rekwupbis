@@ -67,6 +67,7 @@ en:
     washes: "Washing"
     sortings: "Arrangement"
     close: "Close"
+    are_you_sure: "Are you sure?"
     construction: "This site is still under construction. The informations are not reliable and no service will be provided through this site at the moment"
 
   mail:
@@ -122,9 +123,9 @@ en:
     new_event: "  New Event"
     listing_events: "Listing Events"
     event_name: "Event Name"
-    event_start_date: "Start Date (dd-mm-yyyy)"
+    event_start_date: "Start Date"
     start_date: "Start Date"
-    event_end_date: "End Date (dd-mm-yyyy)"
+    event_end_date: "End Date"
     end_date: "End Date"
     expected_pax: "Expected number of guests"
     last_consumption: "Beverage consumtion on last edition"
@@ -168,8 +169,8 @@ en:
     please_complete: "To confirm your order you have to complete your event informations so we can properly organize the delivery."
     delivery_info: "Delivery informations"
     delivery_address: "Delivery address"
-    delivery_date: "Delivery date (dd-mm-yyyy)"
-    return_date: "Return date  (dd-mm-yyyy)"
+    delivery_date: "Delivery date"
+    return_date: "Return date"
     no_offer: "Events without offer"
     yes_offer: "Events with offer"
     address: "Address"
@@ -291,6 +292,7 @@ en:
     reject: "Reject this offer"
     confirm_for_client: "Confirm for the client"
     send_email: "Send this offer"
+    complete_profile: "You confirmed an offer. In order to process it, we need you to complete your profile"
 
   offer_box:
     create: "Add to this offer"

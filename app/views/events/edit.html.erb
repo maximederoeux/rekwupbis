@@ -4,7 +4,8 @@
 		<li class="list-group-item list-group-item-info">
 			<h3><%= t("event.edit") %> <%= @event.event_name %></h3>
 		</li>
-
+		
+	</ul>
 
 		<% if @event.organizer_id.blank? %>
 
@@ -16,7 +17,7 @@
 
 		<% end %>
 
-		<%= link_to t("menu.cancel"), events_path, class: "btn btn-lg btn-default pull-right" %>
 
-	</ul>
+
+
 </div>
