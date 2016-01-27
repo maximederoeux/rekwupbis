@@ -16,6 +16,7 @@ class SortingsController < ApplicationController
   def show
     @articles = Article.all
     @sorting = Sorting.find(params[:id])
+    @new_sorting = Sorting.new
     @new_sorting_detail = SortingDetail.new
     @sorting_cups = @sorting.sorting_details
     @cleans = @sorting_cups.where(:clean => true)
@@ -54,6 +55,11 @@ class SortingsController < ApplicationController
   def update
     respond_to do |format|
       if @sorting.update(sorting_params)
+        if @sorting.end_time.present?
+          @sorting.sorting_details.where(:clean == true).each do |detail|
+            Parcel.create(:return_box_id => @sorting.return_box_id, :box_id => detail.article_id, :quantity => detail.box_qtty)
+          end
+        end
         format.html { redirect_to @sorting, notice: 'Sorting was successfully updated.' }
         format.json { render :show, status: :ok, location: @sorting }
       else

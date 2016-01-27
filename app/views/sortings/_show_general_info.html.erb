@@ -1,8 +1,59 @@
 <ul class="list-group">
   <li class="list-group-item list-group-item-warning">
+    <div class="row">
+      <div class="col-md-6">
   	<h5><strong>
   		<%= @sorting.return_box.delivery.offer.event.event_name %> - Ref. <%= @sorting.return_box.delivery.offer.event.created_at.strftime("%Y") %>-<%= @sorting.return_box.delivery.offer.event.id %>
   	</strong></h5>
+      </div>
+      <div class="col-md-3">
+
+      <% if @sorting.start_time == nil %>
+
+        <%= simple_form_for @sorting do |f| %>
+        <%= f.error_notification %>
+
+          <%= f.hidden_field :start_time, :value => Time.now %>
+          <%= f.hidden_field :starter, :value => current_user.id %>
+
+        <%= f.submit t("sorting.go"), class: "btn btn-info pull-right" %>
+
+        <% end %>
+      <% end %>
+      </div>
+
+      <div class="col-md-3">
+
+        <% if @sorting.start_time.present? && @sorting.end_time == nil %>
+
+          <%= simple_form_for @sorting do |f| %>
+          <%= f.error_notification %>
+
+            <%= f.hidden_field :end_time, :value => Time.now %>
+            <%= f.hidden_field :ender, :value => current_user.id %>
+
+          <%= f.submit t("sorting.stop"), class: "btn btn-info pull-right" %>
+
+          <% end %>
+
+        <% end %>
+
+        <% if @sorting.start_time.present? && @sorting.end_time.present? %>
+
+          <%= simple_form_for @new_sorting do |f| %>
+          <%= f.error_notification %>
+
+            <%= f.hidden_field :return_box_id, :value => @sorting.return_box_id %>
+
+          <%= f.submit t("sorting.new"), class: "btn btn-info pull-right" %>
+
+          <% end %>
+
+        <% end %>
+
+
+      </div>
+
   </li>
 
   <li class="list-group-item">
@@ -24,6 +75,35 @@
   		</div>
 
   	</div>
+
+  </li>
+
+  <li class="list-group-item">
+    <div class="row text-center">
+
+      <div class="col-md-3">
+        <strong><%= t("sorting.start") %></strong><br>    
+        <%= @sorting.start_time.strftime("%d/%m/%Y") if @sorting.start_time %><br> 
+        <%= @sorting.start_time.strftime("%H:%M") if @sorting.start_time %>
+      </div>
+
+      <div class="col-md-3">
+        <strong><%= t("sorting.starter") %></strong><br>  
+        <%= User.where(:id => @sorting.starter).last.full_name if @sorting.starter %>
+      </div>
+
+      <div class="col-md-3">
+        <strong><%= t("sorting.end") %></strong><br>
+        <%= @sorting.end_time.strftime("%d/%m/%Y") if @sorting.end_time %><br> 
+        <%= @sorting.end_time.strftime("%H:%M") if @sorting.end_time %>
+      </div>
+
+      <div class="col-md-3">
+        <strong><%= t("sorting.ender") %></strong><br>
+        <%= User.where(:id => @sorting.ender).last.full_name if @sorting.ender %>
+      </div>
+
+    </div>
 
   </li>
 
