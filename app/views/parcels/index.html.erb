@@ -13,10 +13,10 @@
 
 
 
-        Box Name <%= parcel.box.box_name %><br>
-        Quantity <%= parcel.quantity %><br>
+        Box Name <%= parcel.box.box_name if parcel.box %><br>
+        Quantity <%= parcel.quantity if parcel.quantity %><br>
 
-        Return box <%= parcel.return_box_id %><br>
+        Return box <%= parcel.return_box_id if parcel.return_box_id %><br>
 
         <% if parcel.from_wash %>
         Last Wash <%= parcel.return_box.washes.last.end_time.strftime("%d/%m/%Y") if parcel.return_box.washes.last.end_time %><br>
