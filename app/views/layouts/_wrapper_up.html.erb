@@ -79,9 +79,15 @@
             </li>
           <% end %>
 
-          <% if current_user.events.any? %>
+          <% if current_user.offers.any? %>
             <li>
               <a href="#"><%= link_to t("offer.yours"), offers_path %></a>
+            </li>
+          <% end %>
+
+          <% if current_user.deliveries.any? %>
+            <li>
+              <a href="#"><%= link_to t("delivery.yours"), deliveries_path %></a>
             </li>
           <% end %>
 

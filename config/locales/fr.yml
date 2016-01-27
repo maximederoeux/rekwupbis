@@ -203,6 +203,9 @@ fr:
     gone_two_days: "Il y a 2 jours"
     gone_three_days: "Il y a 3 jours"
     change_dates: "Changer les dates de livraison"
+    yours: "Vos livraisons"
+    to_come: "Livraisons à venir"
+    left_rekwup: "Livraisons en route"
 
   article:
     article_name: "Nom Article"

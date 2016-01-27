@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 	has_many :events, :foreign_key => "organizer_id"
 	has_many :negociated_prices, :foreign_key => "client_id"
 	has_many :offers, :foreign_key => "organizer_id"
+
+	has_many :deliveries, through: :offers
 	
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

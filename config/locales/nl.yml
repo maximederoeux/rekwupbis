@@ -202,6 +202,9 @@ nl:
     gone_two_days: "2 dagen geleden"
     gone_three_days: "3 dagen geleden"
     change_dates: "Verander leveringsdatum"
+    yours: "Uw leveringen"
+    to_come: "Deliveries to come"
+    left_rekwup: "Deliveries on their way"
 
 
   article:
