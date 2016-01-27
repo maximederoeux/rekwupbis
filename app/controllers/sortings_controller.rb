@@ -58,7 +58,7 @@ class SortingsController < ApplicationController
         if @sorting.end_time.present?
           @sorting.sorting_details.where(:clean == true).each do |detail|
             if detail.box_qtty.present? && detail.box_qtty >= 0
-            Parcel.create(:return_box_id => @sorting.return_box_id, :box_id => detail.article_id, :quantity => detail.box_qtty)
+            Parcel.create(:return_box_id => @sorting.return_box_id, :box_id => detail.article_id, :quantity => detail.box_qtty, :from_wash => true)
             end
           end
         end

@@ -68,6 +68,7 @@ fr:
     sortings: "Rangement"
     close: "Fermer"
     are_you_sure: "Etes-vous sûr?"
+    parcels: "Lots"
     construction: "Ce site est toujours en construction. Les informations que vous y trouverez ne sont pas entièrement fiables et aucun service ne sera fourni pour le moment à partir de ce site"
 
   mail:

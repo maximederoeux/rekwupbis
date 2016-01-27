@@ -1,31 +1,39 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Parcels</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Return box</th>
-      <th>Box</th>
-      <th>Quantity</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+
+    <div class="row">
+      <div class="col-md-4">
+
+
+
     <% @parcels.each do |parcel| %>
-      <tr>
-        <td><%= parcel.return_box_id %></td>
-        <td><%= parcel.box_id %></td>
-        <td><%= parcel.quantity %></td>
-        <td><%= link_to 'Show', parcel %></td>
-        <td><%= link_to 'Edit', edit_parcel_path(parcel) %></td>
-        <td><%= link_to 'Destroy', parcel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+            <ul class="list-group">
+            <li class="list-group-item">
+
+
+
+        Box Name <%= parcel.box.box_name %><br>
+        Quantity <%= parcel.quantity %><br>
+
+        Return box <%= parcel.return_box_id %><br>
+
+        <% if parcel.from_wash %>
+        Last Wash <%= parcel.return_box.washes.last.end_time.strftime("%d/%m/%Y") %><br>
+        Last Washer <%= User.where(:id => parcel.return_box.washes.last.washer).first.full_name %><br>
+        <% end %>
+
+        <% if parcel.from_return %>
+        Last Event <%= parcel.return_box.delivery.offer.event.event_name %><br>
+        Last Control <%= parcel.return_box.ctrl_time.strftime("%d/%m/%Y") %><br>
+        Last Controler <%= User.where(:id => parcel.return_box.ctrler).first.full_name %><br>
+
+        <% end %>
+  </li>
+      </ul>
+
+
     <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Parcel', new_parcel_path %>
+    <div>
+    <div>

@@ -92,7 +92,7 @@ class ReturnBoxesController < ApplicationController
           end
           if @return_box.send_wash
             @return_box.return_details.where("clean > ?", 0).each do |detail|
-            Parcel.create(:return_box_id => @return_box.id, :box_id => detail.box_id, :quantity => detail.clean)
+            Parcel.create(:return_box_id => @return_box.id, :box_id => detail.box_id, :quantity => detail.clean, :from_return => true)
             end
           end
         end

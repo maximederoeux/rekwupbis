@@ -67,6 +67,7 @@ nl:
     sortings: "Opruimen"
     close: "Sluiten"
     are_you_sure: "Bent u zeker?"
+    parcels: "Lotten"
     construction: "Deze site is nog niet klaar. Deinformatie zijn niet altijd correct and kunnen niet gebruikt worden om een bestelling te maken"
 
   mail:

@@ -69,6 +69,6 @@ class ParcelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parcel_params
-      params.require(:parcel).permit(:return_box_id, :box_id, :quantity)
+      params.require(:parcel).permit(:return_box_id, :box_id, :quantity, :from_wash, :from_return)
     end
 end

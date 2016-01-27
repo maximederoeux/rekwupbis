@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127211559) do
+ActiveRecord::Schema.define(version: 20160127233117) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -149,6 +149,8 @@ ActiveRecord::Schema.define(version: 20160127211559) do
     t.integer  "quantity"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.boolean  "from_wash"
+    t.boolean  "from_return"
   end
 
   create_table "return_boxes", force: :cascade do |t|
