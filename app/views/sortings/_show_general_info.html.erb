@@ -71,7 +71,7 @@
 
   		<div class="col-md-4">
         <strong><%= t("sorting.wash") %></strong><br>
-				<%= @sorting.return_box.washes.last.start_time.strftime("%d/%m/%Y") %>
+				<%= @sorting.return_box.washes.last.start_time.strftime("%d/%m/%Y") if @sorting.return_box.washes.last.start_time %>
   		</div>
 
   	</div>
