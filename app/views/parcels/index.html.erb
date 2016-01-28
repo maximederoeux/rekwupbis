@@ -1,7 +1,5 @@
 
 
-
-
     <div class="row">
       <div class="col-md-4">
 
@@ -12,7 +10,7 @@
             <li class="list-group-item">
 
 
-
+        Reference: <%= parcel.created_at.strftime("%Y") %> - <%= parcel.id %> <br>
         Box Name <%= parcel.box.box_name if parcel.box %><br>
         Quantity <%= parcel.quantity if parcel.quantity %><br>
 
@@ -35,5 +33,6 @@
 
     <% end %>
 
-    <div>
-    <div>
+    </div>
+    </div>
+

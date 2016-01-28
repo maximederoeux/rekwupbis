@@ -12,7 +12,12 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @article = Article.find(params[:id])
     @user = current_user
+    @new_price = Price.new
+    @prices = Price.all
+    @regular_prices = @prices.where(:regular => true)
+    @myregular_price = @regular_prices.where(:article_id => @article.id).last
   end
 
   # GET /articles/new

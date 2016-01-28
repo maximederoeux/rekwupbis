@@ -312,6 +312,14 @@ fr:
     article_name: "Articles"
     quantity: "Quantité"
 
+  price:
+    regular: "Prix régulier"
+    negociated: "Prix négocié"
+    valid_from: "Valable à partir de"
+    valid_till: "Valable jusque"
+    new: "Ajouter de nouveaux prix"
+    change: "Changer les prix"
+
   return:
     receive: "Retours à recevoir"
     receive2: "Recevoir ce retour"
@@ -601,6 +609,9 @@ fr:
         create: "Ajouter"
         update: "Enregistrer"
       sorting_detail:
+        create: "Ajouter"
+        update: "Enregistrer"
+      price:
         create: "Ajouter"
         update: "Enregistrer"
   number:

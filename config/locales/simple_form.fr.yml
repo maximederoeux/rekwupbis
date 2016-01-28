@@ -108,6 +108,14 @@ fr:
         pile_qtty: "Piles"
         unit_qtty: "Unités"
         article_id: "Article"
+      price:
+        washing: "Lavage"
+        handwash: "Manuel"
+        handling: "Manutention"
+        deposit: "Caution"
+        valid_from: "Valable à partir de"
+        valid_till: "Valable jusque"
+        sell: "Vente"
     date:
       format:
         default: "%d-%m-%Y"

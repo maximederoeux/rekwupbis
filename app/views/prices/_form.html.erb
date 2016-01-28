@@ -1,0 +1,21 @@
+<%= simple_form_for(@price) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :article_id %>
+    <%= f.input :user_id %>
+    <%= f.input :wash %>
+    <%= f.input :handwash %>
+    <%= f.input :handling %>
+    <%= f.input :deposit %>
+    <%= f.input :regular %>
+    <%= f.input :negociated %>
+    <%= f.input :valid_from %>
+    <%= f.input :valid_till %>
+    <%= f.input :sell %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

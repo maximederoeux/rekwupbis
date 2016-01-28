@@ -312,6 +312,14 @@ en:
     article_name: "Articles"
     quantity: "Quantity"
 
+  price:
+    regular: "Regular Price"
+    negociated: "Negociated Price"
+    valid_from: "Valid from"
+    valid_till: "Valid till"
+    new: "Add a new prices"
+    change: "Change prices"
+
   return:
     receive: "Returns to receive"
     receive2: "Receive this return"
@@ -594,7 +602,10 @@ en:
         update: "Save"
       sorting_detail:
         create: "Add"
-        update: "Save"        
+        update: "Save"
+      price:
+        create: "Add"
+        update: "Save" 
   number:
     currency:
       format:

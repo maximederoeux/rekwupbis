@@ -312,6 +312,14 @@ nl:
     article_name: "Artikels"
     quantity: "Kwantiteit"
 
+  price:
+    regular: "Normaal prijs"
+    negociated: "Onderhandeld prijs"
+    valid_from: "Geldig vanaf"
+    valid_till: "Geldig tot"
+    new: "Nieuwe prijzen toevoegen"
+    change: "Prijzen wijzigen"
+
   return:
     receive: "Verwachte terugkeren"
     receive2: "Deze terugkeer ontvangen"
@@ -593,6 +601,9 @@ nl:
         create: "Toevoegen"
         update: "Opslaan"
       sorting_detail:
+        create: "Toevoegen"
+        update: "Opslaan"
+      price:
         create: "Toevoegen"
         update: "Opslaan"
   number:

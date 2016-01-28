@@ -16,10 +16,14 @@
     </header>
     <main role="main">
         
-       <%= render 'layouts/messages' %>
+       
        <%= render 'layouts/wrapper_up' %>
-       <%= yield %>
+       <div class="container-fluid more-padding">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+      </div>
        <%= render 'layouts/wrapper_down' %>
+
     </main>
   </body>
 </html>

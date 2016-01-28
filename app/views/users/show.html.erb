@@ -1,4 +1,4 @@
-<div class="container-fluid more-padding">
+
 
   <ul class="list-group">
 
@@ -135,40 +135,3 @@
       
     </div>
 
-
-
-  <% if @user.negociated_price %>
-
-    <h4><%= t("negociated_price.yours") %></h4>
-
-      <div class="table-responsive">
-        <table class="table">
-          <thead>
-            <tr>
-              <th><%= t("article.article_name") %></th>
-              <th><%= t("article.washing_price") %></th>
-              <th><%= t("article.handwash_price") %></th>
-              <th><%= t("article.tab_price") %></th>
-              <th><%= t("article.deposit_price") %></th>
-              <th></th>
-            </tr>
-          </thead>
-        
-          <% @negociated_prices.each do |negociated_price| %>
-            <tbody>
-              <tr>
-              <td><%= negociated_price.article.full_name if negociated_price.article %></td>
-              <td><%= negociated_price.washing_price if negociated_price.washing_price %></td>
-              <td><%= negociated_price.handwash_price if negociated_price.handwash_price %></td>
-              <td><%= negociated_price.tab_price if negociated_price.tab_price %></td>
-              <td><%= negociated_price.deposit_price if negociated_price.deposit_price %></td>
-            </tbody>
-          <% end %>
-        </table>
-      </div>
-
-  <% end %>
-</div> <!-- /#container-fluid -->
-
-
-      

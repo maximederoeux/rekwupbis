@@ -108,6 +108,14 @@ nl:
         pile_qtty: "Stapels"
         unit_qtty: "Eenheden"
         article_id: "Artikel"
+      price:
+        washing: "Was"
+        handwash: "Handwas"
+        handling: "Behandeling"
+        deposit: "Garantie"
+        valid_from: "Geldig vanaf"
+        valid_till: "Geldig tot"
+        sell: "Verkoop"
 
     date:
       format:

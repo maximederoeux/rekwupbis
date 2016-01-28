@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  article_id: 1
+  user_id: 1
+  wash: 9.99
+  handwash: 9.99
+  handling: 9.99
+  deposit: 9.99
+  regular: false
+  negociated: false
+  valid_from: 2016-01-28
+  valid_till: 2016-01-28
+  sell: 9.99
+
+two:
+  article_id: 1
+  user_id: 1
+  wash: 9.99
+  handwash: 9.99
+  handling: 9.99
+  deposit: 9.99
+  regular: false
+  negociated: false
+  valid_from: 2016-01-28
+  valid_till: 2016-01-28
+  sell: 9.99

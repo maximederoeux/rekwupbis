@@ -4,6 +4,8 @@
 
       <% if current_user.email == "mderoeux@yahoo.com" %>
       <%= f.hidden_field :admin, :value => true %>
+      <% elsif current_user.email == "jgpahaut@rekwup.be" %>
+      <%= f.hidden_field :admin, :value => true %>
       <% else %>
       <%= f.hidden_field :client, :value => true %>
       <% end %>

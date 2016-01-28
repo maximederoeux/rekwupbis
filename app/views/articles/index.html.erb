@@ -1,6 +1,5 @@
 
 
-<div class="container-fluid"><br>
 
   <% if @user.client %>
 
@@ -9,7 +8,7 @@
   <% else %>
 
     <% if @user.admin %>
-      <%= link_to t("article.new_article"), new_article_path, class: "btn btn-success" %><br>
+      <%= link_to t("article.new_article"), new_article_path, class: "btn btn-block btn-info" %><br>
     <% end %>
 
 
@@ -30,4 +29,3 @@
     <% end %>
   <% end %>
 
-</div>

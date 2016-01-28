@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Article:</strong>
+  <%= @price.article_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @price.user_id %>
+</p>
+
+<p>
+  <strong>Wash:</strong>
+  <%= @price.wash %>
+</p>
+
+<p>
+  <strong>Handwash:</strong>
+  <%= @price.handwash %>
+</p>
+
+<p>
+  <strong>Handling:</strong>
+  <%= @price.handling %>
+</p>
+
+<p>
+  <strong>Deposit:</strong>
+  <%= @price.deposit %>
+</p>
+
+<p>
+  <strong>Regular:</strong>
+  <%= @price.regular %>
+</p>
+
+<p>
+  <strong>Negociated:</strong>
+  <%= @price.negociated %>
+</p>
+
+<p>
+  <strong>Valid from:</strong>
+  <%= @price.valid_from %>
+</p>
+
+<p>
+  <strong>Valid till:</strong>
+  <%= @price.valid_till %>
+</p>
+
+<p>
+  <strong>Sell:</strong>
+  <%= @price.sell %>
+</p>
+
+<%= link_to 'Edit', edit_price_path(@price) %> |
+<%= link_to 'Back', prices_path %>
