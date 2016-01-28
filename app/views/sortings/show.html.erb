@@ -11,10 +11,14 @@
 
 	<hr>
 
+	<% if @sorting.start_time.present? %>
+
 	<%= render 'show_clean' %>
 	<%= render 'show_broken' %>
 	<%= render 'show_very_dirty' %>
 	<%= render 'show_handling' %>
+	
+	<% end %>
 	<hr>
 	<%= render 'show_summary' %>
 
