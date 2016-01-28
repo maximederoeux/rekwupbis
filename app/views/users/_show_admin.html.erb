@@ -68,9 +68,17 @@
 
 
 
-        <div class="col-md-6">
+        <div class="col-md-4">
           <strong><%= t("user.vat") %> : </strong><%= @user.vat %>
         </div>
+
+        <div class="col-md-2">
+          <% if @user.negociated_price %>
+          <strong><%= t("user.negociated_price") %></strong>
+          <% end %>
+        </div>
+
+
       </div>
      </li>
      

@@ -101,7 +101,7 @@
         </div>
 
         <div class="col-md-2">
-          <%= f.input :country, :label => t("user.country"), :placeholder => t("user.country") %>
+          <%= f.input :country, :label => t("user.country"), :placeholder => t("user.country"), only: [ "BE", "FR", "DE", "LU", "NL" ] %>
         </div>
 
       </div>
@@ -124,8 +124,15 @@
 	  
 	</ul>
 
-    <div class="form-actions">
-      <%= f.button :submit, class: "btn btn-lg btn-block btn-info" %>
-    </div>
+    <div class="row more-padding">
 
+      <div class="col-md-6">
+        <%= link_to t("menu.back"), user_path(@user), class: "btn btn-lg btn-block btn-default" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= f.button :submit, class: "btn btn-lg btn-block btn-info" %>
+      </div>
+      
+    </div>
 <% end %>

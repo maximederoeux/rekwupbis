@@ -16,12 +16,16 @@
 						<strong>
 					  	<%= user.full_name %>
 
-						  <%= link_to edit_user_path(user) do %>
-								<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+							<%= link_to user_path(user) do %>
+								<%= content_tag(:i, "", class: "fa fa-eye") %>
 							<% end %>
+						  <%= link_to edit_user_path(user) do %>
+								<%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>								
+							<% end %>
+
 						</strong>
 					</li>
-				
+
 				<% end %>
 				</ul>
 			</div>
@@ -39,9 +43,13 @@
 						<strong>
 				  		<%= user.full_name %>
 
-				  		<%= link_to edit_user_path(user) do %>
-								<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+							<%= link_to user_path(user) do %>
+								<%= content_tag(:i, "", class: "fa fa-eye") %>
 							<% end %>
+						  <%= link_to edit_user_path(user) do %>
+								<%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>								
+							<% end %>
+
 						</strong>
 					</li>
 
@@ -64,9 +72,12 @@
 
 										<strong>
 									  	<%= user.full_name %>
-									  	<%= link_to edit_user_path(user) do %>
-												<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-											<% end %>
+												<%= link_to user_path(user) do %>
+													<%= content_tag(:i, "", class: "fa fa-eye") %>
+												<% end %>
+											  <%= link_to edit_user_path(user) do %>
+													<%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>								
+												<% end %>
 										</strong>
 
 									
@@ -91,19 +102,28 @@
 						<% if user.negociated_price %>
 
 							<strong>
+								<i class="fa fa-star"></i>
 							  <%= user.full_name %>
-							  <%= link_to edit_user_path(user) do %>
-									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-								<% end %>
+									<%= link_to user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-eye") %>
+									<% end %>
+								  <%= link_to edit_user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>								
+									<% end %>
+
+
 							</strong>
 
 						<% else %>
 
 							<strong>
 						  	<%= user.full_name %>
-						  	<%= link_to edit_user_path(user) do %>
-									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-								<% end %>
+									<%= link_to user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-eye") %>
+									<% end %>
+								  <%= link_to edit_user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>								
+									<% end %>
 							</strong>
 
 						<% end %>
@@ -126,19 +146,26 @@
 						<% if user.negociated_price %>
 
 							<strong>
+								<i class="fa fa-star"></i>
 							  <%= user.full_name %>
-							  <%= link_to edit_user_path(user) do %>
-									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-								<% end %>
+									<%= link_to user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-eye") %>
+									<% end %>
+								  <%= link_to edit_user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>								
+									<% end %>
 							</strong>
 
 						<% else %>
 
 							<strong>
 						  	<%= user.full_name %>
-						  	<%= link_to edit_user_path(user) do %>
-									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-								<% end %>
+									<%= link_to user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-eye") %>
+									<% end %>
+								  <%= link_to edit_user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>								
+									<% end %>
 							</strong>
 
 						<% end %>
@@ -161,19 +188,26 @@
 						<% if user.negociated_price %>
 
 							<strong>
+								<i class="fa fa-star"></i>
 							  <%= user.full_name %>
-							  <%= link_to edit_user_path(user) do %>
-									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-								<% end %>
+									<%= link_to user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-eye") %>
+									<% end %>
+								  <%= link_to edit_user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>								
+									<% end %>
 							</strong>
 
 						<% else %>
 
 							<strong>
 						  	<%= user.full_name %>
-						  	<%= link_to edit_user_path(user) do %>
-									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-								<% end %>
+									<%= link_to user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-eye") %>
+									<% end %>
+								  <%= link_to edit_user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>								
+									<% end %>
 							</strong>
 
 						<% end %>
@@ -196,19 +230,26 @@
 						<% if user.negociated_price %>
 
 							<strong>
+								<i class="fa fa-star"></i>
 							  <%= user.full_name %>
-							  <%= link_to edit_user_path(user) do %>
-									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-								<% end %>
+									<%= link_to user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-eye") %>
+									<% end %>
+								  <%= link_to edit_user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>								
+									<% end %>
 							</strong>
 
 						<% else %>
 
 							<strong>
 						  	<%= user.full_name %>
-						  	<%= link_to edit_user_path(user) do %>
-									<span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
-								<% end %>
+									<%= link_to user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-eye") %>
+									<% end %>
+								  <%= link_to edit_user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>								
+									<% end %>
 							</strong>
 
 						<% end %>

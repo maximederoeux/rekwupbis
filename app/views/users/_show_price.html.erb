@@ -1,6 +1,84 @@
-<% @myprices.each do |price| %>
+<ul class="list-group">
 
-<%= price.article_id %>
-<%= price.article.full_name %>
+	<li class="list-group-item list-group-item-warning">
+		<h5><strong>
+		<div class="row text-center">
+			<div class="col-md-3">
 
-<% end %>
+				<%= t("article.article_name") %>
+
+			</div>
+
+			<div class="col-md-9">
+
+				<div class="col-md-2">
+					<%= t("article.washing_price") %>
+				</div>
+
+				<div class="col-md-3">
+					<%= t("article.handwash_price") %>
+				</div>
+
+				<div class="col-md-2">
+					<%= t("article.tab_price") %>
+				</div>
+
+				<div class="col-md-2">
+					<%= t("article.deposit_price") %>
+				</div>
+
+				<div class="col-md-2">
+					<%= t("article.sell_price") %>
+				</div>
+
+			</div>
+
+		</div>
+	</h5></strong>
+	</li>
+
+	<% @myprices.each do |price| %>
+
+		<li class="list-group-item">
+			<div class="row text-center">
+				<div class="col-md-3">
+
+					<%= price.article.full_name %>
+
+					<%= render :partial => 'change_prices', :locals => {:price => price} %>
+
+					<%= link_to price, method: :delete, data: { confirm: 'Are you sure?' } do %>
+						<%= content_tag(:i, "", class: "fa fa-times btn btn-xs btn-default") %>
+					<% end %> 
+				</div>
+
+				<div class="col-md-9">
+
+					<div class="col-md-2">
+						<%= number_to_currency(price.washing,:unit =>'€', :precision => 4) %>
+					</div>
+
+					<div class="col-md-3">
+						<%= number_to_currency(price.handwash,:unit =>'€', :precision => 4) %>
+					</div>
+
+					<div class="col-md-2">
+						<%= number_to_currency(price.handling,:unit =>'€', :precision => 4) %>
+					</div>
+
+					<div class="col-md-2">
+						<%= number_to_currency(price.deposit,:unit =>'€', :precision => 4) %>
+					</div>
+
+					<div class="col-md-2">
+						<%= number_to_currency(price.sell,:unit =>'€', :precision => 4) %> 
+					</div>
+
+				</div>
+
+			</div>
+		</li>
+
+	<% end %>
+
+</ul>

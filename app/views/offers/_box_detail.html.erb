@@ -77,7 +77,27 @@
 			         	<div class="col-md-5">
 
 				          <div class="col-md-3 text-center">
+
+				          	<% if @offer.organizer.negociated_price? %>
+
+				          		<% if @offer.organizer.prices.where(:article_id => thisofferbox.box.articles.first.id).any? %>
+
+				          			<%= @offer.organizer.prices.where(:article_id => thisofferbox.box.articles.first.id).last.washing %>
+
+				          			User Article
+
+				          		<% else %>
+
+				             		<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.washing,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>				          		User	
+				             	<% end %>
+
+				          	<% else %>
+
 				             <%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.washing,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
+				             		Article
+
+				             <% end %>
+
 				          </div>
 
 				          <div class="col-md-3 text-center">

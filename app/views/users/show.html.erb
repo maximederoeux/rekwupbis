@@ -16,9 +16,20 @@
 
       <% if @user.negociated_prices %>
 
-				<%= render 'add_prices' %>
+
 
 				<%= render 'show_price' %>
+
+    <div class="row">
+
+      <div class="col-md-6">
+        
+      </div>
+      <div class="col-md-6">
+        <%= render 'add_prices' %>
+      </div>
+
+    </div>
 
 			<% end %>
 
