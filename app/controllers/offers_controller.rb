@@ -42,6 +42,8 @@ class OffersController < ApplicationController
     @offer_articles = OfferArticle.all
     @thisofferarticles = @offer_articles.where(:offer_id => @offer.id)
 
+    @prices = Price.all
+    @regular_prices = @prices.where(:regular => true)
     @new_delivery = Delivery.new
 
     @admin = @user.admin
