@@ -116,6 +116,8 @@ fr:
         valid_from: "Valable à partir de"
         valid_till: "Valable jusque"
         sell: "Vente"
+      user:
+        negociated_price: "Prix Négociés"
     date:
       format:
         default: "%d-%m-%Y"

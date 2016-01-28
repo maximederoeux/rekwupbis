@@ -1,22 +1,3 @@
-    <% if current_user.client %>
-
-      <%= render 'show_client' %>
-
-    <% end %>
-
-    <% if current_user.staff %>
-
-      <%= render 'show_client' %>
-
-    <% end %>
-
-    <% if current_user.admin %>
-
-      <%= render 'show_admin' %>
-
-
-    <% end %>
-
 
 
   <ul class="list-group">
@@ -89,9 +70,7 @@
           <% end %>
         </div>
 
-  <% if current_user.offers.any? %>
 
-    <% if current_user.company_name.present? %>
 
         <div class="col-md-6">
           <strong><%= t("user.vat") %> : </strong><%= @user.vat %>
@@ -99,7 +78,6 @@
       </div>
      </li>
      
-    <% end %>
 
     <li class="list-group-item">
       <div class="row">
@@ -136,8 +114,7 @@
 
       </div>
     </li>
-     
-  <% end %>
+
   
 </ul>
 
@@ -153,4 +130,3 @@
       </div>
       
     </div>
-

@@ -70,14 +70,17 @@
       		<%= f.input :company_name, :label => t("user.organisation_name") %>
     		</div>
 
-	  <% if @user.offers.any? %>
 
-	    <% if @user.company_name.present? %>
-
-					<div class="col-md-6">
+        <div class="col-md-4">
 		      	<%= f.input :vat, :label => t("user.vat"), :placeholder => t("user.vat") %>
 		      </div>
-		  <% end %>
+
+
+        <div class="col-md-2">
+          <strong><%= f.label :negociated_price %></strong><br>
+          <%= f.input :negociated_price %>
+        </div>
+
 
 	    </div>
     </li>
@@ -117,8 +120,7 @@
 
       </div>
     </li>
-	     
-	  <% end %>
+
 	  
 	</ul>
 

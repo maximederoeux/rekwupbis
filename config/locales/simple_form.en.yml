@@ -116,6 +116,8 @@ en:
         valid_from: "Valid from"
         valid_till: "Valid till"
         sell: "Sell"
+      user:
+        negociated_price: "Negociated Prices"
     date:
       format:
         default: "%d-%m-%Y"

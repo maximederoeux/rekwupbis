@@ -77,19 +77,19 @@
 			         	<div class="col-md-5">
 
 				          <div class="col-md-3 text-center">
-				             <%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.washing,:unit=>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
+				             <%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.washing,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
 				          </div>
 
 				          <div class="col-md-3 text-center">
-				          	<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.handwash,:unit=>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
+				          	<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.handwash,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
 				          </div>
 
 				          <div class="col-md-3 text-center">
-				          	<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.handling,:unit=>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
+				          	<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.handling,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
 				          </div>
 
 				          <div class="col-md-3 text-center">
-				          	<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.deposit,:unit=>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
+				          	<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.deposit,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
 				          </div>
 
 			        	</div>
