@@ -1,6 +1,6 @@
-<p>Cher(e) <%= @offer.organizer.full_name %></p><br>
+<h2>Cher(e) <%= @offer.organizer.full_name %></h2><br>
 
-<p>Nous avons pris connaissance de votre demande d'offre pour votre événement <strong><%= @offer.event.event_name %></strong></p>
+<p>Nous avons pris connaissance de votre demande d'offre pour votre événement <b><%= @offer.event.event_name %></b></p>
 
 <p>Vous trouverez sur votre compte Rekwup notre offre de service numéro <%= @offer.created_at.strftime("%Y") %> - <%= @offer.id %></p>
 
@@ -10,7 +10,7 @@
 
 <p>Bien à vous,</p><br>
 
-<p>L'équipe Rekwup</p>
+<p class="signature">L'équipe Rekwup</p>
 
 
 
