@@ -1,0 +1,90 @@
+        <!-- Large modal -->
+        <button type="button" class="btn btn-lg btn-default btn-block" data-toggle="modal" data-target="#new_negociated_price">
+
+          <%= t("price.new") %>
+
+
+        </button>
+
+        <div class="modal fade" id="new_negociated_price" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+					        <%= simple_form_for(@new_price) do |f| %>
+							      <%= f.error_notification %>
+
+							    	<%= f.hidden_field :user_id, :value => @user.id %>
+							    	<%= f.hidden_field :negociated, :value => true %>
+
+                <div class="modal-header">
+
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                  </button>
+
+                    <h4 class="modal-title" id="myModalLabel">
+
+                    <%= f.collection_select :article_id, Article.all.order('article_name ASC'), :id, :full_name, {prompt: false}, {class: "form-control styled-select"} %>              
+                     
+                    </h4>
+                </div>
+
+                <div class="modal-body">
+                  <div class="row text-center">
+
+                    <div class="col-md-2">
+                      <%= f.input :washing %>
+                    </div>
+
+                    <div class="col-md-2">
+                      <%= f.input :handwash %>
+                    </div>
+
+                    <div class="col-md-2">
+                      <%= f.input :handling %>
+                    </div>
+
+                    <div class="col-md-2">
+                      <%= f.input :deposit %>
+                    </div>
+
+                    <div class="col-md-2">
+                      <%= f.input :sell %>
+                    </div>
+
+                    <div class="col-md-2">
+
+                    </div>
+                  </div>
+
+                  <div class="row text-center">
+
+                    <div class="col-md-6">
+                      <%= f.label :valid_from %>
+                      <%= f.text_field :valid_from, class: "datepicker" %>
+                    </div>
+
+                    <div class="col-md-6">
+                      <%= f.label :valid_till %>
+                      <%= f.text_field :valid_till, class: "datepicker" %>
+                    </div>
+
+                  </div>                  
+                </div>
+
+                <div class="modal-footer">
+
+                  <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <%= t("menu.close") %>
+                  </button>
+
+                    <%= f.button :submit, class: "btn btn-info" %>
+    
+
+                </div>
+
+              <% end %>
+       
+
+            </div>
+          </div>
+        </div>

@@ -4,29 +4,27 @@
 	    
 		<%= render 'event_info_admin' %>
 
-	<% end %>
-
-	<% if current_user == @organizer %>
-
-		<%= render 'event_info_client' %>
-
-	<% end %>
-
-	<%= render 'box_detail' %>
-
-	<% if current_user.admin %>
+		<%= render 'box_detail' %>
 
 		<%= render 'add_box' %>
 
-	<% end %>
-
 		<%= render 'article_detail' %>
-
-	<% if current_user.admin %>
 
 		<%= render 'add_article' %>
 
 	<% end %>
+
+	<% if current_user.client && current_user == @organizer %>
+
+		<%= render 'event_info_client' %>
+
+		<%= render 'box_detail' %>
+
+		<%= render 'article_detail' %>
+
+	<% end %>
+
+
 
 
 

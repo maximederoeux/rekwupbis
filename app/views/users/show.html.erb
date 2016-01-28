@@ -12,145 +12,17 @@
 
     <% if current_user.admin %>
 
-      <%= render 'show_admin' %>
+      <%= render 'show_admin' %><br>
 
+      <% if @user.negociated_prices %>
+
+				<%= render 'add_prices' %>
+
+				<%= render 'show_price' %>
+
+			<% end %>
 
     <% end %>
 
 
-
-  <ul class="list-group">
-
-    <li class="list-group-item list-group-item-info">
-
-    <h5><strong><%= t("user.your_profile") %>
-
-      <% if @user.staff %>
-       - <%= t("user.list_staff") %>
-      <% end %>
-
-      <% if @user.individual %>
-       - <%= t("user.individual") %>
-      <% end %>
-
-      <% if @user.company %>
-       - <%= t("user.company") %>
-      <% end %>
-
-      <% if @user.non_profit %>
-       - <%= t("user.non_profit") %>
-      <% end %>
-
-      <% if @user.institution %>
-       - <%= t("user.institution") %>
-      <% end %>
-
-      </strong></h5>
-
-    </li>
-
-
-    <li class="list-group-item">
-      <div class="row">
-
-        <div class="col-md-6">
-          <strong><%= t("user.name") %> : </strong><%= @user.name if @user.name %>
-        </div>
-        <div class="col-md-6">
-          <strong><%= t("user.first_name") %> : </strong><%= @user.first_name if @user.first_name %>
-        </div>
-
-      </div>
-    </li>
-
-    <li class="list-group-item">
-      <strong><%= t("user.email") %> : </strong><%= @user.email %>
-    </li>
-
-
-
-
-
-    <li class="list-group-item">
-      <div class="row">
-
-        <div class="col-md-6">
-
-          <% if @user.company %>
-            <strong><%= t("user.company_name") %> : </strong><%= @user.company_name %>
-          <% end %>
-
-          <% if @user.non_profit %>
-            <strong><%= t("user.non_profit_name") %> : </strong><%= @user.company_name %>
-          <% end %>
-
-          <% if @user.institution %>
-            <strong><%= t("user.institution_name") %> : </strong><%= @user.company_name %>
-          <% end %>
-        </div>
-
-  <% if current_user.offers.any? %>
-
-    <% if current_user.company_name.present? %>
-
-        <div class="col-md-6">
-          <strong><%= t("user.vat") %> : </strong><%= @user.vat %>
-        </div>
-      </div>
-     </li>
-     
-    <% end %>
-
-    <li class="list-group-item">
-      <div class="row">
-
-        <div class="col-md-5">
-          <strong><%= t("user.address") %> : </strong><%= @user.address %>
-        </div>
-
-        <div class="col-md-2">
-          <strong><%= t("user.postcode") %> : </strong><%= @user.postcode %>
-        </div>
-
-        <div class="col-md-3">
-          <strong><%= t("user.city") %> : </strong><%= @user.city %>
-        </div>
-
-        <div class="col-md-2">
-          <strong><%= t("user.country") %> : </strong><%= @user.country %>
-        </div>
-
-      </div>
-    </li>
-     
-    <li class="list-group-item">
-      <div class="row">
-
-        <div class="col-md-6">
-          <strong><%= t("user.phone") %> : </strong><%= @user.phone %>
-        </div>
-
-        <div class="col-md-6">
-          <strong><%= t("user.gsm") %> : </strong><%= @user.gsm %>
-        </div>
-
-      </div>
-    </li>
-     
-  <% end %>
-  
-</ul>
-
-
-    <div class="row">
-
-      <div class="col-md-6">
-        <%= link_to t("menu.back"), root_path, class: "btn btn-lg btn-block btn-default" %>
-      </div>
-
-      <div class="col-md-6">
-        <%= link_to t("menu.edit"), edit_user_path(@user), class: "btn btn-lg btn-block btn-info" %>
-      </div>
-      
-    </div>
 

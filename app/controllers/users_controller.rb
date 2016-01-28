@@ -18,7 +18,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @articles = Article.all
-    @negociated_prices = NegociatedPrice.all
+    @new_price = Price.new
+
+    @myprices = Price.where(:user_id => @user.id)
+    
     unless @user == current_user or current_user.admin
       redirect_to :back, :alert => t("notice.access")
     end
