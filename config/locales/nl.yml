@@ -68,6 +68,7 @@ nl:
     close: "Sluiten"
     are_you_sure: "Bent u zeker?"
     parcels: "Lotten"
+    invoices: "Rekeningen"
     construction: "Deze site is nog niet klaar. Deinformatie zijn niet altijd correct and kunnen niet gebruikt worden om een bestelling te maken"
 
   mail:
@@ -404,6 +405,7 @@ nl:
     wash: "Was datum"
     missing: "Vermist"
     sent_cups: "Gestuurd bekers"
+    clean_return: "Schoon terug"
 
   wash:
     start: "Start tijd"

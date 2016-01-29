@@ -20,7 +20,10 @@
       </div>
 
       <div class="col-md-9">
-        <div class="row">     
+        <div class="row">
+          <div class="col-md-2">
+            <strong><%= t("sorting.clean_return") %></strong>
+          </div>         
           <div class="col-md-2">
             <strong><%= t("sorting.clean") %></strong>
           </div>
@@ -35,7 +38,7 @@
             <strong><%= t("sorting.handling") %></strong>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-2">
            <strong><%= t("sorting.missing") %></strong>
           </div>
 
@@ -63,7 +66,10 @@
           </div>
 
           <div class="col-md-9">
-            <div class="row">     
+            <div class="row">
+              <div class="col-md-2">
+                <%= @sorting.return_details.where(:box_id => offer_box.box_id).sum("clean") * @sorting.return_details.where(:box_id => offer_box.box_id).last.box.boxdetails.last.box_article_quantity %>
+              </div>  
               <div class="col-md-2">
                 <%= @sorting.global_clean_sum(offer_box.box.boxdetails.last.article) %>
               </div>
@@ -78,8 +84,8 @@
                 <%= @sorting.global_handling_sum(offer_box.box.boxdetails.last.article) %>
               </div>
 
-              <div class="col-md-4">
-                <%= (offer_box.quantity * offer_box.box.boxdetails.last.box_article_quantity) - @sorting.global_clean_sum(offer_box.box.boxdetails.last.article) - @sorting.global_very_dirty_sum(offer_box.box.boxdetails.last.article) - @sorting.global_handling_sum(offer_box.box.boxdetails.last.article) %>
+              <div class="col-md-2">
+                <%= (offer_box.quantity * offer_box.box.boxdetails.last.box_article_quantity) - @sorting.global_clean_sum(offer_box.box.boxdetails.last.article) - @sorting.global_very_dirty_sum(offer_box.box.boxdetails.last.article) - @sorting.global_handling_sum(offer_box.box.boxdetails.last.article) - (@sorting.return_details.where(:box_id => offer_box.box_id).sum("clean") * @sorting.return_details.where(:box_id => offer_box.box_id).last.box.boxdetails.last.box_article_quantity) %>
               </div>
 
             </div>

@@ -2,6 +2,9 @@ class Delivery < ActiveRecord::Base
 	belongs_to :offer
 	has_many :return_boxes
 
+	has_many :washes, through: :return_boxes
+	has_many :sortings, through: :return_boxes
+
 
 	scope :this_day, lambda {where(:delivery_date => Date.today)}
 	scope :sent_this_day, lambda {where(:gone_time => (Date.current.beginning_of_day..Date.current.end_of_day))}

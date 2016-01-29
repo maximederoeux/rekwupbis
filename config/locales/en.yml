@@ -69,6 +69,7 @@ en:
     close: "Close"
     are_you_sure: "Are you sure?"
     parcels: "Batches"
+    invoices: "Invoices"
     construction: "This site is still under construction. The informations are not reliable and no service will be provided through this site at the moment"
 
   mail:
@@ -405,6 +406,7 @@ en:
     wash: "Washing Date"
     missing: "Missing"
     sent_cups: "Sent Cups"
+    clean_return: "Clean Return"
 
   wash:
     start: "Start time"

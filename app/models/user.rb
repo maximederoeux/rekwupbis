@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 	has_many :deliveries, through: :offers
 
 	has_many :prices
+
+	has_many :invoices
 	
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

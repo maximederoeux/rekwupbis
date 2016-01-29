@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160128101551) do
+ActiveRecord::Schema.define(version: 20160129113055) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -104,6 +104,16 @@ ActiveRecord::Schema.define(version: 20160128101551) do
     t.boolean  "is_complete"
     t.integer  "bar"
     t.integer  "beertap"
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.integer  "doc_number"
+    t.integer  "offer_id"
+    t.integer  "client_id"
+    t.boolean  "doc_invoice"
+    t.boolean  "doc_credit"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "negociated_prices", force: :cascade do |t|

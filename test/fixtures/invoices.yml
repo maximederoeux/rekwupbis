@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  doc_number: 1
+  offer_id: 1
+  client_id: 1
+  doc_invoice: false
+  doc_credit: false
+
+two:
+  doc_number: 1
+  offer_id: 1
+  client_id: 1
+  doc_invoice: false
+  doc_credit: false

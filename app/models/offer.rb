@@ -7,7 +7,9 @@ class Offer < ActiveRecord::Base
 	has_many :articles, through: :boxes
 
 	has_many :offer_articles
-	has_many :deliveries
+	has_one :delivery
+
+	has_many :invoices
 
 	scope :last_month, lambda {where(:updated_at => (30.days.ago.beginning_of_day..Date.today.end_of_day))}
 

@@ -2,6 +2,7 @@ class ReturnDetail < ActiveRecord::Base
 	belongs_to :return_box
 	belongs_to :box
 
+
 	def dirty_value
 		if dirty.present?
 			dirty

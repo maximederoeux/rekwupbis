@@ -1,0 +1,28 @@
+
+<% @confirmed.each do |offer| %>
+
+  <% if offer.delivery.return_boxes.any? && offer.delivery.sortings.any? && offer.delivery.sortings.first.end_time.present? && offer.delivery.washes.first.end_time.present? %>
+
+    Nom Event <%= offer.event.event_name %><br>
+    Organizer <%= offer.organizer.full_name %><br>
+
+
+    Delivery date <%= offer.delivery.gone_time.strftime("%d/%m/%Y") if offer.delivery.gone_time.present? %><br>
+
+
+    Returns : <%= offer.delivery.return_boxes.count %><br>
+
+    Washes : <%= offer.delivery.washes.count %><br>
+
+    End last Wash : <%= offer.delivery.washes.first.end_time.strftime("%d/%m/%Y") %><br>
+
+    Sortings : <%= offer.delivery.sortings.count %><br>
+
+    End last Sorting : <%= offer.delivery.sortings.first.end_time.strftime("%d/%m/%Y") %><br>
+
+  <hr>
+
+
+  <% end %>
+
+<% end %>
