@@ -60,7 +60,7 @@ fr:
     events: "Evénements"
     articles: "Articles"
     boxes: "Caisses"
-    negociated_prices: "Prix négociés"
+    prices: "Prix"
     offers: "Offres"
     deliveries: "Livraisons"
     returns: "Retours"
@@ -293,11 +293,13 @@ fr:
     waiting_for_clients: "Offres à confirmer par les clients"
     rejected_by_clients: "Offres rejetées par les clients"
     confirmed_by_clients: "Offres confirmées par les clients"
+    sent_for_delivery: "Offres envoyées pour livraison"
     your_rejected: "Offres que vous avez rejetées"
     you_rejected: "Vous avez rejeté cette offre"
     reject: "Rejeter cette offre"
     confirm_for_client: "Confirmer pour le client"
     send_email: "Envoyer cette offre"
+    sent_on: "Envoyée le"
     complete_profile: "Vous avez confirmé une offre. Nous avons besoin que vous complétiez votre profil pour pouvoir la valider"
 
   offer_box:
@@ -315,10 +317,19 @@ fr:
   price:
     regular: "Prix régulier"
     negociated: "Prix négocié"
-    valid_from: "Valable à partir de"
+    valid_from: "A partir de"
     valid_till: "Valable jusque"
     new: "Ajouter de nouveaux prix"
     change: "Changer les prix"
+    washing: "Lavage"
+    handwash: "Manuel"
+    handling: "Manut."
+    deposit: "Caution"
+    sell: "Vente"
+    regular_prices: "Prix Réguliers"
+    negociated_prices: "Prix Négociés"
+    from: "De"
+    till: "A"
 
   return:
     receive: "Retours à recevoir"

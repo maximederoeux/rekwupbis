@@ -13,6 +13,7 @@ class OffersController < ApplicationController
     @rejectedoffers = Offer.where(:client_confirmation => false)
     @pendingoffers = Offer.where(:client_confirmation => nil)
     @confirmed_not_sent = @confirmedoffers.where(:admin_confirmation => nil)
+    @confirmed = @confirmedoffers.where(:admin_confirmation => true)
 
     @myoffers = Offer.where(:organizer => current_user)
     @myconfirmedoffers = @myoffers.where(:client_confirmation => true)

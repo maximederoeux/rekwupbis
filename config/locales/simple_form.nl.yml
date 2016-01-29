@@ -116,6 +116,9 @@ nl:
         valid_from: "Geldig vanaf"
         valid_till: "Geldig tot"
         sell: "Verkoop"
+        regular: "Normaal prijs"
+        negociated: "Onderhandled prijs"
+        user_id: "Klant"
       user:
         negociated_price: "Onderhandeld Prijzen"
 

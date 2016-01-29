@@ -59,7 +59,7 @@ nl:
     events: "Evenementen"
     articles: "Artikels"
     boxes: "Dozen"
-    negociated_prices: "Onderhandeld prizen"
+    prices: "Prizen"
     offers: "Aanbodden"
     deliveries: "Leveringen"
     returns: "Terugkeren"
@@ -293,11 +293,13 @@ nl:
     waiting_for_clients: "Aanbodden door de klanten te goedkeuren"
     rejected_by_clients: "Aanbodden door de klanten afgekeurd"
     confirmed_by_clients: "Aanbodden door de klanten goedgekeurd"
+    sent_for_delivery: "Aanbodden voor levering goedgekeurd"
     your_rejected: "Aanbodden die u afgekeurd heeft"
     you_rejected: "U heeft die offer afgekeurd"
     reject: "Deze aanbod afkeuren"
     confirm_for_client: "Voor de klant bevestigen"
     send_email: "Deze aanbod sturen"
+    sent_on: "Gestuurd op"
     complete_profile: "U heeft een aanbod bevestigd. Om verder te gaan nodigen u uit om uw profiel in te vullen"
 
   offer_box:
@@ -319,6 +321,15 @@ nl:
     valid_till: "Geldig tot"
     new: "Nieuwe prijzen toevoegen"
     change: "Prijzen wijzigen"
+    washing: "Was"
+    handwash: "Handwas"
+    handling: "Behand."
+    deposit: "Garantie"
+    sell: "Verkoop"
+    regular_prices: "Normale Prijzen"
+    negociated_prices: "Onderhandled Prijzen"
+    from: "Vanaf"
+    till: "Till"
 
   return:
     receive: "Verwachte terugkeren"

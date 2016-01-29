@@ -1,21 +1,84 @@
 <%= simple_form_for(@price) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :article_id %>
-    <%= f.input :user_id %>
-    <%= f.input :wash %>
-    <%= f.input :handwash %>
-    <%= f.input :handling %>
-    <%= f.input :deposit %>
-    <%= f.input :regular %>
-    <%= f.input :negociated %>
-    <%= f.input :valid_from %>
-    <%= f.input :valid_till %>
-    <%= f.input :sell %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+<ul class="list-group">
+  <li class="list-group-item">
+    <%= f.label :article_id %>
+    <%= f.collection_select :article_id, Article.all.order('article_name ASC'), :id, :full_name, {prompt: false}, {class: "form-control styled-select"} %> 
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+
+      <div class="col-md-6">
+        <%= f.label :user_id %>
+        <%= f.collection_select :user_id, User.client.all.order('name ASC'), :id, :full_name, {prompt: false}, {class: "form-control styled-select"} %>
+      </div>
+
+      <div class="col-md-2">
+        <%= f.input :regular %>
+      </div>
+
+      <div class="col-md-2">
+        <%= f.input :negociated %>
+      </div>
+
+    </div>
+  </li>
+
+  <li class="list-group-item">
+              
+    <div class="row text-center">
+
+      <div class="col-md-2">
+        <%= f.input :washing %>
+      </div>
+
+      <div class="col-md-2">
+        <%= f.input :handwash %>
+      </div>
+
+      <div class="col-md-2">
+        <%= f.input :handling %>
+      </div>
+
+      <div class="col-md-2">
+        <%= f.input :deposit %>
+      </div>
+
+      <div class="col-md-2">
+        <%= f.input :sell %>
+      </div>
+
+      <div class="col-md-2">
+
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item">
+    <div class="row">
+
+      <div class="col-md-6">
+        <%= f.label :valid_from %>
+        <%= f.text_field :valid_from, class: "datepicker" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= f.label :valid_till %>
+        <%= f.text_field :valid_till, class: "datepicker" %>
+      </div>
+
+    </div>                  
+  </li>
+</ul>
+
+    <div class="row">
+      <div class="col-md-6">
+        <%= link_to t("menu.back"), prices_path, class: "btn btn-lg btn-block btn-default" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.button :submit, class: "btn btn-lg btn-block btn-info" %>
+      </div>
+    </div>
 <% end %>

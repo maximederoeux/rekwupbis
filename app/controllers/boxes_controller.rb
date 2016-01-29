@@ -10,6 +10,7 @@ class BoxesController < ApplicationController
     @staff = @user.staff
     @admin = @user.admin
     @closed_boxes = @boxes.where(:box_is_full => true)
+    @open_boxes = @boxes.where.not(:box_is_full => true)
     unless @admin or @staff
       redirect_to :root, :alert => t("notice.access")
     end

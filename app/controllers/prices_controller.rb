@@ -5,6 +5,8 @@ class PricesController < ApplicationController
   # GET /prices.json
   def index
     @prices = Price.all
+    @regular_prices = Price.where(:regular => true)
+    @negociated_prices = Price.where(:negociated => true)
   end
 
   # GET /prices/1

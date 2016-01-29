@@ -17,20 +17,20 @@
             </div>
 
             <div class="col-md-4">
-                <% if @article.rekwup_cup %>
-                  <strong>
-                    <%= t("article.rekwup_cup") %>
-                  </strong>
-                <% end %>
+              <% if @article.is_cup %>
+                <strong>
+                  <%= t("article.is_cup") %>
+                </strong>
+              <% end %>
             </div>
 
 
             <div class="col-md-4">
-                <% if @article.is_cup %>
-                  <strong>
-                    <%= t("article.is_cup") %>
-                  </strong>
-                <% end %>
+              <% if @article.rekwup_cup %>
+                <strong>
+                  <%= t("article.rekwup_cup") %>
+                </strong>
+              <% end %>
             </div>
 
           </div>
@@ -160,35 +160,35 @@
               <strong>
                 <%= t("article.washing_price") %><br>
               </strong>
-              <%= number_to_currency(@myregular_price.washing,:unit =>'€', :precision => 4) if @myregular_price %>
+              <%= number_to_currency(@myregular_price.washing, :unit => '€', :precision => 4) if @myregular_price %>
             </div>
 
             <div class="col-md-2">
               <strong>
                 <%= t("article.handwash_price") %><br>
               </strong>
-              <%= number_to_currency(@myregular_price.handwash,:unit =>'€', :precision => 4) if @myregular_price %>
+              <%= number_to_currency(@myregular_price.handwash, :unit => '€', :precision => 4) if @myregular_price %>
             </div>
 
             <div class="col-md-2">
               <strong>
                 <%= t("article.tab_price") %><br>
               </strong>
-              <%= number_to_currency(@myregular_price.handling,:unit =>'€', :precision => 4) if @myregular_price %>
+              <%= number_to_currency(@myregular_price.handling, :unit => '€', :precision => 4) if @myregular_price %>
             </div>
 
             <div class="col-md-2">
               <strong>
                 <%= t("article.deposit_price") %><br>
               </strong>
-              <%= number_to_currency(@myregular_price.deposit,:unit =>'€', :precision => 4) if @myregular_price %>
+              <%= number_to_currency(@myregular_price.deposit, :unit => '€', :precision => 4) if @myregular_price %>
             </div>
 
             <div class="col-md-2">
               <strong>
                 <%= t("article.sell_price") %><br>
               </strong>
-              <%= number_to_currency(@myregular_price.sell,:unit =>'€', :precision => 4) if @myregular_price %>
+              <%= number_to_currency(@myregular_price.sell, :unit => '€', :precision => 4) if @myregular_price %>
             </div>
           </div>
         </li>          
@@ -199,10 +199,10 @@
       <div class="row">
 
         <div class="col-md-6">
-
+          <%= render 'add_prices' %>  
         </div>
         <div class="col-md-6">
-          <%= render 'add_prices' %>       
+          <%= render 'change_prices' %>       
         </div>
       </div>
 

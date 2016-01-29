@@ -1,47 +1,159 @@
-<p id="notice"><%= notice %></p>
+<% if current_user.admin %>
 
-<h1>Listing Prices</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Article</th>
-      <th>User</th>
-      <th>Wash</th>
-      <th>Handwash</th>
-      <th>Handling</th>
-      <th>Deposit</th>
-      <th>Regular</th>
-      <th>Negociated</th>
-      <th>Valid from</th>
-      <th>Valid till</th>
-      <th>Sell</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <ul class ="list-group">
 
-  <tbody>
-    <% @prices.each do |price| %>
-      <tr>
-        <td><%= price.article_id %></td>
-        <td><%= price.user_id %></td>
-        <td><%= price.wash %></td>
-        <td><%= price.handwash %></td>
-        <td><%= price.handling %></td>
-        <td><%= price.deposit %></td>
-        <td><%= price.regular %></td>
-        <td><%= price.negociated %></td>
-        <td><%= price.valid_from %></td>
-        <td><%= price.valid_till %></td>
-        <td><%= price.sell %></td>
-        <td><%= link_to 'Show', price %></td>
-        <td><%= link_to 'Edit', edit_price_path(price) %></td>
-        <td><%= link_to 'Destroy', price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <li class="list-group-item list-group-item-warning">
+      <h5><strong><%= t("price.regular_prices") %></h5></strong>
+    </li>
+
+      <li class="list-group-item list-group-item-warning">
+        <div class="row">
+          <strong>
+            <div class="col-md-2">
+              <%= t("article.article_name") %>
+            </div>
+            <div class="col-md-1 text-center">
+              <%= t("price.washing") %>
+            </div>
+            <div class="col-md-1 text-center">
+              <%= t("price.handwash") %>
+            </div>
+            <div class="col-md-1 text-center">
+              <%= t("price.handling") %>
+            </div>
+            <div class="col-md-1 text-center">
+              <%= t("price.deposit") %>
+            </div>
+            <div class="col-md-1 text-center">
+              <%= t("price.sell") %>
+            </div>
+            <div class="col-md-2 text-center">
+              <%= t("price.valid_from") %>
+            </div>
+            <div class="col-md-2 text-center">
+              <%= t("price.valid_till") %>
+            </div>
+          </strong>
+        </div>
+      </li>
+
+    <% @regular_prices.each do |price| %>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-2">
+            <%= price.article.full_name %>
+              <%= link_to edit_price_path(price) do %>
+                <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+              <% end %>
+          </div>
+          <div class="col-md-1 text-center">
+            <%= number_to_currency(price.washing, :unit => "€", :precision => 3) %>
+          </div>
+          <div class="col-md-1 text-center">
+            <%= number_to_currency(price.handwash, :unit => "€", :precision => 3) %>
+          </div>
+          <div class="col-md-1 text-center">
+            <%= number_to_currency(price.handling, :unit => "€", :precision => 3) %>
+          </div>
+          <div class="col-md-1 text-center">
+            <%= number_to_currency(price.deposit, :unit => "€", :precision => 3) %>
+          </div>
+          <div class="col-md-1 text-center">
+            <%= number_to_currency(price.sell, :unit => "€", :precision => 2) %>
+          </div>
+          <div class="col-md-2 text-center">
+            <%= price.valid_from.strftime("%d/%m/%Y") %>
+          </div>
+          <div class="col-md-2 text-center">
+            <%= price.valid_till.strftime("%d/%m/%Y") %>
+          </div>
+        </div>
+      </li>
     <% end %>
-  </tbody>
-</table>
+  </ul>
 
-<br>
+  <ul class ="list-group">
 
-<%= link_to 'New Price', new_price_path %>
+    <li class="list-group-item list-group-item-warning">
+      <h5><strong><%= t("price.negociated_prices") %></h5></strong>
+    </li>
+
+      <li class="list-group-item list-group-item-warning">
+        <div class="row">
+          <strong>
+            <div class="col-md-2">
+              <%= t("article.article_name") %>
+            </div>
+            <div class="col-md-2">
+              <%= t("user.name") %>
+            </div>
+            <div class="col-md-1 text-center">
+              <%= t("price.washing") %>
+            </div>
+            <div class="col-md-1 text-center">
+              <%= t("price.handwash") %>
+            </div>
+            <div class="col-md-1 text-center">
+              <%= t("price.handling") %>
+            </div>
+            <div class="col-md-1 text-center">
+              <%= t("price.deposit") %>
+            </div>
+            <div class="col-md-1 text-center">
+              <%= t("price.sell") %>
+            </div>
+            <div class="col-md-1 text-center">
+              <%= t("price.from") %>
+            </div>
+            <div class="col-md-1 text-center">
+              <%= t("price.till") %>
+            </div>
+          </strong>
+        </div>
+      </li>
+
+    <% @negociated_prices.each do |price| %>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-2">
+            <%= price.article.full_name %>
+              <%= link_to edit_price_path(price) do %>
+                <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+              <% end %>
+          </div>
+          <div class="col-md-2">
+            <% if price.user.company_name.present? %>
+              <%= price.user.company_name %>
+            <% else %>
+              <%= price.user.full_name %>
+            <% end %>
+          </div>
+          <div class="col-md-1 text-center">
+            <%= number_to_currency(price.washing, :unit => "€", :precision => 3) %>
+          </div>
+          <div class="col-md-1 text-center">
+            <%= number_to_currency(price.handwash, :unit => "€", :precision => 3) %>
+          </div>
+          <div class="col-md-1 text-center">
+            <%= number_to_currency(price.handling, :unit => "€", :precision => 3) %>
+          </div>
+          <div class="col-md-1 text-center">
+            <%= number_to_currency(price.deposit, :unit => "€", :precision => 3) %>
+          </div>
+          <div class="col-md-1 text-center">
+            <%= number_to_currency(price.sell, :unit => "€", :precision => 2) %>
+          </div>
+          <div class="col-md-1 text-center">
+            <%= price.valid_from.strftime("%d/%m/%Y") %>
+          </div>
+          <div class="col-md-1 text-center">
+            <%= price.valid_till.strftime("%d/%m/%Y") %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

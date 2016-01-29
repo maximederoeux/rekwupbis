@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
+	scope :client, lambda {where(:client => true)}
+
 	def full_name
 		"#{first_name} #{name}"
 	end

@@ -9,6 +9,7 @@ class Offer < ActiveRecord::Base
 	has_many :offer_articles
 	has_many :deliveries
 
+	scope :last_month, lambda {where(:updated_at => (30.days.ago.beginning_of_day..Date.today.end_of_day))}
 
 	def automatic
 		offer_articles.create(:offer_id => id, :article_id => "12", :quantity => "1")

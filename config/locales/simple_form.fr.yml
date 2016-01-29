@@ -116,6 +116,9 @@ fr:
         valid_from: "Valable à partir de"
         valid_till: "Valable jusque"
         sell: "Vente"
+        regular: "Prix régulier"
+        negociated: "Prix négocié"
+        user_id: "Client"
       user:
         negociated_price: "Prix Négociés"
     date:

@@ -60,7 +60,7 @@ en:
     events: "Events"
     articles: "Articles"
     boxes: "Boxes"
-    negociated_prices: "Negociated Prices"
+    prices: "Prices"
     offers: "Offers"
     deliveries: "Deliveries"
     returns: "Returns"
@@ -293,11 +293,13 @@ en:
     waiting_for_clients: "Offers to be confirmed by the clients"
     rejected_by_clients: "Offers rejected by the clients"
     confirmed_by_clients: "Offers confirmed by the clients"
+    sent_for_delivery: "Offers sent for delivery"
     your_rejected: "Offers you rejected"
     you_rejected: "You rejected this offer"
     reject: "Reject this offer"
     confirm_for_client: "Confirm for the client"
     send_email: "Send this offer"
+    sent_on: "Sent on"
     complete_profile: "You confirmed an offer. In order to process it, we need you to complete your profile"
 
   offer_box:
@@ -319,6 +321,16 @@ en:
     valid_till: "Valid till"
     new: "Add a new prices"
     change: "Change prices"
+    washing: "Wash"
+    handwash: "Handwash"
+    handling: "Handling"
+    deposit: "Deposit"
+    sell: "Sell"
+    regular_prices: "Regular Prices"
+    negociated_prices: "Negociated_prices"
+    from: "From"
+    till: "Till"
+
 
   return:
     receive: "Returns to receive"

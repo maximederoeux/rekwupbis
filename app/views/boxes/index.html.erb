@@ -7,48 +7,57 @@
   <% else %>
 
     <% if @user.admin %>
-      <%= link_to t("box.new_box"), new_box_path, class: "btn btn-success" %><br>
+      <%= link_to t("box.new_box"), new_box_path, class: "btn btn-block btn-info" %><br>
     <% end %>
 
+    <div class="row">
+      <div class="col-xs-6 col-md-6">
+
+        <ul class="list-group">
 
 
-    <ul class="list-group"><br>
+          <li class="list-group-item list-group-item-warning">
+            <h4><strong>
+              <%= t("box.closed_boxes") %>
+            </strong></h4>
+          </li>
 
-      <li class="list-group-item list-group-item-default">
-        <h4><strong>
-          <%= t("box.closed_boxes") %>
-        </strong></h4>
-      </li>
-    </ul>
+          <% @closed_boxes.each do |box| %>
 
-    <% @closed_boxes.each do |box| %>
+            <li class="list-group-item">
+              <%= link_to box.box_name, box_path(box), class: "btn btn-lg btn-default btn-block" %>
+            </li>
 
-      <div class="row">
-        <div class="col-xs-6 col-md-4">
-          <%= link_to box.box_name, box_path(box), class: "btn btn-lg btn-default btn-block" %>
-        </div>
-      </div>
-    <% end %><br>
-
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-default">
-        <h4><strong>
-          <%= t("box.open_boxes") %>
-        </strong></h4>
-      </li>
-    </ul>
-
-    <% @boxes.each do |box| %>
-
-      <div class="row">
-        <div class="col-xs-6 col-md-4">
-          <% unless box.box_is_full %>
-          <%= link_to box.box_name, box_path(box), class: "btn btn-lg btn-default btn-block" %>
           <% end %>
-        </div>
-      </div>
-    <% end %><br>
 
+        </ul>
+
+      </div>
+
+      <div class="col-xs-6 col-md-6">
+
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-warning">
+            <h4><strong>
+              <%= t("box.open_boxes") %>
+            </strong></h4>
+          </li>
+
+
+          <% @open_boxes.each do |box| %>
+
+
+            <li class="list-group-item">
+                <% unless box.box_is_full %>
+                <%= link_to box.box_name, box_path(box), class: "btn btn-lg btn-default btn-block" %>
+                <% end %>
+            </li>
+
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
   <% end %>
 
 

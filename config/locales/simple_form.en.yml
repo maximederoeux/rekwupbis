@@ -116,6 +116,9 @@ en:
         valid_from: "Valid from"
         valid_till: "Valid till"
         sell: "Sell"
+        regular: "Regular price"
+        negociated: "Negociated price"
+        user_id: "Client"
       user:
         negociated_price: "Negociated Prices"
     date:
