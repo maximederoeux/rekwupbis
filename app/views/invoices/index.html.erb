@@ -23,14 +23,15 @@
 
   <hr>
   Clean<br>
+
   <% offer.sorting_details.clean.each do |detail| %>
 
   <%= detail.article.full_name %>
   <%= detail.total_cups %>
 
-  <%= detail.article.prices.last.washing %>
+  <%= detail.article.prices.last.washing if detail.article.prices.last.washing.present? %>
 
-  <%= detail.total_cups * detail.article.prices.last.washing %><br>
+  <%= detail.total_cups * detail.article.prices.last.washing if detail.article.prices.last.washing.present? %><br>
 
   <% end %>
 
