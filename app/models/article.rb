@@ -8,6 +8,7 @@ class Article < ActiveRecord::Base
 	has_many :sorting_details
 
 	scope :not_washable, lambda {where.not(:is_washable => true)}
+	scope :washable, lambda {where(:is_washable => true)}
 
 
 	def full_name
@@ -17,6 +18,7 @@ class Article < ActiveRecord::Base
 		"#{article_name}"
 		end
 	end
+
 
 
 end

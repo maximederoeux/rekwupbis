@@ -1,29 +1,34 @@
 
+  <% if @event.delivery_date.present? %>
 
-  <% if @event.delivery_date.strftime("%u") == "6" or @event.delivery_date.strftime("%u") == "7" %>
+      <% if @event.delivery_date.strftime("%u") == "6" or @event.delivery_date.strftime("%u") == "7" %>
 
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-danger">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-danger">
 
-        Attention! Votre date de livraison est dans un week-end. Tous les transports effectués en dehors des jours de semaine entre 9h et 18h sont majorés.
+            Attention! Votre date de livraison est dans un week-end. Tous les transports effectués en dehors des jours de semaine entre 9h et 18h sont majorés.
 
-      </li>
-    </ul>
+          </li>
+        </ul>
 
+      <% end %>
   <% end %>
 
-  <% if @event.return_date.strftime("%u") == "6" or @event.return_date.strftime("%u") == "7" %>
+  <% if @event.return_date.present? %>
 
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-danger">
+      <% if @event.return_date.strftime("%u") == "6" or @event.return_date.strftime("%u") == "7" %>
 
-        Attention! Votre date de retour est dans un week-end. Tous les transports effectués en dehors des jours de semaine entre 9h et 18h sont majorés.
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-danger">
 
-      </li>
-    </ul>
+            Attention! Votre date de retour est dans un week-end. Tous les transports effectués en dehors des jours de semaine entre 9h et 18h sont majorés.
 
+          </li>
+        </ul>
+
+      <% end %>
   <% end %>
-
+  
     <ul class="list-group">
       <li class="list-group-item list-group-item-warning"><h5><strong><%= t("event.your_event") %> - Ref. <%= @event.created_at.strftime("%Y") %>-<%= @event.id %></strong></h5>
 

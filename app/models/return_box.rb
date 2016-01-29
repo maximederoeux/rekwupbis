@@ -5,6 +5,8 @@ class ReturnBox < ActiveRecord::Base
 	has_many :sortings
 	has_many :parcels
 
+	
+
 	accepts_nested_attributes_for :return_details, :allow_destroy => true
 
 	scope :this_day, lambda {where(:return_date => Date.today)}

@@ -4,6 +4,7 @@ class Delivery < ActiveRecord::Base
 
 	has_many :washes, through: :return_boxes
 	has_many :sortings, through: :return_boxes
+	has_many :sorting_details, through: :sortings
 
 
 	scope :this_day, lambda {where(:delivery_date => Date.today)}

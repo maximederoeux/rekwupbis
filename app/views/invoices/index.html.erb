@@ -20,8 +20,29 @@
 
     End last Sorting : <%= offer.delivery.sortings.first.end_time.strftime("%d/%m/%Y") %><br>
 
+
+  <hr>
+  Clean<br>
+  <% offer.sorting_details.clean.each do |detail| %>
+
+  <%= detail.article.full_name %>
+  <%= detail.total_cups %>
+
+  <%= detail.article.prices.last.washing %>
+
+  <%= detail.total_cups * detail.article.prices.last.washing %><br>
+
+  <% end %>
+
   <hr>
 
+  <% offer.sorting_details.very_dirty.each do |detail| %>
+
+    <%= detail.article_id %>
+
+
+
+  <% end %>
 
   <% end %>
 

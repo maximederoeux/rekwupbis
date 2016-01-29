@@ -2,6 +2,12 @@ class SortingDetail < ActiveRecord::Base
 	belongs_to :sorting
 	belongs_to :article
 
+
+	scope :clean, lambda {where(:clean => true)}
+	scope :very_dirty, lambda {where(:very_dirty => true)}
+	scope :broken, lambda {where(:broken => true)}
+	scope :handling, lambda {where(:handling => true)}
+
 	def box_value
 		if box_qtty.present?
 			box_qtty * self.article.quantity_bigbox
