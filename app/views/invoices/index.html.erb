@@ -1,13 +1,13 @@
 
 <% @confirmed.each do |offer| %>
 
-  <% if offer.delivery.return_boxes.any? && offer.delivery.sortings.any? && offer.delivery.sortings.first.end_time.present? && offer.delivery.washes.first.end_time.present? %>
+  <% if offer.delivery.return_boxes.any? && offer.delivery.sortings.any? && offer.sortings.last.end_time.present? && offer.washes.last.end_time.present? && offer.delivery.gone_time.present? %>
 
     Nom Event <%= offer.event.event_name %><br>
     Organizer <%= offer.organizer.full_name %><br>
 
 
-    Delivery date <%= offer.delivery.gone_time.strftime("%d/%m/%Y - %H:%M") if offer.delivery.gone_time.present? %><br>
+    Delivery date <%= offer.delivery.gone_time.strftime("%d/%m/%Y - %H:%M") %><br>
 
 
     Returns : <%= offer.return_boxes.count %><br>
