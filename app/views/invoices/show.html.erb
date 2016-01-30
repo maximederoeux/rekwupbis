@@ -50,7 +50,7 @@ Total HTVA
 
   <% @invoice.offer.sorting_details.clean.each do |detail| %>
 
-    <% if detail.total_cups >= 0 %>
+    <% unless detail.total_cups == 0 %>
 
       <li class="list-group-item">
         <div class="row">
@@ -82,7 +82,7 @@ Total HTVA
 
   <% @invoice.offer.sorting_details.very_dirty.each do |detail| %>
 
-    <% if detail.total_cups >= 0 %>  
+    <% unless detail.total_cups == 0 %>  
 
       <li class="list-group-item">
         <div class="row">
@@ -114,7 +114,7 @@ Total HTVA
 
   <% @invoice.offer.sorting_details.broken.each do |detail| %>
 
-    <% if detail.total_cups >= 0 %>  
+    <% unless detail.total_cups == 0 %>  
 
       <li class="list-group-item">
         <div class="row">
@@ -147,7 +147,7 @@ Total HTVA
 
   <% @invoice.offer.sorting_details.handling.each do |detail| %>
 
-    <% if detail.total_cups >= 0 %>  
+    <% unless detail.total_cups == 0 %>  
 
       <li class="list-group-item">
         <div class="row">
@@ -179,7 +179,7 @@ Total HTVA
 
   <% @invoice.offer.offer_articles.each do |article| %>
 
-    <% if article.quantity >= 0 %>
+    <% unless article.quantity == 0 %>
 
       <li class="list-group-item">
         <div class="row">
@@ -219,7 +219,7 @@ Total HTVA
       </li>
 
     <% end %>
-  
+
   <% end %>
 
 </ul>
