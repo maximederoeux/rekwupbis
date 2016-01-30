@@ -245,6 +245,13 @@ fr:
     edit: "Modifier les prix négociés"
     yours: "Vos prix négociés"
 
+  invoice:
+    invoice: "Facture"
+    credit: "Note de Crédit"
+    date: "Date du document "
+    client: "Client"
+    event: "Evénement"
+
   box:
     box_name: "Nom de la caisse"
     bigbox: "Grande caisse"

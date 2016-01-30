@@ -13,6 +13,9 @@ class InvoicesController < ApplicationController
   # GET /invoices/1
   # GET /invoices/1.json
   def show
+    @offer = @invoice.offer
+    @prices = Price.all
+    @regular_prices = @prices.where(:regular => true)
   end
 
   # GET /invoices/new

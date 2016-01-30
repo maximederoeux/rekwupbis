@@ -245,6 +245,13 @@ nl:
     edit: "Die onderhgandeld prijzen wijzigen"
     yours: "Uw onderhandeld prijzen"
 
+  invoice:
+    invoice: "Rekening"
+    credit: "Kreditnota"
+    date: "Document datum"
+    client: "Klant"
+    event: "Evenement"
+
   box:
     box_name: "Doosnaam"
     bigbox: "Grote doos"

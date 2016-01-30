@@ -38,94 +38,77 @@
 
   <% if offer.delivery.return_boxes.any? && offer.delivery.sortings.any? && offer.sortings.last.end_time.present? && offer.washes.last.end_time.present? && offer.delivery.gone_time.present? && offer.return_boxes.last.return_time.present? %>
 
-  <li class="list-group-item">
-    <div class="row">
+    <li class="list-group-item">
+      <div class="row">
 
-      <div class="col-md-2">
-        <%= offer.event.event_name %>
+        <div class="col-md-2">
+          <%= offer.event.event_name %>
+        </div>
+
+        <div class="col-md-2">
+          <%= offer.organizer.full_name %>
+        </div>
+
+        <div class="col-md-1 text-center">
+          <%= offer.delivery.gone_time.strftime("%d/%m/%Y") %>
+        </div>
+
+        <div class="col-md-1 text-center">
+          <%= offer.return_boxes.last.return_time.strftime("%d/%m/%Y") %>
+        </div>
+
+        <div class="col-md-1 text-center">
+          <%= offer.washes.count %>
+        </div>
+
+        <div class="col-md-1 text-center">
+          <%= offer.washes.last.end_time.strftime("%d/%m/%Y") %>
+        </div>
+
+        <div class="col-md-1 text-center">
+          <%= offer.sortings.count %>
+        </div>
+
+        <div class="col-md-1 text-center">
+          <%= offer.sortings.last.end_time.strftime("%d/%m/%Y") %>
+        </div>
+
+        <div class="col-md-2 text-center">
+
+          <% if Invoice.where(:offer_id => offer.id).any? %>
+
+            <% if Invoice.where(:offer_id => offer.id).first.doc_invoice %>
+              <%= t("invoice.invoice") %>
+            <% elsif Invoice.where(:offer_id => offer.id).first.doc_credit %>
+              <%= t("invoice.credit") %>
+            <% end %>
+              - <%= Invoice.where(:offer_id => offer.id).first.created_at.strftime("%Y") %> - <%= Invoice.where(:offer_id => offer.id).first.doc_number %>
+
+              <%= link_to invoice_path(Invoice.where(:offer_id => offer.id).first) do %>
+                <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+              <% end %>
+
+          <% else %>
+
+            <%= simple_form_for(@new_invoice) do |f| %>
+              <%= f.error_notification %>
+
+                <%= f.hidden_field :offer_id, :value => offer.id %>
+                <%= f.hidden_field :client_id, :value => offer.organizer.id %>
+                <%= f.hidden_field :doc_invoice, :value => true %>
+
+                <%= f.button :submit, class: "btn btn-info" %>
+
+            <% end %>
+
+          <% end %>
+
+        </div>
+
       </div>
-
-      <div class="col-md-2">
-        <%= offer.organizer.full_name %>
-      </div>
-
-      <div class="col-md-1 text-center">
-        <%= offer.delivery.gone_time.strftime("%d/%m/%Y") %>
-      </div>
-
-      <div class="col-md-1 text-center">
-        <%= offer.return_boxes.last.return_time.strftime("%d/%m/%Y") %>
-      </div>
-
-      <div class="col-md-1 text-center">
-        <%= offer.washes.count %>
-      </div>
-
-      <div class="col-md-1 text-center">
-        <%= offer.washes.last.end_time.strftime("%d/%m/%Y") %>
-      </div>
-
-      <div class="col-md-1 text-center">
-        <%= offer.sortings.count %>
-      </div>
-
-      <div class="col-md-1 text-center">
-        <%= offer.sortings.last.end_time.strftime("%d/%m/%Y") %>
-      </div>
-
-      <div class="col-md-2 text-center">
-
-        <%= simple_form_for(@new_invoice) do |f| %>
-          <%= f.error_notification %>
-
-            <%= f.hidden_field :offer_id, :value => offer.id %>
-            <%= f.hidden_field :client_id, :value => offer.organizer.id %>
-            <%= f.hidden_field :doc_invoice, :value => true %>
-
-            <%= f.button :submit, class: "btn btn-info" %>
-
-        <% end %>
-
-      </div>
-
-    </div>
-  </li>
+    </li>
+  <% end %>
+<% end %>
 </ul>
 
-  <hr>
-  Clean<br>
 
-  <% offer.sorting_details.clean.each do |detail| %>
-
-  <%= detail.article.full_name %>
-  <%= detail.total_cups %>
-
-  <%= detail.article.prices.last.washing if detail.article.prices.last.washing.present? %>
-
-  <%= detail.total_cups * detail.article.prices.last.washing if detail.article.prices.last.washing.present? %><br>
-
-  <% end %>
-
-  <hr>
-
-  <% offer.sorting_details.very_dirty.each do |detail| %>
-
-    <%= detail.article_id %>
-
-
-
-  <% end %>
-
-  <% end %>
-
-<% end %>
-
- <hr>
-<% @invoices.each do |invoice| %>
-
-<%= invoice.id %>
-<%= link_to invoice, method: :delete, data: { confirm: 'Are you sure?' } do %>
-<%= content_tag(:i, "", class: "fa fa-times btn btn-default") %>
-<% end %><br>
-
-<% end %>

@@ -245,6 +245,13 @@ en:
     edit: "Modify Negociated Prices"
     yours: "Your Negociated Prices"
 
+  invoice:
+    invoice: "Invoice"
+    credit: "Credit Note"
+    date: "Document Date"
+    client: "Client"
+    event: "Event"
+
   box:
     box_name: "Box Name"
     bigbox: "Big Box"
