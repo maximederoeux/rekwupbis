@@ -7,18 +7,19 @@
     Organizer <%= offer.organizer.full_name %><br>
 
 
-    Delivery date <%= offer.delivery.gone_time.strftime("%d/%m/%Y") if offer.delivery.gone_time.present? %><br>
+    Delivery date <%= offer.delivery.gone_time.strftime("%d/%m/%Y - %H:%M") if offer.delivery.gone_time.present? %><br>
 
 
-    Returns : <%= offer.delivery.return_boxes.count %><br>
+    Returns : <%= offer.return_boxes.count %><br>
 
-    Washes : <%= offer.delivery.washes.count %><br>
+    Washes : <%= offer.washes.count %><br>
 
-    End last Wash : <%= offer.delivery.washes.first.end_time.strftime("%d/%m/%Y") %><br>
+    End last Wash : <%= offer.washes.last.end_time.strftime("%d/%m/%Y - %H:%M") %><br>
 
-    Sortings : <%= offer.delivery.sortings.count %><br>
 
-    End last Sorting : <%= offer.delivery.sortings.first.end_time.strftime("%d/%m/%Y") %><br>
+    Sortings : <%= offer.sortings.count %><br>
+
+    End last Sorting : <%= offer.sortings.last.end_time.strftime("%d/%m/%Y - %H:%M") %><br>
 
 
   <hr>
