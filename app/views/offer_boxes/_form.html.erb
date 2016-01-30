@@ -10,10 +10,13 @@
 <%= simple_form_for(@offer_box) do |f| %>
   <%= f.error_notification %>
 
-<ul class="list-group">
-	<li class="list-group-item">
-		
-	  <div class="form-inputs">
+	<ul class="list-group">
+    <li class="list-group-item list-group-item-warning">
+			<strong><h5><%= t("box.edit_box")%></h5></strong>
+		</li>
+
+	<li class="list-group-item">	
+
 	  	<div class="row">
 	  		<div class="col-md-6">
 	  			<%= f.label :box_id %>
@@ -23,11 +26,18 @@
 	    		<%= f.input :quantity %>
 	    	</div>
 	  	</div>
- 		</div>
 
 	</li>
 </ul>
-  <div class="form-actions">
-    <%= f.submit t("menu.update"), class: "btn btn-lg btn-success" %>
-  </div>
+
+
+      <div class="row">
+
+      <div class="col-md-6">
+        <%= link_to t("menu.back"), offer_path(@offer), class: "btn btn-lg btn-block btn-default" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.submit t("menu.update"), class: "btn btn-lg btn-block btn-info" %>
+      </div>
+    </div>
 <% end %>
