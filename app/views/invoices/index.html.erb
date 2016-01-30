@@ -1,26 +1,96 @@
 
+<ul class="list-group">
+  <li class="list-group-item">
+    <div class="row">
+      <strong>
+        <div class="col-md-2">
+          <%= t("menu.events") %>
+        </div>
+
+        <div class="col-md-2 text-center">
+          <%= t("event.organizer") %>
+        </div>
+
+        <div class="col-md-1 text-center">
+          <%= t("return.delivery") %>
+        </div>
+
+        <div class="col-md-1 text-center">
+          <%= t("return.return") %>
+        </div>
+
+        <div class="col-md-2 text-center">
+          <%= t("menu.washes") %>
+        </div>
+
+        <div class="col-md-2 text-center">
+          <%= t("menu.sortings") %>
+        </div>
+
+        <div class="col-md-2 text-center">
+          
+        </div>
+      </strong>
+    </div>
+  </li>
+
 <% @confirmed.each do |offer| %>
 
-  <% if offer.delivery.return_boxes.any? && offer.delivery.sortings.any? && offer.sortings.last.end_time.present? && offer.washes.last.end_time.present? && offer.delivery.gone_time.present? %>
+  <% if offer.delivery.return_boxes.any? && offer.delivery.sortings.any? && offer.sortings.last.end_time.present? && offer.washes.last.end_time.present? && offer.delivery.gone_time.present? && offer.return_boxes.last.return_time.present? %>
 
-    Nom Event <%= offer.event.event_name %><br>
-    Organizer <%= offer.organizer.full_name %><br>
+  <li class="list-group-item">
+    <div class="row">
 
+      <div class="col-md-2">
+        <%= offer.event.event_name %>
+      </div>
 
-    Delivery date <%= offer.delivery.gone_time.strftime("%d/%m/%Y - %H:%M") %><br>
+      <div class="col-md-2">
+        <%= offer.organizer.full_name %>
+      </div>
 
+      <div class="col-md-1 text-center">
+        <%= offer.delivery.gone_time.strftime("%d/%m/%Y") %>
+      </div>
 
-    Returns : <%= offer.return_boxes.count %><br>
+      <div class="col-md-1 text-center">
+        <%= offer.return_boxes.last.return_time.strftime("%d/%m/%Y") %>
+      </div>
 
-    Washes : <%= offer.washes.count %><br>
+      <div class="col-md-1 text-center">
+        <%= offer.washes.count %>
+      </div>
 
-    End last Wash : <%= offer.washes.last.end_time.strftime("%d/%m/%Y - %H:%M") %><br>
+      <div class="col-md-1 text-center">
+        <%= offer.washes.last.end_time.strftime("%d/%m/%Y") %>
+      </div>
 
+      <div class="col-md-1 text-center">
+        <%= offer.sortings.count %>
+      </div>
 
-    Sortings : <%= offer.sortings.count %><br>
+      <div class="col-md-1 text-center">
+        <%= offer.sortings.last.end_time.strftime("%d/%m/%Y") %>
+      </div>
 
-    End last Sorting : <%= offer.sortings.last.end_time.strftime("%d/%m/%Y - %H:%M") %><br>
+      <div class="col-md-2 text-center">
 
+        <%= simple_form_for(@new_invoice) do |f| %>
+          <%= f.error_notification %>
+
+            <%= f.hidden_field :offer_id, :value => offer.id %>
+            <%= f.hidden_field :client_id, :value => offer.organizer.id %>
+            <%= f.hidden_field :doc_invoice, :value => true %>
+
+            <%= f.button :submit, class: "btn btn-info" %>
+
+        <% end %>
+
+      </div>
+
+    </div>
+  </li>
+</ul>
 
   <hr>
   Clean<br>
@@ -47,5 +117,15 @@
   <% end %>
 
   <% end %>
+
+<% end %>
+
+ <hr>
+<% @invoices.each do |invoice| %>
+
+<%= invoice.id %>
+<%= link_to invoice, method: :delete, data: { confirm: 'Are you sure?' } do %>
+<%= content_tag(:i, "", class: "fa fa-times btn btn-default") %>
+<% end %><br>
 
 <% end %>

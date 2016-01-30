@@ -80,7 +80,7 @@ class ReturnBoxesController < ApplicationController
     @return_box = ReturnBox.find(params[:id])
     respond_to do |format|
       if @return_box.update(return_box_params)
-        if @return_box.is_back && @return_box.is_controlled
+        if @return_box.send_wash
           Wash.create(:return_box_id => @return_box.id)
           Sorting.create(:return_box_id => @return_box.id)
           @return_box.delivery.offer.offer_boxes.each do |offer_box|
@@ -90,10 +90,8 @@ class ReturnBoxesController < ApplicationController
               end
             end
           end
-          if @return_box.send_wash
-            @return_box.return_details.where("clean > ?", 0).each do |detail|
-            Parcel.create(:return_box_id => @return_box.id, :box_id => detail.box_id, :quantity => detail.clean, :from_return => true)
-            end
+          @return_box.return_details.where("clean > ?", 0).each do |detail|
+          Parcel.create(:return_box_id => @return_box.id, :box_id => detail.box_id, :quantity => detail.clean, :from_return => true)
           end
         end
         format.html { redirect_to @return_box, notice: 'Return box was successfully updated.' }

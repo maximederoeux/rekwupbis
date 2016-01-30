@@ -7,6 +7,7 @@ class InvoicesController < ApplicationController
     @invoices = Invoice.all
     @confirmedoffers = Offer.where(:client_confirmation => true)
     @confirmed = @confirmedoffers.where(:admin_confirmation => true)
+    @new_invoice = Invoice.new
   end
 
   # GET /invoices/1
@@ -30,6 +31,13 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.save
+
+        if @invoice.doc_invoice
+          @invoice.update_attributes(:doc_number => @invoice.invoice_number)
+        elsif @invoice.doc_credit
+          @invoice.update_attributes(:doc_number => @invoice.credit_number)
+        end
+          
         format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
         format.json { render :show, status: :created, location: @invoice }
       else

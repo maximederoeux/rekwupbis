@@ -369,6 +369,7 @@ nl:
     return: "Terug"
     control: "Control"
     difference: "Er zijn dozen die niet evenaren voor "
+    delivery: "Levering"
 
 
   sorting:

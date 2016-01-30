@@ -369,6 +369,7 @@ fr:
     return: "Retour"
     control: "Contrôle"
     difference: "Il y a des caisses qui ne correspondent pas pour "
+    delivery: "Livraison"
 
 
   sorting:

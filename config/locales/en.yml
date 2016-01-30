@@ -371,6 +371,7 @@ en:
     return: "Return"
     control: "Control"
     difference: "There are boxes that do not match for "
+    delivery: "Delivery"
 
   sorting:
     start: "Start time"
