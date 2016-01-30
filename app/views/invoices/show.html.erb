@@ -12,8 +12,24 @@
     </h5></strong>
   </li>
   <li class="list-group-item">
-    <strong><%= t("invoice.client") %> :</strong>
+    <strong><%= t("invoice.client") %></strong>
       <%= @invoice.client.full_name %>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row text-center">
+      <div class="col-md-4">
+      <strong><%= t("invoice.event") %></strong><br>
+        <%= @invoice.offer.event.event_name %>
+    </div>
+    <div class="col-md-4">
+      <strong><%= t("event.event_start_date") %> :</strong><br>
+      <%= @invoice.offer.event.event_start_date.strftime("%d/%m/%Y") %>
+    </div>
+    <div class="col-md-4">
+      <strong><%= t("event.event_end_date") %> :</strong><br>
+      <%= @invoice.offer.event.event_end_date.strftime("%d/%m/%Y") %>
+    </div>
   </li>
 
     <li class="list-group-item">
