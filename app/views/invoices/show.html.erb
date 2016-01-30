@@ -16,12 +16,6 @@
       <%= @invoice.client.full_name %>
   </li>
 
-
-</ul>
- 
-
-<ul class="list-group">
-
     <li class="list-group-item">
     <div class="row">
       <strong>
@@ -48,7 +42,7 @@ Total HTVA
   Lavés
   </li>
 
-  <% @invoice.offer.sorting_details.clean.each do |detail| %>
+  <% @invoice.sorting_details.clean.each do |detail| %>
 
     <% unless detail.total_cups == 0 %>
 
@@ -80,7 +74,7 @@ Total HTVA
   Très sales - Lavage manuel
   </li>
 
-  <% @invoice.offer.sorting_details.very_dirty.each do |detail| %>
+  <% @invoice.sorting_details.very_dirty.each do |detail| %>
 
     <% unless detail.total_cups == 0 %>  
 
@@ -112,7 +106,7 @@ Total HTVA
   Cassés
   </li>
 
-  <% @invoice.offer.sorting_details.broken.each do |detail| %>
+  <% @invoice.sorting_details.broken.each do |detail| %>
 
     <% unless detail.total_cups == 0 %>  
 
@@ -145,7 +139,7 @@ Total HTVA
   Manutention
   </li>
 
-  <% @invoice.offer.sorting_details.handling.each do |detail| %>
+  <% @invoice.sorting_details.handling.each do |detail| %>
 
     <% unless detail.total_cups == 0 %>  
 
@@ -177,7 +171,7 @@ Total HTVA
   Autres frais
   </li>
 
-  <% @invoice.offer.offer_articles.each do |article| %>
+  <% @invoice.offer_articles.each do |article| %>
 
     <% unless article.quantity == 0 %>
 
@@ -217,10 +211,51 @@ Total HTVA
           </div>
         </div>
       </li>
-
     <% end %>
-
   <% end %>
+
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-md-4">
+          
+        </div>
+        <div class="col-md-2">
+          <strong>Total HTVA</strong>
+        </div>
+        <div class="col-md-2">
+          <strong><%= number_to_currency(@invoice.total_htva,:unit =>'€', :precision => 2) %></strong>
+        </div>
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-md-4">
+          
+        </div>
+        <div class="col-md-2">
+          <strong>TVA</strong>
+        </div>        
+        <div class="col-md-2">
+          <strong><%= number_to_currency(((@invoice.total_htva * 1.21) - @invoice.total_htva),:unit =>'€', :precision => 2) %></strong>
+        </div>
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-md-4">
+          
+        </div>
+        <div class="col-md-2">
+          <strong>Total TVAC</strong>
+        </div>
+        <div class="col-md-2">
+          <strong><%= number_to_currency((@invoice.total_htva * 1.21),:unit =>'€', :precision => 2) %></strong>
+        </div>
+      </div>
+    </li>
+
 
 </ul>
 
