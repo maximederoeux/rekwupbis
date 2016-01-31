@@ -1,5 +1,8 @@
 <% if user_signed_in? %>
   <li><%= link_to t("menu.edit_account"), edit_user_registration_path %></li>
+  <% if current_user.admin %>
+  <li><%= link_to t("user.your_profile"), user_path(current_user) %></li>
+  <% end %>
 <% else %>
   <li><%= link_to t("menu.sign_in"), new_user_session_path %></li>
   <li><%= link_to t("menu.sign_up"), new_user_registration_path %></li>

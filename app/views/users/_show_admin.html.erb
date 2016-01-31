@@ -119,19 +119,24 @@
       </div>
     </li>
 
-    <li class="list-group-item">
-      <div class="row">
-
-        <div class="col-md-6">
-          <strong><%= t("user.is_lln") %> : </strong><%= @user.is_lln %>
-        </div>
-
-        <div class="col-md-6">
-          <strong><%= t("user.lln_id") %> : </strong><%= @user.lln_id %>
-        </div>
-
-      </div>
+    <% if @user.is_lln %>
+    <li class="list-group-item list-group-item-warning">
+      <strong><%= t("user.is_lln") %></strong>
     </li>
+      <li class="list-group-item">
+        <div class="row">
+
+          <div class="col-md-6">
+            <strong><%= t("user.lln_id") %> : </strong><%= @user.lln_id %>
+          </div>
+
+          <div class="col-md-6">
+            
+          </div>
+
+        </div>
+      </li>
+    <% end %>
   
 </ul>
 

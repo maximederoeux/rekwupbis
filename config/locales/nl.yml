@@ -119,6 +119,9 @@ nl:
     phone: "Vast telefoonnummer"
     gsm: "GSM Nummer"
     no_status: "Zonder categorie"
+    is_lln: "GECO LLN"
+    lln_id: "LLN levering order"
+    surface: "LLN Surfaces"
 
   event:
     new_event: "  Nieuw evenement"

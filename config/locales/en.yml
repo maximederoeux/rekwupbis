@@ -120,6 +120,9 @@ en:
     phone: "Fixed phone"
     gsm: "Mobile phone"
     no_status: "No category"
+    is_lln: "GECO LLN"
+    lln_id: "LLN order delivery"
+    surface: "LLN Surfaces"
 
   event:
     new_event: "  New Event"

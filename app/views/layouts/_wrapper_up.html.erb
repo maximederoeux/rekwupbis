@@ -13,13 +13,10 @@
 
         <% if current_user.admin %>
           <li>
-            <a href="#"><%= link_to t("user.your_profile"), user_path(current_user) %></a>
-          </li>
-          <li>
             <a href="#"><%= link_to t("menu.users"), users_path %></a>
           </li>
           <li>
-            <a href="#"><%= link_to t("menu.lln"), lln_imports_path %></a>
+            <a href="#"><%= link_to t("user.is_lln"), lln_imports_path %></a>
           </li>
           <li>
             <a href="#"><%= link_to t("menu.events"), events_path %></a>
