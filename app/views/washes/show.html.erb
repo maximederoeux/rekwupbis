@@ -78,8 +78,8 @@
           <strong>
             <%= t("wash.delivery") %>
           </strong><br>
-          <%= @wash.return_box.delivery.gone_time.strftime("%d/%m/%Y") %><br>
-          <%= @wash.return_box.delivery.gone_time.strftime("%H:%M") %>
+          <%= @wash.return_box.delivery.gone_time.strftime("%d/%m/%Y") if @wash.return_box.delivery.gone_time.present? %><br>
+          <%= @wash.return_box.delivery.gone_time.strftime("%H:%M") if @wash.return_box.delivery.gone_time.present? %>
         </div>
 
         <div class="col-md-4">

@@ -13,9 +13,14 @@
           <div class="col-md-6">
             <strong><%= t("offer.boxes") %></strong>
           </div>
-          <div class="col-md-6">
-            <strong><%= t("sorting.sent_cups") %></strong>
-          </div>
+          
+            <div class="col-md-6">
+              <% if @sorting.return_box.delivery.offer.event.is_lln %>
+              <% else %>
+                <strong><%= t("sorting.sent_cups") %></strong>
+              <% end %>
+            </div>
+
         </div>
       </div>
 
@@ -60,7 +65,10 @@
                 <%= offer_box.quantity if offer_box.quantity %> <%= t("offer.boxes") %>
               </div>
               <div class="col-md-6">
-                <%= offer_box.quantity * offer_box.box.boxdetails.last.box_article_quantity %> <%= t("offer.cups") %><br>
+                <% if @sorting.return_box.delivery.offer.event.is_lln %>
+                <% else %>
+                  <%= offer_box.quantity * offer_box.box.boxdetails.last.box_article_quantity %> <%= t("offer.cups") %><br>
+                <% end %>
               </div>
             </div>
           </div>
@@ -68,7 +76,14 @@
           <div class="col-md-9">
             <div class="row">
               <div class="col-md-2">
-                <%= @sorting.return_details.where(:box_id => offer_box.box_id).sum("clean") * @sorting.return_details.where(:box_id => offer_box.box_id).last.box.boxdetails.last.box_article_quantity %>
+                <% if @sorting.return_details.where(:box_id => offer_box.box_id).any? %>
+
+                  <%= @sorting.return_details.where(:box_id => offer_box.box_id).sum("clean") * @sorting.return_details.where(:box_id => offer_box.box_id).last.box.boxdetails.last.box_article_quantity %>
+
+                <% else %>
+                  <%= 0 * 0 %>
+                <% end %>
+
               </div>  
               <div class="col-md-2">
                 <%= @sorting.global_clean_sum(offer_box.box.boxdetails.last.article) %>
@@ -85,7 +100,20 @@
               </div>
 
               <div class="col-md-2">
-                <%= (offer_box.quantity * offer_box.box.boxdetails.last.box_article_quantity) - @sorting.global_clean_sum(offer_box.box.boxdetails.last.article) - @sorting.global_very_dirty_sum(offer_box.box.boxdetails.last.article) - @sorting.global_handling_sum(offer_box.box.boxdetails.last.article) - (@sorting.return_details.where(:box_id => offer_box.box_id).sum("clean") * @sorting.return_details.where(:box_id => offer_box.box_id).last.box.boxdetails.last.box_article_quantity) %>
+
+                <% if @sorting.return_box.delivery.offer.event.is_lln %>
+                <% else %>
+
+                  <% if @sorting.return_details.where(:box_id => offer_box.box_id).any? %>
+
+                    <%= (offer_box.quantity * offer_box.box.boxdetails.last.box_article_quantity) - @sorting.global_clean_sum(offer_box.box.boxdetails.last.article) - @sorting.global_very_dirty_sum(offer_box.box.boxdetails.last.article) - @sorting.global_handling_sum(offer_box.box.boxdetails.last.article) - (@sorting.return_details.where(:box_id => offer_box.box_id).sum("clean") * @sorting.return_details.where(:box_id => offer_box.box_id).last.box.boxdetails.last.box_article_quantity) %>
+
+                  <% else %>
+
+                    <%= (offer_box.quantity * offer_box.box.boxdetails.last.box_article_quantity) - @sorting.global_clean_sum(offer_box.box.boxdetails.last.article) - @sorting.global_very_dirty_sum(offer_box.box.boxdetails.last.article) - @sorting.global_handling_sum(offer_box.box.boxdetails.last.article) %>
+
+                  <% end %>
+                <% end %>
               </div>
 
             </div>

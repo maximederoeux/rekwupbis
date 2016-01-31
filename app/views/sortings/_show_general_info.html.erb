@@ -61,12 +61,12 @@
 
   		<div class="col-md-4">
         <strong><%= t("sorting.delivery") %></strong><br>    
-				<%= @sorting.return_box.delivery.gone_time.strftime("%d/%m/%Y") %>
+				<%= @sorting.return_box.delivery.gone_time.strftime("%d/%m/%Y") if @sorting.return_box.delivery.gone_time.present? %>
   		</div>
 
   		<div class="col-md-4">
         <strong><%= t("sorting.return") %></strong><br>  
-				<%= @sorting.return_box.return_time.strftime("%d/%m/%Y") %>
+				<%= @sorting.return_box.return_time.strftime("%d/%m/%Y") if @sorting.return_box.return_time.present? %>
   		</div>
 
   		<div class="col-md-4">

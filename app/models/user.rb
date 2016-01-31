@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 
 	scope :client, lambda {where(:client => true)}
 	scope :is_lln, lambda {where(:is_lln => true)}
+	scope :not_lln, lambda {where(:is_lln => nil)}
 
 	def full_name
 		"#{first_name} #{name}"
