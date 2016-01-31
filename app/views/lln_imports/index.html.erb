@@ -10,6 +10,7 @@
       <th>empty_box</th>
       <th>kpt_box</th>
       <th>return_box</th>
+      <th>total delivery<th>
 
     </tr>
   </thead>
@@ -30,6 +31,31 @@
         <td><%= lln_import.empty_box %></td>
         <td><%= lln_import.kpt_box %></td>
         <td><%= lln_import.return_box %></td>
+        <td><%= lln_import.total_delivery %></td>
+        <td><%= lln_import.current_year %></td>
+        <td>
+	   				<% if lln_import.total_delivery >= 1 %>
+
+	  					<%= simple_form_for(@new_offer) do |f| %>
+              	<%= f.error_notification %>
+
+			          <%= f.hidden_field :event_id, :value => Event.is_lln.where(:lln_year => lln_import.current_year).last.id %>
+			          <%= f.hidden_field :organizer_id, :value => User.is_lln.where(:lln_id => lln_import.id).last.id %>
+			          <%= f.hidden_field :client_confirmation, :value => true %>
+			          <%= f.hidden_field :admin_confirmation, :value => true %>
+			          <%= f.hidden_field :lln_daily, :value => true %>
+
+								<%= f.button :submit, class: "btn btn-success" %><br>
+
+							<% end %>
+
+						<% end %>
+
+        </td>
+
+
+
+
       </tr>
     <% end %>
   </tbody>
@@ -41,3 +67,5 @@
     <%= submit_tag "Import CSV" %>
   <% end %>
 </div>
+
+ 

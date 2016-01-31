@@ -18,31 +18,33 @@ class Offer < ActiveRecord::Base
 	scope :last_month, lambda {where(:updated_at => (30.days.ago.beginning_of_day..Date.today.end_of_day))}
 
 	def automatic
-		offer_articles.create(:offer_id => id, :article_id => "12", :quantity => "1")
-	  if event.cuptwenty
-	  offer_boxes.create(:offer_id => id, :box_id => "1", :quantity => estimated_20_boxes)
-	  end
-	  if event.cuptwentyfive
-	  offer_boxes.create(:offer_id => id, :box_id => "2", :quantity => estimated_25_boxes)
-	  end
-	  if event.cupforty
-	  offer_boxes.create(:offer_id => id, :box_id => "3", :quantity => estimated_40_boxes)
-	  end
-	  if event.cupfifty
-	  offer_boxes.create(:offer_id => id, :box_id => "4", :quantity => estimated_50_boxes)
-	  end
-	  if event.cuplitre
-	  offer_boxes.create(:offer_id => id, :box_id => "5", :quantity => estimated_100_boxes)
-	  end        
-	  if event.cupcava
-	  offer_boxes.create(:offer_id => id, :box_id => "6", :quantity => estimated_cava_boxes)
-	  end
-	  if event.cupwine
-	  offer_boxes.create(:offer_id => id, :box_id => "7", :quantity => estimated_wine_boxes)
-	  end
-	  if event.cupshot
-	  offer_boxes.create(:offer_id => id, :box_id => "8", :quantity => estimated_shot_boxes)
-	  end
+		if lln_daily.blank?
+			offer_articles.create(:offer_id => id, :article_id => "12", :quantity => "1")
+		  if event.cuptwenty
+		  offer_boxes.create(:offer_id => id, :box_id => "1", :quantity => estimated_20_boxes)
+		  end
+		  if event.cuptwentyfive
+		  offer_boxes.create(:offer_id => id, :box_id => "2", :quantity => estimated_25_boxes)
+		  end
+		  if event.cupforty
+		  offer_boxes.create(:offer_id => id, :box_id => "3", :quantity => estimated_40_boxes)
+		  end
+		  if event.cupfifty
+		  offer_boxes.create(:offer_id => id, :box_id => "4", :quantity => estimated_50_boxes)
+		  end
+		  if event.cuplitre
+		  offer_boxes.create(:offer_id => id, :box_id => "5", :quantity => estimated_100_boxes)
+		  end        
+		  if event.cupcava
+		  offer_boxes.create(:offer_id => id, :box_id => "6", :quantity => estimated_cava_boxes)
+		  end
+		  if event.cupwine
+		  offer_boxes.create(:offer_id => id, :box_id => "7", :quantity => estimated_wine_boxes)
+		  end
+		  if event.cupshot
+		  offer_boxes.create(:offer_id => id, :box_id => "8", :quantity => estimated_shot_boxes)
+		  end
+		end
 	end
 
 	def event_name

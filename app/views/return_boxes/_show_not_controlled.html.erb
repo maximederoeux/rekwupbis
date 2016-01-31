@@ -2,7 +2,12 @@
       <li class="list-group-item">
 
         <strong>
-          <%= t("return.reference") %><%= @return_box.id %> <%= t("word.from") %> <%= @return_box.offer.event.event_name %>    
+          <%= t("return.reference") %><%= @return_box.id %> <%= t("word.from") %> <%= @return_box.offer.event.event_name %><br>
+
+              <% if @return_box.delivery.offer.organizer.is_lln %>
+                <%= @return_box.delivery.offer.organizer.name %><br>
+              <% end %>
+
         </strong>
       </li>
 

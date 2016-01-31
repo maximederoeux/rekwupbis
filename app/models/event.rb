@@ -11,4 +11,5 @@ class Event < ActiveRecord::Base
 	validates :city, presence: true
 	validates :post_code, presence: true
 
+	scope :is_lln, lambda {where(:is_lln => true)}
 end

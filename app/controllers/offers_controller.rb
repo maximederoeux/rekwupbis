@@ -89,6 +89,29 @@ class OffersController < ApplicationController
     respond_to do |format|
       if @offer.save
         @offer.automatic
+        if @offer.lln_daily
+          Delivery.create(:offer_id => @offer.id, :delivery_date => Date.today + 1.day, :return_date => Date.today + 1.day)
+          LlnImport.where(:id => @offer.organizer.lln_id).each do |import|
+
+            if import.lln_twentyfive >= 1
+              OfferBox.create(:offer_id => @offer.id, :box_id => Box.twentyfive.first.id, :quantity => import.lln_twentyfive)
+            end
+
+            if import.lln_fifty >= 1
+              OfferBox.create(:offer_id => @offer.id, :box_id => Box.fifty.first.id, :quantity => import.lln_fifty)
+            end
+
+            if import.lln_litre >= 1
+              OfferBox.create(:offer_id => @offer.id, :box_id => Box.litre.first.id, :quantity => import.lln_litre)
+            end
+
+            if import.return_box >= 1
+              ReturnBox.create(:delivery_id => Delivery.where(:offer_id => @offer.id).last.id, :return_date => Date.today + 1.day)
+              ReturnDetail.create(:return_box_id => ReturnBox.last.id, :box_id => Box.twentyfive.first.id)
+            end
+
+          end
+        end
         format.html { redirect_to @offer, notice: 'Offer was successfully created.' }
         format.json { render :show, status: :created, location: @offer }
       else
@@ -137,6 +160,6 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:event_id, :organizer_id, :client_confirmation, :admin_confirmation, :send_email)
+      params.require(:offer).permit(:event_id, :organizer_id, :client_confirmation, :admin_confirmation, :send_email, :lln_daily)
     end
 end

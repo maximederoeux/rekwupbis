@@ -171,6 +171,21 @@
     </div>
         </div>
       </li>
+
+      <% if current_user.admin %>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+          <%= f.input :is_lln %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :lln_year %>
+          </div>
+        </div>
+      </li>
+
+      <% end %>
       
       <li class="list-group-item">
         <div class="row">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160131105042) do
+ActiveRecord::Schema.define(version: 20160131134159) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -47,12 +47,15 @@ ActiveRecord::Schema.define(version: 20160131105042) do
     t.boolean  "box_regular"
     t.string   "box_type"
     t.integer  "box_detail_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.boolean  "bigbox"
     t.boolean  "smallbox"
     t.boolean  "box_is_full"
     t.boolean  "mixed"
+    t.boolean  "lln_twentyfive"
+    t.boolean  "lln_fifty"
+    t.boolean  "lln_litre"
   end
 
   create_table "deliveries", force: :cascade do |t|
@@ -165,6 +168,7 @@ ActiveRecord::Schema.define(version: 20160131105042) do
     t.boolean  "client_confirmation"
     t.boolean  "admin_confirmation"
     t.boolean  "send_email"
+    t.boolean  "lln_daily"
   end
 
   create_table "parcels", force: :cascade do |t|

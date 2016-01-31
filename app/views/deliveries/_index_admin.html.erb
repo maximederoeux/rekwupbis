@@ -21,6 +21,10 @@
 	      	
 			          <strong>
 			            <%= delivery.offer.event.event_name %><br>
+			            <% if delivery.offer.organizer.is_lln %>
+			            <%= delivery.offer.organizer.name %><br>
+			            <% end %>
+
 
 			            	<%= link_to delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-eye") %>
@@ -31,7 +35,8 @@
 				            <% end %>
 			            <br>
 			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
-			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+			            <%= delivery.total_boxes %> <%= t("menu.boxes") %>
+
 			          </strong>
 								</li>
 	        	<% end %>
@@ -51,6 +56,9 @@
       	
 			          <strong>
 			            <%= delivery.offer.event.event_name %><br>
+			            <% if delivery.offer.organizer.is_lln %>
+			            <%= delivery.offer.organizer.name %><br>
+			            <% end %>
 
 			            	<%= link_to delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-eye") %>
@@ -84,6 +92,9 @@
       	
 			          <strong>
 			            <%= delivery.offer.event.event_name %><br>
+				            <% if delivery.offer.organizer.is_lln %>
+				            	<%= delivery.offer.organizer.name %><br>
+				            <% end %>
 			            
 			            	<%= link_to delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-eye") %>
@@ -114,7 +125,10 @@
       	
 			          <strong>
 			            <%= delivery.offer.event.event_name %><br>
-			            
+				            <% if delivery.offer.organizer.is_lln %>
+				            	<%= delivery.offer.organizer.name %><br>
+				            <% end %>
+
 			            	<%= link_to delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-eye") %>
 				            <% end %>			            
@@ -156,7 +170,10 @@
 		      	
 				          <strong>
 			            <%= delivery.offer.event.event_name %><br>
-			            
+				            <% if delivery.offer.organizer.is_lln %>
+				            	<%= delivery.offer.organizer.name %><br>
+				            <% end %>
+
 			            	<%= link_to delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-eye") %>
 				            <% end %>			            
@@ -186,7 +203,10 @@
 	      	
 				          <strong>
 			            <%= delivery.offer.event.event_name %><br>
-			            
+				            <% if delivery.offer.organizer.is_lln %>
+				            	<%= delivery.offer.organizer.name %><br>
+				            <% end %>
+
 			            	<%= link_to delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-eye") %>
 				            <% end %>			            
@@ -219,7 +239,10 @@
 	      	
 				          <strong>
 			            <%= delivery.offer.event.event_name %><br>
-			            
+				            <% if delivery.offer.organizer.is_lln %>
+				            	<%= delivery.offer.organizer.name %><br>
+				            <% end %>
+
 			            	<%= link_to delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-eye") %>
 				            <% end %>			            
@@ -249,7 +272,10 @@
 	      	
 				          <strong>
 			            <%= delivery.offer.event.event_name %><br>
-			            
+				            <% if delivery.offer.organizer.is_lln %>
+				            	<%= delivery.offer.organizer.name %><br>
+				            <% end %>
+
 			            	<%= link_to delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-eye") %>
 				            <% end %>			            
@@ -291,7 +317,10 @@
 		      	
 				          <strong>
 			            <%= delivery.offer.event.event_name %><br>
-			            
+				            <% if delivery.offer.organizer.is_lln %>
+				            	<%= delivery.offer.organizer.name %><br>
+				            <% end %>
+
 			            	<%= link_to delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-eye") %>
 				            <% end %>			            
@@ -322,7 +351,10 @@
 	      	
 				          <strong>
 			            <%= delivery.offer.event.event_name %><br>
-			            
+				            <% if delivery.offer.organizer.is_lln %>
+				            	<%= delivery.offer.organizer.name %><br>
+				            <% end %>
+
 			            	<%= link_to delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-eye") %>
 				            <% end %>			            
@@ -356,7 +388,10 @@
 	      	
 				          <strong>
 			            <%= delivery.offer.event.event_name %><br>
-			            
+				            <% if delivery.offer.organizer.is_lln %>
+				            	<%= delivery.offer.organizer.name %><br>
+				            <% end %>
+
 			            	<%= link_to delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-eye") %>
 				            <% end %>			            
@@ -387,7 +422,10 @@
 	      	
 				          <strong>
 			            <%= delivery.offer.event.event_name %><br>
-			            
+				            <% if delivery.offer.organizer.is_lln %>
+				            	<%= delivery.offer.organizer.name %><br>
+				            <% end %>
+
 			            	<%= link_to delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-eye") %>
 				            <% end %>			            
@@ -419,7 +457,10 @@
 	      	
 				          <strong>
 			            <%= delivery.offer.event.event_name %><br>
-			            
+				            <% if delivery.offer.organizer.is_lln %>
+				            	<%= delivery.offer.organizer.name %><br>
+				            <% end %>
+
 			            	<%= link_to delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-eye") %>
 				            <% end %>			            
@@ -447,7 +488,10 @@
 	      	
 				          <strong>
 			            <%= delivery.offer.event.event_name %><br>
-			            
+				            <% if delivery.offer.organizer.is_lln %>
+				            	<%= delivery.offer.organizer.name %><br>
+				            <% end %>
+
 			            	<%= link_to delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-eye") %>
 				            <% end %>			            
@@ -475,7 +519,10 @@
 	      	
 				          <strong>
 			            <%= delivery.offer.event.event_name %><br>
-			            
+				            <% if delivery.offer.organizer.is_lln %>
+				            	<%= delivery.offer.organizer.name %><br>
+				            <% end %>
+				            			            
 			            	<%= link_to delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-eye") %>
 				            <% end %>			            

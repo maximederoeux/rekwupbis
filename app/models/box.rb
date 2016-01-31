@@ -11,6 +11,9 @@ class Box < ActiveRecord::Base
   has_many :parcels
 
   scope :closed, lambda {where(:box_is_full => true)}
+  scope :twentyfive, lambda {where(:lln_twentyfive => true)}
+  scope :fifty, lambda {where(:lln_fifty => true)}
+  scope :litre, lambda {where(:lln_litre => true)}
 
 	def automatic
       boxdetails.create(:box_id => id, :article_id => "11", :box_article_quantity => "1")

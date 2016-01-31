@@ -21,6 +21,9 @@
           
                 <strong>
                   <%= return_box.delivery.offer.event.event_name %><br>
+                    <% if return_box.delivery.offer.organizer.is_lln %>
+                      <%= return_box.delivery.offer.organizer.name %><br>
+                    <% end %>
 
                     <%= link_to return_box_path(return_box) do %>
                       <%= content_tag(:i, "", class: "fa fa-eye") %>
@@ -51,6 +54,9 @@
         
                 <strong>
                   <%= return_box.delivery.offer.event.event_name %><br>
+                    <% if return_box.delivery.offer.organizer.is_lln %>
+                      <%= return_box.delivery.offer.organizer.name %><br>
+                    <% end %>
 
                     <%= link_to return_box_path(return_box) do %>
                       <%= content_tag(:i, "", class: "fa fa-eye") %>
@@ -84,7 +90,10 @@
         
                 <strong>
                   <%= return_box.delivery.offer.event.event_name %><br>
-                  
+                    <% if return_box.delivery.offer.organizer.is_lln %>
+                      <%= return_box.delivery.offer.organizer.name %><br>
+                    <% end %>
+
                     <%= link_to return_box_path(return_box) do %>
                       <%= content_tag(:i, "", class: "fa fa-eye") %>
                     <% end %>                 
@@ -114,7 +123,10 @@
         
                 <strong>
                   <%= return_box.delivery.offer.event.event_name %><br>
-                  
+                    <% if return_box.delivery.offer.organizer.is_lln %>
+                      <%= return_box.delivery.offer.organizer.name %><br>
+                    <% end %>
+                                      
                     <%= link_to return_box_path(return_box) do %>
                       <%= content_tag(:i, "", class: "fa fa-eye") %>
                     <% end %>                 
