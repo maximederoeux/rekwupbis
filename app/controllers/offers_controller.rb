@@ -105,6 +105,14 @@ class OffersController < ApplicationController
               OfferBox.create(:offer_id => @offer.id, :box_id => Box.litre.first.id, :quantity => import.lln_litre)
             end
 
+            if import.empty_box >= 1
+              OfferBox.create(:offer_id => @offer.id, :box_id => Box.empty_box.first.id, :quantity => import.empty_box)
+            end
+
+            if import.kpt_box >= 1
+              OfferBox.create(:offer_id => @offer.id, :box_id => Box.kpt_box.first.id, :quantity => import.kpt_box)
+            end
+
             if import.return_box >= 1
               ReturnBox.create(:delivery_id => Delivery.where(:offer_id => @offer.id).last.id, :return_date => Date.today + 1.day)
               ReturnDetail.create(:return_box_id => ReturnBox.last.id, :box_id => Box.twentyfive.first.id)

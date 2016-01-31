@@ -14,12 +14,14 @@ class Box < ActiveRecord::Base
   scope :twentyfive, lambda {where(:lln_twentyfive => true)}
   scope :fifty, lambda {where(:lln_fifty => true)}
   scope :litre, lambda {where(:lln_litre => true)}
+  scope :empty_box, lambda {where(:empty_box => true)}
+  scope :kpt_box, lambda {where(:kpt_box => true)}
 
 	def automatic
       boxdetails.create(:box_id => id, :article_id => "11", :box_article_quantity => "1")
     if bigbox
       boxdetails.create(:box_id => id, :article_id => "9", :box_article_quantity => "1")
-    elsif @box.smallbox
+    elsif smallbox
       boxdetails.create(:box_id => id, :article_id => "10", :box_article_quantity => "1")
     end
 	end

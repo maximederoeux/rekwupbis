@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160131134159) do
+ActiveRecord::Schema.define(version: 20160131164203) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -56,6 +56,9 @@ ActiveRecord::Schema.define(version: 20160131134159) do
     t.boolean  "lln_twentyfive"
     t.boolean  "lln_fifty"
     t.boolean  "lln_litre"
+    t.boolean  "empty"
+    t.boolean  "empty_box"
+    t.boolean  "kpt_box"
   end
 
   create_table "deliveries", force: :cascade do |t|

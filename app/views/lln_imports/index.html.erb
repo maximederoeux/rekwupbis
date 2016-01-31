@@ -1,71 +1,113 @@
-
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Circle</th>
-      <th>lln_twentyfive</th>
-      <th>lln_fifty</th>
-      <th>lln_litre</th>
-      <th>empty_box</th>
-      <th>kpt_box</th>
-      <th>return_box</th>
-      <th>total delivery<th>
-
-    </tr>
-  </thead>
-  <tbody>
+<ul class="list-group">
+  <li class="list-group-item list-group-item-warning">
+    <strong>
+      <div class="row text-center">
+        <div class="col-md-1">
+          Id
+        </div>
+        <div class="col-md-2">
+        Circle
+        </div>
+        <div class="col-md-1">
+        lln_twentyfive
+        </div>
+        <div class="col-md-1">
+        lln_fifty
+        </div>
+        <div class="col-md-1">
+        lln_litre
+        </div>
+        <div class="col-md-1">
+        empty_box
+        </div>
+        <div class="col-md-1">
+        kpt_box
+        </div>
+        <div class="col-md-1">
+        return_box
+        </div>
+        <div class="col-md-3">
+        </div>
+      </div>
+    </strong>
+  </li>
     <% @lln_imports.each do |lln_import| %>
-      <tr>
-        <td><%= lln_import.id %>
 
-        <%= link_to lln_import, method: :delete, data: { confirm: 'Are you sure?' } do %>
-				<%= content_tag(:i, "", class: "fa fa-times btn btn-xs btn-default pull-right") %>
-				<% end %>
+  <li class="list-group-item ">
+    <strong>
+      <div class="row text-center">
+        <div class="col-md-1">
+          <%= lln_import.id %>
+        </div>
+        <div class="col-md-2">
+        <%= lln_import.circle %>
+        </div>
+        <div class="col-md-1">
+        <%= lln_import.lln_twentyfive %>
+        </div>
+        <div class="col-md-1">
+        <%= lln_import.lln_fifty %>
+        </div>
+        <div class="col-md-1">
+        <%= lln_import.lln_litre %>
+        </div>
+        <div class="col-md-1">
+        <%= lln_import.empty_box %>
+        </div>
+        <div class="col-md-1">
+        <%= lln_import.kpt_box %>
+        </div>
+        <div class="col-md-1">
+        <%= lln_import.return_box %>
+        </div>
+        <div class="col-md-3">
 
-			</td>
-        <td><%= lln_import.circle %></td>
-        <td><%= lln_import.lln_twentyfive %></td>
-        <td><%= lln_import.lln_fifty %></td>
-        <td><%= lln_import.lln_litre %></td>
-        <td><%= lln_import.empty_box %></td>
-        <td><%= lln_import.kpt_box %></td>
-        <td><%= lln_import.return_box %></td>
-        <td><%= lln_import.total_delivery %></td>
-        <td><%= lln_import.current_year %></td>
-        <td>
-	   				<% if lln_import.total_delivery >= 1 %>
+            <% if lln_import.grand_total >= 1 %>
 
-	  					<%= simple_form_for(@new_offer) do |f| %>
-              	<%= f.error_notification %>
+              <%= simple_form_for(@new_offer) do |f| %>
+                <%= f.error_notification %>
 
-			          <%= f.hidden_field :event_id, :value => Event.is_lln.where(:lln_year => lln_import.current_year).last.id %>
-			          <%= f.hidden_field :organizer_id, :value => User.is_lln.where(:lln_id => lln_import.id).last.id %>
-			          <%= f.hidden_field :client_confirmation, :value => true %>
-			          <%= f.hidden_field :admin_confirmation, :value => true %>
-			          <%= f.hidden_field :lln_daily, :value => true %>
+                <%= f.hidden_field :event_id, :value => Event.is_lln.where(:lln_year => lln_import.current_year).last.id %>
+                <%= f.hidden_field :organizer_id, :value => User.is_lln.where(:lln_id => lln_import.id).last.id %>
+                <%= f.hidden_field :client_confirmation, :value => true %>
+                <%= f.hidden_field :admin_confirmation, :value => true %>
+                <%= f.hidden_field :lln_daily, :value => true %>
 
-								<%= f.button :submit, class: "btn btn-success" %><br>
+                <%= f.button :submit, class: "btn btn-success" %><br>
 
-							<% end %>
+              <% end %>
 
-						<% end %>
-
-        </td>
+            <% end %>
 
 
-
-
-      </tr>
+        </div>
+      </div>
+    </strong>
+  </li>
+        
     <% end %>
-  </tbody>
-</table>
-<div>
-<h3>Import a CSV File</h3>
+
+</ul>
+
+
+
+<ul class="list-group">
+  <li class="list-group-item list-group-item-warning">
+    Import a CSV File
+  </li>
+
   <%= form_tag import_lln_imports_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import CSV" %>
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-md-6">
+        <%= file_field_tag :file %>
+      </div>
+      <div class="col-md-6">
+      <%= submit_tag "Import CSV", class: "btn btn-block btn-info" %>
+      </div>
+    </div>
+  </li>
   <% end %>
-</div>
+</ul>
 
  

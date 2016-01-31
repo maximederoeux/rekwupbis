@@ -18,6 +18,10 @@ class LlnImport < ActiveRecord::Base
 
 
   def total_delivery
+    lln_twentyfive + lln_fifty + lln_litre + empty_box + kpt_box
+  end
+
+  def grand_total
     lln_twentyfive + lln_fifty + lln_litre + empty_box + kpt_box + return_box
   end
 
