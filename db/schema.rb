@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129113055) do
+ActiveRecord::Schema.define(version: 20160131105042) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -104,6 +104,8 @@ ActiveRecord::Schema.define(version: 20160129113055) do
     t.boolean  "is_complete"
     t.integer  "bar"
     t.integer  "beertap"
+    t.boolean  "is_lln"
+    t.integer  "lln_year"
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -114,6 +116,18 @@ ActiveRecord::Schema.define(version: 20160129113055) do
     t.boolean  "doc_credit"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "lln_imports", force: :cascade do |t|
+    t.string   "circle"
+    t.integer  "lln_twentyfive"
+    t.integer  "lln_fifty"
+    t.integer  "lln_litre"
+    t.integer  "empty_box"
+    t.integer  "kpt_box"
+    t.integer  "return_box"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "negociated_prices", force: :cascade do |t|
@@ -263,6 +277,8 @@ ActiveRecord::Schema.define(version: 20160129113055) do
     t.string   "phone"
     t.string   "gsm"
     t.string   "city"
+    t.boolean  "is_lln"
+    t.integer  "lln_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

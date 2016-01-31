@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  circle: MyString
+  lln_twentyfive: 1
+  lln_fifty: 1
+  lln_litre: 1
+  empty_box: 1
+  kpt_box: 1
+  return_box: 1
+
+two:
+  circle: MyString
+  lln_twentyfive: 1
+  lln_fifty: 1
+  lln_litre: 1
+  empty_box: 1
+  kpt_box: 1
+  return_box: 1

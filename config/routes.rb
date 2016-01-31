@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'lln_imports/index'
+
+  get 'lln_imports/import'
+
   resources :invoices
   resources :prices
   resources :parcels
@@ -19,4 +23,9 @@ Rails.application.routes.draw do
   root to: 'visitors#index'
   devise_for :users
   resources :users
+
+  resources :lln_imports do
+    collection {post :import}
+  end
+  
 end
