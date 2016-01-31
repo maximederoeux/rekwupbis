@@ -115,7 +115,7 @@ class OffersController < ApplicationController
 
             if import.return_box >= 1
               ReturnBox.create(:delivery_id => Delivery.where(:offer_id => @offer.id).last.id, :return_date => Date.today + 1.day)
-              ReturnDetail.create(:return_box_id => ReturnBox.last.id, :box_id => Box.twentyfive.first.id)
+              ReturnDetail.create(:return_box_id => ReturnBox.last.id, :box_id => Box.twentyfive.first.id, :dirty => import.return_box)
             end
 
           end
