@@ -16,6 +16,7 @@ class Offer < ActiveRecord::Base
 	has_many :invoices
 
 	scope :last_month, lambda {where(:updated_at => (30.days.ago.beginning_of_day..Date.today.end_of_day))}
+	scope :this_day, lambda {where(:updated_at => Date.today.beginning_of_day..Date.today.end_of_day)}
 
 	def automatic
 		if lln_daily.blank?

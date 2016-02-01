@@ -62,6 +62,10 @@
         </div>
         <div class="col-md-3">
 
+          <% if Offer.this_day.where(:organizer_id => User.is_lln.where(:lln_id => lln_import.id)).any? %>
+            <% Offer.this_day.where(:organizer_id => User.is_lln.where(:lln_id => lln_import.id)).last.organizer.name %>
+          <% else %>
+
             <% if lln_import.grand_total >= 1 %>
 
               <%= simple_form_for(@new_offer) do |f| %>
@@ -79,7 +83,7 @@
 
             <% end %>
 
-
+          <% end %>
         </div>
       </div>
     </strong>
