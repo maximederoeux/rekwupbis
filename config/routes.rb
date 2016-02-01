@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :energies
   get 'lln_imports/index'
 
   get 'lln_imports/import'

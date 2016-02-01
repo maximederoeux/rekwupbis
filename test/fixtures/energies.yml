@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  water: 9.99
+  gaz: 9.99
+  electricity: 9.99
+
+two:
+  water: 9.99
+  gaz: 9.99
+  electricity: 9.99

@@ -51,41 +51,64 @@
           <li>
             <a href="#"><%= link_to t("menu.boxes"), boxes_path %></a>
           </li>
+          <li>
+            <a href="#"><%= link_to t("menu.energy"), energies_path %></a>
+          </li>
 
         <% end %>
 
         <% if current_user.staff %>
 
-          <li>
-            <a href="#"><%= link_to t("user.your_profile"), user_path(current_user) %></a>
-          </li>
-          <li>
-            <a href="#"><%= link_to t("menu.users"), users_path %></a>
-          </li>
-          <li>
-            <a href="#"><%= link_to t("menu.events"), events_path %></a>
-          </li>
-          <li>
-            <a href="#"><%= link_to t("menu.deliveries"), deliveries_path %></a>
-          </li>
-          <li>
-            <a href="#"><%= link_to t("menu.returns"), return_boxes_path %></a>
-          </li>
-          <li>
-            <a href="#"><%= link_to t("menu.washes"), washes_path %></a>
-          </li>
-          <li>
-            <a href="#"><%= link_to t("menu.sortings"), sortings_path %></a>
-          </li>
-          <li>
-            <a href="#"><%= link_to t("menu.parcels"), parcels_path %></a>
-          </li>
-          <li>
-            <a href="#"><%= link_to t("menu.articles"), articles_path %></a>
-          </li>
-          <li>
-            <a href="#"><%= link_to t("menu.boxes"), boxes_path %></a>
-          </li>
+          <% if Energy.any? %>
+
+            <% if Energy.last.created_at <= Date.today %>
+
+              <li>
+                <a href="#"><%= link_to t("menu.energy"), energies_path %></a>
+              </li>
+
+            <% else %>
+
+              <li>
+                <a href="#"><%= link_to t("user.your_profile"), user_path(current_user) %></a>
+              </li>
+              <li>
+                <a href="#"><%= link_to t("menu.users"), users_path %></a>
+              </li>
+              <li>
+                <a href="#"><%= link_to t("menu.events"), events_path %></a>
+              </li>
+              <li>
+                <a href="#"><%= link_to t("menu.deliveries"), deliveries_path %></a>
+              </li>
+              <li>
+                <a href="#"><%= link_to t("menu.returns"), return_boxes_path %></a>
+              </li>
+              <li>
+                <a href="#"><%= link_to t("menu.washes"), washes_path %></a>
+              </li>
+              <li>
+                <a href="#"><%= link_to t("menu.sortings"), sortings_path %></a>
+              </li>
+              <li>
+                <a href="#"><%= link_to t("menu.parcels"), parcels_path %></a>
+              </li>
+              <li>
+                <a href="#"><%= link_to t("menu.articles"), articles_path %></a>
+              </li>
+              <li>
+                <a href="#"><%= link_to t("menu.boxes"), boxes_path %></a>
+              </li>
+
+            <% end %>
+
+          <% else %>
+
+              <li>
+                <a href="#"><%= link_to t("menu.energy"), energies_path %></a>
+              </li>
+
+          <% end %>
 
         <% end %>
 
