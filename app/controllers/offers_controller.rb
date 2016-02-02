@@ -119,9 +119,13 @@ class OffersController < ApplicationController
             end
 
           end
+
+          format.html { redirect_to :back, notice: 'Offer was successfully created.' }
+          format.json { render :show, status: :created, location: @offer }
+        else
+          format.html { redirect_to @offer, notice: 'Offer was successfully created.' }
+          format.json { render :show, status: :created, location: @offer }
         end
-        format.html { redirect_to @offer, notice: 'Offer was successfully created.' }
-        format.json { render :show, status: :created, location: @offer }
       else
         format.html { render :new }
         format.json { render json: @offer.errors, status: :unprocessable_entity }

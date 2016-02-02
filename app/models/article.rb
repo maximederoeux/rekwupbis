@@ -9,6 +9,7 @@ class Article < ActiveRecord::Base
 
 	scope :not_washable, lambda {where.not(:is_washable => true)}
 	scope :washable, lambda {where(:is_washable => true)}
+	scope :is_cup, lambda {where(:is_cup => true)}
 
 
 	def full_name
