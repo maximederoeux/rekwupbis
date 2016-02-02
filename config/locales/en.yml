@@ -212,8 +212,8 @@ en:
     yours: "Your deliveries"
     to_come: "Deliveries to come"
     left_rekwup: "Deliveries on their way"
-    your_ready: "Your delivery is ready to go"
-    your_gone: "Your delivery is gone"
+    your_ready: "Your order is ready to go"
+    your_gone: "Your order is gone"
 
   article:
     article_name: "Article Name"

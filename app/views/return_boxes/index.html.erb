@@ -1,5 +1,15 @@
+<% if current_user.admin %>
 
+  <%= render 'index_not_back' %>
+  <%= render 'index_not_controlled' %>
+  <%= render 'index_controlled' %>
 
-    <%= render 'index_not_back' %>
-    <%= render 'index_not_controlled' %>
-    <%= render 'index_controlled' %>
+<% end %>
+
+<% if current_user.staff %>
+
+  <%= render 'staff_index_not_back' %>
+  <%= render 'staff_index_not_controlled' %>
+  <%= render 'staff_index_controlled' %>
+
+<% end %>

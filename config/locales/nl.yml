@@ -211,8 +211,8 @@ nl:
     yours: "Uw leveringen"
     to_come: "Deliveries to come"
     left_rekwup: "Deliveries on their way"
-    your_ready: "Uw levering is klaar om te vertrekken"
-    your_gone: "Uw levering werd gestuurd"
+    your_ready: "Uw bestelling is klaar om te vertrekken"
+    your_gone: "Uw bestelling werd gestuurd"
 
 
   article:
