@@ -51,7 +51,16 @@
     </li>
 
     <li class="list-group-item">
-      <%= f.input :company_name, :label => t("user.organisation_name") %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :company_name, :label => t("user.organisation_name") %>
+        </div>
+        <div class="col-md-6">
+          <strong><br>
+            <%= f.input :taxable %>
+          </strong>
+        </div>
+      </div>
     </li>
       
   </ul>

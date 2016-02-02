@@ -121,6 +121,8 @@ fr:
         user_id: "Client"
       user:
         negociated_price: "Prix Négociés"
+        taxable: "Je suis assujetti à la TVA"
+        company_number: "Numéro d'entreprise"
     date:
       format:
         default: "%d-%m-%Y"

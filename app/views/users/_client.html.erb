@@ -50,21 +50,30 @@
     <li class="list-group-item">
       <div class="row">
 
-        <div class="col-md-6">
+        <div class="col-md-3">
       		<%= f.input :company_name, :label => t("user.organisation_name") %>
     		</div>
 
-  <% if current_user.offers.where(:client_confirmation => true).any? %>
+      <% if current_user.offers.where(:client_confirmation => true).any? %>
 
-    <% if current_user.company_name.present? %>
-
-				<div class="col-md-6">
-	      	<%= f.input :vat, :label => t("user.vat"), :placeholder => t("user.vat") %>
+				<div class="col-md-3">
+	      	<%= f.input :taxable %>
 	      </div>
+
+        <div class="col-md-3">
+          <%= f.input :vat, :label => t("user.vat"), :placeholder => t("user.vat") %>
+        </div>
+
+        <div class="col-md-3">
+          <%= f.input :company_number %>
+        </div>
+
+    
+
 	    </div>
      </li>
      
-    <% end %>
+
 
     <li class="list-group-item">
       <div class="row">
@@ -82,7 +91,7 @@
         </div>
 
         <div class="col-md-2">
-          <%= f.input :country, :label => t("user.country"), :placeholder => t("user.country") %>
+          <%= f.input :country, :label => t("user.country"), :placeholder => t("user.country"), only: [ "BE", "FR", "DE", "LU", "NL" ] %>
         </div>
 
       </div>

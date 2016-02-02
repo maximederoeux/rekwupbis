@@ -9,7 +9,7 @@
 
   <ul class="list-group">
     <li class="list-group-item list-group-item-warning">
-        <h5><strong>Import a CSV File</h5></strong>
+        <h5><strong><%= t("lln.import_csv") %></h5></strong>
       
     </li>
 
@@ -20,7 +20,7 @@
           <%= file_field_tag :file %>
         </div>
         <div class="col-md-6">
-        <%= submit_tag "Import CSV", class: "btn btn-block btn-info" %>
+        <%= submit_tag t("lln.import"), class: "btn btn-block btn-info" %>
         </div>
       </div>
     </li>
@@ -35,28 +35,28 @@
     <strong>
       <div class="row text-center">
         <div class="col-md-1">
-          Id
+          <%= t("lln.id") %>
         </div>
         <div class="col-md-2">
-        Circle
+          <%= t("lln.circle") %>
         </div>
         <div class="col-md-1">
-        lln_twentyfive
+          <%= t("lln.twentyfive") %>
         </div>
         <div class="col-md-1">
-        lln_fifty
+          <%= t("lln.fifty") %>
         </div>
         <div class="col-md-1">
-        lln_litre
+          <%= t("lln.litre") %>
         </div>
         <div class="col-md-1">
-        empty_box
+          <%= t("lln.empty") %>
         </div>
         <div class="col-md-1">
-        kpt_box
+          <%= t("lln.kpt") %>
         </div>
         <div class="col-md-1">
-        return_box
+          <%= t("lln.return") %>
         </div>
         <div class="col-md-3">
         </div>

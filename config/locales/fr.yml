@@ -123,6 +123,7 @@ fr:
     is_lln: "GECO LLN"
     lln_id: "LLN ordre livraison"
     surface: "LLN Surfaces"
+    taxable: "Je suis assujetti à la TVA"
 
   event:
     new_event: "  Nouvel événement"
@@ -293,7 +294,7 @@ fr:
     your_pending: "Vos offres en attente de confirmation"
     you_confirmed: "Vous avez confirmé cette offre"
     client_confirmed: "Confirmées par le client"
-    confirm: "Confirmer cette offre"
+    confirm: "J'accepte cette offre et passe commande"
     cancel: "Annuler la confirmation"
     delivery: "Envoyer pour livraison"
     your_confirmed: "Offres que vous avez confirmées"
@@ -311,6 +312,7 @@ fr:
     confirm_for_client: "Confirmer pour le client"
     send_email: "Envoyer cette offre"
     sent_on: "Envoyée le"
+    edit: "Changer les dates"
     complete_profile: "Vous avez confirmé une offre. Nous avons besoin que vous complétiez votre profil pour pouvoir la valider"
 
   offer_box:
@@ -441,6 +443,18 @@ fr:
     no_wash: "Pas encore de lavage"
 
 
+  lln:
+    id: "N° Ordre"
+    circle: "Surface"
+    twentyfive: "25 CL"
+    fifty: "50 CL"
+    litre: "100 CL"
+    empty: "Vide"
+    kpt: "KPT"
+    return: "Retour"
+    total: "Total"
+    import_csv: "Importer un fichier CSV"
+    import: "Importer"
 
   notice:
     access: "Access refusé"

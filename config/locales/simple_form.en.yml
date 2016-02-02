@@ -121,6 +121,8 @@ en:
         user_id: "Client"
       user:
         negociated_price: "Negociated Prices"
+        taxable: "I am taxable for VAT purposes"
+        company_number: "Company number"
     date:
       format:
         default: "%d-%m-%Y"

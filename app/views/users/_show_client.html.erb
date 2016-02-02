@@ -53,30 +53,46 @@
 
 
     <li class="list-group-item">
-      <div class="row">
+      <div class="row text-center">
 
-        <div class="col-md-6">
+        <div class="col-md-3">
 
           <% if @user.company %>
-            <strong><%= t("user.company_name") %> : </strong><%= @user.company_name %>
+            <strong><%= t("user.company_name") %></strong><br>
+            <%= @user.company_name %>
           <% end %>
 
           <% if @user.non_profit %>
-            <strong><%= t("user.non_profit_name") %> : </strong><%= @user.company_name %>
+            <strong><%= t("user.non_profit_name") %></strong><br>
+            <%= @user.company_name %>
           <% end %>
 
           <% if @user.institution %>
-            <strong><%= t("user.institution_name") %> : </strong><%= @user.company_name %>
+            <strong><%= t("user.institution_name") %></strong><br>
+            <%= @user.company_name %>
           <% end %>
         </div>
 
   <% if current_user.offers.any? %>
 
-    <% if current_user.company_name.present? %>
+    <% if current_user.taxable %>
 
-        <div class="col-md-6">
-          <strong><%= t("user.vat") %> : </strong><%= @user.vat %>
+        <div class="col-md-3">
+          <% if @user.taxable %>
+            <strong><%= t("user.taxable") %></strong>
+          <% end %>
         </div>
+
+        <div class="col-md-3">
+          <strong><%= t("user.vat") %></strong><br>
+          <%= @user.vat %>
+        </div>
+
+        <div class="col-md-3">
+          <strong><%= t("user.company_number") %></strong><br>
+          <%= @user.company_number %>
+        </div>
+
       </div>
      </li>
      

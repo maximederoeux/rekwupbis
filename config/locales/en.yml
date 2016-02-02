@@ -123,6 +123,7 @@ en:
     is_lln: "GECO LLN"
     lln_id: "LLN order delivery"
     surface: "LLN Surfaces"
+    taxable: "I am taxable for VAT purposes"
 
   event:
     new_event: "  New Event"
@@ -293,7 +294,7 @@ en:
     your_pending: "Offers to be confirmed"
     you_confirmed: "You confirmed this offer"
     client_confirmed: "Confirmed by the client"
-    confirm: "Confirm this offer"
+    confirm: "I accept this offer"
     cancel: "Cancel this confirmation"
     delivery: "Send for delivery"
     your_confirmed: "Offers you confirmed"
@@ -311,6 +312,7 @@ en:
     confirm_for_client: "Confirm for the client"
     send_email: "Send this offer"
     sent_on: "Sent on"
+    edit: "Change dates"
     complete_profile: "You confirmed an offer. In order to process it, we need you to complete your profile"
 
   offer_box:
@@ -443,7 +445,16 @@ en:
 
   lln:
     id: "Order number"
-    
+    circle: "Surface"
+    twentyfive: "25 CL"
+    fifty: "50 CL"
+    litre: "100 CL"
+    empty: "Empty"
+    kpt: "KPT"
+    return: "Return"
+    total: "Total"
+    import_csv: "Import CSV file"
+    import: "Import"
 
   notice:
     access: "Access denied"

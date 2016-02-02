@@ -121,6 +121,8 @@ nl:
         user_id: "Klant"
       user:
         negociated_price: "Onderhandeld Prijzen"
+        taxable: "Ik ben BTW plichtig"
+        company_number: "Bedrijf nummer"
 
     date:
       format:

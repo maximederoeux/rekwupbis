@@ -122,6 +122,7 @@ nl:
     is_lln: "GECO LLN"
     lln_id: "LLN levering order"
     surface: "LLN Surfaces"
+    taxable: "Ik ben BTW plichtig"
 
   event:
     new_event: "  Nieuw evenement"
@@ -293,7 +294,7 @@ nl:
     your_pending: "Uw aanbodden te bevestigen"
     you_confirmed: "U heeft deze aanbod bevestigd"
     client_confirmed: "Bevestidg door de klant"
-    confirm: "Deze aanbod bevestigen"
+    confirm: "Ik aanvaard deze aanbod en bestel"
     cancel: "Deze bevestiging annuleren"
     delivery: "Naar levering zenden"
     your_confirmed: "Aanbodden die u goedgekeurd heeft"
@@ -311,6 +312,7 @@ nl:
     confirm_for_client: "Voor de klant bevestigen"
     send_email: "Deze aanbod sturen"
     sent_on: "Gestuurd op"
+    edit: "Data veranderen"
     complete_profile: "U heeft een aanbod bevestigd. Om verder te gaan nodigen u uit om uw profiel in te vullen"
 
   offer_box:
@@ -440,7 +442,18 @@ nl:
     wash: "Was"
     no_wash: "Nog geen was"
 
-
+  lln:
+    id: "Order nummer"
+    circle: "Surface"
+    twentyfive: "25 CL"
+    fifty: "50 CL"
+    litre: "100 CL"
+    empty: "Leeg"
+    kpt: "KPT"
+    return: "Terug"
+    total: "Totaal"
+    import_csv: "CSV importeren"
+    import: "Importeren"
 
   notice:
     access: "Verboden toegang"

@@ -139,7 +139,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_shot_cups
 		if event.expected_pax
-		event.expected_pax * 2
+		event.expected_pax * 1
 		end
 	end
 

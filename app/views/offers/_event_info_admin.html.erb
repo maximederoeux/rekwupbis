@@ -92,7 +92,9 @@
           <%= simple_form_for(@offer) do |f| %>
             <%= f.error_notification %>       
 
-              <%= f.hidden_field :send_email, :value => true %>             
+              <%= f.hidden_field :send_email, :value => true %>
+              <%= f.hidden_field :send_at, :value => Time.now %>
+
               <%= f.submit t("offer.send_email"), class: "btn btn-info", data: { confirm: t("menu.are_you_sure") } %>
 
           <% end %>
