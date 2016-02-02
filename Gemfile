@@ -12,6 +12,9 @@ gem 'i18n'
 gem 'country_select'
 gem 'jquery-ui-rails'
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 
 group :development, :test do
   gem 'byebug'

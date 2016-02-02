@@ -441,6 +441,9 @@ en:
     wash: "Wash"
     no_wash: "No wash yet"
 
+  lln:
+    id: "Order number"
+    
 
   notice:
     access: "Access denied"

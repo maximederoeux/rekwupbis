@@ -2,6 +2,14 @@ class LlnImportsController < ApplicationController
   def index
   	@lln_imports = LlnImport.all
   	@new_offer = Offer.new
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name"   # Excluding ".pdf" extension.
+        render :pdf => "LLN_Livraison.pdf",:template => "lln_imports/index.html.erb"
+      end
+    end
   end
 
   def import
