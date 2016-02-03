@@ -1,7 +1,7 @@
   <div class="row">
     <ul class="list-group">
             <li class="list-group-item list-group-item-warning ">
-              <h4><%= t("wash.started") %></h4>
+              <h4><%= content_tag(:i, "", class: "fa fa-spinner fa-pulse fa-2x") %>  <%= t("wash.started") %></h4>
             </li>
     </ul>
   </div>
@@ -26,7 +26,7 @@
                     <% end %>
 
                     <%= link_to wash_path(wash) do %>
-                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                      <%= content_tag(:i, "", class: "fa fa-spinner fa-pulse fa-3x") %>
                     <% end %>
                   
                   <br>
@@ -57,7 +57,7 @@
                     <% end %>
 
                     <%= link_to wash_path(wash) do %>
-                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                      <%= content_tag(:i, "", class: "fa fa-spinner fa-pulse fa-3x") %>
                     <% end %>
                   
                   <br>
@@ -91,7 +91,7 @@
                     <% end %>
 
                     <%= link_to wash_path(wash) do %>
-                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                      <%= content_tag(:i, "", class: "fa fa-spinner fa-pulse fa-3x") %>
                     <% end %>
                   
                   <br>
@@ -122,7 +122,7 @@
                     <% end %>
                     
                     <%= link_to wash_path(wash) do %>
-                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                      <%= content_tag(:i, "", class: "fa fa-spinner fa-pulse fa-3x") %>
                     <% end %>
                   
                   <br>

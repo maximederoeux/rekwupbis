@@ -1,7 +1,7 @@
   <div class="row">
     <ul class="list-group">
             <li class="list-group-item list-group-item-warning ">
-              <h4><%= t("sorting.to_start") %></h4>
+              <h4><%= t("sorting.finished") %></h4>
             </li>
     </ul>
   </div>
@@ -14,7 +14,7 @@
             <h4><%= t("delivery.gone_today") %></h4>
           </li>
         
-            <% @to_start.this_day.each do |sorting| %>
+            <% @finished.ended_this_day.each do |sorting| %>
 
 
                 <li class="list-group-item text-center">
@@ -26,23 +26,14 @@
                     <% end %>
 
                     <%= link_to sorting_path(sorting) do %>
-                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                      <%= content_tag(:i, "", class: "fa fa-glass fa-3x") %>
                     <% end %>
                   
                   <br>
-                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
+                  <%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
-
-	                  <% if sorting.return_box.washes.where.not(:start_time => nil).count == 0 %>
-	                  	<%= t("wash.no_wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count == 1 %>
-	                  	<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
-	                  	<%= t("wash.wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count >= 2 %>
-											<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
-											<%= t("menu.washes") %>
-	                  <% end %>
-
+                  <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
+                  <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %> 
                 </strong>
                 </li>
             <% end %>
@@ -55,7 +46,7 @@
             <h4><%= t("delivery.gone_yesterday") %></h4>
           </li>
 
-            <% @to_start.previous_day.each do |sorting| %>
+            <% @finished.ended_previous_day.each do |sorting| %>
 
 
                 <li class="list-group-item text-center">
@@ -67,23 +58,14 @@
                     <% end %>
 
                     <%= link_to sorting_path(sorting) do %>
-                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                      <%= content_tag(:i, "", class: "fa fa-glass fa-3x") %>
                     <% end %>
                   
                   <br>
-                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
+                  <%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
-
-	                  <% if sorting.return_box.washes.where.not(:start_time => nil).count == 0 %>
-	                  	<%= t("wash.no_wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count == 1 %>
-	                  	<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
-	                  	<%= t("wash.wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count >= 2 %>
-											<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
-											<%= t("menu.washes") %>
-	                  <% end %>
-
+                  <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
+                  <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %>   
                 </strong>
                 </li>
             <% end %>       
@@ -100,7 +82,7 @@
             <h4><%= t("delivery.gone_two_days") %></h4>
           </li>
         
-            <% @to_start.two_days_ago.each do |sorting| %>
+            <% @finished.ended_two_days_ago.each do |sorting| %>
 
                 <li class="list-group-item text-center">
           
@@ -111,23 +93,14 @@
                     <% end %>
 
                     <%= link_to sorting_path(sorting) do %>
-                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                      <%= content_tag(:i, "", class: "fa fa-glass fa-3x") %>
                     <% end %>
                   
                   <br>
-                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
+                  <%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
-
-	                  <% if sorting.return_box.washes.where.not(:start_time => nil).count == 0 %>
-	                  	<%= t("wash.no_wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count == 1 %>
-	                  	<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
-	                  	<%= t("wash.wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count >= 2 %>
-											<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
-											<%= t("menu.washes") %>
-	                  <% end %>
-	                  
+                  <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
+                  <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %>   
                 </strong>
                 </li>
           <% end %>
@@ -140,7 +113,7 @@
             <h4><%= t("delivery.gone_three_days") %></h4>
           </li>
 
-            <% @to_start.three_days_ago.each do |sorting| %>
+            <% @finished.ended_three_days_ago.each do |sorting| %>
 
 
                 <li class="list-group-item text-center">
@@ -152,23 +125,14 @@
                     <% end %>
                     
                     <%= link_to sorting_path(sorting) do %>
-                      <%= content_tag(:i, "", class: "fa fa-eye") %>
+                      <%= content_tag(:i, "", class: "fa fa-glass fa-3x") %>
                     <% end %>
                   
                   <br>
-                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
+                  <%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
-
-	                  <% if sorting.return_box.washes.where.not(:start_time => nil).count == 0 %>
-	                  	<%= t("wash.no_wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count == 1 %>
-	                  	<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
-	                  	<%= t("wash.wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count >= 2 %>
-											<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
-											<%= t("menu.washes") %>
-	                  <% end %>
-	                  
+                  <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
+                  <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %>   
                 </strong>
                 </li>
             <% end %>       

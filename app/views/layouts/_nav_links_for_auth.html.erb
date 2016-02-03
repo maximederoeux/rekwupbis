@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <li><%= link_to t("menu.edit_account"), edit_user_registration_path %></li>
-  <% if current_user.admin %>
+  <% if current_user.admin or current_user.staff %>
   <li><%= link_to t("user.your_profile"), user_path(current_user) %></li>
   <% end %>
 <% else %>
