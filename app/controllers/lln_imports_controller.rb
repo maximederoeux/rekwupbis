@@ -1,6 +1,6 @@
 class LlnImportsController < ApplicationController
   def index
-  	@lln_imports = LlnImport.all
+  	@lln_imports = LlnImport.all.order('id ASC')
   	@new_offer = Offer.new
 
     respond_to do |format|
