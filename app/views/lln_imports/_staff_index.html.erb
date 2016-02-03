@@ -1,0 +1,222 @@
+<ul class="list-group">
+  <li class="list-group-item list-group-item-warning">
+    <strong>
+      <div class="row text-center">
+        <div class="col-md-1">
+          <%= t("lln.id") %>
+        </div>
+        <div class="col-md-2">
+          <%= t("lln.circle") %>
+        </div>
+        <div class="col-md-1">
+          <%= t("lln.twentyfive") %>
+        </div>
+        <div class="col-md-1">
+          <%= t("lln.fifty") %>
+        </div>
+        <div class="col-md-1">
+          <%= t("lln.litre") %>
+        </div>
+        <div class="col-md-1">
+          <%= t("lln.empty") %>
+        </div>
+        <div class="col-md-1">
+          <%= t("lln.kpt") %>
+        </div>
+        <div class="col-md-1">
+          <%= t("lln.return") %>
+        </div>
+        <div class="col-md-3">
+        </div>
+      </div>
+    </strong>
+  </li>
+    <% @lln_imports.each do |lln_import| %>
+
+  <li class="list-group-item ">
+    <strong>
+      <div class="row text-center">
+        <div class="col-md-1">
+          <%= lln_import.id %>
+        </div>
+        <div class="col-md-2">
+        <%= lln_import.circle %>
+        </div>
+        <div class="col-md-1">
+        <%= lln_import.lln_twentyfive %>
+        </div>
+        <div class="col-md-1">
+        <%= lln_import.lln_fifty %>
+        </div>
+        <div class="col-md-1">
+        <%= lln_import.lln_litre %>
+        </div>
+        <div class="col-md-1">
+        <%= lln_import.empty_box %>
+        </div>
+        <div class="col-md-1">
+        <%= lln_import.kpt_box %>
+        </div>
+        <div class="col-md-1">
+        <%= lln_import.return_box %>
+        </div>
+        <div class="col-md-3">
+
+          <% if Offer.one_day_before.where(:organizer_id => User.is_lln.where(:lln_id => lln_import.id)).any? %>
+            <% Offer.one_day_before.where(:organizer_id => User.is_lln.where(:lln_id => lln_import.id)).last.organizer.name %>
+          <% else %>
+
+<!--             <% if lln_import.grand_total == 0 %>
+
+              <%= simple_form_for(@new_offer) do |f| %>
+                <%= f.error_notification %>
+
+                <%= f.hidden_field :event_id, :value => Event.is_lln.where(:lln_year => lln_import.current_year).last.id %>
+                <%= f.hidden_field :organizer_id, :value => User.is_lln.where(:lln_id => lln_import.id).last.id %>
+                <%= f.hidden_field :client_confirmation, :value => true %>
+                <%= f.hidden_field :admin_confirmation, :value => true %>
+                <%= f.hidden_field :lln_daily, :value => true %>
+
+                <%= f.button :submit, class: "btn btn-success", data: { confirm: t("menu.are_you_sure") } %><br>
+
+              <% end %>
+
+            <% end %> -->
+
+          <% end %>
+        </div>
+      </div>
+    </strong>
+  </li>
+        
+    <% end %>
+
+</ul>
+
+
+<ul class="list-group">
+
+      <li class="list-group-item list-group-item-warning">
+        <h5><strong><%= t("menu.deliveries") %></h5></strong>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            <strong><%= t("box.box_name") %></strong>
+          </div>
+          <div class="col-md-3 text-center">
+            <strong><%= t("offer_box.quantity") %></strong>
+          </div>
+          <div class="col-md-3 text-center">
+            <strong><%= t("delivery.weight") %></strong>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            <%= Box.twentyfive.last.box_name %>
+            </div>
+          <div class="col-md-3 text-center">
+            <%= LlnImport.sum('lln_twentyfive') %>
+          </div>
+          <div class="col-md-3 text-center">
+            <%= Box.twentyfive.last.weight * LlnImport.sum('lln_twentyfive') %> KG
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            <%= Box.fifty.last.box_name %>
+            </div>
+          <div class="col-md-3 text-center">
+            <%= LlnImport.sum('lln_fifty') %>
+          </div>
+          <div class="col-md-3 text-center">
+            <%= Box.fifty.last.weight * LlnImport.sum('lln_fifty') %> KG
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            <%= Box.litre.last.box_name %>
+            </div>
+          <div class="col-md-3 text-center">
+            <%= LlnImport.sum('lln_litre') %>
+          </div>
+          <div class="col-md-3 text-center">
+            <%= Box.litre.last.weight * LlnImport.sum('lln_litre') %> KG
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            <%= Box.empty_box.last.box_name %>
+            </div>
+          <div class="col-md-3 text-center">
+            <%= LlnImport.sum('empty_box') %>
+          </div>
+          <div class="col-md-3 text-center">
+            <%= Box.empty_box.last.weight * LlnImport.sum('empty_box') %> KG
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            <%= Box.kpt_box.last.box_name %>
+            </div>
+          <div class="col-md-3 text-center">
+            <%= LlnImport.sum('kpt_box') %>
+          </div>
+          <div class="col-md-3 text-center">
+            <%= Box.kpt_box.last.weight * LlnImport.sum('kpt_box') %> KG
+          </div>
+        </div>
+      </li>
+
+     <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            TOTAL
+            </div>
+          <div class="col-md-3 text-center">
+            <%= LlnImport.sum('lln_twentyfive') + LlnImport.sum('lln_fifty') + LlnImport.sum('lln_litre') + LlnImport.sum('empty_box') + LlnImport.sum('kpt_box') %>
+          </div>
+          <div class="col-md-3 text-center">
+            <%= (Box.twentyfive.last.weight * LlnImport.sum('lln_twentyfive')) + (Box.fifty.last.weight * LlnImport.sum('lln_fifty')) + (Box.litre.last.weight * LlnImport.sum('lln_litre')) + (Box.empty_box.last.weight * LlnImport.sum('empty_box')) + (Box.kpt_box.last.weight * LlnImport.sum('kpt_box')) %> KG
+          </div>
+        </div>
+      </li>
+
+    </ul>
+
+
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-warning">
+        <h5><strong><%= t("menu.returns") %></h5></strong>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            <%= t("menu.boxes") %>
+            </div>
+          <div class="col-md-3 text-center">
+            <%= LlnImport.sum('return_box') %>
+          </div>
+          <div class="col-md-3 text-center">
+
+          </div>
+        </div>
+      </li>     
+    </ul>

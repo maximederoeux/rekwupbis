@@ -447,6 +447,40 @@
 
 					<ul class="list-group">
 		        <li class="list-group-item list-group-item-info text-center">
+		          <h4><%= t("delivery.no_quantity") %></h4>
+		        </li>
+
+	  					<% @deliveries.each do |delivery| %>
+
+	  						<% if delivery.offer_boxes.sum("quantity") == 0 %>
+
+									<li class="list-group-item text-center">
+		      	
+					          <strong>
+				            <%= delivery.offer.event.event_name %><br>
+					            <% if delivery.offer.organizer.is_lln %>
+					            	<%= delivery.offer.organizer.name %><br>
+					            <% end %>
+
+				            	<%= link_to delivery_path(delivery) do %>
+					              <%= content_tag(:i, "", class: "fa fa-eye") %>
+					            <% end %>			            
+				                        			            		
+						            <%= link_to edit_delivery_path(delivery) do %>
+						              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+						            <% end %>
+					            <br>
+					            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+					            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+					          </strong>
+									</li>
+
+								<% end %>
+		        	<% end %>	      
+	     		</ul>
+
+					<ul class="list-group">
+		        <li class="list-group-item list-group-item-info text-center">
 		          <h4><%= t("delivery.next_two_weeks") %></h4>
 		        </li>
 

@@ -32,7 +32,9 @@
                   <br>
                   <%= return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= return_box.return_time.strftime("%H:%M") %><br>
-                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %> 
+                  <% unless return_box.delivery.offer.organizer.is_lln %>
+                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %>
+                  <% end %>  
                 </strong>
                 </li>
             <% end %>
@@ -63,7 +65,9 @@
                   <br>
                   <%= return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= return_box.return_time.strftime("%H:%M") %><br>
-                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %> 
+                  <% unless return_box.delivery.offer.organizer.is_lln %>
+                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %>
+                  <% end %> 
                 </strong>
               </li>
             <% end %>       
@@ -97,7 +101,9 @@
                   <br>
                   <%= return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= return_box.return_time.strftime("%H:%M") %><br>
-                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %> 
+                  <% unless return_box.delivery.offer.organizer.is_lln %>
+                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %>
+                  <% end %>  
                 </strong>
               </li>
           <% end %>
@@ -128,7 +134,9 @@
                   <br>
                   <%= return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= return_box.return_time.strftime("%H:%M") %><br>
-                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %> 
+                  <% unless return_box.delivery.offer.organizer.is_lln %>
+                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %>
+                  <% end %>  
                 </strong>
               </li>
             <% end %>       

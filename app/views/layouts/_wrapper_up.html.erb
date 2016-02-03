@@ -68,7 +68,9 @@
               </li>
 
             <% else %>
-
+              <li>
+                <a href="#"><%= link_to t("user.is_lln"), lln_imports_path %></a>
+              </li>
               <li>
                 <a href="#"><%= link_to t("menu.deliveries"), deliveries_path %></a>
               </li>

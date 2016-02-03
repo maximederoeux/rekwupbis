@@ -16,6 +16,7 @@
   			
   					<% @not_ready.this_day.each do |delivery| %>
 
+  						<% if delivery.offer_boxes.sum("quantity") >= 1 %>
 
 								<li class="list-group-item text-center">
 	      	
@@ -33,6 +34,8 @@
 			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 			          </strong>
 								</li>
+
+								<% end %>
 	        	<% end %>
 	     	</ul>
 	    </div>
@@ -45,23 +48,25 @@
 
   					<% @not_ready.next_day.each do |delivery| %>
 
+  						<% if delivery.offer_boxes.sum("quantity") >= 1 %>
 
-							<li class="list-group-item text-center">
-      	
-			          <strong>
-			            <%= delivery.offer.event.event_name %><br>
-				            <% if delivery.offer.organizer.is_lln %>
-				            	<%= delivery.offer.organizer.name %><br>
-				            <% end %>			            
-			                        
-				            <%= link_to delivery_path(delivery) do %>
-				              <i class="fa fa-shopping-cart fa-3x"></i>
-				            <% end %>
-			            <br>
-			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
-			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
-			          </strong>
-							</li>
+								<li class="list-group-item text-center">
+	      	
+				          <strong>
+				            <%= delivery.offer.event.event_name %><br>
+					            <% if delivery.offer.organizer.is_lln %>
+					            	<%= delivery.offer.organizer.name %><br>
+					            <% end %>			            
+				                        
+					            <%= link_to delivery_path(delivery) do %>
+					              <i class="fa fa-shopping-cart fa-3x"></i>
+					            <% end %>
+				            <br>
+				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+				          </strong>
+								</li>
+							<% end %>
 	        	<% end %>	      
      		</ul>
      	</div>
@@ -78,23 +83,26 @@
   			
   					<% @not_ready.two_days.each do |delivery| %>
 
-							<li class="list-group-item text-center">
-      	
-			          <strong>
-			            <%= delivery.offer.event.event_name %><br>
-				            <% if delivery.offer.organizer.is_lln %>
-				            	<%= delivery.offer.organizer.name %><br>
-				            <% end %>			            
-			            			            
-				            <%= link_to delivery_path(delivery) do %>
-				              <i class="fa fa-shopping-cart fa-3x"></i>
-				            <% end %>
-			            <br>
-			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
-			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
-			          </strong>
-							</li>
-        	<% end %>
+  					  <% if delivery.offer_boxes.sum("quantity") >= 1 %>
+
+								<li class="list-group-item text-center">
+	      	
+				          <strong>
+				            <%= delivery.offer.event.event_name %><br>
+					            <% if delivery.offer.organizer.is_lln %>
+					            	<%= delivery.offer.organizer.name %><br>
+					            <% end %>			            
+				            			            
+					            <%= link_to delivery_path(delivery) do %>
+					              <i class="fa fa-shopping-cart fa-3x"></i>
+					            <% end %>
+				            <br>
+				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+				          </strong>
+								</li>
+							<% end %>
+        		<% end %>
 	     	</ul>
 	    </div>
 
@@ -106,23 +114,24 @@
 
   					<% @not_ready.three_days.each do |delivery| %>
 
-
-							<li class="list-group-item text-center">
-      	
-			          <strong>
-			            <%= delivery.offer.event.event_name %><br>
-				            <% if delivery.offer.organizer.is_lln %>
-				            	<%= delivery.offer.organizer.name %><br>
-				            <% end %>			            
-			            		 
-				            <%= link_to delivery_path(delivery) do %>
-				              <i class="fa fa-shopping-cart fa-3x"></i>
-				            <% end %>
-			            <br>
-			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
-			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
-			          </strong>
-							</li>
+  						<% if delivery.offer_boxes.sum("quantity") >= 1 %>
+								<li class="list-group-item text-center">
+	      	
+				          <strong>
+				            <%= delivery.offer.event.event_name %><br>
+					            <% if delivery.offer.organizer.is_lln %>
+					            	<%= delivery.offer.organizer.name %><br>
+					            <% end %>			            
+				            		 
+					            <%= link_to delivery_path(delivery) do %>
+					              <i class="fa fa-shopping-cart fa-3x"></i>
+					            <% end %>
+				            <br>
+				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+				          </strong>
+								</li>
+							<% end %>
 	        	<% end %>	      
      		</ul>
      	</div>
@@ -147,7 +156,7 @@
 	  			
 	  					<% @not_gone.this_day.each do |delivery| %>
 
-
+  						<% if delivery.offer_boxes.sum("quantity") >= 1 %>
 									<li class="list-group-item text-center">
 		      	
 				          <strong>
@@ -164,6 +173,7 @@
 				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 				          </strong>
 									</li>
+								<% end %>
 		        	<% end %>
 		     	</ul>
 		    </div>
@@ -176,23 +186,24 @@
 
 	  					<% @not_gone.next_day.each do |delivery| %>
 
-
-								<li class="list-group-item text-center">
-	      	
-				          <strong>
-			            <%= delivery.offer.event.event_name %><br>
-				            <% if delivery.offer.organizer.is_lln %>
-				            	<%= delivery.offer.organizer.name %><br>
-				            <% end %>			            
-			            		
-					            <%= link_to delivery_path(delivery) do %>
-					              <i class="fa fa-shopping-cart fa-3x"></i>
-					            <% end %>
-				            <br>
-				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
-				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
-				          </strong>
-								</li>
+	  						<% if delivery.offer_boxes.sum("quantity") >= 1 %>
+									<li class="list-group-item text-center">
+		      	
+					          <strong>
+				            <%= delivery.offer.event.event_name %><br>
+					            <% if delivery.offer.organizer.is_lln %>
+					            	<%= delivery.offer.organizer.name %><br>
+					            <% end %>			            
+				            		
+						            <%= link_to delivery_path(delivery) do %>
+						              <i class="fa fa-shopping-cart fa-3x"></i>
+						            <% end %>
+					            <br>
+					            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+					            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+					          </strong>
+									</li>
+								<% end %>
 		        	<% end %>	      
 	     		</ul>
 	     	</div>
@@ -209,6 +220,8 @@
 	  			
 	  					<% @not_gone.two_days.each do |delivery| %>
 
+  						<% if delivery.offer_boxes.sum("quantity") >= 1 %>
+
 								<li class="list-group-item text-center">
 	      	
 				          <strong>
@@ -225,6 +238,7 @@
 				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 				          </strong>
 								</li>
+							<% end %>
 	        	<% end %>
 		     	</ul>
 		    </div>
@@ -237,6 +251,7 @@
 
 	  					<% @not_gone.three_days.each do |delivery| %>
 
+  						<% if delivery.offer_boxes.sum("quantity") >= 1 %>
 
 								<li class="list-group-item text-center">
 	      	
@@ -254,7 +269,8 @@
 				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 				          </strong>
 								</li>
-		        	<% end %>	      
+		        	<% end %>
+		        <% end %>   
 	     		</ul>
 	     	</div>
 			</div>
@@ -278,9 +294,9 @@
 	  			
 	  					<% @gone.this_day.each do |delivery| %>
 
-
+  							<% if delivery.offer_boxes.sum("quantity") >= 1 %>
 									<li class="list-group-item text-center">
-		      	
+
 				          <strong>
 			            <%= delivery.offer.event.event_name %><br>
 				            <% if delivery.offer.organizer.is_lln %>
@@ -295,6 +311,7 @@
 				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 				          </strong>
 									</li>
+								<% end %>
 		        	<% end %>
 		     	</ul>
 		    </div>
@@ -307,23 +324,24 @@
 
 	  					<% @gone.previous_day.each do |delivery| %>
 
-
-								<li class="list-group-item text-center">
-	      	
-				          <strong>
-			            <%= delivery.offer.event.event_name %><br>
-				            <% if delivery.offer.organizer.is_lln %>
-				            	<%= delivery.offer.organizer.name %><br>
-				            <% end %>			            
-			            		
-					            <%= link_to delivery_path(delivery) do %>
-					              <i class="fa fa-shopping-cart fa-3x"></i>
-					            <% end %>
-				            <br>
-				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
-				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
-				          </strong>
-								</li>
+	  						<% if delivery.offer_boxes.sum("quantity") >= 1 %>
+									<li class="list-group-item text-center">
+		      	
+					          <strong>
+				            <%= delivery.offer.event.event_name %><br>
+					            <% if delivery.offer.organizer.is_lln %>
+					            	<%= delivery.offer.organizer.name %><br>
+					            <% end %>			            
+				            		
+						            <%= link_to delivery_path(delivery) do %>
+						              <i class="fa fa-shopping-cart fa-3x"></i>
+						            <% end %>
+					            <br>
+					            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+					            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+					          </strong>
+									</li>
+								<% end %>
 		        	<% end %>	      
 	     		</ul>
 	     	</div>
@@ -340,6 +358,8 @@
 	  			
 	  					<% @gone.two_days_ago.each do |delivery| %>
 
+  						<% if delivery.offer_boxes.sum("quantity") >= 1 %>
+
 								<li class="list-group-item text-center">
 	      	
 				          <strong>
@@ -356,6 +376,7 @@
 				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 				          </strong>
 								</li>
+							<% end %>
 	        	<% end %>
 		     	</ul>
 		    </div>
@@ -368,7 +389,7 @@
 
 	  					<% @gone.three_days_ago.each do |delivery| %>
 
-
+  						<% if delivery.offer_boxes.sum("quantity") >= 1 %>
 								<li class="list-group-item text-center">
 	      	
 				          <strong>
@@ -385,7 +406,8 @@
 				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 				          </strong>
 								</li>
-		        	<% end %>	      
+		        	<% end %>
+		        <% end %>	      
 	     		</ul>
 	     	</div>
 			</div>
@@ -398,7 +420,7 @@
 
 	  					<% @deliveries.next_two_weeks.each do |delivery| %>
 
-
+  						<% if delivery.offer_boxes.sum("quantity") >= 1 %>
 								<li class="list-group-item text-center">
 	      	
 				          <strong>
@@ -415,7 +437,8 @@
 				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 				          </strong>
 								</li>
-		        	<% end %>	      
+		        	<% end %>
+		        <% end %>    
 	     		</ul>
 
 					<ul class="list-group">
@@ -425,6 +448,7 @@
 
 	  					<% @deliveries.next_year.each do |delivery| %>
 
+  						<% if delivery.offer_boxes.sum("quantity") >= 1 %>
 
 								<li class="list-group-item text-center">
 	      	
@@ -442,7 +466,8 @@
 				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 				          </strong>
 								</li>
-		        	<% end %>	      
+		        	<% end %>
+		        <% end %>    
 	     		</ul>
 
 					<ul class="list-group">
@@ -452,23 +477,25 @@
 
 	  					<% @deliveries.each do |delivery| %>
 
+	  						<% if delivery.offer_boxes.sum("quantity") >= 1 %>
 
-								<li class="list-group-item text-center">
-	      	
-				          <strong>
-			            <%= delivery.offer.event.event_name %><br>
-				            <% if delivery.offer.organizer.is_lln %>
-				            	<%= delivery.offer.organizer.name %><br>
-				            <% end %>			            
-			            		
-					            <%= link_to delivery_path(delivery) do %>
-					              <i class="fa fa-shopping-cart fa-3x"></i>
-					            <% end %>
-				            <br>
-				            <%= delivery.delivery_date.strftime("%d/%m/%Y") if delivery.delivery_date %><br>
-				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
-				          </strong>
-								</li>
-		        	<% end %>	      
+									<li class="list-group-item text-center">
+		      	
+					          <strong>
+				            <%= delivery.offer.event.event_name %><br>
+					            <% if delivery.offer.organizer.is_lln %>
+					            	<%= delivery.offer.organizer.name %><br>
+					            <% end %>			            
+				            		
+						            <%= link_to delivery_path(delivery) do %>
+						              <i class="fa fa-shopping-cart fa-3x"></i>
+						            <% end %>
+					            <br>
+					            <%= delivery.delivery_date.strftime("%d/%m/%Y") if delivery.delivery_date %><br>
+					            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+					          </strong>
+									</li>
+								<% end %>
+		        	<% end %>   
 	     		</ul>
 

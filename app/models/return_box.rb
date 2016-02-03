@@ -39,7 +39,11 @@ class ReturnBox < ActiveRecord::Base
 	end
 
 	def difference
+		if self.delivery.total_boxes == 0
+			0
+		else
 		total_boxes - self.delivery.total_boxes
+		end
 	end
 
 	def display_difference
