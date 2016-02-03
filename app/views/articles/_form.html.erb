@@ -10,60 +10,106 @@
         </li>
         <li class="list-group-item">
           <div class="row")>
-            <div class="col-md-6">
+            <div class="col-md-4">
               <strong>
                 <%= f.input :article_name %>
               </strong>
             </div>
 
-            <div class="col-md-2">
-              <br><%= f.input :rekwup_cup %>
-            </div>
+            <div class="col-md-8">
+              <div class="col-md-2">
+                <br><%= f.input :is_washable %>
+              </div>
+              <div class="col-md-2">
+                <br><%= f.input :is_cup %>
+              </div>
+              <div class="col-md-2">
+                <br><%= f.input :is_big_box %>
+              </div>
+              <div class="col-md-2">
+                <br><%= f.input :is_small_box %>
+              </div>
+              <div class="col-md-2">
+                <br><%= f.input :is_top %>
+              </div>
+              <div class="col-md-2">
+                <br><%= f.input :is_palette %>
+              </div>
 
-            <div class="col-md-2">
-              <br><%= f.input :is_cup %>
-            </div>
-
-            <div class="col-md-2">
-              <br><%= f.input :is_washable %>
             </div>
           </div>
         </li>
 
+
+       <li class="list-group-item">
+          <div class="row")>
+            <div class="col-md-2">
+                <%= f.input :is_cc %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :is_ep %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :is_eco %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :is_wine %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :is_cava %>
+            </div>
+          </div>
+        </li>
+
+       <li class="list-group-item">
+          <div class="row")>
+            <div class="col-md-2">
+                <%= f.input :rekwup_cup %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :is_lln %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :is_bep %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :is_patro %>
+            </div>
+
+            <div class="col-md-2">
+        
+            </div>
+          </div>
+        </li>
+
+
         <li class="list-group-item">
           <div class="row text-center")>
 
-            <div class="col-md-4">
-              <%= f.input :article_category %>
-            </div>
-
-            <div class="col-md-4">
+            <div class="col-md-2">
               <%= f.input :article_content %>
             </div>
 
-            <div class="col-md-4">
-              <%= f.input :article_type %>
-            </div>
-
-        </div>
-      </li>
-
-
-        <li class="list-group-item">
-          <div class="row text-center")>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <%= f.input :quantity_bigbox %>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
               <%= f.input :quantity_smallbox %>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
               <%= f.input :quantity_pile %>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <%= f.input :weight %>
             </div>            
           </div>

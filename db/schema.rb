@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202140708) do
+ActiveRecord::Schema.define(version: 20160203204332) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(version: 20160202140708) do
     t.boolean  "rekwup_cup"
     t.decimal  "weight"
     t.boolean  "is_cup"
+    t.boolean  "is_lln"
+    t.boolean  "is_patro"
+    t.boolean  "is_bep"
+    t.boolean  "is_cc"
+    t.boolean  "is_ep"
+    t.boolean  "is_eco"
+    t.boolean  "is_wine"
+    t.boolean  "is_cava"
+    t.boolean  "is_big_box"
+    t.boolean  "is_small_box"
+    t.boolean  "is_top"
+    t.boolean  "is_palette"
   end
 
   create_table "boxdetails", force: :cascade do |t|
