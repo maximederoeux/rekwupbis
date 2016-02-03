@@ -256,6 +256,7 @@ nl:
     is_patro: "Patro"
     is_bep: "BEP"
     data: "Data"
+    is_shot: "Shot"
 
   negociated_price:
     add: "Onderhandeld prijzen toevoegen."

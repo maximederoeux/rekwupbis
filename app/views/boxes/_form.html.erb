@@ -3,8 +3,7 @@
 
 <%= simple_form_for(@box) do |f| %>
   <%= f.error_notification %>
-    <div class="row")>
-      <div class="col-md-6">
+
 
         <li class="list-group-item list-group-item-warning">
           <h4><strong>
@@ -13,40 +12,43 @@
         </li>
 
         <li class="list-group-item">  
-          <%= f.input :box_name %>
-        </li>
+          <div class="row")>
 
-        <li class="list-group-item">  
-          <strong><%= t("box.box_type") %></strong>
-        </li>
+            <div class="col-md-3">
+              <%= f.input :box_name %>
+            </div>
 
-        <li class="list-group-item">
-          <div class="row text-center")>
-
-            <div class="col-md-6">
+            <div class="col-md-3">
               <%= f.input :box_regular %>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-3">
               <%= f.input :mixed %>
             </div>
-          </div>
-        </li>
 
-        <li class="list-group-item">  
-          <strong><%= t("box.box_size") %></strong>
+            <div class="col-md-3">
+              <%= f.input :is_empty %>
+            </div>
+          </div>
         </li>
 
 
         <li class="list-group-item">
           <div class="row text-center")>
 
-            <div class="col-md-6">
+            <div class="col-md-3">
               <%= f.input :bigbox %>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-3">
               <%= f.input :smallbox %>
+            </div>
+
+            <div class="col-md-3">
+              
+            </div>
+            <div class="col-md-3">
+              
             </div>
           </div>
         </li>
@@ -54,48 +56,95 @@
         <li class="list-group-item">
           <div class="row text-center")>
 
-            <div class="col-md-2">
-              <%= f.input :lln_twentyfive %>
+            <div class="col-md-3">
+              <%= f.input :is_rekwup %>
             </div>
 
-            <div class="col-md-2">
-              <%= f.input :lln_fifty %>
+            <div class="col-md-3">
+              <%= f.input :is_lln %>
             </div>
 
-            <div class="col-md-2">
-              <%= f.input :lln_litre %>
+            <div class="col-md-3">
+              <%= f.input :is_bep %>
             </div>
-
-            <div class="col-md-2">
-              <%= f.input :empty_box %>
+            <div class="col-md-3">
+              <%= f.input :is_patro %>
             </div>
-
-            <div class="col-md-2">
-              <%= f.input :kpt_box %>
-            </div>
-
           </div>
         </li>
+
+
 
 
         <li class="list-group-item">
-          <div class="row")>
+          <div class="row text-center")>
 
-            <div class="col-md-6">
-              <%= link_to t("menu.back"), boxes_path, class: "btn btn-default" %>
+            <div class="col-md-2">
+              <%= f.input :is_twenty %>
             </div>
 
-            <div class="col-md-6">
-              <%= f.button :submit, class: "btn btn-info" %>
+            <div class="col-md-2">
+              <%= f.input :is_twentyfive %>
             </div>
+            <div class="col-md-2">
+              <%= f.input :is_forty %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :is_fifty %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :is_litre %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :is_wine %>
+            </div>
+
           </div>
         </li>
 
-      </div>
+        <li class="list-group-item">
+          <div class="row text-center")>
 
-      <div class="col-md-6">
-      </div>
-    </div>
+            <div class="col-md-2">
+              <%= f.input :is_cava %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :is_shot %>             
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :is_kpt %>
+            </div>
+
+            <div class="col-md-2">
+              <%= f.input :is_corona %>
+            </div>
+
+            <div class="col-md-2">
+            </div>
+
+            <div class="col-md-2">
+            </div>
+
+          </div>
+        </li>
+
+      </ul>
+
+          <div class="row">
+
+            <div class="col-md-6">
+              <%= link_to t("menu.back"), boxes_path, class: "btn btn-lg btn-block btn-default" %>
+            </div>
+
+            <div class="col-md-6">
+              <%= f.button :submit, class: "btn btn-lg btn-block btn-info" %>
+            </div>
+          </div>
 
   <% end %>
-</ul>
+

@@ -112,7 +112,15 @@
                     <%= t("article.is_cava") %>
                   </strong>
                 <% end %>
-            </div>               
+            </div>  
+
+            <div class="col-md-2">
+                <% if @article.is_shot %>
+                  <strong>
+                    <%= t("article.is_shot") %>
+                  </strong>
+                <% end %>
+            </div>              
           </div>
         </li>
 

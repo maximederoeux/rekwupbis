@@ -102,6 +102,6 @@ class BoxesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def box_params
-      params.require(:box).permit(:box_name, :box_regular, :box_type, :bigbox, :smallbox, :box_is_full, :lln_twentyfive, :lln_fifty, :lln_litre, :empty_box, :kpt_box)
+      params.require(:box).permit(:box_name, :box_regular, :box_type, :bigbox, :smallbox, :box_is_full, :is_empty, :is_cc, :is_ep, :is_eco, :is_wine, :is_cava, :is_twenty, :is_twentyfive, :is_forty, :is_fifty, :is_litre, :is_lln, :is_rekwup, :is_bep, :is_patro, :is_corona, :is_shot)
     end
 end

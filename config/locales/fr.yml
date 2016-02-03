@@ -256,6 +256,7 @@ fr:
     is_patro: "Patro"
     is_bep: "BEP"
     data: "Données"
+    is_shot: "Shot"
 
   negociated_price:
     add: "Ajouter des prix négociés."
