@@ -214,6 +214,7 @@ fr:
     left_rekwup: "Livraisons en route"
     your_ready: "Votre commande est prête à partir"
     your_gone: "Votre commande est partie"
+    past_days: "Commandes non traitées des jours précédents"
 
   article:
     article_name: "Nom Article"

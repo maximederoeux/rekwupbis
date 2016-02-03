@@ -9,6 +9,7 @@ class Delivery < ActiveRecord::Base
 
 
 	scope :this_day, lambda {where(:delivery_date => Date.today)}
+	scope :past_days, lambda {where("delivery_date < ?", Date.today)}
 	scope :sent_this_day, lambda {where(:gone_time => (Date.current.beginning_of_day..Date.current.end_of_day))}
 	scope :next_day, lambda {where(:delivery_date => Date.today + 1.day)}
 	scope :two_days, lambda {where(:delivery_date => Date.today + 2.days)}

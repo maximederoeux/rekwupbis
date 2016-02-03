@@ -213,6 +213,7 @@ nl:
     left_rekwup: "Deliveries on their way"
     your_ready: "Uw bestelling is klaar om te vertrekken"
     your_gone: "Uw bestelling werd gestuurd"
+    past_days: "Niet behandeld leveringen van vorige dagen"
 
 
   article:

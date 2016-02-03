@@ -214,6 +214,7 @@ en:
     left_rekwup: "Deliveries on their way"
     your_ready: "Your order is ready to go"
     your_gone: "Your order is gone"
+    past_days: "Orders not handled from past days"
 
   article:
     article_name: "Article Name"

@@ -1,3 +1,82 @@
+	<ul class="list-group">
+	    <li class="list-group-item list-group-item-warning ">
+	      <h4><%= t("delivery.past_days") %></h4>
+	    </li>
+	</ul>
+
+
+  <div class="row">
+    <div class="col-md-6">    
+
+    		<ul class="list-group">
+	        <li class="list-group-item text-center">
+	          <h4><%= t("delivery.prepare") %></h4>
+	        </li>
+  			
+  					<% @not_ready.past_days.each do |delivery| %>
+
+
+								<li class="list-group-item text-center">
+	      	
+			          <strong>
+			            <%= delivery.offer.event.event_name %><br>
+			            <% if delivery.offer.organizer.is_lln %>
+			            <%= delivery.offer.organizer.name %><br>
+			            <% end %>
+
+
+			            	<%= link_to delivery_path(delivery) do %>
+				              <%= content_tag(:i, "", class: "fa fa-eye") %>
+				            <% end %>
+			            
+				            <%= link_to edit_delivery_path(delivery) do %>
+				              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+				            <% end %>
+			            <br>
+			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+			            <%= delivery.total_boxes %> <%= t("menu.boxes") %>
+
+			          </strong>
+								</li>
+	        	<% end %>
+	     	</ul>
+	    </div>
+
+			<div class="col-md-6">
+				<ul class="list-group">
+	        <li class="list-group-item text-center">
+	          <h4><%= t("delivery.ready") %></h4>
+	        </li>
+
+  					<% @not_gone.past_days.each do |delivery| %>
+
+
+							<li class="list-group-item text-center">
+      	
+			          <strong>
+			            <%= delivery.offer.event.event_name %><br>
+			            <% if delivery.offer.organizer.is_lln %>
+			            <%= delivery.offer.organizer.name %><br>
+			            <% end %>
+
+			            	<%= link_to delivery_path(delivery) do %>
+				              <%= content_tag(:i, "", class: "fa fa-eye") %>
+				            <% end %>			            
+			                        
+				            <%= link_to edit_delivery_path(delivery) do %>
+				              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+				            <% end %>
+			            <br>
+			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+			          </strong>
+							</li>
+	        	<% end %>	      
+     		</ul>
+     	</div>
+      
+    </div>  
+
 
 	<ul class="list-group">
 	    <li class="list-group-item list-group-item-warning ">
