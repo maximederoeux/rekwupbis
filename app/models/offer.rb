@@ -16,8 +16,8 @@ class Offer < ActiveRecord::Base
 	has_many :invoices
 
 	scope :last_month, lambda {where(:updated_at => (30.days.ago.beginning_of_day..Date.today.end_of_day))}
-	scope :this_day, lambda {where(:updated_at => Date.today.beginning_of_day - 1.day..Date.today.end_of_day - 1.day)}
-	scope :one_day_before, lambda {where(:updated_at => Date.today.beginning_of_day..Date.today.end_of_day)}
+	scope :one_day_before, lambda {where(:created_at => (Date.today.beginning_of_day - 1.day..Date.today.end_of_day - 1.day))}
+	scope :this_day, lambda {where(:created_at => (Date.today.beginning_of_day..Date.today.end_of_day))}
 	scope :lln_daily, lambda {where(:lln_daily => true)}
 
 	def automatic

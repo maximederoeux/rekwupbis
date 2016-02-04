@@ -94,28 +94,28 @@ class OffersController < ApplicationController
           LlnImport.where(:id => @offer.organizer.lln_id).each do |import|
 
             if import.lln_twentyfive >= 1
-              OfferBox.create(:offer_id => @offer.id, :box_id => Box.twentyfive.first.id, :quantity => import.lln_twentyfive)
+              OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_lln.twentyfive.first.id, :quantity => import.lln_twentyfive)
             end
 
             if import.lln_fifty >= 1
-              OfferBox.create(:offer_id => @offer.id, :box_id => Box.fifty.first.id, :quantity => import.lln_fifty)
+              OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_lln.fifty.first.id, :quantity => import.lln_fifty)
             end
 
             if import.lln_litre >= 1
-              OfferBox.create(:offer_id => @offer.id, :box_id => Box.litre.first.id, :quantity => import.lln_litre)
+              OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_lln.litre.first.id, :quantity => import.lln_litre)
             end
 
             if import.empty_box >= 1
-              OfferBox.create(:offer_id => @offer.id, :box_id => Box.empty_box.first.id, :quantity => import.empty_box)
+              OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_empty.first.id, :quantity => import.empty_box)
             end
 
             if import.kpt_box >= 1
-              OfferBox.create(:offer_id => @offer.id, :box_id => Box.kpt_box.first.id, :quantity => import.kpt_box)
+              OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_lln.twentyfive.is_kpt.first.id, :quantity => import.kpt_box)
             end
 
             if import.return_box >= 1
               ReturnBox.create(:delivery_id => Delivery.where(:offer_id => @offer.id).last.id, :return_date => Date.today + 1.day)
-              ReturnDetail.create(:return_box_id => ReturnBox.last.id, :box_id => Box.twentyfive.first.id, :dirty => import.return_box)
+              ReturnDetail.create(:return_box_id => ReturnBox.last.id, :box_id => Box.is_lln.twentyfive.first.id, :dirty => import.return_box)
             end
 
           end

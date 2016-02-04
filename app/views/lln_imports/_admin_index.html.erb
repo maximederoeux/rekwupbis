@@ -83,7 +83,7 @@
         <div class="col-md-3">
 
           <% if Offer.this_day.where(:organizer_id => User.is_lln.where(:lln_id => lln_import.id)).any? %>
-            <% Offer.this_day.where(:organizer_id => User.is_lln.where(:lln_id => lln_import.id)).last.organizer.name %>
+            <%= t("offer.reference")%> <%= Offer.this_day.where(:organizer_id => User.is_lln.where(:lln_id => lln_import.id)).last.id %>
           <% else %>
 
             <% if lln_import.grand_total >= 1 %>
@@ -179,13 +179,13 @@
       <li class="list-group-item">
         <div class="row">
           <div class="col-md-6">
-            <%= Box.empty_box.last.box_name %>
+            <%= Box.is_empty.first.box_name %>
             </div>
           <div class="col-md-3 text-center">
             <%= LlnImport.sum('empty_box') %>
           </div>
           <div class="col-md-3 text-center">
-            <%= Box.empty_box.last.weight * LlnImport.sum('empty_box') %> KG
+            <%= Box.is_empty.first.weight * LlnImport.sum('empty_box') %> KG
           </div>
         </div>
       </li>
@@ -193,13 +193,13 @@
       <li class="list-group-item">
         <div class="row">
           <div class="col-md-6">
-            <%= Box.kpt_box.last.box_name %>
+            <%= Box.is_kpt.first.box_name %>
             </div>
           <div class="col-md-3 text-center">
             <%= LlnImport.sum('kpt_box') %>
           </div>
           <div class="col-md-3 text-center">
-            <%= Box.kpt_box.last.weight * LlnImport.sum('kpt_box') %> KG
+            <%= Box.is_kpt.first.weight * LlnImport.sum('kpt_box') %> KG
           </div>
         </div>
       </li>
@@ -213,7 +213,7 @@
             <%= LlnImport.sum('lln_twentyfive') + LlnImport.sum('lln_fifty') + LlnImport.sum('lln_litre') + LlnImport.sum('empty_box') + LlnImport.sum('kpt_box') %>
           </div>
           <div class="col-md-3 text-center">
-            <%= (Box.twentyfive.last.weight * LlnImport.sum('lln_twentyfive')) + (Box.fifty.last.weight * LlnImport.sum('lln_fifty')) + (Box.litre.last.weight * LlnImport.sum('lln_litre')) + (Box.empty_box.last.weight * LlnImport.sum('empty_box')) + (Box.kpt_box.last.weight * LlnImport.sum('kpt_box')) %> KG
+            <%= (Box.is_lln.twentyfive.first.weight * LlnImport.sum('lln_twentyfive')) + (Box.is_lln.fifty.first.weight * LlnImport.sum('lln_fifty')) + (Box.is_lln.litre.first.weight * LlnImport.sum('lln_litre')) + (Box.is_empty.first.weight * LlnImport.sum('empty_box')) + (Box.is_lln.is_twentyfive.is_kpt.first.weight * LlnImport.sum('kpt_box')) %> KG
           </div>
         </div>
       </li>
