@@ -49,7 +49,7 @@
 
             <% if @box.bigbox %>
 
-              <%= t("box.mixed") %>
+              <%= t("box.bigbox") %>
                 
             <% end %>
           </div>
@@ -175,57 +175,6 @@
         <strong>
           <div class="col-md-2">
 
-            <% if @box.is_rekwup %>
-
-              <%= t("article.rekwup_cup") %>
-                
-            <% end %>
-          </div>
-
-          <div class="col-md-2">
-
-            <% if @box.is_lln %>
-
-              <%= t("article.is_lln") %>
-                
-            <% end %>
-          </div>
-
-          <div class="col-md-2">
-
-            <% if @box.is_bep %>
-
-              <%= t("article.is_bep") %>
-                
-            <% end %>
-          </div>
-
-          <div class="col-md-2">
-
-            <% if @box.is_patro %>
-
-              <%= t("article.is_patro") %>
-                
-            <% end %>
-          </div>
-
-          <div class="col-md-2">
-
-          </div>
-
-          <div class="col-md-2">
-
-
-          </div>
-        </strong>
-      </div>
-    </li>
-
-    <li class="list-group-item">
-      <div class="row">
-        <strong>
-          <div class="col-md-2">
-
             <% if @box.is_twenty %>
 
               <%= t("article.is_twenty") %>
@@ -275,6 +224,59 @@
         </strong>
       </div>
     </li>
+    
+    <li class="list-group-item">
+      <div class="row">
+        <strong>
+          <div class="col-md-2">
+
+            <% if @box.is_rekwup %>
+
+              <%= t("article.rekwup_cup") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.is_lln %>
+
+              <%= t("article.is_lln") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.is_bep %>
+
+              <%= t("article.is_bep") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.is_patro %>
+
+              <%= t("article.is_patro") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+          </div>
+
+          <div class="col-md-2">
+
+
+          </div>
+        </strong>
+      </div>
+    </li>
+
+
 
     <li class="list-group-item">
       <div class="row">

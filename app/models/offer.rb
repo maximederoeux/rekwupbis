@@ -22,31 +22,32 @@ class Offer < ActiveRecord::Base
 
 	def automatic
 		if lln_daily.blank?
-			offer_articles.create(:offer_id => id, :article_id => "12", :quantity => "1")
+			offer_articles.create(:offer_id => id, :article_id => Article.is_transport.first.id, :quantity => "1")
 		  if event.cuptwenty
-		  offer_boxes.create(:offer_id => id, :box_id => "1", :quantity => estimated_20_boxes)
+		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_twenty.closed.first.id, :quantity => estimated_20_boxes)
 		  end
 		  if event.cuptwentyfive
-		  offer_boxes.create(:offer_id => id, :box_id => "2", :quantity => estimated_25_boxes)
+		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_twentyfive.closed.first.id, :quantity => estimated_25_boxes)
 		  end
 		  if event.cupforty
-		  offer_boxes.create(:offer_id => id, :box_id => "3", :quantity => estimated_40_boxes)
+		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_forty.closed.first.id, :quantity => estimated_40_boxes)
 		  end
 		  if event.cupfifty
-		  offer_boxes.create(:offer_id => id, :box_id => "4", :quantity => estimated_50_boxes)
+		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_fifty.closed.first.id, :quantity => estimated_50_boxes)
 		  end
 		  if event.cuplitre
-		  offer_boxes.create(:offer_id => id, :box_id => "5", :quantity => estimated_100_boxes)
+		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_litre.closed.first.id, :quantity => estimated_100_boxes)
 		  end        
 		  if event.cupcava
-		  offer_boxes.create(:offer_id => id, :box_id => "6", :quantity => estimated_cava_boxes)
+		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_cava.closed.first.id, :quantity => estimated_cava_boxes)
 		  end
 		  if event.cupwine
-		  offer_boxes.create(:offer_id => id, :box_id => "7", :quantity => estimated_wine_boxes)
+		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_wine.closed.first.id, :quantity => estimated_wine_boxes)
 		  end
 		  if event.cupshot
-		  offer_boxes.create(:offer_id => id, :box_id => "8", :quantity => estimated_shot_boxes)
+		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_shot.closed.first.id, :quantity => "1")
 		  end
+		  offer_boxes.create(:offer_id => id, :box_id => Box.is_bigbox.is_empty.closed.first.id, :quantity => estimated_empty_boxes)
 		end
 	end
 
@@ -62,7 +63,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_20_boxes
 		if event.cuptwenty
-			(estimated_20_cups / 450).ceil
+			(estimated_20_cups / Article.is_cc.is_twenty.first.quantity_bigbox).ceil
 		end
 	end
 
@@ -74,7 +75,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_25_boxes
 		if event.cuptwentyfive
-			(estimated_25_cups / 400).ceil
+			(estimated_25_cups / Article.is_cc.is_twentyfive.first.quantity_bigbox).ceil
 		end
 	end
 
@@ -86,7 +87,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_40_boxes
 		if event.cupforty
-			(estimated_40_cups / 320).ceil
+			(estimated_40_cups / Article.is_cc.is_forty.first.quantity_bigbox).ceil
 		end
 	end
 
@@ -98,7 +99,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_50_boxes
 		if event.cupfifty
-			(estimated_50_cups / 280).ceil
+			(estimated_50_cups / Article.is_cc.is_fifty.first.quantity_bigbox).ceil
 		end
 	end
 
@@ -110,7 +111,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_100_boxes
 		if event.cuplitre
-			(estimated_100_cups / 96).ceil
+			(estimated_100_cups / Article.is_cc.is_litre.first.quantity_bigbox).ceil
 		end
 	end
 
@@ -122,7 +123,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_cava_boxes
 		if event.cupcava
-			(estimated_cava_cups / 132).ceil
+			(estimated_cava_cups / Article.is_cava.first.quantity_bigbox).ceil
 		end
 	end
 
@@ -134,7 +135,7 @@ class Offer < ActiveRecord::Base
 
 	def estimated_wine_boxes
 		if event.cupwine
-			(estimated_wine_cups / 132).ceil
+			(estimated_wine_cups / Article.is_wine.first.quantity_bigbox).ceil
 		end
 	end
 
@@ -146,7 +147,15 @@ class Offer < ActiveRecord::Base
 
 	def estimated_shot_boxes
 		if event.cupshot
-			(estimated_shot_cups / 500).ceil
+			(estimated_shot_cups / Article.is_cava.first.quantity_bigbox).ceil
+		end
+	end
+
+	def estimated_empty_boxes
+		if event.beertap.present?
+			event.beertap
+		else
+			1
 		end
 	end
 

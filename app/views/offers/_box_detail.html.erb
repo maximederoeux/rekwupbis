@@ -52,8 +52,12 @@
 				          <div class="col-md-8">
 				            <% if thisofferbox.box %>
 
-				                <%= thisofferbox.box.box_name %> (<%= thisofferbox.box.boxdetails.last.box_article_quantity %> <%= thisofferbox.box.boxdetails.last.article.full_name %>)
+				            	<% if thisofferbox.box.is_empty %>
+				            		<%= thisofferbox.box.box_name %>
+				            	<% else %>
 
+				                <%= thisofferbox.box.box_name %> (<%= thisofferbox.box.boxdetails.last.box_article_quantity %> <%= thisofferbox.box.boxdetails.last.article.full_name %>)
+				              <% end %>
 				                	<% if current_user.admin %>
 														<%= link_to edit_offer_box_path(thisofferbox) do %>
 													     <%= content_tag(:i, "", class: "fa fa-pencil-square-o btn btn-xs btn-default pull-right") %> 
@@ -68,8 +72,13 @@
 				          </div>
 
 				          <div class="col-md-4 text-center">
+
+				          	<% if thisofferbox.box.is_empty %>
+				          		<%= thisofferbox.quantity if thisofferbox.quantity %> <%= t("offer.boxes") %>
+				          	<% else %>
 				              <%= thisofferbox.quantity if thisofferbox.quantity %> <%= t("offer.boxes") %> - 
-				            <%= thisofferbox.quantity * thisofferbox.box.boxdetails.last.box_article_quantity %> <%= t("offer.cups") %>  
+				        			<%= thisofferbox.quantity * thisofferbox.box.boxdetails.last.box_article_quantity %> <%= t("offer.cups") %>
+				            <% end %>
 				          </div>
 
 				        </div>

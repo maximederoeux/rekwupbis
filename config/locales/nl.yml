@@ -262,6 +262,7 @@ nl:
     is_forty: "40 CL"
     is_fifty: "50 CL"
     is_litre: "100 CL"
+    transport: "Vervoer"
 
   negociated_price:
     add: "Onderhandeld prijzen toevoegen."
