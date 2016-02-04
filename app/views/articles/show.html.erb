@@ -265,11 +265,13 @@
         <li class="list-group-item">
           <div class="row text-center")>
             <div class="col-md-2">
-              <% if @article.transport %>
+
+              <% if @article.transport == true %>
                 <strong>
                   <%= t("article.transport") %>
                 </strong>
               <% end %>
+
             </div>
             
             <div class="col-md-3">
