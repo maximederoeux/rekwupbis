@@ -11,9 +11,6 @@ class Box < ActiveRecord::Base
   has_many :parcels
 
   scope :closed, lambda {where(:box_is_full => true)}
-  scope :twentyfive, lambda {where(:lln_twentyfive => true)}
-  scope :fifty, lambda {where(:lln_fifty => true)}
-  scope :litre, lambda {where(:lln_litre => true)}
   scope :is_empty, lambda {where(:is_empty => true)}
   scope :is_kpt, lambda {where(:is_kpt => true)}
   scope :is_rekwup, lambda {where(:is_rekwup => true)}
