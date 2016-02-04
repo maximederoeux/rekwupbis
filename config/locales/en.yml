@@ -257,6 +257,11 @@ en:
     is_bep: "BEP"
     data: "Data"
     is_shot: "Shot"
+    is_twenty: "20 CL"
+    is_twentyfive: "25 CL"
+    is_forty: "40 CL"
+    is_fifty: "50 CL"
+    is_litre: "100 CL"
 
   negociated_price:
     add: "Add negociated prices"
@@ -276,7 +281,7 @@ en:
     bigbox: "Big Box"
     smallbox: "Small Box"
     box_regular: "Regular Box"
-    box_not_regular: "Mixed Cups Box"
+    mixed: "Mixed Cups Box"
     new_box: "Create a box"
     listing_boxes: "Listing Boxes"
     edit_box: "Edit Box"
@@ -292,6 +297,9 @@ en:
     box_size: "Size of the box"
     box_type: "Box Type"
     weight: "Box weight"
+    is_empty: "Empty"
+    is_kpt: "KPT"
+    is_corona: "Corona"
 
   boxdetail:
     edit_boxdetail: "Modify box content"

@@ -257,6 +257,11 @@ nl:
     is_bep: "BEP"
     data: "Data"
     is_shot: "Shot"
+    is_twenty: "20 CL"
+    is_twentyfive: "25 CL"
+    is_forty: "40 CL"
+    is_fifty: "50 CL"
+    is_litre: "100 CL"
 
   negociated_price:
     add: "Onderhandeld prijzen toevoegen."
@@ -276,7 +281,7 @@ nl:
     bigbox: "Grote doos"
     smallbox: "Kleine doos"
     box_regular: "Normale doos"
-    box_not_regular: "Gemengde doos"
+    mixed: "Gemengde doos"
     new_box: "Een doos maken"
     listing_boxes: "Alle dozen"
     edit_box: "Doos wijzigen"
@@ -292,6 +297,9 @@ nl:
     box_size: "Maat van de doos"
     box_type: "Type van de doos"
     weight: "Gewicht vand e doos"
+    is_empty: "Leeg"
+    is_kpt: "KPT"
+    is_corona: "Corona"
 
   boxdetail:
     edit: "Inhoud van de doos wijzigen"

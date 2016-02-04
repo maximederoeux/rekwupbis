@@ -1,54 +1,87 @@
 
   <ul class="list-group">
     <li class="list-group-item list-group-item-warning">
+      <div class="row">
+        <strong>
+        <div class="col-md-4">
+          
+            <%= @box.id %> - <%= @box.box_name %>
 
-      <strong>
-        <%= @box.id %> - <%= @box.box_name %>
+              <%= link_to edit_box_path(@box) do %>
+                <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+              <% end %>
+            
+        </div>
 
-          <%= link_to edit_box_path(@box) do %>
-            <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
+        <div class="col-md-4">
+          <% if @box.box_regular %>
+            
+            <%= t("box.box_regular") %>
+
           <% end %>
+        </div>
 
-        
-      </strong>
+        <div class="col-md-4">
+
+          <% if @box.mixed %>
+
+            <%= t("box.mixed") %>
+              
+          <% end %>
+        </div>
+        </strong>
+      </div>      
     </li>
         
     <li class="list-group-item">
       <div class="row">
-        <div class="col-md-3">
-          <strong>
+        <strong>
+          <div class="col-md-2">
 
-            <% if @box.box_regular %>
-              
-              <%= t("box.box_regular") %>
+            <% if @box.is_empty %>
 
-            <% else %>
-
-              <%= t("box.box_not_regular") %>
-              
+              <%= t("box.is_empty") %>
+                
             <% end %>
+          </div>
 
-          </strong>
-        </div>
+          <div class="col-md-2">
 
-        <div class="col-md-3 text-center">
-          <strong>
-            <%= t("box.weight") %>
-          </strong><br>
-            <%= @box.weight %> kg
-        </div>
+            <% if @box.bigbox %>
 
+              <%= t("box.mixed") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.smallbox %>
+
+              <%= t("box.smallbox") %>
+                
+            <% end %>
+          </div>
+        
+
+          <div class="col-md-2 text-center">
+
+              <%= t("box.weight") %>
+            <br>
+              <%= @box.weight %> kg
+          </div>
+        </strong>
           <% if current_user.admin %>
 
             <% if @box.box_is_full %>
 
-              <div class="col-md-3">
+              <div class="col-md-2 text-center">
                 <strong>
                 <%= t("box.box_is_full") %>
                 </strong>
               </div>
 
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <%= simple_form_for(@box) do |f| %>
                   <%= f.error_notification %>
                   <%= f.hidden_field :box_is_full, :value => false %>
@@ -58,13 +91,13 @@
 
             <% else %>
 
-              <div class="col-md-3">
+              <div class="col-md-2 text-center">
                 <strong>
                   <%= t("box.box_is_not_full") %>
                 </strong>
               </div>
 
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <%= simple_form_for(@box) do |f| %>
                   <%= f.error_notification %>
                     <%= f.hidden_field :box_is_full, :value => true %>
@@ -74,10 +107,216 @@
 
             <% end %>
           <% end %>
-
         </div>
     </li>
-  
+
+    <li class="list-group-item">
+      <div class="row">
+        <strong>
+          <div class="col-md-2">
+
+            <% if @box.is_cc %>
+
+              <%= t("article.is_cc") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.is_ep %>
+
+              <%= t("article.is_ep") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.is_eco %>
+
+              <%= t("article.is_eco") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.is_wine %>
+
+              <%= t("article.is_wine") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.is_cava %>
+
+              <%= t("article.is_cava") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.is_shot %>
+
+              <%= t("article.is_shot") %>
+                
+            <% end %>
+          </div>
+        </strong>
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
+        <strong>
+          <div class="col-md-2">
+
+            <% if @box.is_rekwup %>
+
+              <%= t("article.rekwup_cup") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.is_lln %>
+
+              <%= t("article.is_lln") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.is_bep %>
+
+              <%= t("article.is_bep") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.is_patro %>
+
+              <%= t("article.is_patro") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+          </div>
+
+          <div class="col-md-2">
+
+
+          </div>
+        </strong>
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
+        <strong>
+          <div class="col-md-2">
+
+            <% if @box.is_twenty %>
+
+              <%= t("article.is_twenty") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.is_twentyfive %>
+
+              <%= t("article.is_twentyfive") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.is_forty %>
+
+              <%= t("article.is_forty") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.is_fifty %>
+
+              <%= t("article.is_fifty") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+            <% if @box.is_litre %>
+
+              <%= t("article.is_litre") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+
+          </div>
+        </strong>
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
+        <strong>
+          <div class="col-md-2">
+
+            <% if @box.is_kpt %>
+
+              <%= t("box.is_kpt") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+            <% if @box.is_corona %>
+
+              <%= t("box.is_corona") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+
+          </div>
+
+          <div class="col-md-2">
+
+          </div>
+
+          <div class="col-md-2">
+
+          </div>
+
+          <div class="col-md-2">
+
+
+          </div>
+        </strong>
+      </div>
+    </li>
 
     <li class="list-group-item list-group-item-warning">
       <div class="row">

@@ -125,6 +125,57 @@
         </li>
 
         <li class="list-group-item list-group-item-warning">
+          <strong><%= t("article.article_content") %></strong>
+        </li>
+
+        <li class="list-group-item">
+          <div class="row text-center")>
+            <div class="col-md-2">
+              <% if @article.is_twenty %>
+                <strong>
+                  <%= t("article.is_twenty") %>
+                </strong>
+              <% end %>
+            </div>
+
+            <div class="col-md-2">
+                <% if @article.is_twentyfive %>
+                  <strong>
+                    <%= t("article.is_twentyfive") %>
+                  </strong>
+                <% end %>
+            </div>
+
+            <div class="col-md-2">
+                <% if @article.is_forty %>
+                  <strong>
+                    <%= t("article.is_forty") %>
+                  </strong>
+                <% end %>
+            </div>
+
+            <div class="col-md-2">
+                <% if @article.is_fifty %>
+                  <strong>
+                    <%= t("article.is_fifty") %>
+                  </strong>
+                <% end %>
+            </div>
+            <div class="col-md-2">
+                <% if @article.is_litre %>
+                  <strong>
+                    <%= t("article.is_litre") %>
+                  </strong>
+                <% end %>
+            </div>  
+
+            <div class="col-md-2">
+
+            </div>              
+          </div>
+        </li>
+
+        <li class="list-group-item list-group-item-warning">
           <strong><%= t("article.article_category") %></strong>
         </li>
 

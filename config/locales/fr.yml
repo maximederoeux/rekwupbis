@@ -257,6 +257,11 @@ fr:
     is_bep: "BEP"
     data: "Données"
     is_shot: "Shot"
+    is_twenty: "20 CL"
+    is_twentyfive: "25 CL"
+    is_forty: "40 CL"
+    is_fifty: "50 CL"
+    is_litre: "100 CL"
 
   negociated_price:
     add: "Ajouter des prix négociés."
@@ -276,7 +281,7 @@ fr:
     bigbox: "Grande caisse"
     smallbox: "Petite caisse"
     box_regular: "Caisse normale"
-    box_not_regular: "Caisse mixte"
+    mixed: "Caisse mixte"
     new_box: "Créer une caisse"
     listing_boxes: "Toutes les caisses"
     edit_box: "Modifier la caisse"
@@ -292,6 +297,9 @@ fr:
     box_size: "Taille de la caisse"
     box_type: "Type de caisse"
     weight: "Poids de la caisse"
+    is_empty: "Vide"
+    is_kpt: "KPT"
+    is_corona: "Corona"
 
   boxdetail:
     edit_boxdetail: "Modifier le contenu de la caisse"

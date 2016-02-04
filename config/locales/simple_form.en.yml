@@ -90,6 +90,11 @@ en:
         is_patro: "Patro"
         is_bep: "BEP"
         is_shot: "Shot"
+        is_twenty: "20 CL"
+        is_twentyfive: "25 CL"
+        is_forty: "40 CL"
+        is_fifty: "50 CL"
+        is_litre: "100 CL"
       box:
         box_name: "Box Name"
         bigbox: "Big Box"
