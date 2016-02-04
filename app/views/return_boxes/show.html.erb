@@ -74,7 +74,7 @@
           <%= f.error_notification %>
 
           <%= f.hidden_field :delivery_id, :value => Offer.where(:organizer_id => User.is_lln.where(:lln_id => import.id).first.id).last.delivery.id %>
-          <%= f.hidden_field :return_time, :value => Time.now %>
+          <%= f.hidden_field :return_date, :value => Date.today %>
           <%= f.hidden_field :unforeseen_return, :value => true %>
 
           <%= f.button :submit, class: "btn btn-success" %>
