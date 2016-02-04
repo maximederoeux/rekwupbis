@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204074302) do
+ActiveRecord::Schema.define(version: 20160204121910) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -219,6 +219,7 @@ ActiveRecord::Schema.define(version: 20160204074302) do
     t.boolean  "send_email"
     t.boolean  "lln_daily"
     t.datetime "sent_at"
+    t.boolean  "unforeseen_return"
   end
 
   create_table "parcels", force: :cascade do |t|
@@ -256,11 +257,12 @@ ActiveRecord::Schema.define(version: 20160204074302) do
     t.datetime "ctrl_time"
     t.integer  "ctrler"
     t.boolean  "is_controlled"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.date     "return_date"
     t.boolean  "wash"
     t.boolean  "send_wash"
+    t.boolean  "unforeseen_return"
   end
 
   create_table "return_details", force: :cascade do |t|

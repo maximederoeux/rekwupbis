@@ -23,10 +23,13 @@ class ReturnBoxesController < ApplicationController
   # GET /return_boxes/1.json
   def show
     @return_box = ReturnBox.find(params[:id])
+    @new_return = ReturnBox.new
     @return_detail = ReturnDetail.new
     @return_details = ReturnDetail.all
     @boxes = Box.all
     @thisreturndetails = @return_details.where(:return_box_id => @return_box.id)
+    @lln_imports = LlnImport.all
+    @new_offer = Offer.new
 
     @user = current_user
     @staff = @user.staff
@@ -121,6 +124,6 @@ class ReturnBoxesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def return_box_params
-      params.require(:return_box).permit(:delivery_id, :return_time, :is_back, :receptionist, :ctrl_time, :ctrler, :is_controlled, :return_date, :send_wash, return_details_attributes: [:box_id, :dirty, :sealed, :clean, :dirty_ctrl, :sealed_ctrl, :clean_ctrl])
+      params.require(:return_box).permit(:delivery_id, :return_time, :is_back, :receptionist, :ctrl_time, :ctrler, :is_controlled, :return_date, :send_wash, :unforeseen_return, return_details_attributes: [:box_id, :dirty, :sealed, :clean, :dirty_ctrl, :sealed_ctrl, :clean_ctrl])
     end
 end

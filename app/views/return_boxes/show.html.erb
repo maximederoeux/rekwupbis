@@ -57,3 +57,52 @@
       </div>
     </div>
 
+<% @lln_imports.each do |import| %>
+
+<% if Offer.where(:organizer_id => User.is_lln.where(:lln_id => import.id).first.id).any? %>
+
+  <% if Delivery.where(:offer_id => Offer.where(:organizer_id => User.is_lln.where(:lln_id => import.id).first.id).last.id).any? %>
+
+    <% if ReturnBox.where(:delivery_id => Delivery.where(:offer_id => Offer.where(:organizer_id => User.is_lln.where(:lln_id => import.id).first.id).last.id)).any? %>
+
+
+    <% else %>
+
+        <%= import.circle %>
+
+        <%= simple_form_for(@new_return) do |f| %>
+          <%= f.error_notification %>
+
+          <%= f.hidden_field :delivery_id, :value => Offer.where(:organizer_id => User.is_lln.where(:lln_id => import.id).first.id).last.delivery.id %>
+          <%= f.hidden_field :return_time, :value => Time.now %>
+          <%= f.hidden_field :unforeseen_return, :value => true %>
+
+          <%= f.button :submit, class: "btn btn-success" %>
+        <% end %><br>
+
+    <% end %>
+  <% end %>
+
+<% else %>
+
+  <strong><%= import.circle %></strong>
+
+  <%= simple_form_for(@new_offer) do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.hidden_field :event_id, :value => Event.is_lln.where(:lln_year => import.current_year).last.id %>
+    <%= f.hidden_field :organizer_id, :value => User.is_lln.where(:lln_id => import.id).last.id %>
+    <%= f.hidden_field :client_confirmation, :value => true %>
+    <%= f.hidden_field :admin_confirmation, :value => true %>
+    <%= f.hidden_field :lln_daily, :value => true %>
+    <%= f.hidden_field :unforeseen_return, :value => true %>
+
+    <%= f.button :submit, class: "btn btn-success" %><br>
+  <% end %>
+
+
+<% end %>
+
+<% end %>
+
+

@@ -82,14 +82,16 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     @user =current_user
     @admin = @user.admin
-    unless @admin
+    @staff = @user.staff
+    unless @admin or @staff
       redirect_to :root, :alert => t("notice.access")
     end
 
     respond_to do |format|
       if @offer.save
         @offer.automatic
-        if @offer.lln_daily
+
+        if @offer.lln_daily && !@offer.unforeseen_return
           Delivery.create(:offer_id => @offer.id, :delivery_date => Date.today + 1.day, :return_date => Date.today + 1.day)
           LlnImport.where(:id => @offer.organizer.lln_id).each do |import|
 
@@ -122,10 +124,18 @@ class OffersController < ApplicationController
 
           format.html { redirect_to :back, notice: 'Offer was successfully created.' }
           format.json { render :show, status: :created, location: @offer }
-        else
-          format.html { redirect_to @offer, notice: 'Offer was successfully created.' }
+        end
+
+        if @offer.unforeseen_return
+
+          Delivery.create(:offer_id => @offer.id, :delivery_date => Date.today - 1.day, :return_date => Date.today)
+          ReturnBox.create(:delivery_id => Delivery.where(:offer_id => @offer.id).last.id, :return_date => Date.today)
+          @return_box = ReturnBox.last
+
+          format.html { redirect_to @return_box, notice: 'Offer was successfully created.' }
           format.json { render :show, status: :created, location: @offer }
         end
+
       else
         format.html { render :new }
         format.json { render json: @offer.errors, status: :unprocessable_entity }
@@ -172,6 +182,6 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:event_id, :organizer_id, :client_confirmation, :admin_confirmation, :send_email, :lln_daily)
+      params.require(:offer).permit(:event_id, :organizer_id, :client_confirmation, :admin_confirmation, :send_email, :lln_daily, :unforeseen_return)
     end
 end
