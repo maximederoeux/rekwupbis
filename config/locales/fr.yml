@@ -221,6 +221,8 @@ fr:
     take_others: "Autres Commandes à emporter"
     drop_others: "Autres Commandes à déposer"
     drop: "Déposer cette commande"
+    dropped: "Commandes Livrées"
+    delivered: "Commande Livrée"
 
   article:
     article_name: "Nom Article"

@@ -221,6 +221,8 @@ en:
     take_others: "Other Orders to take"
     drop_others: "Other Orders to drop"
     drop: "Drop this order"
+    dropped: "Delivered Orders"
+    delivered: "Delivered order"
 
   article:
     article_name: "Article Name"

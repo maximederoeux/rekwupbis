@@ -220,6 +220,8 @@ nl:
     take_others: "Andere Bestellingen om mee te nemen"
     drop_others: "Andere Bestellingen om weg te geven"
     drop: "Deze bestelling weggeven"
+    dropped: "Geleverd bestellingen"
+    delivered: "Geleverd bestelling"
 
 
   article:

@@ -25,7 +25,7 @@ class Delivery < ActiveRecord::Base
 	scope :ready, lambda {where(:is_ready => true) && where(:is_gone => nil)}
 	scope :gone, lambda {where(:is_ready => true) && where(:is_gone => true)}
 	scope :not_dropped, lambda {where(:dropped => nil)}
-	scope :dropped, lambda {where(:dropped => true)}
+	scope :dropped, lambda {where(:drop_time => (Date.current.beginning_of_day..Date.current.end_of_day))}
 
 
 

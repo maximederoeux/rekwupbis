@@ -212,9 +212,7 @@
 		<h5><strong><%= t("delivery.dropped") %>  - <%= Date.today.strftime("%d/%m/%Y") %></strong></h5>
 	</li>
 
-	<% Delivery.this_day.dropped.each do |delivery| %>
-
-		<% if delivery.is_not_lln && delivery.total_boxes >= 1 %>
+	<% Delivery.dropped.each do |delivery| %>
 
 			<li class="list-group-item">
 				<div class="row text-center">
@@ -226,13 +224,11 @@
 							<%= delivery.total_boxes %>
 						</div>
 						<div class="col-md-4">
-							Dropped
+							<%= t("delivery.delivered") %>
 						</div>
 					</strong>
 				</div>
 			</li>
-
-		<% end %>
 
 	<% end %>
 
