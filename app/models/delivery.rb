@@ -38,10 +38,12 @@ class Delivery < ActiveRecord::Base
 		self.where(:is_ready => nil)
 	end
 
-	def create_return
-	  if is_gone
-	  return_boxes.create(:delivery_id => id, :return_date => return_date)
-	  end
+	def is_lln
+		if self.offer.lln_daily
+			true
+		else
+			false
+		end
 	end
 
 end

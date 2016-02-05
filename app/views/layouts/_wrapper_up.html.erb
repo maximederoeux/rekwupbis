@@ -99,6 +99,17 @@
 
         <% end %>
 
+
+        <% if current_user.chauffeur %>
+          <li>
+            <a href="#"><%= link_to t("menu.deliveries"), deliveries_path %></a>
+          </li>
+          <li>
+            <a href="#"><%= link_to t("menu.returns"), return_boxes_path %></a>
+          </li>
+
+        <% end %>
+
         <% if current_user.client %>
           <li>
             <a href="#"><%= link_to t("user.your_profile"), user_path(current_user) %></a>

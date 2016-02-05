@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204121910) do
+ActiveRecord::Schema.define(version: 20160205075713) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -337,6 +337,7 @@ ActiveRecord::Schema.define(version: 20160204121910) do
     t.integer  "lln_id"
     t.boolean  "taxable"
     t.string   "company_number"
+    t.boolean  "chauffeur"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

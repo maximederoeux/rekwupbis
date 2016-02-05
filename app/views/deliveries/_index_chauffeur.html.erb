@@ -1,0 +1,8 @@
+<% Delivery.this_day.each do |delivery| %>
+
+<% if delivery.is_lln %>
+<%= delivery.offer.organizer.name %>
+<%= delivery.total_boxes %><br>
+<% end %>
+
+<% end %>

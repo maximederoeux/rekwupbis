@@ -7,19 +7,22 @@
     <li class="list-group-item">
       <div class="row">
 
-        <div class="col-md-3">
+        <div class="col-md-4">
           <h6><strong><%= t("user.status") %></strong></h6>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <%= f.input :admin, :label => t("user.admin") %>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <%= f.input :staff, :label => t("user.staff") %>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <%= f.input :client, :label => t("user.client") %>
         </div>
-       
+        <div class="col-md-2">
+          <%= f.input :chauffeur, :label => t("user.chauffeur") %>
+        </div>
+         
 
       </div>
     </li>

@@ -83,9 +83,7 @@ class OffersController < ApplicationController
     @user =current_user
     @admin = @user.admin
     @staff = @user.staff
-    unless @admin or @staff
-      redirect_to :root, :alert => t("notice.access")
-    end
+
 
     respond_to do |format|
       if @offer.save
@@ -93,6 +91,7 @@ class OffersController < ApplicationController
 
         if @offer.lln_daily && !@offer.unforeseen_return
           Delivery.create(:offer_id => @offer.id, :delivery_date => Date.today + 1.day, :return_date => Date.today + 1.day)
+
           LlnImport.where(:id => @offer.organizer.lln_id).each do |import|
 
             if import.lln_twentyfive >= 1
@@ -121,21 +120,17 @@ class OffersController < ApplicationController
             end
 
           end
-
-          format.html { redirect_to :back, notice: 'Offer was successfully created.' }
-          format.json { render :show, status: :created, location: @offer }
         end
 
         if @offer.unforeseen_return
 
-          Delivery.create(:offer_id => @offer.id, :delivery_date => Date.today - 1.day, :return_date => Date.today)
+          Delivery.create(:offer_id => @offer.id, :delivery_date => Date.today - 1.day, :return_date => Date.today, :gone_time => Time.now - 86400)
           ReturnBox.create(:delivery_id => Delivery.where(:offer_id => @offer.id).last.id, :return_date => Date.today)
           @return_box = ReturnBox.last
-
-          format.html { redirect_to @return_box, notice: 'Offer was successfully created.' }
-          format.json { render :show, status: :created, location: @offer }
         end
-
+        
+          format.html { redirect_to :back, notice: 'Offer was successfully created.' }
+          format.json { render :show, status: :created, location: @offer }
       else
         format.html { render :new }
         format.json { render json: @offer.errors, status: :unprocessable_entity }

@@ -17,3 +17,9 @@
 <%= render 'index_client' %>
 
 <% end %>
+
+<% if current_user.chauffeur %>
+
+<%= render 'index_chauffeur' %>
+
+<% end %>
