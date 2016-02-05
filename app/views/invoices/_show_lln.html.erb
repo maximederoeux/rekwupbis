@@ -1,0 +1,356 @@
+<%= (@invoice.created_at.beginning_of_week - 7.days).strftime("%d/%m/%Y") %><br>
+<%= (@invoice.created_at.end_of_week - 7.days).strftime("%d/%m/%Y") %><br>
+
+
+<ul class="list-group">
+
+  <li class="list-group-item list-group-item-info">
+    <h5><strong>
+
+      <% if @invoice.doc_invoice %>
+        <%= t("invoice.invoice") %>
+      <% elsif @invoice.doc_credit %>
+        <%= t("invoice.credit") %>
+      <% end %>
+          - <%= @invoice.created_at.strftime("%Y") %> - <%= @invoice.doc_number %>
+    </h5></strong>
+  </li>
+  <li class="list-group-item">
+    <strong><%= t("invoice.client") %></strong>
+      <%= @invoice.client.full_name %>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row text-center">
+      <div class="col-md-4">
+      <strong><%= t("invoice.event") %></strong><br>
+        <%= @invoice.offer.event.event_name %>
+    </div>
+    <div class="col-md-4">
+      <strong><%= t("event.event_start_date") %> :</strong><br>
+      <%= @invoice.offer.event.event_start_date.strftime("%d/%m/%Y") %>
+    </div>
+    <div class="col-md-4">
+      <strong><%= t("event.event_end_date") %> :</strong><br>
+      <%= @invoice.offer.event.event_end_date.strftime("%d/%m/%Y") %>
+    </div>
+  </li>
+<hr>
+
+
+<% User.is_lln.where('lln_id > ?', 0).each do |circle| %>
+
+  <li class="list-group-item list-group-item-warning">
+		<strong>
+			<%= circle.name %>
+		</strong>
+	</li>
+
+	<% Offer.where(:organizer_id => circle.id).where(created_at: (@invoice.created_at.beginning_of_week - 7.days)..(@invoice.created_at.end_of_week - 7.days)).each do |offer| %>
+  
+  <li class="list-group-item">
+		<strong>
+			<%= offer.created_at.strftime("%d/%m/%Y") %>
+		<strong>
+	</li>
+
+    <li class="list-group-item">
+    <div class="row">
+      <strong>
+      <div class="col-md-2">
+Article
+      </div>
+      <div class="col-md-2">
+Qtté
+      </div>
+      <div class="col-md-2">
+Prix U.
+      </div>
+      <div class="col-md-2">
+Total HTVA
+      </div>
+      <div class="col-md-4">
+
+      </div>
+    </div>
+  </strong>
+  </li>
+
+		<% offer.sorting_details.each do |detail| %>
+
+    <% unless detail.total_cups == 0 %>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-2">
+            <%= detail.article.full_name %>
+          </div>
+          <div class="col-md-2">
+            <%= detail.total_cups %>
+          </div>
+          <div class="col-md-2">
+            <%= number_to_currency(detail.article.prices.last.washing,:unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %>
+          </div>
+          <div class="col-md-2">
+            <%= number_to_currency((detail.total_cups * detail.article.prices.last.washing),:unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %>
+          </div>
+          <div class="col-md-4">
+
+          </div>
+        </div>
+      </li>
+
+    <% end %>
+
+		<% end %>
+
+	<% end %>
+
+
+
+<% end %>
+
+
+    <li class="list-group-item">
+    <div class="row">
+      <strong>
+      <div class="col-md-2">
+Article
+      </div>
+      <div class="col-md-2">
+Qtté
+      </div>
+      <div class="col-md-2">
+Prix U.
+      </div>
+      <div class="col-md-2">
+Total HTVA
+      </div>
+      <div class="col-md-4">
+
+      </div>
+    </div>
+  </strong>
+  </li>
+
+  <li class="list-group-item list-group-item-info">
+  Lavés
+  </li>
+
+  <% @invoice.sorting_details.clean.each do |detail| %>
+
+    <% unless detail.total_cups == 0 %>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-2">
+            <%= detail.article.full_name %>
+          </div>
+          <div class="col-md-2">
+            <%= detail.total_cups %>
+          </div>
+          <div class="col-md-2">
+            <%= number_to_currency(detail.article.prices.last.washing,:unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %>
+          </div>
+          <div class="col-md-2">
+            <%= number_to_currency((detail.total_cups * detail.article.prices.last.washing),:unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %>
+          </div>
+          <div class="col-md-4">
+
+          </div>
+        </div>
+      </li>
+
+    <% end %>
+
+  <% end %>
+
+  <li class="list-group-item list-group-item-info">
+  Très sales - Lavage manuel
+  </li>
+
+  <% @invoice.sorting_details.very_dirty.each do |detail| %>
+
+    <% unless detail.total_cups == 0 %>  
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-2">
+            <%= detail.article.full_name %>
+          </div>
+          <div class="col-md-2">
+            <%= detail.total_cups %>
+          </div>
+          <div class="col-md-2">
+            <%= number_to_currency(detail.article.prices.last.handwash,:unit =>'€', :precision => 2) if detail.article.prices.last.handwash.present? %>
+          </div>
+          <div class="col-md-2">
+            <%= number_to_currency((detail.total_cups * detail.article.prices.last.handwash),:unit =>'€', :precision => 2) if detail.article.prices.last.handwash.present? %>
+          </div>
+          <div class="col-md-4">
+
+          </div>
+        </div>
+      </li>
+
+    <% end %>
+
+  <% end %>
+
+  <li class="list-group-item list-group-item-info">
+  Cassés
+  </li>
+
+  <% @invoice.sorting_details.broken.each do |detail| %>
+
+    <% unless detail.total_cups == 0 %>  
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-2">
+            <%= detail.article.full_name %>
+          </div>
+          <div class="col-md-2">
+            <%= detail.total_cups %>
+          </div>
+          <div class="col-md-2">
+            <%= number_to_currency(detail.article.prices.last.deposit,:unit =>'€', :precision => 2) if detail.article.prices.last.deposit.present? %>
+          </div>
+          <div class="col-md-2">
+            <%= number_to_currency((detail.total_cups * detail.article.prices.last.deposit),:unit =>'€', :precision => 2) if detail.article.prices.last.deposit.present? %>
+          </div>
+          <div class="col-md-4">
+
+          </div>
+        </div>
+      </li>
+
+    <% end %>
+
+  <% end %>
+
+
+  <li class="list-group-item list-group-item-info">
+  Manutention
+  </li>
+
+  <% @invoice.sorting_details.handling.each do |detail| %>
+
+    <% unless detail.total_cups == 0 %>  
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-2">
+            <%= detail.article.full_name %>
+          </div>
+          <div class="col-md-2">
+            <%= detail.total_cups %>
+          </div>
+          <div class="col-md-2">
+            <%= number_to_currency(detail.article.prices.last.handling,:unit =>'€', :precision => 2) if detail.article.prices.last.handling.present? %>
+          </div>
+          <div class="col-md-2">
+            <%= number_to_currency((detail.total_cups * detail.article.prices.last.handling),:unit =>'€', :precision => 2) if detail.article.prices.last.handling.present? %>
+          </div>
+          <div class="col-md-4">
+
+          </div>
+        </div>
+      </li>
+
+    <% end %>
+
+  <% end %>
+
+  <li class="list-group-item list-group-item-info">
+  Autres frais
+  </li>
+
+  <% @invoice.offer_articles.each do |article| %>
+
+    <% unless article.quantity == 0 %>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-2">
+            <%= article.article.full_name %>
+          </div>
+          <div class="col-md-2">
+            <%= article.quantity %>
+          </div>
+          <div class="col-md-2">
+
+            <% if article.article_id == 12 %>
+
+              <%= number_to_currency(@invoice.offer.transport_price,:unit =>'€', :precision => 2) %>
+
+            <% else %>
+
+              <%= number_to_currency(@regular_prices.where(:article_id => article.article.id).last.sell,:unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
+
+            <% end %>
+          </div>
+          <div class="col-md-2">
+            <% if article.article_id == 12 %>
+
+              <%= number_to_currency((article.quantity * @invoice.offer.transport_price),:unit =>'€', :precision => 2) %>
+
+            <% else %>
+
+              <%= number_to_currency((article.quantity * @regular_prices.where(:article_id => article.article.id).last.sell),:unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
+
+              <% end %>
+          </div>
+          <div class="col-md-4">
+
+          </div>
+        </div>
+      </li>
+    <% end %>
+  <% end %>
+
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-md-4">
+          
+        </div>
+        <div class="col-md-2">
+          <strong>Total HTVA</strong>
+        </div>
+        <div class="col-md-2">
+          <strong><%= number_to_currency(@invoice.total_htva,:unit =>'€', :precision => 2) %></strong>
+        </div>
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-md-4">
+          
+        </div>
+        <div class="col-md-2">
+          <strong>TVA</strong>
+        </div>        
+        <div class="col-md-2">
+          <strong><%= number_to_currency(((@invoice.total_htva * 1.21) - @invoice.total_htva),:unit =>'€', :precision => 2) %></strong>
+        </div>
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-md-4">
+          
+        </div>
+        <div class="col-md-2">
+          <strong>Total TVAC</strong>
+        </div>
+        <div class="col-md-2">
+          <strong><%= number_to_currency((@invoice.total_htva * 1.21),:unit =>'€', :precision => 2) %></strong>
+        </div>
+      </div>
+    </li>
+
+
+</ul>
+

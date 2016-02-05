@@ -103,4 +103,6 @@ class Invoice < ActiveRecord::Base
 		clean_amount + broken_amount + very_dirty_amount + handling_amount + self.offer.transport_price + article_amount
 	end
 
+
+
 end

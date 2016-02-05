@@ -8,6 +8,7 @@ class InvoicesController < ApplicationController
     @confirmedoffers = Offer.where(:client_confirmation => true)
     @confirmed = @confirmedoffers.where(:admin_confirmation => true)
     @new_invoice = Invoice.new
+    @new_offer = Offer.new
   end
 
   # GET /invoices/1

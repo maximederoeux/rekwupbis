@@ -1,5 +1,5 @@
 class Offer < ActiveRecord::Base
-	belongs_to :organizer, :class_name => "User", counter_cache: true
+	belongs_to :organizer, :class_name => "User"
 	belongs_to :event
 
 	has_many :offer_boxes
@@ -21,33 +21,39 @@ class Offer < ActiveRecord::Base
 	scope :lln_daily, lambda {where(:lln_daily => true)}
 
 	def automatic
-		if lln_daily.blank?
-			offer_articles.create(:offer_id => id, :article_id => Article.is_transport.first.id, :quantity => "1")
-		  if event.cuptwenty
-		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_twenty.closed.first.id, :quantity => estimated_20_boxes)
-		  end
-		  if event.cuptwentyfive
-		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_twentyfive.closed.first.id, :quantity => estimated_25_boxes)
-		  end
-		  if event.cupforty
-		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_forty.closed.first.id, :quantity => estimated_40_boxes)
-		  end
-		  if event.cupfifty
-		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_fifty.closed.first.id, :quantity => estimated_50_boxes)
-		  end
-		  if event.cuplitre
-		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_litre.closed.first.id, :quantity => estimated_100_boxes)
-		  end        
-		  if event.cupcava
-		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_cava.closed.first.id, :quantity => estimated_cava_boxes)
-		  end
-		  if event.cupwine
-		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_wine.closed.first.id, :quantity => estimated_wine_boxes)
-		  end
-		  if event.cupshot
-		  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_shot.closed.first.id, :quantity => "1")
-		  end
-		  offer_boxes.create(:offer_id => id, :box_id => Box.is_bigbox.is_empty.closed.first.id, :quantity => estimated_empty_boxes)
+		if lln_invoice && lln_daily.blank?
+			invoices.create(:offer_id => id, :client_id => User.is_lln.where(:lln_id => 0).first.id, :doc_invoice => true)
+			@invoice = Invoice.last
+			@invoice.update_attributes(:doc_number => @invoice.invoice_number)
+		else
+			if lln_daily.blank? && lln_invoice.blank?
+				offer_articles.create(:offer_id => id, :article_id => Article.is_transport.first.id, :quantity => "1")
+			  if event.cuptwenty
+			  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_twenty.closed.first.id, :quantity => estimated_20_boxes)
+			  end
+			  if event.cuptwentyfive
+			  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_twentyfive.closed.first.id, :quantity => estimated_25_boxes)
+			  end
+			  if event.cupforty
+			  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_forty.closed.first.id, :quantity => estimated_40_boxes)
+			  end
+			  if event.cupfifty
+			  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_fifty.closed.first.id, :quantity => estimated_50_boxes)
+			  end
+			  if event.cuplitre
+			  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_litre.closed.first.id, :quantity => estimated_100_boxes)
+			  end        
+			  if event.cupcava
+			  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_cava.closed.first.id, :quantity => estimated_cava_boxes)
+			  end
+			  if event.cupwine
+			  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_wine.closed.first.id, :quantity => estimated_wine_boxes)
+			  end
+			  if event.cupshot
+			  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_shot.closed.first.id, :quantity => "1")
+			  end
+			  offer_boxes.create(:offer_id => id, :box_id => Box.is_bigbox.is_empty.closed.first.id, :quantity => estimated_empty_boxes)
+			end
 		end
 	end
 

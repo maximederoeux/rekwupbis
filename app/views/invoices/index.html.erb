@@ -1,4 +1,14 @@
 
+
+            <%= simple_form_for(@new_offer) do |f| %>
+              <%= f.error_notification %>
+              <%= f.hidden_field :lln_invoice, :value => true %>
+              <%= f.hidden_field :event_id, :value => Event.is_lln.last.id %>
+              <%= f.hidden_field :organizer_id, :value => Event.is_lln.last.organizer_id %>
+              <%= f.submit t("offer.create"), class: "btn btn-success" %>
+            <% end %>
+
+
 <ul class="list-group">
   <li class="list-group-item">
     <div class="row">
@@ -111,4 +121,13 @@
 <% end %>
 </ul>
 
+<hr>
 
+<% Invoice.all.each do |invoice| %>
+
+<%= invoice.doc_number %>
+<%= invoice.client.full_name %>
+
+
+
+<% end %>
