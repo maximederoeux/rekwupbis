@@ -26,6 +26,11 @@
 			<strong>
 				<div class="col-md-2">
 					Nr <%= delivery.offer.organizer.lln_id %>
+
+						<%= link_to delivery_path(delivery) do %>
+							<%= content_tag(:i, "", class: "fa fa-eye fa-2x") %>
+						<% end %>
+
 				</div>
 				<div class="col-md-4">
 					<%= delivery.offer.organizer.name %>
@@ -90,6 +95,11 @@
 			<strong>
 				<div class="col-md-2">
 					Nr <%= delivery.offer.organizer.lln_id %>
+
+						<%= link_to delivery_path(delivery) do %>
+							<%= content_tag(:i, "", class: "fa fa-eye fa-2x") %>
+						<% end %>
+						
 				</div>
 				<div class="col-md-4">
 					<%= delivery.offer.organizer.name %>
