@@ -65,7 +65,6 @@
 
     <% if ReturnBox.where(:delivery_id => Delivery.where(:offer_id => Offer.where(:organizer_id => User.is_lln.where(:lln_id => import.id).first.id).last.id)).any? %>
 
-
     <% else %>
 
         <%= import.circle %>

@@ -137,13 +137,13 @@
       <li class="list-group-item">
         <div class="row">
           <div class="col-md-6">
-            <%= Box.twentyfive.last.box_name %>
+            <%= Box.is_lln.is_twentyfive.first.box_name %>
             </div>
           <div class="col-md-3 text-center">
             <%= LlnImport.sum('lln_twentyfive') %>
           </div>
           <div class="col-md-3 text-center">
-            <%= Box.twentyfive.last.weight * LlnImport.sum('lln_twentyfive') %> KG
+            <%= Box.is_lln.is_twentyfive.first.weight * LlnImport.sum('lln_twentyfive') %> KG
           </div>
         </div>
       </li>
@@ -151,13 +151,13 @@
       <li class="list-group-item">
         <div class="row">
           <div class="col-md-6">
-            <%= Box.fifty.last.box_name %>
+            <%= Box.is_lln.is_fifty.first.box_name %>
             </div>
           <div class="col-md-3 text-center">
             <%= LlnImport.sum('lln_fifty') %>
           </div>
           <div class="col-md-3 text-center">
-            <%= Box.fifty.last.weight * LlnImport.sum('lln_fifty') %> KG
+            <%= Box.is_lln.is_fifty.first.weight * LlnImport.sum('lln_fifty') %> KG
           </div>
         </div>
       </li>
@@ -165,13 +165,13 @@
       <li class="list-group-item">
         <div class="row">
           <div class="col-md-6">
-            <%= Box.litre.last.box_name %>
+            <%= Box.is_lln.is_litre.first.box_name %>
             </div>
           <div class="col-md-3 text-center">
             <%= LlnImport.sum('lln_litre') %>
           </div>
           <div class="col-md-3 text-center">
-            <%= Box.litre.last.weight * LlnImport.sum('lln_litre') %> KG
+            <%= Box.is_lln.is_litre.first.weight * LlnImport.sum('lln_litre') %> KG
           </div>
         </div>
       </li>
@@ -213,7 +213,7 @@
             <%= LlnImport.sum('lln_twentyfive') + LlnImport.sum('lln_fifty') + LlnImport.sum('lln_litre') + LlnImport.sum('empty_box') + LlnImport.sum('kpt_box') %>
           </div>
           <div class="col-md-3 text-center">
-            <%= (Box.is_lln.twentyfive.first.weight * LlnImport.sum('lln_twentyfive')) + (Box.is_lln.fifty.first.weight * LlnImport.sum('lln_fifty')) + (Box.is_lln.litre.first.weight * LlnImport.sum('lln_litre')) + (Box.is_empty.first.weight * LlnImport.sum('empty_box')) + (Box.is_lln.is_twentyfive.is_kpt.first.weight * LlnImport.sum('kpt_box')) %> KG
+            <%= (Box.is_lln.is_twentyfive.first.weight * LlnImport.sum('lln_twentyfive')) + (Box.is_lln.is_fifty.first.weight * LlnImport.sum('lln_fifty')) + (Box.is_lln.is_litre.first.weight * LlnImport.sum('lln_litre')) + (Box.is_empty.first.weight * LlnImport.sum('empty_box')) + (Box.is_lln.is_twentyfive.is_kpt.first.weight * LlnImport.sum('kpt_box')) %> KG
           </div>
         </div>
       </li>
