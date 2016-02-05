@@ -215,6 +215,12 @@ en:
     your_ready: "Your order is ready to go"
     your_gone: "Your order is gone"
     past_days: "Orders not handled from past days"
+    take: "Take this order away"
+    take_lln: "LLN Orders to take"
+    drop_lln: "LLN Orders to drop"
+    take_others: "Other Orders to take"
+    drop_others: "Other Orders to drop"
+    drop: "Drop this order"
 
   article:
     article_name: "Article Name"

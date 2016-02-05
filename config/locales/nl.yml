@@ -214,6 +214,12 @@ nl:
     your_ready: "Uw bestelling is klaar om te vertrekken"
     your_gone: "Uw bestelling werd gestuurd"
     past_days: "Niet behandeld leveringen van vorige dagen"
+    take: "Neem deze bestelling mee"
+    take_lln: "LLN Bestellingen om mee te nemen"
+    drop_lln: "LLN Bestellingen om weg te geven"
+    take_others: "Andere Bestellingen om mee te nemen"
+    drop_others: "Andere Bestellingen om weg te geven"
+    drop: "Deze bestelling weggeven"
 
 
   article:

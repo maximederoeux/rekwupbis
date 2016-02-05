@@ -24,6 +24,9 @@ class Delivery < ActiveRecord::Base
 	scope :sent_three_days_ago, lambda {where(:gone_time => Date.today - 3.days)}
 	scope :ready, lambda {where(:is_ready => true) && where(:is_gone => nil)}
 	scope :gone, lambda {where(:is_ready => true) && where(:is_gone => true)}
+	scope :not_dropped, lambda {where(:dropped => nil)}
+	scope :dropped, lambda {where(:dropped => true)}
+
 
 
 	def offer_boxes
@@ -34,6 +37,7 @@ class Delivery < ActiveRecord::Base
 		offer_boxes.sum("quantity")
 	end
 
+
 	def not_ready
 		self.where(:is_ready => nil)
 	end
@@ -42,6 +46,16 @@ class Delivery < ActiveRecord::Base
 		if self.offer.lln_daily
 			true
 		else
+			false
+		end
+	end
+
+	def is_not_lln
+		if self.offer.lln_daily == nil
+			true
+		elsif self.offer.lln_daily == false
+			true
+		elsif self.offer.lln_daily == true
 			false
 		end
 	end

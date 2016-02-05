@@ -215,6 +215,12 @@ fr:
     your_ready: "Votre commande est prête à partir"
     your_gone: "Votre commande est partie"
     past_days: "Commandes non traitées des jours précédents"
+    take: "Emmener cette commande"
+    take_lln: "Commandes LLN à emporter"
+    drop_lln: "Commandes LLN à déposer"
+    take_others: "Autres Commandes à emporter"
+    drop_others: "Autres Commandes à déposer"
+    drop: "Déposer cette commande"
 
   article:
     article_name: "Nom Article"

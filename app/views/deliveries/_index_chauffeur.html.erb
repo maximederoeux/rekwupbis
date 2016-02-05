@@ -1,8 +1,239 @@
-<% Delivery.this_day.each do |delivery| %>
+<ul class="list-group">
+	<li class="list-group-item list-group-item-warning">
+		<div class="row text-center">
+			<strong>
+				<div class="col-md-4">
+					<%= t("delivery.take_lln") %>
+				</div>
 
-<% if delivery.is_lln %>
-<%= delivery.offer.organizer.name %>
-<%= delivery.total_boxes %><br>
+				<div class="col-md-4">
+					<%= Date.today.strftime("%d/%m/%Y") %>
+				</div>
+
+				<div class="col-md-4">
+					<%= LlnImport.sum('lln_twentyfive') + LlnImport.sum('lln_fifty') + LlnImport.sum('lln_litre') + LlnImport.sum('empty_box') + LlnImport.sum('kpt_box') %> <%= t("menu.boxes") %>
+				</div>
+			</strong>
+			</div>
+	</li>
+
+<% Delivery.this_day.ready.each do |delivery| %>
+
+<% if delivery.is_lln && delivery.total_boxes >= 1 %>
+
+	<li class="list-group-item">
+		<div class="row text-center">
+			<strong>
+				<div class="col-md-2">
+					Nr <%= delivery.offer.organizer.lln_id %>
+				</div>
+				<div class="col-md-4">
+					<%= delivery.offer.organizer.name %>
+				</div>
+				<div class="col-md-2">
+					<%= delivery.total_boxes %>
+				</div>
+				<div class="col-md-4">
+
+					<%= simple_form_for(delivery) do |f| %>
+	  				<%= f.error_notification %>
+
+	  				<%= f.hidden_field :is_gone, :value => true %>
+	  				<%= f.hidden_field :sent_by, :value => current_user.id %>
+	  				<%= f.hidden_field :gone_time, :value => Time.now %>
+
+	  				<%= f.submit t("delivery.take"), class: "btn btn-info btn-block" %>
+
+	  			<% end %>
+
+
+				</div>
+			</strong>
+		</div>
+	</li>
 <% end %>
 
 <% end %>
+
+
+
+</ul>
+
+
+<hr>
+
+<ul class="list-group">
+	<li class="list-group-item list-group-item-warning">
+		<div class="row text-center">
+			<strong>
+				<div class="col-md-4">
+					<%= t("delivery.drop_lln") %>
+				</div>
+
+				<div class="col-md-4">
+					<%= Date.today.strftime("%d/%m/%Y") %>
+				</div>
+
+				<div class="col-md-4">
+					<%= LlnImport.sum('lln_twentyfive') + LlnImport.sum('lln_fifty') + LlnImport.sum('lln_litre') + LlnImport.sum('empty_box') + LlnImport.sum('kpt_box') %> <%= t("menu.boxes") %>
+				</div>
+			</strong>
+			</div>
+	</li>
+
+<% Delivery.this_day.gone.not_dropped.each do |delivery| %>
+
+<% if delivery.is_lln && delivery.total_boxes >= 1 %>
+
+	<li class="list-group-item">
+		<div class="row text-center">
+			<strong>
+				<div class="col-md-2">
+					Nr <%= delivery.offer.organizer.lln_id %>
+				</div>
+				<div class="col-md-4">
+					<%= delivery.offer.organizer.name %>
+				</div>
+				<div class="col-md-2">
+					<%= delivery.total_boxes %>
+				</div>
+				<div class="col-md-4">
+
+					<%= simple_form_for(delivery) do |f| %>
+	  				<%= f.error_notification %>
+
+	  				<%= f.hidden_field :dropped, :value => true %>
+	  				<%= f.hidden_field :dropped_by, :value => current_user.id %>
+	  				<%= f.hidden_field :drop_time, :value => Time.now %>
+
+	  				<%= f.submit t("delivery.drop"), class: "btn btn-info btn-block" %>
+
+	  			<% end %>
+
+
+				</div>
+			</strong>
+		</div>
+	</li>
+<% end %>
+
+<% end %>
+
+
+
+</ul>
+
+
+<hr>
+<ul class="list-group">
+	<li class="list-group-item list-group-item-warning">
+<h5><strong><%= t("delivery.take_others") %>  - <%= Date.today.strftime("%d/%m/%Y") %></strong></h5>
+	</li>
+
+<% Delivery.this_day.ready.each do |delivery| %>
+
+<% if delivery.is_not_lln && delivery.total_boxes >= 1 %>
+
+	<li class="list-group-item">
+		<div class="row text-center">
+			<strong>
+				<div class="col-md-4">
+					<%= delivery.offer.organizer.name %>
+				</div>
+				<div class="col-md-4">
+					<%= delivery.total_boxes %>
+				</div>
+				<div class="col-md-4">
+						<%= simple_form_for(delivery) do |f| %>
+		  				<%= f.error_notification %>
+
+		  				<%= f.hidden_field :is_gone, :value => true %>
+		  				<%= f.hidden_field :sent_by, :value => current_user.id %>
+		  				<%= f.hidden_field :gone_time, :value => Time.now %>
+
+		  				<%= f.submit t("delivery.take"), class: "btn btn-info btn-block" %>
+
+		  			<% end %>
+				</div>
+			</strong>
+		</div>
+	</li>
+
+<% end %>
+
+<% end %>
+
+</ul>
+
+<hr>
+
+<ul class="list-group">
+	<li class="list-group-item list-group-item-warning">
+<h5><strong><%= t("delivery.drop_others") %>  - <%= Date.today.strftime("%d/%m/%Y") %></strong></h5>
+	</li>
+
+<% Delivery.this_day.gone.not_dropped.each do |delivery| %>
+
+<% if delivery.is_not_lln && delivery.total_boxes >= 1 %>
+
+	<li class="list-group-item">
+		<div class="row text-center">
+			<strong>
+				<div class="col-md-4">
+					<%= delivery.offer.organizer.name %>
+				</div>
+				<div class="col-md-4">
+					<%= delivery.total_boxes %>
+				</div>
+				<div class="col-md-4">
+						<%= simple_form_for(delivery) do |f| %>
+		  				<%= f.error_notification %>
+
+		  				<%= f.hidden_field :dropped, :value => true %>
+		  				<%= f.hidden_field :dropped_by, :value => current_user.id %>
+		  				<%= f.hidden_field :drop_time, :value => Time.now %>
+
+		  				<%= f.submit t("delivery.drop"), class: "btn btn-info btn-block" %>
+
+		  			<% end %>
+				</div>
+			</strong>
+		</div>
+	</li>
+
+<% end %>
+
+<% end %>
+
+</ul>
+
+<ul class="list-group">
+	<li class="list-group-item list-group-item-warning">
+		<h5><strong><%= t("delivery.dropped") %>  - <%= Date.today.strftime("%d/%m/%Y") %></strong></h5>
+	</li>
+
+	<% Delivery.this_day.dropped.each do |delivery| %>
+
+		<% if delivery.is_not_lln && delivery.total_boxes >= 1 %>
+
+			<li class="list-group-item">
+				<div class="row text-center">
+					<strong>
+						<div class="col-md-4">
+							<%= delivery.offer.organizer.name %>
+						</div>
+						<div class="col-md-4">
+							<%= delivery.total_boxes %>
+						</div>
+						<div class="col-md-4">
+							Dropped
+						</div>
+					</strong>
+				</div>
+			</li>
+
+		<% end %>
+
+	<% end %>
+
+</ul>
