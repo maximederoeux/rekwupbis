@@ -416,6 +416,8 @@ en:
     control: "Control"
     difference: "There are boxes that do not match for "
     delivery: "Delivery"
+    lln: "LLN Returns"
+    others: "Other Returns"
 
   sorting:
     start: "Start time"

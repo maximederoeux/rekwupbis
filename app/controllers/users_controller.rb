@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @circles = User.where(:is_lln => true).order("lln_id ASC")
     @user = current_user
     @admin = @users.where(:admin => true)
     @staff = @users.where(:staff => true)

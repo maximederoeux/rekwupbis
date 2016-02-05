@@ -414,6 +414,8 @@ nl:
     control: "Control"
     difference: "Er zijn dozen die niet evenaren voor "
     delivery: "Levering"
+    lln: "LLN Terugkeren"
+    others: "Andere Terugkeren"
 
 
   sorting:

@@ -1,1 +1,92 @@
-_chauffeur_index.html.erb
+<ul class="list-group">
+	<li class="list-group-item list-group-item-warning">
+		<div class="row text-center">
+			<strong>
+				<div class="col-md-4">
+					<%= t("return.lln") %>
+				</div>
+
+				<div class="col-md-4">
+					<%= Date.today.strftime("%d/%m/%Y") %>
+				</div>
+
+				<div class="col-md-4">
+					<%= LlnImport.sum('return_box') %>
+				</div>
+			</strong>
+		</div>
+	</li>
+
+
+<% @lln_imports.each do |import| %>
+
+	<% if import.return_box >= 1 %>
+
+		<li class="list-group-item">
+			<div class="row text-center">
+				<strong>
+					<div class="col-md-4">
+						<%= import.id %>
+					</div>
+
+					<div class="col-md-4">
+						<%= import.circle %>
+					</div>
+
+					<div class="col-md-4">
+						<%= import.return_box %>
+					</div>
+				</strong>
+			</div>
+		</li>
+
+	<% end %>
+<% end %>
+</ul>
+<hr>
+
+<ul class="list-group">
+	<li class="list-group-item list-group-item-warning">
+		<div class="row text-center">
+			<strong>
+				<div class="col-md-4">
+					<%= t("return.others") %>
+				</div>
+
+				<div class="col-md-4">
+					<%= Date.today.strftime("%d/%m/%Y") %>
+				</div>
+
+				<div class="col-md-4">
+
+				</div>
+			</strong>
+		</div>
+	</li>
+
+<% ReturnBox.this_day.each do |return_box| %>
+
+	<% if return_box.delivery.is_not_lln %>
+
+		<li class="list-group-item">
+			<div class="row text-center">
+				<strong>
+					<div class="col-md-4">
+						<%= return_box.delivery.offer.organizer.name %>
+					</div>
+
+					<div class="col-md-4">
+						<%= return_box.delivery.total_boxes %>
+					</div>
+
+					<div class="col-md-4">
+					
+					</div>
+				</strong>
+			</div>
+		</li>
+
+	<% end %>
+<% end %>
+
+</ul>

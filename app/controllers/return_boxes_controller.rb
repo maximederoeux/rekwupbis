@@ -12,11 +12,8 @@ class ReturnBoxesController < ApplicationController
     @controlled = ReturnBox.where(:is_back => true).where(:is_controlled => true)
 
     @user = current_user
-    @staff = @user.staff
-    @admin = @user.admin
-    unless @admin or @staff
-      redirect_to :root, :alert => t("notice.access")
-    end
+
+    @lln_imports = LlnImport.all
   end
 
   # GET /return_boxes/1

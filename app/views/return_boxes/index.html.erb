@@ -13,3 +13,10 @@
   <%= render 'staff_index_controlled' %>
 
 <% end %>
+
+<% if current_user.chauffeur %>
+
+  <%= render 'chauffeur_index' %>
+
+
+<% end %>
