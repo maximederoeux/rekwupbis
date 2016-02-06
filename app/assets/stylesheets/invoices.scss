@@ -4,21 +4,24 @@
 
 
 table, th, td {
-  border: 1px solid black;
-  text-align: center
-} 
+  border: none;
+  text-align: center;
+  font-size: small
+}
+
+th, tr {
+  height: 25px;
+}
 
 .address-block {
   padding-left: 400px;
   margin-top: 30px;
   font-family: verdana;
-  font-size: medium
   }
 
 .doc-date {
   padding-left: 400px;
   margin-top: 10px;
-  font-family: verdana;
   }
 
 .client-block {
@@ -29,12 +32,29 @@ table, th, td {
 
 .article {
 	width:100%;
-	border: 1px solid black;
+	border: none;
   border-collapse: collapse;
 
 }
 
 .object {
   padding-bottom: 20px;
-  font-size: medium
   }
+
+.bank-block {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  }
+
+.communication {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.comment {
+  text-align: center;
+  font-style: italic;
+  font-size: 12px;
+  border: 1px solid black;
+}

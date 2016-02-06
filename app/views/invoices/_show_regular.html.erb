@@ -1,3 +1,6 @@
+<% if current_user.admin %>
+
+
 <div class="address-block">
 <h4>Rekwup</h4>
 <small><p>41/1 rue de La Croix Limont<br>5590, Ciney, Belgique<br>
@@ -49,6 +52,7 @@ TVA: BE 0544.576.806</p></small>
 <th>Total TVAC</th>
 </tr>
 
+<% if @invoice.sorting_details.where.not(clean: nil).any? %>
 
 <tr>
 <td><strong>Lavés</strong></td>
@@ -71,6 +75,11 @@ TVA: BE 0544.576.806</p></small>
 <% end %>
 </tr>
 
+<% end %>
+
+<% if @invoice.sorting_details.where.not(very_dirty: nil).any? %>
+
+
 <tr>
 <td><strong>Très sales</strong></td>
 </tr>
@@ -91,6 +100,11 @@ TVA: BE 0544.576.806</p></small>
 <% end %>
 <% end %>
 </tr>
+
+<% end %>
+
+<% if @invoice.sorting_details.where.not(broken: nil).any? %>
+
 
 <tr>
 <td><strong>Très sales</strong></td>
@@ -113,6 +127,10 @@ TVA: BE 0544.576.806</p></small>
 <% end %>
 </tr>
 
+<% end %>
+
+<% if @invoice.sorting_details.where.not(handling: nil).any? %>
+
 <tr>
 <td><strong>Manutention</strong></td>
 </tr>
@@ -134,11 +152,119 @@ TVA: BE 0544.576.806</p></small>
 <% end %>
 </tr>
 
+<% end %>
+
+<tr>
+<td><strong>Autres frais</strong></td>
+</tr>
+
+
+  <% @invoice.offer_articles.each do |article| %>
+
+    <% unless article.quantity == 0 %>
+
+<tr>
+<td><%= article.article.full_name %></td>
+<td><%= article.quantity %></td>
+<td>
+  <% if article.article.transport %>
+
+    <%= number_to_currency(@invoice.offer.transport_price,:unit =>'€', :precision => 2) %>
+
+  <% else %>
+
+    <%= number_to_currency(@regular_prices.where(:article_id => article.article.id).last.sell,:unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
+
+  <% end %>
+</td>
+
+<td>
+  <% if article.article.transport %>
+
+    <%= number_to_currency((article.quantity * @invoice.offer.transport_price),:unit =>'€', :precision => 2) %>
+
+  <% else %>
+
+    <%= number_to_currency((article.quantity * @regular_prices.where(:article_id => article.article.id).last.sell),:unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
+
+  <% end %>
+</td>
+<td>21 %</td>
+<td>
+  <% if article.article.transport %>
+
+    <%= number_to_currency((article.quantity * @invoice.offer.transport_price * 1.21),:unit =>'€', :precision => 2) %>
+
+  <% else %>
+
+    <%= number_to_currency((article.quantity * @regular_prices.where(:article_id => article.article.id).last.sell * 1.21),:unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
+
+  <% end %>
+
+</td>
+<% end %>
+<% end %>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td>Total</td>
+<td><%= number_to_currency(@invoice.total_htva,:unit =>'€', :precision => 2) %></td>
+<td><%= number_to_currency(((@invoice.total_htva * 1.21) - @invoice.total_htva),:unit =>'€', :precision => 2) %></td>
+<td><%= number_to_currency((@invoice.total_htva * 1.21),:unit =>'€', :precision => 2) %></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><strong>Total à payer</strong></td>
+<td></td>
+<td></td>
+<td><strong><%= number_to_currency((@invoice.total_htva * 1.21),:unit =>'€', :precision => 2) %></strong></td>
+</tr>
 
 </table>
 
+<div class="bank-block">
+A payer sur le compte suivant :<br>
+IBAN BE82 5230 8063 5468<br>
+BIC TRIO BE BB<br>
+Triodos Bank<br>
+</div>
 
+<div class="communication">
+Communication<br>
+  <% if @invoice.doc_invoice %>
+    <%= t("invoice.invoice") %>
+  <% elsif @invoice.doc_credit %>
+    <%= t("invoice.credit") %>
+  <% end %>
+      - <%= @invoice.created_at.strftime("%Y") %> - <%= @invoice.doc_number %>
+</div>
 
+<div class="bank-block">
+<strong>Echéance</strong><br>
+  Comptant
+</div>
+
+<div class="comment">Toute question ou contestation concernant cette facture devra être formulée par écrit dans les huit jours. Toute facture non payée à échéance sera majorée, sans mise en demeure préalable,
+d'une in demnité forfaitaire de 15% du montant de la facture avec un minimum de 75 € et portera intérêt cponventionnellement à un taux de 12% jusqu'à parfait paiement. Les tribunaux de
+Dinant sont les seuls compétents.
+</div>
+
+<% end %>
+
+<% if current_user == @invoice.offer.organizer %>
 
 <ul class="list-group">
 
@@ -335,7 +461,7 @@ Total HTVA
           </div>
           <div class="col-md-2">
 
-            <% if article.article_id == 12 %>
+            <% if article.article.transport %>
 
               <%= number_to_currency(@invoice.offer.transport_price,:unit =>'€', :precision => 2) %>
 
@@ -346,7 +472,7 @@ Total HTVA
             <% end %>
           </div>
           <div class="col-md-2">
-            <% if article.article_id == 12 %>
+            <% if article.article.transport %>
 
               <%= number_to_currency((article.quantity * @invoice.offer.transport_price),:unit =>'€', :precision => 2) %>
 
@@ -409,3 +535,4 @@ Total HTVA
 
 </ul>
 
+<% end %>
