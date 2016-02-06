@@ -8,16 +8,24 @@
 #
 # https://github.com/mileszs/wicked_pdf/blob/master/README.md
 
-WickedPdf.config = {
- :wkhtmltopdf => '/home/ferache/.rbenv/versions/2.2.3/bin/wkhtmltopdf',
-  # Path to the wkhtmltopdf executable: This usually isn't needed if using
-  # one of the wkhtmltopdf-binary family of gems.
-  exe_path: '/home/ferache/.rbenv/versions/2.2.3/bin/wkhtmltopdf-amd64'
-  #   or
-  # exe_path: Gem.bin_path('wkhtmltopdf-binary', 'wkhtmltopdf')
+# WickedPdf.config = {
+#  :wkhtmltopdf => '#{Rails.root}/bin/wkhtmltopdf',
+#   # Path to the wkhtmltopdf executable: This usually isn't needed if using
+#   # one of the wkhtmltopdf-binary family of gems.
+#   exe_path: '#{Rails.root}/bin/wkhtmltopdf'
+#   #   or
+#   # exe_path: Gem.bin_path('wkhtmltopdf-binary', 'wkhtmltopdf')
 
-  # Layout file to be used for all PDFs
-  # (but can be overridden in `render :pdf` calls)
-  # layout: 'pdf.html',
-}
+#   # Layout file to be used for all PDFs
+#   # (but can be overridden in `render :pdf` calls)
+#   # layout: 'pdf.html',
+# }
 
+WickedPdf.config do |config|  
+  if Rails.env == 'production' then
+    config.exe_path = Rails.root.to_s + "/bin/wkhtmltopdf"
+  else
+    config.exe_path = '#{Rails.root}/bin/wkhtmltopdf' 
+
+  end
+end
