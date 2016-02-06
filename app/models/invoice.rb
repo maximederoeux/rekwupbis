@@ -9,6 +9,15 @@ class Invoice < ActiveRecord::Base
 	scope :credit_note, lambda {where(:doc_credit => true)}
 
 
+
+	def pdf_name
+		if doc_invoice
+			"Facture #{created_at.strftime("%Y")} - #{doc_number}"
+		elsif doc_credit
+			"Note de crédit #{created_at.strftime("%Y")} - #{doc_number}"
+		end
+	end
+	
 	def previous_invoice
 		Invoice.where("created_at < ?", created_at).last
 		
