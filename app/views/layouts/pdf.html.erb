@@ -4,6 +4,7 @@
     <%= wicked_pdf_stylesheet_link_tag 'application', media: 'all' %>
     <%= wicked_pdf_javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
+    <meta charset="UTF-8">
 
     <style>
     body {
@@ -14,7 +15,7 @@
         margin-right: auto;
     }
     </style>
-    
+
   </head>
   <body>
     <%= yield %>
