@@ -33,6 +33,112 @@ TVA: BE 0544.576.806</p></small>
 
 </div>
 
+<div class="object">
+<strong>Objet:</strong><br>
+<%= @invoice.offer.event.event_name %>
+</div>
+
+<table class="article">
+
+<tr>
+<th>Articles</th>
+<th>Qtté</th>
+<th>Prix U.</th>
+<th>Total HTVA</th>
+<th>TVA</th>
+<th>Total TVAC</th>
+</tr>
+
+
+<tr>
+<td><strong>Lavés</strong></td>
+</tr>
+
+
+  <% @invoice.sorting_details.clean.each do |detail| %>
+
+    <% unless detail.total_cups == 0 %>
+
+<tr>
+<td><%= detail.article.full_name %></td>
+<td><%= detail.total_cups %></td>
+<td><%= number_to_currency(detail.article.prices.last.washing,:unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %></td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.washing),:unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %>
+</td>
+<td>21 %</td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.washing * 1.21),:unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %></td>
+<% end %>
+<% end %>
+</tr>
+
+<tr>
+<td><strong>Très sales</strong></td>
+</tr>
+
+
+  <% @invoice.sorting_details.very_dirty.each do |detail| %>
+
+    <% unless detail.total_cups == 0 %>
+
+<tr>
+<td><%= detail.article.full_name %></td>
+<td><%= detail.total_cups %></td>
+<td><%= number_to_currency(detail.article.prices.last.handwash,:unit =>'€', :precision => 2) if detail.article.prices.last.handwash.present? %></td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.handwash),:unit =>'€', :precision => 2) if detail.article.prices.last.handwash.present? %>
+</td>
+<td>21 %</td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.handwash * 1.21),:unit =>'€', :precision => 2) if detail.article.prices.last.handwash.present? %></td>
+<% end %>
+<% end %>
+</tr>
+
+<tr>
+<td><strong>Très sales</strong></td>
+</tr>
+
+
+  <% @invoice.sorting_details.broken.each do |detail| %>
+
+    <% unless detail.total_cups == 0 %>
+
+<tr>
+<td><%= detail.article.full_name %></td>
+<td><%= detail.total_cups %></td>
+<td><%= number_to_currency(detail.article.prices.last.deposit,:unit =>'€', :precision => 2) if detail.article.prices.last.deposit.present? %></td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.deposit),:unit =>'€', :precision => 2) if detail.article.prices.last.deposit.present? %>
+</td>
+<td>21 %</td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.deposit * 1.21),:unit =>'€', :precision => 2) if detail.article.prices.last.deposit.present? %></td>
+<% end %>
+<% end %>
+</tr>
+
+<tr>
+<td><strong>Manutention</strong></td>
+</tr>
+
+
+  <% @invoice.sorting_details.handling.each do |detail| %>
+
+    <% unless detail.total_cups == 0 %>
+
+<tr>
+<td><%= detail.article.full_name %></td>
+<td><%= detail.total_cups %></td>
+<td><%= number_to_currency(detail.article.prices.last.handling,:unit =>'€', :precision => 2) if detail.article.prices.last.handling.present? %></td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.handling),:unit =>'€', :precision => 2) if detail.article.prices.last.handling.present? %>
+</td>
+<td>21 %</td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.handling * 1.21),:unit =>'€', :precision => 2) if detail.article.prices.last.handling.present? %></td>
+<% end %>
+<% end %>
+</tr>
+
+
+</table>
+
+
+
 
 <ul class="list-group">
 

@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+table, th, td {
+  border: 1px solid black;
+  text-align: center
+} 
+
 .address-block {
   padding-left: 400px;
   margin-top: 30px;
@@ -19,4 +25,16 @@
   margin-top: 10px;
   font-family: verdana;
   font-size: small
+  }
+
+.article {
+	width:100%;
+	border: 1px solid black;
+  border-collapse: collapse;
+
+}
+
+.object {
+  padding-bottom: 20px;
+  font-size: medium
   }
