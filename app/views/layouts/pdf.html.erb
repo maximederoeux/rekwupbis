@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>RailsWickedPdf</title>
+    <%= wicked_pdf_stylesheet_link_tag 'application', media: 'all' %>
+    <%= wicked_pdf_javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+
+    <style>
+    body {
+        height: 842px;
+        width: 595px;
+        /* to centre page on screen*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+    </style>
+    
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

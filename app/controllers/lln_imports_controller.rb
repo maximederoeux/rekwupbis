@@ -3,12 +3,11 @@ class LlnImportsController < ApplicationController
   	@lln_imports = LlnImport.all.order('id ASC')
   	@new_offer = Offer.new
 
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render :pdf => "LLN_Livraison.pdf",:template => "lln_imports/index.html.erb"
-      end
-    end
+
+  end
+
+  def pdf
+    @lln_imports = LlnImport.all.order('id ASC')
   end
 
   def import

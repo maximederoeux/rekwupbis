@@ -9,6 +9,7 @@
 # https://github.com/mileszs/wicked_pdf/blob/master/README.md
 
 WickedPdf.config = {
+ :wkhtmltopdf => '/home/ferache/.rbenv/versions/2.2.3/bin/wkhtmltopdf',
   # Path to the wkhtmltopdf executable: This usually isn't needed if using
   # one of the wkhtmltopdf-binary family of gems.
   exe_path: '/home/ferache/.rbenv/versions/2.2.3/bin/wkhtmltopdf'

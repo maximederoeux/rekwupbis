@@ -1,3 +1,22 @@
 // Place all the styles related to the invoices controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.address-block {
+  padding-left: 400px;
+  margin-top: 30px;
+  font-family: verdana;
+  font-size: medium
+  }
+
+.doc-date {
+  padding-left: 400px;
+  margin-top: 10px;
+  font-family: verdana;
+  }
+
+.client-block {
+  margin-top: 10px;
+  font-family: verdana;
+  font-size: small
+  }

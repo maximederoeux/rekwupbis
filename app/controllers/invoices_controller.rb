@@ -17,6 +17,14 @@ class InvoicesController < ApplicationController
     @offer = @invoice.offer
     @prices = Price.all
     @regular_prices = @prices.where(:regular => true)
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "Invoice.pdf", :layout => 'layouts/pdf.html.erb', :template => 'invoices/show.html.erb'
+      end
+    end
+
   end
 
   # GET /invoices/new
