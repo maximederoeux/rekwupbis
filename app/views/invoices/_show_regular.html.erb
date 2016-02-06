@@ -28,8 +28,7 @@ TVA: BE 0544.576.806</p></small>
 <%= @invoice.client.company_name if @invoice.client.company_name %><br>
 <%= @invoice.client.full_name %><br>
 <%= @invoice.client.address %><br>
-<%= @invoice.client.postcode %> <%= @invoice.client.city %><br>
-<%= @invoice.client.country %><br>
+<%= @invoice.client.country %> <%= @invoice.client.postcode %> <%= @invoice.client.city %><br>
 <%= @invoice.client.vat if @invoice.client.vat %><br>
 
 </div>
