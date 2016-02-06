@@ -73,7 +73,15 @@ nl:
 
   mail:
     offer_title: "Aanbod voor uw evenement %{event_name}"
-    
+
+  attendance:
+    in: "Inkomen"
+    out: "Uitgaan"
+    last_in: "Laatste tijd in "
+    last_out: "Laatste tijd uit "
+    now_in: "Nu bent u in"
+    now_out: "Nu bent u uit"
+
   user:
     name: "Naam"
     first_name: "Voornaam"

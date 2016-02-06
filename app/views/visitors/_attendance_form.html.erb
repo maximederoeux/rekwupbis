@@ -1,0 +1,69 @@
+<div class="text-center">
+
+	<h2><%= Date.today.strftime("%d/%m/%Y") %></h2>
+	<h2><%= Time.now.strftime("%H:%M") %></h2>
+
+
+
+<h3>Bonjour <%= current_user.full_name %>!</h3>
+
+
+
+<% if current_user.attendances.any? %>
+
+	<% if @attendance.start_time.present? && @attendance.end_time.blank? %>
+
+		<h4><%= t("attendance.now_in") %></h4>
+
+		<h3><%= t("attendance.last_in") %><%= @attendance.start_time.strftime("%d/%m/%Y") %><br>
+		<%= t("word.at") %><%= @attendance.start_time.strftime("%H:%M") %></h3>
+
+
+		<%= simple_form_for(@attendance) do |f| %>
+		  <%= f.error_notification %>
+
+		    <%= f.hidden_field :end_time, :value => Time.now %>
+
+		    <%= f.submit t("attendance.out"), class: "btn btn-warning btn-lg btn-block" %>
+
+		<% end %>
+
+	<% elsif @attendance.start_time.present? && @attendance.end_time.present? %>
+
+		<h4><%= t("attendance.now_out") %></h4>
+
+		<h3><%= t("attendance.last_out") %><%= @attendance.end_time.strftime("%d/%m/%Y") %><br>
+		<%= t("word.at") %><%= @attendance.end_time.strftime("%H:%M") %></h3>
+
+
+
+		<%= simple_form_for(@new_attendance) do |f| %>
+		  <%= f.error_notification %>
+
+		    <%= f.hidden_field :start_time, :value => Time.now %>
+		    <%= f.hidden_field :user_id, :value => current_user.id %>
+
+		    <%= f.submit t("attendance.in"), class: "btn btn-info btn-lg btn-block" %>
+
+		    <% end %>
+
+	<% end %>
+
+<% else %>
+
+		<h4><%= t("attendance.now_out") %></h4>
+
+
+	<%= simple_form_for(@new_attendance) do |f| %>
+	  <%= f.error_notification %>
+
+	    <%= f.hidden_field :start_time, :value => Time.now %>
+	    <%= f.hidden_field :user_id, :value => current_user.id %>
+
+	    <%= f.submit t("attendance.in"), class: "btn btn-info btn-lg btn-block" %>
+
+	<% end %>
+
+<% end %>
+
+</div>

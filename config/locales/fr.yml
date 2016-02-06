@@ -74,7 +74,15 @@ fr:
 
   mail:
     offer_title: "Offre pour votre événement %{event_name}"
-    
+
+  attendance:
+    in: "Entrée"
+    out: "Sortie"
+    last_in: "Dernière entrée le "
+    last_out: "Dernière sortie le "
+    now_in: "Pour le moment vous êtes dedans"
+    now_out: "Pour le moment vous êtes dehors"
+
   user:
     name: "Nom"
     first_name: "Prénom"

@@ -1,0 +1,13 @@
+<% if current_user.admin %>
+
+  <%= render 'index_admin' %>
+
+<% end %>
+
+<% if current_user.staff %>
+
+<%= render 'index_staff' %>
+
+<% end %>
+
+

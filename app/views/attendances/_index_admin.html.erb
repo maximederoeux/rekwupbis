@@ -1,0 +1,84 @@
+<ul div class="list-group">
+	<% User.staff.each do |user| %>
+		<li class="list-group-item list-group-item-info">
+			<%= user.full_name %>
+		</li>
+
+		<% Attendance.last_thirty_days.where(:user_id => user.id).each do |attendance| %>
+
+			<li class="list-group-item">
+				<div class="row">
+
+					<div class="col-md-3">
+						<%= attendance.start_time.strftime("%d/%m/%Y") %>
+					</div>
+					<div class="col-md-2">
+						<%= attendance.start_time.strftime("%H:%M") %>
+					</div>
+					<div class="col-md-2">
+						<%= attendance.end_time.strftime("%H:%M") if attendance.end_time %>
+					</div>
+					<div class="col-md-3">
+						<%= attendance.display_duration %>
+					</div>
+
+					<div class="col-md-2">
+              <!-- Large modal -->
+              <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#attendance_<%= attendance.id %>">
+              	<%= t("menu.edit") %>
+
+              </button>
+
+              <div class="modal fade" id="attendance_<%= attendance.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+
+                    <%= simple_form_for attendance do |f| %>
+
+                      <div class="modal-header">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
+
+                          <h4 class="modal-title" id="myModalLabel">
+
+                          	<%= f.collection_select :user_id, User.staff.order('name ASC'), :id, :full_name, {prompt: false}, {class: "form-control styled-select"} %>
+                           
+                          </h4>
+                      </div>
+
+                      <div class="modal-body">
+                      	<div class="text-center">
+
+                             <%= f.input :start_time %><br>
+
+                             <%= f.input :end_time %><br>
+
+												</div>    
+                      </div>
+
+                      <div class="modal-footer">
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                          <%= t("menu.close") %>
+                        </button>
+                
+                          <%= f.button :submit, class: "btn btn-info" %>
+          
+                      </div>
+                    <% end %>            
+                  </div>
+                </div>
+              </div> <!-- End Modal -->
+
+
+					</div>
+
+				</div>
+			</li>
+
+		<% end %>
+
+	<% end %>
+
+</ul>

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'reporting/attendances'
+
+  get 'reporting/statistics'
+
+  resources :attendances
   resources :energies
   get 'lln_imports/index'
 
@@ -28,5 +33,6 @@ Rails.application.routes.draw do
   resources :lln_imports do
     collection {post :import}
   end
+
   
 end

@@ -75,6 +75,14 @@ en:
   mail:
     offer_title: "Offer for your event %{event_name}"
 
+  attendance:
+    in: "Clock in"
+    out: "Clock out"
+    last_in: "Last time in on"
+    last_out: "Last time out on"
+    now_in: "At the moment you are in"
+    now_out: "At the moment you are out"
+
   user:
     name: "Last Name"
     first_name: "First Name"
