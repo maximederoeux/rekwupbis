@@ -23,7 +23,7 @@ class UserMailer < ApplicationMailer
     @offer = offer
     @invoice = invoice
     @organizer = user
-    @url = invoice_url(@invoice)
+    @url = 'clients.rekwup.be/invoice_url(@invoice)'
 
     mail(
       to: @organizer.email, 
