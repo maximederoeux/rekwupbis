@@ -1,5 +1,6 @@
 class SortingsController < ApplicationController
   before_action :set_sorting, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /sortings
   # GET /sortings.json

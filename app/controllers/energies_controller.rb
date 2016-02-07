@@ -1,5 +1,6 @@
 class EnergiesController < ApplicationController
   before_action :set_energy, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /energies
   # GET /energies.json

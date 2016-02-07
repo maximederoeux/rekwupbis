@@ -1,5 +1,6 @@
 class WashesController < ApplicationController
   before_action :set_wash, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /washes
   # GET /washes.json

@@ -1,4 +1,6 @@
 class LlnImportsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
   	@lln_imports = LlnImport.all.order('id ASC')
   	@new_offer = Offer.new
