@@ -4,12 +4,14 @@
 
 table, th, td {
   border: none;
-  text-align: center;
-  font-size: small
+  text-align: left;
+  font-size: small;
+  padding-right: 15px;
+  padding-left: 15px
 }
 
 th, tr {
-  height: 25px;
+  height: 15px;
 }
 
 .address-block {
