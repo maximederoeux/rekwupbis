@@ -5,11 +5,11 @@
               <%= f.hidden_field :lln_invoice, :value => true %>
               <%= f.hidden_field :event_id, :value => Event.is_lln.last.id %>
               <%= f.hidden_field :organizer_id, :value => Event.is_lln.last.organizer_id %>
-              <%= f.submit t("offer.create"), class: "btn btn-success" %>
+              <%= f.submit t("invoice.new_lln"), class: "btn btn-info btn-lg btn-block", data: { confirm: t("menu.are_you_sure")} %>
             <% end %>
 
 
-<ul class="list-group">
+<ul class="list-group more-padding">
   <li class="list-group-item">
     <div class="row">
       <strong>
@@ -46,88 +46,140 @@
 
 <% @confirmed.each do |offer| %>
 
-  <% if offer.return_boxes.any? && offer.sortings.any? && offer.sortings.last.end_time.present? && offer.washes.last.end_time.present? && offer.delivery.gone_time.present? && offer.return_boxes.last.return_time.present? %>
+  <% if offer.organizer.is_lln.blank? %>
 
-    <li class="list-group-item">
-      <div class="row">
+    <% if offer.return_boxes.any? && offer.sortings.any? && offer.sortings.last.end_time.present? && offer.washes.last.end_time.present? && offer.delivery.gone_time.present? && offer.return_boxes.last.return_time.present? %>
 
-        <div class="col-md-2">
-          <%= offer.event.event_name %>
-        </div>
+      <li class="list-group-item">
+        <div class="row">
 
-        <div class="col-md-2">
-          <%= offer.organizer.full_name %>
-        </div>
+          <div class="col-md-2">
+            <%= offer.event.event_name %>
+          </div>
 
-        <div class="col-md-1 text-center">
-          <%= offer.delivery.gone_time.strftime("%d/%m/%Y") %>
-        </div>
+          <div class="col-md-2">
+            <%= offer.organizer.full_name %>
+          </div>
 
-        <div class="col-md-1 text-center">
-          <%= offer.return_boxes.last.return_time.strftime("%d/%m/%Y") %>
-        </div>
+          <div class="col-md-1 text-center">
+            <%= offer.delivery.gone_time.strftime("%d/%m/%Y") %>
+          </div>
 
-        <div class="col-md-1 text-center">
-          <%= offer.washes.count %>
-        </div>
+          <div class="col-md-1 text-center">
+            <%= offer.return_boxes.last.return_time.strftime("%d/%m/%Y") %>
+          </div>
 
-        <div class="col-md-1 text-center">
-          <%= offer.washes.last.end_time.strftime("%d/%m/%Y") %>
-        </div>
+          <div class="col-md-1 text-center">
+            <%= offer.washes.count %>
+          </div>
 
-        <div class="col-md-1 text-center">
-          <%= offer.sortings.count %>
-        </div>
+          <div class="col-md-1 text-center">
+            <%= offer.washes.last.end_time.strftime("%d/%m/%Y") %>
+          </div>
 
-        <div class="col-md-1 text-center">
-          <%= offer.sortings.last.end_time.strftime("%d/%m/%Y") %>
-        </div>
+          <div class="col-md-1 text-center">
+            <%= offer.sortings.count %>
+          </div>
 
-        <div class="col-md-2 text-center">
+          <div class="col-md-1 text-center">
+            <%= offer.sortings.last.end_time.strftime("%d/%m/%Y") %>
+          </div>
 
-          <% if Invoice.where(:offer_id => offer.id).any? %>
+          <div class="col-md-2 text-center">
 
-            <% if Invoice.where(:offer_id => offer.id).first.doc_invoice %>
-              <%= t("invoice.invoice") %>
-            <% elsif Invoice.where(:offer_id => offer.id).first.doc_credit %>
-              <%= t("invoice.credit") %>
-            <% end %>
-              - <%= Invoice.where(:offer_id => offer.id).first.created_at.strftime("%Y") %> - <%= Invoice.where(:offer_id => offer.id).first.doc_number %>
+            <% if Invoice.where(:offer_id => offer.id).any? %>
 
-              <%= link_to invoice_path(Invoice.where(:offer_id => offer.id).first) do %>
-                <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+              <% if Invoice.where(:offer_id => offer.id).first.doc_invoice %>
+                <%= t("invoice.invoice") %>
+              <% elsif Invoice.where(:offer_id => offer.id).first.doc_credit %>
+                <%= t("invoice.credit") %>
+              <% end %>
+                - <%= Invoice.where(:offer_id => offer.id).first.created_at.strftime("%Y") %> - <%= Invoice.where(:offer_id => offer.id).first.doc_number %>
+
+                <%= link_to invoice_path(Invoice.where(:offer_id => offer.id).first) do %>
+                  <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+                <% end %>
+
+            <% else %>
+
+              <%= simple_form_for(@new_invoice) do |f| %>
+                <%= f.error_notification %>
+
+                  <%= f.hidden_field :offer_id, :value => offer.id %>
+                  <%= f.hidden_field :client_id, :value => offer.organizer.id %>
+                  <%= f.hidden_field :doc_invoice, :value => true %>
+
+                  <%= f.button :submit, class: "btn btn-info" %>
+
               <% end %>
 
-          <% else %>
-
-            <%= simple_form_for(@new_invoice) do |f| %>
-              <%= f.error_notification %>
-
-                <%= f.hidden_field :offer_id, :value => offer.id %>
-                <%= f.hidden_field :client_id, :value => offer.organizer.id %>
-                <%= f.hidden_field :doc_invoice, :value => true %>
-
-                <%= f.button :submit, class: "btn btn-info" %>
-
             <% end %>
 
-          <% end %>
+          </div>
 
         </div>
-
-      </div>
-    </li>
+      </li>
+      <% end %>
   <% end %>
 <% end %>
 </ul>
 
 <hr>
 
+<ul class="list-group">
+  <li class="list-group-item list-group-item-warning">
+    Factures
+  </li>
+
+<li class="list-group-item">
+  <div class="row">
+    <div class="col-md-2">
+      Référence
+    </div>
+    <div class="col-md-2">
+      Client
+    </div>
+    <div class="col-md-2">
+      Evénement
+    </div>
+    <div class="col-md-2">
+      Total HTVA
+    </div>
+    <div class="col-md-2">
+      Total TVA
+    </div>
+    <div class="col-md-2">
+      Total TVAC
+    </div>
+  </div>
+</li>
+
 <% Invoice.all.each do |invoice| %>
 
-<%= invoice.doc_number %>
-<%= invoice.client.full_name %>
-
+<li class="list-group-item">
+  <div class="row">
+    <div class="col-md-2">
+      <%= invoice.pdf_name %>
+    </div>
+    <div class="col-md-2">
+      <%= invoice.client.full_name %>
+    </div>
+    <div class="col-md-2">
+      <%= invoice.offer.event.event_name %>
+    </div>
+    <div class="col-md-2">
+      <%= number_to_currency(invoice.total_htva, :unit =>'€', :precision => 2) %>
+    </div>
+    <div class="col-md-2">
+      <%= number_to_currency(invoice.total_tva, :unit =>'€', :precision => 2) %>
+    </div>
+    <div class="col-md-2">
+      <%= number_to_currency(invoice.total_tvac, :unit =>'€', :precision => 2) %>
+    </div>
+  </div>
+</li>
 
 
 <% end %>
+
+</ul>

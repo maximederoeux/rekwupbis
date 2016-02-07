@@ -45,7 +45,7 @@ class InvoicesController < ApplicationController
       if @invoice.save
 
         if @invoice.doc_invoice
-          @invoice.update_attributes(:doc_number => @invoice.invoice_number)
+          @invoice.update_attributes(:doc_number => @invoice.invoice_number, :total_htva => @invoice.total_htva, :total_tva => @invoice.total_tva, :total_tvac => @invoice.total_tvac)
         elsif @invoice.doc_credit
           @invoice.update_attributes(:doc_number => @invoice.credit_number)
         end
@@ -91,6 +91,6 @@ class InvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(:doc_number, :offer_id, :client_id, :doc_invoice, :doc_credit)
+      params.require(:invoice).permit(:doc_number, :offer_id, :client_id, :doc_invoice, :doc_credit, :total_htva, :total_tva, :total_tvac)
     end
 end

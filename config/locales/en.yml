@@ -299,6 +299,7 @@ en:
     date: "Document Date"
     client: "Client"
     event: "Event"
+    new_lln: "New LLN invoice"
 
   box:
     box_name: "Box Name"

@@ -299,6 +299,7 @@ fr:
     date: "Date du document "
     client: "Client"
     event: "Evénement"
+    new_lln: "Nouvelle facture LLN"
 
   box:
     box_name: "Nom de la caisse"

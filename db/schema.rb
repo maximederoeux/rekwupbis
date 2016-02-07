@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160207090500) do
+ActiveRecord::Schema.define(version: 20160207094017) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -177,8 +177,11 @@ ActiveRecord::Schema.define(version: 20160207090500) do
     t.integer  "client_id"
     t.boolean  "doc_invoice"
     t.boolean  "doc_credit"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.decimal  "total_htva",  precision: 12, scale: 2
+    t.decimal  "total_tva",   precision: 12, scale: 2
+    t.decimal  "total_tvac",  precision: 12, scale: 2
   end
 
   create_table "lln_imports", force: :cascade do |t|

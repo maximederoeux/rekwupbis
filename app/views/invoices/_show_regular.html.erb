@@ -61,11 +61,11 @@ TVA: BE 0544.576.806</p></small>
 <tr>
 <td><%= detail.article.full_name %></td>
 <td><%= detail.total_cups %></td>
-<td><%= number_to_currency(detail.article.prices.last.washing,:unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %></td>
-<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.washing),:unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %>
+<td><%= number_to_currency(detail.article.prices.last.washing, :unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %></td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.washing), :unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %>
 </td>
 <td>21 %</td>
-<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.washing * 1.21),:unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %></td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.washing * 1.21), :unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %></td>
 <% end %>
 <% end %>
 </tr>
@@ -87,11 +87,11 @@ TVA: BE 0544.576.806</p></small>
 <tr>
 <td><%= detail.article.full_name %></td>
 <td><%= detail.total_cups %></td>
-<td><%= number_to_currency(detail.article.prices.last.handwash,:unit =>'€', :precision => 2) if detail.article.prices.last.handwash.present? %></td>
-<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.handwash),:unit =>'€', :precision => 2) if detail.article.prices.last.handwash.present? %>
+<td><%= number_to_currency(detail.article.prices.last.handwash, :unit =>'€', :precision => 2) if detail.article.prices.last.handwash.present? %></td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.handwash), :unit =>'€', :precision => 2) if detail.article.prices.last.handwash.present? %>
 </td>
 <td>21 %</td>
-<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.handwash * 1.21),:unit =>'€', :precision => 2) if detail.article.prices.last.handwash.present? %></td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.handwash * 1.21), :unit =>'€', :precision => 2) if detail.article.prices.last.handwash.present? %></td>
 <% end %>
 <% end %>
 </tr>
@@ -113,11 +113,11 @@ TVA: BE 0544.576.806</p></small>
 <tr>
 <td><%= detail.article.full_name %></td>
 <td><%= detail.total_cups %></td>
-<td><%= number_to_currency(detail.article.prices.last.deposit,:unit =>'€', :precision => 2) if detail.article.prices.last.deposit.present? %></td>
-<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.deposit),:unit =>'€', :precision => 2) if detail.article.prices.last.deposit.present? %>
+<td><%= number_to_currency(detail.article.prices.last.deposit, :unit =>'€', :precision => 2) if detail.article.prices.last.deposit.present? %></td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.deposit), :unit =>'€', :precision => 2) if detail.article.prices.last.deposit.present? %>
 </td>
 <td>21 %</td>
-<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.deposit * 1.21),:unit =>'€', :precision => 2) if detail.article.prices.last.deposit.present? %></td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.deposit * 1.21), :unit =>'€', :precision => 2) if detail.article.prices.last.deposit.present? %></td>
 <% end %>
 <% end %>
 </tr>
@@ -138,11 +138,11 @@ TVA: BE 0544.576.806</p></small>
 <tr>
 <td><%= detail.article.full_name %></td>
 <td><%= detail.total_cups %></td>
-<td><%= number_to_currency(detail.article.prices.last.handling,:unit =>'€', :precision => 2) if detail.article.prices.last.handling.present? %></td>
-<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.handling),:unit =>'€', :precision => 2) if detail.article.prices.last.handling.present? %>
+<td><%= number_to_currency(detail.article.prices.last.handling, :unit =>'€', :precision => 2) if detail.article.prices.last.handling.present? %></td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.handling), :unit =>'€', :precision => 2) if detail.article.prices.last.handling.present? %>
 </td>
 <td>21 %</td>
-<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.handling * 1.21),:unit =>'€', :precision => 2) if detail.article.prices.last.handling.present? %></td>
+<td><%= number_to_currency((detail.total_cups * detail.article.prices.last.handling * 1.21), :unit =>'€', :precision => 2) if detail.article.prices.last.handling.present? %></td>
 <% end %>
 <% end %>
 </tr>
@@ -164,11 +164,11 @@ TVA: BE 0544.576.806</p></small>
 <td>
   <% if article.article.transport %>
 
-    <%= number_to_currency(@invoice.offer.transport_price,:unit =>'€', :precision => 2) %>
+    <%= number_to_currency(@invoice.offer.transport_price, :unit =>'€', :precision => 2) %>
 
   <% else %>
 
-    <%= number_to_currency(@regular_prices.where(:article_id => article.article.id).last.sell,:unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
+    <%= number_to_currency(@regular_prices.where(:article_id => article.article.id).last.sell, :unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
 
   <% end %>
 </td>
@@ -176,11 +176,11 @@ TVA: BE 0544.576.806</p></small>
 <td>
   <% if article.article.transport %>
 
-    <%= number_to_currency((article.quantity * @invoice.offer.transport_price),:unit =>'€', :precision => 2) %>
+    <%= number_to_currency((article.quantity * @invoice.offer.transport_price), :unit =>'€', :precision => 2) %>
 
   <% else %>
 
-    <%= number_to_currency((article.quantity * @regular_prices.where(:article_id => article.article.id).last.sell),:unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
+    <%= number_to_currency((article.quantity * @regular_prices.where(:article_id => article.article.id).last.sell), :unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
 
   <% end %>
 </td>
@@ -188,11 +188,11 @@ TVA: BE 0544.576.806</p></small>
 <td>
   <% if article.article.transport %>
 
-    <%= number_to_currency((article.quantity * @invoice.offer.transport_price * 1.21),:unit =>'€', :precision => 2) %>
+    <%= number_to_currency((article.quantity * @invoice.offer.transport_price * 1.21), :unit =>'€', :precision => 2) %>
 
   <% else %>
 
-    <%= number_to_currency((article.quantity * @regular_prices.where(:article_id => article.article.id).last.sell * 1.21),:unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
+    <%= number_to_currency((article.quantity * @regular_prices.where(:article_id => article.article.id).last.sell * 1.21), :unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
 
   <% end %>
 
@@ -205,9 +205,9 @@ TVA: BE 0544.576.806</p></small>
 <td></td>
 <td></td>
 <td>Total</td>
-<td><%= number_to_currency(@invoice.total_htva,:unit =>'€', :precision => 2) %></td>
-<td><%= number_to_currency(((@invoice.total_htva * 1.21) - @invoice.total_htva),:unit =>'€', :precision => 2) %></td>
-<td><%= number_to_currency((@invoice.total_htva * 1.21),:unit =>'€', :precision => 2) %></td>
+<td><%= number_to_currency(@invoice.total_htva, :unit =>'€', :precision => 2) %></td>
+<td><%= number_to_currency(@invoice.total_tva, :unit =>'€', :precision => 2) %></td>
+<td><%= number_to_currency(@invoice.total_tvac, :unit =>'€', :precision => 2) %></td>
 </tr>
 <tr>
 <td></td>
@@ -225,7 +225,7 @@ TVA: BE 0544.576.806</p></small>
 <td><strong>Total à payer</strong></td>
 <td></td>
 <td></td>
-<td><strong><%= number_to_currency((@invoice.total_htva * 1.21),:unit =>'€', :precision => 2) %></strong></td>
+<td><strong><%= number_to_currency((@invoice.total_htva * 1.21), :unit =>'€', :precision => 2) %></strong></td>
 </tr>
 
 </table>
@@ -326,10 +326,10 @@ Total HTVA
             <%= detail.total_cups %>
           </div>
           <div class="col-md-2">
-            <%= number_to_currency(detail.article.prices.last.washing,:unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %>
+            <%= number_to_currency(detail.article.prices.last.washing, :unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %>
           </div>
           <div class="col-md-2">
-            <%= number_to_currency((detail.total_cups * detail.article.prices.last.washing),:unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %>
+            <%= number_to_currency((detail.total_cups * detail.article.prices.last.washing), :unit =>'€', :precision => 2) if detail.article.prices.last.washing.present? %>
           </div>
           <div class="col-md-4">
 
@@ -358,10 +358,10 @@ Total HTVA
             <%= detail.total_cups %>
           </div>
           <div class="col-md-2">
-            <%= number_to_currency(detail.article.prices.last.handwash,:unit =>'€', :precision => 2) if detail.article.prices.last.handwash.present? %>
+            <%= number_to_currency(detail.article.prices.last.handwash, :unit =>'€', :precision => 2) if detail.article.prices.last.handwash.present? %>
           </div>
           <div class="col-md-2">
-            <%= number_to_currency((detail.total_cups * detail.article.prices.last.handwash),:unit =>'€', :precision => 2) if detail.article.prices.last.handwash.present? %>
+            <%= number_to_currency((detail.total_cups * detail.article.prices.last.handwash), :unit =>'€', :precision => 2) if detail.article.prices.last.handwash.present? %>
           </div>
           <div class="col-md-4">
 
@@ -390,10 +390,10 @@ Total HTVA
             <%= detail.total_cups %>
           </div>
           <div class="col-md-2">
-            <%= number_to_currency(detail.article.prices.last.deposit,:unit =>'€', :precision => 2) if detail.article.prices.last.deposit.present? %>
+            <%= number_to_currency(detail.article.prices.last.deposit, :unit =>'€', :precision => 2) if detail.article.prices.last.deposit.present? %>
           </div>
           <div class="col-md-2">
-            <%= number_to_currency((detail.total_cups * detail.article.prices.last.deposit),:unit =>'€', :precision => 2) if detail.article.prices.last.deposit.present? %>
+            <%= number_to_currency((detail.total_cups * detail.article.prices.last.deposit), :unit =>'€', :precision => 2) if detail.article.prices.last.deposit.present? %>
           </div>
           <div class="col-md-4">
 
@@ -423,10 +423,10 @@ Total HTVA
             <%= detail.total_cups %>
           </div>
           <div class="col-md-2">
-            <%= number_to_currency(detail.article.prices.last.handling,:unit =>'€', :precision => 2) if detail.article.prices.last.handling.present? %>
+            <%= number_to_currency(detail.article.prices.last.handling, :unit =>'€', :precision => 2) if detail.article.prices.last.handling.present? %>
           </div>
           <div class="col-md-2">
-            <%= number_to_currency((detail.total_cups * detail.article.prices.last.handling),:unit =>'€', :precision => 2) if detail.article.prices.last.handling.present? %>
+            <%= number_to_currency((detail.total_cups * detail.article.prices.last.handling), :unit =>'€', :precision => 2) if detail.article.prices.last.handling.present? %>
           </div>
           <div class="col-md-4">
 
@@ -458,22 +458,22 @@ Total HTVA
 
             <% if article.article.transport %>
 
-              <%= number_to_currency(@invoice.offer.transport_price,:unit =>'€', :precision => 2) %>
+              <%= number_to_currency(@invoice.offer.transport_price, :unit =>'€', :precision => 2) %>
 
             <% else %>
 
-              <%= number_to_currency(@regular_prices.where(:article_id => article.article.id).last.sell,:unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
+              <%= number_to_currency(@regular_prices.where(:article_id => article.article.id).last.sell, :unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
 
             <% end %>
           </div>
           <div class="col-md-2">
             <% if article.article.transport %>
 
-              <%= number_to_currency((article.quantity * @invoice.offer.transport_price),:unit =>'€', :precision => 2) %>
+              <%= number_to_currency((article.quantity * @invoice.offer.transport_price), :unit =>'€', :precision => 2) %>
 
             <% else %>
 
-              <%= number_to_currency((article.quantity * @regular_prices.where(:article_id => article.article.id).last.sell),:unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
+              <%= number_to_currency((article.quantity * @regular_prices.where(:article_id => article.article.id).last.sell), :unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
 
               <% end %>
           </div>
@@ -494,7 +494,7 @@ Total HTVA
           <strong>Total HTVA</strong>
         </div>
         <div class="col-md-2">
-          <strong><%= number_to_currency(@invoice.total_htva,:unit =>'€', :precision => 2) %></strong>
+          <strong><%= number_to_currency(@invoice.total_htva, :unit =>'€', :precision => 2) %></strong>
         </div>
       </div>
     </li>
@@ -508,7 +508,7 @@ Total HTVA
           <strong>TVA</strong>
         </div>        
         <div class="col-md-2">
-          <strong><%= number_to_currency(((@invoice.total_htva * 1.21) - @invoice.total_htva),:unit =>'€', :precision => 2) %></strong>
+          <strong><%= number_to_currency(@invoice.total_tva, :unit =>'€', :precision => 2) %></strong>
         </div>
       </div>
     </li>
@@ -522,7 +522,7 @@ Total HTVA
           <strong>Total TVAC</strong>
         </div>
         <div class="col-md-2">
-          <strong><%= number_to_currency((@invoice.total_htva * 1.21),:unit =>'€', :precision => 2) %></strong>
+          <strong><%= number_to_currency(@invoice.total_tvac, :unit =>'€', :precision => 2) %></strong>
         </div>
       </div>
     </li>

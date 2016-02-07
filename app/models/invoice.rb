@@ -112,6 +112,12 @@ class Invoice < ActiveRecord::Base
 		clean_amount + broken_amount + very_dirty_amount + handling_amount + self.offer.transport_price + article_amount
 	end
 
+	def total_tvac
+		total_htva * 1.21
+	end
 
+	def total_tva
+		total_tvac - total_htva
+	end
 
 end

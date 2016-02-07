@@ -299,6 +299,7 @@ nl:
     date: "Document datum"
     client: "Klant"
     event: "Evenement"
+    new_lln: "Nieuwe LLN rekening"
 
   box:
     box_name: "Doosnaam"
