@@ -6,7 +6,17 @@
 
 <% if current_user == @invoice.offer.organizer %>
 
-<%= render 'after_event_client' %>
+	<% if @invoice.confirmation && @invoice.after_event == nil %>
+
+		<%= render 'deposit_pdf' %>
+
+	<% end %>
+
+	<% if @invoice.after_event && @invoice.confirmation %>
+
+	<%= render 'after_event_pdf' %>
+
+	<% end %>
 
 <% end %>
 
