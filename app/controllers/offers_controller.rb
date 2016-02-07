@@ -12,7 +12,9 @@ class OffersController < ApplicationController
     @confirmedoffers = Offer.where(:client_confirmation => true)
     @rejectedoffers = Offer.where(:client_confirmation => false)
     @pendingoffers = Offer.where(:client_confirmation => nil)
-    @confirmed_not_sent = @confirmedoffers.where(:admin_confirmation => nil)
+    @confirmed_not_paid = @confirmedoffers.where(:confirmation_invoice => nil)
+    @confirmed_paid = @confirmedoffers.where(:confirmation_invoice => true)
+    @confirmed_not_sent = @confirmed_paid.where(:admin_confirmation => nil)
     @confirmed = @confirmedoffers.where(:admin_confirmation => true)
 
     @myoffers = Offer.where(:organizer => current_user)
@@ -150,6 +152,10 @@ class OffersController < ApplicationController
           UserMailer.offer_email(@user, @offer).deliver_later
           @offer.update_attributes(:send_email => false)
         end
+        if @offer.confirmation_invoice
+          Invoice.create(:offer_id => @offer.id, :client_id => @offer.organizer.id, :doc_invoice => true, :confirmation => true)
+
+        end
         format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
         format.json { render :show, status: :ok, location: @offer }
       else
@@ -177,6 +183,6 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:event_id, :organizer_id, :client_confirmation, :admin_confirmation, :send_email, :lln_daily, :unforeseen_return, :lln_invoice)
+      params.require(:offer).permit(:event_id, :organizer_id, :client_confirmation, :admin_confirmation, :send_email, :lln_daily, :unforeseen_return, :lln_invoice, :confirmation_invoice)
     end
 end

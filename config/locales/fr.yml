@@ -361,6 +361,9 @@ fr:
     send_email: "Envoyer cette offre"
     sent_on: "Envoyée le"
     edit: "Changer les dates"
+    invoice: "Envoyer la facture d'accompte"
+    paid_deposit: "Accompte payé"
+    waiting_deposit: "En attente de l'accompte"
     complete_profile: "Vous avez confirmé une offre. Nous avons besoin que vous complétiez votre profil pour pouvoir la valider"
 
   offer_box:

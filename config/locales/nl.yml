@@ -361,6 +361,9 @@ nl:
     send_email: "Deze aanbod sturen"
     sent_on: "Gestuurd op"
     edit: "Data veranderen"
+    invoice: "Aanbetaling rekening sturen"
+    paid_deposit: "Aanbetaling betaald"
+    waitin_deposit: "Wacht op aanbetaling"
     complete_profile: "U heeft een aanbod bevestigd. Om verder te gaan nodigen u uit om uw profiel in te vullen"
 
   offer_box:

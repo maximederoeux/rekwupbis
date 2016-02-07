@@ -18,6 +18,11 @@ class InvoicesController < ApplicationController
     @prices = Price.all
     @regular_prices = @prices.where(:regular => true)
 
+    @offer_boxes = OfferBox.all
+    @thisofferboxes = @offer_boxes.where(:offer_id => @offer.id)
+    @boxdetails = @invoice.boxdetails
+    @articles = @invoice.articles
+
     respond_to do |format|
       format.html
       format.pdf do
@@ -91,6 +96,6 @@ class InvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(:doc_number, :offer_id, :client_id, :doc_invoice, :doc_credit, :total_htva, :total_tva, :total_tvac)
+      params.require(:invoice).permit(:doc_number, :offer_id, :client_id, :doc_invoice, :doc_credit, :total_htva, :total_tva, :total_tvac, :confirmation, :confirmation_paid, :after_event, :after_event_paid)
     end
 end

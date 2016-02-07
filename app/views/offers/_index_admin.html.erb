@@ -1,47 +1,95 @@
 	<ul class="list-group">
+		<div class="row">
+			<div class="col-md-6">
+				<li class="list-group-item list-group-item-warning">
+					<h4><%= t("offer.confirmed_by_clients") %></h4>
+				</li>
 
-		<li class="list-group-item list-group-item-warning">
-			<h4><%= t("offer.confirmed_by_clients") %></h4>
-		</li>
+					<% @confirmed_not_paid.each do |offer| %>
+																
+							<li class="list-group-item">
 
-			<% @confirmed_not_sent.each do |offer| %>
-														
-					<li class="list-group-item">
-						<div class="row">
+								<div class="row">
+									<div class="col-md-4">			
+										<strong>
+											<%= t("offer.reference")%><%= offer.created_at.strftime("%Y") %> - <%= offer.id %>
+											<br>
+											<%= offer.event.event_name %>
+										</strong>
+									</div>
 
-							<div class="col-md-6">			
-								<strong>
-									<%= t("offer.reference")%><%= offer.created_at.strftime("%Y") %> - <%= offer.id %>
-									<br>
-									<%= offer.event.event_name %>
-								</strong>
-							</div>
+									<div class="col-md-2">
 
-							<div class="col-md-2">
+											<%= link_to offer_path(offer) do %>
+												<%= content_tag(:i, "", class: "fa fa-info fa-2x") %> 
+											<% end %>
+		      		    </div>
 
-									<%= link_to offer_path(offer) do %>
-										<%= content_tag(:i, "", class: "fa fa-info fa-2x") %> 
-									<% end %>
-      		    </div>
+									<div class="col-md-4">
 
-							<div class="col-md-4">
+				            <%= simple_form_for(offer) do |f| %>
+				              <%= f.error_notification %>
 
-		            <%= simple_form_for(@new_delivery) do |f| %>
-		              <%= f.error_notification %>
+				                <%= f.hidden_field :confirmation_invoice, :value => true %>
 
-		                <%= f.hidden_field :offer_id, :value => offer.id %>
-		                <%= f.hidden_field :delivery_date, :value => offer.event.delivery_date %>
-		                <%= f.hidden_field :return_date, :value => offer.event.return_date %>
+				              <div class="form-actions">
+				                <%= f.submit t("offer.invoice"), class: "btn btn-info" %>
+				              </div>
 
-		              <div class="form-actions">
-		                <%= f.submit t("offer.delivery"), class: "btn btn-info" %>
-		              </div>
+				            <% end %>
+		      		    </div>
+						    </div>
+							</li>
+					<% end %>
+				</div>
 
-		            <% end %>
-      		    </div>
-				    </div>
-					</li>
-			<% end %>
+
+			<div class="col-md-6">
+				<li class="list-group-item list-group-item-warning">
+					<h4><%= t("offer.waiting_deposit") %></h4>
+				</li>
+
+					<% @confirmed_paid.each do |offer| %>
+																
+							<li class="list-group-item">
+
+								<div class="row">
+									<div class="col-md-4">			
+										<strong>
+											<%= t("offer.reference")%><%= offer.created_at.strftime("%Y") %> - <%= offer.id %>
+											<br>
+											<%= offer.event.event_name %>
+										</strong>
+									</div>
+
+									<div class="col-md-2">
+
+											<%= link_to offer_path(offer) do %>
+												<%= content_tag(:i, "", class: "fa fa-info fa-2x") %> 
+											<% end %>
+		      		    </div>
+
+									<div class="col-md-4">
+
+				            <%= simple_form_for(@new_delivery) do |f| %>
+				              <%= f.error_notification %>
+
+				                <%= f.hidden_field :offer_id, :value => offer.id %>
+				                <%= f.hidden_field :delivery_date, :value => offer.event.delivery_date %>
+				                <%= f.hidden_field :return_date, :value => offer.event.return_date %>
+
+				              <div class="form-actions">
+				                <%= f.submit t("offer.paid_deposit"), class: "btn btn-info" %>
+				              </div>
+
+				            <% end %>
+		      		    </div>
+						    </div>
+							</li>
+					<% end %>
+				</div>
+
+			</div>
 		</ul>
       	
 

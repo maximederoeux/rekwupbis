@@ -4,6 +4,31 @@
 
 <% else %>
 
-<%= render 'show_regular' %>
+<% if current_user == @invoice.offer.organizer %>
+
+<%= render 'show_regular_client' %>
+
+<% end %>
+
+<% if current_user.admin %>
+
+	<% if @invoice.confirmation && @invoice.after_event == nil %>
+
+		<%= render 'deposit_pdf' %>
+
+	<% end %>
+
+
+
+	<% if @invoice.after_event && @invoice.confirmation %>
+
+		<%= render 'after_event_pdf' %>
+
+	<% end %>
+
+
+
+<% end %>
+
 
 <% end %>
