@@ -37,7 +37,7 @@
   <table class="article">
 
   <tr>
-  <th>Articles</th>
+  <th>Articles Lavés</th>
   <th>Qtté</th>
   <th>Prix U.</th>
   <th>Total HTVA</th>
@@ -72,7 +72,38 @@
 
   </tr>
 
+  <tr>
+  <th>Caution Articles</th>
+  <th>Qtté</th>
+  <th>Prix U.</th>
+  <th>Total HTVA</th>
+  <th>TVA</th>
+  <th>Total TVAC</th>
+  </tr>
 
+   <% @articles.each do |article| %>
+
+    <% if article.is_cup %>
+
+
+  <tr>
+  <td><%= article.full_name %></td>
+
+  <td><%= (@boxdetails.where(:article_id => article.id).first.box_article_quantity * @thisofferboxes.where(:box_id => @boxdetails.where(:article_id => article.id).first.box_id).first.quantity * 0.15).floor %></td>
+
+  <td><%= number_to_currency(article.prices.last.deposit, :unit =>'€', :precision => 2) if article.prices.last.deposit.present? %></td>
+
+  <td><%= number_to_currency((((@boxdetails.where(:article_id => article.id).first.box_article_quantity * @thisofferboxes.where(:box_id => @boxdetails.where(:article_id => article.id).first.box_id).first.quantity * 0.15).floor) * article.prices.last.deposit), :unit =>'€', :precision => 2) if article.prices.last.deposit.present? %>
+  </td>
+
+  <td>21 %</td>
+
+  <td><%= number_to_currency((((@boxdetails.where(:article_id => article.id).first.box_article_quantity * @thisofferboxes.where(:box_id => @boxdetails.where(:article_id => article.id).first.box_id).first.quantity * 0.15).floor) * article.prices.last.deposit * 1.21), :unit =>'€', :precision => 2) if article.prices.last.deposit.present? %></td>
+
+  <% end %>
+  <% end %>
+
+  </tr>
 
 
   <tr>
