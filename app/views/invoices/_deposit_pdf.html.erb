@@ -1,3 +1,4 @@
+
 <% if current_user.admin %>
 
   <%= link_to "", invoice_path(format: 'pdf'), :class => "btn btn-default btn-lg btn-block generate" %>
@@ -6,7 +7,7 @@
 
 <% if current_user == @invoice.offer.organizer %>
 
-  <%= link_to "Enregistrer le pdf", invoice_path(format: 'pdf') %>
+  <%= link_to "Version", invoice_path(format: 'pdf') %>
 
 <% end %>
 
