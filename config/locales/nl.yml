@@ -73,6 +73,7 @@ nl:
 
   mail:
     offer_title: "Aanbod voor uw evenement %{event_name}"
+    deposit_title: "Aanbetaling rekening %{pdf_name}"
 
   attendance:
     in: "Inkomen"

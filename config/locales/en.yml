@@ -74,6 +74,7 @@ en:
 
   mail:
     offer_title: "Offer for your event %{event_name}"
+    deposit_title: "Deposit invoice %{pdf_name}"
 
   attendance:
     in: "Clock in"

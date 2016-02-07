@@ -74,6 +74,7 @@ fr:
 
   mail:
     offer_title: "Offre pour votre événement %{event_name}"
+    deposit_title: "Facture d'accompte %{pdf_name}"
 
   attendance:
     in: "Entrée"

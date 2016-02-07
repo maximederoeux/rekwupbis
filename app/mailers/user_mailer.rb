@@ -19,4 +19,16 @@ class UserMailer < ApplicationMailer
       )
   end
 
+  def deposit_email(user, offer, invoice)
+    @offer = offer
+    @invoice = invoice
+    @organizer = user
+    @url = invoice_url(@invoice)
+
+    mail(
+      to: @organizer.email, 
+      subject: I18n.t('mail.deposit_title', :pdf_name => @invoice.pdf_name)
+      )
+  end
+
 end
