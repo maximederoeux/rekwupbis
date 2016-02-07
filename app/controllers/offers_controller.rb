@@ -154,7 +154,8 @@ class OffersController < ApplicationController
         end
         if @offer.confirmation_invoice
           Invoice.create(:offer_id => @offer.id, :client_id => @offer.organizer.id, :doc_invoice => true, :confirmation => true)
-
+          @invoice = Invoice.last
+          @invoice.update_attributes(:doc_number => @invoice.invoice_number)
         end
         format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
         format.json { render :show, status: :ok, location: @offer }
