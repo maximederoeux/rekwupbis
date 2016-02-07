@@ -55,12 +55,17 @@
 
   <tr>
   <td><%= article.full_name %></td>
-  <td><%= (@boxdetails.where(:article_id => article.id).first.box_article_quantity * @offer_boxes.where(:box_id => @boxdetails.where(:article_id => article.id).first.box_id).first.quantity * 0.85).floor %></td>
+
+  <td><%= (@boxdetails.where(:article_id => article.id).first.box_article_quantity * @thisofferboxes.where(:box_id => @boxdetails.where(:article_id => article.id).first.box_id).first.quantity * 0.85).floor %></td>
+
   <td><%= number_to_currency(article.prices.last.washing, :unit =>'€', :precision => 2) if article.prices.last.washing.present? %></td>
-  <td><%= number_to_currency((((@boxdetails.where(:article_id => article.id).first.box_article_quantity * @offer_boxes.where(:box_id => @boxdetails.where(:article_id => article.id).first.box_id).first.quantity * 0.85).floor) * article.prices.last.washing), :unit =>'€', :precision => 2) if article.prices.last.washing.present? %>
+
+  <td><%= number_to_currency((((@boxdetails.where(:article_id => article.id).first.box_article_quantity * @thisofferboxes.where(:box_id => @boxdetails.where(:article_id => article.id).first.box_id).first.quantity * 0.85).floor) * article.prices.last.washing), :unit =>'€', :precision => 2) if article.prices.last.washing.present? %>
   </td>
+
   <td>21 %</td>
-  <td><%= number_to_currency((((@boxdetails.where(:article_id => article.id).first.box_article_quantity * @offer_boxes.where(:box_id => @boxdetails.where(:article_id => article.id).first.box_id).first.quantity * 0.85).floor) * article.prices.last.washing * 1.21), :unit =>'€', :precision => 2) if article.prices.last.washing.present? %></td>
+
+  <td><%= number_to_currency((((@boxdetails.where(:article_id => article.id).first.box_article_quantity * @thisofferboxes.where(:box_id => @boxdetails.where(:article_id => article.id).first.box_id).first.quantity * 0.85).floor) * article.prices.last.washing * 1.21), :unit =>'€', :precision => 2) if article.prices.last.washing.present? %></td>
 
   <% end %>
   <% end %>
