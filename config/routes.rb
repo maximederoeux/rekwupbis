@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'reporting/attendances'
 
   get 'reporting/statistics'
+  get 'reporting/interim'
+  get 'reporting/interim_pdf'
 
   resources :attendances
   resources :energies

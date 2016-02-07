@@ -82,6 +82,7 @@ fr:
     last_out: "Dernière sortie le "
     now_in: "Pour le moment vous êtes dedans"
     now_out: "Pour le moment vous êtes dehors"
+    see: "Voir les mouvements"
 
   user:
     name: "Nom"
@@ -132,6 +133,12 @@ fr:
     lln_id: "LLN ordre livraison"
     surface: "LLN Surfaces"
     taxable: "Je suis assujetti à la TVA"
+    chauffeur: "Chauffeur"
+    fixed: "Employé"
+    interim: "Interim"
+    leader: "Leader"
+    time_per_week: "Horaire"
+    time_keeping: "Seulement pointeuse"
 
   event:
     new_event: "  Nouvel événement"
@@ -693,6 +700,9 @@ fr:
         update: "Enregistrer"
       price:
         create: "Ajouter"
+        update: "Enregistrer"
+      energy:
+        create: "Encoder les chiffres du jour"
         update: "Enregistrer"
   number:
     currency:

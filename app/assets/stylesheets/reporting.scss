@@ -1,3 +1,64 @@
 // Place all the styles related to the Reporting controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+table, th, td {
+  border: none;
+  text-align: center;
+  font-size: small
+}
+
+th, tr {
+  height: 25px;
+}
+
+.address-block {
+  padding-left: 400px;
+  margin-top: 30px;
+  font-family: verdana;
+  }
+
+.doc-date {
+  padding-left: 400px;
+  margin-top: 10px;
+  }
+
+.client-block {
+  margin-top: 10px;
+  font-family: verdana;
+  font-size: small
+  }
+
+.article {
+	width:100%;
+	border: none;
+  border-collapse: collapse;
+
+}
+
+.object {
+  padding-bottom: 20px;
+  }
+
+.bank-block {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  }
+
+.communication {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.comment {
+  text-align: center;
+  font-style: italic;
+  font-size: 12px;
+  border: 1px solid black;
+}
+
+.generate {
+  background-color: transparent;
+  border: none
+}

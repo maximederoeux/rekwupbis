@@ -23,6 +23,11 @@ class User < ActiveRecord::Base
 	scope :client, lambda {where(:client => true)}
 	scope :staff, lambda {where(:staff => true)}
 	scope :admin, lambda {where(:admin => true)}
+	scope :interim, lambda {where(:staff => true) && where(:interim => true)}
+	scope :fixed, lambda {where(:staff => true) && where(:fixed => true)}
+	scope :leader, lambda {where(:staff => true) && where(:leader => true)}
+	scope :time_keeping, lambda {where(:staff => true) && where(:time_keeping => true)}
+	scope :chauffeur, lambda {where(:chauffeur => true)}
 	scope :is_lln, lambda {where(:is_lln => true)}
 	scope :not_lln, lambda {where(:is_lln => nil)}
 

@@ -82,6 +82,7 @@ en:
     last_out: "Last time out on"
     now_in: "At the moment you are in"
     now_out: "At the moment you are out"
+    see: "Go to Attendances"
 
   user:
     name: "Last Name"
@@ -132,6 +133,12 @@ en:
     lln_id: "LLN order delivery"
     surface: "LLN Surfaces"
     taxable: "I am taxable for VAT purposes"
+    chauffeur: "Driver"
+    fixed: "Employee"
+    interim: "Interim"
+    leader: "Leader"
+    time_per_week: "Schedule"
+    time_keeping: "Clock only"
 
   event:
     new_event: "  New Event"
@@ -686,7 +693,9 @@ en:
         update: "Save"
       price:
         create: "Add"
-        update: "Save" 
+        update: "Save"
+      energy:
+        create: "Enter today's figures"
   number:
     currency:
       format:

@@ -2,6 +2,19 @@
 
   <ul class="list-group">
 
+    <li class="list-group-item">
+      <div class="row">
+
+        <div class="col-md-6">
+          <strong><%= t("user.name") %> : </strong><%= @user.name if @user.name %>
+        </div>
+        <div class="col-md-6">
+          <strong><%= t("user.first_name") %> : </strong><%= @user.first_name if @user.first_name %>
+        </div>
+
+      </div>
+    </li>
+
     <li class="list-group-item list-group-item-info">
 
     <h5><strong><%= t("user.your_profile") %>
@@ -30,19 +43,44 @@
 
     </li>
 
-
     <li class="list-group-item">
       <div class="row">
+        <strong>
+          <div class="col-md-2">
+            <%= t("user.staff") %>
+          </div>
+          <div class="col-md-2">
+            <% if @user.fixed %>
+              <%= t("user.fixed") %>
+            <% end %>
+          </div>
+          <div class="col-md-2">
+            <% if @user.time_per_week.present? %>
+              <%= t("user.time_per_week") %><br>
+              <% @user.time_per_week %>
+            <% end %>
+          </div>
+          <div class="col-md-2">
+            <% if @user.interim %>
+              <%= t("user.interim") %>
+            <% end %>
+          </div>
+          <div class="col-md-2">
+            <% if @user.leader %>
+              <%= t("user.leader") %>
+            <% end %>
+          </div>
 
-        <div class="col-md-6">
-          <strong><%= t("user.name") %> : </strong><%= @user.name if @user.name %>
-        </div>
-        <div class="col-md-6">
-          <strong><%= t("user.first_name") %> : </strong><%= @user.first_name if @user.first_name %>
-        </div>
+          <div class="col-md-2">
+            <% if @user.time_keeping %>
+              <%= t("user.time_keeping") %>
+            <% end %>
+          </div>
 
+        </strong>
       </div>
     </li>
+
 
     <li class="list-group-item">
       <strong><%= t("user.email") %> : </strong><%= @user.email %>

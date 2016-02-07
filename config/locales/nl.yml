@@ -81,6 +81,7 @@ nl:
     last_out: "Laatste tijd uit "
     now_in: "Nu bent u in"
     now_out: "Nu bent u uit"
+    see: "Bewegingen zien"
 
   user:
     name: "Naam"
@@ -131,6 +132,12 @@ nl:
     lln_id: "LLN levering order"
     surface: "LLN Surfaces"
     taxable: "Ik ben BTW plichtig"
+    chauffeur: "Chauffeur"
+    fixed: "Bediende"
+    interim: "Interim"
+    leader: "Leader"
+    time_per_week: "Rooster"
+    time_keeping: "Alleen in/uit"
 
   event:
     new_event: "  Nieuw evenement"
@@ -684,6 +691,9 @@ nl:
         update: "Opslaan"
       price:
         create: "Toevoegen"
+        update: "Opslaan"
+      energy:
+        create: "Cijfers van de dag invullen"
         update: "Opslaan"
   number:
     currency:

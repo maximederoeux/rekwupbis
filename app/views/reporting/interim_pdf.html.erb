@@ -1,0 +1,49 @@
+<% if current_user.admin %>
+
+	<%= link_to "", reporting_interim_pdf_path(format: 'pdf'), :class => "btn btn-default btn-lg btn-block generate" %>
+
+	<div class="address-block">
+		<h4>Rekwup</h4>
+		<small><p>41/1 rue de La Croix Limont<br>5590, Ciney, Belgique<br>
+		Tel: +32 487 69 83 73<br>
+		e-mail: jgpahaut@rekwup.be<br>
+		TVA: BE 0544.576.806</p></small>
+
+	</div>
+
+	<div>
+		<h4><strong>
+		Semaine <%= (Date.today - 6.days).strftime("%Y") %> - <%= (Date.today - 6.days).strftime("%W") %></h4></strong>
+	</div>
+
+	<div class="doc-date">
+	  Ciney, le <%= Date.today.strftime("%d/%m/%Y") %>
+	</div>
+
+	<table>
+
+		<tr>
+			<th>Date</th>
+			<th>Heures prestées</th>
+		</tr>
+
+		<% User.interim.each do |user| %>
+
+			<tr>
+				<td><%= user.full_name %></td>
+			</tr>
+
+			<% if user.attendances.last_monday.any? %>
+
+				<tr>
+				<td>Lundi <%= 6.days.ago.beginning_of_week.strftime("%d/%m/%Y") %></td>
+				<td><%= user.attendances.last_monday.first.display_last_monday_duration %></td>
+				</tr>
+
+			<% end %>
+
+
+		<% end %>
+	</table>		
+
+<% end %>

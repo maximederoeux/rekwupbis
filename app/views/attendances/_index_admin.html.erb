@@ -1,4 +1,7 @@
-<ul div class="list-group">
+<%= link_to t("menu.back"), reporting_attendances_path, class: "btn btn-lg btn-block btn-default" %>
+
+
+<ul div class="list-group more-padding">
 	<% User.staff.each do |user| %>
 		<li class="list-group-item list-group-item-info">
 			<%= user.full_name %>

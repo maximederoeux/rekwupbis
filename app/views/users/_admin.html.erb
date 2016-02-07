@@ -7,29 +7,6 @@
     <li class="list-group-item">
       <div class="row">
 
-        <div class="col-md-4">
-          <h6><strong><%= t("user.status") %></strong></h6>
-        </div>
-        <div class="col-md-2">
-          <%= f.input :admin, :label => t("user.admin") %>
-        </div>
-        <div class="col-md-2">
-          <%= f.input :staff, :label => t("user.staff") %>
-        </div>
-        <div class="col-md-2">
-          <%= f.input :client, :label => t("user.client") %>
-        </div>
-        <div class="col-md-2">
-          <%= f.input :chauffeur, :label => t("user.chauffeur") %>
-        </div>
-         
-
-      </div>
-    </li>
-
-    <li class="list-group-item">
-      <div class="row">
-
         <div class="col-md-6">
           <%= f.input :name, :label => t("user.name"), :placeholder => t("user.name") %>
         </div>
@@ -39,6 +16,55 @@
 
       </div>
     </li>
+
+    <li class="list-group-item">
+      <div class="row">
+        <strong>
+          <div class="col-md-4">
+            <h6><%= t("user.status") %></h6>
+          </div>
+          <div class="col-md-2">
+            <%= f.input :admin, :label => t("user.admin") %>
+          </div>
+          <div class="col-md-2">
+            <%= f.input :staff, :label => t("user.staff") %>
+          </div>
+          <div class="col-md-2">
+            <%= f.input :client, :label => t("user.client") %>
+          </div>
+          <div class="col-md-2">
+            <%= f.input :chauffeur, :label => t("user.chauffeur") %>
+          </div>
+        </strong>  
+
+      </div>
+    </li>
+
+    <li class="list-group-item">
+      <div class="row">
+
+        <div class="col-md-2">
+          <h6><strong><%= t("user.staff") %></strong></h6>
+        </div>
+        <div class="col-md-2">
+          <%= f.input :fixed, :label => t("user.fixed") %>
+        </div>
+        <div class="col-md-2">
+          <%= f.input :time_per_week, :label => t("user.time_per_week") %>
+        </div>
+        <div class="col-md-2">
+          <%= f.input :interim, :label => t("user.interim") %>
+        </div>
+        <div class="col-md-2">
+          <%= f.input :leader, :label => t("user.leader") %>
+        </div>
+        <div class="col-md-2">
+          <%= f.input :time_keeping, :label => t("user.time_keeping") %>
+        </div>         
+
+      </div>
+    </li>
+
 
     <li class="list-group-item">
       <%= f.input :email, :label => t("user.email"), :placeholder => t("user.email") %>

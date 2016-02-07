@@ -60,7 +60,10 @@
 
         <% end %>
 
-        <% if current_user.staff %>
+
+
+
+        <% if current_user.leader %>
 
           <% if Energy.any? %>
 
@@ -159,6 +162,13 @@
 
   <div id="page-content-wrapper">
   	<div class="container-fluid">
+
+        <% if user_signed_in? && current_user.staff %>
+        <div class="which-staff">
+          Connecté avec le compte de <%= current_user.full_name %>
+        </div>
+          
+        <% end %>
 
       <ul class="list-group">
         <li class="list-group-item list-group-item-info">
