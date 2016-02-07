@@ -112,8 +112,45 @@ class Invoice < ActiveRecord::Base
 		article_amount
 	end
 
+	def sent_articles(article)
+		self.boxdetails.where(:article_id => article.id).first.box_article_quantity * self.offer_boxes.where(:box_id => self.boxdetails.where(:article_id => article.id).first.box_id).first.quantity
+	end
+
+	def deposit_sent_articles(article)
+		(sent_articles(article) * 0.15).floor
+	end
+
+	def deposit_wash_articles(article)
+		sent_articles(article) - deposit_sent_articles(article)	
+	end
+
+
+	def total_article_deposit
+		article_deposit = 0
+		self.articles.each do |article|
+    	if article.is_cup
+				article_deposit += (deposit_sent_articles(article) * article.prices.last.deposit)
+    	end
+    end
+    	article_deposit
+	end
+
+	def total_wash_deposit
+		article_deposit = 0
+		self.articles.each do |article|
+    	if article.is_cup
+				article_deposit += (deposit_wash_articles(article) * article.prices.last.washing)
+    	end
+    end
+    	article_deposit
+	end
+
 	def total_htva
-		clean_amount + broken_amount + very_dirty_amount + handling_amount + self.offer.transport_price + article_amount
+		if after_event
+			clean_amount + broken_amount + very_dirty_amount + handling_amount + self.offer.transport_price + article_amount
+		elsif confirmation
+			total_article_deposit + total_wash_deposit + self.offer.transport_price
+		end
 	end
 
 	def total_tvac
