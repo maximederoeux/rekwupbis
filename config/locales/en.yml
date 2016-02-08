@@ -343,7 +343,7 @@ en:
     your_pending: "Offers to be confirmed"
     you_confirmed: "You confirmed this offer"
     client_confirmed: "Confirmed by the client"
-    confirm: "I accept this offer"
+    confirm: "I accept this offer and order"
     cancel: "Cancel this confirmation"
     delivery: "Send for delivery"
     your_confirmed: "Offers you confirmed"

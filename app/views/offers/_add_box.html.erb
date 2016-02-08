@@ -15,16 +15,16 @@
 
             	<%= f.hidden_field :offer_id, :value => @offer.id %>
 
-              <div class="col-md-4">
+              <div class="col-xs-12 col-md-4">
                 <%= f.label :box_id %>
                 <%= f.collection_select :box_id, Box.closed.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select"} %>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-xs-12 col-md-4">
                 <%= f.input :quantity %>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-xs-12 col-md-4">
                 <br>
                 <%= f.button :submit, class: "btn btn-success" %>
               </div>

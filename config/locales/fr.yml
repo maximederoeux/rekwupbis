@@ -343,7 +343,7 @@ fr:
     your_pending: "Vos offres en attente de confirmation"
     you_confirmed: "Vous avez confirmé cette offre"
     client_confirmed: "Confirmées par le client"
-    confirm: "J'accepte cette offre et passe commande"
+    confirm: "J'accepte et passe commande"
     cancel: "Annuler la confirmation"
     delivery: "Envoyer pour livraison"
     your_confirmed: "Offres que vous avez confirmées"
