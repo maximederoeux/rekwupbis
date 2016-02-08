@@ -9,7 +9,7 @@ main .invoice-background {
 table, th, td {
   border: none;
   text-align: center;
-  font-size: small
+  font-size: small;
 }
 
 th, tr {
@@ -30,7 +30,7 @@ th, tr {
 .client-block {
   margin-top: 10px;
   font-family: verdana;
-  font-size: small
+  font-size: small;
   }
 
 .article {
@@ -64,5 +64,21 @@ th, tr {
 
 .generate {
   background-color: transparent;
-  border: none
+  border: none;
+}
+
+.rekwup-logo {
+  position: absolute;
+  left: 0px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+
+}
+
+.logo-address {
+  margin-bottom: 10px;
+}
+
+.reference {
+  margin-top: 50px;
 }

@@ -10,6 +10,11 @@
 
 <% end %>
 
+<div class="logo-address">
+  <div class="rekwup-logo">
+    <%= wicked_pdf_image_tag  "logo_rekwup.png" ,:width => "120",  :height=>"200" %>
+  </div>
+
   <div class="address-block">
   <h4>Rekwup</h4>
   <small><p>41/1 rue de La Croix Limont<br>5590, Ciney, Belgique<br>
@@ -19,7 +24,9 @@
 
   </div>
 
-  <div>
+</div>
+
+  <div class="reference">
   <h4><strong>
     <%= @invoice.pdf_name %>
   </h4></strong>
