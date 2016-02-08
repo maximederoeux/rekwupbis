@@ -160,6 +160,17 @@ en:
         negociated_price: "Negociated Prices"
         taxable: "I am taxable for VAT purposes"
         company_number: "Company number"
+      energy:
+        gaz: "Gaz 1"
+        two_gaz: "Gaz 2"
+        electricity: "Electricity 1"
+        two_electricity: "Electricity 2"
+        photo: "Photovoltaïque 1"
+        two_photo: "Photovoltaïque 2"
+        water: "Water 1"
+        two_water: "Water 2"
+        three_water: "Water 3"
+        four_water: "Water 4"
     date:
       format:
         default: "%d-%m-%Y"

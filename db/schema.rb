@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160207131257) do
+ActiveRecord::Schema.define(version: 20160208223243) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -125,11 +125,18 @@ ActiveRecord::Schema.define(version: 20160207131257) do
   end
 
   create_table "energies", force: :cascade do |t|
-    t.decimal  "water",       precision: 16, scale: 4
-    t.decimal  "gaz",         precision: 16, scale: 4
-    t.decimal  "electricity", precision: 16, scale: 4
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.decimal  "water",           precision: 16, scale: 4
+    t.decimal  "gaz",             precision: 16, scale: 4
+    t.decimal  "electricity",     precision: 16, scale: 4
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.decimal  "two_electricity", precision: 16, scale: 4
+    t.decimal  "photo",           precision: 16, scale: 4
+    t.decimal  "two_photo",       precision: 16, scale: 4
+    t.decimal  "two_gaz",         precision: 16, scale: 4
+    t.decimal  "two_water",       precision: 16, scale: 4
+    t.decimal  "three_water",     precision: 16, scale: 4
+    t.decimal  "four_water",      precision: 16, scale: 4
   end
 
   create_table "events", force: :cascade do |t|

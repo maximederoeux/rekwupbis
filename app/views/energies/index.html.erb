@@ -16,52 +16,129 @@
 
       <li class="list-group-item">
         <div class="row">
-          <div class="col-md-4">
-            <%= f.input :water %>
-          </div>
-            
-          <div class="col-md-4">
-            <%= f.input :gaz %>
+          <div class="col-md-3">
+            <%= f.input :electricity %>
           </div>
 
-          <div class="col-md-4">
-            <%= f.input :electricity %>
+          <div class="col-md-3">
+            <%= f.input :two_electricity %>
+          </div>
+
+          <div class="col-md-3">
+            <%= f.input :photo %>
+          </div>
+            
+          <div class="col-md-3">
+            <%= f.input :two_photo %>
           </div>
         </div>
       </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :gaz %>
+          </div>
+
+          <div class="col-md-6">
+            <%= f.input :two_gaz %>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">      
+          <div class="col-md-3">
+            <%= f.input :water %>
+          </div>
+            
+          <div class="col-md-3">
+            <%= f.input :two_water %>
+          </div>
+
+          <div class="col-md-3">
+            <%= f.input :three_water %>
+          </div>
+            
+          <div class="col-md-3">
+            <%= f.input :four_water %>
+          </div>
+
+        </div>
+      </li>
+
     </ul>
       
         <%= f.button :submit, class: "btn btn-lg btn-block btn-info" %>
 
     <% end %>
-    <% end %>
+
+  <% end %>
 
   <% else %>
 
     <%= simple_form_for(@new_energy) do |f| %>
       <%= f.error_notification %>
-
+<ul class="list-group">
       <li class="list-group-item">
         <div class="row">
-          <div class="col-md-4">
-            <%= f.input :water %>
-          </div>
-            
-          <div class="col-md-4">
-            <%= f.input :gaz %>
+          <div class="col-md-3">
+            <%= f.input :electricity %>
           </div>
 
-          <div class="col-md-4">
-            <%= f.input :electricity %>
+          <div class="col-md-3">
+            <%= f.input :two_electricity %>
+          </div>
+
+          <div class="col-md-3">
+            <%= f.input :photo %>
+          </div>
+            
+          <div class="col-md-3">
+            <%= f.input :two_photo %>
           </div>
         </div>
       </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :gaz %>
+          </div>
+
+          <div class="col-md-6">
+            <%= f.input :two_gaz %>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">      
+          <div class="col-md-3">
+            <%= f.input :water %>
+          </div>
+            
+          <div class="col-md-3">
+            <%= f.input :two_water %>
+          </div>
+
+          <div class="col-md-3">
+            <%= f.input :three_water %>
+          </div>
+            
+          <div class="col-md-3">
+            <%= f.input :four_water %>
+          </div>
+
+        </div>
+      </li>
+
     </ul>
       
         <%= f.button :submit, class: "btn btn-lg btn-block btn-info" %>
 
     <% end %>
-  
+
   <% end %>
 
 
@@ -74,26 +151,64 @@
     <% @energies.each do |energy| %>
 
   <li class="list-group-item">
-    <div class="row">
-      <div class="col-md-3">
+
         <%= energy.created_at.strftime("%d/%m/%Y") if energy.created_at %>
-      </div>
-
-      <div class="col-md-3">
-        <%= energy.water %>
-      </div>
-        
-      <div class="col-md-3">
-        <%= energy.gaz %>
-      </div>
-
-      <div class="col-md-3">
-        <%= energy.electricity %>
-      </div>
-    </div>
   </li>
-  <% end %>
-</ul>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-3">
+            <%= energy.electricity %>
+          </div>
+
+          <div class="col-md-3">
+            <%= energy.two_electricity %>
+          </div>
+
+          <div class="col-md-3">
+            <%= energy.photo %>
+          </div>
+            
+          <div class="col-md-3">
+            <%= energy.two_photo %>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            <%= energy.gaz %>
+          </div>
+
+          <div class="col-md-6">
+            <%= energy.two_gaz %>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">      
+          <div class="col-md-3">
+            <%= energy.water %>
+          </div>
+            
+          <div class="col-md-3">
+            <%= energy.two_water %>
+          </div>
+
+          <div class="col-md-3">
+            <%= energy.three_water %>
+          </div>
+            
+          <div class="col-md-3">
+            <%= energy.four_water %>
+          </div>
+
+        </div>
+      </li>
+<% end %>
+    </ul>
         
         
         
