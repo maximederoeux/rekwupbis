@@ -3,7 +3,7 @@
     Consommation énergétique
   </li>
 
-  <% if Energy.all.last.created_at.strftime("%d/%m/%Y") == Time.now.strftime("%d/%m/%Y") %>
+  <% if Energy.all.last.created_at.strftime("%d/%m/%Y") == Time.now.strftime("%d/%m/%Y") if Energy.all.last.created_at %>
 
     <h4>Déjà encodé pour aujourd'hui</h4>
 
