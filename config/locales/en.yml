@@ -397,6 +397,8 @@ en:
     delivery: "Delivery"
     lln: "LLN Returns"
     others: "Other Returns"
+    unforeseen: "Unforeseen LLN Returns"
+    unforeseen_create: "Create an unforeseen return"
 
   sorting:
     start: "Start time"

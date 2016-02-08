@@ -396,6 +396,8 @@ fr:
     delivery: "Livraison"
     lln: "Retours LLN"
     others: "Autres Retours"
+    unforeseen: "Retours LLN imprévus"
+    unforeseen_create: "Créer un retour imprévu"
 
   sorting:
     start: "Début du rangement"

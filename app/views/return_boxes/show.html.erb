@@ -58,6 +58,11 @@
       </div>
     </div>
 
+<ul class="list-group more-padding">
+       <li class="list-group-item list-group-item-warning">
+        <h4><strong><%= t("return.unforeseen") %></h4></strong>
+       </li>
+
 <% @lln_imports.each do |import| %>
 
 <% if Offer.where(:organizer_id => User.is_lln.where(:lln_id => import.id).first.id).any? %>
@@ -68,41 +73,52 @@
 
     <% else %>
 
-        <%= import.circle %>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-4">
+            <strong><%= import.circle %></strong>
+          </div>
+          <div class="col-md-4">
+            <%= simple_form_for(@new_return) do |f| %>
+              <%= f.error_notification %>
 
-        <%= simple_form_for(@new_return) do |f| %>
-          <%= f.error_notification %>
+              <%= f.hidden_field :delivery_id, :value => Offer.where(:organizer_id => User.is_lln.where(:lln_id => import.id).first.id).last.delivery.id %>
+              <%= f.hidden_field :return_date, :value => Date.today %>
+              <%= f.hidden_field :unforeseen_return, :value => true %>
 
-          <%= f.hidden_field :delivery_id, :value => Offer.where(:organizer_id => User.is_lln.where(:lln_id => import.id).first.id).last.delivery.id %>
-          <%= f.hidden_field :return_date, :value => Date.today %>
-          <%= f.hidden_field :unforeseen_return, :value => true %>
-
-          <%= f.button :submit, class: "btn btn-success" %>
-        <% end %><br>
-
+              <%= f.submit t("return.unforeseen_create"), class: "btn btn-info" %>
+            <% end %>
+          </div>
+        </div>
+      </li>
     <% end %>
   <% end %>
 
 <% else %>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-4">
+            <strong><%= import.circle %></strong>
+          </div>
+          <div class="col-md-4">
+            <%= simple_form_for(@new_offer) do |f| %>
+              <%= f.error_notification %>
 
-  <strong><%= import.circle %></strong>
+              <%= f.hidden_field :event_id, :value => Event.is_lln.where(:lln_year => import.current_year).last.id %>
+              <%= f.hidden_field :organizer_id, :value => User.is_lln.where(:lln_id => import.id).last.id %>
+              <%= f.hidden_field :client_confirmation, :value => true %>
+              <%= f.hidden_field :admin_confirmation, :value => true %>
+              <%= f.hidden_field :lln_daily, :value => true %>
+              <%= f.hidden_field :unforeseen_return, :value => true %>
 
-  <%= simple_form_for(@new_offer) do |f| %>
-    <%= f.error_notification %>
+              <%= f.submit t("return.unforeseen_create"), class: "btn btn-info" %>
+            <% end %>
 
-    <%= f.hidden_field :event_id, :value => Event.is_lln.where(:lln_year => import.current_year).last.id %>
-    <%= f.hidden_field :organizer_id, :value => User.is_lln.where(:lln_id => import.id).last.id %>
-    <%= f.hidden_field :client_confirmation, :value => true %>
-    <%= f.hidden_field :admin_confirmation, :value => true %>
-    <%= f.hidden_field :lln_daily, :value => true %>
-    <%= f.hidden_field :unforeseen_return, :value => true %>
-
-    <%= f.button :submit, class: "btn btn-success" %><br>
-  <% end %>
-
-
+          </div>
+        </div>
+      </li>
 <% end %>
 
 <% end %>
 
-
+</ul>

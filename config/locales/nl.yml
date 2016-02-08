@@ -395,6 +395,8 @@ nl:
     delivery: "Levering"
     lln: "LLN Terugkeren"
     others: "Andere Terugkeren"
+    unforeseen: "Niet voorzien terugkeren"
+    unforeseen_create: "een niet voorzien terugkeer maken"
 
   sorting:
     start: "Start tijd"
