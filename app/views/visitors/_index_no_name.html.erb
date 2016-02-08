@@ -6,14 +6,12 @@
             Nous vous livrons suffisamment de gobelets propres pour votre événement, nous les reprenons sales en fin d'événement. Vous ne vous occupez que de gérer les cautions, vous ne payez que le transport et le lavage.
             Vous pouvez déjà disposer de nos gobelets à partir d’une commande minimale de 500 gobelets ;  il n'y a pas de limite maximale, nous sommes capables de fournir les plus grands événements d'Europe.</p>
             <p>
-            Créez votre événement pour obtenir une offre de prix
+            Complétez votre profil et créez votre événement pour obtenir une offre de service.
+
           </p>
-      
 
-            <%= link_to new_event_path do %>
-              <%= content_tag(:i, t("event.new_event"), class: "fa fa-plus-circle btn btn-lg btn-block btn-info") %> 
-            <% end %>
+          <%= link_to edit_user_path(@user) do %>
+            <%= content_tag(:i, t("user.fill_profile"), class: "fa fa-plus-circle btn btn-lg btn-block btn-info") %> 
+          <% end %>
+
         </div>
-
-
-

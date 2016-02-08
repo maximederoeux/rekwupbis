@@ -2,6 +2,13 @@
 
   <% if user_signed_in? %>
 
+    <% if current_user.name.blank? %>
+
+      <%= render 'index_no_name' %>    
+
+    <% end %>
+
+
     <% if current_user.staff %>
 
       <%= render 'attendance_form' %>
@@ -13,6 +20,8 @@
       <%= render 'index_client' %>
 
     <% end %>
+
+
 
   <% else %>
 
