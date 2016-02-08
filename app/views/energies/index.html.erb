@@ -46,7 +46,7 @@
   <li class="list-group-item">
     <div class="row">
       <div class="col-md-3">
-        <%= energy.created_at.strftime("%d/%m/%Y") %>
+        <%= energy.created_at.strftime("%d/%m/%Y") if energy.created_at %>
       </div>
 
       <div class="col-md-3">
