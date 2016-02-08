@@ -43,7 +43,7 @@
       <li class="list-group-item">
         <div class="row">
           <div class="col-md-2">
-            <%= price.article.article_name if price.article %>
+            <%= price.article.article_name if price.article.present? %>
               <%= link_to edit_price_path(price) do %>
                 <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
               <% end %>
@@ -119,7 +119,7 @@
       <li class="list-group-item">
         <div class="row">
           <div class="col-md-2">
-            <%= price.article.full_name if price.article %>
+            <%= price.article.full_name if price.article.present? %>
               <%= link_to edit_price_path(price) do %>
                 <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
               <% end %>
