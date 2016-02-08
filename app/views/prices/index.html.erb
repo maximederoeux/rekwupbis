@@ -64,10 +64,10 @@
             <%= number_to_currency(price.sell, :unit => "€", :precision => 2) %>
           </div>
           <div class="col-md-2 text-center">
-            <%= price.valid_from.strftime("%d/%m/%Y") %>
+            <%= price.valid_from.strftime("%d/%m/%Y") if price.valid_from.present? %>
           </div>
           <div class="col-md-2 text-center">
-            <%= price.valid_till.strftime("%d/%m/%Y") %>
+            <%= price.valid_till.strftime("%d/%m/%Y") if price.valid_till.present? %>
           </div>
         </div>
       </li>
@@ -147,10 +147,10 @@
             <%= number_to_currency(price.sell, :unit => "€", :precision => 2) %>
           </div>
           <div class="col-md-1 text-center">
-            <%= price.valid_from.strftime("%d/%m/%Y") %>
+            <%= price.valid_from.strftime("%d/%m/%Y") if price.valid_from.present? %>
           </div>
           <div class="col-md-1 text-center">
-            <%= price.valid_till.strftime("%d/%m/%Y") %>
+            <%= price.valid_till.strftime("%d/%m/%Y") if price.valid_till.present? %>
           </div>
         </div>
       </li>
