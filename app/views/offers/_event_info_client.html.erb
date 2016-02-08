@@ -21,7 +21,7 @@
   <li class="list-group-item list-group-item-success">
     <div class="row">
 
-      <div class="col-md-6">
+      <div class="col-xs-12 col-md-6">
         <h4><%= t("offer.reference")%><%= @offer.created_at.strftime("%Y") %> - <%= @offer.id %>
 
           <% if @confirmation %>
@@ -30,7 +30,7 @@
 
       </div>
 
-      <div class="col-md-2">
+      <div class="col-xs-12 col-md-2">
 
 
         <% unless @confirmation %>
@@ -47,7 +47,7 @@
       </div>
           
 
-      <div class="col-md-4">
+      <div class="col-xs-12 col-md-4">
 
           <% if @confirmation && @offer.admin_confirmation == nil %>
 
@@ -96,15 +96,15 @@
   <li class="list-group-item">
     <div class="row text-center">
 
-      <div class="col-md-4">
+      <div class="col-xs-12 col-md-4">
         <strong><%= t("event.expected_pax") %></strong><br><br><%= @event.expected_pax %>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-xs-12 col-md-4">
         <strong><%= t("event.last_pax") %></strong><br><%= @event.last_pax %>      
       </div>
 
-      <div class="col-md-4">
+      <div class="col-xs-12 col-md-4">
         <strong><%= t("event.last_consumption") %></strong><br><%= @event.last_consumption %>   
       </div>
 
