@@ -34,6 +34,7 @@ class OffersController < ApplicationController
     @event = @offer.event
     @organizer = @offer.organizer
     @confirmation = @offer.client_confirmation
+    @confirmation_invoice = @offer.confirmation_invoice
 
     @articles = Article.all
 

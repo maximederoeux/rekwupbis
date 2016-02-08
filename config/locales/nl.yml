@@ -365,6 +365,7 @@ nl:
     invoice: "Aanbetaling rekening sturen"
     paid_deposit: "Aanbetaling betaald"
     waitin_deposit: "Wacht op aanbetaling"
+    confirmation_invoice: "Aanbetaling rekening gestuurd"
     complete_profile: "U heeft een aanbod bevestigd. Om verder te gaan nodigen u uit om uw profiel in te vullen"
 
   offer_box:

@@ -1,13 +1,8 @@
-
-
-    <div class="row">
-      <div class="col-md-4">
-
-
+    <ul class="list-group">
+            <li class="list-group-item">
 
     <% @parcels.each do |parcel| %>
-            <ul class="list-group">
-            <li class="list-group-item">
+
 
 
         Reference: <%= parcel.created_at.strftime("%Y") %> - <%= parcel.id %> <br>
