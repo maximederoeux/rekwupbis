@@ -7,7 +7,7 @@
 
 <% if current_user == @invoice.offer.organizer %>
 
-  <%= link_to "Version PDF", invoice_path(format: 'pdf'), :class => "btn btn-xs btn-default" %>
+  <%= link_to "Version PDF", invoice_path(format: 'pdf'), :class => "btn btn-xs btn-default pull-right" %>
 
 <% end %>
 
