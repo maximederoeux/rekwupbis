@@ -29,7 +29,7 @@
 				<li class="list-group-item">
 					<div class="row">
 
-						<div class="col-md-6">			
+						<div class="col-xs-6 col-md-6">			
 							<strong>
 								<%= t("offer.reference")%><%= offer.created_at.strftime("%Y") %> - <%= offer.id %>
 								<br>
@@ -37,14 +37,14 @@
 							</strong>
 						</div>
 
-						<div class="col-md-2">
+						<div class="col-xs-2 col-md-2">
 
 								<%= link_to offer_path(offer) do %>
 									<%= content_tag(:i, "", class: "fa fa-info fa-2x") %> 
 								<% end %>
     		    </div>
 
-						<div class="col-md-4">
+						<div class="col-xs-4 col-md-4">
 
 							<%= simple_form_for(offer) do |f| %>
 	    					<%= f.error_notification %>				
@@ -78,19 +78,19 @@
 
 		    				<div class="row">
 
-		    					<div class="col-md-5">			
+		    					<div class="col-xs-12 col-md-5">			
 										<%= f.input :address %>
 									</div>
 
-									<div class="col-md-2">
+									<div class="col-xs-6 col-md-2">
 										<%= f.input :post_code %>
 									</div>
 
-									<div class="col-md-3">
+									<div class="col-xs-6 col-md-3">
 										<%= f.input :city %>
 									</div>
 
-									<div class="col-md-2">
+									<div class="col-xs-12 col-md-2">
 										<%= f.input :country %>
 									</div>
 
@@ -100,11 +100,11 @@
 							<li class="list-group-item">
 								<div class="row">
 
-									<div class="col-md-6">
+									<div class="col-xs-12 col-md-6">
 										<%= f.input :delivery_date %>
 									</div>
 
-										<div class="col-md-6">
+										<div class="col-xs-12 col-md-6">
 										<%= f.input :return_date %>
 									</div>
 
@@ -114,11 +114,11 @@
 							<li class="list-group-item">
 
 								<div class="row">
-									<div class="col-md-6">
+									<div class="col-xs-12 col-md-6">
 										<%= f.input :contact %>
 									</div>
 
-									<div class="col-md-6">
+									<div class="col-xs-12 col-md-6">
 										<%= f.input :phone %>
 									</div>
 
@@ -160,7 +160,7 @@
 					<li class="list-group-item">
 						<div class="row">
 
-							<div class="col-md-6">
+							<div class="col-xs-6 col-md-6">
 								<strong>
 									<%= t("offer.reference")%><%= offer.created_at.strftime("%Y") %> - <%= offer.id %>
 								<br>
@@ -168,14 +168,14 @@
 								</strong>
 							</div>
 
-						<div class="col-md-2">
+						<div class="col-xs-2 col-md-2">
 
 								<%= link_to offer_path(offer) do %>
 									<%= content_tag(:i, "", class: "fa fa-info fa-2x") %> 
 								<% end %>
     		    </div>
 
-							<div class="col-md-4">
+							<div class="col-xs-4 col-md-4">
 								
 
       		    </div>
@@ -193,7 +193,7 @@
 					<li class="list-group-item">
 						<div class="row">
 
-							<div class="col-md-6">
+							<div class="col-xs-6 col-md-6">
 								<strong>
 									<%= t("offer.reference")%><%= offer.created_at.strftime("%Y") %> - <%= offer.id %>
 								<br>
@@ -201,14 +201,14 @@
 								</strong>
 							</div>
 
-						<div class="col-md-2">
+						<div class="col-xs-2 col-md-2">
 
 								<%= link_to offer_path(offer) do %>
 									<%= content_tag(:i, "", class: "fa fa-info fa-2x") %> 
 								<% end %>
     		    </div>
 
-      		    <div class="col-md-4">
+      		    <div class="col-xs-4 col-md-4">
 								
 							<%= simple_form_for(offer) do |f| %>
 	    					<%= f.error_notification %>				
