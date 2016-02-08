@@ -14,18 +14,69 @@
 
 
     <ul class="list-group">
-      <br><li class="list-group-item list-group-item-default"><h4><strong>
-        <%= t("article.listing_articles") %></strong></h4></li>
-    </ul>
+      <li class="list-group-item list-group-item-warning">
+        <h4><strong>
+          <%= t("article.listing_articles") %>
+        </strong></h4>
+      </li>
 
-    <% @articles.each do |article| %>
+      <li class="list-group-item">
+        <div class="row">
+          <strong>
+            <div class="col-xs-6 col-md-4">
+              <%= t("article.article_name") %>
+            </div>
 
-    <div class="row">
-      <div class="col-xs-6 col-md-4">
-     <%= link_to article.full_name, article_path(article), class: "btn btn-lg btn-default btn-block" %>
-      </div>
+            <div class="col-xs-6 col-md-2">
+              <%= t("article.article_type") %>
+            </div>
 
-    </div>
-    <% end %>
+            <div class="col-xs-6 col-md-2">
+              <%= t("article.article_content") %>
+            </div>
+
+            <div class="col-xs-6 col-md-2">
+              <%= t("article.brand") %>
+            </div>
+
+            <div class="col-xs-6 col-md-2">
+              <%= t("menu.prices") %>
+            </div>
+          </strong>
+        </div>
+      </li>
+
+        <% @articles.each do |article| %>
+        
+          <li class="list-group-item">
+            <div class="row">
+
+              <div class="col-xs-6 col-md-4">
+                <%= article.full_name %>
+
+                  <%= link_to edit_article_path(article) do %>
+                    <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+                  <% end %>
+
+              </div>
+
+              <div class="col-xs-6 col-md-2">
+                <%= article.cup_type %>
+              </div>
+
+              <div class="col-xs-6 col-md-2">
+                <%= article.cup_content %>
+              </div>
+
+              <div class="col-xs-6 col-md-2">
+                <%= article.cup_owner %>
+              </div>
+
+              <div class="col-xs-6 col-md-2">
+                <%= article.has_price %>
+              </div>
+            </div>
+          </li>
+        <% end %>
   <% end %>
 

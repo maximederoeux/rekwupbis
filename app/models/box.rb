@@ -51,4 +51,64 @@ class Box < ActiveRecord::Base
     weight
   end
 
+  def type
+    if box_regular
+      I18n.t("box.box_regular")
+    elsif mixed
+      I18n.t("box.mixed")
+    elsif is_empty
+      I18n.t("box.is_empty")
+    end   
+  end
+
+  def size
+    if bigbox
+      I18n.t("box.bigbox")
+    elsif smallbox
+      I18n.t("box.smallbox")      
+    end
+  end
+
+  def cup_type
+    if is_cc
+      I18n.t("article.is_cc")
+    elsif is_ep
+      I18n.t("article.is_ep")
+    elsif is_eco
+      I18n.t("article.is_eco")
+    elsif is_wine
+      I18n.t("article.is_wine")
+    elsif is_cava
+      I18n.t("article.is_cava")
+    elsif is_shot
+      I18n.t("article.is_shot")
+    end
+  end
+
+  def cup_content
+    if is_twenty
+      I18n.t("article.is_twenty")
+    elsif is_twentyfive
+      I18n.t("article.is_twentyfive")
+    elsif is_forty
+      I18n.t("article.is_forty")
+    elsif is_fifty
+      I18n.t("article.is_fifty")
+    elsif is_litre
+      I18n.t("article.is_litre")
+    end
+  end
+
+  def cup_owner
+    if is_rekwup
+      I18n.t("article.rekwup_cup")
+    elsif is_lln
+      I18n.t("article.is_lln")
+    elsif is_patro
+      I18n.t("article.is_patro")
+    elsif is_bep
+      I18n.t("article.is_bep")
+    end     
+  end
+
 end

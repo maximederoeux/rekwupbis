@@ -1,87 +1,92 @@
-	<ul class="list-group">
-	    <li class="list-group-item list-group-item-warning ">
-	      <h4><%= t("delivery.past_days") %></h4>
-	    </li>
-	</ul>
-
+<ul class="list-group">
+  <li class="list-group-item list-group-item-warning ">
+    <h4><%= t("delivery.past_days") %></h4>
+  </li>
+</ul>
 
   <div class="row">
     <div class="col-md-6">    
 
-    		<ul class="list-group">
-	        <li class="list-group-item text-center">
-	          <h4><%= t("delivery.prepare") %></h4>
-	        </li>
-  			
-  					<% @not_ready.past_days.each do |delivery| %>
+  		<ul class="list-group">
+
+        <li class="list-group-item text-center">
+          <h4><%= t("delivery.prepare") %></h4>
+        </li>
+			
+					<% @not_ready.past_days.each do |delivery| %>
 
 
-								<li class="list-group-item text-center">
-	      	
-			          <strong>
-			            <%= delivery.offer.event.event_name %><br>
-			            <% if delivery.offer.organizer.is_lln %>
-			            <%= delivery.offer.organizer.name %><br>
+						<li class="list-group-item text-center">
+    	
+		          <strong>
+		            <%= delivery.offer.event.event_name %><br>
+
+		            <% if delivery.offer.organizer.is_lln %>
+		            	<%= delivery.offer.organizer.name %><br>
+		            <% end %>
+
+
+		            	<%= link_to delivery_path(delivery) do %>
+			              <%= content_tag(:i, "", class: "fa fa-eye") %>
+			            <% end %>
+		            
+			            <%= link_to edit_delivery_path(delivery) do %>
+			              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
 			            <% end %>
 
+		            <br>
+		            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+		            <%= delivery.total_boxes %> <%= t("menu.boxes") %>
 
-			            	<%= link_to delivery_path(delivery) do %>
-				              <%= content_tag(:i, "", class: "fa fa-eye") %>
-				            <% end %>
-			            
-				            <%= link_to edit_delivery_path(delivery) do %>
-				              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
-				            <% end %>
-			            <br>
-			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
-			            <%= delivery.total_boxes %> <%= t("menu.boxes") %>
+		          </strong>
+						</li>
+        	<% end %>
+     	</ul>
+	  </div>
 
-			          </strong>
-								</li>
-	        	<% end %>
-	     	</ul>
-	    </div>
+		<div class="col-md-6">
 
-			<div class="col-md-6">
-				<ul class="list-group">
-	        <li class="list-group-item text-center">
-	          <h4><%= t("delivery.ready") %></h4>
-	        </li>
+			<ul class="list-group">
 
-  					<% @not_gone.past_days.each do |delivery| %>
+        <li class="list-group-item text-center">
+          <h4><%= t("delivery.ready") %></h4>
+        </li>
 
+					<% @not_gone.past_days.each do |delivery| %>
 
-							<li class="list-group-item text-center">
-      	
-			          <strong>
-			            <%= delivery.offer.event.event_name %><br>
-			            <% if delivery.offer.organizer.is_lln %>
-			            <%= delivery.offer.organizer.name %><br>
-			            <% end %>
+						<li class="list-group-item text-center">
+    	
+		          <strong>
+		            <%= delivery.offer.event.event_name %><br>
 
-			            	<%= link_to delivery_path(delivery) do %>
-				              <%= content_tag(:i, "", class: "fa fa-eye") %>
-				            <% end %>			            
-			                        
-				            <%= link_to edit_delivery_path(delivery) do %>
-				              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
-				            <% end %>
-			            <br>
-			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
-			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
-			          </strong>
-							</li>
-	        	<% end %>	      
-     		</ul>
-     	</div>
-      
-    </div>  
+		            <% if delivery.offer.organizer.is_lln %>
+		            	<%= delivery.offer.organizer.name %><br>
+		            <% end %>
+
+	            	<%= link_to delivery_path(delivery) do %>
+		              <%= content_tag(:i, "", class: "fa fa-eye") %>
+		            <% end %>			            
+		                        
+		            <%= link_to edit_delivery_path(delivery) do %>
+		              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+		            <% end %>
+
+		            <br>
+		            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+		            <%= delivery.total_boxes %> <%= t("menu.boxes") %>
+
+		          </strong>
+						</li>
+        	<% end %>	      
+   		</ul>
+   	</div>
+  </div>  
 
 
 	<ul class="list-group">
-	    <li class="list-group-item list-group-item-warning ">
-	      <h4><%= t("delivery.prepare") %></h4>
-	    </li>
+    <li class="list-group-item list-group-item-warning ">
+      <h4><%= t("delivery.prepare") %></h4>
+    </li>
 	</ul>
 
 
@@ -96,12 +101,13 @@
   					<% @not_ready.this_day.each do |delivery| %>
 
 
-								<li class="list-group-item text-center">
-	      	
+							<li class="list-group-item text-center">
+      	
 			          <strong>
 			            <%= delivery.offer.event.event_name %><br>
+
 			            <% if delivery.offer.organizer.is_lln %>
-			            <%= delivery.offer.organizer.name %><br>
+			            	<%= delivery.offer.organizer.name %><br>
 			            <% end %>
 
 
@@ -112,12 +118,13 @@
 				            <%= link_to edit_delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
 				            <% end %>
+
 			            <br>
 			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
 			            <%= delivery.total_boxes %> <%= t("menu.boxes") %>
 
 			          </strong>
-								</li>
+							</li>
 	        	<% end %>
 	     	</ul>
 	    </div>
@@ -135,17 +142,19 @@
       	
 			          <strong>
 			            <%= delivery.offer.event.event_name %><br>
+
 			            <% if delivery.offer.organizer.is_lln %>
-			            <%= delivery.offer.organizer.name %><br>
+			            	<%= delivery.offer.organizer.name %><br>
 			            <% end %>
 
-			            	<%= link_to delivery_path(delivery) do %>
-				              <%= content_tag(:i, "", class: "fa fa-eye") %>
-				            <% end %>			            
+		            	<%= link_to delivery_path(delivery) do %>
+			              <%= content_tag(:i, "", class: "fa fa-eye") %>
+			            <% end %>			            
 			                        
-				            <%= link_to edit_delivery_path(delivery) do %>
-				              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
-				            <% end %>
+			            <%= link_to edit_delivery_path(delivery) do %>
+			              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+			            <% end %>
+
 			            <br>
 			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
 			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
@@ -171,6 +180,7 @@
       	
 			          <strong>
 			            <%= delivery.offer.event.event_name %><br>
+
 				            <% if delivery.offer.organizer.is_lln %>
 				            	<%= delivery.offer.organizer.name %><br>
 				            <% end %>
@@ -182,6 +192,7 @@
 				            <%= link_to edit_delivery_path(delivery) do %>
 				              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
 				            <% end %>
+
 			            <br>
 			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
 			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
@@ -204,17 +215,19 @@
       	
 			          <strong>
 			            <%= delivery.offer.event.event_name %><br>
-				            <% if delivery.offer.organizer.is_lln %>
-				            	<%= delivery.offer.organizer.name %><br>
-				            <% end %>
 
-			            	<%= link_to delivery_path(delivery) do %>
-				              <%= content_tag(:i, "", class: "fa fa-eye") %>
-				            <% end %>			            
-			                        			            		 
-				            <%= link_to edit_delivery_path(delivery) do %>
-				              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
-				            <% end %>
+			            <% if delivery.offer.organizer.is_lln %>
+			            	<%= delivery.offer.organizer.name %><br>
+			            <% end %>
+
+		            	<%= link_to delivery_path(delivery) do %>
+			              <%= content_tag(:i, "", class: "fa fa-eye") %>
+			            <% end %>			            
+		                        			            		 
+			            <%= link_to edit_delivery_path(delivery) do %>
+			              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+			            <% end %>
+
 			            <br>
 			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
 			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
@@ -247,23 +260,24 @@
 
 									<li class="list-group-item text-center">
 		      	
-				          <strong>
-			            <%= delivery.offer.event.event_name %><br>
-				            <% if delivery.offer.organizer.is_lln %>
-				            	<%= delivery.offer.organizer.name %><br>
-				            <% end %>
-
-			            	<%= link_to delivery_path(delivery) do %>
-				              <%= content_tag(:i, "", class: "fa fa-eye") %>
-				            <% end %>			            
-			                        			            		
-					            <%= link_to edit_delivery_path(delivery) do %>
-					              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+					          <strong>
+				            <%= delivery.offer.event.event_name %><br>
+					            <% if delivery.offer.organizer.is_lln %>
+					            	<%= delivery.offer.organizer.name %><br>
 					            <% end %>
-				            <br>
-				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
-				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
-				          </strong>
+
+				            	<%= link_to delivery_path(delivery) do %>
+					              <%= content_tag(:i, "", class: "fa fa-eye") %>
+					            <% end %>			            
+				                        			            		
+						            <%= link_to edit_delivery_path(delivery) do %>
+						              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+						            <% end %>
+					            <br>
+
+					            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+					            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+					          </strong>
 									</li>
 		        	<% end %>
 		     	</ul>
@@ -282,6 +296,7 @@
 	      	
 				          <strong>
 			            <%= delivery.offer.event.event_name %><br>
+
 				            <% if delivery.offer.organizer.is_lln %>
 				            	<%= delivery.offer.organizer.name %><br>
 				            <% end %>
@@ -293,6 +308,7 @@
 					            <%= link_to edit_delivery_path(delivery) do %>
 					              <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
 					            <% end %>
+					            
 				            <br>
 				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
 				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 

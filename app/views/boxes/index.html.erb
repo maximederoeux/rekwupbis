@@ -1,63 +1,171 @@
 
 
-  <% if @user.client %>
+<% if @user.admin %>
 
-    Information à déterminer
+  <%= link_to t("box.new_box"), new_box_path, class: "btn btn-block btn-info" %><br>
 
-  <% else %>
+    <ul class="list-group">
 
-    <% if @user.admin %>
-      <%= link_to t("box.new_box"), new_box_path, class: "btn btn-block btn-info" %><br>
-    <% end %>
+      <li class="list-group-item list-group-item-warning">
+        <h4><strong>
+          <%= t("box.closed_boxes") %>
+        </strong></h4>
+      </li>
 
-    <div class="row">
-      <div class="col-xs-6 col-md-6">
+      <li class="list-group-item">
+        <div class="row">
+          <strong>
+            <div class="col-xs-6 col-md-2">
+              <%= t("box.box_name") %>
+            </div>
 
-        <ul class="list-group">
+            <div class="col-xs-6 col-md-2">
+              <%= t("offer.cups") %>
+            </div>
+
+            <div class="col-xs-6 col-md-2">
+              <%= t("box.size") %>
+            </div>
+
+            <div class="col-xs-6 col-md-2">
+              <%= t("article.article_type") %>
+            </div>
+
+            <div class="col-xs-6 col-md-2">
+              <%= t("article.brand") %>
+            </div>
+
+            <div class="col-xs-6 col-md-2">
+              <%= t("box.weight") %>
+            </div>
+          </strong>
+        </div>              
+      
+      </li>
 
 
-          <li class="list-group-item list-group-item-warning">
-            <h4><strong>
-              <%= t("box.closed_boxes") %>
-            </strong></h4>
+      <% @closed_boxes.each do |box| %>
+
+        <li class="list-group-item">
+          <div class="row">
+
+              <div class="col-xs-6 col-md-2">
+                <%= box.box_name %>
+
+                  <%= link_to edit_box_path(box) do %>
+                    <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+                  <% end %>
+
+              </div>
+
+              <div class="col-xs-6 col-md-2">
+                <%= box.cup_type %> <%= box.cup_content %>
+              </div>
+
+              <div class="col-xs-6 col-md-2">
+                <%= box.size %>
+              </div>
+
+              <div class="col-xs-6 col-md-2">
+                <%= box.type %>
+              </div>
+
+              <div class="col-xs-6 col-md-2">
+                <%= box.cup_owner %>                
+              </div>
+
+              <div class="col-xs-6 col-md-2">
+                <%= box.weight %>      
+              </div>
+ 
+          </div>                         
+        </li>
+
+      <% end %>
+
+    </ul>
+
+
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-warning">
+        <h4><strong>
+          <%= t("box.open_boxes") %>
+        </strong></h4>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <strong>
+            <div class="col-xs-6 col-md-2">
+              <%= t("box.box_name") %>
+            </div>
+
+            <div class="col-xs-6 col-md-2">
+              <%= t("offer.cups") %>
+            </div>
+
+            <div class="col-xs-6 col-md-2">
+              <%= t("box.size") %>
+            </div>
+
+            <div class="col-xs-6 col-md-2">
+              <%= t("article.article_type") %>
+            </div>
+
+            <div class="col-xs-6 col-md-2">
+              <%= t("article.brand") %>
+            </div>
+
+            <div class="col-xs-6 col-md-2">
+              <%= t("box.weight") %>
+            </div>
+          </strong>
+        </div>              
+      
+      </li>
+
+        <% @open_boxes.each do |box| %>
+
+
+          <li class="list-group-item">
+            <div class="row">
+
+                <div class="col-xs-6 col-md-2">
+                  <%= box.box_name %>
+
+                  <%= link_to edit_box_path(box) do %>
+                    <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
+                  <% end %>
+                  
+                </div>
+
+                <div class="col-xs-6 col-md-2">
+                  <%= box.cup_type %> <%= box.cup_content %>
+                </div>
+
+                <div class="col-xs-6 col-md-2">
+                  <%= box.size %>
+                </div>
+
+                <div class="col-xs-6 col-md-2">
+                  <%= box.type %>
+                </div>
+
+                <div class="col-xs-6 col-md-2">
+                  <%= box.cup_owner %>                
+                </div>
+
+                <div class="col-xs-6 col-md-2">
+                  <%= box.weight %>      
+                </div>
+   
+            </div>                         
           </li>
 
-          <% @closed_boxes.each do |box| %>
+        <% end %>
 
-            <li class="list-group-item">
-              <%= link_to box.box_name, box_path(box), class: "btn btn-lg btn-default btn-block" %>
-            </li>
+      </ul>
 
-          <% end %>
-
-        </ul>
-
-      </div>
-
-      <div class="col-xs-6 col-md-6">
-
-        <ul class="list-group">
-          <li class="list-group-item list-group-item-warning">
-            <h4><strong>
-              <%= t("box.open_boxes") %>
-            </strong></h4>
-          </li>
-
-
-          <% @open_boxes.each do |box| %>
-
-
-            <li class="list-group-item">
-                <% unless box.box_is_full %>
-                <%= link_to box.box_name, box_path(box), class: "btn btn-lg btn-default btn-block" %>
-                <% end %>
-            </li>
-
-          <% end %>
-
-        </ul>
-      </div>
-    </div>
   <% end %>
 
 

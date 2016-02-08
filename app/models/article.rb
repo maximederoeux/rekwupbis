@@ -38,6 +38,62 @@ class Article < ActiveRecord::Base
 		"#{article_name}"
 	end
 
+	def cup_type
+		if is_cc
+			I18n.t("article.is_cc")
+		elsif is_ep
+			I18n.t("article.is_ep")
+		elsif is_eco
+			I18n.t("article.is_eco")
+		elsif is_wine
+			I18n.t("article.is_wine")
+		elsif is_cava
+			I18n.t("article.is_cava")
+		elsif is_shot
+			I18n.t("article.is_shot")
+		elsif is_big_box
+			I18n.t("article.is_big_box")
+		elsif is_small_box
+			I18n.t("article.is_small_box")
+		elsif is_top
+			I18n.t("article.is_top")
+		elsif is_palette
+			I18n.t("article.is_palette")
+		elsif transport
+			I18n.t("article.transport")
+		end	
+	end
 
+	def cup_content
+		if is_twenty
+			I18n.t("article.is_twenty")
+		elsif is_twentyfive
+			I18n.t("article.is_twentyfive")
+		elsif is_forty
+			I18n.t("article.is_forty")
+		elsif is_fifty
+			I18n.t("article.is_fifty")
+		elsif is_litre
+			I18n.t("article.is_litre")
+		end
+	end
+
+	def cup_owner
+		if rekwup_cup
+			I18n.t("article.rekwup_cup")
+		elsif is_lln
+			I18n.t("article.is_lln")
+		elsif is_patro
+			I18n.t("article.is_patro")
+		elsif is_bep
+			I18n.t("article.is_bep")
+		end			
+	end
+
+	def has_price
+		if self.prices.any?
+			"#{self.prices.count} Prix"
+		end
+	end
 
 end
