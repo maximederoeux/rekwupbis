@@ -34,6 +34,17 @@
                   <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %> 
                 </strong>
+
+                  <%= simple_form_for sorting do |f| %>
+                  <%= f.error_notification %>
+
+                    <%= f.hidden_field :end_time, :value => Time.now %>
+                    <%= f.hidden_field :ender, :value => current_user.id %>
+
+                  <%= f.submit t("sorting.stop_short"), class: "btn btn-info" %>
+
+                  <% end %>
+
                 </li>
             <% end %>
         </ul>
@@ -65,6 +76,17 @@
                   <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %>
                 </strong>
+
+                  <%= simple_form_for sorting do |f| %>
+                  <%= f.error_notification %>
+
+                    <%= f.hidden_field :end_time, :value => Time.now %>
+                    <%= f.hidden_field :ender, :value => current_user.id %>
+
+                  <%= f.submit t("sorting.stop_short"), class: "btn btn-info" %>
+
+                  <% end %>
+
                 </li>
             <% end %>       
         </ul>
@@ -99,6 +121,17 @@
                   <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %>
                 </strong>
+
+                  <%= simple_form_for sorting do |f| %>
+                  <%= f.error_notification %>
+
+                    <%= f.hidden_field :end_time, :value => Time.now %>
+                    <%= f.hidden_field :ender, :value => current_user.id %>
+
+                  <%= f.submit t("sorting.stop_short"), class: "btn btn-info" %>
+
+                  <% end %>
+
                 </li>
           <% end %>
         </ul>
@@ -130,6 +163,17 @@
                   <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %>
                 </strong>
+
+                  <%= simple_form_for sorting do |f| %>
+                  <%= f.error_notification %>
+
+                    <%= f.hidden_field :end_time, :value => Time.now %>
+                    <%= f.hidden_field :ender, :value => current_user.id %>
+
+                  <%= f.submit t("sorting.stop_short"), class: "btn btn-info" %>
+
+                  <% end %>
+                  
                 </li>
             <% end %>       
         </ul>

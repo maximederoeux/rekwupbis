@@ -1,0 +1,131 @@
+<div class="col-md-6">
+
+	<ul div class="list-group">
+
+
+
+			<li class="list-group-item list-group-item-info">
+				<strong><%= current_user.full_name %></strong>
+			</li>
+
+				<% if current_user.attendances.last_monday.any? %>
+
+					<li class="list-group-item">
+						<div class="row">
+							<div class="col-md-6">
+								Lundi <%= 6.days.ago.beginning_of_week.strftime("%d/%m/%Y") %>
+							</div>
+							<div class="col-md-6 text-center">
+								<%= current_user.attendances.last_monday.first.display_last_monday_duration %>
+							</div>
+						</div>
+
+					</li>
+
+				<% end %>
+
+				<% if current_user.attendances.last_tuesday.any? %>
+
+					<li class="list-group-item">
+						<div class="row">
+							<div class="col-md-6">
+								Mardi <%= (6.days.ago.beginning_of_week + 1.day).strftime("%d/%m/%Y") %>
+							</div>
+							<div class="col-md-6 text-center">
+								<%= current_user.attendances.last_tuesday.first.display_last_tuesday_duration %>
+							</div>
+						</div>
+					</li>
+
+				<% end %>
+
+				<% if current_user.attendances.last_wednesday.any? %>
+
+					<li class="list-group-item">
+						<div class="row">
+							<div class="col-md-6">
+								Mercredi <%= (6.days.ago.beginning_of_week + 2.days).strftime("%d/%m/%Y") %>
+							</div>
+							<div class="col-md-6 text-center">
+								<%= current_user.attendances.last_wednesday.first.display_last_wednesday_duration %>
+							</div>
+						</div>
+					</li>
+				<% end %>
+
+				<% if current_user.attendances.last_thursday.any? %>
+
+					<li class="list-group-item">
+						<div class="row">
+							<div class="col-md-6">
+								Jeudi <%= (6.days.ago.beginning_of_week + 3.days).strftime("%d/%m/%Y") %>
+							</div>
+							<div class="col-md-6 text-center">
+								<%= current_user.attendances.last_thursday.first.display_last_thursday_duration %>
+							</div>
+						</div>
+					</li>
+				<% end %>
+
+				<% if current_user.attendances.last_friday.any? %>
+
+					<li class="list-group-item">
+						<div class="row">
+							<div class="col-md-6">
+								Vendredi <%= (6.days.ago.beginning_of_week + 4.days).strftime("%d/%m/%Y") %>
+							</div>
+							<div class="col-md-6 text-center">
+								<%= current_user.attendances.last_friday.first.display_last_friday_duration %>
+							</div>
+						</div>
+					</li>
+				<% end %>
+
+				<% if current_user.attendances.last_saturday.any? %>
+
+					<li class="list-group-item">
+						<div class="row">
+							<div class="col-md-6">
+								Samedi <%= (6.days.ago.beginning_of_week + 5.days).strftime("%d/%m/%Y") %>
+							</div>
+							<div class="col-md-6 text-center">
+								<%= current_user.attendances.last_saturday.first.display_last_saturday_duration %>
+							</div>
+						</div>
+					</li>
+				<% end %>
+
+				<% if current_user.attendances.last_sunday.any? %>
+
+					<li class="list-group-item">
+						<div class="row">
+							<div class="col-md-6">
+								Dimanche <%= (6.days.ago.beginning_of_week + 6.days).strftime("%d/%m/%Y") %>
+							</div>
+							<div class="col-md-6 text-center">
+								<%= current_user.attendances.last_sunday.first.display_last_sunday_duration %>
+							</div>
+						</div>
+					</li>
+				<% end %>
+
+				<% if current_user.attendances.last_week.any? %>
+
+					<li class="list-group-item">
+						<div class="row">
+							<strong>
+								<div class="col-md-6">
+									Total Semaine passée
+								</div>
+								<div class="col-md-6 text-center">
+									<%= current_user.attendances.last_week.first.display_last_week_duration %>
+								</div>
+							</strong>
+						</div>
+					</li>
+				<% end %>
+
+
+
+	</ul>
+</div>

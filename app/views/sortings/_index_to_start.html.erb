@@ -44,6 +44,17 @@
 	                  <% end %>
 
                 </strong>
+
+                  <%= simple_form_for sorting do |f| %>
+                  <%= f.error_notification %>
+
+                    <%= f.hidden_field :start_time, :value => Time.now %>
+                    <%= f.hidden_field :starter, :value => current_user.id %>
+
+                  <%= f.submit t("sorting.go_short"), class: "btn btn-info" %>
+
+                  <% end %>
+
                 </li>
             <% end %>
         </ul>
@@ -85,6 +96,17 @@
 	                  <% end %>
 
                 </strong>
+
+                  <%= simple_form_for sorting do |f| %>
+                  <%= f.error_notification %>
+
+                    <%= f.hidden_field :start_time, :value => Time.now %>
+                    <%= f.hidden_field :starter, :value => current_user.id %>
+
+                  <%= f.submit t("sorting.go_short"), class: "btn btn-info" %>
+
+                  <% end %>
+
                 </li>
             <% end %>       
         </ul>
@@ -129,6 +151,17 @@
 	                  <% end %>
 	                  
                 </strong>
+
+                  <%= simple_form_for sorting do |f| %>
+                  <%= f.error_notification %>
+
+                    <%= f.hidden_field :start_time, :value => Time.now %>
+                    <%= f.hidden_field :starter, :value => current_user.id %>
+
+                  <%= f.submit t("sorting.go_short"), class: "btn btn-info" %>
+
+                  <% end %>
+
                 </li>
           <% end %>
         </ul>
@@ -170,6 +203,17 @@
 	                  <% end %>
 	                  
                 </strong>
+
+                  <%= simple_form_for sorting do |f| %>
+                  <%= f.error_notification %>
+
+                    <%= f.hidden_field :start_time, :value => Time.now %>
+                    <%= f.hidden_field :starter, :value => current_user.id %>
+
+                  <%= f.submit t("sorting.go_short"), class: "btn btn-info" %>
+
+                  <% end %>
+                  
                 </li>
             <% end %>       
         </ul>

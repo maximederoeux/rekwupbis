@@ -35,6 +35,17 @@
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
                   <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %> 
                 </strong>
+
+                <%= simple_form_for @new_sorting do |f| %>
+                <%= f.error_notification %>
+
+                  <%= f.hidden_field :return_box_id, :value => sorting.return_box_id %>
+                  <%= f.hidden_field :start_time, :value => Time.now %>
+                  <%= f.hidden_field :starter, :value => current_user.id %>
+                <%= f.submit t("sorting.new"), class: "btn btn-info" %>
+
+                <% end %>
+
                 </li>
             <% end %>
         </ul>
@@ -67,6 +78,17 @@
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
                   <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %>   
                 </strong>
+
+                <%= simple_form_for @new_sorting do |f| %>
+                <%= f.error_notification %>
+
+                  <%= f.hidden_field :return_box_id, :value => sorting.return_box_id %>
+                  <%= f.hidden_field :start_time, :value => Time.now %>
+                  <%= f.hidden_field :starter, :value => current_user.id %>
+                <%= f.submit t("sorting.new"), class: "btn btn-info" %>
+
+                <% end %>
+
                 </li>
             <% end %>       
         </ul>
@@ -102,6 +124,17 @@
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
                   <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %>   
                 </strong>
+
+                <%= simple_form_for @new_sorting do |f| %>
+                <%= f.error_notification %>
+
+                  <%= f.hidden_field :return_box_id, :value => sorting.return_box_id %>
+                  <%= f.hidden_field :start_time, :value => Time.now %>
+                  <%= f.hidden_field :starter, :value => current_user.id %>
+                <%= f.submit t("sorting.new"), class: "btn btn-info" %>
+
+                <% end %>
+
                 </li>
           <% end %>
         </ul>
@@ -134,6 +167,17 @@
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
                   <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %>   
                 </strong>
+
+                <%= simple_form_for @new_sorting do |f| %>
+                <%= f.error_notification %>
+
+                  <%= f.hidden_field :return_box_id, :value => sorting.return_box_id %>
+                  <%= f.hidden_field :start_time, :value => Time.now %>
+                  <%= f.hidden_field :starter, :value => current_user.id %>
+                <%= f.submit t("sorting.new"), class: "btn btn-info" %>
+
+                <% end %>
+                
                 </li>
             <% end %>       
         </ul>
