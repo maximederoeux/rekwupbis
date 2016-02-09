@@ -261,6 +261,7 @@ fr:
     time: "(entre 9h et 18h en semaine)"
     bar: "Nombre de bars"
     beertap: "Nombre de pompes"
+    edit_yours: "Modifier les informations de votre événement"
 
   invoice:
     invoice: "Facture"

@@ -84,9 +84,9 @@
   </li>
 
   <li class="list-group-item"><strong><%= @event.event_name %></strong>
-    <%= link_to edit_event_path(@event) do %>
-      <%= content_tag(:i, "", class: "fa fa-pencil") %> 
-    <% end %>
+
+    <%= link_to t("event.edit_yours"), edit_event_path(@event), class: "btn btn-default" %>
+
   </li>
 
   <li class="list-group-item">

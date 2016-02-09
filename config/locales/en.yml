@@ -223,6 +223,7 @@ en:
     time: "(between 9am and 6pm on weekdays)"
     bar: "Number of bars"
     beertap: "Number of beertaps"
+    edit_yours: "Edit your event information"
 
   delivery:
     parcels: "Total number of parcels"

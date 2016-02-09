@@ -260,6 +260,7 @@ nl:
     time: "(tussen 9u en 18u tijdens de week)"
     bar: "Aantal bars"
     beertap: "Aantal biertappen"
+    edit_yours: "Informatie van uw evenement wijzigen"
 
   invoice:
     invoice: "Rekening"
