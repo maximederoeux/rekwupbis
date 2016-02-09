@@ -20,22 +20,37 @@
 
 								<li class="list-group-item text-center">
 	      	
-			          <strong>
-			            <%= delivery.offer.event.event_name %><br>
-				            <% if delivery.offer.organizer.is_lln %>
-				            	<%= delivery.offer.organizer.name %><br>
-				            <% end %>			            
-			            
-				            <%= link_to delivery_path(delivery) do %>
-				              <i class="fa fa-shopping-cart fa-3x"></i>
-				            <% end %>
-			            <br>
-			            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
-			            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
-			          </strong>
+				          <strong>
+				            <%= delivery.offer.event.event_name %><br>
+					            <% if delivery.offer.organizer.is_lln %>
+					            	<%= delivery.offer.organizer.name %><br>
+					            <% end %>			            
+				            
+					            <%= link_to delivery_path(delivery) do %>
+					              <i class="fa fa-shopping-cart fa-3x"></i>
+					            <% end %>
+				            <br>
+				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
+				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+				          </strong>
+
+				          <% if delivery.offer.lln_daily %>
+
+							      <%= simple_form_for(delivery) do |f| %>
+							        <%= f.error_notification %>
+							        <%= f.hidden_field :is_ready, :value => true %>
+							        <%= f.hidden_field :ready_time, :value => Time.now %>
+							        <%= f.hidden_field :ready_by, :value => current_user.id %>
+							        <%= f.submit t("delivery.thisready"), class: "btn btn-lg btn-block btn-info" %>
+							      <% end %>
+
+							     <% end %>
+
+
+
 								</li>
 
-								<% end %>
+							<% end %>
 	        	<% end %>
 	     	</ul>
 	    </div>
@@ -63,7 +78,22 @@
 					            <% end %>
 				            <br>
 				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
-				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+				            <%= delivery.total_boxes %> <%= t("menu.boxes") %>
+
+				          <% if delivery.offer.lln_daily %>
+				          
+							      <%= simple_form_for(delivery) do |f| %>
+							        <%= f.error_notification %>
+							        <%= f.hidden_field :is_ready, :value => true %>
+							        <%= f.hidden_field :ready_time, :value => Time.now %>
+							        <%= f.hidden_field :ready_by, :value => current_user.id %>
+							        <%= f.submit t("delivery.thisready"), class: "btn btn-lg btn-block btn-info" %>
+							      <% end %>
+
+							     <% end %>
+
+
+
 				          </strong>
 								</li>
 							<% end %>
@@ -98,7 +128,22 @@
 					            <% end %>
 				            <br>
 				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
-				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+				            <%= delivery.total_boxes %> <%= t("menu.boxes") %>
+
+				          <% if delivery.offer.lln_daily %>
+				          
+							      <%= simple_form_for(delivery) do |f| %>
+							        <%= f.error_notification %>
+							        <%= f.hidden_field :is_ready, :value => true %>
+							        <%= f.hidden_field :ready_time, :value => Time.now %>
+							        <%= f.hidden_field :ready_by, :value => current_user.id %>
+							        <%= f.submit t("delivery.thisready"), class: "btn btn-lg btn-block btn-info" %>
+							      <% end %>
+
+							     <% end %>
+
+
+
 				          </strong>
 								</li>
 							<% end %>
@@ -128,7 +173,21 @@
 					            <% end %>
 				            <br>
 				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
-				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
+				            <%= delivery.total_boxes %> <%= t("menu.boxes") %>
+
+				          <% if delivery.offer.lln_daily %>
+				          
+							      <%= simple_form_for(delivery) do |f| %>
+							        <%= f.error_notification %>
+							        <%= f.hidden_field :is_ready, :value => true %>
+							        <%= f.hidden_field :ready_time, :value => Time.now %>
+							        <%= f.hidden_field :ready_by, :value => current_user.id %>
+							        <%= f.submit t("delivery.thisready"), class: "btn btn-lg btn-block btn-info" %>
+							      <% end %>
+
+							     <% end %>
+
+
 				          </strong>
 								</li>
 							<% end %>
@@ -172,6 +231,19 @@
 				            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
 				            <%= delivery.total_boxes %> <%= t("menu.boxes") %> 
 				          </strong>
+
+				          <% if delivery.offer.lln_daily %>
+
+						        <%= simple_form_for(delivery) do |f| %>
+						          <%= f.error_notification %>
+						          <%= f.hidden_field :is_gone, :value => true %>
+						          <%= f.hidden_field :gone_time, :value => Time.now %>
+						          <%= f.hidden_field :sent_by, :value => current_user.id %>
+						          <%= f.submit t("delivery.send"), class: "btn btn-block btn-info" %>
+						        <% end %>
+
+									<% end %>
+
 									</li>
 								<% end %>
 		        	<% end %>
