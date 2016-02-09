@@ -46,7 +46,7 @@
 					      </div>
 
 					      <div class="col-xs-4 col-md-4">
-					      	<% if thisofferarticle.article_id == 12 %>
+					      	<% if thisofferarticle.article.transport %>
 					          <%= number_to_currency(@offer.transport_price,:unit =>'€', :precision => 4) %>
 					        <% else %>
 					        	<%= number_to_currency(@regular_prices.where(:article_id => thisofferarticle.article.id).last.sell,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferarticle.article.id).any? %>
