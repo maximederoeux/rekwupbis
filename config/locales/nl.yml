@@ -261,6 +261,8 @@ nl:
     bar: "Aantal bars"
     beertap: "Aantal biertappen"
     edit_yours: "Informatie van uw evenement wijzigen"
+    confirmation_warning: "Als u deze aanbod bevestigt, zult u een aanbetaling rekening krijgen. Na uw evenement zal deze rekening van uw finale rekening aftrekken worden"
+    confirmation_question: "Indien u vragen hebben, kunt u met ons contact per email (info@rekwup.be) of per telefoon (0487/698373) opnemen ."
 
   invoice:
     invoice: "Rekening"

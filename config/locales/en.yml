@@ -224,6 +224,8 @@ en:
     bar: "Number of bars"
     beertap: "Number of beertaps"
     edit_yours: "Edit your event information"
+    confirmation_warning: "If you confirm this offer, you will receive an advance invoice that will be deducted from the final invoice after the event."
+    confirmation_question: "Would you have any question, do not hesitate to contact us by email (info@rekwup.be) or by phone (0487/698373)."
 
   delivery:
     parcels: "Total number of parcels"
