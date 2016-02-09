@@ -6,6 +6,7 @@ class WashesController < ApplicationController
   # GET /washes.json
   def index
     @washes = Wash.all
+    @new_wash = Wash.new
 
     @to_start = Wash.where(:start_time => nil).where(:end_time => nil)
     @started = Wash.where.not(:start_time => nil).where(:end_time => nil)
@@ -38,7 +39,7 @@ class WashesController < ApplicationController
 
     respond_to do |format|
       if @wash.save
-        format.html { redirect_to @wash, notice: 'Wash was successfully created.' }
+        format.html { redirect_to :back, notice: 'Wash was successfully created.' }
         format.json { render :show, status: :created, location: @wash }
       else
         format.html { render :new }
@@ -52,7 +53,7 @@ class WashesController < ApplicationController
   def update
     respond_to do |format|
       if @wash.update(wash_params)
-        format.html { redirect_to @wash, notice: 'Wash was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Wash was successfully updated.' }
         format.json { render :show, status: :ok, location: @wash }
       else
         format.html { render :edit }

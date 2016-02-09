@@ -33,7 +33,19 @@
                   <%= wash.return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %><br>
-                  <%= t("wash.finished2") %><%= wash.end_time.strftime("%H:%M") %> 
+                  <%= t("wash.finished2") %><%= wash.end_time.strftime("%H:%M") %>
+
+                  <%= simple_form_for(@new_wash) do |f| %>
+                    <%= f.error_notification %>
+
+                    <%= f.hidden_field :start_time, :value => Time.now %>
+                    <%= f.hidden_field :washer, :value => current_user.id %>
+                    <%= f.hidden_field :return_box_id, :value => @return %>
+
+                    <%= f.submit t("wash.new"), class: "btn btn-info"  %>
+
+                  <% end %>
+
                 </strong>
                 </li>
             <% end %>
@@ -65,7 +77,19 @@
                   <%= wash.return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %><br>
-                  <%= t("wash.finished2") %><%= wash.end_time.strftime("%H:%M") %>   
+                  <%= t("wash.finished2") %><%= wash.end_time.strftime("%H:%M") %>
+
+                  <%= simple_form_for(@new_wash) do |f| %>
+                    <%= f.error_notification %>
+
+                    <%= f.hidden_field :start_time, :value => Time.now %>
+                    <%= f.hidden_field :washer, :value => current_user.id %>
+                    <%= f.hidden_field :return_box_id, :value => @return %>
+
+                    <%= f.submit t("wash.new"), class: "btn btn-info"  %>
+
+                  <% end %>
+
                 </strong>
                 </li>
             <% end %>       
@@ -100,7 +124,19 @@
                   <%= wash.return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %><br>
-                  <%= t("wash.finished2") %><%= wash.end_time.strftime("%H:%M") %>   
+                  <%= t("wash.finished2") %><%= wash.end_time.strftime("%H:%M") %>
+
+                  <%= simple_form_for(@new_wash) do |f| %>
+                    <%= f.error_notification %>
+
+                    <%= f.hidden_field :start_time, :value => Time.now %>
+                    <%= f.hidden_field :washer, :value => current_user.id %>
+                    <%= f.hidden_field :return_box_id, :value => @return %>
+
+                    <%= f.submit t("wash.new"), class: "btn btn-info"  %>
+
+                  <% end %>
+
                 </strong>
                 </li>
           <% end %>
@@ -133,7 +169,19 @@
                   <%= wash.return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %><br>
-                  <%= t("wash.finished2") %><%= wash.end_time.strftime("%H:%M") %>   
+                  <%= t("wash.finished2") %><%= wash.end_time.strftime("%H:%M") %>
+
+                  <%= simple_form_for(@new_wash) do |f| %>
+                    <%= f.error_notification %>
+
+                    <%= f.hidden_field :start_time, :value => Time.now %>
+                    <%= f.hidden_field :washer, :value => current_user.id %>
+                    <%= f.hidden_field :return_box_id, :value => @return %>
+
+                    <%= f.submit t("wash.new"), class: "btn btn-info"  %>
+
+                  <% end %>
+              
                 </strong>
                 </li>
             <% end %>       

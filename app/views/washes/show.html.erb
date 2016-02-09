@@ -23,10 +23,8 @@
 
                   <%= f.hidden_field :start_time, :value => Time.now %>
                   <%= f.hidden_field :washer, :value => current_user.id %>
-
-                <div class="form-actions">
+  
                   <%= f.submit t("wash.go"), class: "btn btn-info" %>
-                </div>
 
               <% end %>
 
@@ -41,9 +39,7 @@
                   <%= f.hidden_field :end_time, :value => Time.now %>
                   <%= f.hidden_field :ender, :value => current_user.id %>
 
-                <div class="form-actions">
                   <%= f.submit t("wash.stop"), class: "btn btn-info" %>
-                </div>
 
               <% end %>
 
@@ -57,7 +53,6 @@
               <%= f.hidden_field :start_time, :value => Time.now %>
               <%= f.hidden_field :washer, :value => current_user.id %>
               <%= f.hidden_field :return_box_id, :value => @return %>
-
 
               <%= f.submit t("wash.new"), class: "btn btn-info"  %>
 
