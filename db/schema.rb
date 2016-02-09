@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208223243) do
+ActiveRecord::Schema.define(version: 20160209112854) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -247,6 +247,7 @@ ActiveRecord::Schema.define(version: 20160208223243) do
     t.boolean  "unforeseen_return"
     t.boolean  "lln_invoice"
     t.boolean  "confirmation_invoice"
+    t.text     "comment"
   end
 
   create_table "parcels", force: :cascade do |t|

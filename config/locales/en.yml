@@ -177,7 +177,7 @@ en:
     post_code: "Post Code"
     city: "City"
     country: "Country"
-    comment: "Comments"
+    comment: "Event comments"
     cuptwenty: "20CL cups"
     cuptwentyfive: "25CL cups"
     cupforty: "40CL cups"
@@ -226,6 +226,7 @@ en:
     edit_yours: "Edit your event information"
     confirmation_warning: "If you confirm this offer, you will receive an advance invoice that will be deducted from the final invoice after the event."
     confirmation_question: "Would you have any question, do not hesitate to contact us by email (info@rekwup.be) or by phone (0487/698373)."
+
 
   delivery:
     parcels: "Total number of parcels"
@@ -329,6 +330,7 @@ en:
     waiting_deposit: "Waiting for deposit"
     confirmation_invoice: "Deposit invoice sent"
     complete_profile: "You confirmed an offer. In order to process it, we need you to complete your profile"
+    comment: "Mail comment"
 
   offer_box:
     create: "Add to this offer"
@@ -690,6 +692,9 @@ en:
         update: "Save changes"
       negociated_price:
         create: "Add a negociated price"
+        update: "Save changes"
+      offer:
+        create: "Add an offer"
         update: "Save changes"
       offer_box:
         create: "Add a box"

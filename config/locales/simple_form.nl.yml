@@ -123,6 +123,8 @@ nl:
       boxdetail:
         article_id: "Artikelnaam"
         box_article_quantity: "Kwantiteit in de doos"
+      offer:
+        comment: "Mail opmerking"
       offer_box:
         box_id: "Dozen"
         quantity: "Quantité"

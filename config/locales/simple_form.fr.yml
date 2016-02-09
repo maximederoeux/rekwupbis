@@ -123,6 +123,8 @@ fr:
       boxdetail:
         article_id: "Nom de l'article"
         box_article_quantity: "Quantité dans la caisse"
+      offer:
+        comment: "Commentaire mail"
       offer_box:
         box_id: "Caisses"
         quantity: "Quantité"

@@ -6,7 +6,13 @@
 
 <p>Vous pourrez confirmer directement sur votre compte. Pour vous connecter, suivez ce lien <a href="http://clients.rekwup.be">Rekwup</a></p>
 
-<p>N'hésitez pas à nous contacter si vous désirez davantage d'explications.</p>
+<% if @offer.comment.present? %>
+
+<p><%= @offer.comment %></p>
+
+<% end %>
+
+<p>N'hésitez pas à nous contacter si vous désirez davantage d'explications, par email (info@rekwup.be) ou par téléphone (0487/698373)</p>
 
 <p>Bien à vous,</p><br>
 

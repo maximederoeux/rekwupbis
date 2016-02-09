@@ -215,7 +215,7 @@ fr:
     post_code: "Code postal"
     city: "Ville"
     country: "Pays"
-    comment: "Commentaires"
+    comment: "Commentaires Evénement"
     cuptwenty: "Gobelets 20CL"
     cuptwentyfive: "Gobelets 25CL"
     cupforty: "Gobelets 40CL"
@@ -264,6 +264,7 @@ fr:
     edit_yours: "Modifier les informations de votre événement"
     confirmation_warning: "Si vous confirmez cette offre, vous recevrez une facture d'accompte qui sera déduite de votre facture finale après l'événement."
     confirmation_question: "Si vous avez des questions, n'hésitez pas à nous contacter par mail (info@rekwup.be) ou par téléphone (0487/698373)."
+
 
   invoice:
     invoice: "Facture"
@@ -329,6 +330,7 @@ fr:
     waiting_deposit: "En attente de l'accompte"
     confirmation_invoice: "Facture d'accompte envoyée"
     complete_profile: "Vous avez confirmé une offre. Nous avons besoin que vous complétiez votre profil pour pouvoir la valider"
+    comment: "Commentaire mail"
 
   offer_box:
     create: "Ajouter à cette offre"
@@ -696,6 +698,9 @@ fr:
         update: "Enregistrer les changements"
       negociated_price:
         create: "Ajouter un prix négocié"
+        update: "Enregistrer les changements"
+      offer:
+        create: "Ajouter une offre"
         update: "Enregistrer les changements"
       offer_box:
         create: "Ajouter une caisse"

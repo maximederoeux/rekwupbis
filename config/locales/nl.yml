@@ -214,7 +214,7 @@ nl:
     post_code: "Postcode"
     city: "Stad"
     country: "Land"
-    comment: "Aanmerkingen"
+    comment: "Evenement aanmerkingen"
     cuptwenty: "20CL bekers"
     cuptwentyfive: "25CL bekers"
     cupforty: "40CL bekers"
@@ -328,6 +328,7 @@ nl:
     waitin_deposit: "Wacht op aanbetaling"
     confirmation_invoice: "Aanbetaling rekening gestuurd"
     complete_profile: "U heeft een aanbod bevestigd. Om verder te gaan nodigen u uit om uw profiel in te vullen"
+    comment: "Mail opmerking"
 
   offer_box:
     create: "Dozen toevoegen"
@@ -687,6 +688,9 @@ nl:
         update: "Opslaan"
       negociated_price:
         create: "Een onderhandeld prijs toevoegen"
+        update: "Opslaan"
+      offer:
+        create: "Een doos toevoegen"
         update: "Opslaan"
       offer_box:
         create: "Een doos toevoegen"
