@@ -27,7 +27,7 @@ class Offer < ActiveRecord::Base
 			@invoice.update_attributes(:doc_number => @invoice.invoice_number)
 		else
 			if lln_daily.blank? && lln_invoice.blank?
-				offer_articles.create(:offer_id => id, :article_id => Article.transport.first.id, :quantity => "1")
+				offer_articles.create(:offer_id => id, :article_id => Article.is_transport.first.id, :quantity => "1")
 			  if event.cuptwenty
 			  offer_boxes.create(:offer_id => id, :box_id => Box.is_rekwup.is_twenty.closed.first.id, :quantity => estimated_20_boxes)
 			  end
