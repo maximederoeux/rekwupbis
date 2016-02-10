@@ -320,6 +320,52 @@
 				<% end %>
 				</ul>	
 			</div>
+
+
+			<div class="col-md-3">
+				<ul class="list-group">
+
+					<li class="list-group-item">
+						<h4>AGE Namur</h4>
+					</li>			
+
+				<% User.is_namur.each do |user| %>
+
+					<li class="list-group-item">
+
+						<% if user.negociated_price %>
+
+							<strong>
+								<i class="fa fa-star"></i>
+							  <%= user.full_name %>
+									<%= link_to user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-eye") %>
+									<% end %>
+								  <%= link_to edit_user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>								
+									<% end %>
+
+
+							</strong>
+
+						<% else %>
+
+							<strong>
+						  	<%= user.full_name %>
+									<%= link_to user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-eye") %>
+									<% end %>
+								  <%= link_to edit_user_path(user) do %>
+										<%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>								
+									<% end %>
+							</strong>
+
+						<% end %>
+					</li>
+				<% end %>
+				</ul>	
+			</div>
+
 		</div>
 
 

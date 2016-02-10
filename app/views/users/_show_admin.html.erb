@@ -158,9 +158,11 @@
     </li>
 
     <% if @user.is_lln %>
-    <li class="list-group-item list-group-item-warning">
-      <strong><%= t("user.is_lln") %></strong>
-    </li>
+
+      <li class="list-group-item list-group-item-warning">
+        <strong><%= t("user.is_lln") %></strong>
+      </li>
+
       <li class="list-group-item">
         <div class="row">
 
@@ -168,14 +170,21 @@
             <strong><%= t("user.lln_id") %> : </strong><%= @user.lln_id %>
           </div>
 
-          <div class="col-md-6">
-            
+          <div class="col-md-6">         
           </div>
-
         </div>
       </li>
+
+    <% elsif @user.is_namur %>
+
+      <li class="list-group-item list-group-item-warning">
+        <strong><%= t("user.is_namur") %></strong>
+      </li>
+
+
     <% end %>
-  
+
+    
 </ul>
 
 

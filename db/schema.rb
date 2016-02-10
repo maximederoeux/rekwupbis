@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209112854) do
+ActiveRecord::Schema.define(version: 20160210153259) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -371,6 +371,7 @@ ActiveRecord::Schema.define(version: 20160209112854) do
     t.boolean  "leader"
     t.integer  "time_per_week"
     t.boolean  "time_keeping"
+    t.boolean  "is_namur"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -511,6 +511,8 @@ fr:
     leader: "Leader"
     time_per_week: "Horaire"
     time_keeping: "Seulement pointeuse"
+    is_namur: "AGE Namur"
+    special: "Clients Spéciaux"
 
   wash:
     start: "Début du lavage"

@@ -124,6 +124,8 @@ en:
     is_litre: "100 CL"
     transport: "Transport"
     brand: "Brand"
+    is_namur: "AGE Namur"
+    special: "Special Clients"
 
   attendance:
     in: "Clock in"

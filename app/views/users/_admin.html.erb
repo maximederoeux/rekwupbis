@@ -151,18 +151,22 @@
     </li>
 
     <li class="list-group-item list-group-item-warning">
-      <strong><%= t("user.is_lln") %></strong>
+      <strong><%= t("user.special") %></strong>
     </li>
 
     <li class="list-group-item">
       <div class="row">
 
-        <div class="col-md-6">
+        <div class="col-md-2">
           <%= f.input :is_lln, :label => t("user.surface") %>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-2">
           <%= f.input :lln_id, :label => t("user.lln_id") %>
+        </div>
+
+        <div class="col-md-2">
+          <%= f.input :is_namur, :label => t("user.is_namur") %>
         </div>
 
       </div>

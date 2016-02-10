@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
 	scope :time_keeping, lambda {where(:staff => true) && where(:time_keeping => true)}
 	scope :chauffeur, lambda {where(:chauffeur => true)}
 	scope :is_lln, lambda {where(:is_lln => true)}
+	scope :is_namur, lambda {where(:is_namur => true)}
 
 	def full_name
 		"#{first_name} #{name}"

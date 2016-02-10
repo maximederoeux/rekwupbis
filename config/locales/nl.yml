@@ -509,6 +509,8 @@ nl:
     leader: "Leader"
     time_per_week: "Rooster"
     time_keeping: "Alleen in/uit"
+    is_namur: "AGE Namur"
+    special: "Speciale Klanten"
 
   wash:
     start: "Start tijd"
