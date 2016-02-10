@@ -345,6 +345,7 @@ fr:
     confirmation_invoice: "Facture d'accompte envoyée"
     complete_profile: "Vous avez confirmé une offre. Nous avons besoin que vous complétiez votre profil pour pouvoir la valider"
     comment: "Commentaire mail"
+    skip: "Sauter la facture"
 
   offer_box:
     create: "Ajouter à cette offre"

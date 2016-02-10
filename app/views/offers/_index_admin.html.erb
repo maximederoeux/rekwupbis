@@ -38,7 +38,7 @@
 					                <%= f.hidden_field :delivery_date, :value => offer.event.delivery_date %>
 					                <%= f.hidden_field :return_date, :value => offer.event.return_date %>
 
-					                <%= f.submit t("offer.delivery"), class: "btn btn-info", data: { confirm: t("menu.are_you_sure")} %>
+					                <%= f.submit t("offer.skip"), class: "btn btn-info", data: { confirm: t("menu.are_you_sure")} %>
 
 					            <% end %>
 

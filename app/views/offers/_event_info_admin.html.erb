@@ -23,7 +23,23 @@
           <% end %></h4>
       </div>
 
+
+
+      <div class="col-xs-12 col-md-3">
+
           <% if @confirmation == true %>
+
+            <%= simple_form_for(@new_delivery) do |f| %>
+              <%= f.error_notification %>
+
+                <%= f.hidden_field :offer_id, :value => @offer.id %>
+                <%= f.hidden_field :delivery_date, :value => @offer.event.delivery_date %>
+                <%= f.hidden_field :return_date, :value => @offer.event.return_date %>
+
+                <%= f.submit t("offer.skip"), class: "btn btn-info", data: { confirm: t("menu.are_you_sure") } %>
+
+
+            <% end %>
 
           <% elsif @confirmation == nil %>
 
@@ -51,16 +67,12 @@
               <% end %>
             <% end %>
 
-
-          <% end %></h4>
-
-      <div class="col-xs-12 col-md-2">
-
+          <% end %>
 
       </div>
 
 
-      <div class="col-xs-12 col-md-4">
+      <div class="col-xs-12 col-md-3">
 
           <% if @confirmation == true && @confirmation_invoice == true %>
 

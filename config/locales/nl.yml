@@ -343,6 +343,7 @@ nl:
     confirmation_invoice: "Aanbetaling rekening gestuurd"
     complete_profile: "U heeft een aanbod bevestigd. Om verder te gaan nodigen u uit om uw profiel in te vullen"
     comment: "Mail opmerking"
+    skip_invoice: "Rekening overpsingen"
 
   offer_box:
     create: "Dozen toevoegen"
