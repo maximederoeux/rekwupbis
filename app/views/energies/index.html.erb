@@ -1,14 +1,14 @@
 <ul class="list-group">
   <li class="list-group-item list-group-item-warning">
-    Consommation énergétique
+    <h4><strong><%= t("energy.input") %></h4></strong>
   </li>
 
   <% if @energies.any? %>
 
     <% if @energies.all.last.created_at.strftime("%d/%m/%Y") == Time.now.strftime("%d/%m/%Y") %>
-
-      <h4>Déjà encodé pour aujourd'hui</h4>
-
+      <li class="list-group-item">
+        <h4 class="message"><%= t("energy.already") %></h4>
+      </li>
     <% else %>
 
     <%= simple_form_for(@new_energy) do |f| %>
@@ -145,15 +145,15 @@
 
 <ul class="list-group more-padding">
   <li class="list-group-item list-group-item-warning">
-    Consommation énergétique
+    <h4><strong><%= t("energy.past") %></strong></h4>
   </li>
 
 
     <% @energies.each do |energy| %>
 
-  <li class="list-group-item">
+  <li class="list-group-item list-group-item-info">
 
-        <h5><%= energy.created_at.strftime("%d/%m/%Y") if energy.created_at %></h5>
+        <strong><%= energy.created_at.strftime("%d/%m/%Y") if energy.created_at %></strong>
   </li>
 
       <li class="list-group-item">

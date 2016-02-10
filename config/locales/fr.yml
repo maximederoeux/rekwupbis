@@ -212,7 +212,9 @@ fr:
     two_water: "Eau 2"
     three_water: "Eau 3"
     four_water: "Eau 4"
-    
+    input: "Encoder les chiffres du jour"
+    past: "Relevés des jours précédents"
+    already: "Déjà fait pour aujourd'hui"
   event:
     new_event: "  Nouvel événement"
     listing_events: "Tous les événements"

@@ -174,6 +174,10 @@ en:
     two_water: "Water 2"
     three_water: "Water 3"
     four_water: "Water 4"
+    input: "Input numbers of the day"
+    past: "Statements from previous days"
+    already: "Already done for today"
+    
   event:
     new_event: "  New Event"
     listing_events: "Listing Events"

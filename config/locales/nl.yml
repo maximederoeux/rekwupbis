@@ -211,6 +211,9 @@ nl:
     two_water: "Water 2"
     three_water: "Water 3"
     four_water: "Water 4"
+    input: "Cijfers van de dag inzetten"
+    past: "Verklaringen van vorige dagen"
+    already: "Al gedaan voor vandaag"
   event:
     new_event: "  Nieuw evenement"
     listing_events: "Alle evenementen"
