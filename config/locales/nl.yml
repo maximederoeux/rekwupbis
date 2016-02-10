@@ -200,6 +200,17 @@ nl:
     dropped: "Geleverd bestellingen"
     delivered: "Geleverd bestelling"
 
+  energy:
+    gaz: "Gaz 1"
+    two_gaz: "Gaz 2"
+    electricity: "Electriciteit 1"
+    two_electricity: "Electriciteit 2"
+    photo: "Photovoltaïque 1"
+    two_photo: "Photovoltaïque 2"
+    water: "Water 1"
+    two_water: "Water 2"
+    three_water: "Water 3"
+    four_water: "Water 4"
   event:
     new_event: "  Nieuw evenement"
     listing_events: "Alle evenementen"

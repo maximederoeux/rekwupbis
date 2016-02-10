@@ -1,1 +1,63 @@
+    <%= simple_form_for(@energy) do |f| %>
+      <%= f.error_notification %>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-3">
+            <%= f.input :electricity %>
+          </div>
+
+          <div class="col-md-3">
+            <%= f.input :two_electricity %>
+          </div>
+
+          <div class="col-md-3">
+            <%= f.input :photo %>
+          </div>
+            
+          <div class="col-md-3">
+            <%= f.input :two_photo %>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :gaz %>
+          </div>
+
+          <div class="col-md-6">
+            <%= f.input :two_gaz %>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">      
+          <div class="col-md-3">
+            <%= f.input :water %>
+          </div>
+            
+          <div class="col-md-3">
+            <%= f.input :two_water %>
+          </div>
+
+          <div class="col-md-3">
+            <%= f.input :three_water %>
+          </div>
+            
+          <div class="col-md-3">
+            <%= f.input :four_water %>
+          </div>
+
+        </div>
+      </li>
+
+    </ul>
+      
+        <%= f.button :submit, class: "btn btn-lg btn-block btn-info" %>
+
+    <% end %>
+
 

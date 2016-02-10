@@ -1,1 +1,69 @@
+<ul class="list-group">
+  <li class="list-group-item">
 
+        <h5><%= @energy.created_at.strftime("%d/%m/%Y") if energy.created_at %></h5>
+  </li>
+
+      <li class="list-group-item">
+        <div class="row text-center">
+          <div class="col-md-3">
+            <strong><%= t("energy.electricity") %></strong><br>
+            <%= @energy.electricity %>
+          </div>
+
+          <div class="col-md-3">
+            <strong><%= t("energy.two_electricity") %></strong><br>
+            <%= @energy.two_electricity %>
+          </div>
+
+          <div class="col-md-3">
+            <strong><%= t("energy.photo") %></strong><br>
+            <%= @energy.photo %>
+          </div>
+            
+          <div class="col-md-3">
+            <strong><%= t("energy.two_photo") %></strong><br>
+            <%= @energy.two_photo %>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row text-center">
+          <div class="col-md-6">
+            <strong><%= t("energy.gaz") %></strong><br>
+            <%= @energy.gaz %>
+          </div>
+
+          <div class="col-md-6">
+            <strong><%= t("energy.two_gaz") %></strong><br>
+            <%= @energy.two_gaz %>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row text-center">      
+          <div class="col-md-3">
+            <strong><%= t("energy.water") %></strong><br>
+            <%= @energy.water %>
+          </div>
+            
+          <div class="col-md-3">
+            <strong><%= t("energy.two_water") %></strong><br>
+            <%= @energy.two_water %>
+          </div>
+
+          <div class="col-md-3">
+            <strong><%= t("energy.three_water") %></strong><br>
+            <%= @energy.three_water %>
+          </div>
+            
+          <div class="col-md-3">
+            <strong><%= t("energy.four_water") %></strong><br>
+            <%= @energy.four_water %>
+          </div>
+
+        </div>
+      </li>
+</ul>

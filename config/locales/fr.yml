@@ -201,6 +201,18 @@ fr:
     dropped: "Commandes Livrées"
     delivered: "Commande Livrée"
 
+  energy:
+    gaz: "Gaz 1"
+    two_gaz: "Gaz 2"
+    electricity: "Electricité 1"
+    two_electricity: "Electricité 2"
+    photo: "Photovoltaïque 1"
+    two_photo: "Photovoltaïque 2"
+    water: "Eau 1"
+    two_water: "Eau 2"
+    three_water: "Eau 3"
+    four_water: "Eau 4"
+    
   event:
     new_event: "  Nouvel événement"
     listing_events: "Tous les événements"
