@@ -71,6 +71,6 @@ class EnergiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def energy_params
-      params.require(:energy).permit(:water, :gaz, :electricity, :two_water, :two_gaz, :two_electricity, :three_water, :four_water, :created_at)
+      params.require(:energy).permit(:water, :gaz, :electricity, :two_water, :two_gaz, :two_electricity, :three_water, :four_water, :photo, :two_photo, :created_at)
     end
 end
