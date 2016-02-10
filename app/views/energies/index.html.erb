@@ -17,19 +17,19 @@
 
       <li class="list-group-item">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :electricity %>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :two_electricity %>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :photo %>
           </div>
             
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :two_photo %>
           </div>
         </div>
@@ -37,11 +37,11 @@
 
       <li class="list-group-item">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-xs-12 col-md-6">
             <%= f.input :gaz %>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-xs-12 col-md-6">
             <%= f.input :two_gaz %>
           </div>
         </div>
@@ -49,19 +49,19 @@
 
       <li class="list-group-item">
         <div class="row">      
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :water %>
           </div>
             
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :two_water %>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :three_water %>
           </div>
             
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :four_water %>
           </div>
 
@@ -83,19 +83,19 @@
     <ul class="list-group">
       <li class="list-group-item">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :electricity %>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :two_electricity %>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :photo %>
           </div>
             
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :two_photo %>
           </div>
         </div>
@@ -103,11 +103,11 @@
 
       <li class="list-group-item">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-xs-12 col-md-6">
             <%= f.input :gaz %>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-xs-12 col-md-6">
             <%= f.input :two_gaz %>
           </div>
         </div>
@@ -115,19 +115,19 @@
 
       <li class="list-group-item">
         <div class="row">      
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :water %>
           </div>
             
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :two_water %>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :three_water %>
           </div>
             
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <%= f.input :four_water %>
           </div>
 
@@ -153,10 +153,10 @@
 
   <li class="list-group-item list-group-item-info">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-xs-12 col-md-4">
         <strong><%= energy.created_at.strftime("%d/%m/%Y") if energy.created_at %></strong>
       </div>
-      <div class="col-md-2">
+      <div class="col-xs-12 col-md-2">
         <%= link_to t("menu.edit"), edit_energy_path(energy), class: "btn btn-block btn-default" %>
       </div>
     </div>
@@ -164,22 +164,22 @@
 
       <li class="list-group-item">
         <div class="row text-center">
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <strong><%= t("energy.electricity") %></strong><br>
             <%= energy.electricity %>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <strong><%= t("energy.two_electricity") %></strong><br>
             <%= energy.two_electricity %>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <strong><%= t("energy.photo") %></strong><br>
             <%= energy.photo %>
           </div>
             
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <strong><%= t("energy.two_photo") %></strong><br>
             <%= energy.two_photo %>
           </div>
@@ -188,12 +188,12 @@
 
       <li class="list-group-item">
         <div class="row text-center">
-          <div class="col-md-6">
+          <div class="col-xs-12 col-md-6">
             <strong><%= t("energy.gaz") %></strong><br>
             <%= energy.gaz %>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-xs-12 col-md-6">
             <strong><%= t("energy.two_gaz") %></strong><br>
             <%= energy.two_gaz %>
           </div>
@@ -202,22 +202,22 @@
 
       <li class="list-group-item">
         <div class="row text-center">      
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <strong><%= t("energy.water") %></strong><br>
             <%= energy.water %>
           </div>
             
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <strong><%= t("energy.two_water") %></strong><br>
             <%= energy.two_water %>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <strong><%= t("energy.three_water") %></strong><br>
             <%= energy.three_water %>
           </div>
             
-          <div class="col-md-3">
+          <div class="col-xs-12 col-md-3">
             <strong><%= t("energy.four_water") %></strong><br>
             <%= energy.four_water %>
           </div>
