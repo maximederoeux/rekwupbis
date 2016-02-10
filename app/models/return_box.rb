@@ -18,9 +18,10 @@ class ReturnBox < ActiveRecord::Base
 	scope :next_year, lambda {where(:return_date => ((Date.today + 15.days)..(Date.today + 365.days)))}
 	scope :back_previous_day, lambda {where(:return_time => (1.day.ago.beginning_of_day..1.day.ago.end_of_day))}
 	scope :back_two_days_ago, lambda {where(:return_time => (2.days.ago.beginning_of_day..2.days.ago.end_of_day))}
-	scope :back_three_days_ago, lambda {where(:return_time => (3.days.ago.beginning_of_day..3.days.ago.end_of_day))}
+	scope :back_fifteen_days_ago, lambda {where(:return_time => (15.days.ago.beginning_of_day..3.days.ago.end_of_day))}
 	scope :received, lambda {where(:is_back => true) && where(:is_controlled => nil)}
 	scope :gone, lambda {where(:is_back => true) && where(:is_controlled => true)}
+	scope :before_today, lambda {where('return_date < ?', Date.today)}
 
 	def offer
 		self.delivery.offer

@@ -1,10 +1,41 @@
-  <div class="row">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-warning ">
+        <h4><%= content_tag(:i, "", class: "fa fa-truck fa-2x fa-flip-horizontal") %> <%= t("return.receive") %> des jours précédents</h4>
+      </li>
+        
+            <% @not_back.before_today.each do |return_box| %>
+
+
+                <li class="list-group-item text-center">
+          
+                <strong>
+                  <%= return_box.delivery.offer.event.event_name %><br>
+                    <% if return_box.delivery.offer.organizer.is_lln %>
+                      <%= return_box.delivery.offer.organizer.name %><br>
+                    <% end %>
+
+                    <%= link_to return_box_path(return_box) do %>
+                      <%= content_tag(:i, "", class: "fa fa-truck fa-3x fa-flip-horizontal") %>
+                    <% end %>
+
+                  <br>
+                  <%= return_box.return_date.strftime("%d/%m/%Y") %><br>
+                  <% unless return_box.delivery.offer.organizer.is_lln %>
+                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %>
+                  <% end %> 
+                </strong>
+                </li>
+            <% end %>
+        </ul>
+
+
+
     <ul class="list-group">
       <li class="list-group-item list-group-item-warning ">
         <h4><%= content_tag(:i, "", class: "fa fa-truck fa-2x fa-flip-horizontal") %> <%= t("return.receive") %></h4>
       </li>
     </ul>
-  </div>
+
 
   <div class="row">
     <div class="col-md-6">    

@@ -382,7 +382,7 @@ en:
   return:
     receive: "Returns to receive"
     receive2: "Receive this return"
-    control: "Returns to control that came back"
+    to_control: "Returns to control that came back"
     controlled: "Returns controlled"
     sent_boxes: "Sent boxes"
     to_receive_boxes: "Boxes to receive"
@@ -422,6 +422,7 @@ en:
     others: "Other Returns"
     unforeseen: "Unforeseen LLN Returns"
     unforeseen_create: "Create an unforeseen return"
+    back_fifteen_days_ago: "Last 2 weeks"
 
   sorting:
     start: "Start time"

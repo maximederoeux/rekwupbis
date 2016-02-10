@@ -379,7 +379,7 @@ fr:
   return:
     receive: "Retours à recevoir"
     receive2: "Recevoir ce retour"
-    control: "Retours à contrôler qui sont revenus"
+    to_control: "Retours à contrôler qui sont revenus"
     controlled: "Retours contrôlés"
     sent_boxes: "Caisses envoyées"
     to_receive_boxes: "Caisses à recevoir"
@@ -418,6 +418,7 @@ fr:
     others: "Autres Retours"
     unforeseen: "Retours LLN imprévus"
     unforeseen_create: "Créer un retour imprévu"
+    back_fifteen_days_ago: "2 dernières semaines"
 
   sorting:
     start: "Début du rangement"

@@ -1,7 +1,7 @@
 <div class="row">
 <ul class="list-group">
           <li class="list-group-item list-group-item-warning ">
-            <h4><%= t("return.control") %></h4>
+            <h4><%= t("return.to_control") %></h4>
           </li>
 </ul>
 </div>
@@ -116,10 +116,10 @@
       <div class="col-md-6">
         <ul class="list-group">
           <li class="list-group-item text-center">
-            <h4><%= t("delivery.gone_three_days") %></h4>
+            <h4><%= t("return.back_fifteen_days_ago") %></h4>
           </li>
 
-            <% @not_controlled.back_three_days_ago.each do |return_box| %>
+            <% @not_controlled.back_fifteen_days_ago.each do |return_box| %>
 
 
               <li class="list-group-item text-center">

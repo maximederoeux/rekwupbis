@@ -377,7 +377,7 @@ nl:
   return:
     receive: "Verwachte terugkeren"
     receive2: "Deze terugkeer ontvangen"
-    control: "Terugkeren te controleren die kwamen terug"
+    to_control: "Terugkeren te controleren die kwamen terug"
     controlled: "Gecontroleerd terugkeren"
     sent_boxes: "Gestuurd dozen"
     to_receive_boxes: "Dozen te ontvangen"
@@ -416,6 +416,7 @@ nl:
     others: "Andere Terugkeren"
     unforeseen: "Niet voorzien terugkeren"
     unforeseen_create: "een niet voorzien terugkeer maken"
+    back_fifteen_days_ago: "Laatste 2 weken"
 
   sorting:
     start: "Start tijd"
