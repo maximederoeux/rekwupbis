@@ -5,7 +5,7 @@ class EnergiesController < ApplicationController
   # GET /energies
   # GET /energies.json
   def index
-    @energies = Energy.all
+    @energies = Energy.all.order('created_at DESC')
     @new_energy = Energy.new
   end
 
