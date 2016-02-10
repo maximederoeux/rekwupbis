@@ -2,15 +2,15 @@
 	<li class="list-group-item list-group-item-warning">
 		<div class="row text-center">
 			<strong>
-				<div class="col-md-4">
+				<div class="col-xs-4 col-md-4">
 					<%= t("delivery.take_lln") %>
 				</div>
 
-				<div class="col-md-4">
+				<div class="col-xs-4 col-md-4">
 					<%= Date.today.strftime("%d/%m/%Y") %>
 				</div>
 
-				<div class="col-md-4">
+				<div class="col-xs-4 col-md-4">
 					<%= LlnImport.sum('lln_twentyfive') + LlnImport.sum('lln_fifty') + LlnImport.sum('lln_litre') + LlnImport.sum('empty_box') + LlnImport.sum('kpt_box') %> <%= t("menu.boxes") %>
 				</div>
 			</strong>
@@ -24,7 +24,7 @@
 	<li class="list-group-item">
 		<div class="row text-center">
 			<strong>
-				<div class="col-md-2">
+				<div class="col-xs-4 col-md-2">
 					Nr <%= delivery.offer.organizer.lln_id %>
 
 						<%= link_to delivery_path(delivery) do %>
@@ -32,13 +32,13 @@
 						<% end %>
 
 				</div>
-				<div class="col-md-4">
+				<div class="col-xs-4 col-md-4">
 					<%= delivery.offer.organizer.name %>
 				</div>
-				<div class="col-md-2">
+				<div class="col-xs-4 col-md-2">
 					<%= delivery.total_boxes %>
 				</div>
-				<div class="col-md-4">
+				<div class="col-xs-12 col-md-4">
 
 					<%= simple_form_for(delivery) do |f| %>
 	  				<%= f.error_notification %>
@@ -71,15 +71,15 @@
 	<li class="list-group-item list-group-item-warning">
 		<div class="row text-center">
 			<strong>
-				<div class="col-md-4">
+				<div class="col-xs-4 col-md-4">
 					<%= t("delivery.drop_lln") %>
 				</div>
 
-				<div class="col-md-4">
+				<div class="col-xs-4 col-md-4">
 					<%= Date.today.strftime("%d/%m/%Y") %>
 				</div>
 
-				<div class="col-md-4">
+				<div class="col-xs-4 col-md-4">
 					<%= LlnImport.sum('lln_twentyfive') + LlnImport.sum('lln_fifty') + LlnImport.sum('lln_litre') + LlnImport.sum('empty_box') + LlnImport.sum('kpt_box') %> <%= t("menu.boxes") %>
 				</div>
 			</strong>
@@ -93,7 +93,7 @@
 	<li class="list-group-item">
 		<div class="row text-center">
 			<strong>
-				<div class="col-md-2">
+				<div class="col-xs-4 col-md-2">
 					Nr <%= delivery.offer.organizer.lln_id %>
 
 						<%= link_to delivery_path(delivery) do %>
@@ -101,13 +101,13 @@
 						<% end %>
 						
 				</div>
-				<div class="col-md-4">
+				<div class="col-xs-4 col-md-4">
 					<%= delivery.offer.organizer.name %>
 				</div>
-				<div class="col-md-2">
+				<div class="col-xs-4 col-md-2">
 					<%= delivery.total_boxes %>
 				</div>
-				<div class="col-md-4">
+				<div class="col-xs-12 col-md-4">
 
 					<%= simple_form_for(delivery) do |f| %>
 	  				<%= f.error_notification %>
@@ -147,13 +147,13 @@
 	<li class="list-group-item">
 		<div class="row text-center">
 			<strong>
-				<div class="col-md-4">
+				<div class="col-xs-6 col-md-4">
 					<%= delivery.offer.organizer.name %>
 				</div>
-				<div class="col-md-4">
+				<div class="col-xs-6 col-md-4">
 					<%= delivery.total_boxes %>
 				</div>
-				<div class="col-md-4">
+				<div class="col-xs-12 col-md-4">
 						<%= simple_form_for(delivery) do |f| %>
 		  				<%= f.error_notification %>
 
@@ -189,13 +189,13 @@
 	<li class="list-group-item">
 		<div class="row text-center">
 			<strong>
-				<div class="col-md-4">
+				<div class="col-xs-6 col-md-4">
 					<%= delivery.offer.organizer.name %>
 				</div>
-				<div class="col-md-4">
+				<div class="col-xs-6 col-md-4">
 					<%= delivery.total_boxes %>
 				</div>
-				<div class="col-md-4">
+				<div class="col-xs-12 col-md-4">
 						<%= simple_form_for(delivery) do |f| %>
 		  				<%= f.error_notification %>
 
@@ -227,13 +227,13 @@
 			<li class="list-group-item">
 				<div class="row text-center">
 					<strong>
-						<div class="col-md-4">
+						<div class="col-xs-4 col-md-4">
 							<%= delivery.offer.organizer.name %>
 						</div>
-						<div class="col-md-4">
+						<div class="col-xs-4 col-md-4">
 							<%= delivery.total_boxes %>
 						</div>
-						<div class="col-md-4">
+						<div class="col-xs-4 col-md-4">
 							<%= t("delivery.delivered") %>
 						</div>
 					</strong>
