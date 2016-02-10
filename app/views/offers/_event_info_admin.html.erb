@@ -1,4 +1,8 @@
-
+<% @offer.articles.each do |article| %>
+  <%= article.article_name %><br>
+<% end %>
+<hr>
+<%= @offer.boxdetails.count %>
 
 <ul class="list-group">
   <li class="list-group-item list-group-item-success">

@@ -152,8 +152,14 @@
     <% @energies.each do |energy| %>
 
   <li class="list-group-item list-group-item-info">
-
+    <div class="row">
+      <div class="col-md-4">
         <strong><%= energy.created_at.strftime("%d/%m/%Y") if energy.created_at %></strong>
+      </div>
+      <div class="col-md-2">
+        <%= link_to t("menu.edit"), edit_energy_path(energy), class: "btn btn-block btn-default" %>
+      </div>
+    </div>
   </li>
 
       <li class="list-group-item">
