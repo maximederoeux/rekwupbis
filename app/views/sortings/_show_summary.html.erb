@@ -1,8 +1,11 @@
 <ul class="list-group">
 
+
   <li class="list-group-item list-group-item-warning">
-    <strong><%= t("return.sent_boxes") %></strong>
+    <strong>Tous les articles</strong>
   </li>
+
+
 
   <li class="list-group-item">
 
@@ -11,24 +14,22 @@
 
         <div class="row">
           <div class="col-md-6">
-            <strong><%= t("offer.boxes") %></strong>
+            <strong><%= t("menu.articles") %></strong>
           </div>
-          
-            <div class="col-md-6">
-              <% if @sorting.return_box.delivery.offer.event.is_lln %>
-              <% else %>
-                <strong><%= t("sorting.sent_cups") %></strong>
-              <% end %>
-            </div>
-
+          <div class="col-md-6">
+            <% if @sorting.return_box.delivery.offer.event.is_lln %>
+            <% else %>
+              <strong><%= t("sorting.sent_cups") %></strong>
+            <% end %>
+          </div>
         </div>
       </div>
 
       <div class="col-md-9">
         <div class="row">
           <div class="col-md-2">
-            <strong><%= t("sorting.clean_return") %></strong>
-          </div>         
+            <strong><%= t("sorting.clean_return") %></strong>   
+          </div> 
           <div class="col-md-2">
             <strong><%= t("sorting.clean") %></strong>
           </div>
@@ -44,128 +45,6 @@
           </div>
 
           <div class="col-md-2">
-           <strong><%= t("sorting.missing") %></strong>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-  </li>
-
-  <li class="list-group-item">
-
-
-  </li>
-
-    <% @offer_boxes.each do |offer_box| %>
-
-
-      <li class="list-group-item">
-        <div class="row text-center">
-          <div class="col-md-3">
-
-            <div class="row">
-              <div class="col-md-6"> <!-- Sent boxes -->
-                <%= offer_box.box.boxdetails.last.article.full_name %><br>
-                <%= offer_box.quantity if offer_box.quantity %> <%= t("offer.boxes") %>
-              </div>
-              <div class="col-md-6"> <!-- Sent cups -->
-                <% if @sorting.return_box.delivery.offer.event.is_lln %>
-                <% else %>
-                  <%= offer_box.quantity * offer_box.box.boxdetails.last.box_article_quantity %><br>
-                <% end %>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-9">
-            <div class="row">
-              <div class="col-md-2"> <!-- Clean Return -->
-                <% if @sorting.return_details.where(:box_id => offer_box.box_id).any? %>
-
-                  <%= @sorting.return_details.where(:box_id => offer_box.box_id).sum("clean") * @sorting.return_details.where(:box_id => offer_box.box_id).last.box.boxdetails.last.box_article_quantity %>
-
-                <% else %>
-                  <%= 0 * 0 %>
-                <% end %>
-
-              </div>  
-              <div class="col-md-2"> <!-- Total Washed Clean -->
-                <%= @sorting.global_clean_sum(offer_box.box.boxdetails.last.article) %>
-              </div>
-              <div class="col-md-2"> <!-- Total Washed Very Dirty -->
-                <%= @sorting.global_very_dirty_sum(offer_box.box.boxdetails.last.article) %>
-              </div>
-              <div class="col-md-2"> <!-- Total Washed Broken -->
-                <%= @sorting.global_broken_sum(offer_box.box.boxdetails.last.article) %> 
-              </div>
-
-              <div class="col-md-2"> <!-- Total Washed Handling -->
-                <%= @sorting.global_handling_sum(offer_box.box.boxdetails.last.article) %>
-              </div>
-
-              <div class="col-md-2">
-
-                <% if @sorting.return_box.delivery.offer.event.is_lln %>
-                <% else %>
-
-                  <% if @sorting.return_details.where(:box_id => offer_box.box_id).any? %>
-
-                    <%= (offer_box.quantity * offer_box.box.boxdetails.last.box_article_quantity) - @sorting.global_clean_sum(offer_box.box.boxdetails.last.article) - @sorting.global_very_dirty_sum(offer_box.box.boxdetails.last.article) - @sorting.global_handling_sum(offer_box.box.boxdetails.last.article) - (@sorting.return_details.where(:box_id => offer_box.box_id).sum("clean") * @sorting.return_details.where(:box_id => offer_box.box_id).last.box.boxdetails.last.box_article_quantity) %>
-
-                  <% else %>
-
-                    <%= (offer_box.quantity * offer_box.box.boxdetails.last.box_article_quantity) - @sorting.global_clean_sum(offer_box.box.boxdetails.last.article) - @sorting.global_very_dirty_sum(offer_box.box.boxdetails.last.article) - @sorting.global_handling_sum(offer_box.box.boxdetails.last.article) %>
-
-                  <% end %>
-                <% end %>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </li>
-    <% end %>
-
-  <li class="list-group-item list-group-item-warning">
-    <strong>Articles revenus sans être partis</strong>
-  </li>
-
-
-
-  <li class="list-group-item">
-
-    <div class="row text-center">
-      <div class="col-md-3">
-
-        <div class="row">
-          <div class="col-md-6">
-            <strong><%= t("offer.cups") %></strong>
-          </div>
-          <div class="col-md-6">
-            
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-9">
-        <div class="row">     
-          <div class="col-md-2">
-            <strong><%= t("sorting.clean") %></strong>
-          </div>
-          <div class="col-md-2">
-            <strong><%= t("sorting.very_dirty") %></strong>  
-          </div>
-          <div class="col-md-2">
-            <strong><%= t("sorting.broken") %></strong>
-          </div>
-
-          <div class="col-md-2">
-            <strong><%= t("sorting.handling") %></strong>
-          </div>
-
-          <div class="col-md-4">
            <strong><%= t("sorting.missing") %></strong>
           </div>
 
@@ -190,13 +69,16 @@
                   
                 </div>
                 <div class="col-md-6">
-                  <%= @sorting.total_sorting(article) %>
+                  <%= @sorting.return_box.delivery.offer.sent_article(article) %>
                 </div>
               </div>
             </div>
 
             <div class="col-md-9">
-              <div class="row">     
+              <div class="row">
+                <div class="col-md-2">
+                  
+                </div>                
                 <div class="col-md-2">
                   <%= @sorting.global_clean_sum(article) %>
                 </div>
@@ -211,7 +93,7 @@
                   <%= @sorting.global_handling_sum(article) %>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-2">
                   <%= 0 - @sorting.global_clean_sum(article) - @sorting.global_very_dirty_sum(article) - @sorting.global_handling_sum(article) %>
                 </div>
 

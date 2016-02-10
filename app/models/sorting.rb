@@ -55,4 +55,11 @@ class Sorting < ActiveRecord::Base
 		global_clean_sum(article) + global_very_dirty_sum(article) + global_broken_sum(article) + global_handling_sum(article)
 	end
 
+
+
+	def missing(article)
+		self.return_box.delivery.offer.sent_article(article) - total_sorting
+		
+	end
+
 end

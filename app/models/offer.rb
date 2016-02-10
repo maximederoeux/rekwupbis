@@ -222,4 +222,15 @@ class Offer < ActiveRecord::Base
 		end
 	end
 
+
+	def sent_article(article)
+		sent_article = 0
+			self.offer_boxes.each do |offer_box|
+				if Boxdetail.where(:box_id => offer_box.box_id).where(:article_id => article.id).any?
+				sent_article += ((Boxdetail.where(:box_id => offer_box.box_id).where(:article_id => article.id).first.box_article_quantity) * offer_box.quantity)
+				end
+			end
+		sent_article	
+	end
+
 end
