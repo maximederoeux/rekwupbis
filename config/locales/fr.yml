@@ -109,7 +109,7 @@ fr:
     is_palette: "Palette"
     is_cc: "CC"
     is_ep: "EP"
-    is_eco: "Ecocup"
+    is_eco: "EC"
     is_wine: "Vin"
     is_cava: "Cava"
     is_lln: "LLN"
@@ -439,7 +439,7 @@ fr:
     add_handling: "Ajouter une manutention"
     wash: "Date de lavage"
     missing: "Manquant"
-    sent_cups: "Gobelets envoyés"
+    sent_cups: "Envoyés"
     clean_return: "Retours propres"
 
   user:

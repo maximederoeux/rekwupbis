@@ -53,21 +53,27 @@
 
   </li>
 
-    <% @sorting.return_box.delivery.offer.offer_boxes.each do |offer_box| %>
+  <li class="list-group-item">
+
+
+  </li>
+
+    <% @offer_boxes.each do |offer_box| %>
+
 
       <li class="list-group-item">
         <div class="row text-center">
           <div class="col-md-3">
 
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-6"> <!-- Sent boxes -->
                 <%= offer_box.box.boxdetails.last.article.full_name %><br>
                 <%= offer_box.quantity if offer_box.quantity %> <%= t("offer.boxes") %>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6"> <!-- Sent cups -->
                 <% if @sorting.return_box.delivery.offer.event.is_lln %>
                 <% else %>
-                  <%= offer_box.quantity * offer_box.box.boxdetails.last.box_article_quantity %> <%= t("offer.cups") %><br>
+                  <%= offer_box.quantity * offer_box.box.boxdetails.last.box_article_quantity %><br>
                 <% end %>
               </div>
             </div>
@@ -75,7 +81,7 @@
 
           <div class="col-md-9">
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-md-2"> <!-- Clean Return -->
                 <% if @sorting.return_details.where(:box_id => offer_box.box_id).any? %>
 
                   <%= @sorting.return_details.where(:box_id => offer_box.box_id).sum("clean") * @sorting.return_details.where(:box_id => offer_box.box_id).last.box.boxdetails.last.box_article_quantity %>
@@ -85,17 +91,17 @@
                 <% end %>
 
               </div>  
-              <div class="col-md-2">
+              <div class="col-md-2"> <!-- Total Washed Clean -->
                 <%= @sorting.global_clean_sum(offer_box.box.boxdetails.last.article) %>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-2"> <!-- Total Washed Very Dirty -->
                 <%= @sorting.global_very_dirty_sum(offer_box.box.boxdetails.last.article) %>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-2"> <!-- Total Washed Broken -->
                 <%= @sorting.global_broken_sum(offer_box.box.boxdetails.last.article) %> 
               </div>
 
-              <div class="col-md-2">
+              <div class="col-md-2"> <!-- Total Washed Handling -->
                 <%= @sorting.global_handling_sum(offer_box.box.boxdetails.last.article) %>
               </div>
 
@@ -169,12 +175,9 @@
 
   </li>
 
-  <% @articles.each do |article| %>
+  <% Article.all.each do |article| %>
 
-    <% if @sorting.return_box.delivery.offer.articles.include?(article) %>
-    <% else %>
-
-      <% if @sorting.articles.include?(article) %>
+    <% if @sorting.total_sorting(article) >= 1 %>
 
         <li class="list-group-item">
           <div class="row text-center">
@@ -183,10 +186,11 @@
               <div class="row">
                 <div class="col-md-6">
                   <%= article.full_name %>
+
                   
                 </div>
                 <div class="col-md-6">
-
+                  <%= @sorting.total_sorting(article) %>
                 </div>
               </div>
             </div>
@@ -216,7 +220,6 @@
           </div>
         </li>
 
-      <% end %>
     <% end %>
   <% end %>
 </ul>

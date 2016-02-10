@@ -50,4 +50,9 @@ class Sorting < ActiveRecord::Base
 		end
 		global_handling_sum
 	end
+
+	def total_sorting(article)
+		global_clean_sum(article) + global_very_dirty_sum(article) + global_broken_sum(article) + global_handling_sum(article)
+	end
+
 end

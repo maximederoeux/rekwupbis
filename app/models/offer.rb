@@ -4,6 +4,7 @@ class Offer < ActiveRecord::Base
 
 	has_many :offer_boxes
 	has_many :boxes, through: :offer_boxes
+	has_many :boxdetails, through: :boxes
 	has_many :articles, through: :boxes
 	has_many :sorting_details, through: :delivery
 	has_many :return_boxes, through: :delivery

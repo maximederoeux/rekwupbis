@@ -108,7 +108,7 @@ nl:
     is_palette: "Palette"
     is_cc: "CC"
     is_ep: "EP"
-    is_eco: "Ecocup"
+    is_eco: "EC"
     is_wine: "Wijn"
     is_cava: "Cava"
     is_lln: "LLN"
@@ -437,7 +437,7 @@ nl:
     add_handling: "Een behandeling toevoegen"
     wash: "Was datum"
     missing: "Vermist"
-    sent_cups: "Gestuurd bekers"
+    sent_cups: "Gestuurd"
     clean_return: "Schoon terug"
 
   user:
