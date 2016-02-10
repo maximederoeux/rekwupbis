@@ -99,7 +99,9 @@
 						<h4><%= t('user.list_client') %> - <%= t('user.individual') %></h4>
 					</li>			
 
-				<% @individual.not_lln.each do |user| %>
+				<% @individual.each do |user| %>
+
+				<% if user.not_lln == true %>
 
 					<li class="list-group-item">
 
@@ -132,6 +134,7 @@
 
 						<% end %>
 					</li>
+					<% end %>
 				<% end %>
 				</ul>	
 			</div>
@@ -143,7 +146,9 @@
 						<h4><%= t('user.list_client') %> - <%= t('user.company') %></h4>
 					</li>			
 
-				<% @company.not_lln.each do |user| %>
+				<% @company.each do |user| %>
+
+				<% if user.not_lln == true %>
 
 					<li class="list-group-item">
 
@@ -175,6 +180,7 @@
 						<% end %>
 					</li>
 				<% end %>
+				<% end%>
 				</ul>	
 			</div>
 
@@ -185,7 +191,9 @@
 						<h4><%= t('user.list_client') %> - <%= t('user.non_profit') %></h4>
 					</li>			
 
-				<% @non_profit.not_lln.each do |user| %>
+				<% @non_profit.each do |user| %>
+
+				<% if user.not_lln == true %>
 
 					<li class="list-group-item">
 
@@ -216,6 +224,7 @@
 
 						<% end %>
 					</li>
+				<% end %>
 				<% end %>
 				</ul>	
 			</div>
@@ -227,7 +236,9 @@
 						<h4><%= t('user.list_client') %> - <%= t('user.institution') %></h4>
 					</li>			
 
-				<% @institution.not_lln.each do |user| %>
+				<% @institution.each do |user| %>
+
+				<% if user.not_lln == true %>
 
 					<li class="list-group-item">
 
@@ -258,6 +269,7 @@
 
 						<% end %>
 					</li>
+					<% end %>
 				<% end %>
 				</ul>	
 			</div>

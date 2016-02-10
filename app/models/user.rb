@@ -29,7 +29,6 @@ class User < ActiveRecord::Base
 	scope :time_keeping, lambda {where(:staff => true) && where(:time_keeping => true)}
 	scope :chauffeur, lambda {where(:chauffeur => true)}
 	scope :is_lln, lambda {where(:is_lln => true)}
-	scope :not_lln, lambda {where(:is_lln => nil)}
 
 	def full_name
 		"#{first_name} #{name}"
@@ -64,6 +63,14 @@ class User < ActiveRecord::Base
 			I18n.t('user.non_profit')
 		elsif institution == true
 			I18n.t('user.institution')
+		end
+	end
+
+	def not_lln
+		if is_lln == false
+			true
+		elsif is_lln == nil
+			true
 		end
 	end
 
