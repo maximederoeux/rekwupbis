@@ -96,7 +96,9 @@
                 </div>
 
                 <div class="col-md-2">
-                  <%= 0 - @sorting.global_clean_sum(article) - @sorting.global_very_dirty_sum(article) - @sorting.global_handling_sum(article) %>
+                  <% unless @sorting.return_box.delivery.offer.lln_daily %>
+                    <%= @sorting.missing(article) %>
+                  <% end %>
                 </div>
 
               </div>
