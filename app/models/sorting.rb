@@ -58,8 +58,25 @@ class Sorting < ActiveRecord::Base
 
 
 	def missing(article)
-		self.return_box.delivery.offer.sent_article(article) - total_sorting
-		
+		self.return_box.delivery.offer.sent_article(article) - total_sorting	
+	end
+
+	def clean_box_return(article)
+		clean_box_return = 0
+		self.return_box.return_details.where('clean > ?', 0).each do |return_detail|
+				if return_detail.box.articles.where(:id => article.id).any?
+				clean_box_return += return_detail.clean
+				end
+		end
+		clean_box_return
+	end
+
+	def clean_article_return(article)
+		if article.is_cup
+			(clean_box_return(article) * article.quantity_bigbox) if article.quantity_bigbox.present?
+		else
+			clean_box_return(article)
+		end
 	end
 
 end

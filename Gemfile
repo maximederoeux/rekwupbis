@@ -14,7 +14,7 @@ gem 'jquery-ui-rails'
 
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-
+gem 'devise-i18n-views'
 
 
 
