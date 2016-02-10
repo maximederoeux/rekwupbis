@@ -2,15 +2,15 @@
 	<li class="list-group-item list-group-item-warning">
 		<div class="row text-center">
 			<strong>
-				<div class="col-md-4">
+				<div class="col-xs-8 col-md-4">
 					<%= t("return.lln") %>
 				</div>
 
-				<div class="col-md-4">
+				<div class="col-xs-2 col-md-4">
 					<%= Date.today.strftime("%d/%m/%Y") %>
 				</div>
 
-				<div class="col-md-4">
+				<div class="col-xs-2 col-md-4">
 					<%= LlnImport.sum('return_box') %>
 				</div>
 			</strong>
@@ -25,15 +25,15 @@
 		<li class="list-group-item">
 			<div class="row text-center">
 				<strong>
-					<div class="col-md-4">
+					<div class="col-xs-2 col-md-4">
 						<%= import.id %>
 					</div>
 
-					<div class="col-md-4">
+					<div class="col-xs-8 col-md-4">
 						<%= import.circle %>
 					</div>
 
-					<div class="col-md-4">
+					<div class="col-xs-2 col-md-4">
 						<%= import.return_box %>
 					</div>
 				</strong>
@@ -49,17 +49,15 @@
 	<li class="list-group-item list-group-item-warning">
 		<div class="row text-center">
 			<strong>
-				<div class="col-md-4">
+				<div class="col-xs-8 col-md-8">
 					<%= t("return.others") %>
 				</div>
 
-				<div class="col-md-4">
+				<div class="col-xs-4 col-md-4">
 					<%= Date.today.strftime("%d/%m/%Y") %>
 				</div>
 
-				<div class="col-md-4">
 
-				</div>
 			</strong>
 		</div>
 	</li>
@@ -71,17 +69,14 @@
 		<li class="list-group-item">
 			<div class="row text-center">
 				<strong>
-					<div class="col-md-4">
+					<div class="col-xs-8 col-md-8">
 						<%= return_box.delivery.offer.organizer.name %>
 					</div>
 
-					<div class="col-md-4">
+					<div class="col-xs-4 col-md-4">
 						<%= return_box.delivery.total_boxes %>
 					</div>
 
-					<div class="col-md-4">
-					
-					</div>
 				</strong>
 			</div>
 		</li>
