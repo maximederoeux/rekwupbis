@@ -1,0 +1,59 @@
+        <!-- Large modal -->
+        <button type="button" class="btn btn-lg btn-info btn-block" data-toggle="modal" data-target="#new_regular_price">
+
+          <%= t("attendance.new") %>
+
+
+        </button>
+
+        <div class="modal fade" id="new_attendance" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+					        <%= simple_form_for(@new_attendance) do |f| %>
+							      <%= f.error_notification %>
+
+
+                <div class="modal-header">
+
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                  </button>
+
+                    <h4 class="modal-title" id="myModalLabel">
+
+                    <%= f.collection_select :user_id, User.staff.order('name ASC'), :id, :full_name, {prompt: false}, {class: "form-control styled-select"} %>                    
+                     
+                    </h4>
+                </div>
+
+                <div class="modal-body">
+                  <div class="row text-center">
+
+                    <div class="col-md-6">
+                      <%= f.input :start_time %>
+                    </div>
+
+                    <div class="col-md-6">
+                      <%= f.input :end_time %>
+                    </div>
+
+                  </div>
+
+
+                <div class="modal-footer">
+
+                  <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <%= t("menu.close") %>
+                  </button>
+
+                    <%= f.button :submit, class: "btn btn-info" %>
+    
+
+                </div>
+
+              <% end %>
+       
+
+            </div>
+          </div>
+        </div>
