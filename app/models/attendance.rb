@@ -63,6 +63,7 @@ class Attendance < ActiveRecord::Base
 		"#{duration_in_hours}h#{display_duration_minutes}m"
 	end
 
+
 	def this_day_duration(user)
 		this_day_duration = 0
 		user.attendances.this_day.each do |attendance|

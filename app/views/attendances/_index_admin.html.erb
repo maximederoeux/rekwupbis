@@ -19,15 +19,37 @@
 <ul class="list-group">
 	<% User.staff.each do |user| %>
 		<li class="list-group-item list-group-item-info">
-			<%= user.full_name %>
+        <div class="row">
+
+          <div class="col-md-2">
+            <%= user.full_name %>
+          </div>
+          <div class="col-md-2">
+            Entrées
+          </div>
+          <div class="col-md-2">
+            Sorties
+          </div>
+          <div class="col-md-2">
+            Durée
+          </div>
+          <div class="col-md-2">
+
+          </div>
+          <div class="col-md-2">
+
+          </div>
+        </div>
+
+			
 		</li>
 
-		<% @attendances.last_thirty_days.where(:user_id => user.id).each do |attendance| %>
+		<% user.attendances.last_thirty_days.each do |attendance| %>
 
 			<li class="list-group-item">
 				<div class="row">
 
-					<div class="col-md-3">
+					<div class="col-md-2">
 						<%= attendance.start_time.strftime("%d/%m/%Y") %>
 					</div>
 					<div class="col-md-2">
@@ -36,9 +58,10 @@
 					<div class="col-md-2">
 						<%= attendance.end_time.strftime("%H:%M") if attendance.end_time %>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-2">
 						<%= attendance.display_duration %>
 					</div>
+
 
 					<div class="col-md-2">
               <!-- Large modal -->
@@ -91,7 +114,8 @@
 
 
 					</div>
-
+          <div class="col-md-2">
+          </div>
 				</div>
 			</li>
 
