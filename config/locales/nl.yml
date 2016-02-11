@@ -132,6 +132,7 @@ nl:
     now_in: "Nu bent u in"
     now_out: "Nu bent u uit"
     see: "Bewegingen zien"
+    new: "Nieuwe aanwezigheid"
 
   box:
     box_name: "Doosnaam"

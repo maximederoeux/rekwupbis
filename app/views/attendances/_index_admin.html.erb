@@ -22,7 +22,7 @@
 			<%= user.full_name %>
 		</li>
 
-		<% Attendance.last_thirty_days.where(:user_id => user.id).each do |attendance| %>
+		<% @attendances.last_thirty_days.where(:user_id => user.id).each do |attendance| %>
 
 			<li class="list-group-item">
 				<div class="row">

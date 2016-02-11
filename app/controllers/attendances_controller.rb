@@ -5,7 +5,7 @@ class AttendancesController < ApplicationController
   # GET /attendances
   # GET /attendances.json
   def index
-    @attendances = Attendance.all.order('start_time ASC')
+    @attendances = Attendance.all.order('start_time DESC')
     @new_attendance = Attendance.new
   end
 

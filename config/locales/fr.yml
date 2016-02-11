@@ -133,6 +133,7 @@ fr:
     now_in: "Pour le moment vous êtes dedans"
     now_out: "Pour le moment vous êtes dehors"
     see: "Voir les mouvements"
+    new: "Nouvelle présence"
 
   box:
     box_name: "Nom de la caisse"

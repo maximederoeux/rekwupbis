@@ -135,6 +135,7 @@ en:
     now_in: "At the moment you are in"
     now_out: "At the moment you are out"
     see: "Go to Attendances"
+    new: "New attendance"
 
   box:
     box_name: "Box Name"
