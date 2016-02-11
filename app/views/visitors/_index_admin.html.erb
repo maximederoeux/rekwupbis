@@ -1,8 +1,12 @@
+Utilisateurs connectés<br>
+
+
 <% User.all.each do |user| %>
 
+	<% if user.online? == true %>
 
 		<%= user.full_name %>
-		<%= user.online? %><br>
 
+	<% end %>
 
 <% end %>
