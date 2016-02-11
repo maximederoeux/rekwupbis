@@ -116,7 +116,9 @@
             <div class="row text-center">
               <strong>
                 <div class="col-md-6">
-                  <%= @return_box.offer.sent_boxes(box) %>
+                  <% unless @return_box.offer.lln_daily %>
+                    <%= @return_box.offer.sent_boxes(box) %>
+                  <% end %>
                 </div>
                 <div class="col-md-6">
                   <%= @return_box.returned_boxes(box) %>
@@ -170,7 +172,9 @@
             <div class="row text-center">
               <strong>
                 <div class="col-md-4">
-                  <%= @return_box.difference_delivery(box) %>
+                  <% unless @return_box.offer.lln_daily %>
+                    <%= @return_box.difference_delivery(box) %>
+                  <% end %>
                 </div>
                 <div class="col-md-8">
                   <%= @return_box.display_dirty_difference(box) %>   
