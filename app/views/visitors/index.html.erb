@@ -21,6 +21,11 @@
 
     <% end %>
 
+    <% if current_user.admin %>
+
+      <%= render 'index_admin' %>
+
+    <% end %>
 
 
   <% else %>

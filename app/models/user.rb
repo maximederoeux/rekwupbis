@@ -31,6 +31,11 @@ class User < ActiveRecord::Base
 	scope :is_lln, lambda {where(:is_lln => true)}
 	scope :is_namur, lambda {where(:is_namur => true)}
 
+
+	def online?
+	  updated_at > 10.minutes.ago
+	end
+	
 	def full_name
 		"#{first_name} #{name}"
 	end
