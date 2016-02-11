@@ -233,4 +233,14 @@ class Offer < ActiveRecord::Base
 		sent_article	
 	end
 
+	def sent_boxes(box)
+		sent_boxes = 0
+		self.offer_boxes.each do |offer_box|
+			if offer_box.box_id == box.id
+				sent_boxes += offer_box.quantity
+			end
+		end
+		sent_boxes
+	end
+
 end

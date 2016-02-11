@@ -16,234 +16,264 @@
       </strong></h5>
     </li>
 
+</ul>
+
+<ul class="list-group">
+  <li class="list-group-item list-group-item-warning">
+    <h4>Situation du retour</h4>
+  </li>
+
+  <li class="list-group-item list-group-item-warning">
+    <div class="row text-center">
+
+      <div class="col-md-2">
+        Nom
+      </div>
+
+      <div class="col-md-2">
+        <strong>
+          Total
+          <div class="row text-center">
+            <div class="col-md-6">
+              Envoyés
+            </div>
+            <div class="col-md-6">
+              Retours 
+            </div>
+          </div>
+        </strong>
+      </div>
+
+      <div class="col-md-2">
+        Sales
+
+        <div class="row text-center">
+          <div class="col-md-6">
+            Ret
+          </div>
+          <div class="col-md-6">
+            Cont  
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-2">
+        Scellées
+        <div class="row text-center">      
+          <div class="col-md-6">
+            Ret
+          </div>
+          <div class="col-md-6">
+            Cont  
+          </div>      
+        </div>
+
+      </div>
+
+      <div class="col-md-2">
+        Propres
+        <div class="row text-center">
+          <div class="col-md-6">
+            Ret
+          </div>
+          <div class="col-md-6">
+            Cont          
+          </div>      
+        </div>
+
+      </div>
+      <div class="col-md-2">
+        <strong>
+          Difference
+          <div class="row text-center">
+            <div class="col-md-4">
+              Livraison
+            </div>
+            <div class="col-md-8">
+              Vérifier          
+            </div>      
+          </div>
+        </strong>
+      </div>
+    </div>
+  </li>
+
+  <% Box.all.each do |box| %>
+
+    <% if @return_box.offer.sent_boxes(box) >= 1 %>
+
       <li class="list-group-item">
+        <div class="row text-center">
 
-          <strong><%= @return_box.display_difference %></strong>
+          <div class="col-md-2">
+            <%= box.box_name %>
+          </div>
 
+          <div class="col-md-2">
+            
+
+            <div class="row text-center">
+              <strong>
+                <div class="col-md-6">
+                  <%= @return_box.offer.sent_boxes(box) %>
+                </div>
+                <div class="col-md-6">
+                  <%= @return_box.returned_boxes(box) %>
+                </div>
+              </strong>
+
+            </div>
+
+          </div>
+
+          <div class="col-md-2">
+
+            <div class="row text-center">
+              <div class="col-md-6">
+                <%= @return_box.dirty_boxes(box) %>
+              </div>
+              <div class="col-md-6">
+                <%= @return_box.dirty_ctrl_boxes(box) %>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-md-2">
+
+            <div class="row text-center">      
+              <div class="col-md-6">
+                <%= @return_box.sealed_boxes(box) %>
+              </div>
+              <div class="col-md-6">
+                <%= @return_box.sealed_ctrl_boxes(box) %>
+              </div>      
+            </div>
+
+          </div>
+
+          <div class="col-md-2">
+
+            <div class="row text-center">
+              <div class="col-md-6">
+                <%= @return_box.clean_boxes(box) %>
+              </div>
+              <div class="col-md-6">
+                <%= @return_box.clean_ctrl_boxes(box) %>
+              </div>      
+            </div>
+
+          </div>
+          <div class="col-md-2">
+
+            <div class="row text-center">
+              <strong>
+                <div class="col-md-4">
+                  <%= @return_box.difference_delivery(box) %>
+                </div>
+                <div class="col-md-8">
+                  <%= @return_box.display_dirty_difference(box) %>   
+                  <%= @return_box.display_clean_difference(box) %>     
+                  <%= @return_box.display_sealed_difference(box) %>       
+                </div>   
+              </strong>
+   
+            </div>
+
+          </div>
+        </div>
       </li>
 
-      <li class="list-group-item">
+    <% end %>
+  <% end %>
+</ul>
 
-          <% @thisreturndetails.each do |detail| %>
 
-            <% unless detail.dirty_ctrl_value - detail.dirty_value == 0 %>
 
-              <!-- Large modal -->
-              <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#return_detail_<%= detail.id %>">
-                <%= detail.box.box_name %><br>
-                <%= t("return.dirty") %>
 
-              </button>
+<hr>
 
-              <div class="modal fade" id="return_detail_<%= detail.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
+<ul class="list-group">
+  <li class="list-group-item list-group-item-warning">
+    <h4>Modifier encodage</h4>
+  </li>
 
-                    <%= simple_form_for detail do |f| %>
+  <li class="list-group-item">
+    <div class="row">
+      <strong>
+        <div class="col-md-3">
+          <div class="row">
+            <div class="col-md-6">
+              Nom
+            </div>
 
-                      <div class="modal-header">
+            <div class="col-md-6">
+              
+            </div>
+          </div>
+        </div>
 
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                        </button>
+        <div class="col-md-3 text-center">
+          Sales
+          <div class="row text-center">
+            <div class="col-md-6">
+              Ret
+            </div>
 
-                          <h4 class="modal-title" id="myModalLabel">
+            <div class="col-md-6">
+              Cont
+            </div>
+          </div>
+        </div>
 
-                            <div class="row text-center">
+        <div class="col-md-3 text-center">
+          Propres
+          <div class="row text-center">
+            <div class="col-md-6">
+              Ret
+            </div>
 
-                              <div class="col-md-4">
-                                 <%= t("box.box_type") %>
-                              </div>
+            <div class="col-md-6">
+              Cont
+            </div>
+          </div>
+        </div>
 
-                              <div class="col-md-6">
-                                 <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
-                              </div>
+        <div class="col-md-3 text-center">
+          Scellées
+          <div class="row text-center">
+            <div class="col-md-6">
+              Ret
+            </div>
 
-                              <div class="col-md-2">
-                              </div>
+            <div class="col-md-6">
+              Cont
+            </div>
+          </div>
+        </div> 
+      </strong>
 
-                            </div>                     
-                           
-                          </h4>
-                      </div>
+    </div>
+  </li>
 
-                      <div class="modal-body">
-                        <div class="row text-center">
 
-                          <div class="col-md-6">
-                            <%= t("return.return") %><br>
-                            <%= f.input :dirty %>
-                          </div>
 
-                          <div class="col-md-6">
-                            <%= t("return.control") %><br>
-                            <%= f.input :dirty_ctrl %>
-                          </div>
+<% @return_box.return_details.each do |detail| %>
 
-                        </div>
-                      </div>
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md-6">
+            <%= detail.box.box_name %>
+          </div>
 
-                      <div class="modal-footer">
-
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                          <%= t("menu.close") %>
-                        </button>
-                
-                          <%= f.button :submit, class: "btn btn-info" %>
-          
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-
-            <% unless detail.sealed_ctrl_value - detail.sealed_value == 0 %>
-
-              <!-- Large modal -->
-              <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#return_detail_<%= detail.id %>">
-                <%= detail.box.box_name %><br>
-                <%= t("return.sealed") %>
-
-              </button>
-
-              <div class="modal fade" id="return_detail_<%= detail.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-
-                    <%= simple_form_for detail do |f| %>
-
-                      <div class="modal-header">
-
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                        </button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-
-                            <div class="row text-center">
-
-                              <div class="col-md-4">
-                                 <%= t("box.box_type") %>
-                              </div>
-
-                              <div class="col-md-6">
-                                 <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
-                              </div>
-
-                              <div class="col-md-2">
-                              </div>
-
-                            </div>                     
-                           
-                          </h4>
-                      </div>
-
-                      <div class="modal-body">
-                        <div class="row text-center">
-
-                          <div class="col-md-6">
-                            <%= t("return.return") %><br>
-                            <%= f.input :sealed %>
-                          </div>
-
-                          <div class="col-md-6">
-                            <%= t("return.control") %><br>
-                            <%= f.input :sealed_ctrl %>
-                          </div>
-
-                        </div>
-                      </div>
-
-                      <div class="modal-footer">
-
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                          <%= t("menu.close") %>
-                        </button>
-                
-                          <%= f.button :submit, class: "btn btn-info" %>
-          
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-
-            <% unless detail.clean_ctrl_value - detail.clean_value == 0 %>
+          <div class="col-md-6">
 
               <!-- Large modal -->
-              <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#return_detail_<%= detail.id %>">
-                <%= detail.box.box_name %><br>
-                <%= t("return.sealed") %>
-
-              </button>
-
-              <div class="modal fade" id="return_detail_<%= detail.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-
-                    <%= simple_form_for detail do |f| %>
-
-                      <div class="modal-header">
-
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                        </button>
-
-                          <h4 class="modal-title" id="myModalLabel">
-
-                            <div class="row text-center">
-
-                              <div class="col-md-4">
-                                 <%= t("box.box_type") %>
-                              </div>
-
-                              <div class="col-md-6">
-                                 <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
-                              </div>
-
-                              <div class="col-md-2">
-                              </div>
-
-                            </div>                     
-                           
-                          </h4>
-                      </div>
-
-                      <div class="modal-body">
-                        <div class="row text-center">
-
-                          <div class="col-md-6">
-                            <%= t("return.return") %><br>
-                            <%= f.input :clean %>
-                          </div>
-
-                          <div class="col-md-6">
-                            <%= t("return.control") %><br>
-                            <%= f.input :clean_ctrl %>
-                          </div>
-
-                        </div>
-                      </div>
-
-                      <div class="modal-footer">
-
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                          <%= t("menu.close") %>
-                        </button>
-                
-                          <%= f.button :submit, class: "btn btn-info" %>
-          
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-
-            <% unless @return_box.difference == 0 %>
-
-              <!-- Large modal -->
-              <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#return_detail_<%= detail.id %>">
-                <%= detail.box.box_name %><br>
+              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#return_detail_<%= detail.id %>">
+                Modifier
 
 
               </button>
@@ -332,9 +362,56 @@
                   </div>
                 </div>
               </div>
-            <% end %>
-        <% end %>
-      </li>
-    </ul>
 
 
+
+
+
+
+
+
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="row text-center">
+          <div class="col-md-6">
+            <%= detail.dirty_value %>
+          </div>
+
+          <div class="col-md-6">
+            <%= detail.dirty_ctrl_value %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="row text-center">
+          <div class="col-md-6">
+            <%= detail.clean_value %>
+          </div>
+
+          <div class="col-md-6">
+            <%= detail.clean_ctrl_value %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="row text-center">
+          <div class="col-md-6">
+            <%= detail.sealed_value %>
+          </div>
+
+          <div class="col-md-6">
+            <%= detail.sealed_ctrl_value %>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </li>
+
+<% end %>
+</ul>

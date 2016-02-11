@@ -24,67 +24,104 @@ class ReturnBox < ActiveRecord::Base
 	scope :before_today, lambda {where('return_date < ?', Date.today)}
 
 	def offer
-		self.delivery.offer
+		self.delivery.offer	
 	end
 
-	def offer_boxes
-		offer.offer_boxes
-	end
-
-	def total_boxes
-		total_boxes = 0
-		self.return_details.each do |box|
-			total_boxes += box.count
-		end
-		total_boxes
-	end
-
-	def difference
-		if self.delivery.total_boxes == 0
-			0
-		else
-		total_boxes - self.delivery.total_boxes
-		end
-	end
-
-	def display_difference
-		if total_boxes == 0
-			I18n.t('return.not_received_yet')
-		else
-			if difference == 0
-				I18n.t('return.no_difference')
-			elsif difference >= 0
-				I18n.t('return.positive_difference', :difference => difference)
-			elsif difference <= 0
-				I18n.t('return.negative_difference', :difference => (0 - difference))
+	def clean_boxes(box)
+		clean_boxes = 0
+		self.return_details.where(:box_id => box.id).each do |detail|
+			if detail.clean.present?
+				clean_boxes += detail.clean
 			end
 		end
+		clean_boxes
 	end
 
-		def total_ctrl_boxes
-		total_ctrl_boxes = 0
-		self.return_details.each do |box|
-			total_ctrl_boxes += box.count_ctrl
-		end
-		total_ctrl_boxes
-	end
-
-	def difference_ctrl
-		total_ctrl_boxes - total_boxes
-	end
-
-	def display_difference_ctrl
-		if total_ctrl_boxes == 0
-			I18n.t('return.not_controlled_yet')
-		else
-			if difference_ctrl == 0
-				I18n.t('return.no_difference_ctrl')
-			elsif difference_ctrl >= 0
-				I18n.t('return.positive_difference_ctrl', :difference => difference_ctrl)
-			elsif difference_ctrl <= 0
-				I18n.t('return.negative_difference_ctrl', :difference => (0 - difference_ctrl))
+	def dirty_boxes(box)
+		dirty_boxes = 0
+		self.return_details.where(:box_id => box.id).each do |detail|
+			if detail.dirty.present?
+				dirty_boxes += detail.dirty
 			end
 		end
+		dirty_boxes
 	end
 
+	def sealed_boxes(box)
+		sealed_boxes = 0
+		self.return_details.where(:box_id => box.id).each do |detail|
+			if detail.sealed.present?
+				sealed_boxes += detail.sealed
+			end
+		end
+		sealed_boxes
+	end
+
+	def returned_boxes(box)
+		clean_boxes(box) + dirty_boxes(box) + sealed_boxes(box)
+	end
+
+	def difference_delivery(box)
+		self.offer.sent_boxes(box) - returned_boxes(box)	
+	end
+
+	def clean_ctrl_boxes(box)
+		clean_ctrl_boxes = 0
+		self.return_details.where(:box_id => box.id).each do |detail|
+			if detail.clean_ctrl.present?
+				clean_ctrl_boxes += detail.clean_ctrl
+			end
+		end
+		clean_ctrl_boxes
+	end
+
+	def dirty_ctrl_boxes(box)
+		dirty_ctrl_boxes = 0
+		self.return_details.where(:box_id => box.id).each do |detail|
+			if detail.dirty_ctrl.present?
+				dirty_ctrl_boxes += detail.dirty_ctrl
+			end
+		end
+		dirty_ctrl_boxes
+	end
+
+	def sealed_ctrl_boxes(box)
+		sealed_ctrl_boxes = 0
+		self.return_details.where(:box_id => box.id).each do |detail|
+			if detail.sealed_ctrl.present?
+				sealed_ctrl_boxes += detail.sealed_ctrl
+			end
+		end
+		sealed_ctrl_boxes
+	end
+
+	def clean_difference(box)
+		clean_boxes(box) - clean_ctrl_boxes(box)
+	end
+
+	def dirty_difference(box)
+		dirty_boxes(box) - dirty_ctrl_boxes(box)
+	end	
+
+	def sealed_difference(box)
+		sealed_boxes(box) - sealed_ctrl_boxes(box)
+	end
+
+	def display_clean_difference(box)
+		unless clean_difference(box) == 0
+			"Propres"
+		end
+	end
+
+	def display_dirty_difference(box)
+		unless dirty_difference(box) == 0
+			"Sales"
+		end
+	end
+
+	def display_sealed_difference(box)
+		unless sealed_difference(box) == 0
+			"Scellées"
+		end	
+	end
 end
