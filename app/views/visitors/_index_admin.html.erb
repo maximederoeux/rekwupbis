@@ -1,12 +1,54 @@
-Utilisateurs connectés<br>
+<ul class="list-group">
 
+  <li class="list-group-item list-group-item-warning">
+		<strong>Admin connecté</strong>
+	</li>
 
-<% User.all.each do |user| %>
+	<% User.admin.each do |user| %>
 
-	<% if user.online? == true %>
+		<% if user.online? == true %>
 
-		<%= user.full_name %>
+      <li class="list-group-item">
+				<%= user.full_name %>
+			</li>
 
+		<% end %>
 	<% end %>
 
-<% end %>
+  <li class="list-group-item list-group-item-warning">
+		<strong>Staff connecté</strong>
+	</li>
+
+	<% User.staff.each do |user| %>
+
+		<% if user.online? == true %>
+
+      <li class="list-group-item">
+				<%= user.full_name %>
+			</li>
+
+		<% end %>
+	<% end %>
+
+
+	<li class="list-group-item list-group-item-warning">
+		<strong>Clients connectés</strong>
+	</li>
+
+	<% User.client.each do |user| %>
+
+		<% if user.online? == true %>
+
+      <li class="list-group-item">
+				<%= user.full_name %>
+			</li>
+
+		<% end %>
+	<% end %>
+
+</ul>
+
+
+
+
+
