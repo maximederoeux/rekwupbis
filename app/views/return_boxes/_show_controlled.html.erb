@@ -101,7 +101,7 @@
 
   <% Box.all.each do |box| %>
 
-    <% if @return_box.offer.sent_boxes(box) >= 1 %>
+    <% if @return_box.offer.returned_boxes(box) >= 1 %>
 
       <li class="list-group-item">
         <div class="row text-center">
