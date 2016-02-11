@@ -58,6 +58,9 @@
       </div>
     </div>
 
+
+<% if @return_box.offer.organizer.is_lln %>
+
 <ul class="list-group more-padding">
        <li class="list-group-item list-group-item-warning">
         <h4><strong><%= t("return.unforeseen") %></h4></strong>
@@ -122,3 +125,5 @@
 <% end %>
 
 </ul>
+
+<% end %>

@@ -124,4 +124,18 @@ class ReturnBox < ActiveRecord::Base
 			"Scellées"
 		end	
 	end
+
+	def status
+		if is_back == nil && is_controlled == nil && send_wash == nil
+			"Ce retour est à recevoir"
+		elsif is_back == true && is_controlled == nil && send_wash == nil
+			"Ce retour est à contrôler"
+		elsif is_back == true && is_controlled == true && send_wash == nil
+			"Ce retour est contrôlé"
+		elsif is_back == true && is_controlled == true && send_wash == true
+		"Ce retour est envoyé au lavage"
+		end
+	end
+
+
 end
