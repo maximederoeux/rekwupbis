@@ -272,3 +272,15 @@
   Dinant sont les seuls compétents.
   </div>
 
+<hr>
+
+<% @boxes.each do |box| %>
+
+<% if @invoice.offer.sent_boxes(box) >= 0 %>
+
+<%= box.box_name %>
+<%= @invoice.offer.sent_boxes(box) %>
+
+
+
+<% end %>

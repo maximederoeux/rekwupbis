@@ -3,10 +3,11 @@ class VisitorsController < ApplicationController
 
   def index
     @users = User.all
+    @staff = User.staff.order('name ASC')
     @user = current_user
     @articles = Article.all
     @rekwup_cups = @articles.where(:rekwup_cup => true)
-    @attendance = current_user.attendances.last if user_signed_in?
+    @attendances = Attendance.all
     @new_attendance = Attendance.new
   end
   

@@ -18,6 +18,7 @@ class InvoicesController < ApplicationController
     @offer = @invoice.offer
     @prices = Price.all
     @regular_prices = @prices.where(:regular => true)
+    @boxes= Box.all.order('box_name ASC')
 
     @offer_boxes = OfferBox.all
     @thisofferboxes = @offer_boxes.where(:offer_id => @offer.id)

@@ -1,69 +1,116 @@
-<div class="text-center">
+<ul class="list-group">
+	<li class= "list-group-item list-group-item-warning text-center">
 
-	<h2><%= Date.today.strftime("%d/%m/%Y") %></h2>
-	<h2><%= Time.now.strftime("%H:%M") %></h2>
+			<h4><strong>
+				Cliquez sur votre nom pour pointer
+			</strong></style></h4>
 
-
-
-<h3>Bonjour <%= current_user.full_name %>!</h3>
-
-
-
-<% if current_user.attendances.any? %>
-
-	<% if @attendance.start_time.present? && @attendance.end_time.blank? %>
-
-		<h4><%= t("attendance.now_in") %></h4>
-
-		<h3><%= t("attendance.last_in") %><%= @attendance.start_time.strftime("%d/%m/%Y") %><br>
-		<%= t("word.at") %><%= @attendance.start_time.strftime("%H:%M") %></h3>
-
-
-		<%= simple_form_for(@attendance) do |f| %>
-		  <%= f.error_notification %>
-
-		    <%= f.hidden_field :end_time, :value => Time.now %>
-
-		    <%= f.submit t("attendance.out"), class: "btn btn-warning btn-lg btn-block" %>
-
-		<% end %>
-
-	<% elsif @attendance.start_time.present? && @attendance.end_time.present? %>
-
-		<h4><%= t("attendance.now_out") %></h4>
-
-		<h3><%= t("attendance.last_out") %><%= @attendance.end_time.strftime("%d/%m/%Y") %><br>
-		<%= t("word.at") %><%= @attendance.end_time.strftime("%H:%M") %></h3>
+	</li>
+</ul>
 
 
 
-		<%= simple_form_for(@new_attendance) do |f| %>
-		  <%= f.error_notification %>
 
-		    <%= f.hidden_field :start_time, :value => Time.now %>
-		    <%= f.hidden_field :user_id, :value => current_user.id %>
+<% @staff.each do |user| %>
 
-		    <%= f.submit t("attendance.in"), class: "btn btn-info btn-lg btn-block" %>
+        <!-- Large modal -->
+        <button type="button" class="btn btn-lg btn-default btn-block" data-toggle="modal" data-target="#user_attendance_<%= user.id %>">
 
-		    <% end %>
-
-	<% end %>
-
-<% else %>
-
-		<h4><%= t("attendance.now_out") %></h4>
+          <%= user.full_name %>
 
 
-	<%= simple_form_for(@new_attendance) do |f| %>
-	  <%= f.error_notification %>
+        </button>
 
-	    <%= f.hidden_field :start_time, :value => Time.now %>
-	    <%= f.hidden_field :user_id, :value => current_user.id %>
+        <div class="modal fade" id="user_attendance_<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
 
-	    <%= f.submit t("attendance.in"), class: "btn btn-info btn-lg btn-block" %>
+									<div class="text-center">
+										<h2><%= Date.today.strftime("%d/%m/%Y") %></h2>
+										<h2><%= Time.now.strftime("%H:%M") %></h2>
 
-	<% end %>
+										<h3>Bonjour <%= user.full_name %>!</h3>
+
+									</div>
+
+                <div class="modal-header">
+
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                  </button>
+
+                    <h4 class="modal-title" id="myModalLabel">
+                  
+                     
+                    </h4>
+                </div>
+
+                <div class="modal-body">
+
+									<div class="text-center">
+
+
+
+									<% if current_user.attendances.any? %>
+
+										<% if @attendances.where(:user_id => user.id).last.start_time.present? && @attendances.where(:user_id => user.id).last.end_time.blank? %>
+
+											<h4><%= t("attendance.now_in") %></h4>
+
+											<h3><%= t("attendance.last_in") %><%= @attendances.where(:user_id => user.id).last.start_time.strftime("%d/%m/%Y") %><br>
+											<%= t("word.at") %><%= @attendances.where(:user_id => user.id).last.start_time.strftime("%H:%M") %></h3>
+
+
+											<%= simple_form_for(@attendances.where(:user_id => user.id).last) do |f| %>
+											  <%= f.error_notification %>
+
+											    <%= f.hidden_field :end_time, :value => Time.now %>
+
+											    <%= f.submit t("attendance.out"), class: "btn btn-warning btn-lg btn-block" %>
+
+											<% end %>
+
+										<% elsif @attendances.where(:user_id => user.id).last.start_time.present? && @attendances.where(:user_id => user.id).last.end_time.present? %>
+
+											<h4><%= t("attendance.now_out") %></h4>
+
+											<h3><%= t("attendance.last_out") %><%= @attendances.where(:user_id => user.id).last.end_time.strftime("%d/%m/%Y") %><br>
+											<%= t("word.at") %><%= @attendances.where(:user_id => user.id).last.end_time.strftime("%H:%M") %></h3>
+
+
+
+											<%= simple_form_for(@new_attendance) do |f| %>
+											  <%= f.error_notification %>
+
+											    <%= f.hidden_field :start_time, :value => Time.now %>
+											    <%= f.hidden_field :user_id, :value => user.id %>
+
+											    <%= f.submit t("attendance.in"), class: "btn btn-info btn-lg btn-block" %>
+
+											    <% end %>
+
+										<% end %>
+
+									<% else %>
+
+											<h4><%= t("attendance.now_out") %></h4>
+
+
+										<%= simple_form_for(@new_attendance) do |f| %>
+										  <%= f.error_notification %>
+
+										    <%= f.hidden_field :start_time, :value => Time.now %>
+										    <%= f.hidden_field :user_id, :value => user.id %>
+
+										    <%= f.submit t("attendance.in"), class: "btn btn-info btn-lg btn-block" %>
+
+										<% end %>
+
+									<% end %>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
 <% end %>
-
-</div>
