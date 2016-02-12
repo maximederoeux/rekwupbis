@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'reporting/statistics'
   get 'reporting/interim'
   get 'reporting/interim_pdf'
+  get 'reporting/invoices'
 
   resources :attendances
   resources :energies

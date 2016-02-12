@@ -69,7 +69,8 @@ en:
     close: "Close"
     are_you_sure: "Are you sure?"
     parcels: "Batches"
-    invoices: "Invoices"
+    invoices: "Billing"
+    invoices_list: "Invoices"
     construction: "This site is still under construction. The informations are not reliable and no service will be provided through this site at the moment"
 
   mail:

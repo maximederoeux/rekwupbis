@@ -7,6 +7,11 @@ class ReportingController < ApplicationController
 		@attendances = Attendance.all
 	end
 
+  def invoices
+    @invoices = Invoice.all
+    
+  end
+
 	def interim_pdf
 		@attendances = Attendance.all
 
