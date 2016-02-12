@@ -44,7 +44,7 @@
 			
 		</li>
 
-		<% user.attendances.last_thirty_days.each do |attendance| %>
+		<% user.attendances.order('start_time DESC').last_thirty_days.each do |attendance| %>
 
 			<li class="list-group-item">
 				<div class="row">
