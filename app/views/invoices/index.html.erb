@@ -69,7 +69,7 @@
         </div>
 
         <div class="col-md-2">
-          <%= offer.event.organizer.full_name %>
+          <%= offer.organizer.full_name %>
         </div>
 
         <div class="col-md-1 text-center">
@@ -199,74 +199,3 @@
 
 <hr>
 
-<ul class="list-group">
-  <li class="list-group-item list-group-item-warning">
-    Factures
-  </li>
-
-<li class="list-group-item">
-  <div class="row">
-    <div class="col-md-1">
-      Référence
-    </div>
-    <div class="col-md-1">
-      Type
-    </div>
-    <div class="col-md-2">
-      Client
-    </div>
-    <div class="col-md-2">
-      Evénement
-    </div>
-    <div class="col-md-2">
-      Total HTVA
-    </div>
-    <div class="col-md-2">
-      Total TVA
-    </div>
-    <div class="col-md-2">
-      Total TVAC
-    </div>
-  </div>
-</li>
-
-<% Invoice.all.each do |invoice| %>
-
-<li class="list-group-item">
-  <div class="row">
-    <div class="col-md-1">
-      <%= invoice.pdf_name %>
-    </div>
-    <div class="col-md-1">
-      <% if invoice.confirmation && invoice.after_event == nil %>
-      Accompte
-      <% end %>
-      <% if invoice.confirmation && invoice.after_event %>
-      Finale
-      <% end %>
-    </div>
-    <div class="col-md-2">
-      <%= invoice.client.full_name %>
-    </div>
-    <div class="col-md-2">
-      <%= invoice.offer.event.event_name %>
-    </div>
-    <div class="col-md-2">
-      <%= number_to_currency(invoice.total_htva, :unit =>'€', :precision => 2) %>
-    </div>
-    <div class="col-md-2">
-      <%= number_to_currency(invoice.total_tva, :unit =>'€', :precision => 2) %>
-    </div>
-    <div class="col-md-2">
-      <%= number_to_currency(invoice.total_tvac, :unit =>'€', :precision => 2) %>
-      <%= link_to invoice_path(invoice) do %>
-        <%= content_tag(:i, "", class: "fa fa-eye") %>
-      <% end %> 
-    </div>
-  </div>
-</li>
-
-
-<% end %>
-
-</ul>
