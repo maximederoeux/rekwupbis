@@ -11,6 +11,9 @@
 <hr>
 
 <ul class="list-group">
+  <li class="list-group-item list-group-item-warning">
+    <strong>Offres événements ponctuels</strong>
+  </li>
 
   <li class="list-group-item list-group-item-warning">
     <div class="row">
@@ -56,146 +59,178 @@
 
 <% @offers.each do |offer| %>
 
-  <% if offer.ready_for_invoice == true %>
+  <% unless offer.lln_daily %>
 
-    <li class="list-group-item">
-      <div class="row">
+    <% if offer.ready_for_invoice == true %>
 
-        <div class="col-md-1">
-          <%= offer.id %>
-        </div>
+      <li class="list-group-item">
+        <div class="row">
+
+          <div class="col-md-1">
+            <%= offer.id %>
+          </div>
+          <div class="col-md-2">
+            <%= offer.event.event_name %>
+          </div>
+
+          <div class="col-md-2">
+            <%= offer.organizer.full_name %>
+          </div>
+
+          <div class="col-md-1 text-center">
+            <%= offer.return_boxes.count %>
+          </div>
+
+          <div class="col-md-1 text-center">
+            <%= offer.washes.count %>
+          </div>
+
+          <div class="col-md-1 text-center">
+            <%= offer.sortings.count %>
+          </div>
+
+          <div class="col-md-1 text-center">
+            
+            <% if offer.has_deposit %>
+              <%= offer.invoices.is_deposit.count %>
+            <% end %>
+
+          </div>
+
+          <div class="col-md-1 text-center">
+
+            <% if offer.has_final %>
+              <%= offer.invoices.is_final.count %>
+            <% end %>
+
+          </div>
+
         <div class="col-md-2">
-          <%= offer.event.event_name %>
-        </div>
-
-        <div class="col-md-2">
-          <%= offer.organizer.full_name %>
-        </div>
-
-        <div class="col-md-1 text-center">
-          <%= offer.return_boxes.count %>
-        </div>
-
-        <div class="col-md-1 text-center">
-          <%= offer.washes.count %>
-        </div>
-
-        <div class="col-md-1 text-center">
-          <%= offer.sortings.count %>
-        </div>
-
-        <div class="col-md-1 text-center">
-          
-          <% if offer.has_deposit %>
-            <%= offer.invoices.is_deposit.count %>
+          <% offer.invoices.each do |invoice| %>
+            <%= invoice.pdf_name %><br>
           <% end %>
 
         </div>
 
-        <div class="col-md-1 text-center">
-
-          <% if offer.has_final %>
-            <%= offer.invoices.is_final.count %>
-          <% end %>
-
         </div>
+      </li>
 
-      <div class="col-md-2">
-        <% offer.invoices.each do |invoice| %>
-          <%= invoice.pdf_name %><br>
-        <% end %>
-
-      </div>
-
-      </div>
-    </li>
-
+    <% end %>
   <% end %>
-
 <% end %>
 
 </ul>
 
-
-
-
-
 <hr>
 
-<ul class="list-group more-padding">
-  <li class="list-group-item">
+<ul class="list-group">
+  <li class="list-group-item list-group-item-warning">
+    <strong>Offres LLN</strong>
+  </li>
+
+
+  <li class="list-group-item list-group-item-warning">
     <div class="row">
       <strong>
+        <div class="col-md-1">
+          N° Offre
+        </div>
+
         <div class="col-md-2">
-          <%= t("menu.events") %>
+          Evénement
         </div>
 
-        <div class="col-md-2 text-center">
-          <%= t("event.organizer") %>
-        </div>
-
-        <div class="col-md-1 text-center">
-          <%= t("return.delivery") %>
+        <div class="col-md-2">
+          Organisateur
         </div>
 
         <div class="col-md-1 text-center">
-          <%= t("return.return") %>
+          Retours
         </div>
 
-        <div class="col-md-2 text-center">
-          <%= t("menu.washes") %>
+        <div class="col-md-1 text-center">
+          Lavages
         </div>
 
-        <div class="col-md-2 text-center">
-          <%= t("menu.sortings") %>
+        <div class="col-md-1 text-center">
+          Rangement
         </div>
 
-        <div class="col-md-2 text-center">
-          
+        <div class="col-md-1 text-center">
+          Accompte
+        </div>
+
+        <div class="col-md-1 text-center">
+          Finale
+        </div>
+
+        <div class="col-md-2">
+          N° Factures
         </div>
       </strong>
     </div>
   </li>
 
+<% @offers.each do |offer| %>
 
+  <% if offer.lln_daily %>
+
+    <% if offer.ready_for_invoice == true %>
 
       <li class="list-group-item">
         <div class="row">
 
+          <div class="col-md-1">
+            <%= offer.id %>
+          </div>
           <div class="col-md-2">
+            <%= offer.event.event_name %>
           </div>
 
           <div class="col-md-2">
+            <%= offer.organizer.full_name %>
           </div>
 
           <div class="col-md-1 text-center">
+            <%= offer.return_boxes.count %>
           </div>
 
           <div class="col-md-1 text-center">
+            <%= offer.washes.count %>
           </div>
 
           <div class="col-md-1 text-center">
+            <%= offer.sortings.count %>
           </div>
 
           <div class="col-md-1 text-center">
+            
+            <% if offer.has_deposit %>
+              <%= offer.invoices.is_deposit.count %>
+            <% end %>
+
           </div>
 
           <div class="col-md-1 text-center">
+
+            <% if offer.has_final %>
+              <%= offer.invoices.is_final.count %>
+            <% end %>
+
           </div>
 
-          <div class="col-md-1 text-center">
-          </div>
+        <div class="col-md-2">
+          <% offer.invoices.each do |invoice| %>
+            <%= invoice.pdf_name %><br>
+          <% end %>
 
-          <div class="col-md-2 text-center">
-
-
-     
-          </div>
+        </div>
 
         </div>
       </li>
 
+    <% end %>
+  <% end %>
+<% end %>
+
 </ul>
-
-<hr>
-
