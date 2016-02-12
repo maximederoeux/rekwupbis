@@ -123,6 +123,8 @@ fr:
         is_shot: "Shot"
         is_empty: "Vide"
         is_corona: "Corona"
+        is_age: "AGE Namur"
+        is_champagne: "Champagne"
       boxdetail:
         article_id: "Nom de l'article"
         box_article_quantity: "Quantité dans la caisse"

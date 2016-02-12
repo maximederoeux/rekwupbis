@@ -113,7 +113,7 @@
     <li class="list-group-item">
       <div class="row">
         <strong>
-          <div class="col-md-2">
+          <div class="col-md-1">
 
             <% if @box.is_cc %>
 
@@ -122,7 +122,7 @@
             <% end %>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-1">
 
             <% if @box.is_ep %>
 
@@ -131,7 +131,7 @@
             <% end %>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-1">
 
             <% if @box.is_eco %>
 
@@ -140,7 +140,7 @@
             <% end %>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-1">
 
             <% if @box.is_wine %>
 
@@ -149,7 +149,7 @@
             <% end %>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-1">
 
             <% if @box.is_cava %>
 
@@ -158,7 +158,16 @@
             <% end %>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-1">
+
+            <% if @box.is_champagne %>
+
+              <%= t("article.is_champagne") %>
+                
+            <% end %>
+          </div>
+
+          <div class="col-md-1">
 
             <% if @box.is_shot %>
 
@@ -265,7 +274,11 @@
           </div>
 
           <div class="col-md-2">
+            <% if @box.is_age %>
 
+              <%= t("article.is_age") %>
+                
+            <% end %>
           </div>
 
           <div class="col-md-2">

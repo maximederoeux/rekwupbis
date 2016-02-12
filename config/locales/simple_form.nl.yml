@@ -123,6 +123,8 @@ nl:
         is_shot: "Shot"
         is_empty: "Leeg"
         is_corona: "Corona"
+        is_age: "AGE Namur"
+        is_champagne: "Champagne"
       boxdetail:
         article_id: "Artikelnaam"
         box_article_quantity: "Kwantiteit in de doos"
