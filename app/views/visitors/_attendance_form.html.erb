@@ -50,14 +50,15 @@
 
 
 
-									<% if current_user.attendances.any? %>
+									<% if user.attendances.any? %>
 
 										<% if @attendances.where(:user_id => user.id).last.start_time.present? && @attendances.where(:user_id => user.id).last.end_time.blank? %>
 
 											<h4><%= t("attendance.now_in") %></h4>
 
-											<h3><%= t("attendance.last_in") %><%= @attendances.where(:user_id => user.id).last.start_time.strftime("%d/%m/%Y") %><br>
-											<%= t("word.at") %><%= @attendances.where(:user_id => user.id).last.start_time.strftime("%H:%M") %></h3>
+											<h3><%= t("attendance.last_in") %><%= @attendances.where(:user_id => user.id).last.start_time.strftime("%d/%m/%Y") if @attendances.where(:user_id => user.id).last.start_time.present? %><br>
+
+											<%= t("word.at") %><%= @attendances.where(:user_id => user.id).last.start_time.strftime("%H:%M") if @attendances.where(:user_id => user.id).last.start_time.present? %></h3>
 
 
 											<%= simple_form_for(@attendances.where(:user_id => user.id).last) do |f| %>
@@ -73,8 +74,8 @@
 
 											<h4><%= t("attendance.now_out") %></h4>
 
-											<h3><%= t("attendance.last_out") %><%= @attendances.where(:user_id => user.id).last.end_time.strftime("%d/%m/%Y") %><br>
-											<%= t("word.at") %><%= @attendances.where(:user_id => user.id).last.end_time.strftime("%H:%M") %></h3>
+											<h3><%= t("attendance.last_out") %><%= @attendances.where(:user_id => user.id).last.end_time.strftime("%d/%m/%Y") if @attendances.where(:user_id => user.id).last.end_time.present? %><br>
+											<%= t("word.at") %><%= @attendances.where(:user_id => user.id).last.end_time.strftime("%H:%M") if @attendances.where(:user_id => user.id).last.end_time.present? %></h3>
 
 
 
