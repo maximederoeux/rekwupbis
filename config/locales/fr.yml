@@ -82,9 +82,9 @@ fr:
     article_content: "Contenance"
     article_type: "Type"
     article_category: "Categorie"
-    quantity_bigbox: "Quantité par grande caisse"
-    quantity_smallbox: "Quantité par petite caisse"
-    quantity_pile: "Quantité par pile"
+    quantity_bigbox: "Qtté grande caisse"
+    quantity_smallbox: "Qtté petite caisse"
+    quantity_pile: "Pile grande caisse"
     new_article: "Créer un article"
     listing_articles: "Tous les articles"
     selected_articles: "Articles sélectionnés"
@@ -124,6 +124,9 @@ fr:
     is_litre: "100 CL"
     transport: "Transport"
     brand: "Marque"
+    is_age: "AGE Namur"
+    is_champagne: "Champagne"
+    pile_smallbox: "Pile petite caisse"
 
   attendance:
     in: "Entrée"

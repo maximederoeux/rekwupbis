@@ -81,9 +81,9 @@ nl:
     article_content: "Inhoud"
     article_type: "Type"
     article_category: "Categorie"
-    quantity_bigbox: "Kwantiteit per groot doos"
-    quantity_smallbox: "Kwantiteit per klein doos"
-    quantity_pile: "Kwantitieit per stapel"
+    quantity_bigbox: "Kwant. groot doos"
+    quantity_smallbox: "Kwant. klein doos"
+    quantity_pile: "Stapel groot doos"
     new_article: "Een artikel maken"
     listing_articles: "Alle artikels"
     selected_articles: "Gekozen artikels"
@@ -123,6 +123,9 @@ nl:
     is_litre: "100 CL"
     transport: "Vervoer"
     brand: "Merk"
+    is_age: "AGE Namur"
+    is_champagne: "Champagne"
+    pile_smallbox: "Stapel klein doos"
 
   attendance:
     in: "Inkomen"

@@ -67,7 +67,7 @@ fr:
         article_category: "Categorie"
         quantity_bigbox: "Qtté grande caisse"
         quantity_smallbox: "Qtté petite caisse"
-        quantity_pile: "Qtté pile"
+        quantity_pile: "Pile grande caisse"
         is_washable: "Lavable"
         washing_price: "Lavage €"
         handwash_price: "Lavage Manuel €"
@@ -96,6 +96,9 @@ fr:
         is_fifty: "50 CL"
         is_litre: "100 CL"
         transport: "Transport"
+        age: "AGE Namur"
+        champagne: "Champagne"
+        pile_smallbox: "Pile petite caisse"
       box:
         box_name: "Nom de la caisse"
         bigbox: "Grande caisse"

@@ -82,9 +82,9 @@ en:
     article_content: "Content"
     article_type: "Type"
     article_category: "Category"
-    quantity_bigbox: "Quantity in big box"
-    quantity_smallbox: "Quantity in small box"
-    quantity_pile: "Quantity in pile"
+    quantity_bigbox: "Qtty big box"
+    quantity_smallbox: "Qtty small box"
+    quantity_pile: "Big box pile"
     new_article: "Create an article"
     listing_articles: "Listing Articles"
     selected_articles: "Selected articles"
@@ -126,6 +126,9 @@ en:
     brand: "Brand"
     is_namur: "AGE Namur"
     special: "Special Clients"
+    is_age: "AGE Namur"
+    is_champagne: "Champagne"
+    pile_smallbox: "Small box pile"
 
   attendance:
     in: "Clock in"

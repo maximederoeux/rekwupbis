@@ -75,7 +75,7 @@
 
         <li class="list-group-item">
           <div class="row text-center")>
-            <div class="col-md-2">
+            <div class="col-md-1">
               <% if @article.is_cc %>
                 <strong>
                   <%= t("article.is_cc") %>
@@ -83,7 +83,7 @@
               <% end %>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <% if @article.is_ep %>
                   <strong>
                     <%= t("article.is_ep") %>
@@ -91,7 +91,7 @@
                 <% end %>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <% if @article.is_eco %>
                   <strong>
                     <%= t("article.is_eco") %>
@@ -99,14 +99,14 @@
                 <% end %>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <% if @article.is_wine %>
                   <strong>
                     <%= t("article.is_wine") %>
                   </strong>
                 <% end %>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <% if @article.is_cava %>
                   <strong>
                     <%= t("article.is_cava") %>
@@ -114,7 +114,15 @@
                 <% end %>
             </div>  
 
-            <div class="col-md-2">
+            <div class="col-md-1">
+                <% if @article.champagne %>
+                  <strong>
+                    <%= t("article.is_champagne") %>
+                  </strong>
+                <% end %>
+            </div>  
+
+            <div class="col-md-1">
                 <% if @article.is_shot %>
                   <strong>
                     <%= t("article.is_shot") %>
@@ -182,7 +190,7 @@
 
         <li class="list-group-item">
           <div class="row text-center")>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <% if @article.rekwup_cup %>
                 <strong>
                   <%= t("article.rekwup_cup") %>
@@ -190,7 +198,7 @@
               <% end %>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <% if @article.is_lln %>
                   <strong>
                     <%= t("article.is_lln") %>
@@ -198,7 +206,7 @@
                 <% end %>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <% if @article.is_bep %>
                   <strong>
                     <%= t("article.is_bep") %>
@@ -206,7 +214,15 @@
                 <% end %>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
+                <% if @article.age %>
+                  <strong>
+                    <%= t("article.is_age") %>
+                  </strong>
+                <% end %>
+            </div>
+
+            <div class="col-md-2">
                 <% if @article.is_patro %>
                   <strong>
                     <%= t("article.is_patro") %>
@@ -228,14 +244,14 @@
               </strong>
               <%= @article.article_content %> CL
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <strong>
                 <%= t("article.quantity_bigbox") %><br>
               </strong>
               <%= @article.quantity_bigbox %>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
               <strong>
                 <%= t("article.quantity_smallbox") %><br>
               </strong>
@@ -248,6 +264,14 @@
               </strong>
               <%= @article.quantity_pile %>
             </div>
+
+            <div class="col-md-2">
+              <strong>
+                <%= t("article.pile_smallbox") %><br>
+              </strong>
+              <%= @article.pile_smallbox %>
+            </div>
+
 
             <div class="col-md-2">
               <strong>
