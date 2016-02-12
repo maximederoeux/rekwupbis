@@ -21,6 +21,7 @@
           
                 <strong>
                   <%= sorting.return_box.delivery.offer.event.event_name %><br>
+
                     <% if sorting.return_box.delivery.offer.organizer.is_lln %>
                       <%= sorting.return_box.delivery.offer.organizer.name %><br>
                     <% end %>
@@ -31,6 +32,7 @@
                   
                   <br>
                   <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
+                  
                   <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
 
 	                  <% if sorting.return_box.washes.where.not(:start_time => nil).count == 0 %>
