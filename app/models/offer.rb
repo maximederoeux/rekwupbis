@@ -243,4 +243,98 @@ class Offer < ActiveRecord::Base
 		sent_boxes
 	end
 
+
+	def fully_confirmed
+		if client_confirmation == true && admin_confirmation == true
+			true
+		else
+			false
+		end	
+	end
+
+	def has_delivery
+		if self.delivery.present?
+			true
+		else
+			false
+		end
+	end
+
+	def has_return
+		if has_delivery == true
+			if self.delivery.return_boxes.any?
+				true
+			else
+				false
+			end
+		else
+			false
+		end
+	end
+
+	def has_sorting
+		if self.sortings.any?
+			true
+		else
+			false
+		end
+	end
+
+	def has_wash
+		if self.washes.any?
+			true
+		else
+			false
+		end
+	end
+
+	def full_process
+		if self.has_return && self.has_sorting && self.has_wash
+			true
+		else
+			false
+		end		
+	end
+
+	def ready_for_invoice
+		if full_process == true
+			if self.return_boxes.last.total_return >= 0 && self.washes.last.end_time.present? && self.sortings.last.end_time.present?
+				true
+			else
+				false
+			end
+		end	
+	end
+
+	def has_invoice
+		if ready_for_invoice == true
+			if self.invoices.any?
+				true
+			else
+				false
+			end
+		end
+	end
+
+	def has_deposit
+		if has_invoice == true
+			if self.invoices.is_deposit.any?
+				true
+			else
+				false
+			end
+		end
+	end
+
+	def has_final
+		if has_invoice == true
+			if self.invoices.is_final.any?
+				true
+			else
+				false
+			end
+		end
+	end
+
+
 end

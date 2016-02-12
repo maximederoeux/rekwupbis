@@ -27,6 +27,41 @@ class ReturnBox < ActiveRecord::Base
 		self.delivery.offer	
 	end
 
+	def total_clean
+		total_clean = 0
+		self.return_details.each do |detail|
+			if detail.clean.present?
+				total_clean += detail.clean
+			end
+		end
+		total_clean
+	end
+
+	def total_dirty
+		total_dirty = 0
+		self.return_details.each do |detail|
+			if detail.dirty.present?
+				total_dirty += detail.dirty
+			end
+		end
+		total_dirty
+	end
+
+	def total_sealed
+		total_sealed = 0
+		self.return_details.each do |detail|
+			if detail.sealed.present?
+				total_sealed += detail.sealed
+			end
+		end
+		total_sealed
+	end
+
+	def total_return
+		total_clean + total_dirty + total_sealed
+	end
+
+
 	def clean_boxes(box)
 		clean_boxes = 0
 		self.return_details.where(:box_id => box.id).each do |detail|

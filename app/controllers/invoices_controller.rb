@@ -6,8 +6,7 @@ class InvoicesController < ApplicationController
   # GET /invoices.json
   def index
     @invoices = Invoice.all
-    @confirmedoffers = Offer.where(:client_confirmation => true)
-    @confirmed = @confirmedoffers.where(:admin_confirmation => true)
+    @offers = Offer.all.order('id ASC')
     @new_invoice = Invoice.new
     @new_offer = Offer.new
   end

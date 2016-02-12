@@ -62,8 +62,6 @@
   <th>Total TVAC</th>
   </tr>
 
-  <% if @invoice.sorting_details.where.not(clean: nil).any? %>
-
   <tr>
   <td><strong>Lavés</strong></td>
   </tr>
@@ -276,7 +274,7 @@
 
 <% @boxes.each do |box| %>
 
-<% if @invoice.offer.sent_boxes(box) >= 0 %>
+
 
 <%= box.box_name %>
 <%= @invoice.offer.sent_boxes(box) %>

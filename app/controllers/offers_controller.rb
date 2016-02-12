@@ -5,7 +5,7 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
-    @offers = Offer.all
+    @offers = Offer.all.order('id ASC')
     @events = Event.all
     @user = current_user
 

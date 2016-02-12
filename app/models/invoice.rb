@@ -11,6 +11,8 @@ class Invoice < ActiveRecord::Base
 
 	scope :debit, lambda {where(:doc_invoice => true)}
 	scope :credit_note, lambda {where(:doc_credit => true)}
+	scope :is_deposit, lambda {where(:confirmation => true)}
+	scope :is_final, lambda {where(:after_event => true)}
 
 
 
@@ -51,6 +53,23 @@ class Invoice < ActiveRecord::Base
 			1
 		end
 	end
+
+	def is_deposit
+		if confirmation == true
+			true
+		else
+			false
+		end
+	end
+
+	def is_final
+		if after_event == true
+			true
+		else
+			false
+		end
+	end
+
 
 	def clean_amount
 		clean_amount = 0

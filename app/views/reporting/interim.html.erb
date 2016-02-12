@@ -4,6 +4,8 @@
 
 		<% User.interim.each do |user| %>
 
+		<% if user.attendances.last_week.any? %>
+
 			<li class="list-group-item list-group-item-info">
 				<strong><%= user.full_name %></strong>
 			</li>
@@ -125,6 +127,7 @@
 					</li>
 				<% end %>
 
+		<% end %>
 		<% end %>
 
 	</ul>

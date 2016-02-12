@@ -8,6 +8,110 @@
               <%= f.submit t("invoice.new_lln"), class: "btn btn-info btn-lg btn-block", data: { confirm: t("menu.are_you_sure")} %>
             <% end %>
 
+<hr>
+
+<ul class="list-group">
+
+  <li class="list-group-item list-group-item-warning">
+    <div class="row">
+      <div class="col-md-2">
+        Evénement
+      </div>
+
+      <div class="col-md-2">
+        Organisateur
+      </div>
+
+      <div class="col-md-1">
+        Retours
+      </div>
+
+      <div class="col-md-1">
+        Lavages
+      </div>
+
+      <div class="col-md-1">
+        Rangement
+      </div>
+
+      <div class="col-md-1">
+        Accompte
+      </div>
+
+      <div class="col-md-1">
+        Finale
+      </div>
+
+      <div class="col-md-3">
+        N° Factures
+      </div>
+
+    </div>
+  </li>
+
+<% @offers.each do |offer| %>
+
+  <% if offer.ready_for_invoice == true %>
+
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-md-2">
+          <%= offer.event.event_name %>
+        </div>
+
+        <div class="col-md-2">
+          <%= offer.event.organizer.full_name %>
+        </div>
+
+        <div class="col-md-1">
+          <%= offer.return_boxes.count %>
+        </div>
+
+        <div class="col-md-1">
+          <%= offer.washes.count %>
+        </div>
+
+        <div class="col-md-1">
+          <%= offer.sortings.count %>
+        </div>
+
+        <div class="col-md-1">
+          
+          <% if offer.has_deposit %>
+            <%= offer.invoices.is_deposit.count %>
+          <% end %>
+
+        </div>
+
+        <div class="col-md-1">
+
+          <% if offer.has_final %>
+            <%= offer.invoices.is_final.count %>
+          <% end %>
+
+        </div>
+
+      <div class="col-md-3">
+        <% offer.invoices.each do || %>
+
+        <% end %>
+        
+      </div>
+
+      </div>
+    </li>
+
+  <% end %>
+
+<% end %>
+
+</ul>
+
+
+
+
+
+<hr>
 
 <ul class="list-group more-padding">
   <li class="list-group-item">
@@ -44,84 +148,44 @@
     </div>
   </li>
 
-<% @confirmed.each do |offer| %>
 
-  <% if offer.organizer.is_lln.blank? %>
-
-    <% if offer.return_boxes.any? && offer.sortings.any? && offer.sortings.last.end_time.present? && offer.washes.last.end_time.present? && offer.delivery.gone_time.present? && offer.return_boxes.last.return_time.present? %>
 
       <li class="list-group-item">
         <div class="row">
 
           <div class="col-md-2">
-            <%= offer.event.event_name %>
           </div>
 
           <div class="col-md-2">
-            <%= offer.organizer.full_name %>
           </div>
 
           <div class="col-md-1 text-center">
-            <%= offer.delivery.gone_time.strftime("%d/%m/%Y") %>
           </div>
 
           <div class="col-md-1 text-center">
-            <%= offer.return_boxes.last.return_time.strftime("%d/%m/%Y") %>
           </div>
 
           <div class="col-md-1 text-center">
-            <%= offer.washes.count %>
           </div>
 
           <div class="col-md-1 text-center">
-            <%= offer.washes.last.end_time.strftime("%d/%m/%Y") %>
           </div>
 
           <div class="col-md-1 text-center">
-            <%= offer.sortings.count %>
           </div>
 
           <div class="col-md-1 text-center">
-            <%= offer.sortings.last.end_time.strftime("%d/%m/%Y") %>
           </div>
 
           <div class="col-md-2 text-center">
 
-            <% if Invoice.where(:offer_id => offer.id).any? %>
 
-              <% if Invoice.where(:offer_id => offer.id).first.doc_invoice %>
-                <%= t("invoice.invoice") %>
-              <% elsif Invoice.where(:offer_id => offer.id).first.doc_credit %>
-                <%= t("invoice.credit") %>
-              <% end %>
-                - <%= Invoice.where(:offer_id => offer.id).first.created_at.strftime("%Y") %> - <%= Invoice.where(:offer_id => offer.id).first.doc_number %>
-
-                <%= link_to invoice_path(Invoice.where(:offer_id => offer.id).first) do %>
-                  <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
-                <% end %>
-
-            <% else %>
-
-              <%= simple_form_for(@new_invoice) do |f| %>
-                <%= f.error_notification %>
-
-                  <%= f.hidden_field :offer_id, :value => offer.id %>
-                  <%= f.hidden_field :client_id, :value => offer.organizer.id %>
-                  <%= f.hidden_field :doc_invoice, :value => true %>
-
-                  <%= f.button :submit, class: "btn btn-info" %>
-
-              <% end %>
-
-            <% end %>
-
+     
           </div>
 
         </div>
       </li>
-      <% end %>
-  <% end %>
-<% end %>
+
 </ul>
 
 <hr>
