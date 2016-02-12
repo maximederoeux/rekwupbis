@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212073942) do
+ActiveRecord::Schema.define(version: 20160212084241) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -181,6 +181,7 @@ ActiveRecord::Schema.define(version: 20160212073942) do
     t.boolean  "is_lln"
     t.integer  "lln_year"
     t.decimal  "deposit_event"
+    t.boolean  "is_bep"
   end
 
   create_table "invoices", force: :cascade do |t|

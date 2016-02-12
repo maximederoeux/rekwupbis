@@ -282,6 +282,8 @@ fr:
     edit_yours: "Modifier les informations de votre événement"
     confirmation_warning: "Si vous confirmez cette offre, vous recevrez une facture d'accompte qui sera déduite de votre facture finale après l'événement."
     confirmation_question: "Si vous avez des questions, n'hésitez pas à nous contacter par mail (info@rekwup.be) ou par téléphone (0487/698373)."
+    is_bep: "Evénement BEP"
+    is_not_bep: "Plus BEP"
 
 
   invoice:

@@ -1,0 +1,82 @@
+        <!-- Large modal -->
+        <button type="button" class="btn btn-lg btn-default btn-block" data-toggle="modal" data-target="#is_bep_<%= @event.id %>">
+
+          Evénement BEP?
+
+
+        </button>
+
+        <div class="modal fade" id="is_bep_<%= @event.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+
+
+                <div class="modal-header">
+
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                  </button>
+
+                    <h4 class="modal-title" id="myModalLabel">
+
+                           <%= @event.event_name %><br>
+                           <%= @event.organizer.full_name %>                   
+                     
+                    </h4>
+                </div>
+
+                <div class="modal-body">
+                	<div class="text-center">
+
+                		<% if @event.is_bep == nil %>
+
+	                		<%= simple_form_for(@event) do |f| %>
+						      			<%= f.error_notification %>
+						    				<%= f.hidden_field :is_bep, :value => true %>
+	                		<%= f.submit t("event.is_bep"), class: "btn btn-info" %>
+
+	                		<% end %>
+
+                		<% elsif @event.is_bep == false %>
+
+	                		<%= simple_form_for(@event) do |f| %>
+						      			<%= f.error_notification %>
+						    				<%= f.hidden_field :is_bep, :value => true %>
+	                		<%= f.submit t("event.is_bep"), class: "btn btn-info" %>
+
+	                		<% end %>
+
+                		<% elsif @event.is_bep == true %>
+
+	                		<%= simple_form_for(@event) do |f| %>
+						      			<%= f.error_notification %>
+						    				<%= f.hidden_field :is_bep, :value => false %>
+	                		<%= f.submit t("event.is_not_bep"), class: "btn btn-info" %>
+
+	                		<% end %>               			
+
+                		<% end %>
+
+                	</div>
+
+                	
+                 
+                </div>
+
+                <div class="modal-footer">
+
+                  <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <%= t("menu.close") %>
+                  </button>
+
+                    
+    
+
+                </div>
+
+  
+       
+
+            </div>
+          </div>
+        </div>

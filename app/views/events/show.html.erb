@@ -30,16 +30,46 @@
   <% end %>
   
     <ul class="list-group">
-      <li class="list-group-item list-group-item-warning"><h5><strong><%= t("event.your_event") %> - Ref. <%= @event.created_at.strftime("%Y") %>-<%= @event.id %></strong></h5>
+      <li class="list-group-item list-group-item-warning">
+        <div class="row">
+          <div class="col-md-6">
 
-          <% if current_user.admin %>
-            <%= simple_form_for(@new_offer) do |f| %>
-              <%= f.error_notification %>
-              <%= f.hidden_field :event_id, :value => @event.id %>
-              <%= f.hidden_field :organizer_id, :value => @event.organizer_id %>
-              <%= f.submit t("offer.create"), class: "btn btn-success" %>
-            <% end %>
-          <% end %>
+            <h5><strong>
+              <%= t("event.your_event") %> - Ref. <%= @event.created_at.strftime("%Y") %>-<%= @event.id %>
+            </strong></h5>
+
+              <% if current_user.admin %>
+                <%= simple_form_for(@new_offer) do |f| %>
+                  <%= f.error_notification %>
+                  <%= f.hidden_field :event_id, :value => @event.id %>
+                  <%= f.hidden_field :organizer_id, :value => @event.organizer_id %>
+                  <%= f.submit t("offer.create"), class: "btn btn-success" %>
+                <% end %>
+              <% end %>
+
+          </div>
+
+          <div class="col-md-3">
+            <% if current_user.admin %>
+                <% if @event.is_bep %>
+
+                  <%= t("event.is_bep") %>
+
+                <% elsif @event.is_lln %>
+
+                  <%= t("user.is_lln") %>
+
+                <% end %>
+              <% end %>
+          </div>
+
+          <div class="col-md-3">
+            <% if current_user.admin %>
+              <%= render 'is_bep' %>
+              <% end %>
+          </div>
+        </div>
+
       </li>
 
 
