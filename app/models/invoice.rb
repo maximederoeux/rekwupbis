@@ -18,7 +18,11 @@ class Invoice < ActiveRecord::Base
 
 	def pdf_name
 		if doc_invoice
-			"Facture #{created_at.strftime("%Y")} - #{doc_number}"
+			if is_deposit
+			"Facture #{created_at.strftime("%Y")} - #{doc_number} (A)"
+			elsif is_final
+			"Facture #{created_at.strftime("%Y")} - #{doc_number} (F)"				
+			end
 		elsif doc_credit
 			"Note de crédit #{created_at.strftime("%Y")} - #{doc_number}"
 		end

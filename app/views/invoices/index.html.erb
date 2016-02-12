@@ -14,38 +14,43 @@
 
   <li class="list-group-item list-group-item-warning">
     <div class="row">
-      <div class="col-md-2">
-        Evénement
-      </div>
+      <strong>
+        <div class="col-md-1">
+          N° Offre
+        </div>
 
-      <div class="col-md-2">
-        Organisateur
-      </div>
+        <div class="col-md-2">
+          Evénement
+        </div>
 
-      <div class="col-md-1">
-        Retours
-      </div>
+        <div class="col-md-2">
+          Organisateur
+        </div>
 
-      <div class="col-md-1">
-        Lavages
-      </div>
+        <div class="col-md-1 text-center">
+          Retours
+        </div>
 
-      <div class="col-md-1">
-        Rangement
-      </div>
+        <div class="col-md-1 text-center">
+          Lavages
+        </div>
 
-      <div class="col-md-1">
-        Accompte
-      </div>
+        <div class="col-md-1 text-center">
+          Rangement
+        </div>
 
-      <div class="col-md-1">
-        Finale
-      </div>
+        <div class="col-md-1 text-center">
+          Accompte
+        </div>
 
-      <div class="col-md-3">
-        N° Factures
-      </div>
+        <div class="col-md-1 text-center">
+          Finale
+        </div>
 
+        <div class="col-md-2">
+          N° Factures
+        </div>
+      </strong>
     </div>
   </li>
 
@@ -55,6 +60,10 @@
 
     <li class="list-group-item">
       <div class="row">
+
+        <div class="col-md-1">
+          <%= offer.id %>
+        </div>
         <div class="col-md-2">
           <%= offer.event.event_name %>
         </div>
@@ -63,19 +72,19 @@
           <%= offer.event.organizer.full_name %>
         </div>
 
-        <div class="col-md-1">
+        <div class="col-md-1 text-center">
           <%= offer.return_boxes.count %>
         </div>
 
-        <div class="col-md-1">
+        <div class="col-md-1 text-center">
           <%= offer.washes.count %>
         </div>
 
-        <div class="col-md-1">
+        <div class="col-md-1 text-center">
           <%= offer.sortings.count %>
         </div>
 
-        <div class="col-md-1">
+        <div class="col-md-1 text-center">
           
           <% if offer.has_deposit %>
             <%= offer.invoices.is_deposit.count %>
@@ -83,7 +92,7 @@
 
         </div>
 
-        <div class="col-md-1">
+        <div class="col-md-1 text-center">
 
           <% if offer.has_final %>
             <%= offer.invoices.is_final.count %>
@@ -91,11 +100,11 @@
 
         </div>
 
-      <div class="col-md-3">
-        <% offer.invoices.each do || %>
-
+      <div class="col-md-2">
+        <% offer.invoices.each do |invoice| %>
+          <%= invoice.pdf_name %><br>
         <% end %>
-        
+
       </div>
 
       </div>
