@@ -101,6 +101,18 @@
 
             <% if offer.has_final %>
               <%= offer.invoices.is_final.count %>
+            <% else %>
+              <%= simple_form_for(@new_invoice) do |f| %>
+                <%= f.error_notification %>
+
+                <%= f.hidden_field :offer_id, :value => offer.id %>
+                <%= f.hidden_field :client_id, :value => offer.organizer.id %>
+                <%= f.hidden_field :doc_invoice, :value => true %>
+                <%= f.hidden_field :after_event, :value => true %>
+
+              <%= f.submit t("invoice.new"), class: "btn btn-info" %>
+              <% end %>
+
             <% end %>
 
           </div>
@@ -215,6 +227,7 @@
 
             <% if offer.has_final %>
               <%= offer.invoices.is_final.count %>
+
             <% end %>
 
           </div>

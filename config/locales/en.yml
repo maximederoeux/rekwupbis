@@ -297,6 +297,7 @@ en:
     client: "Client"
     event: "Event"
     new_lln: "New LLN invoice"
+    new: "Bill"
 
   lln:
     id: "Order number"

@@ -292,6 +292,7 @@ nl:
     client: "Klant"
     event: "Evenement"
     new_lln: "Nieuwe LLN rekening"
+    new: "Laden"
 
   lln:
     id: "Order nummer"

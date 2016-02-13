@@ -17,12 +17,13 @@ class InvoicesController < ApplicationController
     @offer = @invoice.offer
     @prices = Price.all
     @regular_prices = @prices.where(:regular => true)
-    @boxes= Box.all.order('box_name ASC')
+    @boxes = Box.all.order('box_name ASC')
+    @articles = Article.all.order('article_name ASC')
 
     @offer_boxes = OfferBox.all
     @thisofferboxes = @offer_boxes.where(:offer_id => @offer.id)
     @boxdetails = @invoice.boxdetails
-    @articles = @invoice.articles
+
 
     respond_to do |format|
       format.html

@@ -2,6 +2,7 @@ class Invoice < ActiveRecord::Base
 	belongs_to :client, :class_name => "User"
 	belongs_to :offer
 
+	has_many :sortings, through: :offer
 	has_many :sorting_details, through: :offer
 	has_many :offer_articles, through: :offer
 	has_many :offer_boxes, through: :offer
@@ -136,7 +137,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def sent_articles(article)
-		self.boxdetails.where(:article_id => article.id).first.box_article_quantity * self.offer_boxes.where(:box_id => self.boxdetails.where(:article_id => article.id).first.box_id).first.quantity
+		self.offer.sent_article(article)
 	end
 
 	def deposit_sent_articles(article)
@@ -183,5 +184,112 @@ class Invoice < ActiveRecord::Base
 	def total_tva
 		total_tvac - total_htva
 	end
+
+	def sent_boxes(box)
+		self.offer.sent_boxes(box)
+	end
+
+	def return_clean(box)
+		return_clean = 0
+		self.offer.delivery.return_boxes.each do |return_box|
+			return_clean += return_box.clean_boxes(box)
+		end
+		return_clean
+	end
+
+	def return_dirty(box)
+		return_dirty = 0
+		self.offer.delivery.return_boxes.each do |return_box|
+			return_dirty += return_box.dirty_boxes(box)
+		end
+		return_dirty
+	end
+
+	def return_sealed(box)
+		return_sealed = 0
+		self.offer.delivery.return_boxes.each do |return_box|
+			return_sealed += return_box.sealed_boxes(box)
+		end
+		return_sealed
+	end
+
+	def total_return(box)
+		return_clean(box) + return_dirty(box) + return_sealed(box)
+	end
+
+	def difference_delivery(box)
+		sent_boxes(box) - total_return(box)
+	end
+
+	def clean_return(article)
+		clean_return = 0
+		self.offer.sortings.each do |sorting|
+		 clean_return += sorting.clean_article_return(article) if sorting.clean_article_return(article)
+		end
+		clean_return
+	end
+
+	def dirty_return(article)
+		dirty_return = 0
+		self.offer.sortings.each do |sorting|
+		 dirty_return += sorting.dirty_article_return(article) if sorting.dirty_article_return(article)
+		end
+		dirty_return
+	end
+
+	def sealed_return(article)
+		sealed_return = 0
+		self.offer.sortings.each do |sorting|
+		 sealed_return += sorting.sealed_article_return(article) if sorting.sealed_article_return(article)
+		end
+		sealed_return
+	end
+
+	def washed_total(article)
+		washed_total = 0
+		self.offer.sortings.each do |sorting|
+			washed_total += sorting.global_clean_sum(article)
+		end
+		washed_total	
+	end
+
+	def very_dirty_total(article)
+		very_dirty_total = 0
+		self.offer.sortings.each do |sorting|
+			very_dirty_total += sorting.global_very_dirty_sum(article)
+		end
+		very_dirty_total	
+	end
+
+	def broken_total(article)
+		broken_total = 0
+		self.offer.sortings.each do |sorting|
+			broken_total += sorting.global_broken_sum(article)
+		end
+		broken_total	
+	end
+
+	def handling_total(article)
+		handling_total = 0
+		self.offer.sortings.each do |sorting|
+			handling_total += sorting.global_handling_sum(article)
+		end
+		handling_total	
+	end
+
+	def total_back(article)
+		clean_return(article) + washed_total(article) + very_dirty_total(article) + handling_total(article)
+	end
+
+	def right_wash_price(article)
+		if Price.where(:article_id => article.id).any?
+			if Price.where(:article_id => article.id).where(:user_id => self.client.id).any?
+				Price.where(:article_id => article.id).where(:user_id => self.client.id).last.washing if Price.where(:article_id => article.id).where(:user_id => self.client.id).last.washing.present?
+			else
+				Price.where(:article_id => article.id).last.washing if Price.where(:article_id => article.id).last.washing.present?
+			end
+		end
+	end
+
 
 end

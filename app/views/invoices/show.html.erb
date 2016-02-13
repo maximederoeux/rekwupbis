@@ -1,48 +1,22 @@
 <div class="invoice-background">
 
-<% if @invoice.offer.lln_invoice %>
-
-<%= render 'show_lln' %>
-
-<% else %>
-
-<% if current_user == @invoice.offer.organizer %>
-
-	<% if @invoice.confirmation && @invoice.after_event == nil %>
-
-		<%= render 'deposit_pdf' %>
-
-	<% end %>
-
-	<% if @invoice.after_event && @invoice.confirmation %>
+<% if @invoice.doc_invoice && @invoice.after_event %>
 
 	<%= render 'after_event_pdf' %>
 
-	<% end %>
+<% end %>
+
+<% if @invoice.doc_invoice && @invoice.confirmation %>
+
+	<%= render 'deposit_pdf' %>
 
 <% end %>
 
-<% if current_user.admin %>
+<% if @invoice.offer.lln_invoice %>
 
-	<% if @invoice.confirmation && @invoice.after_event == nil %>
-
-		<%= render 'deposit_pdf' %>
-
-	<% end %>
-
-
-
-	<% if @invoice.after_event && @invoice.confirmation %>
-
-		<%= render 'after_event_pdf' %>
-
-	<% end %>
-
-
+	<%= render 'lln_pdf' %>
 
 <% end %>
 
-
-<% end %>
 
 </div>

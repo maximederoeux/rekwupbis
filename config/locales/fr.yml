@@ -294,6 +294,7 @@ fr:
     client: "Client"
     event: "Evénement"
     new_lln: "Nouvelle facture LLN"
+    new: "Facturer"
 
   lln:
     id: "N° Ordre"
