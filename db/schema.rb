@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212084241) do
+ActiveRecord::Schema.define(version: 20160213073456) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -162,8 +162,8 @@ ActiveRecord::Schema.define(version: 20160212084241) do
     t.boolean  "cupwine"
     t.boolean  "cupcava"
     t.boolean  "cupshot"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "creator_id"
     t.integer  "organizer_id"
     t.boolean  "creatorganizer"
@@ -182,6 +182,7 @@ ActiveRecord::Schema.define(version: 20160212084241) do
     t.integer  "lln_year"
     t.decimal  "deposit_event"
     t.boolean  "is_bep"
+    t.decimal  "deposit_on_site",  precision: 4, scale: 2
   end
 
   create_table "invoices", force: :cascade do |t|

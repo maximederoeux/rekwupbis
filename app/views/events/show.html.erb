@@ -296,10 +296,25 @@
 
     </li>
 
-        <li class="list-group-item list-group-item-info"><h6><strong><%= t("event.event_type2") %></strong></h6></li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <strong><%= t("event.deposit_on_site") %></strong>
+          </div>
+
+          <div class="col-xs-12 col-md-6">
+            <%= number_to_currency(@event.deposit_on_site, :unit => "€", :precision => 2) %>
+          </div>
+
+        </div>
+        </li>
+
+
+
+      <li class="list-group-item list-group-item-info"><h6><strong><%= t("event.event_type2") %></strong></h6></li>
 
       <% if @event.party %>
-        <li class="list-group-item"><%= t("event.party") %></li>
+      <li class="list-group-item"><%= t("event.party") %></li>
       <% end %>
 
       <% if @event.dinner %>

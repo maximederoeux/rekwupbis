@@ -250,6 +250,7 @@ en:
     confirmation_question: "Would you have any question, do not hesitate to contact us by email (info@rekwup.be) or by phone (0487/698373)."
     is_bep: "Evénement BEP"
     is_not_bep: "No more BEP"
+    deposit_on_site: "The deposit price you will pay depends on the price you ask for it during the event. Regular deposit price is 1€"
 
 
   delivery:

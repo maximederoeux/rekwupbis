@@ -59,6 +59,7 @@ fr:
         phone: "Téléphone du contact"
         bar: "Nombre de bars"
         beertap: "Nombre de pompes"
+        deposit_on_site: "Prix de la caution pendant l'événement"
       article:
         article_name: "Nom de l'article"
         article_id: "Code de l'article"

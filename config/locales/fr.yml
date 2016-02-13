@@ -285,6 +285,7 @@ fr:
     confirmation_question: "Si vous avez des questions, n'hésitez pas à nous contacter par mail (info@rekwup.be) ou par téléphone (0487/698373)."
     is_bep: "Evénement BEP"
     is_not_bep: "Plus BEP"
+    deposit_on_site: "La caution que vous paierez dépend du prix que vous en demandez pendant l'événement. La caution normale est de 1€"
 
 
   invoice:

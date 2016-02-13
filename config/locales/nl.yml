@@ -284,6 +284,7 @@ nl:
     confirmation_question: "Indien u vragen hebben, kunt u met ons contact per email (info@rekwup.be) of per telefoon (0487/698373) opnemen ."
     is_bep: "BEP Evenement"
     is_not_bep: "Geen BEP meer"
+    deposit_on_site: "Het garantie prijs dat u zult betalen hangt van het prijs dat u ervoor tijdens het evenement eisen. Het notmale garantie prijs is 1€"
 
   invoice:
     invoice: "Rekening"

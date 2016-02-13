@@ -286,10 +286,245 @@ class Invoice < ActiveRecord::Base
 			if Price.where(:article_id => article.id).where(:user_id => self.client.id).any?
 				Price.where(:article_id => article.id).where(:user_id => self.client.id).last.washing if Price.where(:article_id => article.id).where(:user_id => self.client.id).last.washing.present?
 			else
-				Price.where(:article_id => article.id).last.washing if Price.where(:article_id => article.id).last.washing.present?
+				if Price.where(:article_id => article.id).last.washing.present?
+					Price.where(:article_id => article.id).last.washing
+				else
+					0
+				end
+			end
+		else
+			0
+		end
+	end
+
+	def washed_htva(article)
+		right_wash_price(article) * washed_total(article)	
+	end
+
+	def washed_tvac(article)
+		washed_htva(article) * 1.21
+	end
+
+	def washed_tva(article)
+		washed_tvac(article) - washed_htva(article)
+	end
+
+	def right_handwash_price(article)
+		if Price.where(:article_id => article.id).any?
+			if Price.where(:article_id => article.id).where(:user_id => self.client.id).any?
+				Price.where(:article_id => article.id).where(:user_id => self.client.id).last.handwash if Price.where(:article_id => article.id).where(:user_id => self.client.id).last.handwash.present?
+			else
+				if Price.where(:article_id => article.id).last.handwash.present?
+					Price.where(:article_id => article.id).last.handwash
+				else
+					0
+				end
+			end
+		else
+			0
+		end
+	end
+
+	def handwash_htva(article)
+		right_wash_price(article) * very_dirty_total(article)	
+	end
+
+	def handwash_tvac(article)
+		handwash_htva(article) * 1.21
+	end
+
+	def handwash_tva(article)
+		handwash_tvac(article) - handwash_htva(article)
+	end
+
+	def right_handling_price(article)
+		if Price.where(:article_id => article.id).any?
+			if Price.where(:article_id => article.id).where(:user_id => self.client.id).any?
+				Price.where(:article_id => article.id).where(:user_id => self.client.id).last.handling if Price.where(:article_id => article.id).where(:user_id => self.client.id).last.handling.present?
+			else
+				if Price.where(:article_id => article.id).last.handling.present?
+					Price.where(:article_id => article.id).last.handling
+				else
+					0
+				end
+			end
+		else
+			0
+		end
+	end
+
+	def handling_htva(article)
+		right_handling_price(article) * handling_total(article)		
+	end
+
+	def handling_tvac(article)
+		handling_htva(article) * 1.21
+	end
+
+	def handling_tva(article)
+		handling_tvac(article) - handling_htva(article)
+	end
+
+	def right_deposit_price(article)
+		if Price.where(:article_id => article.id).any?
+			if Price.where(:article_id => article.id).where(:user_id => self.client.id).any?
+				if Price.where(:article_id => article.id).where(:user_id => self.client.id).last.deposit.present?
+					if self.offer.event.deposit_on_site.present?
+						if self.offer.event.deposit_on_site >= Price.where(:article_id => article.id).where(:user_id => self.client.id).last.deposit
+							self.offer.event.deposit_on_site / 1.21
+						else
+							Price.where(:article_id => article.id).where(:user_id => self.client.id).last.deposit
+						end
+					else
+						Price.where(:article_id => article.id).where(:user_id => self.client.id).last.deposit
+					end
+				else
+					0
+				end
+			else
+				if Price.where(:article_id => article.id).last.deposit.present?
+					if self.offer.event.deposit_on_site.present?
+						if self.offer.event.deposit_on_site >= Price.where(:article_id => article.id).last.deposit
+							self.offer.event.deposit_on_site / 1.21
+						else
+							Price.where(:article_id => article.id).last.deposit
+						end
+					else
+						Price.where(:article_id => article.id).last.deposit
+					end
+				else
+					0
+				end
+			end
+		else
+			0
+		end
+	end
+
+	def missing_total(article)
+		missing_total = 0
+		self.offer.sortings.each do |sorting|
+			missing_total += sorting.missing(article)
+		end
+		missing_total	
+	end
+
+	def missing_and_broken(article)
+		broken_total(article) + missing_total(article)	
+	end
+
+	def deposit_htva(article)
+		right_deposit_price(article) * missing_and_broken(article)
+	end
+
+	def deposit_tvac(article)
+		deposit_htva(article) * 1.21
+	end
+
+	def deposit_tva(article)
+		deposit_tvac(article) - deposit_htva(article)
+	end
+
+	def right_offer_article_price(offer_article)
+		if offer_article.article.transport == true
+			self.offer.transport_price
+		else
+			if Price.where(:article_id => offer_article.article.id).any?
+				if Price.where(:article_id => offer_article.article.id).where(:user_id => self.client.id).any?
+					Price.where(:article_id => offer_article.article.id).where(:user_id => self.client.id).last.sell if Price.where(:article_id => offer_article.article.id).where(:user_id => self.client.id).last.sell.present?
+				else
+					Price.where(:article_id => offer_article.article.id).last.sell if Price.where(:article_id => offer_article.article.id).last.sell.present?
+				end
+			else
+				0
 			end
 		end
 	end
+
+	def offer_article_htva(offer_article)
+		right_offer_article_price(offer_article) * offer_article.quantity		
+	end
+
+	def offer_article_tvac(offer_article)
+		offer_article_htva(offer_article) * 1.21
+	end
+
+	def offer_article_tva(offer_article)
+		offer_article_tvac(offer_article) - offer_article_htva(offer_article)
+	end
+
+	def total_per_article_htva(article)
+		washed_htva(article) + handwash_htva(article) + handling_htva(article) + deposit_htva(article)		
+	end
+
+	def total_per_article_tva(article)
+		washed_tva(article) + handwash_tva(article) + handling_tva(article) + deposit_tva(article)		
+	end
+
+	def total_per_article_tvac(article)
+		washed_tvac(article) + handwash_tvac(article) + handling_tvac(article) + deposit_tvac(article)		
+	end
+
+	def total_all_articles_htva
+		total_all_articles_htva = 0
+		Article.all.each do |article|
+			total_all_articles_htva += total_per_article_htva(article)
+		end
+		total_all_articles_htva
+	end
+
+	def total_all_articles_tva
+		total_all_articles_tva = 0
+		Article.all.each do |article|
+			total_all_articles_tva += total_per_article_tva(article)
+		end
+		total_all_articles_tva
+	end
+
+	def total_all_articles_tvac
+		total_all_articles_tvac = 0
+		Article.all.each do |article|
+			total_all_articles_tvac += total_per_article_tvac(article)
+		end
+		total_all_articles_tvac
+	end
+
+	def total_all_offer_articles_htva
+		total_all_offer_articles_htva = 0
+		self.offer.offer_articles.each do |offer_article|
+			total_all_offer_articles_htva += offer_article_htva(offer_article)
+		end
+		total_all_offer_articles_htva
+	end
+
+	def total_all_offer_articles_tva
+		total_all_offer_articles_tva = 0
+		self.offer.offer_articles.each do |offer_article|
+			total_all_offer_articles_tva += offer_article_tva(offer_article)
+		end
+		total_all_offer_articles_tva
+	end
+
+	def total_all_offer_articles_tvac
+		total_all_offer_articles_tvac = 0
+		self.offer.offer_articles.each do |offer_article|
+			total_all_offer_articles_tvac += offer_article_tvac(offer_article)
+		end
+		total_all_offer_articles_tvac
+	end
+
+	def total_htva_final
+		total_all_articles_htva + total_all_offer_articles_htva
+	end
+
+	def total_tva_final
+		total_all_articles_tva + total_all_offer_articles_tva
+	end
+
+	def total_tvac_final
+		total_all_articles_tvac + total_all_offer_articles_tvac
+	end
+
 
 
 end

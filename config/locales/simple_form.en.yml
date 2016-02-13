@@ -59,6 +59,7 @@ en:
         phone: "Contact Phone"
         bar: "Number of bars"
         beertap: "Number of beertaps"
+        deposit_on_site: "Deposit price during the event"
       article:
         article_name: "Article Name"
         article_id: "Article Code"

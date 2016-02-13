@@ -59,6 +59,7 @@ nl:
         phone: "Telefoon van de contact"
         bar: "Aantal bars"
         beertap: "Aantal biertappen"
+        deposit_on_site: "Garantie prijs tijdens het evenement"
       article:
         article_name: "Naam ven het artikel"
         article_id: "Artikel Code"

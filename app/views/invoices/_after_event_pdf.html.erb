@@ -25,6 +25,8 @@
   </div>
 </div>
 
+<br>
+
 <div class="reference">
   <h4><strong>
     <%= @invoice.pdf_name %>
@@ -85,7 +87,9 @@
 </table>
 
 <hr>
-
+<div class="client-block">
+  <strong>Détail Facture</strong>
+</div>
 <table class="article">
 
   <tr>
@@ -101,29 +105,123 @@
     <td><strong>Lavés</strong></td>
   </tr>
 
+    <% @articles.each do |article| %>
+
+      <% if @invoice.offer.sent_article(article) >= 1 or @invoice.total_back(article) >= 1 %>
+
+        <% unless @invoice.washed_total(article) == 0 %>
+
+        <tr>
+          <td><%= article.article_name %></td>
+          <td><%= @invoice.washed_total(article) %></td>
+          <td><%= number_to_currency(@invoice.right_wash_price(article), :unit => "€", :precision => 3) %></td>
+          <td><%= number_to_currency(@invoice.washed_htva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.washed_tva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.washed_tvac(article), :unit => "€", :precision => 2) %></td>
+
+        </tr>
+
+        <% end %>
+      <% end %>
+    <% end %>
+
+  <tr>
+    <td><strong>Lavage manuel</strong></td>
+  </tr>
 
     <% @articles.each do |article| %>
 
       <% if @invoice.offer.sent_article(article) >= 1 or @invoice.total_back(article) >= 1 %>
 
-        
+        <% unless @invoice.handling_total(article) == 0 %>
 
         <tr>
           <td><%= article.article_name %></td>
-          <td><%= @invoice.washed_total(article) %></td>
-          <td><%= @invoice.right_wash_price(article) %></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td><%= @invoice.handling_total(article) %></td>
+          <td><%= number_to_currency(@invoice.right_handling_price(article), :unit => "€", :precision => 3) %></td>
+          <td><%= number_to_currency(@invoice.handling_htva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.handling_tva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.handling_tvac(article), :unit => "€", :precision => 2) %></td>
 
         </tr>
+
+        <% end %>
       <% end %>
     <% end %>
 
+  <tr>
+    <td><strong>Manutention</strong></td>
+  </tr>
+
+    <% @articles.each do |article| %>
+
+      <% if @invoice.offer.sent_article(article) >= 1 or @invoice.total_back(article) >= 1 %>
+
+        <% unless @invoice.very_dirty_total(article) == 0 %>
+
+        <tr>
+          <td><%= article.article_name %></td>
+          <td><%= @invoice.very_dirty_total(article) %></td>
+          <td><%= number_to_currency(@invoice.right_handwash_price(article), :unit => "€", :precision => 3) %></td>
+          <td><%= number_to_currency(@invoice.handwash_htva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.handwash_tva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.handwash_tvac(article), :unit => "€", :precision => 2) %></td>
+
+        </tr>
+
+        <% end %>
+      <% end %>
+    <% end %>
+
+  <tr>
+    <td><strong>Manquants et cassés</strong></td>
+  </tr>
+
+    <% @articles.each do |article| %>
+
+      <% if @invoice.offer.sent_article(article) >= 1 or @invoice.total_back(article) >= 1 %>
+
+        <% unless @invoice.missing_and_broken(article) == 0 %>
+
+        <tr>
+          <td><%= article.article_name %></td>
+          <td><%= @invoice.missing_and_broken(article) %></td>
+          <td><%= number_to_currency(@invoice.right_deposit_price(article), :unit => "€", :precision => 3) %></td>
+          <td><%= number_to_currency(@invoice.deposit_htva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.deposit_tva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.deposit_tvac(article), :unit => "€", :precision => 2) %></td>
+
+        </tr>
+
+        <% end %>
+      <% end %>
+    <% end %>
+
+  <tr>
+    <td><strong>Autres frais</strong></td>
+  </tr>
+
+    <% @invoice.offer.offer_articles.each do |offer_article| %>
+
+        <tr>
+          <td><%= offer_article.article.article_name %></td>
+          <td><%= offer_article.quantity %></td>
+          <td><%= number_to_currency(@invoice.right_offer_article_price(offer_article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.offer_article_htva(offer_article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.offer_article_tva(offer_article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.offer_article_tvac(offer_article), :unit => "€", :precision => 2) %></td>
+
+        </tr>
+
+
+    <% end %>
 
 </table>
 <hr>
 
+
+
+<hr>
 
   <div class="bank-block">
   A payer sur le compte suivant :<br>
@@ -151,4 +249,12 @@
   d'une in demnité forfaitaire de 15% du montant de la facture avec un minimum de 75 € et portera intérêt cponventionnellement à un taux de 12% jusqu'à parfait paiement. Les tribunaux de
   Dinant sont les seuls compétents.
   </div>
+
+<hr>
+
+HTVA <%= @invoice.total_htva_final %><br>
+TVA <%= @invoice.total_tva_final %><br>
+TVAC <%= @invoice.total_tvac_final %>
+OA <%= @invoice.total_all_offer_articles_htva %>
+
 

@@ -27,7 +27,11 @@ class Sorting < ActiveRecord::Base
 			end
 			global_clean_sum
 		else
-		dirty_box_return(article)
+			if dirty_box_return(article).present?
+				dirty_box_return(article)
+			else
+				0
+			end
 		end
 	end
 
@@ -63,10 +67,14 @@ class Sorting < ActiveRecord::Base
 		global_clean_sum(article) + global_very_dirty_sum(article) + global_broken_sum(article) + global_handling_sum(article)
 	end
 
+	def sent_article(article)
+		self.return_box.delivery.offer.sent_article(article)
+		
+	end
 
 
 	def missing(article)
-		self.return_box.delivery.offer.sent_article(article) - total_sorting(article) - clean_article_return(article)	
+		sent_article(article) - total_sorting(article) - clean_article_return(article)	
 	end
 
 	def clean_box_return(article)

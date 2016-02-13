@@ -40,7 +40,7 @@ th, tr {
 }
 
 .object {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   }
 
 .bank-block {
@@ -67,16 +67,18 @@ th, tr {
 }
 
 .rekwup-logo {
-  position: relative;
+  float: left;
   left: 10px;
-  top: 30px;
+  top: 10px;
 
 }
 
 .logo-address {
+  position: relative;
   margin-bottom: 10px;
 }
 
 .reference {
-  margin-top: 50px;
+  position: relative;
+  margin-top: 20px;
 }
