@@ -52,7 +52,11 @@ class InvoicesController < ApplicationController
       if @invoice.save
 
         if @invoice.doc_invoice
-          @invoice.update_attributes(:doc_number => @invoice.invoice_number, :total_htva => @invoice.total_htva, :total_tva => @invoice.total_tva, :total_tvac => @invoice.total_tvac)
+          if @invoice.confirmation
+            @invoice.update_attributes(:doc_number => @invoice.invoice_number, :total_htva => @invoice.total_htva_deposit, :total_tva => @invoice.total_tva_deposit, :total_tvac => @invoice.total_tvac_deposit)
+          elsif @invoice.after_event
+            @invoice.update_attributes(:doc_number => @invoice.invoice_number, :total_htva => @invoice.total_htva_final, :total_tva => @invoice.total_tva_final, :total_tvac => @invoice.total_tvac_final)
+          end
         elsif @invoice.doc_credit
           @invoice.update_attributes(:doc_number => @invoice.credit_number)
         end

@@ -169,7 +169,7 @@ class Invoice < ActiveRecord::Base
     	article_deposit
 	end
 
-	def total_htva
+	def total_htva_deposit
 		if after_event
 			clean_amount + broken_amount + very_dirty_amount + handling_amount + self.offer.transport_price + article_amount
 		elsif confirmation
@@ -177,12 +177,12 @@ class Invoice < ActiveRecord::Base
 		end
 	end
 
-	def total_tvac
-		total_htva * 1.21
+	def total_tvac_deposit
+		total_htva_deposit * 1.21
 	end
 
-	def total_tva
-		total_tvac - total_htva
+	def total_tva_deposit
+		total_tvac_deposit - total_htva_deposit
 	end
 
 	def sent_boxes(box)

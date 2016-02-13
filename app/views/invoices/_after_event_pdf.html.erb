@@ -214,14 +214,24 @@
         </tr>
 
 
+
     <% end %>
 
+
+
+  <tr>
+    <strong>
+      <th><strong>TOTAUX</strong></th>
+      <th></th>
+      <th></th>
+      <th><%= number_to_currency(@invoice.total_htva_final, :unit => "€", :precision => 2) %></th>
+      <th><%= number_to_currency(@invoice.total_tva_final, :unit => "€", :precision => 2) %></th>
+      <th><%= number_to_currency(@invoice.total_tvac_final, :unit => "€", :precision => 2) %></th>
+    </strong>
+
+  </tr>
 </table>
-<hr>
 
-
-
-<hr>
 
   <div class="bank-block">
   A payer sur le compte suivant :<br>
@@ -249,12 +259,5 @@
   d'une in demnité forfaitaire de 15% du montant de la facture avec un minimum de 75 € et portera intérêt cponventionnellement à un taux de 12% jusqu'à parfait paiement. Les tribunaux de
   Dinant sont les seuls compétents.
   </div>
-
-<hr>
-
-HTVA <%= @invoice.total_htva_final %><br>
-TVA <%= @invoice.total_tva_final %><br>
-TVAC <%= @invoice.total_tvac_final %>
-OA <%= @invoice.total_all_offer_articles_htva %>
 
 
