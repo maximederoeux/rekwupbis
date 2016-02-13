@@ -299,6 +299,8 @@ en:
     event: "Event"
     new_lln: "New LLN invoice"
     new: "Bill"
+    see: "See invoice"
+    yours: "Your invoices"
 
   lln:
     id: "Order number"

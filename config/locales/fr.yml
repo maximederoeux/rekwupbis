@@ -296,6 +296,8 @@ fr:
     event: "Evénement"
     new_lln: "Nouvelle facture LLN"
     new: "Facturer"
+    see: "Voir facture"
+    yours: "Vos factures"
 
   lln:
     id: "N° Ordre"

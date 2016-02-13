@@ -1,0 +1,249 @@
+
+
+            <%= simple_form_for(@new_offer) do |f| %>
+              <%= f.error_notification %>
+              <%= f.hidden_field :lln_invoice, :value => true %>
+              <%= f.hidden_field :event_id, :value => Event.is_lln.last.id %>
+              <%= f.hidden_field :organizer_id, :value => Event.is_lln.last.organizer_id %>
+              <%= f.submit t("invoice.new_lln"), class: "btn btn-info btn-lg btn-block", data: { confirm: t("menu.are_you_sure")} %>
+            <% end %>
+
+<hr>
+
+<ul class="list-group">
+  <li class="list-group-item list-group-item-warning">
+    <strong>Offres événements ponctuels</strong>
+  </li>
+
+  <li class="list-group-item list-group-item-warning">
+    <div class="row">
+      <strong>
+        <div class="col-md-1">
+          N° Offre
+        </div>
+
+        <div class="col-md-2">
+          Evénement
+        </div>
+
+        <div class="col-md-2">
+          Organisateur
+        </div>
+
+        <div class="col-md-1 text-center">
+          Retours
+        </div>
+
+        <div class="col-md-1 text-center">
+          Lavages
+        </div>
+
+        <div class="col-md-1 text-center">
+          Rangement
+        </div>
+
+        <div class="col-md-1 text-center">
+          Accompte
+        </div>
+
+        <div class="col-md-1 text-center">
+          Finale
+        </div>
+
+        <div class="col-md-2">
+          N° Factures
+        </div>
+      </strong>
+    </div>
+  </li>
+
+<% @offers.each do |offer| %>
+
+  <% unless offer.lln_daily %>
+
+    <% if offer.ready_for_invoice == true %>
+
+      <li class="list-group-item">
+        <div class="row">
+
+          <div class="col-md-1">
+            <%= offer.id %>
+          </div>
+          <div class="col-md-2">
+            <%= offer.event.event_name %>
+          </div>
+
+          <div class="col-md-2">
+            <%= offer.organizer.full_name %>
+          </div>
+
+          <div class="col-md-1 text-center">
+            <%= offer.return_boxes.count %>
+          </div>
+
+          <div class="col-md-1 text-center">
+            <%= offer.washes.count %>
+          </div>
+
+          <div class="col-md-1 text-center">
+            <%= offer.sortings.count %>
+          </div>
+
+          <div class="col-md-1 text-center">
+            
+            <% if offer.has_deposit %>
+              <%= offer.invoices.is_deposit.count %>
+            <% end %>
+
+          </div>
+
+          <div class="col-md-1 text-center">
+
+            <% if offer.has_final %>
+              <%= offer.invoices.is_final.count %>
+            <% else %>
+              <%= simple_form_for(@new_invoice) do |f| %>
+                <%= f.error_notification %>
+
+                <%= f.hidden_field :offer_id, :value => offer.id %>
+                <%= f.hidden_field :client_id, :value => offer.organizer.id %>
+                <%= f.hidden_field :doc_invoice, :value => true %>
+                <%= f.hidden_field :after_event, :value => true %>
+
+              <%= f.submit t("invoice.new"), class: "btn btn-info" %>
+              <% end %>
+
+            <% end %>
+
+          </div>
+
+        <div class="col-md-2">
+          <% offer.invoices.each do |invoice| %>
+            <%= invoice.pdf_name %><br>
+          <% end %>
+
+        </div>
+
+        </div>
+      </li>
+
+    <% end %>
+  <% end %>
+<% end %>
+
+</ul>
+
+<hr>
+
+<ul class="list-group">
+  <li class="list-group-item list-group-item-warning">
+    <strong>Offres LLN</strong>
+  </li>
+
+
+  <li class="list-group-item list-group-item-warning">
+    <div class="row">
+      <strong>
+        <div class="col-md-1">
+          N° Offre
+        </div>
+
+        <div class="col-md-2">
+          Evénement
+        </div>
+
+        <div class="col-md-2">
+          Organisateur
+        </div>
+
+        <div class="col-md-1 text-center">
+          Retours
+        </div>
+
+        <div class="col-md-1 text-center">
+          Lavages
+        </div>
+
+        <div class="col-md-1 text-center">
+          Rangement
+        </div>
+
+        <div class="col-md-1 text-center">
+          Accompte
+        </div>
+
+        <div class="col-md-1 text-center">
+          Finale
+        </div>
+
+        <div class="col-md-2">
+          N° Factures
+        </div>
+      </strong>
+    </div>
+  </li>
+
+<% @offers.each do |offer| %>
+
+  <% if offer.lln_daily %>
+
+    <% if offer.ready_for_invoice == true %>
+
+      <li class="list-group-item">
+        <div class="row">
+
+          <div class="col-md-1">
+            <%= offer.id %>
+          </div>
+          <div class="col-md-2">
+            <%= offer.event.event_name %>
+          </div>
+
+          <div class="col-md-2">
+            <%= offer.organizer.full_name %>
+          </div>
+
+          <div class="col-md-1 text-center">
+            <%= offer.return_boxes.count %>
+          </div>
+
+          <div class="col-md-1 text-center">
+            <%= offer.washes.count %>
+          </div>
+
+          <div class="col-md-1 text-center">
+            <%= offer.sortings.count %>
+          </div>
+
+          <div class="col-md-1 text-center">
+            
+            <% if offer.has_deposit %>
+              <%= offer.invoices.is_deposit.count %>
+            <% end %>
+
+          </div>
+
+          <div class="col-md-1 text-center">
+
+            <% if offer.has_final %>
+              <%= offer.invoices.is_final.count %>
+
+            <% end %>
+
+          </div>
+
+        <div class="col-md-2">
+          <% offer.invoices.each do |invoice| %>
+            <%= invoice.pdf_name %><br>
+          <% end %>
+
+        </div>
+
+        </div>
+      </li>
+
+    <% end %>
+  <% end %>
+<% end %>
+
+</ul>

@@ -294,6 +294,8 @@ nl:
     event: "Evenement"
     new_lln: "Nieuwe LLN rekening"
     new: "Laden"
+    see: "Rekening bekijken"
+    yours: "Uw rekeningen"
 
   lln:
     id: "Order nummer"

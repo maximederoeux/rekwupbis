@@ -157,7 +157,13 @@
               <a href="#"><%= link_to t("delivery.yours"), deliveries_path %></a>
             </li>
           <% end %>
-          
+
+          <% if current_user.invoices.any? %>
+            <li>
+              <a href="#"><%= link_to t("invoice.yours"), invoices_path %></a>
+            </li>
+          <% end %>
+
         <% end %>
 
       <% else %>

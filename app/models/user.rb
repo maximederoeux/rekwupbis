@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
 	has_many :prices
 
-	has_many :invoices
+	has_many :invoices, :foreign_key => "client_id"
 
 	has_many :attendances
 	

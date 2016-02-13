@@ -1,0 +1,69 @@
+<ul class="list-group">
+  <li class="list-group-item list-group-item-warning">
+    Factures
+  </li>
+
+<li class="list-group-item">
+  <div class="row">
+    <div class="col-md-1">
+      Référence
+    </div>
+    <div class="col-md-1">
+      Type
+    </div>
+    <div class="col-md-2">
+      Client
+    </div>
+    <div class="col-md-2">
+      Evénement
+    </div>
+    <div class="col-md-2">
+      Total HTVA
+    </div>
+    <div class="col-md-2">
+      Total TVA
+    </div>
+    <div class="col-md-2">
+      Total TVAC
+    </div>
+  </div>
+</li>
+
+<% @invoices.where(:client_id => current_user.id).each do |invoice| %>
+
+<li class="list-group-item">
+  <div class="row">
+    <div class="col-md-2">
+      <%= invoice.pdf_name %>
+    </div>
+    <div class="col-md-1">
+      <% if invoice.confirmation %>
+      Accompte
+      <% end %>
+      <% if invoice.after_event %>
+      Finale
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <%= invoice.offer.event.event_name %>
+    </div>
+    <div class="col-md-1 text-center">
+      <%= number_to_currency(invoice.total_htva, :unit =>'€', :precision => 2) %>
+    </div>
+    <div class="col-md-1 text-center">
+      <%= number_to_currency(invoice.total_tva, :unit =>'€', :precision => 2) %>
+    </div>
+    <div class="col-md-1 text-center">
+      <%= number_to_currency(invoice.total_tvac, :unit =>'€', :precision => 2) %>
+    </div>
+
+    <div class="col-md-3 text-center">
+      <%= link_to t("invoice.see"), invoice_path(invoice), class: "btn btn-block btn-info" %>
+    </div>
+  </div>
+</li>
+
+
+<% end %>
+
+</ul>
