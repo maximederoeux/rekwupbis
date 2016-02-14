@@ -525,6 +525,179 @@ class Invoice < ActiveRecord::Base
 		total_all_articles_tvac + total_all_offer_articles_tvac
 	end
 
+# LLN INVOICES
 
+	def week_begin
+		(created_at - 7.days).beginning_of_week
+	end
 
+	def week_finish
+		(created_at - 7.days).end_of_week
+	end
+
+	def sent_boxes_week(box)
+		sent_boxes_week = 0
+		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+			sent_boxes_week += offer.sent_boxes(box)
+		end
+		sent_boxes_week
+	end
+
+	def clean_boxes_week(box)
+		clean_boxes_week = 0
+		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+			clean_boxes_week += offer.clean_boxes(box)
+		end
+		clean_boxes_week
+	end
+
+	def dirty_boxes_week(box)
+		dirty_boxes_week = 0
+		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+			dirty_boxes_week += offer.dirty_boxes(box)
+		end
+		dirty_boxes_week
+	end
+
+	def sealed_boxes_week(box)
+		sealed_boxes_week = 0
+		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+			sealed_boxes_week += offer.sealed_boxes(box)
+		end
+		sealed_boxes_week
+	end
+
+	def returned_boxes_week(box)
+		clean_boxes_week(box) + dirty_boxes_week(box) + sealed_boxes_week(box)
+	end
+
+	def sent_articles_week(article)
+		sent_articles_week = 0
+		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+			sent_articles_week += offer.sent_article(article)
+		end
+		sent_articles_week
+	end
+
+	def washed_articles_week(article)
+		washed_articles_week = 0
+		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+			washed_articles_week += offer.washed_articles(article)
+		end
+		washed_articles_week
+	end
+
+	def very_dirty_articles_week(article)
+		very_dirty_articles_week = 0
+		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+			very_dirty_articles_week += offer.very_dirty_articles(article)
+		end
+		very_dirty_articles_week
+	end
+
+	def handling_articles_week(article)
+		handling_articles_week = 0
+		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+			handling_articles_week += offer.handling_articles(article)
+		end
+		handling_articles_week
+	end
+
+	def broken_articles_week(article)
+		broken_articles_week = 0
+		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+			broken_articles_week += offer.broken_articles(article)
+		end
+		broken_articles_week
+	end
+
+	def total_articles_week(article)
+		washed_articles_week(article) + very_dirty_articles_week(article) + handling_articles_week(article)
+		
+	end
+
+	def washed_htva_week(article)
+		right_wash_price(article) * washed_articles_week(article)	
+	end
+
+	def washed_tvac_week(article)
+		washed_htva_week(article) * 1.21
+	end
+
+	def washed_tva_week(article)
+		washed_tvac_week(article) - washed_htva_week(article)
+	end
+
+	def handwash_htva_week(article)
+		right_handwash_price(article) * very_dirty_articles_week(article)	
+	end
+
+	def handwash_tvac_week(article)
+		handwash_htva_week(article) * 1.21
+	end
+
+	def handwash_tva_week(article)
+		handwash_tvac_week(article) - handwash_htva_week(article)
+	end
+
+	def handling_htva_week(article)
+		right_handling_price(article) * handling_articles_week(article)	
+	end
+
+	def handling_tvac_week(article)
+		handling_htva_week(article) * 1.21
+	end
+
+	def handling_tva_week(article)
+		handling_tvac_week(article) - handling_htva_week(article)
+	end
+
+	def deposit_htva_week(article)
+		right_deposit_price(article) * broken_articles_week(article)
+	end
+
+	def deposit_tvac_week(article)
+		deposit_htva_week(article) * 1.21
+	end
+
+	def deposit_tva_week(article)
+		deposit_tvac_week(article) - deposit_htva_week(article)
+	end
+
+	def total_per_article_htva_week(article)
+		washed_htva_week(article) + handwash_htva_week(article) + handling_htva_week(article) + deposit_htva_week(article)		
+	end
+
+	def total_per_article_tva_week(article)
+		washed_tva_week(article) + handwash_tva_week(article) + handling_tva_week(article) + deposit_tva_week(article)		
+	end
+
+	def total_per_article_tvac_week(article)
+		washed_tvac_week(article) + handwash_tvac_week(article) + handling_tvac_week(article) + deposit_tvac_week(article)		
+	end
+
+	def total_all_articles_htva_week
+		total_all_articles_htva_week = 0
+		Article.all.each do |article|
+			total_all_articles_htva_week += total_per_article_htva_week(article)
+		end
+		total_all_articles_htva_week
+	end
+
+	def total_all_articles_tva_week
+		total_all_articles_tva_week = 0
+		Article.all.each do |article|
+			total_all_articles_tva_week += total_per_article_tva_week(article)
+		end
+		total_all_articles_tva_week
+	end
+
+	def total_all_articles_tvac_week
+		total_all_articles_tvac_week = 0
+		Article.all.each do |article|
+			total_all_articles_tvac_week += total_per_article_tvac_week(article)
+		end
+		total_all_articles_tvac_week
+	end
+		
 end

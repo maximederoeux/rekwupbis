@@ -12,7 +12,7 @@
 
 <% end %>
 
-<% if @invoice.offer.lln_invoice %>
+<% if @invoice.doc_invoice && @invoice.offer.lln_invoice %>
 
 	<%= render 'lln_pdf' %>
 

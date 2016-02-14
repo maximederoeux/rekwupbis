@@ -24,6 +24,7 @@ class InvoicesController < ApplicationController
     @thisofferboxes = @offer_boxes.where(:offer_id => @offer.id)
     @boxdetails = @invoice.boxdetails
 
+    @circles = User.is_lln.is_circle.order('lln_id ASC')
 
     respond_to do |format|
       format.html

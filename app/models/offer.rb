@@ -10,6 +10,7 @@ class Offer < ActiveRecord::Base
 	has_many :return_boxes, through: :delivery
 	has_many :washes, through: :return_boxes
 	has_many :sortings, through: :delivery
+	has_many :return_details, through: :return_boxes
 
 	has_many :offer_articles
 	has_one :delivery
@@ -223,27 +224,6 @@ class Offer < ActiveRecord::Base
 	end
 
 
-	def sent_article(article)
-		sent_article = 0
-			self.offer_boxes.each do |offer_box|
-				if Boxdetail.where(:box_id => offer_box.box_id).where(:article_id => article.id).any?
-				sent_article += ((Boxdetail.where(:box_id => offer_box.box_id).where(:article_id => article.id).first.box_article_quantity) * offer_box.quantity)
-				end
-			end
-		sent_article	
-	end
-
-	def sent_boxes(box)
-		sent_boxes = 0
-		self.offer_boxes.each do |offer_box|
-			if offer_box.box_id == box.id
-				sent_boxes += offer_box.quantity
-			end
-		end
-		sent_boxes
-	end
-
-
 	def fully_confirmed
 		if client_confirmation == true && admin_confirmation == true
 			true
@@ -336,5 +316,95 @@ class Offer < ActiveRecord::Base
 		end
 	end
 
+	def sent_article(article)
+		sent_article = 0
+			self.offer_boxes.each do |offer_box|
+				if Boxdetail.where(:box_id => offer_box.box_id).where(:article_id => article.id).any?
+				sent_article += ((Boxdetail.where(:box_id => offer_box.box_id).where(:article_id => article.id).first.box_article_quantity) * offer_box.quantity)
+				end
+			end
+		sent_article	
+	end
+
+	def sent_boxes(box)
+		sent_boxes = 0
+		self.offer_boxes.each do |offer_box|
+			if offer_box.box_id == box.id
+				sent_boxes += offer_box.quantity
+			end
+		end
+		sent_boxes
+	end
+
+	def clean_boxes(box)
+		clean_boxes = 0
+		self.return_details.where(:box_id => box.id).each do |detail|
+			if detail.clean.present?
+				clean_boxes += detail.clean
+			end
+		end
+		clean_boxes
+	end
+
+	def dirty_boxes(box)
+		dirty_boxes = 0
+		self.return_details.where(:box_id => box.id).each do |detail|
+			if detail.dirty.present?
+				dirty_boxes += detail.dirty
+			end
+		end
+		dirty_boxes
+	end
+
+	def sealed_boxes(box)
+		sealed_boxes = 0
+		self.return_details.where(:box_id => box.id).each do |detail|
+			if detail.sealed.present?
+				sealed_boxes += detail.sealed
+			end
+		end
+		sealed_boxes
+	end
+
+	def returned_boxes(box)
+		clean_boxes(box) + dirty_boxes(box) + sealed_boxes(box)
+	end
+
+	def washed_articles(article)
+		washed_articles = 0
+		self.sortings.each do |sorting|
+			washed_articles += sorting.global_clean_sum(article)
+		end
+		washed_articles
+	end
+
+	def very_dirty_articles(article)
+		very_dirty_articles = 0
+		self.sortings.each do |sorting|
+			very_dirty_articles += sorting.global_very_dirty_sum(article)
+		end
+		very_dirty_articles
+	end
+
+	def handling_articles(article)
+		handling_articles = 0
+		self.sortings.each do |sorting|
+			handling_articles += sorting.global_handling_sum(article)
+		end
+		handling_articles
+	end
+
+	def broken_articles(article)
+		broken_articles = 0
+		self.sortings.each do |sorting|
+			broken_articles += sorting.global_broken_sum(article)
+		end
+		broken_articles
+	end
+
+	def total_articles(article)
+		washed_articles(article) + very_dirty_articles(article) + handling_articles(article)
+		
+	end
 
 end
