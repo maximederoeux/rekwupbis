@@ -1,0 +1,232 @@
+<ul class="list-group">
+  <li class="list-group-item list-group-item-warning">
+    <h4><strong><%= t("energy.input") %></h4></strong>
+  </li>
+
+  <% if @energies.any? %>
+
+    <% if @energies.all.last.created_at.strftime("%d/%m/%Y") == Time.now.strftime("%d/%m/%Y") %>
+      <li class="list-group-item">
+        <h4 class="message"><%= t("energy.already") %></h4>
+      </li>
+    <% else %>
+
+    <%= simple_form_for(@new_energy) do |f| %>
+      <%= f.error_notification %>
+
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :electricity %>
+          </div>
+
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :two_electricity %>
+          </div>
+
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :photo %>
+          </div>
+            
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :two_photo %>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <%= f.input :gaz %>
+          </div>
+
+          <div class="col-xs-12 col-md-6">
+            <%= f.input :two_gaz %>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">      
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :water %>
+          </div>
+            
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :two_water %>
+          </div>
+
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :three_water %>
+          </div>
+            
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :four_water %>
+          </div>
+
+        </div>
+      </li>
+
+    </ul>
+      
+        <%= f.button :submit, class: "btn btn-lg btn-block btn-info" %>
+
+    <% end %>
+
+  <% end %>
+
+  <% else %>
+
+    <%= simple_form_for(@new_energy) do |f| %>
+      <%= f.error_notification %>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :electricity %>
+          </div>
+
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :two_electricity %>
+          </div>
+
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :photo %>
+          </div>
+            
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :two_photo %>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <%= f.input :gaz %>
+          </div>
+
+          <div class="col-xs-12 col-md-6">
+            <%= f.input :two_gaz %>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row">      
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :water %>
+          </div>
+            
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :two_water %>
+          </div>
+
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :three_water %>
+          </div>
+            
+          <div class="col-xs-12 col-md-3">
+            <%= f.input :four_water %>
+          </div>
+
+        </div>
+      </li>
+
+    </ul>
+      
+        <%= f.button :submit, class: "btn btn-lg btn-block btn-info" %>
+
+    <% end %>
+
+  <% end %>
+
+
+<ul class="list-group more-padding">
+  <li class="list-group-item list-group-item-warning">
+    <h4><strong><%= t("energy.past") %></strong></h4>
+  </li>
+
+
+    <% @energies.each do |energy| %>
+
+  <li class="list-group-item list-group-item-info">
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <strong><%= energy.created_at.strftime("%d/%m/%Y") if energy.created_at %></strong>
+      </div>
+      <div class="col-xs-12 col-md-2">
+        <%= link_to t("menu.edit"), edit_energy_path(energy), class: "btn btn-block btn-default" %>
+      </div>
+    </div>
+  </li>
+
+      <li class="list-group-item">
+        <div class="row text-center">
+          <div class="col-xs-12 col-md-3">
+            <strong><%= t("energy.electricity") %></strong><br>
+            <%= energy.electricity %>
+          </div>
+
+          <div class="col-xs-12 col-md-3">
+            <strong><%= t("energy.two_electricity") %></strong><br>
+            <%= energy.two_electricity %>
+          </div>
+
+          <div class="col-xs-12 col-md-3">
+            <strong><%= t("energy.photo") %></strong><br>
+            <%= energy.photo %>
+          </div>
+            
+          <div class="col-xs-12 col-md-3">
+            <strong><%= t("energy.two_photo") %></strong><br>
+            <%= energy.two_photo %>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row text-center">
+          <div class="col-xs-12 col-md-6">
+            <strong><%= t("energy.gaz") %></strong><br>
+            <%= energy.gaz %>
+          </div>
+
+          <div class="col-xs-12 col-md-6">
+            <strong><%= t("energy.two_gaz") %></strong><br>
+            <%= energy.two_gaz %>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item">
+        <div class="row text-center">      
+          <div class="col-xs-12 col-md-3">
+            <strong><%= t("energy.water") %></strong><br>
+            <%= energy.water %>
+          </div>
+            
+          <div class="col-xs-12 col-md-3">
+            <strong><%= t("energy.two_water") %></strong><br>
+            <%= energy.two_water %>
+          </div>
+
+          <div class="col-xs-12 col-md-3">
+            <strong><%= t("energy.three_water") %></strong><br>
+            <%= energy.three_water %>
+          </div>
+            
+          <div class="col-xs-12 col-md-3">
+            <strong><%= t("energy.four_water") %></strong><br>
+            <%= energy.four_water %>
+          </div>
+
+        </div>
+      </li>
+<% end %>
+    </ul>
+        
+        
+        
+

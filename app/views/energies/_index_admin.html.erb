@@ -1,0 +1,53 @@
+<ul class="list-group">
+	<li class="list-group-item">
+		<div class="row">
+			<div class="col-md-4">
+				Date
+			</div>
+			<div class="col-md-2 text-center">
+				Electricité
+			</div>
+			<div class="col-md-2 text-center">
+				Photo
+			</div>
+			<div class="col-md-2 text-center">
+				Gaz
+			</div>
+			<div class="col-md-2 text-center">
+				Eau
+			</div>
+		</div>
+	</li>
+
+
+	<% @energies.each do |energy| %>
+
+		<li class="list-group-item">
+			<div class="row">
+				<div class="col-md-4">
+					<%= energy.created_at.strftime('%d/%m/%Y') %>
+				</div>
+
+				<div class="col-md-2 text-center">
+					<%= energy.daily_electricity %>
+				</div>
+
+				<div class="col-md-2 text-center">
+					<%= energy.daily_photo %>
+				</div>
+
+				<div class="col-md-2 text-center">
+					<%= energy.daily_gaz %>
+				</div>
+
+				<div class="col-md-2 text-center">
+					<%= energy.daily_water %>
+				</div>
+			</div>
+		</li>
+
+
+<% end %>
+
+
+</ul>
