@@ -51,41 +51,40 @@
     <%= @invoice.offer.event.event_name %>
 </div>
 
-<div class="client-block">
-  <strong>Livraisons et retours</strong>
-</div>
+
 
 <table class="article">
 
   <tr>
-    <th>Caisses</th>
-    <th class="text-center">Envoyées</th>
-    <th class="text-center">Retours Propres</th>
-    <th class="text-center">Retours Sales</th>
-    <th class="text-center">Retours Scellées Sales</th>
-    <th class="text-center">Total Retour</th>
+    <th>Articles</th>
+    <th class="text-center">Qtté</th>
+    <th class="text-center">Prix U.</th>
+    <th class="text-center">Total HTVA</th>
+    <th class="text-center">TVA</th>
+    <th class="text-center">Total TVAC</th>
   </tr>
-
-
-
-<% @boxes.each do |box| %>
-
-<% if @invoice.sent_boxes_week(box) >=1 or @invoice.returned_boxes_week(box) >= 1 %>
 
   <tr>
-    <td><%= box.box_name %></td>
-    <td class="text-center"><%= @invoice.sent_boxes_week(box) %></td>
-    <td class="text-center"><%= @invoice.clean_boxes_week(box) %></td>
-    <td class="text-center"><%= @invoice.dirty_boxes_week(box) %></td>
-    <td class="text-center"><%= @invoice.sealed_boxes_week(box) %></td>
-    <td class="text-center"><%= @invoice.returned_boxes_week(box) %></td>
+    <td><strong>Lavés</strong></td>
   </tr>
-  
-<% end %>
-<% end %>
 
+
+    <% Article.all.each do |article| %>
+
+      <% if @invoice.washed_articles_week(article) >= 1 %>
+
+        <tr>
+          <td><%= article.article_name %></td>
+          <td class="text-center"><%= @invoice.washed_articles_week(article) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.right_wash_price(article), :unit => "€", :precision => 3) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.washed_htva_week(article), :unit => "€", :precision => 2) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.washed_tva_week(article), :unit => "€", :precision => 2) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.washed_tvac_week(article), :unit => "€", :precision => 2) %></td>
+
+        </tr>
+      <% end %>
+    <% end %>
 </table>
-
 <hr>
 
 

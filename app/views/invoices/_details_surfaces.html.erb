@@ -1,3 +1,44 @@
+<!-- WORK OK -->
+
+<div class="client-block">
+  <strong>Livraisons et retours</strong>
+</div>
+
+<table class="article">
+
+  <tr>
+    <th>Caisses</th>
+    <th class="text-center">Envoyées</th>
+    <th class="text-center">Retours Propres</th>
+    <th class="text-center">Retours Sales</th>
+    <th class="text-center">Retours Scellées Sales</th>
+    <th class="text-center">Total Retour</th>
+  </tr>
+
+
+
+<% @boxes.each do |box| %>
+
+<% if @invoice.sent_boxes_week(box) >=1 or @invoice.returned_boxes_week(box) >= 1 %>
+
+  <tr>
+    <td><%= box.box_name %></td>
+    <td class="text-center"><%= @invoice.sent_boxes_week(box) %></td>
+    <td class="text-center"><%= @invoice.clean_boxes_week(box) %></td>
+    <td class="text-center"><%= @invoice.dirty_boxes_week(box) %></td>
+    <td class="text-center"><%= @invoice.sealed_boxes_week(box) %></td>
+    <td class="text-center"><%= @invoice.returned_boxes_week(box) %></td>
+  </tr>
+  
+<% end %>
+<% end %>
+
+</table>
+
+
+<!-- END WORK OK -->
+
+
 <div class="client-block">
   <strong>Détail Facture</strong>
 </div>
