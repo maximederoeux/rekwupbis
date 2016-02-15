@@ -29,7 +29,7 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render :pdf => "#{@invoice.pdf_name}", :layout => 'layouts/pdf.html.erb', :template => 'invoices/show.html.erb'
+        render :pdf => "#{@invoice.pdf_name}", :layout => 'layouts/pdf.html.erb', :template => 'invoices/show.html.erb', :page_size => 'A4'
       end
     end
 
@@ -103,6 +103,6 @@ class InvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(:doc_number, :offer_id, :client_id, :doc_invoice, :doc_credit, :total_htva, :total_tva, :total_tvac, :confirmation, :confirmation_paid, :after_event, :after_event_paid)
+      params.require(:invoice).permit(:doc_number, :offer_id, :client_id, :doc_invoice, :doc_credit, :total_htva, :total_tva, :total_tvac, :confirmation, :confirmation_paid, :after_event, :after_event_paid, :lln_week_invoice)
     end
 end

@@ -23,10 +23,10 @@ class Offer < ActiveRecord::Base
 	scope :lln_daily, lambda {where(:lln_daily => true)}
 
 	def automatic
-		if lln_invoice && lln_daily.blank?
-			invoices.create(:offer_id => id, :client_id => User.is_lln.where(:lln_id => 0).first.id, :doc_invoice => true)
+		if lln_invoice
+			invoices.create(:offer_id => id, :client_id => User.is_lln.where(:lln_id => 0).first.id, :doc_invoice => true, :after_event => true, :lln_week_invoice => true)
 			@invoice = Invoice.last
-			@invoice.update_attributes(:doc_number => @invoice.invoice_number)
+			@invoice.update_attributes(:doc_number => @invoice.invoice_number, :total_htva => @invoice.total_all_articles_htva_week, :total_tva => @invoice.total_all_articles_tva_week, :total_tvac => @invoice.total_all_articles_tvac_week)
 		else
 			if lln_daily.blank? && lln_invoice.blank?
 				offer_articles.create(:offer_id => id, :article_id => Article.is_transport.first.id, :quantity => "1")

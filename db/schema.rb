@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213073456) do
+ActiveRecord::Schema.define(version: 20160215061332) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -200,6 +200,7 @@ ActiveRecord::Schema.define(version: 20160213073456) do
     t.boolean  "after_event"
     t.boolean  "confirmation_paid"
     t.boolean  "after_event_paid"
+    t.boolean  "lln_week_invoice"
   end
 
   create_table "lln_imports", force: :cascade do |t|

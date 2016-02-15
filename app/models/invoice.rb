@@ -22,7 +22,11 @@ class Invoice < ActiveRecord::Base
 			if is_deposit
 			"Facture #{created_at.strftime("%Y")} - #{doc_number} (A)"
 			elsif is_final
-			"Facture #{created_at.strftime("%Y")} - #{doc_number} (F)"				
+				if lln_week_invoice
+					"Facture #{created_at.strftime("%Y")} - #{doc_number} - Semaine #{week_begin.strftime("%W")}"
+				else				
+					"Facture #{created_at.strftime("%Y")} - #{doc_number} (F)"
+				end			
 			end
 		elsif doc_credit
 			"Note de crédit #{created_at.strftime("%Y")} - #{doc_number}"
@@ -191,24 +195,30 @@ class Invoice < ActiveRecord::Base
 
 	def return_clean(box)
 		return_clean = 0
-		self.offer.delivery.return_boxes.each do |return_box|
-			return_clean += return_box.clean_boxes(box)
+		if self.offer.delivery.present?
+			self.offer.delivery.return_boxes.each do |return_box|
+				return_clean += return_box.clean_boxes(box)
+			end
 		end
 		return_clean
 	end
 
 	def return_dirty(box)
 		return_dirty = 0
-		self.offer.delivery.return_boxes.each do |return_box|
-			return_dirty += return_box.dirty_boxes(box)
+		if self.offer.delivery.present?
+			self.offer.delivery.return_boxes.each do |return_box|
+				return_dirty += return_box.dirty_boxes(box)
+			end
 		end
 		return_dirty
 	end
 
 	def return_sealed(box)
 		return_sealed = 0
-		self.offer.delivery.return_boxes.each do |return_box|
-			return_sealed += return_box.sealed_boxes(box)
+		if self.offer.delivery.present?
+			self.offer.delivery.return_boxes.each do |return_box|
+				return_sealed += return_box.sealed_boxes(box)
+			end
 		end
 		return_sealed
 	end
