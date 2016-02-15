@@ -56,31 +56,28 @@
 
 <hr>
 
-Début et fin de semaine passée<br>
+<table>
+  <tr>
+    <td><strong>Lavage manuel</strong></td>
+  </tr>
 
-<%= @invoice.week_begin.strftime("%d/%m/%Y") %><br>
-<%= @invoice.week_finish.strftime("%d/%m/%Y") %><br>
-<%= @invoice.week_begin.strftime("%W") %><br>
-<%= @invoice.doc_number %><br>
-<%= @invoice.invoice_number %><br>
-<%= @invoice.doc_invoice %><br>
-<%= @invoice.pdf_name %><br>
-<hr>
 
-Dates début et fin de semaine passée<br>
-<%= (@invoice.created_at.beginning_of_week - 7.days).strftime("%d/%m/%Y") %><br>
-<%= (@invoice.created_at.end_of_week - 7.days).strftime("%d/%m/%Y") %><br>
+    <% Article.all.each do |article| %>
 
-<hr>
+      <% if @invoice.very_dirty_articles_week(article) >= 1 %>
 
-Offres LLN entre début et fin de semaine passée
-<% Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: @invoice.week_begin..@invoice.week_finish).each do |offer| %>
+        <tr>
+          <td><%= article.article_name %></td>
+          <td class="text-center"><%= @invoice.very_dirty_articles_week(article) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.right_handwash_price(article), :unit => "€", :precision => 3) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.handwash_htva_week(article), :unit => "€", :precision => 2) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.handwash_tva_week(article), :unit => "€", :precision => 2) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.handwash_tvac_week(article), :unit => "€", :precision => 2) %></td>
 
-<%= offer.organizer.full_name %>
-<%= offer.created_at.strftime("%d/%m/%Y") %><br>
-
-<% end %>
-
+        </tr>
+      <% end %>
+    <% end %>
+</table>
 
 <hr>
 
