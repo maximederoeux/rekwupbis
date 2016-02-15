@@ -133,7 +133,50 @@
 	</ul>
 </div>
 <div class="col-md-6">
-	<%= link_to t("attendance.see"), attendances_path, class: "btn btn-lg btn-block btn-default" %><br>
-	<%= link_to t("reporting.interim"), reporting_interim_path, class: "btn btn-lg btn-block btn-default" %>
+	<div class="more-padding">
+		<%= link_to t("attendance.see"), attendances_path, class: "btn btn-lg btn-block btn-default" %><br>
+		<%= link_to t("reporting.interim"), reporting_interim_path, class: "btn btn-lg btn-block btn-default" %>
+	</div>
 
+<ul div class="list-group">
+	<li class="list-group-item">
+
+		<div class="row">
+			<strong>
+				<div class="col-md-3">
+					Nom
+				</div>
+				<div class="col-md-3">
+					Presté
+				</div>
+				<div class="col-md-3">
+					A prester
+				</div>
+				<div class="col-md-3">
+					Différence
+				</div>
+			</strong>
+
+		</div>
+
+		<% User.staff.each do |user| %>
+
+		<li class="list-group-item">
+			<div class="row">
+				<div class="col-md-3">
+					<%= user.full_name %>
+				</div>
+				<div class="col-md-3">
+					<%= user.display_year_duration %>
+				</div>
+				<div class="col-md-3">
+					<%= user.display_year_attendance %>
+				</div>
+				<div class="col-md-3">
+					<%= user.display_year_difference %>
+				</div>
+			</div>
+		</li>
+
+		<% end %>
 </div>

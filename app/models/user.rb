@@ -81,4 +81,65 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def year_duration
+		year_duration = 0
+		self.attendances.each do |attendance|
+			year_duration += attendance.duration
+		end
+		year_duration		
+	end
+
+	def year_duration_in_minutes
+		(year_duration / 60).floor
+	end
+
+	def year_duration_in_hours
+		(year_duration_in_minutes / 60).floor
+	end
+
+	def display_year_duration_minutes
+		year_duration_in_minutes - (year_duration_in_hours * 60)
+	end
+
+	def display_year_duration
+		"#{year_duration_in_hours}h#{display_year_duration_minutes}m"
+	end
+
+	def year_expected_attendance
+		 if time_per_week.present?
+				Date.today.cweek * time_per_week
+			else
+				0
+			end
+	end
+
+	def display_year_attendance
+		"#{year_expected_attendance}h00m"
+	end
+
+	def year_expected_seconds
+		year_expected_attendance * 3600
+	end
+
+	def year_difference
+		(year_expected_seconds - year_duration).floor
+	end
+
+	def year_difference_in_minutes
+		(year_difference / 60).floor
+	end
+
+	def year_difference_in_hours
+		(year_difference_in_minutes / 60).floor
+	end
+
+	def display_year_difference_minutes
+		year_difference_in_minutes - (year_difference_in_hours * 60)
+	end
+
+	def display_year_difference
+		"#{year_difference_in_hours}h#{display_year_difference_minutes}m"
+	end
+
+
 end

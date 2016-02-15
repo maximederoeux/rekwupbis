@@ -54,10 +54,10 @@
               <%= t("user.fixed") %>
             <% end %>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 text-center">
             <% if @user.time_per_week.present? %>
               <%= t("user.time_per_week") %><br>
-              <% @user.time_per_week %>
+              <%= @user.time_per_week %>
             <% end %>
           </div>
           <div class="col-md-2">
