@@ -30,7 +30,11 @@
                         </div>
 
                         <div class="col-md-6">
-                           <%= f.collection_select :article_id, Article.all.order('article_name ASC'), :id, :full_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                          <% if @sorting.return_box.delivery.offer.lln_daily %>
+                            <%= f.collection_select :article_id, Article.all.order('article_name DESC'), :id, :full_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                           <% else %>
+                            <%= f.collection_select :article_id, Article.all.order('article_name ASC'), :id, :full_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                           <% end %>
                         </div>
 
                         <div class="col-md-2">
