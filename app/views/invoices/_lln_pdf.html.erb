@@ -90,66 +90,7 @@
 
 </table>
 
-<hr>
 
-<div class="client-block">
-  <strong>Livraisons et retours par surface</strong>
-</div>
-
-<table class="article">
-  <col width="325">
-  <col width="50">
-  <col width="50">
-  <col width="50">
-  <col width="50">
-  <col width="50">
-
-  <tr>
-    <strong>
-      <th>Caisses</th>
-      <th class="text-center">Envoyées</th>
-      <th class="text-center">Retours Propres</th>
-      <th class="text-center">Retours Sales</th>
-      <th class="text-center">Retours Scellées Sales</th>
-      <th class="text-center">Total Retour</th>
-    </strong>
-  </tr>
-
-<% Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: @invoice.week_begin..@invoice.week_finish).each do |offer| %>
-
-  <% if offer.organizer.lln_id >= 1%>
-
-  <tr>
-    <td><strong><%= offer.created_at.strftime("%d/%m/%Y") %> - <%= offer.organizer.name %></strong></td>
-    <td></td>
-    <td class="text-center"></td>
-    <td class="text-center"></td>
-    <td class="text-center"></td>
-    <td class="text-center"></td>
-  </tr>
-
-    <% Box.all.each do |box| %>
-
-      <% if offer.sent_boxes(box) >=1 or offer.returned_boxes(box) >= 1 %>
-
-        <tr>
-
-          <td><%= box.box_name %></td>
-          <td class="text-center"><%= offer.sent_boxes(box) %></td>
-          <td class="text-center"><%= offer.clean_boxes(box) %></td>
-          <td class="text-center"><%= offer.dirty_boxes(box) %></td>
-          <td class="text-center"><%= offer.sealed_boxes(box) %></td>
-          <td class="text-center"><%= offer.returned_boxes(box) %></td>
-        </tr>
-
-
-
-<% end %>
-<% end %>
-<% end %>
-<% end %>
-
-</table>
 
 <hr>
 
@@ -265,6 +206,95 @@
 
 </table>
 
+<hr>
+
+  <div class="bank-block">
+  A payer sur le compte suivant :<br>
+  IBAN BE82 5230 8063 5468<br>
+  BIC TRIO BE BB<br>
+  Triodos Bank<br>
+  </div>
+
+  <div class="communication">
+  Communication<br>
+    <% if @invoice.doc_invoice %>
+      <%= t("invoice.invoice") %>
+    <% elsif @invoice.doc_credit %>
+      <%= t("invoice.credit") %>
+    <% end %>
+        - <%= @invoice.created_at.strftime("%Y") %> - <%= @invoice.doc_number %>
+  </div>
+
+  <div class="bank-block">
+  <strong>Echéance</strong><br>
+    Comptant
+  </div>
+
+  <div class="comment">Toute question ou contestation concernant cette facture devra être formulée par écrit dans les huit jours. Toute facture non payée à échéance sera majorée, sans mise en demeure préalable,
+  d'une in demnité forfaitaire de 15% du montant de la facture avec un minimum de 75 € et portera intérêt cponventionnellement à un taux de 12% jusqu'à parfait paiement. Les tribunaux de
+  Dinant sont les seuls compétents.
+  </div>
+
+<hr>
+
+<div class="client-block">
+  <strong>Livraisons et retours par surface</strong>
+</div>
+
+<table class="article">
+  <col width="200">
+  <col width="75">
+  <col width="75">
+  <col width="75">
+  <col width="75">
+  <col width="75">
+
+  <tr>
+    <strong>
+      <th>Caisses</th>
+      <th class="text-center">Envoyées</th>
+      <th class="text-center">Retours Propres</th>
+      <th class="text-center">Retours Sales</th>
+      <th class="text-center">Retours Scellées Sales</th>
+      <th class="text-center">Total Retour</th>
+    </strong>
+  </tr>
+
+<% Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: @invoice.week_begin..@invoice.week_finish).each do |offer| %>
+
+  <% if offer.organizer.lln_id >= 1%>
+
+  <tr>
+    <td><strong><%= offer.created_at.strftime("%d/%m/%Y") %> - <%= offer.organizer.name %></strong></td>
+    <td></td>
+    <td class="text-center"></td>
+    <td class="text-center"></td>
+    <td class="text-center"></td>
+    <td class="text-center"></td>
+  </tr>
+
+    <% Box.all.each do |box| %>
+
+      <% if offer.sent_boxes(box) >=1 or offer.returned_boxes(box) >= 1 %>
+
+        <tr>
+
+          <td><%= box.box_name %></td>
+          <td class="text-center"><%= offer.sent_boxes(box) %></td>
+          <td class="text-center"><%= offer.clean_boxes(box) %></td>
+          <td class="text-center"><%= offer.dirty_boxes(box) %></td>
+          <td class="text-center"><%= offer.sealed_boxes(box) %></td>
+          <td class="text-center"><%= offer.returned_boxes(box) %></td>
+        </tr>
+
+
+
+<% end %>
+<% end %>
+<% end %>
+<% end %>
+
+</table>
 
 <hr>
 
@@ -315,34 +345,7 @@
 <% end %>
 
 </table>
-<hr>
 
-  <div class="bank-block">
-  A payer sur le compte suivant :<br>
-  IBAN BE82 5230 8063 5468<br>
-  BIC TRIO BE BB<br>
-  Triodos Bank<br>
-  </div>
-
-  <div class="communication">
-  Communication<br>
-    <% if @invoice.doc_invoice %>
-      <%= t("invoice.invoice") %>
-    <% elsif @invoice.doc_credit %>
-      <%= t("invoice.credit") %>
-    <% end %>
-        - <%= @invoice.created_at.strftime("%Y") %> - <%= @invoice.doc_number %>
-  </div>
-
-  <div class="bank-block">
-  <strong>Echéance</strong><br>
-    Comptant
-  </div>
-
-  <div class="comment">Toute question ou contestation concernant cette facture devra être formulée par écrit dans les huit jours. Toute facture non payée à échéance sera majorée, sans mise en demeure préalable,
-  d'une in demnité forfaitaire de 15% du montant de la facture avec un minimum de 75 € et portera intérêt cponventionnellement à un taux de 12% jusqu'à parfait paiement. Les tribunaux de
-  Dinant sont les seuls compétents.
-  </div>
 
 
 <hr>
