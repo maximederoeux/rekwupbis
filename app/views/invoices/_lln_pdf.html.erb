@@ -56,29 +56,28 @@
 
 <hr>
 
+Début et fin de semaine passée<br>
+
+<%= @invoice.week_begin.strftime("%d/%m/%Y") %><br>
+<%= @invoice.week_finish.strftime("%d/%m/%Y") %><br>
+<%= @invoice.week_begin.strftime("%W") %><br>
+<%= @invoice.doc_number %><br>
+<%= @invoice.invoice_number %><br>
+<%= @invoice.doc_invoice %><br>
+<%= @invoice.pdf_name %><br>
+<hr>
+
+Dates début et fin de semaine passée<br>
+<%= (@invoice.created_at.beginning_of_week - 7.days).strftime("%d/%m/%Y") %><br>
+<%= (@invoice.created_at.end_of_week - 7.days).strftime("%d/%m/%Y") %><br>
+
+<hr>
+
+Offres LLN entre début et fin de semaine passée
 <% Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: @invoice.week_begin..@invoice.week_finish).each do |offer| %>
 
-  <% if offer.organizer.lln_id >= 1%>
-
-    <%= offer.created_at.strftime("%d/%m/%Y") %>
-    <%= offer.organizer.name %><br>
-
-
-    <% Article.all.each do |article| %>
-
-      <% if offer.total_articles(article) >= 1 %>
-
-        <%= article.article_name %>
-
-        <%= offer.washed_articles(article) %>
-        <%= offer.very_dirty_articles(article) %>
-        <%= offer.handling_articles(article) %>
-        <%= offer.broken_articles(article) %><br>
-
-      <% end %>
-
-    <% end %>
-  <% end %>
+<%= offer.organizer.full_name %>
+<%= offer.created_at.strftime("%d/%m/%Y") %><br>
 
 <% end %>
 
