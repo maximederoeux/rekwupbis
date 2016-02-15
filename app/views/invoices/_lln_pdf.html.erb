@@ -57,17 +57,47 @@
 <hr>
 
 <table>
-  <tr>
-    <strong>
-      <th><strong>TOTAUX</strong></th>
-      <th></th>
-      <th></th>
-      <th class="text-center"><%= number_to_currency(@invoice.total_all_articles_htva_week, :unit => "€", :precision => 2) %></th>
-      <th class="text-center"><%= number_to_currency(@invoice.total_all_articles_tva_week, :unit => "€", :precision => 2) %></th>
-      <th class="text-center"><%= number_to_currency(@invoice.total_all_articles_tvac_week, :unit => "€", :precision => 2) %></th>
-    </strong>
-
+   <tr>
+    <td><strong>Manutention</strong></td>
   </tr>
+
+
+    <% Article.all.each do |article| %>
+
+      <% if @invoice.handling_articles_week(article) >= 1 %>
+
+        <tr>
+          <td><%= article.article_name %></td>
+          <td class="text-center"><%= @invoice.handling_articles_week(article) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.right_handling_price(article), :unit => "€", :precision => 3) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.handling_htva_week(article), :unit => "€", :precision => 2) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.handling_tva_week(article), :unit => "€", :precision => 2) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.handling_tvac_week(article), :unit => "€", :precision => 2) %></td>
+
+        </tr>
+      <% end %>
+    <% end %>
+
+  <tr>
+    <td><strong>Cassés</strong></td>
+  </tr>
+
+
+    <% Article.all.each do |article| %>
+
+      <% if @invoice.broken_articles_week(article) >= 1 %>
+
+        <tr>
+          <td><%= article.article_name %></td>
+          <td class="text-center"><%= @invoice.broken_articles_week(article) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.right_deposit_price(article), :unit => "€", :precision => 3) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.deposit_htva_week(article), :unit => "€", :precision => 2) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.deposit_tva_week(article), :unit => "€", :precision => 2) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.deposit_tvac_week(article), :unit => "€", :precision => 2) %></td>
+
+        </tr>
+      <% end %>
+    <% end %>
 </table>
 
 <hr>
