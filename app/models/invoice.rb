@@ -464,7 +464,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def total_per_article_htva(article)
-		washed_htva(article) + handwash_htva(article) + handling_htva(article) + deposit_htva(article)		
+		0
 	end
 
 	def total_per_article_tvac(article)
