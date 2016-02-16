@@ -410,10 +410,10 @@ class Offer < ActiveRecord::Base
 	def right_wash_price(article)
 		if Price.where(:article_id => article.id).any?
 			if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).any?
-				Price.includes(:articles, :users).where(:article_id => article.id).where(:user_id => self.organizer.id).last.washing if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.washing.present?
+				Price.includes(:article, :user).where(:article_id => article.id).where(:user_id => self.organizer.id).last.washing if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.washing.present?
 			else
 				if Price.where(:article_id => article.id).last.washing.present?
-					Price.includes(:articles).where(:article_id => article.id).last.washing
+					Price.includes(:article).where(:article_id => article.id).last.washing
 				else
 					0
 				end
@@ -426,10 +426,10 @@ class Offer < ActiveRecord::Base
 	def right_handwash_price(article)
 		if Price.where(:article_id => article.id).any?
 			if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).any?
-				Price.includes(:articles, :users).where(:article_id => article.id).where(:user_id => self.organizer.id).last.handwash if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.handwash.present?
+				Price.includes(:article, :user).where(:article_id => article.id).where(:user_id => self.organizer.id).last.handwash if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.handwash.present?
 			else
 				if Price.where(:article_id => article.id).last.handwash.present?
-					Price.includes(:articles).where(:article_id => article.id).last.handwash
+					Price.includes(:article).where(:article_id => article.id).last.handwash
 				else
 					0
 				end
@@ -442,10 +442,10 @@ class Offer < ActiveRecord::Base
 	def right_handling_price(article)
 		if Price.where(:article_id => article.id).any?
 			if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).any?
-				Price.includes(:articles, :users).where(:article_id => article.id).where(:user_id => self.organizer.id).last.handling if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.handling.present?
+				Price.includes(:article, :user).where(:article_id => article.id).where(:user_id => self.organizer.id).last.handling if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.handling.present?
 			else
 				if Price.where(:article_id => article.id).last.handling.present?
-					Price.includes(:articles).where(:article_id => article.id).last.handling
+					Price.includes(:article).where(:article_id => article.id).last.handling
 				else
 					0
 				end
@@ -463,10 +463,10 @@ class Offer < ActiveRecord::Base
 						if self.event.deposit_on_site >= Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.deposit
 							self.event.deposit_on_site / 1.21
 						else
-							Price.includes(:articles, :users).where(:article_id => article.id).where(:user_id => self.organizer.id).last.deposit
+							Price.includes(:article, :user).where(:article_id => article.id).where(:user_id => self.organizer.id).last.deposit
 						end
 					else
-						Price.includes(:articles, :users).where(:article_id => article.id).where(:user_id => self.organizer.id).last.deposit
+						Price.includes(:article, :user).where(:article_id => article.id).where(:user_id => self.organizer.id).last.deposit
 					end
 				else
 					0
