@@ -117,10 +117,7 @@
         <tr>
           <td><%= article.article_name %></td>
           <td><%= @invoice.washed_total(article) %></td>
-          <td><%= number_to_currency(@invoice.right_wash_price(article), :unit => "€", :precision => 3) %></td>
-          <td><%= number_to_currency(@invoice.washed_htva(article), :unit => "€", :precision => 2) %></td>
-          <td><%= number_to_currency(@invoice.washed_tva(article), :unit => "€", :precision => 2) %></td>
-          <td><%= number_to_currency(@invoice.washed_tvac(article), :unit => "€", :precision => 2) %></td>
+
 
         </tr>
 
