@@ -455,24 +455,24 @@ class Invoice < ActiveRecord::Base
 		right_offer_article_price(offer_article) * offer_article.quantity if offer_article.quantity		
 	end
 
-	def offer_article_tvac(offer_article)
-		offer_article_htva(offer_article) * 1.21
-	end
-
 	def offer_article_tva(offer_article)
 		offer_article_tvac(offer_article) - offer_article_htva(offer_article)
+	end
+
+	def offer_article_tvac(offer_article)
+		offer_article_htva(offer_article) * 1.21
 	end
 
 	def total_per_article_htva(article)
 		washed_htva(article) + handwash_htva(article) + handling_htva(article) + deposit_htva(article)		
 	end
 
-	def total_per_article_tva(article)
-		washed_tva(article) + handwash_tva(article) + handling_tva(article) + deposit_tva(article)		
+	def total_per_article_tvac(article)
+		total_per_article_htva(article) * 1.21
 	end
 
-	def total_per_article_tvac(article)
-		washed_tvac(article) + handwash_tvac(article) + handling_tvac(article) + deposit_tvac(article)		
+	def total_per_article_tva(article)
+		total_per_article_tvac(article) - total_per_article_htva(article)		
 	end
 
 	def total_all_articles_htva
@@ -483,20 +483,12 @@ class Invoice < ActiveRecord::Base
 		total_all_articles_htva
 	end
 
-	def total_all_articles_tva
-		total_all_articles_tva = 0
-		Article.all.each do |article|
-			total_all_articles_tva += total_per_article_tva(article)
-		end
-		total_all_articles_tva
+	def total_all_articles_tvac
+		total_all_articles_htva * 1.21
 	end
 
-	def total_all_articles_tvac
-		total_all_articles_tvac = 0
-		Article.all.each do |article|
-			total_all_articles_tvac += total_per_article_tvac(article)
-		end
-		total_all_articles_tvac
+	def total_all_articles_tva
+		total_all_articles_tvac - total_all_articles_htva
 	end
 
 	def total_all_offer_articles_htva
@@ -507,21 +499,14 @@ class Invoice < ActiveRecord::Base
 		total_all_offer_articles_htva
 	end
 
-	def total_all_offer_articles_tva
-		total_all_offer_articles_tva = 0
-		self.offer.offer_articles.each do |offer_article|
-			total_all_offer_articles_tva += offer_article_tva(offer_article)
-		end
-		total_all_offer_articles_tva
+	def total_all_offer_articles_tvac
+		total_all_offer_articles_htva * 1.21
 	end
 
-	def total_all_offer_articles_tvac
-		total_all_offer_articles_tvac = 0
-		self.offer.offer_articles.each do |offer_article|
-			total_all_offer_articles_tvac += offer_article_tvac(offer_article)
-		end
-		total_all_offer_articles_tvac
+	def total_all_offer_articles_tva
+		total_all_offer_articles_tvac - total_all_offer_articles_htva
 	end
+
 
 	def total_htva_final
 		total_all_articles_htva + total_all_offer_articles_htva
