@@ -372,7 +372,7 @@ class Offer < ActiveRecord::Base
 
 	def washed_articles(article)
 		washed_articles = 0
-		self.sortings.includes(sorting_details: :articles).each do |sorting|
+		self.sortings.includes(sorting_details: :article).each do |sorting|
 			washed_articles += sorting.global_clean_sum(article)
 		end
 		washed_articles
@@ -380,7 +380,7 @@ class Offer < ActiveRecord::Base
 
 	def very_dirty_articles(article)
 		very_dirty_articles = 0
-		self.sortings.includes(sorting_details: :articles).each do |sorting|
+		self.sortings.includes(sorting_details: :article).each do |sorting|
 			very_dirty_articles += sorting.global_very_dirty_sum(article)
 		end
 		very_dirty_articles
@@ -388,7 +388,7 @@ class Offer < ActiveRecord::Base
 
 	def handling_articles(article)
 		handling_articles = 0
-		self.sortings.includes(sorting_details: :articles).each do |sorting|
+		self.sortings.includes(sorting_details: :article).each do |sorting|
 			handling_articles += sorting.global_handling_sum(article)
 		end
 		handling_articles
@@ -396,7 +396,7 @@ class Offer < ActiveRecord::Base
 
 	def broken_articles(article)
 		broken_articles = 0
-		self.sortings.includes(sorting_details: :articles).each do |sorting|
+		self.sortings.includes(sorting_details: :article).each do |sorting|
 			broken_articles += sorting.global_broken_sum(article)
 		end
 		broken_articles
