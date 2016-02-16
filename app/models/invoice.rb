@@ -308,7 +308,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def washed_htva(article)
-		right_wash_price(article) * washed_total(article)	
+		right_wash_price(article) * washed_total(article) if washed_total(article)	
 	end
 
 	def washed_tvac(article)
