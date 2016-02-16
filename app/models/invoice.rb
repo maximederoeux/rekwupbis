@@ -336,7 +336,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def handwash_htva(article)
-		right_wash_price(article) * very_dirty_total(article)	
+		right_wash_price(article) * very_dirty_total(article)	if very_dirty_total(article)
 	end
 
 	def handwash_tvac(article)
@@ -364,7 +364,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def handling_htva(article)
-		right_handling_price(article) * handling_total(article)		
+		right_handling_price(article) * handling_total(article) if handling_total(article)		
 	end
 
 	def handling_tvac(article)
@@ -424,7 +424,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def deposit_htva(article)
-		right_deposit_price(article) * missing_and_broken(article)
+		right_deposit_price(article) * missing_and_broken(article) if missing_and_broken(article)
 	end
 
 	def deposit_tvac(article)
