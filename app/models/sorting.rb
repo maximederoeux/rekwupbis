@@ -74,7 +74,11 @@ class Sorting < ActiveRecord::Base
 
 
 	def missing(article)
-		sent_article(article) - total_sorting(article) - clean_article_return(article)	
+		if sent_article(article).present? && total_sorting(article).present? && clean_article_return(article).present?
+			sent_article(article) - total_sorting(article) - clean_article_return(article)
+		else
+			0
+		end
 	end
 
 	def clean_box_return(article)
