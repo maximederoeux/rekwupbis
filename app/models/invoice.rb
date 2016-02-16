@@ -452,7 +452,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def offer_article_htva(offer_article)
-		right_offer_article_price(offer_article) * offer_article.quantity		
+		right_offer_article_price(offer_article) * offer_article.quantity if offer_article.quantity		
 	end
 
 	def offer_article_tvac(offer_article)
