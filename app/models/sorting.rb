@@ -22,7 +22,7 @@ class Sorting < ActiveRecord::Base
 	def global_clean_sum(article)
 		if article.is_cup
 			global_clean_sum = 0
-			self.sorting_details.includes(:article).where(:article_id => article, :clean => true).each do |sorting_detail|
+			self.sorting_details.where(:article_id => article, :clean => true).each do |sorting_detail|
 				global_clean_sum += sorting_detail.total_cups
 			end
 			global_clean_sum
@@ -37,7 +37,7 @@ class Sorting < ActiveRecord::Base
 
 	def global_very_dirty_sum(article)
 		global_very_dirty_sum = 0
-		self.sorting_details.includes(:article).where(:article_id => article, :very_dirty => true).each do |sorting_detail|
+		self.sorting_details.where(:article_id => article, :very_dirty => true).each do |sorting_detail|
 			global_very_dirty_sum += sorting_detail.total_cups
 		end
 		global_very_dirty_sum
@@ -45,7 +45,7 @@ class Sorting < ActiveRecord::Base
 
 	def global_broken_sum(article)
 		global_broken_sum = 0
-		self.sorting_details.includes(:article).where(:article_id => article, :broken => true).each do |sorting_detail|
+		self.sorting_details.where(:article_id => article, :broken => true).each do |sorting_detail|
 			global_broken_sum += sorting_detail.total_cups
 		end
 		global_broken_sum
@@ -54,7 +54,7 @@ class Sorting < ActiveRecord::Base
 	def global_handling_sum(article)
 		if article.is_cup
 			global_handling_sum = 0
-			self.sorting_details.includes(:article).where(:article_id => article, :handling => true).each do |sorting_detail|
+			self.sorting_details.where(:article_id => article, :handling => true).each do |sorting_detail|
 				global_handling_sum += sorting_detail.total_cups
 			end
 			global_handling_sum
@@ -83,7 +83,7 @@ class Sorting < ActiveRecord::Base
 
 	def clean_box_return(article)
 		clean_box_return = 0
-		self.return_box.return_details.includes({box: :boxdetails}).where('clean > ?', 0).each do |return_detail|
+		self.return_box.return_details.where('clean > ?', 0).each do |return_detail|
 				if return_detail.box.articles.where(:id => article.id).any?
 				clean_box_return += return_detail.clean
 				end
@@ -101,7 +101,7 @@ class Sorting < ActiveRecord::Base
 
 	def dirty_box_return(article)
 		dirty_box_return = 0
-		self.return_box.return_details.includes({box: :boxdetails}).where('dirty > ?', 0).each do |return_detail|
+		self.return_box.return_details.where('dirty > ?', 0).each do |return_detail|
 				if return_detail.box.articles.where(:id => article.id).any?
 				dirty_box_return += return_detail.dirty
 				end
@@ -111,7 +111,7 @@ class Sorting < ActiveRecord::Base
 
 	def sealed_box_return(article)
 		sealed_box_return = 0
-		self.return_box.return_details.includes({box: :boxdetails}).where('sealed > ?', 0).each do |return_detail|
+		self.return_box.return_details.where('sealed > ?', 0).each do |return_detail|
 				if return_detail.box.articles.where(:id => article.id).any?
 				sealed_box_return += return_detail.sealed
 				end

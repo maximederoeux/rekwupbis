@@ -318,7 +318,7 @@ class Offer < ActiveRecord::Base
 
 	def sent_article(article)
 		sent_article = 0
-			self.offer_boxes.includes(box: :boxdetails).each do |offer_box|
+			self.offer_boxes.each do |offer_box|
 				if Boxdetail.where(:box_id => offer_box.box_id).where(:article_id => article.id).any?
 				sent_article += ((Boxdetail.where(:box_id => offer_box.box_id).where(:article_id => article.id).first.box_article_quantity) * offer_box.quantity)
 				end
@@ -328,7 +328,7 @@ class Offer < ActiveRecord::Base
 
 	def sent_boxes(box)
 		sent_boxes = 0
-		self.offer_boxes.includes(:box).each do |offer_box|
+		self.offer_boxes.each do |offer_box|
 			if offer_box.box_id == box.id
 				sent_boxes += offer_box.quantity
 			end
@@ -338,7 +338,7 @@ class Offer < ActiveRecord::Base
 
 	def clean_boxes(box)
 		clean_boxes = 0
-		self.return_details.includes(:box).where(:box_id => box.id).each do |detail|
+		self.return_details.where(:box_id => box.id).each do |detail|
 			if detail.clean.present?
 				clean_boxes += detail.clean
 			end
@@ -348,7 +348,7 @@ class Offer < ActiveRecord::Base
 
 	def dirty_boxes(box)
 		dirty_boxes = 0
-		self.return_details.includes(:box).where(:box_id => box.id).each do |detail|
+		self.return_details.where(:box_id => box.id).each do |detail|
 			if detail.dirty.present?
 				dirty_boxes += detail.dirty
 			end
@@ -358,7 +358,7 @@ class Offer < ActiveRecord::Base
 
 	def sealed_boxes(box)
 		sealed_boxes = 0
-		self.return_details.includes(:box).where(:box_id => box.id).each do |detail|
+		self.return_details.where(:box_id => box.id).each do |detail|
 			if detail.sealed.present?
 				sealed_boxes += detail.sealed
 			end
@@ -372,7 +372,7 @@ class Offer < ActiveRecord::Base
 
 	def washed_articles(article)
 		washed_articles = 0
-		self.sortings.includes(sorting_details: :article).each do |sorting|
+		self.sortings.each do |sorting|
 			washed_articles += sorting.global_clean_sum(article)
 		end
 		washed_articles
@@ -380,7 +380,7 @@ class Offer < ActiveRecord::Base
 
 	def very_dirty_articles(article)
 		very_dirty_articles = 0
-		self.sortings.includes(sorting_details: :article).each do |sorting|
+		self.sortings.each do |sorting|
 			very_dirty_articles += sorting.global_very_dirty_sum(article)
 		end
 		very_dirty_articles
@@ -388,7 +388,7 @@ class Offer < ActiveRecord::Base
 
 	def handling_articles(article)
 		handling_articles = 0
-		self.sortings.includes(sorting_details: :article).each do |sorting|
+		self.sortings.each do |sorting|
 			handling_articles += sorting.global_handling_sum(article)
 		end
 		handling_articles
@@ -396,7 +396,7 @@ class Offer < ActiveRecord::Base
 
 	def broken_articles(article)
 		broken_articles = 0
-		self.sortings.includes(sorting_details: :article).each do |sorting|
+		self.sortings.each do |sorting|
 			broken_articles += sorting.global_broken_sum(article)
 		end
 		broken_articles
@@ -410,10 +410,10 @@ class Offer < ActiveRecord::Base
 	def right_wash_price(article)
 		if Price.where(:article_id => article.id).any?
 			if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).any?
-				Price.includes(:article, :user).where(:article_id => article.id).where(:user_id => self.organizer.id).last.washing if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.washing.present?
+				Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.washing if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.washing.present?
 			else
 				if Price.where(:article_id => article.id).last.washing.present?
-					Price.includes(:article).where(:article_id => article.id).last.washing
+					Price.where(:article_id => article.id).last.washing
 				else
 					0
 				end
@@ -426,10 +426,10 @@ class Offer < ActiveRecord::Base
 	def right_handwash_price(article)
 		if Price.where(:article_id => article.id).any?
 			if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).any?
-				Price.includes(:article, :user).where(:article_id => article.id).where(:user_id => self.organizer.id).last.handwash if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.handwash.present?
+				Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.handwash if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.handwash.present?
 			else
 				if Price.where(:article_id => article.id).last.handwash.present?
-					Price.includes(:article).where(:article_id => article.id).last.handwash
+					Price.where(:article_id => article.id).last.handwash
 				else
 					0
 				end
@@ -442,10 +442,10 @@ class Offer < ActiveRecord::Base
 	def right_handling_price(article)
 		if Price.where(:article_id => article.id).any?
 			if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).any?
-				Price.includes(:article, :user).where(:article_id => article.id).where(:user_id => self.organizer.id).last.handling if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.handling.present?
+				Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.handling if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.handling.present?
 			else
 				if Price.where(:article_id => article.id).last.handling.present?
-					Price.includes(:article).where(:article_id => article.id).last.handling
+					Price.where(:article_id => article.id).last.handling
 				else
 					0
 				end
@@ -463,10 +463,10 @@ class Offer < ActiveRecord::Base
 						if self.event.deposit_on_site >= Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.deposit
 							self.event.deposit_on_site / 1.21
 						else
-							Price.includes(:article, :user).where(:article_id => article.id).where(:user_id => self.organizer.id).last.deposit
+							Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.deposit
 						end
 					else
-						Price.includes(:article, :user).where(:article_id => article.id).where(:user_id => self.organizer.id).last.deposit
+						Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.deposit
 					end
 				else
 					0

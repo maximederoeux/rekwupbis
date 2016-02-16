@@ -294,10 +294,10 @@ class Invoice < ActiveRecord::Base
 	def right_wash_price(article)
 		if Price.where(:article_id => article.id).any?
 			if Price.where(:article_id => article.id).where(:user_id => self.client.id).any?
-				Price.includes(:article, :user).where(:article_id => article.id).where(:user_id => self.client.id).last.washing if Price.where(:article_id => article.id).where(:user_id => self.client.id).last.washing.present?
+				Price.where(:article_id => article.id).where(:user_id => self.client.id).last.washing if Price.where(:article_id => article.id).where(:user_id => self.client.id).last.washing.present?
 			else
 				if Price.where(:article_id => article.id).last.washing.present?
-					Price.includes(:article).where(:article_id => article.id).last.washing
+					Price.where(:article_id => article.id).last.washing
 				else
 					0
 				end
@@ -322,10 +322,10 @@ class Invoice < ActiveRecord::Base
 	def right_handwash_price(article)
 		if Price.where(:article_id => article.id).any?
 			if Price.where(:article_id => article.id).where(:user_id => self.client.id).any?
-				Price.includes(:article, :user).where(:article_id => article.id).where(:user_id => self.client.id).last.handwash if Price.where(:article_id => article.id).where(:user_id => self.client.id).last.handwash.present?
+				Price.where(:article_id => article.id).where(:user_id => self.client.id).last.handwash if Price.where(:article_id => article.id).where(:user_id => self.client.id).last.handwash.present?
 			else
 				if Price.where(:article_id => article.id).last.handwash.present?
-					Price.includes(:article).where(:article_id => article.id).last.handwash
+					Price.where(:article_id => article.id).last.handwash
 				else
 					0
 				end
@@ -350,10 +350,10 @@ class Invoice < ActiveRecord::Base
 	def right_handling_price(article)
 		if Price.where(:article_id => article.id).any?
 			if Price.where(:article_id => article.id).where(:user_id => self.client.id).any?
-				Price.includes(:article, :user).where(:article_id => article.id).where(:user_id => self.client.id).last.handling if Price.where(:article_id => article.id).where(:user_id => self.client.id).last.handling.present?
+				Price.where(:article_id => article.id).where(:user_id => self.client.id).last.handling if Price.where(:article_id => article.id).where(:user_id => self.client.id).last.handling.present?
 			else
 				if Price.where(:article_id => article.id).last.handling.present?
-					Price.includes(:article).where(:article_id => article.id).last.handling
+					Price.where(:article_id => article.id).last.handling
 				else
 					0
 				end
@@ -383,10 +383,10 @@ class Invoice < ActiveRecord::Base
 						if self.offer.event.deposit_on_site >= Price.where(:article_id => article.id).where(:user_id => self.client.id).last.deposit
 							self.offer.event.deposit_on_site / 1.21
 						else
-							Price.includes(:article, :user).where(:article_id => article.id).where(:user_id => self.client.id).last.deposit
+							Price.where(:article_id => article.id).where(:user_id => self.client.id).last.deposit
 						end
 					else
-						Price.includes(:article, :user).where(:article_id => article.id).where(:user_id => self.client.id).last.deposit
+						Price.where(:article_id => article.id).where(:user_id => self.client.id).last.deposit
 					end
 				else
 					0
@@ -397,10 +397,10 @@ class Invoice < ActiveRecord::Base
 						if self.offer.event.deposit_on_site >= Price.where(:article_id => article.id).last.deposit
 							self.offer.event.deposit_on_site / 1.21
 						else
-							Price.includes(:article).where(:article_id => article.id).last.deposit
+							Price.where(:article_id => article.id).last.deposit
 						end
 					else
-						Price.includes(:article).where(:article_id => article.id).last.deposit
+						Price.where(:article_id => article.id).last.deposit
 					end
 				else
 					0
@@ -441,9 +441,9 @@ class Invoice < ActiveRecord::Base
 		else
 			if Price.where(:article_id => offer_article.article.id).any?
 				if Price.where(:article_id => offer_article.article.id).where(:user_id => self.client.id).any?
-					Price.includes(:article, :user).where(:article_id => offer_article.article.id).where(:user_id => self.client.id).last.sell if Price.where(:article_id => offer_article.article.id).where(:user_id => self.client.id).last.sell.present?
+					Price.where(:article_id => offer_article.article.id).where(:user_id => self.client.id).last.sell if Price.where(:article_id => offer_article.article.id).where(:user_id => self.client.id).last.sell.present?
 				else
-					Price.includes(:article).where(:article_id => offer_article.article.id).last.sell if Price.where(:article_id => offer_article.article.id).last.sell.present?
+					Price.where(:article_id => offer_article.article.id).last.sell if Price.where(:article_id => offer_article.article.id).last.sell.present?
 				end
 			else
 				0
