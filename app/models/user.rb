@@ -113,12 +113,21 @@ class User < ActiveRecord::Base
 			end
 	end
 
-	def display_year_attendance
-		"#{year_expected_attendance}h00m"
+	def year_expected_hours
+		(year_expected_attendance / 60).floor
+		
+	end
+
+	def year_expected_minutes
+		year_expected_attendance - (year_expected_hours * 60)	
+	end
+
+	def display_year_expected
+		"#{year_expected_hours}h#{year_expected_minutes}m"
 	end
 
 	def year_expected_seconds
-		year_expected_attendance * 3600
+		year_expected_attendance * 60
 	end
 
 	def year_difference

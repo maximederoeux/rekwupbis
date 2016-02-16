@@ -88,124 +88,28 @@
 
 				          <div class="col-xs-3 col-md-3 text-center">
 
-				          	<% if @offer.organizer.present? %>
 
-					          	<% if @offer.organizer.negociated_price %>
-
-					          		<% if @offer.organizer.prices.where(:article_id => thisofferbox.box.articles.first.id).any? %>
-
-					          			<%= @offer.organizer.prices.where(:article_id => thisofferbox.box.articles.first.id).last.washing %>					          			
-
-					          		<% else %>
-
-					             		<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.washing,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
-					             	<% end %>
-
-
-					          	<% else %>
-
-					             	<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.washing,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
-
-					             <% end %>
-
-					          <% else %>
-
-					             <%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.washing,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
-
-					          <% end %>
+					          <%= @offer.right_wash_price(thisofferbox.box.boxdetails.last.article) %>					          			
 
 
 				          </div>
 
 				          <div class="col-xs-3 col-md-3 text-center">
 
-				          <% if @offer.organizer.present? %>
-
-				          	<% if @offer.organizer.negociated_price %>
-
-				          		<% if @offer.organizer.prices.where(:article_id => thisofferbox.box.articles.first.id).any? %>
-
-				          			<%= @offer.organizer.prices.where(:article_id => thisofferbox.box.articles.first.id).last.handwash %>
-
-
-				          		<% else %>
-
-				             		<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.handwash,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>				         
-				             	<% end %>
-
-				          	<% else %>
-
-				          		<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.handwash,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
-
-				          	<% end %>
-
-				          <% else %>
-
-				          	<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.handwash,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
-
-				          <% end %>
+				          <%= @offer.right_handwash_price(thisofferbox.box.boxdetails.last.article) %>
 
 				          </div>
 
 				          <div class="col-xs-3 col-md-3 text-center">
 
-				          <% if @offer.organizer.present? %>
-
-				          	<% if @offer.organizer.negociated_price %>
-
-				          		<% if @offer.organizer.prices.where(:article_id => thisofferbox.box.articles.first.id).any? %>
-
-				          			<%= @offer.organizer.prices.where(:article_id => thisofferbox.box.articles.first.id).last.handling %>
-
-				          			User Article
-
-				          		<% else %>
-
-				             		<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.handling,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>				          	
-				             	<% end %>
-
-				          	<% else %>
-
-				          	<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.handling,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
-
-				          	<% end %>
-
-				          <% else %>
-
-				          <%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.handling,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
-
-				          <% end %>
+				          <%= @offer.right_handling_price(thisofferbox.box.boxdetails.last.article) %>				          
 
 				          </div>
 
 				          <div class="col-xs-3 col-md-3 text-center">
 
-				          <% if @offer.organizer.present? %>
+				          <%= @offer.right_deposit_price(thisofferbox.box.boxdetails.last.article) %>
 
-				          	<% if @offer.organizer.negociated_price %>
-
-				          		<% if @offer.organizer.prices.where(:article_id => thisofferbox.box.articles.first.id).any? %>
-
-				          			<%= @offer.organizer.prices.where(:article_id => thisofferbox.box.articles.first.id).last.deposit %>
-
-				        
-
-				          		<% else %>
-
-				             		<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.deposit,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>				          
-				             	<% end %>
-
-				          	<% else %>
-
-				          	<%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.deposit,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
-
-				          	<% end %>
-
-				          <% else %>
-
-				          <%= number_to_currency(@regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).last.deposit,:unit =>'€', :precision => 4) if @regular_prices.where(:article_id => thisofferbox.box.boxdetails.last.article.id).any? %>
-
-				          <% end %>
 				          </div>
 
 			        	</div>

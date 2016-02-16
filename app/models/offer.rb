@@ -407,4 +407,88 @@ class Offer < ActiveRecord::Base
 		
 	end
 
+	def right_wash_price(article)
+		if Price.where(:article_id => article.id).any?
+			if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).any?
+				Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.washing if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.washing.present?
+			else
+				if Price.where(:article_id => article.id).last.washing.present?
+					Price.where(:article_id => article.id).last.washing
+				else
+					0
+				end
+			end
+		else
+			0
+		end
+	end
+
+	def right_handwash_price(article)
+		if Price.where(:article_id => article.id).any?
+			if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).any?
+				Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.handwash if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.handwash.present?
+			else
+				if Price.where(:article_id => article.id).last.handwash.present?
+					Price.where(:article_id => article.id).last.handwash
+				else
+					0
+				end
+			end
+		else
+			0
+		end
+	end
+
+	def right_handling_price(article)
+		if Price.where(:article_id => article.id).any?
+			if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).any?
+				Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.handling if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.handling.present?
+			else
+				if Price.where(:article_id => article.id).last.handling.present?
+					Price.where(:article_id => article.id).last.handling
+				else
+					0
+				end
+			end
+		else
+			0
+		end
+	end
+
+	def right_deposit_price(article)
+		if Price.where(:article_id => article.id).any?
+			if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).any?
+				if Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.deposit.present?
+					if self.event.deposit_on_site.present?
+						if self.event.deposit_on_site >= Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.deposit
+							self.event.deposit_on_site / 1.21
+						else
+							Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.deposit
+						end
+					else
+						Price.where(:article_id => article.id).where(:user_id => self.organizer.id).last.deposit
+					end
+				else
+					0
+				end
+			else
+				if Price.where(:article_id => article.id).last.deposit.present?
+					if self.event.deposit_on_site.present?
+						if self.event.deposit_on_site >= Price.where(:article_id => article.id).last.deposit
+							self.event.deposit_on_site / 1.21
+						else
+							Price.where(:article_id => article.id).last.deposit
+						end
+					else
+						Price.where(:article_id => article.id).last.deposit
+					end
+				else
+					0
+				end
+			end
+		else
+			0
+		end
+	end
+	
 end

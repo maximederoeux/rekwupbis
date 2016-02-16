@@ -314,5 +314,6 @@ class Attendance < ActiveRecord::Base
 	def display_last_week_duration
 		"#{last_week_duration_in_hours}h#{display_last_week_duration_minutes}m"
 	end
-	
+
+
 end
