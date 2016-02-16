@@ -58,12 +58,38 @@
 
 
 
-<hr>
 
+<table class="article">
 
+  <tr>
+    <th>Caisses</th>
+    <th class="text-center">Envoyées</th>
+    <th class="text-center">Retours Propres</th>
+    <th class="text-center">Retours Sales</th>
+    <th class="text-center">Retours Scellées Sales</th>
+    <th class="text-center">Total Retour</th>
+    <th class="text-center">Différence</th>
+  </tr>
 
+<% Box.includes(return_details: [{return_box: [{delivery: [:offer]}]}]).all.each do |box| %>
 
-<hr>
+  <% if @invoice.sent_boxes(box) >= 1 or @invoice.total_return(box) >= 1 %>
+
+    <tr>
+      <td><%= box.box_name %></td>
+      <td class="text-center"><%= @invoice.sent_boxes(box) %></td>
+      <td class="text-center"><%= @invoice.return_clean(box) %></td>
+      <td class="text-center"><%= @invoice.return_dirty(box) %></td>
+      <td class="text-center"><%= @invoice.return_sealed(box) %></td>
+      <td class="text-center"><%= @invoice.total_return(box) %></td>
+      <td class="text-center"><%= @invoice.difference_delivery(box) %></td>
+    </tr>
+  
+  <% end %>
+<% end %>
+
+</table>
+
 <div class="client-block">
   <strong>Détail Facture</strong>
 </div>
@@ -82,7 +108,7 @@
     <td><strong>Lavés</strong></td>
   </tr>
 
-    <% @articles.each do |article| %>
+    <% Article.includes({sorting_details: [{sorting: [{return_box: [{delivery: [:offer]}]}]}]}, :prices).all.each do |article| %>
 
       <% if @invoice.offer.sent_article(article) >= 1 or @invoice.total_back(article) >= 1 %>
 
@@ -106,7 +132,7 @@
     <td><strong>Lavage manuel</strong></td>
   </tr>
 
-    <% @articles.each do |article| %>
+    <% Article.includes({sorting_details: [{sorting: [{return_box: [{delivery: [:offer]}]}]}]}, :prices).all.each do |article| %>
 
       <% if @invoice.offer.sent_article(article) >= 1 or @invoice.total_back(article) >= 1 %>
 
@@ -130,7 +156,7 @@
     <td><strong>Manutention</strong></td>
   </tr>
 
-    <% @articles.each do |article| %>
+    <% Article.includes({sorting_details: [{sorting: [{return_box: [{delivery: [:offer]}]}]}]}, :prices).all.each do |article| %>
 
       <% if @invoice.offer.sent_article(article) >= 1 or @invoice.total_back(article) >= 1 %>
 
@@ -154,7 +180,7 @@
     <td><strong>Manquants et cassés</strong></td>
   </tr>
 
-    <% @articles.each do |article| %>
+    <% Article.includes(sorting_details: [{sorting: [{return_box: [{delivery: [:offer]}]}]}]).all.each do |article| %>
 
       <% if @invoice.offer.sent_article(article) >= 1 or @invoice.total_back(article) >= 1 %>
 
@@ -236,6 +262,8 @@
   d'une in demnité forfaitaire de 15% du montant de la facture avec un minimum de 75 € et portera intérêt cponventionnellement à un taux de 12% jusqu'à parfait paiement. Les tribunaux de
   Dinant sont les seuls compétents.
   </div>
+
+
 
 
 

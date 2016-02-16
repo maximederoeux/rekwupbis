@@ -21,6 +21,7 @@
           
                 <strong>
                   <%= return_box.delivery.offer.event.event_name %><br>
+
                     <% if return_box.delivery.offer.organizer.is_lln %>
                       <%= return_box.delivery.offer.organizer.name %><br>
                     <% end %>
@@ -32,10 +33,13 @@
                     <%= link_to edit_return_box_path(return_box) do %>
                       <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
                     <% end %>
+
                   <br>
+
                   <%= return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= return_box.return_time.strftime("%H:%M") %><br>
-                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %> 
+                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %>
+
                 </strong>
                 </li>
             <% end %>
@@ -55,6 +59,7 @@
         
                 <strong>
                   <%= return_box.delivery.offer.event.event_name %><br>
+
                     <% if return_box.delivery.offer.organizer.is_lln %>
                       <%= return_box.delivery.offer.organizer.name %><br>
                     <% end %>
@@ -66,7 +71,9 @@
                     <%= link_to edit_return_box_path(return_box) do %>
                       <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
                     <% end %>
+
                   <br>
+
                   <%= return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= return_box.return_time.strftime("%H:%M") %><br>
                   <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %> 
@@ -92,6 +99,7 @@
         
                 <strong>
                   <%= return_box.delivery.offer.event.event_name %><br>
+
                     <% if return_box.delivery.offer.organizer.is_lln %>
                       <%= return_box.delivery.offer.organizer.name %><br>
                     <% end %>
@@ -103,10 +111,12 @@
                     <%= link_to edit_return_box_path(return_box) do %>
                       <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
                     <% end %>
+
                   <br>
                   <%= return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= return_box.return_time.strftime("%H:%M") %><br>
-                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %> 
+                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %>
+                  
                 </strong>
               </li>
           <% end %>

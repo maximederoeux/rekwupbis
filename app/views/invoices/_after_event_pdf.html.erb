@@ -1,3 +1,62 @@
+<% if current_user.admin %>
+
+  <%= link_to "", invoice_path(format: 'pdf'), :class => "btn btn-default btn-lg btn-block generate" %>
+
+<% end %>
+
+<% if current_user == @invoice.offer.organizer %>
+
+  <%= link_to "Version PDF", invoice_path(format: 'pdf'), :class => "btn btn-xs btn-default" %>
+
+<% end %>
+
+<div class="logo-address">
+  <div class="rekwup-logo">
+    <%= wicked_pdf_image_tag  "http://rekwup.be/templates/rt_gantry/custom/images/logo.png" ,:width => "120",  :height=>"200" %>
+  </div>
+
+  <div class="address-block">
+    <h4>Rekwup</h4>
+    <small><p>41/1 rue de La Croix Limont<br>5590, Ciney, Belgique<br>
+      Tel: +32 487 69 83 73<br>
+      e-mail: jgpahaut@rekwup.be<br>
+      TVA: BE 0544.576.806</p></small>
+
+  </div>
+</div>
+
+<br>
+
+<div class="reference">
+  <h4><strong>
+    <%= @invoice.pdf_name %>
+  </h4></strong>
+</div>
+
+<div class="doc-date">
+    Ciney, le <%= @invoice.created_at.strftime("%d/%m/%Y") %>
+</div>
+
+<div class="client-block">
+  <strong>Client:</strong><br>
+    <%= @invoice.client.company_name if @invoice.client.company_name %><br>
+    <%= @invoice.client.full_name %><br>
+    <%= @invoice.client.address %><br>
+    <%= @invoice.client.country %> <%= @invoice.client.postcode %> <%= @invoice.client.city %><br>
+    <%= @invoice.client.vat if @invoice.client.vat %><br>
+</div>
+
+<div class="object">
+  <strong>Objet:</strong><br>
+    <%= @invoice.offer.event.event_name %>
+</div>
+
+<div class="client-block">
+  <strong>Livraisons et retours</strong>
+</div>
+
+
+
 
 
 <table class="article">
@@ -12,21 +71,204 @@
     <th class="text-center">Différence</th>
   </tr>
 
-<% @boxes.each do |box| %>
-<% if @invoice.sent_boxes(box) >= 1 or @invoice.total_return(box) >= 1 %>
+<% Box.all.each do |box| %>
 
-  <tr>
-    <td><%= box.box_name %></td>
-    <td class="text-center"><%= @invoice.sent_boxes(box) %></td>
-    <td class="text-center"><%= @invoice.return_clean(box) %></td>
-    <td class="text-center"><%= @invoice.return_dirty(box) %></td>
-    <td class="text-center"><%= @invoice.return_sealed(box) %></td>
-    <td class="text-center"><%= @invoice.total_return(box) %></td>
-    <td class="text-center"><%= @invoice.difference_delivery(box) %></td>
-  </tr>
+  <% if @invoice.sent_boxes(box) >= 1 or @invoice.total_return(box) >= 1 %>
+
+    <tr>
+      <td><%= box.box_name %></td>
+      <td class="text-center"><%= @invoice.sent_boxes(box) %></td>
+      <td class="text-center"><%= @invoice.return_clean(box) %></td>
+      <td class="text-center"><%= @invoice.return_dirty(box) %></td>
+      <td class="text-center"><%= @invoice.return_sealed(box) %></td>
+      <td class="text-center"><%= @invoice.total_return(box) %></td>
+      <td class="text-center"><%= @invoice.difference_delivery(box) %></td>
+    </tr>
   
-<% end %>
+  <% end %>
 <% end %>
 
 </table>
+
+<div class="client-block">
+  <strong>Détail Facture</strong>
+</div>
+<table class="article">
+
+  <tr>
+    <th>Articles</th>
+    <th>Qtté</th>
+    <th>Prix U.</th>
+    <th>Total HTVA</th>
+    <th>TVA</th>
+    <th>Total TVAC</th>
+  </tr>
+
+  <tr>
+    <td><strong>Lavés</strong></td>
+  </tr>
+
+    <% Article.all.each do |article| %>
+
+      <% if @invoice.offer.sent_article(article) >= 1 or @invoice.total_back(article) >= 1 %>
+
+        <% unless @invoice.washed_total(article) == 0 %>
+
+        <tr>
+          <td><%= article.article_name %></td>
+          <td><%= @invoice.washed_total(article) %></td>
+          <td><%= number_to_currency(@invoice.right_wash_price(article), :unit => "€", :precision => 3) %></td>
+          <td><%= number_to_currency(@invoice.washed_htva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.washed_tva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.washed_tvac(article), :unit => "€", :precision => 2) %></td>
+
+        </tr>
+
+        <% end %>
+      <% end %>
+    <% end %>
+
+  <tr>
+    <td><strong>Lavage manuel</strong></td>
+  </tr>
+
+    <% Article.all.each do |article| %>
+
+      <% if @invoice.offer.sent_article(article) >= 1 or @invoice.total_back(article) >= 1 %>
+
+        <% unless @invoice.handling_total(article) == 0 %>
+
+        <tr>
+          <td><%= article.article_name %></td>
+          <td><%= @invoice.handling_total(article) %></td>
+          <td><%= number_to_currency(@invoice.right_handling_price(article), :unit => "€", :precision => 3) %></td>
+          <td><%= number_to_currency(@invoice.handling_htva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.handling_tva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.handling_tvac(article), :unit => "€", :precision => 2) %></td>
+
+        </tr>
+
+        <% end %>
+      <% end %>
+    <% end %>
+
+  <tr>
+    <td><strong>Manutention</strong></td>
+  </tr>
+
+    <% Article.all.each do |article| %>
+
+      <% if @invoice.offer.sent_article(article) >= 1 or @invoice.total_back(article) >= 1 %>
+
+        <% unless @invoice.very_dirty_total(article) == 0 %>
+
+        <tr>
+          <td><%= article.article_name %></td>
+          <td><%= @invoice.very_dirty_total(article) %></td>
+          <td><%= number_to_currency(@invoice.right_handwash_price(article), :unit => "€", :precision => 3) %></td>
+          <td><%= number_to_currency(@invoice.handwash_htva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.handwash_tva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.handwash_tvac(article), :unit => "€", :precision => 2) %></td>
+
+        </tr>
+
+        <% end %>
+      <% end %>
+    <% end %>
+
+  <tr>
+    <td><strong>Manquants et cassés</strong></td>
+  </tr>
+
+    <% Article.all.each do |article| %>
+
+      <% if @invoice.offer.sent_article(article) >= 1 or @invoice.total_back(article) >= 1 %>
+
+        <% unless @invoice.missing_and_broken(article) == 0 %>
+
+        <tr>
+          <td><%= article.article_name %></td>
+          <td><%= @invoice.missing_and_broken(article) %></td>
+          <td><%= number_to_currency(@invoice.right_deposit_price(article), :unit => "€", :precision => 3) %></td>
+          <td><%= number_to_currency(@invoice.deposit_htva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.deposit_tva(article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.deposit_tvac(article), :unit => "€", :precision => 2) %></td>
+
+        </tr>
+
+        <% end %>
+      <% end %>
+    <% end %>
+
+  <tr>
+    <td><strong>Autres frais</strong></td>
+  </tr>
+
+    <% @invoice.offer.offer_articles.each do |offer_article| %>
+
+        <tr>
+          <td><%= offer_article.article.article_name %></td>
+          <td><%= offer_article.quantity %></td>
+          <td><%= number_to_currency(@invoice.right_offer_article_price(offer_article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.offer_article_htva(offer_article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.offer_article_tva(offer_article), :unit => "€", :precision => 2) %></td>
+          <td><%= number_to_currency(@invoice.offer_article_tvac(offer_article), :unit => "€", :precision => 2) %></td>
+
+        </tr>
+
+
+
+    <% end %>
+
+
+
+  <tr>
+    <strong>
+      <th><strong>TOTAUX</strong></th>
+      <th></th>
+      <th></th>
+      <th><%= number_to_currency(@invoice.total_htva_final, :unit => "€", :precision => 2) %></th>
+      <th><%= number_to_currency(@invoice.total_tva_final, :unit => "€", :precision => 2) %></th>
+      <th><%= number_to_currency(@invoice.total_tvac_final, :unit => "€", :precision => 2) %></th>
+    </strong>
+
+  </tr>
+</table>
+
+
+  <div class="bank-block">
+  A payer sur le compte suivant :<br>
+  IBAN BE82 5230 8063 5468<br>
+  BIC TRIO BE BB<br>
+  Triodos Bank<br>
+  </div>
+
+  <div class="communication">
+  Communication<br>
+    <% if @invoice.doc_invoice %>
+      <%= t("invoice.invoice") %>
+    <% elsif @invoice.doc_credit %>
+      <%= t("invoice.credit") %>
+    <% end %>
+        - <%= @invoice.created_at.strftime("%Y") %> - <%= @invoice.doc_number %>
+  </div>
+
+  <div class="bank-block">
+  <strong>Echéance</strong><br>
+    Comptant
+  </div>
+
+  <div class="comment">Toute question ou contestation concernant cette facture devra être formulée par écrit dans les huit jours. Toute facture non payée à échéance sera majorée, sans mise en demeure préalable,
+  d'une in demnité forfaitaire de 15% du montant de la facture avec un minimum de 75 € et portera intérêt cponventionnellement à un taux de 12% jusqu'à parfait paiement. Les tribunaux de
+  Dinant sont les seuls compétents.
+  </div>
+
+
+
+
+
+
+
+
+
 

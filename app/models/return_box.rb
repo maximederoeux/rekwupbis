@@ -61,7 +61,6 @@ class ReturnBox < ActiveRecord::Base
 		total_clean + total_dirty + total_sealed
 	end
 
-
 	def clean_boxes(box)
 		clean_boxes = 0
 		self.return_details.where(:box_id => box.id).each do |detail|

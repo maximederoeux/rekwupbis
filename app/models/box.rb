@@ -111,4 +111,8 @@ class Box < ActiveRecord::Base
     end     
   end
 
+  def sent_boxes(offer)
+    offer.sent_boxes(self)
+  end
+
 end

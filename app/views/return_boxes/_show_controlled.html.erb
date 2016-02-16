@@ -99,7 +99,7 @@
     </div>
   </li>
 
-  <% Box.all.each do |box| %>
+  <% Box.includes(return_details:  [ :return_box ] ).each do |box| %>
 
     <% if @return_box.returned_boxes(box) >= 1 %>
 
