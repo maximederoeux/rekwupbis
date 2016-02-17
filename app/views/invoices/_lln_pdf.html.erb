@@ -211,7 +211,7 @@
     </strong>
   </tr>
 
-<% Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: @invoice.week_begin..@invoice.week_finish).each do |offer| %>
+<% Offer.lln_daily.where(created_at: @invoice.week_begin..@invoice.week_finish).each do |offer| %>
 
   <% if offer.organizer.lln_id >= 1%>
 
