@@ -35,6 +35,16 @@ class InvoicesController < ApplicationController
 
   end
 
+  def show_detail
+    @invoice = Invoice.find(params[:id])
+    
+  end
+
+  def show_surfaces
+    @invoice = Invoice.find(params[:id])
+    
+  end
+
   # GET /invoices/new
   def new
     @invoice = Invoice.new

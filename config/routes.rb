@@ -12,7 +12,12 @@ Rails.application.routes.draw do
 
   get 'lln_imports/import'
 
-  resources :invoices
+  resources :invoices do
+    member do
+      get 'show_detail'
+      get 'show_surfaces'
+    end
+  end
   resources :prices
   resources :parcels
   resources :sorting_details

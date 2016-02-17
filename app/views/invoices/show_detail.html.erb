@@ -1,0 +1,17 @@
+<div class="invoice-background">
+
+<% if @invoice.doc_invoice && @invoice.after_event && @invoice.lln_week_invoice == nil %>
+
+	<%= render 'after_event_detail' %>
+
+<% end %>
+
+
+<% if @invoice.lln_week_invoice %>
+
+	<%= render 'lln_detail' %>
+
+<% end %>
+
+
+</div>
