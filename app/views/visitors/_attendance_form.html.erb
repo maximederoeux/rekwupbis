@@ -27,7 +27,7 @@
 
 									<div class="text-center">
 										<h2><%= Date.today.strftime("%d/%m/%Y") %></h2>
-										<h2><%= Time.now.strftime("%H:%M") %></h2>
+										<h2><%= Time.zone.now.strftime("%H:%M") %></h2>
 
 										<h3>Bonjour <%= user.full_name %>!</h3>
 
@@ -64,7 +64,7 @@
 											<%= simple_form_for(@attendances.where(:user_id => user.id).last) do |f| %>
 											  <%= f.error_notification %>
 
-											    <%= f.hidden_field :end_time, :value => Time.now %>
+											    <%= f.hidden_field :end_time, :value => Time.zone.now %>
 
 											    <%= f.submit t("attendance.out"), class: "btn btn-warning btn-lg btn-block" %>
 
@@ -82,7 +82,7 @@
 											<%= simple_form_for(@new_attendance) do |f| %>
 											  <%= f.error_notification %>
 
-											    <%= f.hidden_field :start_time, :value => Time.now %>
+											    <%= f.hidden_field :start_time, :value => Time.zone.now %>
 											    <%= f.hidden_field :user_id, :value => user.id %>
 
 											    <%= f.submit t("attendance.in"), class: "btn btn-info btn-lg btn-block" %>
@@ -99,7 +99,7 @@
 										<%= simple_form_for(@new_attendance) do |f| %>
 										  <%= f.error_notification %>
 
-										    <%= f.hidden_field :start_time, :value => Time.now %>
+										    <%= f.hidden_field :start_time, :value => Time.zone.now %>
 										    <%= f.hidden_field :user_id, :value => user.id %>
 
 										    <%= f.submit t("attendance.in"), class: "btn btn-info btn-lg btn-block" %>
