@@ -76,7 +76,7 @@
   </tr>
 
 
-    <% Article.all.find_each do |article| %>
+    <% Article.all.each do |article| %>
 
       <% if @invoice.washed_articles_week(article) >= 1 %>
 
