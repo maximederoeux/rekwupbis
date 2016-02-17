@@ -2,7 +2,7 @@
 
 <%= article.right_wash_price(@invoice.client) %>
 <%= @invoice.washed_articles_week(article) %>
-<%= @invoice.washed_htva_week(article) %><br>
+<%= article.right_wash_price(@invoice.client) * @invoice.washed_articles_week(article) %><br>
 
 
 <% end %>
