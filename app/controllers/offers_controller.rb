@@ -93,28 +93,35 @@ class OffersController < ApplicationController
         @offer.automatic
 
         if @offer.lln_daily && !@offer.unforeseen_return
-          Delivery.create(:offer_id => @offer.id, :delivery_date => Date.today + 1.day, :return_date => Date.today + 1.day)
-
           LlnImport.where(:id => @offer.organizer.lln_id).each do |import|
 
-            if import.lln_twentyfive >= 1
-              OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_lln.is_twentyfive.first.id, :quantity => import.lln_twentyfive)
+            if import.return_box >= 1
+              ReturnBox.create(:offer_id => @offer.id, :return_date => Date.today + 1.day)
+              @return_box = ReturnBox.last
+              ReturnDetail.create(:return_box_id => @return_box.id, :box_id => Box.is_lln.is_twentyfive.first.id, :dirty => import.return_box)
             end
+            if import.total_delivery >= 1
+              Delivery.create(:offer_id => @offer.id, :delivery_date => Date.today + 1.day, :return_date => Date.today + 1.day)
 
-            if import.lln_fifty >= 1
-              OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_lln.is_fifty.first.id, :quantity => import.lln_fifty)
-            end
+              if import.lln_twentyfive >= 1
+                OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_lln.is_twentyfive.first.id, :quantity => import.lln_twentyfive)
+              end
 
-            if import.lln_litre >= 1
-              OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_lln.is_litre.first.id, :quantity => import.lln_litre)
-            end
+              if import.lln_fifty >= 1
+                OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_lln.is_fifty.first.id, :quantity => import.lln_fifty)
+              end
 
-            if import.empty_box >= 1
-              OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_empty.first.id, :quantity => import.empty_box)
-            end
+              if import.lln_litre >= 1
+                OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_lln.is_litre.first.id, :quantity => import.lln_litre)
+              end
 
-            if import.kpt_box >= 1
-              OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_lln.is_twentyfive.is_kpt.first.id, :quantity => import.kpt_box)
+              if import.empty_box >= 1
+                OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_empty.first.id, :quantity => import.empty_box)
+              end
+
+              if import.kpt_box >= 1
+                OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_lln.is_twentyfive.is_kpt.first.id, :quantity => import.kpt_box)
+              end
             end
 
           end

@@ -33,7 +33,7 @@
                   <%= return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= return_box.return_time.strftime("%H:%M") %><br>
                   <% unless return_box.offer.organizer.is_lln %>
-                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %>
+                  <%= return_box.total_return %> <%= t("menu.boxes") %>
                   <% end %> 
                 </strong>
                 </li>
@@ -66,7 +66,7 @@
                   <%= return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= return_box.return_time.strftime("%H:%M") %><br>
                   <% unless return_box.offer.organizer.is_lln %>
-                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %>
+                  <%= return_box.total_return %> <%= t("menu.boxes") %>
                   <% end %> 
                 </strong>
               </li>
@@ -102,7 +102,7 @@
                   <%= return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= return_box.return_time.strftime("%H:%M") %><br>
                   <% unless return_box.offer.organizer.is_lln %>
-                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %>
+                  <%= return_box.total_return %> <%= t("menu.boxes") %>
                   <% end %> 
                 </strong>
               </li>
@@ -135,7 +135,7 @@
                   <%= return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= return_box.return_time.strftime("%H:%M") %><br>
                   <% unless return_box.offer.organizer.is_lln %>
-                  <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %>
+                  <%= return_box.total_return %> <%= t("menu.boxes") %>
                   <% end %> 
                 </strong>
               </li>
