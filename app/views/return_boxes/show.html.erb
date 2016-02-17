@@ -72,7 +72,7 @@
 
   <% if Delivery.where(:offer_id => Offer.where(:organizer_id => User.is_lln.where(:lln_id => import.id).first.id).last.id).any? %>
 
-    <% if ReturnBox.where(:delivery_id => Delivery.where(:offer_id => Offer.where(:organizer_id => User.is_lln.where(:lln_id => import.id).first.id).last.id)).any? %>
+    <% if ReturnBox.where(:offer_id => Offer.where(:organizer_id => User.is_lln.where(:lln_id => import.id).first.id).last.id).any? %>
 
     <% else %>
 
@@ -85,7 +85,7 @@
             <%= simple_form_for(@new_return) do |f| %>
               <%= f.error_notification %>
 
-              <%= f.hidden_field :delivery_id, :value => Offer.where(:organizer_id => User.is_lln.where(:lln_id => import.id).first.id).last.delivery.id %>
+              <%= f.hidden_field :offer_id, :value => Offer.where(:organizer_id => User.is_lln.where(:lln_id => import.id).first.id).last.id %>
               <%= f.hidden_field :return_date, :value => Date.today %>
               <%= f.hidden_field :unforeseen_return, :value => true %>
 

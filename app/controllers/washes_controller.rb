@@ -80,6 +80,6 @@ class WashesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wash_params
-      params.require(:wash).permit(:return_box_id, :start_time, :end_time, :washer, :ender)
+      params.require(:wash).permit(:offer_id, :return_box_id, :start_time, :end_time, :washer, :ender)
     end
 end

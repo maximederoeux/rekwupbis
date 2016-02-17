@@ -69,7 +69,7 @@ class DeliveriesController < ApplicationController
       if @delivery.update(delivery_params)
         if @delivery.is_gone && @delivery.dropped == nil
           unless @delivery.offer.lln_daily
-          ReturnBox.create(:delivery_id => @delivery.id, :return_date => @delivery.return_date)
+          ReturnBox.create(:offer_id => @delivery.offer_id, :return_date => @delivery.return_date)
           @delivery.offer.offer_boxes.each do |offer_box|
             ReturnDetail.create(:return_box_id => ReturnBox.last.id, :box_id => offer_box.box_id)
             # ReturnBox.last.return_details.build(params[:return_box_id => ReturnBox.last.id, :box_id => offer_box.box_id])

@@ -4,8 +4,8 @@
         <strong>
           <%= t("return.reference") %><%= @return_box.id %> <%= t("word.from") %> <%= @return_box.offer.event.event_name %><br>
 
-              <% if @return_box.delivery.offer.organizer.is_lln %>
-                <%= @return_box.delivery.offer.organizer.name %><br>
+              <% if @return_box.offer.organizer.is_lln %>
+                <%= @return_box.offer.organizer.name %><br>
               <% end %>
 
         </strong>

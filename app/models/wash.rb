@@ -1,5 +1,5 @@
 class Wash < ActiveRecord::Base
-	belongs_to :return_box
+	belongs_to :offer
 
 	scope :this_day, lambda {where(:created_at => (Date.current.beginning_of_day..Date.current.end_of_day))}
 	scope :previous_day, lambda {where(:created_at => (1.day.ago.beginning_of_day..1.day.ago.end_of_day))}

@@ -17,7 +17,7 @@
             <strong><%= t("menu.articles") %></strong>
           </div>
           <div class="col-md-6">
-            <% if @sorting.return_box.delivery.offer.lln_daily %>
+            <% if @sorting.offer.lln_daily %>
             <% else %>
               <strong><%= t("sorting.sent_cups") %></strong>
             <% end %>
@@ -69,8 +69,8 @@
                   
                 </div>
                 <div class="col-md-6">
-                  <% unless @sorting.return_box.delivery.offer.lln_daily %>
-                    <%= @sorting.return_box.delivery.offer.sent_article(article) %>
+                  <% unless @sorting.offer.lln_daily %>
+                    <%= @sorting.offer.sent_article(article) %>
                   <% end %>
                 </div>
               </div>
@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="col-md-2">
-                  <% unless @sorting.return_box.delivery.offer.lln_daily %>
+                  <% unless @sorting.offer.lln_daily %>
                     <%= @sorting.missing(article) %>
                   <% end %>
                 </div>

@@ -20,9 +20,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= wash.return_box.delivery.offer.event.event_name %><br>
-                    <% if wash.return_box.delivery.offer.organizer.is_lln %>
-                      <%= wash.return_box.delivery.offer.organizer.name %><br>
+                  <%= wash.offer.event.event_name %><br>
+                    <% if wash.offer.organizer.is_lln %>
+                      <%= wash.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to wash_path(wash) do %>
@@ -30,8 +30,8 @@
                     <% end %>
                   
                   <br>
-                  <%= t("wash.back") %><%= wash.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.return_box.return_time.strftime("%H:%M") %><br>
-                  <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= t("wash.back") %><%= wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
+                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %>
 
                   <%= simple_form_for(wash) do |f| %>
@@ -62,9 +62,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= wash.return_box.delivery.offer.event.event_name %><br>
-                    <% if wash.return_box.delivery.offer.organizer.is_lln %>
-                      <%= wash.return_box.delivery.offer.organizer.name %><br>
+                  <%= wash.offer.event.event_name %><br>
+                    <% if wash.offer.organizer.is_lln %>
+                      <%= wash.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to wash_path(wash) do %>
@@ -72,8 +72,8 @@
                     <% end %>
                   
                   <br>
-                  <%= t("wash.back") %><%= wash.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.return_box.return_time.strftime("%H:%M") %><br>
-                  <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= t("wash.back") %><%= wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
+                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %>
 
                   <%= simple_form_for(wash) do |f| %>
@@ -107,9 +107,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= wash.return_box.delivery.offer.event.event_name %><br>
-                    <% if wash.return_box.delivery.offer.organizer.is_lln %>
-                      <%= wash.return_box.delivery.offer.organizer.name %><br>
+                  <%= wash.offer.event.event_name %><br>
+                    <% if wash.offer.organizer.is_lln %>
+                      <%= wash.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to wash_path(wash) do %>
@@ -117,8 +117,8 @@
                     <% end %>
                   
                   <br>
-                  <%= t("wash.back") %><%= wash.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.return_box.return_time.strftime("%H:%M") %><br>
-                  <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= t("wash.back") %><%= wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
+                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %>
 
                   <%= simple_form_for(wash) do |f| %>
@@ -149,9 +149,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= wash.return_box.delivery.offer.event.event_name %><br>
-                    <% if wash.return_box.delivery.offer.organizer.is_lln %>
-                      <%= wash.return_box.delivery.offer.organizer.name %><br>
+                  <%= wash.offer.event.event_name %><br>
+                    <% if wash.offer.organizer.is_lln %>
+                      <%= wash.offer.organizer.name %><br>
                     <% end %>
                     
                     <%= link_to wash_path(wash) do %>
@@ -159,8 +159,8 @@
                     <% end %>
                   
                   <br>
-                  <%= t("wash.back") %><%= wash.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.return_box.return_time.strftime("%H:%M") %><br>
-                  <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= t("wash.back") %><%= wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
+                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %>
 
                   <%= simple_form_for(wash) do |f| %>

@@ -1,4 +1,5 @@
 
+
   <ul class="list-group">
     <li class="list-group-item list-group-item-success">
 
@@ -6,7 +7,7 @@
 
         <div class="col-md-6">
           <h4>
-            <strong><%= t("wash.event") %> : </strong><%= @wash.return_box.delivery.offer.event.event_name %>
+            <strong><%= t("wash.event") %> : </strong><%= @wash.offer.event.event_name %>
           </h4>
             <% if @wash.start_time.present? && @wash.end_time.present? %>
                 <strong><%= t("wash.finished3") %></strong>
@@ -52,7 +53,7 @@
 
               <%= f.hidden_field :start_time, :value => Time.now %>
               <%= f.hidden_field :washer, :value => current_user.id %>
-              <%= f.hidden_field :return_box_id, :value => @return %>
+              <%= f.hidden_field :offer_id, :value => @wash.offer_id %>
 
               <%= f.submit t("wash.new"), class: "btn btn-info"  %>
 
@@ -73,16 +74,16 @@
           <strong>
             <%= t("wash.delivery") %>
           </strong><br>
-          <%= @wash.return_box.delivery.gone_time.strftime("%d/%m/%Y") if @wash.return_box.delivery.gone_time.present? %><br>
-          <%= @wash.return_box.delivery.gone_time.strftime("%H:%M") if @wash.return_box.delivery.gone_time.present? %>
+          <%= @wash.offer.delivery.gone_time.strftime("%d/%m/%Y") if @wash.offer.delivery.gone_time.present? %><br>
+          <%= @wash.offer.delivery.gone_time.strftime("%H:%M") if @wash.offer.delivery.gone_time.present? %>
         </div>
 
         <div class="col-md-4">
           <strong>
             <%= t("wash.return") %>
           </strong><br>
-          <%= @wash.return_box.return_time.strftime("%d/%m/%Y") %><br>
-          <%= @wash.return_box.return_time.strftime("%H:%M") %>
+          <%= @wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><br>
+          <%= @wash.offer.return_boxes.first.return_time.strftime("%H:%M") %>
         </div>
 
         <div class="col-md-4">
@@ -90,7 +91,7 @@
             <%= t("wash.received") %>
           </strong><br>
             <% @users.each do |user| %>
-              <% if user.id == @wash.return_box.receptionist %>
+              <% if user.id == @wash.offer.return_boxes.first.receptionist %>
              
                 <%= user.full_name %>
 

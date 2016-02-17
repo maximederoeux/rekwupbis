@@ -117,18 +117,11 @@ class OffersController < ApplicationController
               OfferBox.create(:offer_id => @offer.id, :box_id => Box.is_lln.is_twentyfive.is_kpt.first.id, :quantity => import.kpt_box)
             end
 
-            if import.return_box >= 1
-              ReturnBox.create(:delivery_id => Delivery.where(:offer_id => @offer.id).last.id, :return_date => Date.today + 1.day)
-              ReturnDetail.create(:return_box_id => ReturnBox.last.id, :box_id => Box.is_lln.is_twentyfive.first.id, :dirty => import.return_box)
-            end
-
           end
         end
 
         if @offer.unforeseen_return
-
-          Delivery.create(:offer_id => @offer.id, :delivery_date => Date.today - 1.day, :return_date => Date.today, :gone_time => Time.now - 86400)
-          ReturnBox.create(:delivery_id => Delivery.where(:offer_id => @offer.id).last.id, :return_date => Date.today)
+          ReturnBox.create(:offer_id => @offer.id, :return_date => Date.today)
           @return_box = ReturnBox.last
         end
         

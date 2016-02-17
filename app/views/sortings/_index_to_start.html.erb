@@ -20,10 +20,10 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
+                  <%= sorting.offer.event.event_name %><br>
 
-                    <% if sorting.return_box.delivery.offer.organizer.is_lln %>
-                      <%= sorting.return_box.delivery.offer.organizer.name %><br>
+                    <% if sorting.offer.organizer.is_lln %>
+                      <%= sorting.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to sorting_path(sorting) do %>
@@ -31,17 +31,17 @@
                     <% end %>
                   
                   <br>
-                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
+                  <%= t("sorting.back") %><%= sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
                   
-                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
 
-	                  <% if sorting.return_box.washes.where.not(:start_time => nil).count == 0 %>
+	                  <% if sorting.offer.washes.where.not(:start_time => nil).count == 0 %>
 	                  	<%= t("wash.no_wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count == 1 %>
-	                  	<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
+	                  <% elsif sorting.offer.washes.where.not(:start_time => nil).count == 1 %>
+	                  	<%= sorting.offer.washes.where.not(:start_time => nil).count %>
 	                  	<%= t("wash.wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count >= 2 %>
-											<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
+	                  <% elsif sorting.offer.washes.where.not(:start_time => nil).count >= 2 %>
+											<%= sorting.offer.washes.where.not(:start_time => nil).count %>
 											<%= t("menu.washes") %>
 	                  <% end %>
 
@@ -74,9 +74,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
-                    <% if sorting.return_box.delivery.offer.organizer.is_lln %>
-                      <%= sorting.return_box.delivery.offer.organizer.name %><br>
+                  <%= sorting.offer.event.event_name %><br>
+                    <% if sorting.offer.organizer.is_lln %>
+                      <%= sorting.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to sorting_path(sorting) do %>
@@ -84,16 +84,16 @@
                     <% end %>
                   
                   <br>
-                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
-                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= t("sorting.back") %><%= sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
+                  <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
 
-	                  <% if sorting.return_box.washes.where.not(:start_time => nil).count == 0 %>
+	                  <% if sorting.offer.washes.where.not(:start_time => nil).count == 0 %>
 	                  	<%= t("wash.no_wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count == 1 %>
-	                  	<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
+	                  <% elsif sorting.offer.washes.where.not(:start_time => nil).count == 1 %>
+	                  	<%= sorting.offer.washes.where.not(:start_time => nil).count %>
 	                  	<%= t("wash.wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count >= 2 %>
-											<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
+	                  <% elsif sorting.offer.washes.where.not(:start_time => nil).count >= 2 %>
+											<%= sorting.offer.washes.where.not(:start_time => nil).count %>
 											<%= t("menu.washes") %>
 	                  <% end %>
 
@@ -129,9 +129,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
-                    <% if sorting.return_box.delivery.offer.organizer.is_lln %>
-                      <%= sorting.return_box.delivery.offer.organizer.name %><br>
+                  <%= sorting.offer.event.event_name %><br>
+                    <% if sorting.offer.organizer.is_lln %>
+                      <%= sorting.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to sorting_path(sorting) do %>
@@ -139,16 +139,16 @@
                     <% end %>
                   
                   <br>
-                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
-                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= t("sorting.back") %><%= sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
+                  <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
 
-	                  <% if sorting.return_box.washes.where.not(:start_time => nil).count == 0 %>
+	                  <% if sorting.offer.washes.where.not(:start_time => nil).count == 0 %>
 	                  	<%= t("wash.no_wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count == 1 %>
-	                  	<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
+	                  <% elsif sorting.offer.washes.where.not(:start_time => nil).count == 1 %>
+	                  	<%= sorting.offer.washes.where.not(:start_time => nil).count %>
 	                  	<%= t("wash.wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count >= 2 %>
-											<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
+	                  <% elsif sorting.offer.washes.where.not(:start_time => nil).count >= 2 %>
+											<%= sorting.offer.washes.where.not(:start_time => nil).count %>
 											<%= t("menu.washes") %>
 	                  <% end %>
 	                  
@@ -181,9 +181,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
-                    <% if sorting.return_box.delivery.offer.organizer.is_lln %>
-                      <%= sorting.return_box.delivery.offer.organizer.name %><br>
+                  <%= sorting.offer.event.event_name %><br>
+                    <% if sorting.offer.organizer.is_lln %>
+                      <%= sorting.offer.organizer.name %><br>
                     <% end %>
                     
                     <%= link_to sorting_path(sorting) do %>
@@ -191,16 +191,16 @@
                     <% end %>
                   
                   <br>
-                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
-                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= t("sorting.back") %><%= sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
+                  <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
 
-	                  <% if sorting.return_box.washes.where.not(:start_time => nil).count == 0 %>
+	                  <% if sorting.offer.washes.where.not(:start_time => nil).count == 0 %>
 	                  	<%= t("wash.no_wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count == 1 %>
-	                  	<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
+	                  <% elsif sorting.offer.washes.where.not(:start_time => nil).count == 1 %>
+	                  	<%= sorting.offer.washes.where.not(:start_time => nil).count %>
 	                  	<%= t("wash.wash") %>
-	                  <% elsif sorting.return_box.washes.where.not(:start_time => nil).count >= 2 %>
-											<%= sorting.return_box.washes.where.not(:start_time => nil).count %>
+	                  <% elsif sorting.offer.washes.where.not(:start_time => nil).count >= 2 %>
+											<%= sorting.offer.washes.where.not(:start_time => nil).count %>
 											<%= t("menu.washes") %>
 	                  <% end %>
 	                  

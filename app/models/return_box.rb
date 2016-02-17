@@ -1,8 +1,8 @@
 class ReturnBox < ActiveRecord::Base
-	belongs_to :delivery
+	belongs_to :offer
 	has_many :return_details
-	has_many :washes
-	has_many :sortings
+	has_many :washes, through: :offer
+	has_many :sortings, through: :offer
 	has_many :parcels
 
 	
@@ -23,8 +23,9 @@ class ReturnBox < ActiveRecord::Base
 	scope :gone, lambda {where(:is_back => true) && where(:is_controlled => true)}
 	scope :before_today, lambda {where('return_date < ?', Date.today)}
 
-	def offer
-		self.delivery.offer	
+
+	def delivery
+		self.offer.delivery	
 	end
 
 	def total_clean

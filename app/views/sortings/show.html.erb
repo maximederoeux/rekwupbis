@@ -1,7 +1,7 @@
 
 
 
-<% if @sorting.return_box.washes.where.not(:start_time => nil).count == 0 %>
+<% if @sorting.offer.washes.where.not(:start_time => nil).count == 0 %>
 
   <h4><%= t("wash.no_wash") %></h4>
 

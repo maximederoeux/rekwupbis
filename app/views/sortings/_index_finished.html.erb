@@ -20,9 +20,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
-                    <% if sorting.return_box.delivery.offer.organizer.is_lln %>
-                      <%= sorting.return_box.delivery.offer.organizer.name %><br>
+                  <%= sorting.offer.event.event_name %><br>
+                    <% if sorting.offer.organizer.is_lln %>
+                      <%= sorting.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to sorting_path(sorting) do %>
@@ -30,8 +30,8 @@
                     <% end %>
                   
                   <br>
-                  <%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><br>
-                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><br>
+                  <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
                   <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %> 
                 </strong>
@@ -39,7 +39,7 @@
                 <%= simple_form_for @new_sorting do |f| %>
                 <%= f.error_notification %>
 
-                  <%= f.hidden_field :return_box_id, :value => sorting.return_box_id %>
+                  <%= f.hidden_field :offer_id, :value => sorting.offer_id %>
                   <%= f.hidden_field :start_time, :value => Time.now %>
                   <%= f.hidden_field :starter, :value => current_user.id %>
                 <%= f.submit t("sorting.new"), class: "btn btn-info" %>
@@ -63,9 +63,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
-                    <% if sorting.return_box.delivery.offer.organizer.is_lln %>
-                      <%= sorting.return_box.delivery.offer.organizer.name %><br>
+                  <%= sorting.offer.event.event_name %><br>
+                    <% if sorting.offer.organizer.is_lln %>
+                      <%= sorting.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to sorting_path(sorting) do %>
@@ -73,8 +73,8 @@
                     <% end %>
                   
                   <br>
-                  <%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><br>
-                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><br>
+                  <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
                   <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %>   
                 </strong>
@@ -82,7 +82,7 @@
                 <%= simple_form_for @new_sorting do |f| %>
                 <%= f.error_notification %>
 
-                  <%= f.hidden_field :return_box_id, :value => sorting.return_box_id %>
+                  <%= f.hidden_field :offer_id, :value => sorting.offer_id %>
                   <%= f.hidden_field :start_time, :value => Time.now %>
                   <%= f.hidden_field :starter, :value => current_user.id %>
                 <%= f.submit t("sorting.new"), class: "btn btn-info" %>
@@ -109,9 +109,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
-                    <% if sorting.return_box.delivery.offer.organizer.is_lln %>
-                      <%= sorting.return_box.delivery.offer.organizer.name %><br>
+                  <%= sorting.offer.event.event_name %><br>
+                    <% if sorting.offer.organizer.is_lln %>
+                      <%= sorting.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to sorting_path(sorting) do %>
@@ -119,8 +119,8 @@
                     <% end %>
                   
                   <br>
-                  <%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><br>
-                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><br>
+                  <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
                   <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %>   
                 </strong>
@@ -128,7 +128,7 @@
                 <%= simple_form_for @new_sorting do |f| %>
                 <%= f.error_notification %>
 
-                  <%= f.hidden_field :return_box_id, :value => sorting.return_box_id %>
+                  <%= f.hidden_field :offer_id, :value => sorting.offer_id %>
                   <%= f.hidden_field :start_time, :value => Time.now %>
                   <%= f.hidden_field :starter, :value => current_user.id %>
                 <%= f.submit t("sorting.new"), class: "btn btn-info" %>
@@ -152,9 +152,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
-                    <% if sorting.return_box.delivery.offer.organizer.is_lln %>
-                      <%= sorting.return_box.delivery.offer.organizer.name %><br>
+                  <%= sorting.offer.event.event_name %><br>
+                    <% if sorting.offer.organizer.is_lln %>
+                      <%= sorting.offer.organizer.name %><br>
                     <% end %>
                     
                     <%= link_to sorting_path(sorting) do %>
@@ -162,8 +162,8 @@
                     <% end %>
                   
                   <br>
-                  <%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><br>
-                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><br>
+                  <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
                   <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %>   
                 </strong>
@@ -171,7 +171,7 @@
                 <%= simple_form_for @new_sorting do |f| %>
                 <%= f.error_notification %>
 
-                  <%= f.hidden_field :return_box_id, :value => sorting.return_box_id %>
+                  <%= f.hidden_field :offer_id, :value => sorting.offer_id %>
                   <%= f.hidden_field :start_time, :value => Time.now %>
                   <%= f.hidden_field :starter, :value => current_user.id %>
                 <%= f.submit t("sorting.new"), class: "btn btn-info" %>

@@ -1,9 +1,11 @@
 class Sorting < ActiveRecord::Base
-	belongs_to :return_box
+	belongs_to :offer
 	has_many :sorting_details
 
+	has_many :return_boxes, through: :offer
+
 	has_many :articles, through: :sorting_details
-	has_many :return_details, through: :return_box
+	has_many :return_details, through: :return_boxes
 
 	scope :this_day, lambda {where(:created_at => (Date.current.beginning_of_day..Date.current.end_of_day))}
 	scope :previous_day, lambda {where(:created_at => (1.day.ago.beginning_of_day..1.day.ago.end_of_day))}
@@ -68,7 +70,7 @@ class Sorting < ActiveRecord::Base
 	end
 
 	def sent_article(article)
-		self.return_box.delivery.offer.sent_article(article)
+		self.offer.sent_article(article)
 		
 	end
 
@@ -83,7 +85,7 @@ class Sorting < ActiveRecord::Base
 
 	def clean_box_return(article)
 		clean_box_return = 0
-		self.return_box.return_details.where('clean > ?', 0).each do |return_detail|
+		self.return_details.where('clean > ?', 0).each do |return_detail|
 				if return_detail.box.articles.where(:id => article.id).any?
 				clean_box_return += return_detail.clean
 				end
@@ -101,7 +103,7 @@ class Sorting < ActiveRecord::Base
 
 	def dirty_box_return(article)
 		dirty_box_return = 0
-		self.return_box.return_details.where('dirty > ?', 0).each do |return_detail|
+		self.return_details.where('dirty > ?', 0).each do |return_detail|
 				if return_detail.box.articles.where(:id => article.id).any?
 				dirty_box_return += return_detail.dirty
 				end
@@ -111,7 +113,7 @@ class Sorting < ActiveRecord::Base
 
 	def sealed_box_return(article)
 		sealed_box_return = 0
-		self.return_box.return_details.where('sealed > ?', 0).each do |return_detail|
+		self.return_details.where('sealed > ?', 0).each do |return_detail|
 				if return_detail.box.articles.where(:id => article.id).any?
 				sealed_box_return += return_detail.sealed
 				end

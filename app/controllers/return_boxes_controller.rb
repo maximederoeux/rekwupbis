@@ -61,7 +61,7 @@ class ReturnBoxesController < ApplicationController
   # POST /return_boxes.json
   def create
     @return_box = ReturnBox.new(return_box_params)
-    @delivery = @return_box.delivery
+    @delivery = @return_box.offer.delivery
 
     respond_to do |format|
       if @return_box.save   
@@ -81,9 +81,9 @@ class ReturnBoxesController < ApplicationController
     respond_to do |format|
       if @return_box.update(return_box_params)
         if @return_box.send_wash
-          Wash.create(:return_box_id => @return_box.id)
-          Sorting.create(:return_box_id => @return_box.id)
-          @return_box.delivery.offer.offer_boxes.each do |offer_box|
+          Wash.create(:offer_id => @return_box.offer_id)
+          Sorting.create(:offer_id => @return_box.offer_id)
+          @return_box.offer.offer_boxes.each do |offer_box|
             offer_box.box.boxdetails.each do |boxdetail|
               if boxdetail.article.is_cup
               SortingDetail.create(:sorting_id => Sorting.last.id, :article_id => boxdetail.article.id, :clean => true)
@@ -121,6 +121,6 @@ class ReturnBoxesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def return_box_params
-      params.require(:return_box).permit(:delivery_id, :return_time, :is_back, :receptionist, :ctrl_time, :ctrler, :is_controlled, :return_date, :send_wash, :unforeseen_return, return_details_attributes: [:box_id, :dirty, :sealed, :clean, :dirty_ctrl, :sealed_ctrl, :clean_ctrl])
+      params.require(:return_box).permit(:offer_id, :delivery_id, :return_time, :is_back, :receptionist, :ctrl_time, :ctrler, :is_controlled, :return_date, :send_wash, :unforeseen_return, return_details_attributes: [:box_id, :dirty, :sealed, :clean, :dirty_ctrl, :sealed_ctrl, :clean_ctrl])
     end
 end

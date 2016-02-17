@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-6">
   	<h5><strong>
-  		<%= @sorting.return_box.delivery.offer.event.event_name %> - Ref. <%= @sorting.return_box.delivery.offer.event.created_at.strftime("%Y") %>-<%= @sorting.return_box.delivery.offer.event.id %>
+  		<%= @sorting.offer.event.event_name %> - Ref. <%= @sorting.offer.event.created_at.strftime("%Y") %>-<%= @sorting.offer.event.id %>
   	</strong></h5>
       </div>
       <div class="col-md-3">
@@ -43,7 +43,7 @@
           <%= simple_form_for @new_sorting do |f| %>
           <%= f.error_notification %>
 
-            <%= f.hidden_field :return_box_id, :value => @sorting.return_box_id %>
+            <%= f.hidden_field :offer_id, :value => @sorting.offer_id %>
             <%= f.hidden_field :start_time, :value => Time.now %>
             <%= f.hidden_field :starter, :value => current_user.id %>
           <%= f.submit t("sorting.new"), class: "btn btn-info pull-right" %>
@@ -62,17 +62,17 @@
 
   		<div class="col-md-4">
         <strong><%= t("sorting.delivery") %></strong><br>    
-				<%= @sorting.return_box.delivery.gone_time.strftime("%d/%m/%Y") if @sorting.return_box.delivery.gone_time.present? %>
+				<%= @sorting.offer.delivery.gone_time.strftime("%d/%m/%Y") if @sorting.offer.delivery.gone_time.present? %>
   		</div>
 
   		<div class="col-md-4">
         <strong><%= t("sorting.return") %></strong><br>  
-				<%= @sorting.return_box.return_time.strftime("%d/%m/%Y") if @sorting.return_box.return_time.present? %>
+				<%= @sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") if @sorting.offer.return_boxes.first.return_time.present? %>
   		</div>
 
   		<div class="col-md-4">
         <strong><%= t("sorting.wash") %></strong><br>
-				<%= @sorting.return_box.washes.last.start_time.strftime("%d/%m/%Y") if @sorting.return_box.washes.last.start_time %>
+				<%= @sorting.offer.washes.last.start_time.strftime("%d/%m/%Y") if @sorting.offer.washes.last.start_time %>
   		</div>
 
   	</div>

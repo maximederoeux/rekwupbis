@@ -20,9 +20,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= return_box.delivery.offer.event.event_name %><br>
-                    <% if return_box.delivery.offer.organizer.is_lln %>
-                      <%= return_box.delivery.offer.organizer.name %><br>
+                  <%= return_box.offer.event.event_name %><br>
+                    <% if return_box.offer.organizer.is_lln %>
+                      <%= return_box.offer.organizer.name %><br>
                     <% end %>
                     
                     <%= link_to return_box_path(return_box) do %>
@@ -32,7 +32,7 @@
                   <br>
                   <%= return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= return_box.return_time.strftime("%H:%M") %><br>
-                  <% unless return_box.delivery.offer.organizer.is_lln %>
+                  <% unless return_box.offer.organizer.is_lln %>
                   <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %>
                   <% end %> 
                 </strong>
@@ -53,9 +53,9 @@
               <li class="list-group-item text-center">
         
                 <strong>
-                  <%= return_box.delivery.offer.event.event_name %><br>
-                    <% if return_box.delivery.offer.organizer.is_lln %>
-                      <%= return_box.delivery.offer.organizer.name %><br>
+                  <%= return_box.offer.event.event_name %><br>
+                    <% if return_box.offer.organizer.is_lln %>
+                      <%= return_box.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to return_box_path(return_box) do %>
@@ -65,7 +65,7 @@
                   <br>
                   <%= return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= return_box.return_time.strftime("%H:%M") %><br>
-                  <% unless return_box.delivery.offer.organizer.is_lln %>
+                  <% unless return_box.offer.organizer.is_lln %>
                   <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %>
                   <% end %> 
                 </strong>
@@ -89,9 +89,9 @@
               <li class="list-group-item text-center">
         
                 <strong>
-                  <%= return_box.delivery.offer.event.event_name %><br>
-                    <% if return_box.delivery.offer.organizer.is_lln %>
-                      <%= return_box.delivery.offer.organizer.name %><br>
+                  <%= return_box.offer.event.event_name %><br>
+                    <% if return_box.offer.organizer.is_lln %>
+                      <%= return_box.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to return_box_path(return_box) do %>
@@ -101,7 +101,7 @@
                   <br>
                   <%= return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= return_box.return_time.strftime("%H:%M") %><br>
-                  <% unless return_box.delivery.offer.organizer.is_lln %>
+                  <% unless return_box.offer.organizer.is_lln %>
                   <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %>
                   <% end %> 
                 </strong>
@@ -122,9 +122,9 @@
               <li class="list-group-item text-center">
         
                 <strong>
-                  <%= return_box.delivery.offer.event.event_name %><br>
-                    <% if return_box.delivery.offer.organizer.is_lln %>
-                      <%= return_box.delivery.offer.organizer.name %><br>
+                  <%= return_box.offer.event.event_name %><br>
+                    <% if return_box.offer.organizer.is_lln %>
+                      <%= return_box.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to return_box_path(return_box) do %>
@@ -134,7 +134,7 @@
                   <br>
                   <%= return_box.return_time.strftime("%d/%m/%Y") %><br>
                   <%= return_box.return_time.strftime("%H:%M") %><br>
-                  <% unless return_box.delivery.offer.organizer.is_lln %>
+                  <% unless return_box.offer.organizer.is_lln %>
                   <%= return_box.delivery.total_boxes %> <%= t("menu.boxes") %>
                   <% end %> 
                 </strong>

@@ -1,10 +1,7 @@
 class Delivery < ActiveRecord::Base
 	belongs_to :offer
-	has_many :return_boxes
 
 	has_many :washes, through: :return_boxes
-	has_many :sortings, through: :return_boxes
-	has_many :sorting_details, through: :sortings
 	has_many :offer_boxes, through: :offer
 
 

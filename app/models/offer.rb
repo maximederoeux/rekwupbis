@@ -3,13 +3,17 @@ class Offer < ActiveRecord::Base
 	belongs_to :event
 
 	has_many :offer_boxes
+	has_many :return_boxes
+	has_many :sortings
+	has_many :washes
+
 	has_many :boxes, through: :offer_boxes
 	has_many :boxdetails, through: :boxes
 	has_many :articles, through: :boxes
-	has_many :sorting_details, through: :delivery
-	has_many :return_boxes, through: :delivery
-	has_many :washes, through: :return_boxes
-	has_many :sortings, through: :delivery
+	has_many :sorting_details, through: :sortings
+
+
+
 	has_many :return_details, through: :return_boxes
 
 	has_many :offer_articles
@@ -241,15 +245,11 @@ class Offer < ActiveRecord::Base
 	end
 
 	def has_return
-		if has_delivery == true
-			if self.delivery.return_boxes.any?
+			if self.return_boxes.any?
 				true
 			else
 				false
 			end
-		else
-			false
-		end
 	end
 
 	def has_sorting

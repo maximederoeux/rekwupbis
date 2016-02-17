@@ -24,7 +24,7 @@ class SortingsController < ApplicationController
     @brokens = @sorting_cups.where(:broken => true)
     @very_dirtys = @sorting_cups.where(:very_dirty => true)
     @handlings = @sorting_cups.where(:handling => true)
-    @offer_boxes = @sorting.return_box.delivery.offer.offer_boxes
+    @offer_boxes = @sorting.offer.offer_boxes
   end
 
   # GET /sortings/new
@@ -91,6 +91,6 @@ class SortingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sorting_params
-      params.require(:sorting).permit(:return_box_id, :start_time, :end_time, :starter, :ender)
+      params.require(:sorting).permit(:offer_id, :return_box_id, :start_time, :end_time, :starter, :ender)
     end
 end

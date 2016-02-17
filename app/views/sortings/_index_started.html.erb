@@ -20,9 +20,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
-                    <% if sorting.return_box.delivery.offer.organizer.is_lln %>
-                      <%= sorting.return_box.delivery.offer.organizer.name %><br>
+                  <%= sorting.offer.event.event_name %><br>
+                    <% if sorting.offer.organizer.is_lln %>
+                      <%= sorting.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to sorting_path(sorting) do %>
@@ -30,8 +30,8 @@
                     <% end %>
                   
                   <br>
-                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
-                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= t("sorting.back") %><%= sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
+                  <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %> 
                 </strong>
 
@@ -62,9 +62,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
-                    <% if sorting.return_box.delivery.offer.organizer.is_lln %>
-                      <%= sorting.return_box.delivery.offer.organizer.name %><br>
+                  <%= sorting.offer.event.event_name %><br>
+                    <% if sorting.offer.organizer.is_lln %>
+                      <%= sorting.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to sorting_path(sorting) do %>
@@ -72,8 +72,8 @@
                     <% end %>
                   
                   <br>
-                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
-                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= t("sorting.back") %><%= sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
+                  <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %>
                 </strong>
 
@@ -107,9 +107,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
-                    <% if sorting.return_box.delivery.offer.organizer.is_lln %>
-                      <%= sorting.return_box.delivery.offer.organizer.name %><br>
+                  <%= sorting.offer.event.event_name %><br>
+                    <% if sorting.offer.organizer.is_lln %>
+                      <%= sorting.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to sorting_path(sorting) do %>
@@ -117,8 +117,8 @@
                     <% end %>
                   
                   <br>
-                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
-                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= t("sorting.back") %><%= sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
+                  <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %>
                 </strong>
 
@@ -149,9 +149,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= sorting.return_box.delivery.offer.event.event_name %><br>
-                    <% if sorting.return_box.delivery.offer.organizer.is_lln %>
-                      <%= sorting.return_box.delivery.offer.organizer.name %><br>
+                  <%= sorting.offer.event.event_name %><br>
+                    <% if sorting.offer.organizer.is_lln %>
+                      <%= sorting.offer.organizer.name %><br>
                     <% end %>
                     
                     <%= link_to sorting_path(sorting) do %>
@@ -159,8 +159,8 @@
                     <% end %>
                   
                   <br>
-                  <%= t("sorting.back") %><%= sorting.return_box.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.return_box.return_time.strftime("%H:%M") %><br>
-                  <%= sorting.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= t("sorting.back") %><%= sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= sorting.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
+                  <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %>
                 </strong>
 

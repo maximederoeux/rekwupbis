@@ -20,9 +20,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= wash.return_box.delivery.offer.event.event_name %><br>
-                    <% if wash.return_box.delivery.offer.organizer.is_lln %>
-                      <%= wash.return_box.delivery.offer.organizer.name %><br>
+                  <%= wash.offer.event.event_name %><br>
+                    <% if wash.offer.organizer.is_lln %>
+                      <%= wash.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to wash_path(wash) do %>
@@ -30,8 +30,8 @@
                     <% end %>
                   
                   <br>
-                  <%= wash.return_box.return_time.strftime("%d/%m/%Y") %><br>
-                  <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><br>
+                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %><br>
                   <%= t("wash.finished2") %><%= wash.end_time.strftime("%H:%M") %>
 
@@ -40,7 +40,7 @@
 
                     <%= f.hidden_field :start_time, :value => Time.now %>
                     <%= f.hidden_field :washer, :value => current_user.id %>
-                    <%= f.hidden_field :return_box_id, :value => @return %>
+                    <%= f.hidden_field :offer_id, :value => wash.offer_id %>
 
                     <%= f.submit t("wash.new"), class: "btn btn-info"  %>
 
@@ -64,9 +64,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= wash.return_box.delivery.offer.event.event_name %><br>
-                    <% if wash.return_box.delivery.offer.organizer.is_lln %>
-                      <%= wash.return_box.delivery.offer.organizer.name %><br>
+                  <%= wash.offer.event.event_name %><br>
+                    <% if wash.offer.organizer.is_lln %>
+                      <%= wash.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to wash_path(wash) do %>
@@ -74,8 +74,8 @@
                     <% end %>
                   
                   <br>
-                  <%= wash.return_box.return_time.strftime("%d/%m/%Y") %><br>
-                  <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><br>
+                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %><br>
                   <%= t("wash.finished2") %><%= wash.end_time.strftime("%H:%M") %>
 
@@ -84,7 +84,7 @@
 
                     <%= f.hidden_field :start_time, :value => Time.now %>
                     <%= f.hidden_field :washer, :value => current_user.id %>
-                    <%= f.hidden_field :return_box_id, :value => @return %>
+                    <%= f.hidden_field :offer_id, :value => wash.offer_id %>
 
                     <%= f.submit t("wash.new"), class: "btn btn-info"  %>
 
@@ -111,9 +111,9 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= wash.return_box.delivery.offer.event.event_name %><br>
-                    <% if wash.return_box.delivery.offer.organizer.is_lln %>
-                      <%= wash.return_box.delivery.offer.organizer.name %><br>
+                  <%= wash.offer.event.event_name %><br>
+                    <% if wash.offer.organizer.is_lln %>
+                      <%= wash.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to wash_path(wash) do %>
@@ -121,8 +121,8 @@
                     <% end %>
                   
                   <br>
-                  <%= wash.return_box.return_time.strftime("%d/%m/%Y") %><br>
-                  <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><br>
+                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %><br>
                   <%= t("wash.finished2") %><%= wash.end_time.strftime("%H:%M") %>
 
@@ -131,7 +131,7 @@
 
                     <%= f.hidden_field :start_time, :value => Time.now %>
                     <%= f.hidden_field :washer, :value => current_user.id %>
-                    <%= f.hidden_field :return_box_id, :value => @return %>
+                    <%= f.hidden_field :offer_id, :value => wash.offer_id %>
 
                     <%= f.submit t("wash.new"), class: "btn btn-info"  %>
 
@@ -155,10 +155,10 @@
                 <li class="list-group-item text-center">
           
                 <strong>
-                  <%= wash.return_box.delivery.offer.event.event_name %><br>
+                  <%= wash.offer.event.event_name %><br>
                   
-                    <% if wash.return_box.delivery.offer.organizer.is_lln %>
-                      <%= wash.return_box.delivery.offer.organizer.name %><br>
+                    <% if wash.offer.organizer.is_lln %>
+                      <%= wash.offer.organizer.name %><br>
                     <% end %>
 
                     <%= link_to wash_path(wash) do %>
@@ -166,8 +166,8 @@
                     <% end %>
                   
                   <br>
-                  <%= wash.return_box.return_time.strftime("%d/%m/%Y") %><br>
-                  <%= wash.return_box.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <%= wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><br>
+                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
                   <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %><br>
                   <%= t("wash.finished2") %><%= wash.end_time.strftime("%H:%M") %>
 
@@ -176,7 +176,7 @@
 
                     <%= f.hidden_field :start_time, :value => Time.now %>
                     <%= f.hidden_field :washer, :value => current_user.id %>
-                    <%= f.hidden_field :return_box_id, :value => @return %>
+                    <%= f.hidden_field :offer_id, :value => wash.offer_id %>
 
                     <%= f.submit t("wash.new"), class: "btn btn-info"  %>
 
