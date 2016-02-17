@@ -1,6 +1,6 @@
 <% Article.all.each do |article| %>
 
-<%= article.right_wash_price(@invoice.client) %>
+<%= number_to_currency(article.right_wash_price(@invoice.client), :unit => "€", :precision => 3) %>
 
 
 
