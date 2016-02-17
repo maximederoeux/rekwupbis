@@ -76,7 +76,7 @@
   </tr>
 
 
-    <% Article.includes(:sorting_details).all.each do |article| %>
+    <% Article.joins(:sorting_details).all.each do |article| %>
 
       <% if @invoice.washed_articles_week(article) >= 1 %>
 
