@@ -288,24 +288,9 @@ class Invoice < ActiveRecord::Base
 		clean_return(article) + washed_total(article) + very_dirty_total(article) + handling_total(article)
 	end
 
-	def right_wash_price(article)
-		if Price.where(:article_id => article.id).any?
-			if Price.where(:article_id => article.id).where(:user_id => self.client.id).any?
-				Price.where(:article_id => article.id).where(:user_id => self.client.id).last.washing if Price.where(:article_id => article.id).where(:user_id => self.client.id).last.washing.present?
-			else
-				if Price.where(:article_id => article.id).last.washing.present?
-					Price.where(:article_id => article.id).last.washing
-				else
-					0
-				end
-			end
-		else
-			0
-		end
-	end
 
 	def washed_htva(article)
-		right_wash_price(article) * washed_total(article)	
+		article.right_wash_price(self.client) * washed_total(article)	
 	end
 
 	def washed_tvac(article)
@@ -316,24 +301,8 @@ class Invoice < ActiveRecord::Base
 		washed_tvac(article) - washed_htva(article)
 	end
 
-	def right_handwash_price(article)
-		if Price.where(:article_id => article.id).any?
-			if Price.where(:article_id => article.id).where(:user_id => self.client.id).any?
-				Price.where(:article_id => article.id).where(:user_id => self.client.id).last.handwash if Price.where(:article_id => article.id).where(:user_id => self.client.id).last.handwash.present?
-			else
-				if Price.where(:article_id => article.id).last.handwash.present?
-					Price.where(:article_id => article.id).last.handwash
-				else
-					0
-				end
-			end
-		else
-			0
-		end
-	end
-
 	def handwash_htva(article)
-		right_wash_price(article) * very_dirty_total(article)	if very_dirty_total(article)
+		article.right_handwash_price(self.client) * very_dirty_total(article)
 	end
 
 	def handwash_tvac(article)
@@ -344,24 +313,8 @@ class Invoice < ActiveRecord::Base
 		handwash_tvac(article) - handwash_htva(article)
 	end
 
-	def right_handling_price(article)
-		if Price.where(:article_id => article.id).any?
-			if Price.where(:article_id => article.id).where(:user_id => self.client.id).any?
-				Price.where(:article_id => article.id).where(:user_id => self.client.id).last.handling if Price.where(:article_id => article.id).where(:user_id => self.client.id).last.handling.present?
-			else
-				if Price.where(:article_id => article.id).last.handling.present?
-					Price.where(:article_id => article.id).last.handling
-				else
-					0
-				end
-			end
-		else
-			0
-		end
-	end
-
 	def handling_htva(article)
-		right_handling_price(article) * handling_total(article) if handling_total(article)		
+		article.right_handling_price(self.client) * handling_total(article)
 	end
 
 	def handling_tvac(article)
@@ -370,42 +323,6 @@ class Invoice < ActiveRecord::Base
 
 	def handling_tva(article)
 		handling_tvac(article) - handling_htva(article)
-	end
-
-	def right_deposit_price(article)
-		if Price.where(:article_id => article.id).any?
-			if Price.where(:article_id => article.id).where(:user_id => self.client.id).any?
-				if Price.where(:article_id => article.id).where(:user_id => self.client.id).last.deposit.present?
-					if self.offer.event.deposit_on_site.present?
-						if self.offer.event.deposit_on_site >= Price.where(:article_id => article.id).where(:user_id => self.client.id).last.deposit
-							self.offer.event.deposit_on_site / 1.21
-						else
-							Price.where(:article_id => article.id).where(:user_id => self.client.id).last.deposit
-						end
-					else
-						Price.where(:article_id => article.id).where(:user_id => self.client.id).last.deposit
-					end
-				else
-					0
-				end
-			else
-				if Price.where(:article_id => article.id).last.deposit.present?
-					if self.offer.event.deposit_on_site.present?
-						if self.offer.event.deposit_on_site >= Price.where(:article_id => article.id).last.deposit
-							self.offer.event.deposit_on_site / 1.21
-						else
-							Price.where(:article_id => article.id).last.deposit
-						end
-					else
-						Price.where(:article_id => article.id).last.deposit
-					end
-				else
-					0
-				end
-			end
-		else
-			0
-		end
 	end
 
 	def missing_total(article)
@@ -421,7 +338,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def deposit_htva(article)
-		right_deposit_price(article) * missing_and_broken(article) if missing_and_broken(article)
+		article.right_deposit_price(self.client) * missing_and_broken(article)
 	end
 
 	def deposit_tvac(article)
@@ -436,15 +353,7 @@ class Invoice < ActiveRecord::Base
 		if offer_article.article.transport == true
 			self.offer.transport_price
 		else
-			if Price.where(:article_id => offer_article.article.id).any?
-				if Price.where(:article_id => offer_article.article.id).where(:user_id => self.client.id).any?
-					Price.where(:article_id => offer_article.article.id).where(:user_id => self.client.id).last.sell if Price.where(:article_id => offer_article.article.id).where(:user_id => self.client.id).last.sell.present?
-				else
-					Price.where(:article_id => offer_article.article.id).last.sell if Price.where(:article_id => offer_article.article.id).last.sell.present?
-				end
-			else
-				0
-			end
+			offer_article.article.right_sell_price
 		end
 	end
 

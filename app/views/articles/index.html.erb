@@ -1,6 +1,9 @@
+<% Article.all.each do |article| %>
 
+<%= article.article_name %>
+<%= article.right_wash_price(current_user) %><br>
 
-
+<% end %>
 <hr>
 
 

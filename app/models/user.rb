@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
 	scope :is_lln, lambda {where(:is_lln => true)}
 	scope :is_circle, lambda {where("lln_id > ?", 0)}
 	scope :is_namur, lambda {where(:is_namur => true)}
+	scope :is_rekwup, lambda {where(:email => "jgpahaut@rekwup.be")}
 
 
 	def online?
@@ -39,6 +40,11 @@ class User < ActiveRecord::Base
 	
 	def full_name
 		"#{first_name} #{name}"
+	end
+
+	def rekwup
+		where(:email => "jgpahaut@rekwup.be").first
+		
 	end
 
 	def full_name_with_company
