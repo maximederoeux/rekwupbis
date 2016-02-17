@@ -1,6 +1,7 @@
 <% Article.all.each do |article| %>
 
-<%= @invoice.washed_htva_week(article) %>
+<%= article.right_wash_price(@invoice.client) %>
+<%= @invoice.washed_articles_week(article) %>
 
 
 <% end %>
