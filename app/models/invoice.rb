@@ -518,7 +518,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def washed_htva_week(article)
-		article.right_wash_price * washed_articles_week(article)	
+		article.right_wash_price(client) * washed_articles_week(article)	
 	end
 
 	def washed_tvac_week(article)
@@ -530,7 +530,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def handwash_htva_week(article)
-		article.right_handwash_price * very_dirty_articles_week(article)	
+		article.right_handwash_price(client) * very_dirty_articles_week(article)	
 	end
 
 	def handwash_tvac_week(article)
@@ -542,7 +542,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def handling_htva_week(article)
-		article.right_handling_price * handling_articles_week(article)	
+		article.right_handling_price(client) * handling_articles_week(article)	
 	end
 
 	def handling_tvac_week(article)
@@ -554,7 +554,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def deposit_htva_week(article)
-		article.right_deposit_price * broken_articles_week(article)
+		article.right_deposit_price(client) * broken_articles_week(article)
 	end
 
 	def deposit_tvac_week(article)
