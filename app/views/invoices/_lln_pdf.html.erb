@@ -1,10 +1,46 @@
+<table>
+
+<tr>
+<th>
+Nom
+</th>
+
+<th>
+Prix
+</th>
+
+<th>
+Total Semaine
+</th>
+
+</tr>
+
 <% Article.all.each do |article| %>
 
 
+
+<tr>
+<td>
 <%= article.full_name %>
+
+</td>
+
+<td>
 <%= article.right_wash_price(@invoice.client) %>
+
+</td>
+
+<td>
 <%= @invoice.washed_articles_week(article) %><br>
+</td>
+
+</tr>
+
+
+
+
 
 
 <% end %>
 
+</table>
