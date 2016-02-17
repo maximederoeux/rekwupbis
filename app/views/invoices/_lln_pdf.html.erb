@@ -1,6 +1,6 @@
 <% Article.all.each do |article| %>
 
-<%= number_to_currency(@invoice.washed_htva_week(article), :unit => "€", :precision => 2) %>
+<%= @invoice.washed_htva_week(article) %>
 
 
 <% end %>
