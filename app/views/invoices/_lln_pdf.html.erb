@@ -1,8 +1,9 @@
 <% Article.all.each do |article| %>
 
+
+<%= article.full_name %>
 <%= article.right_wash_price(@invoice.client) %>
-<%= @invoice.washed_articles_week(article) %>
-<%= article.right_wash_price(@invoice.client) * @invoice.washed_articles_week(article) %><br>
+<%= @invoice.washed_articles_week(article) %><br>
 
 
 <% end %>
