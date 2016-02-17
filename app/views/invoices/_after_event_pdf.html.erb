@@ -71,7 +71,7 @@
     <th class="text-center">Différence</th>
   </tr>
 
-<% Box.all.each do |box| %>
+<% @invoice.boxes.each do |box| %>
 
   <% if @invoice.sent_boxes(box) >= 1 or @invoice.total_return(box) >= 1 %>
 

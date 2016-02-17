@@ -4,13 +4,14 @@ class Invoice < ActiveRecord::Base
 
 	has_many :return_boxes, through: :offer
 	has_many :return_details, through: :return_boxes
+	has_many :boxes, through: :return_details
+
 	has_many :sortings, through: :offer
 	has_many :sorting_details, through: :offer
+	has_many :articles, through: :sorting_details
 	has_many :offer_articles, through: :offer
 	has_many :offer_boxes, through: :offer
-	has_many :boxes, through: :offer_boxes
 	has_many :boxdetails, through: :boxes
-	has_many :articles, through: :boxdetails
 
 	scope :debit, lambda {where(:doc_invoice => true)}
 	scope :credit_note, lambda {where(:doc_credit => true)}
