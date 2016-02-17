@@ -438,7 +438,7 @@ class Invoice < ActiveRecord::Base
 
 	def sent_boxes_week(box)
 		sent_boxes_week = 0
-		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+		Offer.lln_daily.where(created_at: week_begin..week_finish).each do |offer|
 			sent_boxes_week += offer.sent_boxes(box)
 		end
 		sent_boxes_week
@@ -446,7 +446,7 @@ class Invoice < ActiveRecord::Base
 
 	def clean_boxes_week(box)
 		clean_boxes_week = 0
-		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+		Offer.lln_daily.where(created_at: week_begin..week_finish).each do |offer|
 			clean_boxes_week += offer.clean_boxes(box)
 		end
 		clean_boxes_week
@@ -454,7 +454,7 @@ class Invoice < ActiveRecord::Base
 
 	def dirty_boxes_week(box)
 		dirty_boxes_week = 0
-		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+		Offer.lln_daily.where(created_at: week_begin..week_finish).each do |offer|
 			dirty_boxes_week += offer.dirty_boxes(box)
 		end
 		dirty_boxes_week
@@ -462,7 +462,7 @@ class Invoice < ActiveRecord::Base
 
 	def sealed_boxes_week(box)
 		sealed_boxes_week = 0
-		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+		Offer.lln_daily.where(created_at: week_begin..week_finish).each do |offer|
 			sealed_boxes_week += offer.sealed_boxes(box)
 		end
 		sealed_boxes_week
@@ -474,7 +474,7 @@ class Invoice < ActiveRecord::Base
 
 	def sent_articles_week(article)
 		sent_articles_week = 0
-		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+		Offer.lln_daily.where(created_at: week_begin..week_finish).each do |offer|
 			sent_articles_week += offer.sent_article(article)
 		end
 		sent_articles_week
@@ -482,7 +482,7 @@ class Invoice < ActiveRecord::Base
 
 	def washed_articles_week(article)
 		washed_articles_week = 0
-		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+		Offer.lln_daily.where(created_at: week_begin..week_finish).each do |offer|
 			washed_articles_week += offer.washed_articles(article)
 		end
 		washed_articles_week
@@ -490,7 +490,7 @@ class Invoice < ActiveRecord::Base
 
 	def very_dirty_articles_week(article)
 		very_dirty_articles_week = 0
-		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+		Offer.lln_daily.where(created_at: week_begin..week_finish).each do |offer|
 			very_dirty_articles_week += offer.very_dirty_articles(article)
 		end
 		very_dirty_articles_week
@@ -498,7 +498,7 @@ class Invoice < ActiveRecord::Base
 
 	def handling_articles_week(article)
 		handling_articles_week = 0
-		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+		Offer.lln_daily.where(created_at: week_begin..week_finish).each do |offer|
 			handling_articles_week += offer.handling_articles(article)
 		end
 		handling_articles_week
@@ -506,7 +506,7 @@ class Invoice < ActiveRecord::Base
 
 	def broken_articles_week(article)
 		broken_articles_week = 0
-		Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: week_begin..week_finish).each do |offer|
+		Offer.lln_daily.where(created_at: week_begin..week_finish).each do |offer|
 			broken_articles_week += offer.broken_articles(article)
 		end
 		broken_articles_week
@@ -518,7 +518,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def washed_htva_week(article)
-		right_wash_price(article) * washed_articles_week(article)	
+		article.right_wash_price * washed_articles_week(article)	
 	end
 
 	def washed_tvac_week(article)
@@ -530,7 +530,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def handwash_htva_week(article)
-		right_handwash_price(article) * very_dirty_articles_week(article)	
+		article.right_handwash_price * very_dirty_articles_week(article)	
 	end
 
 	def handwash_tvac_week(article)
@@ -542,7 +542,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def handling_htva_week(article)
-		right_handling_price(article) * handling_articles_week(article)	
+		article.right_handling_price * handling_articles_week(article)	
 	end
 
 	def handling_tvac_week(article)
@@ -554,7 +554,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def deposit_htva_week(article)
-		right_deposit_price(article) * broken_articles_week(article)
+		article.right_deposit_price * broken_articles_week(article)
 	end
 
 	def deposit_tvac_week(article)

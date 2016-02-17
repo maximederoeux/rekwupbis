@@ -89,26 +89,26 @@
 				          <div class="col-xs-3 col-md-3 text-center">
 
 
-					          <%= @offer.right_wash_price(thisofferbox.box.boxdetails.last.article) %>					          			
+					          <%= thisofferbox.box.boxdetails.last.article.right_wash_price(@offer.organizer) %>					          			
 
 
 				          </div>
 
 				          <div class="col-xs-3 col-md-3 text-center">
 
-				          <%= @offer.right_handwash_price(thisofferbox.box.boxdetails.last.article) %>
+				          <%= thisofferbox.box.boxdetails.last.article.right_handwash_price(@offer.organizer) %>
 
 				          </div>
 
 				          <div class="col-xs-3 col-md-3 text-center">
 
-				          <%= @offer.right_handling_price(thisofferbox.box.boxdetails.last.article) %>				          
+				          <%= thisofferbox.box.boxdetails.last.article.right_handling_price(@offer.organizer) %>				          
 
 				          </div>
 
 				          <div class="col-xs-3 col-md-3 text-center">
 
-				          <%= @offer.right_deposit_price(thisofferbox.box.boxdetails.last.article) %>
+				          <%= thisofferbox.box.boxdetails.last.article.right_deposit_price(@offer.organizer) %>
 
 				          </div>
 

@@ -121,7 +121,7 @@
         <tr>
           <td><%= article.article_name %> lavés</td>
           <td class="text-center"><%= @invoice.washed_articles_week(article) %></td>
-          <td class="text-center"><%= number_to_currency(@invoice.right_wash_price(article), :unit => "€", :precision => 3) %></td>
+          <td class="text-center"><%= number_to_currency(article.right_wash_price, :unit => "€", :precision => 3) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.washed_htva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.washed_tva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.washed_tvac_week(article), :unit => "€", :precision => 2) %></td>
@@ -134,7 +134,7 @@
         <tr>
           <td><%= article.article_name %> très sales</td>
           <td class="text-center"><%= @invoice.very_dirty_articles_week(article) %></td>
-          <td class="text-center"><%= number_to_currency(@invoice.right_handwash_price(article), :unit => "€", :precision => 3) %></td>
+          <td class="text-center"><%= number_to_currency(article.right_handwash_price, :unit => "€", :precision => 3) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.handwash_htva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.handwash_tva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.handwash_tvac_week(article), :unit => "€", :precision => 2) %></td>
@@ -147,7 +147,7 @@
         <tr>
           <td><%= article.article_name %> manutention</td>
           <td class="text-center"><%= @invoice.handling_articles_week(article) %></td>
-          <td class="text-center"><%= number_to_currency(@invoice.right_handling_price(article), :unit => "€", :precision => 3) %></td>
+          <td class="text-center"><%= number_to_currency(article.right_handling_price, :unit => "€", :precision => 3) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.handling_htva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.handling_tva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.handling_tvac_week(article), :unit => "€", :precision => 2) %></td>
@@ -160,7 +160,7 @@
         <tr>
           <td><%= article.article_name %> cassés</td>
           <td class="text-center"><%= @invoice.broken_articles_week(article) %></td>
-          <td class="text-center"><%= number_to_currency(@invoice.right_deposit_price(article), :unit => "€", :precision => 3) %></td>
+          <td class="text-center"><%= number_to_currency(article.right_deposit_price, :unit => "€", :precision => 3) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.deposit_htva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.deposit_tva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.deposit_tvac_week(article), :unit => "€", :precision => 2) %></td>
