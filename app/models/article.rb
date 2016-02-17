@@ -103,6 +103,8 @@ class Article < ActiveRecord::Base
 			else
 				if Price.regular.where(:article_id => id).any?
 					Price.regular.where(:article_id => id).last.washing_value
+				else
+					0
 				end
 			end
 		else
@@ -121,6 +123,8 @@ class Article < ActiveRecord::Base
 			else
 				if Price.regular.where(:article_id => id).any?
 					Price.regular.where(:article_id => id).last.handwash_value
+				else
+					0
 				end
 			end
 		else
@@ -139,6 +143,8 @@ class Article < ActiveRecord::Base
 			else
 				if Price.regular.where(:article_id => id).any?
 					Price.regular.where(:article_id => id).last.handling_value
+				else
+					0
 				end
 			end
 		else
@@ -157,6 +163,8 @@ class Article < ActiveRecord::Base
 			else
 				if Price.regular.where(:article_id => id).any?
 					Price.regular.where(:article_id => id).last.deposit_value
+				else
+					0
 				end
 			end
 		else
@@ -175,6 +183,8 @@ class Article < ActiveRecord::Base
 			else
 				if Price.regular.where(:article_id => id).any?
 					Price.regular.where(:article_id => id).last.sell_value
+				else
+					0
 				end
 			end
 		else
