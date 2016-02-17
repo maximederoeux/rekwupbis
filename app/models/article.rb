@@ -97,7 +97,7 @@ class Article < ActiveRecord::Base
 	end
 
 	def right_wash_price(user)
-		if user.negociated_price
+		if user.negociated_price == true
 			if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
 				Price.negociated.where(:article_id => id).where(:user_id => user.id).last.washing_value
 			else
@@ -115,7 +115,7 @@ class Article < ActiveRecord::Base
 	end
 
 	def right_handwash_price(user)
-		if user.negociated_price
+		if user.negociated_price == true
 			if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
 				Price.negociated.where(:article_id => id).where(:user_id => user.id).last.handwash_value
 			else
@@ -133,7 +133,7 @@ class Article < ActiveRecord::Base
 	end
 
 	def right_handling_price(user)
-		if user.negociated_price
+		if user.negociated_price == true
 			if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
 				Price.negociated.where(:article_id => id).where(:user_id => user.id).last.handling_value
 			else
@@ -151,7 +151,7 @@ class Article < ActiveRecord::Base
 	end
 
 	def right_deposit_price(user)
-		if user.negociated_price
+		if user.negociated_price == true
 			if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
 				Price.negociated.where(:article_id => id).where(:user_id => user.id).last.deposit_value
 			else
@@ -169,7 +169,7 @@ class Article < ActiveRecord::Base
 	end
 
 	def right_sell_price(user)
-		if user.negociated_price
+		if user.negociated_price == true
 			if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
 				Price.negociated.where(:article_id => id).where(:user_id => user.id).last.sell_value
 			else
