@@ -4,7 +4,7 @@ class ParcelsController < ApplicationController
   # GET /parcels
   # GET /parcels.json
   def index
-    @parcels = Parcel.all
+    @parcels = Parcel.all.order('created_at DESC')
   end
 
   # GET /parcels/1

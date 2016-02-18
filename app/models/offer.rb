@@ -27,6 +27,7 @@ class Offer < ActiveRecord::Base
 			invoices.create(:offer_id => id, :client_id => User.is_lln.where(:lln_id => 0).first.id, :doc_invoice => true, :after_event => true, :lln_week_invoice => true)
 			@invoice = Invoice.last
 			@invoice.update_attributes(:doc_number => @invoice.invoice_number, :total_htva => @invoice.total_all_articles_htva_week, :total_tva => @invoice.total_all_articles_tva_week, :total_tvac => @invoice.total_all_articles_tvac_week)
+			offer_articles.create(:offer_id => id, :article_id => Article.is_transport.first.id, :quantity => "4")
 		else
 			if lln_daily.blank? && lln_invoice.blank?
 				offer_articles.create(:offer_id => id, :article_id => Article.is_transport.first.id, :quantity => "1")
@@ -184,42 +185,46 @@ class Offer < ActiveRecord::Base
 	end
 
 	def transport_price
-		if total_cups <= 1600
-			40
-		elsif total_cups <= 2100 && total_cups >= 1600
-			60
-		elsif total_cups <= 10400 && total_cups >= 2100
-			90
-		elsif total_cups <= 12800 && total_cups >= 10400
-			120
-		elsif total_cups <= 14800 && total_cups >= 12800
-			140	
-		elsif total_cups <= 17200 && total_cups >= 14800
-			165
-		elsif total_cups <= 19200 && total_cups >= 17200
-			195
-		elsif total_cups <= 21200 && total_cups >= 19200
+		if lln_invoice
 			220
-		elsif total_cups <= 23600 && total_cups >= 21200
-			250
-		elsif total_cups <= 25600 && total_cups >= 23600
-			275
-		elsif total_cups <= 27600 && total_cups >= 25600
-			300
-		elsif total_cups <= 30000 && total_cups >= 27600
-			330
-		elsif total_cups <= 32000 && total_cups >= 30000
-			360
-		elsif total_cups <= 34400 && total_cups >= 32000
-			385
-		elsif total_cups <= 36400 && total_cups >= 34400
-			415
-		elsif total_cups <= 38400 && total_cups >= 36400
-			440
-		elsif total_cups <= 40800 && total_cups >= 38400
-			475
-		elsif total_cups >= 40800
-			500
+		else
+			if total_cups <= 1600
+				40
+			elsif total_cups <= 2100 && total_cups >= 1600
+				60
+			elsif total_cups <= 10400 && total_cups >= 2100
+				90
+			elsif total_cups <= 12800 && total_cups >= 10400
+				120
+			elsif total_cups <= 14800 && total_cups >= 12800
+				140	
+			elsif total_cups <= 17200 && total_cups >= 14800
+				165
+			elsif total_cups <= 19200 && total_cups >= 17200
+				195
+			elsif total_cups <= 21200 && total_cups >= 19200
+				220
+			elsif total_cups <= 23600 && total_cups >= 21200
+				250
+			elsif total_cups <= 25600 && total_cups >= 23600
+				275
+			elsif total_cups <= 27600 && total_cups >= 25600
+				300
+			elsif total_cups <= 30000 && total_cups >= 27600
+				330
+			elsif total_cups <= 32000 && total_cups >= 30000
+				360
+			elsif total_cups <= 34400 && total_cups >= 32000
+				385
+			elsif total_cups <= 36400 && total_cups >= 34400
+				415
+			elsif total_cups <= 38400 && total_cups >= 36400
+				440
+			elsif total_cups <= 40800 && total_cups >= 38400
+				475
+			elsif total_cups >= 40800
+				500
+			end
 		end
 	end
 

@@ -1,33 +1,17 @@
     <ul class="list-group">
-            <li class="list-group-item">
+            
 
     <% @parcels.each do |parcel| %>
 
-
-
-        Reference: <%= parcel.created_at.strftime("%Y") %> - <%= parcel.id %> <br>
-        Box Name <%= parcel.box.box_name if parcel.box %><br>
-        Quantity <%= parcel.quantity if parcel.quantity %><br>
-
-        Return box <%= parcel.return_box_id if parcel.return_box_id %><br>
-
-        <% if parcel.from_wash %>
-        Last Wash <%= parcel.return_box.washes.last.end_time.strftime("%d/%m/%Y") if parcel.return_box.washes.last.end_time %><br>
-        Last Washer <%= User.where(:id => parcel.return_box.washes.last.washer).first.full_name if parcel.return_box.washes.last.washer %><br>
-        <% end %>
-
-        <% if parcel.from_return %>
-        Last Event <%= parcel.return_box.delivery.offer.event.event_name %><br>
-        Last Control <%= parcel.return_box.ctrl_time.strftime("%d/%m/%Y") if parcel.return_box.ctrl_time %><br>
-        Last Controler <%= User.where(:id => parcel.return_box.ctrler).first.full_name if parcel.return_box.ctrler %><br>
-
-        <% end %>
-  </li>
-      </ul>
-
+        <li class="list-group-item">
+            <strong>Date de création: <%= parcel.created_at.strftime("%d/%m/%Y") %></strong>
+            Référence: <strong><%= parcel.created_at.strftime("%Y") %> - <%= parcel.id %></strong>  <br>
+            Type de caisse: <strong><%= parcel.box.box_name if parcel.box %></strong><br>
+            Nombre de caisses: <strong><%= parcel.quantity if parcel.quantity %></strong><br>
+        </li>
 
     <% end %>
 
-    </div>
-    </div>
+    </ul>
+
 
