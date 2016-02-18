@@ -115,4 +115,11 @@ class Box < ActiveRecord::Base
     offer.sent_boxes(self)
   end
 
+  def is_big_box
+    bigbox == true   
+  end
+
+  def is_small_box
+    smallbox == true    
+  end
 end

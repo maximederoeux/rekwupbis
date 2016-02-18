@@ -14,6 +14,14 @@ class Price < ActiveRecord::Base
 		end
 	end
 
+	def washing_small_value
+		if washing_small.present?
+			washing_small
+		else
+			0
+		end
+	end
+
 	def deposit_value
 		if deposit.present?
 			deposit

@@ -71,6 +71,7 @@ fr:
         quantity_pile: "Pile grande caisse"
         is_washable: "Lavable"
         washing_price: "Lavage €"
+        washing_small: "Lavage Petite caisse €"
         handwash_price: "Lavage Manuel €"
         tab_price: "Manutention €"
         deposit_price: "Caution €"

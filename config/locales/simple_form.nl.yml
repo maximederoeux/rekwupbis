@@ -71,6 +71,7 @@ nl:
         quantity_pile: "Stapel groot doos"
         is_washable: "Dit artikel is wasbaar."
         washing_price: "Was €"
+        washing_small: "Was kleine doos"
         handwash_price: "Handwas €"
         tab_price: "Behandeling €"
         deposit_price: "Garantie €"

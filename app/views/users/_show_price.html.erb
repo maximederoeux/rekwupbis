@@ -14,8 +14,10 @@
 				<div class="col-md-2">
 					<%= t("article.washing_price") %>
 				</div>
-
-				<div class="col-md-3">
+				<div class="col-md-2">
+					<%= t("article.washing_small_price") %>
+				</div>
+				<div class="col-md-2">
 					<%= t("article.handwash_price") %>
 				</div>
 
@@ -55,23 +57,26 @@
 				<div class="col-md-9">
 
 					<div class="col-md-2">
-						<%= number_to_currency(price.washing,:unit =>'€', :precision => 4) %>
-					</div>
-
-					<div class="col-md-3">
-						<%= number_to_currency(price.handwash,:unit =>'€', :precision => 4) %>
+						<%= number_to_currency(price.washing, :unit =>'€', :precision => 4) %>
 					</div>
 
 					<div class="col-md-2">
-						<%= number_to_currency(price.handling,:unit =>'€', :precision => 4) %>
+						<%= number_to_currency(price.washing_small, :unit =>'€', :precision => 4) %>
+					</div>
+					<div class="col-md-2">
+						<%= number_to_currency(price.handwash, :unit =>'€', :precision => 4) %>
 					</div>
 
 					<div class="col-md-2">
-						<%= number_to_currency(price.deposit,:unit =>'€', :precision => 4) %>
+						<%= number_to_currency(price.handling, :unit =>'€', :precision => 4) %>
 					</div>
 
 					<div class="col-md-2">
-						<%= number_to_currency(price.sell,:unit =>'€', :precision => 4) %> 
+						<%= number_to_currency(price.deposit, :unit =>'€', :precision => 4) %>
+					</div>
+
+					<div class="col-md-2">
+						<%= number_to_currency(price.sell, :unit =>'€', :precision => 4) %> 
 					</div>
 
 				</div>

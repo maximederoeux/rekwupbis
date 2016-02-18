@@ -377,6 +377,13 @@
 
             <div class="col-md-2">
               <strong>
+                <%= t("article.washing_small") %><br>
+              </strong>
+              <%= number_to_currency(@myregular_price.washing_small, :unit => '€', :precision => 4) if @myregular_price %>
+            </div>
+
+            <div class="col-md-2">
+              <strong>
                 <%= t("article.handwash_price") %><br>
               </strong>
               <%= number_to_currency(@myregular_price.handwash, :unit => '€', :precision => 4) if @myregular_price %>

@@ -1,41 +1,24 @@
 
 					<ul class="list-group">
 
-						<li class="list-group-item list-group-item-success">
+						<li class="list-group-item">
         			<h4><%= t("offer.proposal") %></h4>
       			</li>
 
 					  <li class="list-group-item">
 					    <div class="row text-center">
 					      <strong>
-					      <div class="col-xs-4 col-md-7">
 			          
-				          <div class="col-xs-9 col-md-8">
+				          <div class="col-xs-6 col-md-4">
 						        <%= t("offer_box.box_name") %>
 						      </div>
 
-						      <div class="col-xs-3 col-md-4">
+						      <div class="col-xs-3 col-md-4 text-center">
 						        <%= t("offer_box.quantity") %>     
 						      </div>
-						    </div>
 
-								<div class="col-xs-8 col-md-5">
-
-						      <div class="col-xs-3 col-md-3">
-						        <%= t("article.washing_price") %>     
-						      </div>
-
-						      <div class="col-xs-3 col-md-3">
-						        <%= t("article.handwash_price") %>   
-						      </div>
-
-						      <div class="col-xs-3 col-md-3">
-						        <%= t("article.tab_price") %>
-						      </div>
-
-						      <div class="col-xs-3 col-md-3">
-						        <%= t("article.deposit_price") %>
-						      </div>
+								<div class="col-xs-3 col-md-4 text-center">
+						       <%= t("article.washing_price") %>     
 						    </div>
 
 					    </strong>
@@ -45,76 +28,80 @@
         	<% @thisofferboxes.each do |thisofferbox| %>
 
 					
-			      <li class="list-group-item">
-			        <div class="row">
+			      <li class="list-group-item list-group-item-info">
+			        <div class="row">			          
+			          <div class="col-xs-6 col-md-4">
+			            <% if thisofferbox.box %>
 
-			        	<div class="col-xs-4 col-md-7">
-			          
-				          <div class="col-xs-9 col-md-8">
-				            <% if thisofferbox.box %>
+			            	<% if thisofferbox.box.is_empty %>
+			            		<%= thisofferbox.box.box_name %>
+			            	<% else %>
 
-				            	<% if thisofferbox.box.is_empty %>
-				            		<%= thisofferbox.box.box_name %>
-				            	<% else %>
+			                <%= thisofferbox.box.box_name %> (<%= thisofferbox.box.boxdetails.last.box_article_quantity %> <%= thisofferbox.box.boxdetails.last.article.full_name %>)
+			              <% end %>
 
-				                <%= thisofferbox.box.box_name %> (<%= thisofferbox.box.boxdetails.last.box_article_quantity %> <%= thisofferbox.box.boxdetails.last.article.full_name %>)
-				              <% end %>
-				                	<% if current_user.admin %>
-														<%= link_to edit_offer_box_path(thisofferbox) do %>
-													     <%= content_tag(:i, "", class: "fa fa-pencil-square-o btn btn-xs btn-default pull-right") %> 
-													  <% end %>
+	                	<% if current_user.admin %>
+											<%= link_to edit_offer_box_path(thisofferbox) do %>
+										     <%= content_tag(:i, "", class: "fa fa-pencil-square-o btn btn-xs btn-default pull-right") %> 
+										  <% end %>
 
-					                	<%= link_to thisofferbox, method: :delete, data: { confirm: 'Are you sure?' } do %>
-													  	<%= content_tag(:i, "", class: "fa fa-times btn btn-xs btn-default pull-right") %>
-													  <% end %> 
-													<% end %>
-				  
-				             <% end %>
-				          </div>
+		                	<%= link_to thisofferbox, method: :delete, data: { confirm: 'Are you sure?' } do %>
+										  	<%= content_tag(:i, "", class: "fa fa-times btn btn-xs btn-default pull-right") %>
+										  <% end %> 
+										<% end %>
+			  
+			            <% end %>
+			          </div>
 
-				          <div class="col-xs-3 col-md-4 text-center">
+			          <div class="col-xs-3 col-md-4 text-center">
 
-				          	<% if thisofferbox.box.is_empty %>
-				          		<%= thisofferbox.quantity if thisofferbox.quantity %> <%= t("offer.boxes") %>
-				          	<% else %>
-				              <%= thisofferbox.quantity if thisofferbox.quantity %> <%= t("offer.boxes") %> - 
-				        			<%= thisofferbox.quantity * thisofferbox.box.boxdetails.last.box_article_quantity %> <%= t("offer.cups") %>
-				            <% end %>
-				          </div>
+			          	<% if thisofferbox.box.is_empty %>
+			          		<%= thisofferbox.quantity if thisofferbox.quantity %> <%= t("offer.boxes") %>
+			          	<% else %>
+			              <%= thisofferbox.quantity if thisofferbox.quantity %> <%= t("offer.boxes") %> - 
+			        			<%= thisofferbox.quantity * thisofferbox.box.boxdetails.last.box_article_quantity %> <%= t("offer.cups") %>
+			            <% end %>
+			          </div>
 
-				        </div>
-
-			         	<div class="col-xs-8 col-md-5">
-
-				          <div class="col-xs-3 col-md-3 text-center">
-
-
-					          <%= thisofferbox.box.boxdetails.last.article.right_wash_price(@offer.organizer) %>					          			
-
-
-				          </div>
-
-				          <div class="col-xs-3 col-md-3 text-center">
-
-				          <%= thisofferbox.box.boxdetails.last.article.right_handwash_price(@offer.organizer) %>
-
-				          </div>
-
-				          <div class="col-xs-3 col-md-3 text-center">
-
-				          <%= thisofferbox.box.boxdetails.last.article.right_handling_price(@offer.organizer) %>				          
-
-				          </div>
-
-				          <div class="col-xs-3 col-md-3 text-center">
-
-				          <%= thisofferbox.box.boxdetails.last.article.right_deposit_price(@offer.organizer) %>
-
-				          </div>
-
+			         	<div class="col-xs-3 col-md-4 text-center">
+			         		<% if thisofferbox.box.is_big_box %>
+					          <%= thisofferbox.box.boxdetails.last.article.right_wash_price(@offer.organizer) %>
+					         <% end %>
+					        <% if thisofferbox.box.is_small_box %>					          			
+					         	<%= thisofferbox.box.boxdetails.last.article.right_washing_small_price(@offer.organizer) %>
+					        <% end %>
 			        	</div>
 			        </div>
 			      </li>
+
+			      <li class="list-group-item">
+			        <div class="row">
+
+			        	<div class="col-xs-6 col-md-3">
+			          
+									<strong>Suppléments</strong>
+
+				        </div>
+
+			        	<div class="col-xs-6 col-md-3 text-center">
+			          	<strong><%= t("article.handwash_price") %></strong><br>
+									<%= thisofferbox.box.boxdetails.last.article.right_handwash_price(@offer.organizer) %>
+				        </div>
+
+			         	<div class="col-xs-6 col-md-3 text-center">						       
+						      <strong><%= t("article.tab_price") %></strong><br>
+				          <%= thisofferbox.box.boxdetails.last.article.right_handling_price(@offer.organizer) %>
+			        	</div>
+
+			         	<div class="col-xs-6 col-md-3 text-center">
+						      <strong><%= t("article.deposit_price") %></strong><br>
+				          <%= thisofferbox.box.boxdetails.last.article.right_deposit_price(@offer.organizer) %>
+
+			        	</div>
+
+			        </div>
+			      </li>
+
 					<% end %>
 				</ul>
 

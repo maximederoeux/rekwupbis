@@ -94,6 +94,7 @@ nl:
     select_article: "Een artikel kiezen"
     is_washable: "Wasbaar"
     washing_price: "Was"
+    washing_small: "Was kleine doos"
     handwash_price: "Handwas"
     tab_price: "Behandeling"
     deposit_price: "Garantie"

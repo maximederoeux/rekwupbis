@@ -133,6 +133,26 @@ class Article < ActiveRecord::Base
 		end
 	end
 
+	def right_washing_small_price(user)
+		if user.negociated_price == true
+			if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
+				Price.negociated.where(:article_id => id).where(:user_id => user.id).last.washing_small_value
+			else
+				if Price.regular.where(:article_id => id).any?
+					Price.regular.where(:article_id => id).last.washing_small_value
+				else
+					0
+				end
+			end
+		else
+			if Price.regular.where(:article_id => id).any?
+				Price.regular.where(:article_id => id).last.washing_small_value
+			else
+				0
+			end
+		end
+	end
+
 	def right_handwash_price(user)
 		if user.negociated_price == true
 			if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?

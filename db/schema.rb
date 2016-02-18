@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217060206) do
+ActiveRecord::Schema.define(version: 20160218092715) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -271,18 +271,19 @@ ActiveRecord::Schema.define(version: 20160217060206) do
   create_table "prices", force: :cascade do |t|
     t.integer  "article_id"
     t.integer  "user_id"
-    t.decimal  "wash",       precision: 8, scale: 4
-    t.decimal  "handwash",   precision: 8, scale: 4
-    t.decimal  "handling",   precision: 8, scale: 4
-    t.decimal  "deposit",    precision: 8, scale: 4
+    t.decimal  "wash",          precision: 8, scale: 4
+    t.decimal  "handwash",      precision: 8, scale: 4
+    t.decimal  "handling",      precision: 8, scale: 4
+    t.decimal  "deposit",       precision: 8, scale: 4
     t.boolean  "regular"
     t.boolean  "negociated"
     t.date     "valid_from"
     t.date     "valid_till"
-    t.decimal  "sell",       precision: 8, scale: 4
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.decimal  "washing",    precision: 8, scale: 4
+    t.decimal  "sell",          precision: 8, scale: 4
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.decimal  "washing",       precision: 8, scale: 4
+    t.decimal  "washing_small", precision: 8, scale: 4
   end
 
   create_table "return_boxes", force: :cascade do |t|

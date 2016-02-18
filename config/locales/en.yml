@@ -95,6 +95,7 @@ en:
     select_article: "Select Article"
     is_washable: "Washable"
     washing_price: "Washing"
+    washing_small: "Washing SmallBox"
     handwash_price: "Handwash"
     tab_price: "Handling"
     deposit_price: "Deposit"
