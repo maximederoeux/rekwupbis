@@ -165,6 +165,8 @@ en:
         regular: "Regular price"
         negociated: "Negociated price"
         user_id: "Client"
+        washing_small: "Washing SmallBox"
+
       user:
         negociated_price: "Negociated Prices"
         taxable: "I am taxable for VAT purposes"

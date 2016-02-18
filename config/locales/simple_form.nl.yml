@@ -165,6 +165,7 @@ nl:
         regular: "Normaal prijs"
         negociated: "Onderhandled prijs"
         user_id: "Klant"
+        washing_small: "Was kleine doos"
       user:
         negociated_price: "Onderhandeld Prijzen"
         taxable: "Ik ben BTW plichtig"

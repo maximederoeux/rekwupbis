@@ -165,6 +165,7 @@ fr:
         regular: "Prix régulier"
         negociated: "Prix négocié"
         user_id: "Client"
+        washing_small: "Lavage Petite caisse"
       user:
         negociated_price: "Prix Négociés"
         taxable: "Je suis assujetti à la TVA"

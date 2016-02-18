@@ -387,6 +387,7 @@ nl:
     negociated_prices: "Onderhandled Prijzen"
     from: "Vanaf"
     till: "Till"
+    washing_small: "Was kleine doos"
 
   return:
     receive: "Verwachte terugkeren"

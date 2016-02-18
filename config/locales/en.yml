@@ -392,6 +392,7 @@ en:
     negociated_prices: "Negociated_prices"
     from: "From"
     till: "Till"
+    washing_small: "Washing SmallBox"
 
   return:
     receive: "Returns to receive"

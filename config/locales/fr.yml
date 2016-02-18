@@ -389,6 +389,7 @@ fr:
     negociated_prices: "Prix Négociés"
     from: "De"
     till: "A"
+    washing_small: "Lavage Petite caisse"
 
   return:
     receive: "Retours à recevoir"
