@@ -105,13 +105,9 @@
   <col width="60">
   <col width="60">
   <col width="60">
-  <col width="60">
-  <col width="60">
 
   <tr>
     <strong>
-      <th></th>
-      <th></th>
       <th></th>
       <th class="text-center">Total HTVA</th>
       <th class="text-center">TVA</th>
@@ -122,8 +118,6 @@
 
   <tr>   
     <td><strong>TOTAUX</strong></td>
-    <td></td>
-    <td></td>
     <td class="text-center"><strong><%= number_to_currency(@invoice.total_htva, :unit => "€", :precision => 2) %></strong></td>
     <td class="text-center"><strong><%= number_to_currency(@invoice.total_tva, :unit => "€", :precision => 2) %></strong></td>
     <td class="text-center"><strong><%= number_to_currency(@invoice.total_tvac, :unit => "€", :precision => 2) %></strong></td>
