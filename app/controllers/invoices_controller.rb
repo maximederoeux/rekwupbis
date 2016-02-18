@@ -37,12 +37,25 @@ class InvoicesController < ApplicationController
 
   def show_detail
     @invoice = Invoice.find(params[:id])
-    
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "#{@invoice.pdf_name} - Détails", :layout => 'layouts/pdf.html.erb', :template => 'invoices/show_detail.html.erb', :page_size => 'A4'
+      end
+    end
+
   end
 
   def show_surfaces
     @invoice = Invoice.find(params[:id])
-    
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "#{@invoice.pdf_name} - Détails Surfaces", :layout => 'layouts/pdf.html.erb', :template => 'invoices/show_surfaces.html.erb', :page_size => 'A4'
+      end
+    end    
   end
 
   # GET /invoices/new

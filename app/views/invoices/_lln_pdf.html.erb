@@ -28,9 +28,9 @@
 <br>
 
 <div class="reference">
-  <h4><strong>
+  <strong>
     <%= @invoice.pdf_name %>
-  </h4></strong>
+  </strong>
 </div>
 
 <div class="doc-date">
@@ -56,6 +56,12 @@
 </div>
 
 <table class="article">
+  <col width="200">
+  <col width="60">
+  <col width="60">
+  <col width="60">
+  <col width="60">
+  <col width="60">
 
   <tr>
     <th>Caisses</th>
@@ -90,10 +96,22 @@
 
 <hr>
 
-<table>
+<div class="client-block">
+  <strong>Montant à payer</strong>
+</div>
 
-<tr>
+<table>
+  <col width="200">
+  <col width="60">
+  <col width="60">
+  <col width="60">
+  <col width="60">
+  <col width="60">
+
+  <tr>
     <strong>
+      <th></th>
+      <th></th>
       <th></th>
       <th class="text-center">Total HTVA</th>
       <th class="text-center">TVA</th>
@@ -102,17 +120,20 @@
   </tr>
 
 
-<tr>
-    <strong>
-      <td>TOTAUX</td>
-      <td class="text-center"><%= number_to_currency(@invoice.total_htva, :unit => "€", :precision => 2) %></td>
-      <td class="text-center"><%= number_to_currency(@invoice.total_tva, :unit => "€", :precision => 2) %></td>
-      <td class="text-center"><%= number_to_currency(@invoice.total_tvac, :unit => "€", :precision => 2) %></td>
-    </strong>
+  <tr>   
+    <td><strong>TOTAUX</strong></td>
+    <td></td>
+    <td></td>
+    <td class="text-center"><strong><%= number_to_currency(@invoice.total_htva, :unit => "€", :precision => 2) %></strong></td>
+    <td class="text-center"><strong><%= number_to_currency(@invoice.total_tva, :unit => "€", :precision => 2) %></strong></td>
+    <td class="text-center"><strong><%= number_to_currency(@invoice.total_tvac, :unit => "€", :precision => 2) %></strong></td>
   </tr>
 
 
 </table>
+
+
+<hr>
 
   <div class="bank-block">
   A payer sur le compte suivant :<br>
@@ -141,6 +162,7 @@
   Dinant sont les seuls compétents.
   </div>
 
-  <div>
-<%= link_to t("invoice.see_details"), show_detail_invoice_path(@invoice), class: "btn btn-info pull-right" %>
+<div class="detail-button">
+<%= link_to t("invoice.detail_verso"), show_detail_invoice_path(@invoice), class: "btn btn-default pull-right" %>
 </div>
+

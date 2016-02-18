@@ -29,33 +29,15 @@ class ReturnBox < ActiveRecord::Base
 	end
 
 	def total_clean
-		total_clean = 0
-		self.return_details.each do |detail|
-			if detail.clean.present?
-				total_clean += detail.clean
-			end
-		end
-		total_clean
+		self.return_details.is_clean.sum('clean')
 	end
 
 	def total_dirty
-		total_dirty = 0
-		self.return_details.each do |detail|
-			if detail.dirty.present?
-				total_dirty += detail.dirty
-			end
-		end
-		total_dirty
+		self.return_details.is_dirty.sum('dirty')
 	end
 
 	def total_sealed
-		total_sealed = 0
-		self.return_details.each do |detail|
-			if detail.sealed.present?
-				total_sealed += detail.sealed
-			end
-		end
-		total_sealed
+		self.return_details.is_sealed.sum('sealed')
 	end
 
 	def total_return
@@ -63,33 +45,15 @@ class ReturnBox < ActiveRecord::Base
 	end
 
 	def clean_boxes(box)
-		clean_boxes = 0
-		self.return_details.where(:box_id => box.id).each do |detail|
-			if detail.clean.present?
-				clean_boxes += detail.clean
-			end
-		end
-		clean_boxes
+		self.return_details.is_clean.where(:box_id => box.id).sum('clean')
 	end
 
 	def dirty_boxes(box)
-		dirty_boxes = 0
-		self.return_details.where(:box_id => box.id).each do |detail|
-			if detail.dirty.present?
-				dirty_boxes += detail.dirty
-			end
-		end
-		dirty_boxes
+		self.return_details.is_dirty.where(:box_id => box.id).sum('clean')
 	end
 
 	def sealed_boxes(box)
-		sealed_boxes = 0
-		self.return_details.where(:box_id => box.id).each do |detail|
-			if detail.sealed.present?
-				sealed_boxes += detail.sealed
-			end
-		end
-		sealed_boxes
+		self.return_details.is_sealed.where(:box_id => box.id).sum('clean')
 	end
 
 	def returned_boxes(box)
@@ -101,33 +65,15 @@ class ReturnBox < ActiveRecord::Base
 	end
 
 	def clean_ctrl_boxes(box)
-		clean_ctrl_boxes = 0
-		self.return_details.where(:box_id => box.id).each do |detail|
-			if detail.clean_ctrl.present?
-				clean_ctrl_boxes += detail.clean_ctrl
-			end
-		end
-		clean_ctrl_boxes
+		self.return_details.is_clean_ctrl.where(:box_id => box.id).sum('clean_ctrl')
 	end
 
 	def dirty_ctrl_boxes(box)
-		dirty_ctrl_boxes = 0
-		self.return_details.where(:box_id => box.id).each do |detail|
-			if detail.dirty_ctrl.present?
-				dirty_ctrl_boxes += detail.dirty_ctrl
-			end
-		end
-		dirty_ctrl_boxes
+		self.return_details.is_dirty_ctrl.where(:box_id => box.id).sum('clean_ctrl')
 	end
 
 	def sealed_ctrl_boxes(box)
-		sealed_ctrl_boxes = 0
-		self.return_details.where(:box_id => box.id).each do |detail|
-			if detail.sealed_ctrl.present?
-				sealed_ctrl_boxes += detail.sealed_ctrl
-			end
-		end
-		sealed_ctrl_boxes
+		self.return_details.is_sealed_ctrl.where(:box_id => box.id).sum('clean_ctrl')
 	end
 
 	def clean_difference(box)

@@ -1,5 +1,18 @@
 <div class="invoice-background">
 
+<% if current_user.admin %>
+
+  <%= link_to "", show_surfaces_invoice_path(format: 'pdf'), :class => "btn btn-default btn-lg btn-block generate" %>
+
+<% end %>
+
+<div class="reference">
+  <strong>
+    <%= @invoice.pdf_name %>
+  </strong>
+</div>
+
+
 <div class="client-block">
   <strong>Livraisons et retours par surface</strong>
 </div>
@@ -64,8 +77,9 @@
 <hr>
 
 
-
-<hr>
+<div class="client-block">
+  <strong>Détails par surface</strong>
+</div>
 
 <table class="article">
 

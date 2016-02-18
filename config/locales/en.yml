@@ -301,6 +301,8 @@ en:
     new: "Bill"
     see: "See invoice"
     yours: "Your invoices"
+    detail_verso: "See details on next page"
+    detail_surface: "Surfaces details on next page"
 
   lln:
     id: "Order number"

@@ -296,6 +296,8 @@ nl:
     new: "Laden"
     see: "Rekening bekijken"
     yours: "Uw rekeningen"
+    detail_verso: "Details op voldenge pagina"
+    detail_surface: "Surfaces details op volgende pagina"
 
   lln:
     id: "Order nummer"

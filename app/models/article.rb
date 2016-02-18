@@ -90,6 +90,23 @@ class Article < ActiveRecord::Base
 		end			
 	end
 
+
+	def box_value
+		if quantity_bigbox.present?
+			quantity_bigbox
+		else
+			0
+		end		
+	end
+
+	def pile_value
+		if quantity_pile.present?
+			quantity_pile
+		else
+			0
+		end
+	end
+
 	def has_price
 		if self.prices.any?
 			"#{self.prices.count} Prix"

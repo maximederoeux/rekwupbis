@@ -1,3 +1,15 @@
+<% if current_user.admin %>
+
+  <%= link_to "", show_detail_invoice_path(format: 'pdf'), :class => "btn btn-default btn-lg btn-block generate" %>
+
+<% end %>
+
+<div class="reference">
+  <strong>
+    <%= @invoice.pdf_name %>
+  </strong>
+</div>
+
 <div class="client-block">
   <strong>Détail Facture</strong>
 </div>
@@ -77,6 +89,6 @@
 
 </table>
 
-<div>
-<%= link_to t("invoice.surfaces_details"), show_surfaces_invoice_path(@invoice), class: "btn btn-info pull-right" %>
+<div class="detail-button">
+<%= link_to t("invoice.detail_surface"), show_surfaces_invoice_path(@invoice), class: "btn btn-default pull-right" %>
 </div>

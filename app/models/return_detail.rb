@@ -2,6 +2,12 @@ class ReturnDetail < ActiveRecord::Base
 	belongs_to :return_box
 	belongs_to :box
 
+	scope :is_clean, lambda {where.not(clean: nil)}
+	scope :is_dirty, lambda {where.not(dirty: nil)}
+	scope :is_sealed, lambda {where.not(sealed: nil)}
+	scope :is_clean_ctrl, lambda {where.not(clean_ctrl: nil)}
+	scope :is_dirty_ctrl, lambda {where.not(dirty_ctrl: nil)}
+	scope :is_sealed_ctrl, lambda {where.not(sealed_ctrl: nil)}
 
 	def dirty_value
 		if dirty.present?

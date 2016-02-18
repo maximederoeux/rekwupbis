@@ -323,43 +323,19 @@ class Offer < ActiveRecord::Base
 	end
 
 	def sent_boxes(box)
-		sent_boxes = 0
-		self.offer_boxes.each do |offer_box|
-			if offer_box.box_id == box.id
-				sent_boxes += offer_box.quantity
-			end
-		end
-		sent_boxes
+		self.offer_boxes.where(:box_id => box.id).sum('quantity')
 	end
 
 	def clean_boxes(box)
-		clean_boxes = 0
-		self.return_details.where(:box_id => box.id).each do |detail|
-			if detail.clean.present?
-				clean_boxes += detail.clean
-			end
-		end
-		clean_boxes
+		self.return_details.is_clean.where(:box_id => box.id).sum('clean')
 	end
 
 	def dirty_boxes(box)
-		dirty_boxes = 0
-		self.return_details.where(:box_id => box.id).each do |detail|
-			if detail.dirty.present?
-				dirty_boxes += detail.dirty
-			end
-		end
-		dirty_boxes
+		self.return_details.is_dirty.where(:box_id => box.id).sum('clean')
 	end
 
 	def sealed_boxes(box)
-		sealed_boxes = 0
-		self.return_details.where(:box_id => box.id).each do |detail|
-			if detail.sealed.present?
-				sealed_boxes += detail.sealed
-			end
-		end
-		sealed_boxes
+		self.return_details.is_sealed.where(:box_id => box.id).sum('clean')
 	end
 
 	def returned_boxes(box)

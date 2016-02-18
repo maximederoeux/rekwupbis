@@ -298,6 +298,8 @@ fr:
     new: "Facturer"
     see: "Voir facture"
     yours: "Vos factures"
+    detail_verso: "Détails de la facture au verso"
+    detail_surface: "Détails par surface sur la page suivante"
 
   lln:
     id: "N° Ordre"

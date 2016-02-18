@@ -23,11 +23,7 @@ class Sorting < ActiveRecord::Base
 
 	def global_clean_sum(article)
 		if article.is_cup
-			global_clean_sum = 0
-			self.sorting_details.where(:article_id => article, :clean => true).each do |sorting_detail|
-				global_clean_sum += sorting_detail.total_cups
-			end
-			global_clean_sum
+		(self.sorting_details.clean.has_box.where(:article_id => article.id).sum('box_qtty') * article.box_value) + (self.sorting_details.clean.has_pile.where(:article_id => article.id).sum('pile_qtty') * article.pile_value) + self.sorting_details.clean.has_unit.where(:article_id => article.id).sum('unit_qtty')
 		else
 			if dirty_box_return(article).present?
 				dirty_box_return(article)
@@ -38,28 +34,16 @@ class Sorting < ActiveRecord::Base
 	end
 
 	def global_very_dirty_sum(article)
-		global_very_dirty_sum = 0
-		self.sorting_details.where(:article_id => article, :very_dirty => true).each do |sorting_detail|
-			global_very_dirty_sum += sorting_detail.total_cups
-		end
-		global_very_dirty_sum
+		(self.sorting_details.very_dirty.has_box.where(:article_id => article.id).sum('box_qtty') * article.box_value) + (self.sorting_details.very_dirty.has_pile.where(:article_id => article.id).sum('pile_qtty') * article.pile_value) + self.sorting_details.very_dirty.has_unit.where(:article_id => article.id).sum('unit_qtty')
 	end
 
 	def global_broken_sum(article)
-		global_broken_sum = 0
-		self.sorting_details.where(:article_id => article, :broken => true).each do |sorting_detail|
-			global_broken_sum += sorting_detail.total_cups
-		end
-		global_broken_sum
+		(self.sorting_details.broken.has_box.where(:article_id => article.id).sum('box_qtty') * article.box_value) + (self.sorting_details.broken.has_pile.where(:article_id => article.id).sum('pile_qtty') * article.pile_value) + self.sorting_details.broken.has_unit.where(:article_id => article.id).sum('unit_qtty')
 	end
 
 	def global_handling_sum(article)
 		if article.is_cup
-			global_handling_sum = 0
-			self.sorting_details.where(:article_id => article, :handling => true).each do |sorting_detail|
-				global_handling_sum += sorting_detail.total_cups
-			end
-			global_handling_sum
+		(self.sorting_details.handling.has_box.where(:article_id => article.id).sum('box_qtty') * article.box_value) + (self.sorting_details.handling.has_pile.where(:article_id => article.id).sum('pile_qtty') * article.pile_value) + self.sorting_details.handling.has_unit.where(:article_id => article.id).sum('unit_qtty')
 		else
 			sealed_box_return(article)
 		end

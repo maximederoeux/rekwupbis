@@ -7,6 +7,9 @@ class SortingDetail < ActiveRecord::Base
 	scope :very_dirty, lambda {where(:very_dirty => true)}
 	scope :broken, lambda {where(:broken => true)}
 	scope :handling, lambda {where(:handling => true)}
+	scope :has_box, lambda {where.not(box_qtty: nil)}
+	scope :has_pile, lambda {where.not(pile_qtty: nil)}
+	scope :has_unit, lambda {where.not(unit_qtty: nil)}
 
 	def box_value
 		if box_qtty.present?
