@@ -90,10 +90,10 @@
 
 </table>
 
-<table>
+<table align="right">
     <tr>
     <strong>
-      <th></th>
+
       <th>Total HTVA</th>
       <th>TVA</th>
       <th>Total TVAC</th>
@@ -103,7 +103,6 @@
 
   <tr>
     <strong>
-      <td>TOTAUX</td>
       <td><%= number_to_currency(@invoice.total_htva_final, :unit => "€", :precision => 2) %></td>
       <td><%= number_to_currency(@invoice.total_tva_final, :unit => "€", :precision => 2) %></td>
       <td><%= number_to_currency(@invoice.total_tvac_final, :unit => "€", :precision => 2) %></td>
