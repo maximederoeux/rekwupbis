@@ -39,7 +39,13 @@ class User < ActiveRecord::Base
 	end
 	
 	def full_name
-		"#{first_name} #{name}"
+		if name.present? && first_name.present?
+			"#{first_name} #{name}"
+		elsif name.present? && first_name.blank?
+			name
+		elsif name.blank? && first_name.blank?
+			"Pas de nom"		
+		end
 	end
 
 	def rekwup
