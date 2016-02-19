@@ -74,7 +74,11 @@
                   
                   <br>
                   <%= sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><br>
-                  <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+
+                  <% if sorting.offer.delivery %>
+                    <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <% end %>
+
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
                   <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %>   
                 </strong>
@@ -120,7 +124,11 @@
                   
                   <br>
                   <%= sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><br>
-                  <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+
+                  <% if sorting.offer.delivery %>
+                    <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <% end %>
+
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
                   <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %>   
                 </strong>
@@ -163,7 +171,11 @@
                   
                   <br>
                   <%= sorting.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><br>
-                  <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+
+                  <% if sorting.offer.delivery %>
+                    <%= sorting.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
+                  <% end %>
+                                    
                   <%= t("sorting.started2") %><%= sorting.start_time.strftime("%H:%M") %><br>
                   <%= t("sorting.finished2") %><%= sorting.end_time.strftime("%H:%M") %>   
                 </strong>
