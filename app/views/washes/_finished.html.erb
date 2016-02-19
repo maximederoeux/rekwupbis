@@ -75,8 +75,9 @@
                   
                   <br>
                   <%= wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><br>
-                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
-                  <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %><br>
+                  <% if wash.offer.delivery %>
+                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %>
+                  <% end %>                  <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %><br>
                   <%= t("wash.finished2") %><%= wash.end_time.strftime("%H:%M") %>
 
                   <%= simple_form_for(@new_wash) do |f| %>
@@ -122,8 +123,9 @@
                   
                   <br>
                   <%= wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><br>
-                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
-                  <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %><br>
+                  <% if wash.offer.delivery %>
+                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %>
+                  <% end %>                  <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %><br>
                   <%= t("wash.finished2") %><%= wash.end_time.strftime("%H:%M") %>
 
                   <%= simple_form_for(@new_wash) do |f| %>
@@ -167,8 +169,9 @@
                   
                   <br>
                   <%= wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><br>
-                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %><br>
-                  <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %><br>
+                  <% if wash.offer.delivery %>
+                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %>
+                  <% end %>                  <%= t("wash.started2") %><%= wash.start_time.strftime("%H:%M") %><br>
                   <%= t("wash.finished2") %><%= wash.end_time.strftime("%H:%M") %>
 
                   <%= simple_form_for(@new_wash) do |f| %>
