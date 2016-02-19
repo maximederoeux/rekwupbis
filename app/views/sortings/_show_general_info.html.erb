@@ -61,8 +61,10 @@
   	<div class="row text-center">
 
   		<div class="col-md-4">
-        <strong><%= t("sorting.delivery") %></strong><br>    
+        <strong><%= t("sorting.delivery") %></strong><br>
+        <% if @sorting.offer.delivery %>    
 				<%= @sorting.offer.delivery.gone_time.strftime("%d/%m/%Y") if @sorting.offer.delivery.gone_time.present? %>
+        <% end %>
   		</div>
 
   		<div class="col-md-4">

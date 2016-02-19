@@ -71,11 +71,15 @@
       <div class="row text-center">
 
         <div class="col-md-4">
+
+          <% if @wash.offer.delivery %>
           <strong>
             <%= t("wash.delivery") %>
           </strong><br>
+
           <%= @wash.offer.delivery.gone_time.strftime("%d/%m/%Y") if @wash.offer.delivery.gone_time.present? %><br>
           <%= @wash.offer.delivery.gone_time.strftime("%H:%M") if @wash.offer.delivery.gone_time.present? %>
+          <% end %>
         </div>
 
         <div class="col-md-4">
