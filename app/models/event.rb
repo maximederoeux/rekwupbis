@@ -10,6 +10,7 @@ class Event < ActiveRecord::Base
 	validates :address, presence: true
 	validates :city, presence: true
 	validates :post_code, presence: true
+	validates :organizer_id, presence: true
 
 	scope :is_lln, lambda {where(:is_lln => true)}
 end

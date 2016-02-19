@@ -32,9 +32,7 @@
                   <br>
                   <%= t("wash.back") %><%= wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
 
-                  <% if wash.offer.delivery %>
-                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %>
-                  <% end %>
+
 
                   <%= simple_form_for(wash) do |f| %>
                     <%= f.error_notification %>
@@ -76,9 +74,7 @@
                   <br>
                   <%= t("wash.back") %><%= wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
 
-                  <% if wash.offer.delivery %>
-                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %>
-                  <% end %>
+
 
                   <%= simple_form_for(wash) do |f| %>
                     <%= f.error_notification %>
@@ -123,9 +119,6 @@
                   <br>
                   <%= t("wash.back") %><%= wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
 
-                  <% if wash.offer.delivery %>
-                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %>
-                  <% end %>
 
                   <%= simple_form_for(wash) do |f| %>
                     <%= f.error_notification %>
@@ -167,9 +160,7 @@
                   <br>
                   <%= t("wash.back") %><%= wash.offer.return_boxes.first.return_time.strftime("%d/%m/%Y") %><%= t("word.at") %><%= wash.offer.return_boxes.first.return_time.strftime("%H:%M") %><br>
                   
-                  <% if wash.offer.delivery %>
-                  <%= wash.offer.delivery.total_boxes %> <%= t("menu.boxes") %>
-                  <% end %>
+
                   <%= simple_form_for(wash) do |f| %>
                     <%= f.error_notification %>
 
