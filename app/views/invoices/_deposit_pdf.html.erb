@@ -75,9 +75,9 @@
 
   <td><%= @invoice.wash_sent_articles(article) %></td>
 
-  <td><%= number_to_currency(article.right_wash_price(@invoice.client), :unit =>'€', :precision => 2) %></td>
+  <td><%= number_to_currency(article.right_wash_price(@invoice.client), :unit =>'€', :precision => 3) %></td>
 
-  <td><%= number_to_currency(@invoice.wash_total_article(article, @invoice.client), :unit =>'€', :precision => 3) %>
+  <td><%= number_to_currency(@invoice.wash_total_article(article, @invoice.client), :unit =>'€', :precision => 2) %>
   </td>
 
   <td>21 %</td>
@@ -109,7 +109,7 @@
 
   <td><%= @invoice.deposit_sent_articles(article) %></td>
 
-  <td><%= number_to_currency(article.right_deposit_price(@invoice.client), :unit =>'€', :precision => 2) %></td>
+  <td><%= number_to_currency(article.right_deposit_price(@invoice.client), :unit =>'€', :precision => 3) %></td>
 
   <td><%= number_to_currency(@invoice.deposit_total_article(article, @invoice.client), :unit =>'€', :precision => 2) %>
   </td>
@@ -143,7 +143,7 @@
 
     <% else %>
 
-      <%= number_to_currency(@regular_prices.where(:article_id => article.article.id).last.sell, :unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
+      <%= number_to_currency(article.right_sell_price(article.article_id) %>
 
     <% end %>
   </td>
@@ -155,7 +155,7 @@
 
     <% else %>
 
-      <%= number_to_currency((article.quantity * @regular_prices.where(:article_id => article.article.id).last.sell), :unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
+      <%= number_to_currency((article.quantity * article.right_sell_price(article.article_id), :unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
 
     <% end %>
   </td>
@@ -167,7 +167,7 @@
 
     <% else %>
 
-      <%= number_to_currency((article.quantity * @regular_prices.where(:article_id => article.article.id).last.sell * 1.21), :unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
+      <%= number_to_currency((article.quantity * article.right_sell_price(article.article_id) * 1.21), :unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
 
     <% end %>
 
@@ -177,13 +177,13 @@
   </tr>
 
   <tr>
-  	<strong>
+  	
 		  <td></td>
 		  <td></td>
-		  <td>Total</td>
-		  <td><%= number_to_currency(@invoice.total_htva_deposit, :unit =>'€', :precision => 2) %></td>
-		  <td><%= number_to_currency(@invoice.total_tva_deposit, :unit =>'€', :precision => 2) %></td>
-		  <td><%= number_to_currency(@invoice.total_tvac_deposit, :unit =>'€', :precision => 2) %></td>
+		  <td><strong>Total</strong></td>
+		  <td><strong><%= number_to_currency(@invoice.total_htva_deposit, :unit =>'€', :precision => 2) %></strong></td>
+		  <td><strong><%= number_to_currency(@invoice.total_tva_deposit, :unit =>'€', :precision => 2) %></strong></td>
+		  <td><strong><%= number_to_currency(@invoice.total_tvac_deposit, :unit =>'€', :precision => 2) %></strong></td>
 		  </tr>
 		  <tr>
 		  <td></td>
