@@ -90,7 +90,7 @@
 <% end %>
 
 
-<% Offer.lln_daily.where(created_at: week_begin..week_finish).each do |offer| %>
+<% Offer.lln_daily.where(created_at: Invoice.all.last.week_begin..Invoice.all.last.week_finish).each do |offer| %>
 
   <%= offer.id %><br>
   <%= offer.organizer.name %><br>
