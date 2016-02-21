@@ -104,7 +104,7 @@ class Invoice < ActiveRecord::Base
 
 	def total_htva_articles
 		total_htva_articles = 0
-		self.offer.articles.is_cup.each do |article|
+		self.offer.articles.is_cup.find_each do |article|
 		total_htva_articles += (wash_total_article(article, client) + deposit_total_article(article, client))
 		end
 		total_htva_articles
@@ -128,7 +128,7 @@ class Invoice < ActiveRecord::Base
 
 	def return_clean(box)
 		return_clean = 0
-			self.return_boxes.each do |return_box|
+			self.return_boxes.find_each do |return_box|
 				return_clean += return_box.clean_boxes(box)
 			end
 		return_clean
@@ -136,7 +136,7 @@ class Invoice < ActiveRecord::Base
 
 	def return_dirty(box)
 		return_dirty = 0
-			self.return_boxes.each do |return_box|
+			self.return_boxes.find_each do |return_box|
 				return_dirty += return_box.dirty_boxes(box)
 			end
 		return_dirty
@@ -144,7 +144,7 @@ class Invoice < ActiveRecord::Base
 
 	def return_sealed(box)
 		return_sealed = 0
-			self.return_boxes.each do |return_box|
+			self.return_boxes.find_each do |return_box|
 				return_sealed += return_box.sealed_boxes(box)
 			end
 		return_sealed
@@ -160,7 +160,7 @@ class Invoice < ActiveRecord::Base
 
 	def clean_return(article)
 		clean_return = 0
-		self.sortings.each do |sorting|
+		self.sortings.find_each do |sorting|
 		 clean_return += sorting.clean_article_return(article) if sorting.clean_article_return(article)
 		end
 		clean_return
@@ -168,7 +168,7 @@ class Invoice < ActiveRecord::Base
 
 	def dirty_return(article)
 		dirty_return = 0
-		self.sortings.each do |sorting|
+		self.sortings.find_each do |sorting|
 		 dirty_return += sorting.dirty_article_return(article) if sorting.dirty_article_return(article)
 		end
 		dirty_return
@@ -176,7 +176,7 @@ class Invoice < ActiveRecord::Base
 
 	def sealed_return(article)
 		sealed_return = 0
-		self.sortings.each do |sorting|
+		self.sortings.find_each do |sorting|
 		 sealed_return += sorting.sealed_article_return(article) if sorting.sealed_article_return(article)
 		end
 		sealed_return
@@ -184,7 +184,7 @@ class Invoice < ActiveRecord::Base
 
 	def washed_total(article)
 		washed_total = 0
-		self.sortings.each do |sorting|
+		self.sortings.find_each do |sorting|
 			washed_total += sorting.global_clean_sum(article)
 		end
 		washed_total	
@@ -192,7 +192,7 @@ class Invoice < ActiveRecord::Base
 
 	def very_dirty_total(article)
 		very_dirty_total = 0
-		self.sortings.each do |sorting|
+		self.sortings.find_each do |sorting|
 			very_dirty_total += sorting.global_very_dirty_sum(article)
 		end
 		very_dirty_total	
@@ -200,7 +200,7 @@ class Invoice < ActiveRecord::Base
 
 	def broken_total(article)
 		broken_total = 0
-		self.sortings.each do |sorting|
+		self.sortings.find_each do |sorting|
 			broken_total += sorting.global_broken_sum(article)
 		end
 		broken_total	
@@ -208,7 +208,7 @@ class Invoice < ActiveRecord::Base
 
 	def handling_total(article)
 		handling_total = 0
-		self.sortings.each do |sorting|
+		self.sortings.find_each do |sorting|
 			handling_total += sorting.global_handling_sum(article)
 		end
 		handling_total	
@@ -257,7 +257,7 @@ class Invoice < ActiveRecord::Base
 
 	def missing_total(article)
 		missing_total = 0
-		self.sortings.each do |sorting|
+		self.sortings.find_each do |sorting|
 			missing_total += sorting.missing(article)
 		end
 		missing_total	
@@ -313,7 +313,7 @@ class Invoice < ActiveRecord::Base
 
 	def total_all_articles_htva
 		total_all_articles_htva = 0
-		Article.all.each do |article|
+		Article.all.find_each do |article|
 			total_all_articles_htva += total_per_article_htva(article)
 		end
 		total_all_articles_htva
@@ -329,7 +329,7 @@ class Invoice < ActiveRecord::Base
 
 	def total_all_offer_articles_htva
 		total_all_offer_articles_htva = 0
-		self.offer_articles.each do |offer_article|
+		self.offer_articles.find_each do |offer_article|
 			total_all_offer_articles_htva += offer_article_htva(offer_article)
 		end
 		total_all_offer_articles_htva

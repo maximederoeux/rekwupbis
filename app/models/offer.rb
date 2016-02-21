@@ -170,7 +170,7 @@ class Offer < ActiveRecord::Base
 
 	def total_cups
 		total_cups = 0
-		self.offer_boxes.each do |offer_box|
+		self.offer_boxes.find_each do |offer_box|
 			total_cups += (offer_box.box.boxdetails.last.box_article_quantity * offer_box.quantity)
 		end
 		total_cups
@@ -178,7 +178,7 @@ class Offer < ActiveRecord::Base
 
 	def weight
 		weight = 0
-		self.offer_boxes.each do |offer_box|
+		self.offer_boxes.find_each do |offer_box|
 			weight += offer_box.weight
 		end
 		weight
@@ -319,7 +319,7 @@ class Offer < ActiveRecord::Base
 
 	def sent_article(article)
 		sent_article = 0
-			self.offer_boxes.each do |offer_box|
+			self.offer_boxes.find_each do |offer_box|
 				if Boxdetail.where(:box_id => offer_box.box_id).where(:article_id => article.id).any?
 				sent_article += ((Boxdetail.where(:box_id => offer_box.box_id).where(:article_id => article.id).first.box_article_quantity) * offer_box.quantity)
 				end
@@ -349,7 +349,7 @@ class Offer < ActiveRecord::Base
 
 	def washed_articles(article)
 		washed_articles = 0
-		self.sortings.each do |sorting|
+		self.sortings.find_each do |sorting|
 			washed_articles += sorting.global_clean_sum(article)
 		end
 		washed_articles
@@ -357,7 +357,7 @@ class Offer < ActiveRecord::Base
 
 	def very_dirty_articles(article)
 		very_dirty_articles = 0
-		self.sortings.each do |sorting|
+		self.sortings.find_each do |sorting|
 			very_dirty_articles += sorting.global_very_dirty_sum(article)
 		end
 		very_dirty_articles
@@ -365,7 +365,7 @@ class Offer < ActiveRecord::Base
 
 	def handling_articles(article)
 		handling_articles = 0
-		self.sortings.each do |sorting|
+		self.sortings.find_each do |sorting|
 			handling_articles += sorting.global_handling_sum(article)
 		end
 		handling_articles
@@ -373,7 +373,7 @@ class Offer < ActiveRecord::Base
 
 	def broken_articles(article)
 		broken_articles = 0
-		self.sortings.each do |sorting|
+		self.sortings.find_each do |sorting|
 			broken_articles += sorting.global_broken_sum(article)
 		end
 		broken_articles

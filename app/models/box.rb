@@ -45,7 +45,7 @@ class Box < ActiveRecord::Base
 
   def weight
     weight = 0
-    self.boxdetails.each do |boxdetail|
+    self.boxdetails.find_each do |boxdetail|
     weight += boxdetail.weight
     end
     weight

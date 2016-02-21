@@ -69,7 +69,7 @@ class Sorting < ActiveRecord::Base
 
 	def clean_box_return(article)
 		clean_box_return = 0
-		self.return_details.where('clean > ?', 0).each do |return_detail|
+		self.return_details.where('clean > ?', 0).find_each do |return_detail|
 				if return_detail.box.articles.where(:id => article.id).any?
 				clean_box_return += return_detail.clean
 				end
@@ -87,7 +87,7 @@ class Sorting < ActiveRecord::Base
 
 	def dirty_box_return(article)
 		dirty_box_return = 0
-		self.return_details.where('dirty > ?', 0).each do |return_detail|
+		self.return_details.where('dirty > ?', 0).find_each do |return_detail|
 				if return_detail.box.articles.where(:id => article.id).any?
 				dirty_box_return += return_detail.dirty
 				end
@@ -97,7 +97,7 @@ class Sorting < ActiveRecord::Base
 
 	def sealed_box_return(article)
 		sealed_box_return = 0
-		self.return_details.where('sealed > ?', 0).each do |return_detail|
+		self.return_details.where('sealed > ?', 0).find_each do |return_detail|
 				if return_detail.box.articles.where(:id => article.id).any?
 				sealed_box_return += return_detail.sealed
 				end
