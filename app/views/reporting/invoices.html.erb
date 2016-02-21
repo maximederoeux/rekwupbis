@@ -70,23 +70,3 @@
 
 </ul>
 
-
-<hr>
-
-
-<% Offer.lln_daily.where(created_at: Invoice.all.last.week_begin..Invoice.all.last.week_finish).each do |offer| %>
-
-  <%= offer.id %><br>
-  <%= offer.organizer.name %><br>
-  <%= offer.created_at.strftime("%d/%m/%Y") %><br>
-
-  <% Box.all.each do |box| %>
-
-    <%= box.box_name %>
-    <%= offer.dirty_boxes(box) %><br>
-
-  <% end %>
-
-<hr>
-
-<% end %>
