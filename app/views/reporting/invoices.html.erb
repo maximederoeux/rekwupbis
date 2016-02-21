@@ -88,3 +88,14 @@
 
 <% end %>
 <% end %>
+
+
+<% Offer.lln_daily.where(created_at: week_begin..week_finish).each do |offer| %>
+
+  <%= offer.id %><br>
+  <%= offer.organizer.name %><br>
+  <%= offer.created_at.strftime("%d/%m/%Y") %><br>
+
+
+
+<% end %>
