@@ -14,7 +14,7 @@
             <h4><%= t("delivery.gone_today") %></h4>
           </li>
         
-            <% @finished.ended_this_day.each do |sorting| %>
+            <% @finished.ended_this_day.find_each do |sorting| %>
 
 
                 <li class="list-group-item text-center">
@@ -58,7 +58,7 @@
             <h4><%= t("delivery.gone_yesterday") %></h4>
           </li>
 
-            <% @finished.ended_previous_day.each do |sorting| %>
+            <% @finished.ended_previous_day.find_each do |sorting| %>
 
 
                 <li class="list-group-item text-center">
@@ -107,7 +107,7 @@
             <h4><%= t("delivery.gone_two_days") %></h4>
           </li>
         
-            <% @finished.ended_two_days_ago.each do |sorting| %>
+            <% @finished.ended_two_days_ago.find_each do |sorting| %>
 
                 <li class="list-group-item text-center">
           
@@ -148,10 +148,10 @@
       <div class="col-md-6">
         <ul class="list-group">
           <li class="list-group-item text-center">
-            <h4><%= t("delivery.gone_three_days") %></h4>
+            <h4><%= t("return.back_fifteen_days_ago") %></h4>
           </li>
 
-            <% @finished.ended_three_days_ago.each do |sorting| %>
+            <% @finished.ended_fifteen_days_ago.find_each do |sorting| %>
 
 
                 <li class="list-group-item text-center">
