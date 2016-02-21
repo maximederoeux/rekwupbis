@@ -74,7 +74,7 @@
 
 
 
-<% @boxes.each do |box| %>
+<% @boxes.find_each do |box| %>
 
 <% if @invoice.sent_boxes_week(box) >=1 or @invoice.returned_boxes_week(box) >= 1 %>
 
