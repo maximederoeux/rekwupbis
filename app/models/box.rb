@@ -124,4 +124,12 @@ class Box < ActiveRecord::Base
   def is_small_box
     smallbox == true    
   end
+
+  def is_not_box
+    if smallbox == blank? && bigbox == blank?
+      true
+    else
+      false
+    end  
+  end
 end

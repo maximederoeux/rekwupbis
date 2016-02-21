@@ -40,6 +40,10 @@ class ReturnBox < ActiveRecord::Base
 		self.return_details.is_sealed.sum('sealed')
 	end
 
+	def total_tagged_box
+		self.return_details.is_tagged.sum('sealed')
+	end
+
 	def total_return
 		total_clean + total_dirty + total_sealed
 	end
@@ -49,11 +53,23 @@ class ReturnBox < ActiveRecord::Base
 	end
 
 	def dirty_boxes(box)
-		self.return_details.is_dirty.where(:box_id => box.id).sum('clean')
+		self.return_details.is_dirty.where(:box_id => box.id).sum('dirty')
 	end
 
 	def sealed_boxes(box)
-		self.return_details.is_sealed.where(:box_id => box.id).sum('clean')
+		self.return_details.is_sealed.where(:box_id => box.id).sum('sealed')
+	end
+
+	def tagged_boxes(box)
+		self.return_details.is_tagged_box.where(:box_id => box.id).sum('tagged_box')
+	end
+
+	def tagged_tops(box)
+		self.return_details.is_tagged_top.where(:box_id => box.id).sum('tagged_top')
+	end
+
+	def missing_tops(box)
+		self.return_details.is_missing_top.where(:box_id => box.id).sum('missing_top')
 	end
 
 	def returned_boxes(box)

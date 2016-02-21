@@ -31,8 +31,12 @@
         <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#return_detail_<%= detail.id %>">
 
           <%= detail.box.box_name %><br>
-          <% if detail.count_ctrl >= 0 %>
-            <%= detail.count_ctrl %>
+          <% if detail.box.is_not_box %>
+            <%= detail.tagged_top_value + detail.missing_top_value %>
+          <% else %>
+            <% if detail.count >= 0 %>
+              <%= detail.count %>
+            <% end %>
           <% end %>
 
 
@@ -58,7 +62,13 @@
                         </div>
 
                         <div class="col-md-6">
-                           <%= f.collection_select :box_id, Box.is_box.closed.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+
+                          <% if detail.box.is_not_box %>
+                            <%= detail.box.box_name %>
+                          <% else %>
+                            <%= f.collection_select :box_id, Box.is_box.closed.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                          <% end %>
+
                         </div>
 
                         <div class="col-md-2">
@@ -72,21 +82,33 @@
                 <div class="modal-body">
                   <div class="row text-center">
 
-                    <div class="col-md-3">
-                      <%= f.input :dirty_ctrl %>
-                    </div>
+                    <% if detail.box.is_not_box %>
+                      <div class="col-md-6">
+                        <%= f.input :tagged_top_ctrl %>
+                      </div>
 
-                    <div class="col-md-3">
-                      <%= f.input :sealed_ctrl %>
-                    </div>
+                      <div class="col-md-6">
+                        <%= f.input :missing_top_ctrl %>
+                      </div>
 
-                    <div class="col-md-3">
-                      <%= f.input :clean_ctrl %>
-                    </div>
+                    <% else %>
 
-                    <div class="col-md-3">
-                      <%= f.input :tagged_box_ctrl %>
-                    </div>
+                      <div class="col-md-3">
+                        <%= f.input :dirty_ctrl %>
+                      </div>
+
+                      <div class="col-md-3">
+                        <%= f.input :sealed_ctrl %>
+                      </div>
+
+                      <div class="col-md-3">
+                        <%= f.input :clean_ctrl %>
+                      </div>
+
+                      <div class="col-md-3">
+                        <%= f.input :tagged_box_ctrl %>
+                      </div>
+                    <% end %>
 
                   </div>
                 </div>
@@ -168,7 +190,7 @@
               <%= f.hidden_field :return_box_id, :value => @return_box.id %>
 
             <div class="col-md-4 text-center">
-              <strong><%= t("box.box_name") %></strong><br>
+              <br>
 
               <%= f.hidden_field :box_id, :value => Box.is_not_box.is_empty.first.id %>
               <strong><%= Box.is_not_box.is_empty.first.box_name %></strong>
