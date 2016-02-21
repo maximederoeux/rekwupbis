@@ -336,11 +336,11 @@ class Offer < ActiveRecord::Base
 	end
 
 	def dirty_boxes(box)
-		self.return_details.is_dirty.where(:box_id => box.id).sum('clean')
+		self.return_details.is_dirty.where(:box_id => box.id).sum('dirty')
 	end
 
 	def sealed_boxes(box)
-		self.return_details.is_sealed.where(:box_id => box.id).sum('clean')
+		self.return_details.is_sealed.where(:box_id => box.id).sum('sealed')
 	end
 
 	def returned_boxes(box)
