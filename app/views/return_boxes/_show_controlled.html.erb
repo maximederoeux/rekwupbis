@@ -30,76 +30,92 @@
         Nom
       </div>
 
-      <div class="col-md-2">
-        <strong>
-          Total
+      <div class="col-md-10">
+        <div class="col-md-2">
+          <strong>
+            Total
+            <div class="row text-center">
+              <div class="col-md-6">
+                Envoyés
+              </div>
+              <div class="col-md-6">
+                Retours 
+              </div>
+            </div>
+          </strong>
+        </div>
+
+        <div class="col-md-2">
+          Sales
+
           <div class="row text-center">
             <div class="col-md-6">
-              Envoyés
+              Ret
             </div>
             <div class="col-md-6">
-              Retours 
+              Cont  
             </div>
           </div>
-        </strong>
-      </div>
 
-      <div class="col-md-2">
-        Sales
-
-        <div class="row text-center">
-          <div class="col-md-6">
-            Ret
-          </div>
-          <div class="col-md-6">
-            Cont  
-          </div>
         </div>
 
-      </div>
-
-      <div class="col-md-2">
-        Scellées
-        <div class="row text-center">      
-          <div class="col-md-6">
-            Ret
-          </div>
-          <div class="col-md-6">
-            Cont  
-          </div>      
-        </div>
-
-      </div>
-
-      <div class="col-md-2">
-        Propres
-        <div class="row text-center">
-          <div class="col-md-6">
-            Ret
-          </div>
-          <div class="col-md-6">
-            Cont          
-          </div>      
-        </div>
-
-      </div>
-      <div class="col-md-2">
-        <strong>
-          Difference
-          <div class="row text-center">
-            <div class="col-md-4">
-              Livraison
+        <div class="col-md-2">
+          Scellées
+          <div class="row text-center">      
+            <div class="col-md-6">
+              Ret
             </div>
-            <div class="col-md-8">
-              Vérifier          
+            <div class="col-md-6">
+              Cont  
             </div>      
           </div>
-        </strong>
+
+        </div>
+
+        <div class="col-md-2">
+          Propres
+          <div class="row text-center">
+            <div class="col-md-6">
+              Ret
+            </div>
+            <div class="col-md-6">
+              Cont          
+            </div>      
+          </div>
+
+        </div>
+
+        <div class="col-md-2">
+          Taguées
+          <div class="row text-center">
+            <div class="col-md-6">
+              Ret
+            </div>
+            <div class="col-md-6">
+              Cont          
+            </div>      
+          </div>
+
+        </div>
+
+        <div class="col-md-2">
+          <strong>
+            Difference
+            <div class="row text-center">
+              <div class="col-md-4">
+                Livré
+              </div>
+              <div class="col-md-8">
+                Vérifier          
+              </div>      
+            </div>
+          </strong>
+        </div>
       </div>
     </div>
   </li>
 
-  <% Box.all.find_each do |box| %>
+  <% Box.is_box.closed.find_each do |box| %>
 
     <% if @return_box.returned_boxes(box) >= 1 %>
 
@@ -110,81 +126,97 @@
             <%= box.box_name %>
           </div>
 
-          <div class="col-md-2">
-            
+          
+          <div class="col-md-10">
+            <div class="col-md-2">
+              <div class="row text-center">
+                <strong>
+                  <div class="col-md-6">
+                    <% unless @return_box.offer.lln_daily %>
+                      <%= @return_box.offer.sent_boxes(box) %>
+                    <% end %>
+                  </div>
+                  <div class="col-md-6">
+                    <%= @return_box.returned_boxes(box) %>
+                  </div>
+                </strong>
 
-            <div class="row text-center">
-              <strong>
+              </div>
+
+            </div>
+
+            <div class="col-md-2">
+
+              <div class="row text-center">
                 <div class="col-md-6">
-                  <% unless @return_box.offer.lln_daily %>
-                    <%= @return_box.offer.sent_boxes(box) %>
-                  <% end %>
+                  <%= @return_box.dirty_boxes(box) %>
                 </div>
                 <div class="col-md-6">
-                  <%= @return_box.returned_boxes(box) %>
+                  <%= @return_box.dirty_ctrl_boxes(box) %>
                 </div>
-              </strong>
+              </div>
 
             </div>
 
-          </div>
+            <div class="col-md-2">
 
-          <div class="col-md-2">
-
-            <div class="row text-center">
-              <div class="col-md-6">
-                <%= @return_box.dirty_boxes(box) %>
-              </div>
-              <div class="col-md-6">
-                <%= @return_box.dirty_ctrl_boxes(box) %>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-md-2">
-
-            <div class="row text-center">      
-              <div class="col-md-6">
-                <%= @return_box.sealed_boxes(box) %>
-              </div>
-              <div class="col-md-6">
-                <%= @return_box.sealed_ctrl_boxes(box) %>
-              </div>      
-            </div>
-
-          </div>
-
-          <div class="col-md-2">
-
-            <div class="row text-center">
-              <div class="col-md-6">
-                <%= @return_box.clean_boxes(box) %>
-              </div>
-              <div class="col-md-6">
-                <%= @return_box.clean_ctrl_boxes(box) %>
-              </div>      
-            </div>
-
-          </div>
-          <div class="col-md-2">
-
-            <div class="row text-center">
-              <strong>
-                <div class="col-md-4">
-                  <% unless @return_box.offer.lln_daily %>
-                    <%= @return_box.difference_delivery(box) %>
-                  <% end %>
+              <div class="row text-center">      
+                <div class="col-md-6">
+                  <%= @return_box.sealed_boxes(box) %>
                 </div>
-                <div class="col-md-8">
-                  <%= @return_box.display_dirty_difference(box) %>   
-                  <%= @return_box.display_clean_difference(box) %>     
-                  <%= @return_box.display_sealed_difference(box) %>       
-                </div>   
-              </strong>
-   
+                <div class="col-md-6">
+                  <%= @return_box.sealed_ctrl_boxes(box) %>
+                </div>      
+              </div>
+
             </div>
 
+            <div class="col-md-2">
+
+              <div class="row text-center">
+                <div class="col-md-6">
+                  <%= @return_box.clean_boxes(box) %>
+                </div>
+                <div class="col-md-6">
+                  <%= @return_box.clean_ctrl_boxes(box) %>
+                </div>      
+              </div>
+
+            </div>
+
+            <div class="col-md-2">
+
+              <div class="row text-center">
+                <div class="col-md-6">
+                  <%= @return_box.tagged_boxes(box) %>
+                </div>
+                <div class="col-md-6">
+                  <%= @return_box.tagged_boxes_ctrl(box) %>
+                </div>      
+              </div>
+
+            </div>
+
+            <div class="col-md-2">
+
+              <div class="row text-center">
+                <strong>
+                  <div class="col-md-4">
+                    <% unless @return_box.offer.lln_daily %>
+                      <%= @return_box.difference_delivery(box) %>
+                    <% end %>
+                  </div>
+                  <div class="col-md-8">
+                    <%= @return_box.display_dirty_difference(box) %>   
+                    <%= @return_box.display_clean_difference(box) %>     
+                    <%= @return_box.display_sealed_difference(box) %>       
+                    <%= @return_box.display_tagged_box_difference(box) %>       
+                  </div>   
+                </strong>
+     
+              </div>
+
+            </div>
           </div>
         </div>
       </li>
@@ -193,6 +225,89 @@
   <% end %>
 </ul>
 
+<ul class="list-group">
+  <li class="list-group-item list-group-item-warning">
+    <h4>Couvercles</h4>
+  </li>
+
+      <li class="list-group-item list-group-item-warning">
+        <div class="row">
+          <strong>
+          <div class="col-md-3">
+            Nom
+          </div>
+
+          <div class="col-md-3 text-center">
+            Tagués
+            <div class="row text-center">
+              <div class="col-md-6">
+                Ret
+              </div>
+              <div class="col-md-6">
+                Cont          
+              </div>      
+            </div>
+          </div>
+
+          <div class="col-md-3 text-center">
+            Manquants
+            <div class="row text-center">
+              <div class="col-md-6">
+                Ret
+              </div>
+              <div class="col-md-6">
+                Cont          
+              </div>      
+            </div>
+          </div>
+
+          <div class="col-md-3 text-center">
+            Vérifier
+          </div>
+          </strong>
+        </div>
+
+      </li>
+
+    <% Box.is_not_box.closed.find_each do |box| %>
+
+
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-3">
+            <%= box.box_name %>
+          </div>
+
+          <div class="col-md-3">
+            <div class="row">
+              <div class="col-md-6 text-center">
+                <%= @return_box.tagged_tops(box) %>
+              </div>
+              <div class="col-md-6 text-center">
+                <%= @return_box.tagged_tops_ctrl(box) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="row">
+              <div class="col-md-6 text-center">
+                <%= @return_box.missing_tops(box) %>
+              </div>
+              <div class="col-md-6 text-center">
+                <%= @return_box.missing_tops_ctrl(box) %>
+              </div>
+            </div>          </div>
+
+          <div class="col-md-3 text-center">
+            <strong><%= @return_box.display_tagged_tops_difference(box) %><br>
+            <%= @return_box.display_missing_tops_difference(box) %></strong>
+          </div>
+        </div>
+
+      </li>
+  <% end %>
+</ul>
 
 
 <ul class="list-group">

@@ -92,6 +92,18 @@ class ReturnBox < ActiveRecord::Base
 		self.return_details.is_sealed_ctrl.where(:box_id => box.id).sum('clean_ctrl')
 	end
 
+	def tagged_boxes_ctrl(box)
+		self.return_details.is_tagged_box.where(:box_id => box.id).sum('tagged_box_ctrl')
+	end
+
+	def tagged_tops_ctrl(box)
+		self.return_details.is_tagged_top.where(:box_id => box.id).sum('tagged_top_ctrl')
+	end
+
+	def missing_tops_ctrl(box)
+		self.return_details.is_missing_top.where(:box_id => box.id).sum('missing_top_ctrl')
+	end
+
 	def clean_difference(box)
 		clean_boxes(box) - clean_ctrl_boxes(box)
 	end
@@ -102,6 +114,18 @@ class ReturnBox < ActiveRecord::Base
 
 	def sealed_difference(box)
 		sealed_boxes(box) - sealed_ctrl_boxes(box)
+	end
+
+	def tagged_box_difference(box)
+		tagged_boxes(box) - tagged_boxes_ctrl(box)
+	end
+
+	def tagged_tops_difference(box)
+		tagged_tops(box) - tagged_tops_ctrl(box)
+	end
+
+	def missing_tops_difference(box)
+		missing_tops(box) - missing_tops_ctrl(box)
 	end
 
 	def display_clean_difference(box)
@@ -119,6 +143,24 @@ class ReturnBox < ActiveRecord::Base
 	def display_sealed_difference(box)
 		unless sealed_difference(box) == 0
 			"Scellées"
+		end	
+	end
+
+	def display_tagged_box_difference(box)
+		unless tagged_box_difference(box) == 0
+			"Taguées"
+		end	
+	end
+
+	def display_missing_tops_difference(box)
+		unless missing_tops_difference(box) == 0
+			"Manquants"
+		end	
+	end
+
+	def display_tagged_tops_difference(box)
+		unless tagged_tops_difference(box) == 0
+			"Tagués"
 		end	
 	end
 
