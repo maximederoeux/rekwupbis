@@ -82,6 +82,9 @@
     <%= invoice.clean_boxes_week(box) %><br>
     <%= invoice.dirty_boxes_week(box) %><br>
     <%= invoice.sealed_boxes_week(box) %><br>
+    <%= invoice.created_at.strftime("%d/%m/%Y") %><br>
+    <%= invoice.week_begin.strftime("%d/%m/%Y") %><br>
+    <%= invoice.week_finish.strftime("%d/%m/%Y") %><br>
 
 <% end %>
 <% end %>
