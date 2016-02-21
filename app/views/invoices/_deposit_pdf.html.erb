@@ -1,4 +1,3 @@
-
 <% if current_user.admin %>
 
   <%= link_to "", invoice_path(format: 'pdf'), :class => "btn btn-default btn-lg btn-block generate" %>
@@ -7,7 +6,7 @@
 
 <% if current_user == @invoice.offer.organizer %>
 
-  <%= link_to "Version PDF", invoice_path(format: 'pdf'), :class => "btn btn-xs btn-default pull-right" %>
+  <%= link_to "Version PDF", invoice_path(format: 'pdf'), :class => "btn btn-xs btn-default" %>
 
 <% end %>
 
@@ -17,40 +16,40 @@
   </div>
 
   <div class="address-block">
-  <h4>Rekwup</h4>
-  <small><p>41/1 rue de La Croix Limont<br>5590, Ciney, Belgique<br>
-  Tel: +32 487 69 83 73<br>
-  e-mail: jgpahaut@rekwup.be<br>
-  TVA: BE 0544.576.806</p></small>
+    <h4>Rekwup</h4>
+    <small><p>41/1 rue de La Croix Limont<br>5590, Ciney, Belgique<br>
+      Tel: +32 487 69 83 73<br>
+      e-mail: jgpahaut@rekwup.be<br>
+      TVA: BE 0544.576.806</p></small>
 
   </div>
-
 </div>
 
-  <div class="reference">
+<br>
+
+<div class="reference">
   <h4><strong>
     <%= @invoice.pdf_name %>
   </h4></strong>
-  </div>
+</div>
 
-  <div class="doc-date">
+<div class="doc-date">
     Ciney, le <%= @invoice.created_at.strftime("%d/%m/%Y") %>
-  </div>
+</div>
 
-  <div class="client-block">
+<div class="client-block">
   <strong>Client:</strong><br>
-  <%= @invoice.client.company_name if @invoice.client.company_name %><br>
-  <%= @invoice.client.full_name %><br>
-  <%= @invoice.client.address %><br>
-  <%= @invoice.client.country %> <%= @invoice.client.postcode %> <%= @invoice.client.city %><br>
-  <%= @invoice.client.vat if @invoice.client.vat %><br>
+    <%= @invoice.client.company_name if @invoice.client.company_name %><br>
+    <%= @invoice.client.full_name %><br>
+    <%= @invoice.client.address %><br>
+    <%= @invoice.client.country %> <%= @invoice.client.postcode %> <%= @invoice.client.city %><br>
+    <%= @invoice.client.vat if @invoice.client.vat %><br>
+</div>
 
-  </div>
-
-  <div class="object">
+<div class="object">
   <strong>Objet:</strong><br>
-  	Facture d'accompte pour l'événement suivant: <%= @invoice.offer.event.event_name %>
-  </div>
+    Facture d'accompte pour l'événement suivant: <%= @invoice.offer.event.event_name %>
+</div>
 
   <table class="article">
 
@@ -66,24 +65,24 @@
 
 
 
-   <% @articles.each do |article| %>
+   <% @articles.is_cup.each do |article| %>
 
-    <% if article.is_cup %>
+   <% if @invoice.sent_articles(article) >= 1 %>
 
 
   <tr>
   <td><%= article.full_name %></td>
 
-  <td><%= @invoice.deposit_wash_articles(article) %></td>
+  <td><%= @invoice.wash_sent_articles(article) %></td>
 
-  <td><%= number_to_currency(article.prices.last.washing, :unit =>'€', :precision => 2) if article.prices.last.washing.present? %></td>
+  <td><%= number_to_currency(article.right_wash_price(@invoice.client), :unit =>'€', :precision => 2) %></td>
 
-  <td><%= number_to_currency((@invoice.deposit_wash_articles(article) * article.prices.last.washing), :unit =>'€', :precision => 2) if article.prices.last.washing.present? %>
+  <td><%= number_to_currency(@invoice.wash_total_article(article, @invoice.client), :unit =>'€', :precision => 3) %>
   </td>
 
   <td>21 %</td>
 
-  <td><%= number_to_currency((((@boxdetails.where(:article_id => article.id).first.box_article_quantity * @thisofferboxes.where(:box_id => @boxdetails.where(:article_id => article.id).first.box_id).first.quantity * 0.85).floor) * article.prices.last.washing * 1.21), :unit =>'€', :precision => 2) if article.prices.last.washing.present? %></td>
+  <td><%= number_to_currency(@invoice.wash_total_article(article, @invoice.client) * 1.21, :unit =>'€', :precision => 2) %></td>
 
   <% end %>
   <% end %>
@@ -99,9 +98,10 @@
   <th></th>
   </tr>
 
-   <% @articles.each do |article| %>
+   <% @articles.is_cup.each do |article| %>
 
-    <% if article.is_cup %>
+   <% if @invoice.sent_articles(article) >= 1 %>
+
 
 
   <tr>
@@ -109,14 +109,14 @@
 
   <td><%= @invoice.deposit_sent_articles(article) %></td>
 
-  <td><%= number_to_currency(article.prices.last.deposit, :unit =>'€', :precision => 2) if article.prices.last.deposit.present? %></td>
+  <td><%= number_to_currency(article.right_deposit_price(@invoice.client), :unit =>'€', :precision => 2) %></td>
 
-  <td><%= number_to_currency((@invoice.deposit_sent_articles(article) * article.prices.last.deposit), :unit =>'€', :precision => 2) if article.prices.last.deposit.present? %>
+  <td><%= number_to_currency(@invoice.deposit_total_article(article, @invoice.client), :unit =>'€', :precision => 2) %>
   </td>
 
   <td>21 %</td>
 
-  <td><%= number_to_currency((((@boxdetails.where(:article_id => article.id).first.box_article_quantity * @thisofferboxes.where(:box_id => @boxdetails.where(:article_id => article.id).first.box_id).first.quantity * 0.15).floor) * article.prices.last.deposit * 1.21), :unit =>'€', :precision => 2) if article.prices.last.deposit.present? %></td>
+  <td><%= number_to_currency(@invoice.deposit_total_article(article, @invoice.client) * 1.21, :unit =>'€', :precision => 2) %></td>
 
   <% end %>
   <% end %>
@@ -181,9 +181,9 @@
 		  <td></td>
 		  <td></td>
 		  <td>Total</td>
-		  <td><%= number_to_currency(@invoice.total_htva, :unit =>'€', :precision => 2) %></td>
-		  <td><%= number_to_currency(@invoice.total_tva, :unit =>'€', :precision => 2) %></td>
-		  <td><%= number_to_currency(@invoice.total_tvac, :unit =>'€', :precision => 2) %></td>
+		  <td><%= number_to_currency(@invoice.total_htva_deposit, :unit =>'€', :precision => 2) %></td>
+		  <td><%= number_to_currency(@invoice.total_tva_deposit, :unit =>'€', :precision => 2) %></td>
+		  <td><%= number_to_currency(@invoice.total_tvac_deposit, :unit =>'€', :precision => 2) %></td>
 		  </tr>
 		  <tr>
 		  <td></td>
@@ -201,7 +201,7 @@
   <td><strong>Total à payer</strong></td>
   <td></td>
   <td></td>
-  <td><strong><%= number_to_currency((@invoice.total_htva * 1.21), :unit =>'€', :precision => 2) %></strong></td>
+  <td><strong><%= number_to_currency((@invoice.total_tvac_deposit), :unit =>'€', :precision => 2) %></strong></td>
   </tr>
 
   </table>

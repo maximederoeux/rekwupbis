@@ -356,7 +356,7 @@ en:
     send_email: "Send this offer"
     sent_on: "Sent on"
     edit: "Change dates"
-    invoice: "Send deposit invoice"
+    invoice: "Generate deposit invoice"
     paid_deposit: "Deposit paid"
     waiting_deposit: "Waiting for deposit"
     confirmation_invoice: "Deposit invoice sent"

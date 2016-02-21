@@ -82,67 +82,6 @@ class Invoice < ActiveRecord::Base
 		end
 	end
 
-
-	def clean_amount
-		clean_amount = 0
-		self.sorting_details.clean.each do |detail|
-			if detail.article.prices.last.washing.present?
-				clean_amount += (detail.total_cups * detail.article.prices.last.washing)
-			else
-				clean_amount
-			end
-		end
-		clean_amount
-	end
-
-	def very_dirty_amount
-		very_dirty_amount = 0
-		self.sorting_details.very_dirty.each do |detail|
-			if detail.article.prices.last.handwash.present?
-				very_dirty_amount += (detail.total_cups * detail.article.prices.last.handwash)
-			else
-				very_dirty_amount
-			end
-		end
-		very_dirty_amount
-	end
-
-	def broken_amount
-		broken_amount = 0
-		self.sorting_details.broken.each do |detail|
-			if detail.article.prices.last.deposit.present?
-				broken_amount += (detail.total_cups * detail.article.prices.last.deposit)
-			else
-				broken_amount
-			end
-		end
-		broken_amount
-	end
-
-	def handling_amount
-		handling_amount = 0
-		self.sorting_details.handling.each do |detail|
-			if detail.article.prices.last.handling.present?
-				handling_amount += (detail.total_cups * detail.article.prices.last.handling)
-			else
-				handling_amount
-			end
-		end
-		handling_amount
-	end
-
-	def article_amount
-		article_amount = 0
-		self.offer_articles.each do |article|
-			if Price.regular.where(:article_id => article.article.id).any? && Price.regular.where(:article_id => article.article.id).last.sell.present?
-				article_amount += (article.quantity * Price.regular.where(:article_id => article.article.id).last.sell) if Price.regular.where(:article_id => article.article.id).last.sell.present?
-			else
-				article_amount
-			end
-		end
-		article_amount
-	end
-
 	def sent_articles(article)
 		self.offer.sent_article(article)
 	end
@@ -151,37 +90,28 @@ class Invoice < ActiveRecord::Base
 		(sent_articles(article) * 0.15).floor
 	end
 
-	def deposit_wash_articles(article)
+	def wash_sent_articles(article)
 		sent_articles(article) - deposit_sent_articles(article)	
 	end
 
-
-	def total_article_deposit
-		article_deposit = 0
-		self.articles.each do |article|
-    	if article.is_cup
-				article_deposit += (deposit_sent_articles(article) * article.prices.last.deposit)
-    	end
-    end
-    	article_deposit
+	def wash_total_article(article, user)
+		wash_sent_articles(article) * article.right_wash_price(user)
 	end
 
-	def total_wash_deposit
-		article_deposit = 0
-		self.articles.each do |article|
-    	if article.is_cup
-				article_deposit += (deposit_wash_articles(article) * article.prices.last.washing)
-    	end
-    end
-    	article_deposit
+	def deposit_total_article(article, user)
+		deposit_sent_articles(article) * article.right_deposit_price(user)
+	end
+
+	def total_htva_articles
+		total_htva_articles = 0
+		self.offer.articles.is_cup.each do |article|
+		total_htva_articles += (wash_total_article(article, client) + deposit_total_article(article, client))
+		end
+		total_htva_articles
 	end
 
 	def total_htva_deposit
-		if after_event
-			clean_amount + broken_amount + very_dirty_amount + handling_amount + self.offer.transport_price + article_amount
-		elsif confirmation
-			total_article_deposit + total_wash_deposit + self.offer.transport_price
-		end
+		total_htva_articles + self.offer.transport_price	
 	end
 
 	def total_tvac_deposit

@@ -149,3 +149,43 @@
           </div>
         </li>
       </ul>
+
+      <ul class="list-group">
+        <li class="list-group-item">
+          <h5><strong><%= t("return.add_box")%></strong></h5>
+        </li>
+      
+
+        <li class="list-group-item">
+          <div class="row">
+            <%= simple_form_for(@return_detail) do |f| %>
+              <%= f.error_notification %>
+
+              <%= f.hidden_field :return_box_id, :value => @return_box.id %>
+
+            <div class="col-md-4 text-center">
+              <strong><%= t("box.box_name") %></strong><br>
+              <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+            </div>
+
+
+            <div class="col-md-2 text-center">
+              <%= f.input :dirty %>
+            </div>
+         
+            <div class="col-md-2 text-center">
+              <%= f.input :sealed %>
+            </div>
+
+            <div class="col-md-2 text-center">
+              <%= f.input :clean %>
+            </div>
+
+              <div class="col-md-2 text-center">
+                <br><%= f.button :submit, class: "btn btn-default btn-info" %>
+              </div>
+
+              <% end %>
+          </div>
+        </li>
+      </ul>

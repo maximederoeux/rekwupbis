@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218092715) do
+ActiveRecord::Schema.define(version: 20160220064829) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -314,6 +314,9 @@ ActiveRecord::Schema.define(version: 20160218092715) do
     t.integer  "dirty_ctrl"
     t.integer  "sealed_ctrl"
     t.integer  "clean_ctrl"
+    t.integer  "missing_top"
+    t.integer  "tagged_top"
+    t.integer  "tagged_box"
   end
 
   create_table "sorting_details", force: :cascade do |t|

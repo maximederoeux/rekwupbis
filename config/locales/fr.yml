@@ -353,7 +353,7 @@ fr:
     send_email: "Envoyer cette offre"
     sent_on: "Envoyée le"
     edit: "Changer les dates"
-    invoice: "Envoyer la facture d'accompte"
+    invoice: "Générer la facture d'accompte"
     paid_deposit: "Accompte payé"
     waiting_deposit: "En attente de l'accompte"
     confirmation_invoice: "Facture d'accompte envoyée"

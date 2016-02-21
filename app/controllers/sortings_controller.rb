@@ -17,6 +17,7 @@ class SortingsController < ApplicationController
   def show
     @sorting = Sorting.find(params[:id])
     @articles = @sorting.articles
+    @lln_articles = Article.where(:is_lln => true)
     @new_sorting = Sorting.new
     @new_sorting_detail = SortingDetail.new
     @sorting_cups = @sorting.sorting_details
