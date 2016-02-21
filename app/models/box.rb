@@ -32,6 +32,8 @@ class Box < ActiveRecord::Base
   scope :is_smallbox, lambda {where(:smallbox => true)}
   scope :is_mixed, lambda {where(:mixed => true)}
   scope :is_regular, lambda {where(:box_regular => true)}
+  scope :is_not_box, lambda {where(:bigbox => blank?, :smallbox => blank?)}
+  scope :is_box, lambda {where(:bigbox => true, :smallbox => blank?) or where(:bigbox => blank?, :smallbox => true)}
 
 
 	def automatic

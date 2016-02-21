@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220064829) do
+ActiveRecord::Schema.define(version: 20160221185922) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -309,14 +309,17 @@ ActiveRecord::Schema.define(version: 20160220064829) do
     t.integer  "dirty"
     t.integer  "sealed"
     t.integer  "clean"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "dirty_ctrl"
     t.integer  "sealed_ctrl"
     t.integer  "clean_ctrl"
     t.integer  "missing_top"
     t.integer  "tagged_top"
     t.integer  "tagged_box"
+    t.integer  "missing_top_ctrl"
+    t.integer  "tagged_top_ctrl"
+    t.integer  "tagged_box_ctrl"
   end
 
   create_table "sorting_details", force: :cascade do |t|

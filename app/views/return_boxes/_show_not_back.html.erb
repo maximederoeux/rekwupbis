@@ -58,7 +58,7 @@
                         </div>
 
                         <div class="col-md-6">
-                           <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                           <%= f.collection_select :box_id, Box.is_box.closed.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
                         </div>
 
                         <div class="col-md-2">
@@ -72,16 +72,20 @@
                 <div class="modal-body">
                   <div class="row text-center">
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                       <%= f.input :dirty %>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                       <%= f.input :sealed %>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                       <%= f.input :clean %>
+                    </div>
+
+                    <div class="col-md-3">
+                      <%= f.input :tagged_box %>
                     </div>
 
                   </div>
@@ -125,7 +129,7 @@
 
             <div class="col-md-4 text-center">
               <strong><%= t("box.box_name") %></strong><br>
-              <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+              <%= f.collection_select :box_id, Box.is_box.closed.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
             </div>
 
 
@@ -165,7 +169,7 @@
 
             <div class="col-md-4 text-center">
               <strong><%= t("box.box_name") %></strong><br>
-              <%= f.collection_select :box_id, Box.all.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+              <%= f.collection_select :box_id, Box.is_box.closed.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
             </div>
 
 
@@ -179,6 +183,44 @@
 
             <div class="col-md-2 text-center">
               <%= f.input :clean %>
+            </div>
+
+              <div class="col-md-2 text-center">
+                <br><%= f.button :submit, class: "btn btn-default btn-info" %>
+              </div>
+
+              <% end %>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="list-group">
+        <li class="list-group-item">
+          <h5><strong><%= t("return.top")%></strong></h5>
+        </li>
+      
+
+        <li class="list-group-item">
+          <div class="row">
+            <%= simple_form_for(@return_detail) do |f| %>
+              <%= f.error_notification %>
+
+              <%= f.hidden_field :return_box_id, :value => @return_box.id %>
+
+            <div class="col-md-4 text-center">
+              <strong><%= t("box.box_name") %></strong><br>
+
+              <%= f.hidden_field :box_id, :value => Box.is_not_box.is_empty.first.id %>
+              <strong><%= Box.is_not_box.is_empty.first.box_name %></strong>
+            </div>
+
+
+            <div class="col-md-3 text-center">
+              <%= f.input :tagged_top %>
+            </div>
+         
+            <div class="col-md-3 text-center">
+              <%= f.input :missing_top %>
             </div>
 
               <div class="col-md-2 text-center">
