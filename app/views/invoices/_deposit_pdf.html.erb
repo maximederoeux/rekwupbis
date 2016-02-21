@@ -53,156 +53,163 @@
 
   <table class="article">
 
-  <tr>
-  <th>Articles Lavés</th>
-  <th>Qtté</th>
-  <th>Prix U.</th>
-  <th>Total HTVA</th>
-  <th>TVA</th>
-  <th>Total TVAC</th>
-  </tr>
+    <tr>
+    <th>Articles Lavés</th>
+    <th>Qtté</th>
+    <th>Prix U.</th>
+    <th>Total HTVA</th>
+    <th>TVA</th>
+    <th>Total TVAC</th>
+    </tr>
 
 
 
 
-   <% @articles.is_cup.each do |article| %>
+     <% @articles.is_cup.each do |article| %>
 
-   <% if @invoice.sent_articles(article) >= 1 %>
-
-
-  <tr>
-  <td><%= article.full_name %></td>
-
-  <td><%= @invoice.wash_sent_articles(article) %></td>
-
-  <td><%= number_to_currency(article.right_wash_price(@invoice.client), :unit =>'€', :precision => 3) %></td>
-
-  <td><%= number_to_currency(@invoice.wash_total_article(article, @invoice.client), :unit =>'€', :precision => 2) %>
-  </td>
-
-  <td>21 %</td>
-
-  <td><%= number_to_currency(@invoice.wash_total_article(article, @invoice.client) * 1.21, :unit =>'€', :precision => 2) %></td>
-
-  <% end %>
-  <% end %>
-
-  </tr>
-
-  <tr>
-  <th>Caution Articles</th>
-  <th></th>
-  <th></th>
-  <th></th>
-  <th></th>
-  <th></th>
-  </tr>
-
-   <% @articles.is_cup.each do |article| %>
-
-   <% if @invoice.sent_articles(article) >= 1 %>
+       <% if @invoice.sent_articles(article) >= 1 %>
 
 
+        <tr>
+          <td><%= article.full_name %></td>
 
-  <tr>
-  <td><%= article.full_name %></td>
+          <td><%= @invoice.wash_sent_articles(article) %></td>
 
-  <td><%= @invoice.deposit_sent_articles(article) %></td>
+          <td><%= number_to_currency(article.right_wash_price(@invoice.client), :unit =>'€', :precision => 3) %></td>
 
-  <td><%= number_to_currency(article.right_deposit_price(@invoice.client), :unit =>'€', :precision => 3) %></td>
+          <td><%= number_to_currency(@invoice.wash_total_article(article, @invoice.client), :unit =>'€', :precision => 2) %>
+          </td>
 
-  <td><%= number_to_currency(@invoice.deposit_total_article(article, @invoice.client), :unit =>'€', :precision => 2) %>
-  </td>
+          <td>21 %</td>
 
-  <td>21 %</td>
+          <td><%= number_to_currency(@invoice.wash_total_article(article, @invoice.client) * 1.21, :unit =>'€', :precision => 2) %></td>
+        </tr>
+      <% end %>
+    <% end %>
 
-  <td><%= number_to_currency(@invoice.deposit_total_article(article, @invoice.client) * 1.21, :unit =>'€', :precision => 2) %></td>
+        
 
-  <% end %>
-  <% end %>
+    <tr>
+      <th>Caution Articles</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-  </tr>
+      <% @articles.is_cup.each do |article| %>
+
+        <% if @invoice.sent_articles(article) >= 1 %>
 
 
-  <tr>
-  <td><strong>Autres frais</strong></td>
-  </tr>
+
+          <tr>
+            <td><%= article.full_name %></td>
+
+            <td><%= @invoice.deposit_sent_articles(article) %></td>
+
+            <td><%= number_to_currency(article.right_deposit_price(@invoice.client), :unit =>'€', :precision => 3) %></td>
+
+            <td><%= number_to_currency(@invoice.deposit_total_article(article, @invoice.client), :unit =>'€', :precision => 2) %>
+            </td>
+
+            <td>21 %</td>
+
+            <td><%= number_to_currency(@invoice.deposit_total_article(article, @invoice.client) * 1.21, :unit =>'€', :precision => 2) %></td>
+
+          </tr>
+
+        <% end %>
+      <% end %>
+
+    <tr>
+      <td>
+        <strong>Autres frais</strong>
+      </td>
+    </tr>
 
 
     <% @invoice.offer_articles.each do |article| %>
 
       <% unless article.quantity == 0 %>
 
-  <tr>
-  <td><%= article.article.full_name %></td>
-  <td><%= article.quantity %></td>
-  <td>
-    <% if article.article.transport %>
+        <tr>
+          <td><%= article.article.full_name %></td>
+          <td><%= article.quantity %></td>
+          <td>
 
-      <%= number_to_currency(@invoice.offer.transport_price, :unit =>'€', :precision => 2) %>
+            <% if article.article.transport %>
 
-    <% else %>
+              <%= number_to_currency(@invoice.offer.transport_price, :unit =>'€', :precision => 2) %>
 
-      <%= number_to_currency(article.right_sell_price(article.article_id) %>
+            <% else %>
 
+              <%= number_to_currency(article.right_sell_price(article.article_id)) %>
+
+            <% end %>
+          </td>
+
+          <td>
+            <% if article.article.transport %>
+
+              <%= number_to_currency((article.quantity * @invoice.offer.transport_price), :unit =>'€', :precision => 2) %>
+
+            <% else %>
+
+              <%= number_to_currency(article.quantity * article.right_sell_price(article.article_id), :unit =>'€', :precision => 2) %>
+
+            <% end %>
+          </td>
+
+          <td>21 %</td>
+
+          <td>
+            <% if article.article.transport %>
+
+              <%= number_to_currency((article.quantity * @invoice.offer.transport_price * 1.21), :unit =>'€', :precision => 2) %>
+
+            <% else %>
+
+              <%= number_to_currency((article.quantity * article.right_sell_price(article.article_id) * 1.21), :unit =>'€', :precision => 2) %>
+
+            <% end %>
+          </td>
+        </tr>      
+      <% end %>
     <% end %>
-  </td>
 
-  <td>
-    <% if article.article.transport %>
 
-      <%= number_to_currency((article.quantity * @invoice.offer.transport_price), :unit =>'€', :precision => 2) %>
+    <tr>
+    	
+  	  <td></td>
+  	  <td></td>
+  	  <td>
+        <strong>Total</strong>
+      </td>
+  	  <td>
+        <strong><%= number_to_currency(@invoice.total_htva_deposit, :unit =>'€', :precision => 2) %></strong>
+      </td>
+  	  <td>
+        <strong><%= number_to_currency(@invoice.total_tva_deposit, :unit =>'€', :precision => 2) %></strong>
+      </td>
+  	  <td>
+        <strong><%= number_to_currency(@invoice.total_tvac_deposit, :unit =>'€', :precision => 2) %></strong>
+      </td>
+  	 </tr>
 
-    <% else %>
-
-      <%= number_to_currency((article.quantity * article.right_sell_price(article.article_id), :unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
-
-    <% end %>
-  </td>
-  <td>21 %</td>
-  <td>
-    <% if article.article.transport %>
-
-      <%= number_to_currency((article.quantity * @invoice.offer.transport_price * 1.21), :unit =>'€', :precision => 2) %>
-
-    <% else %>
-
-      <%= number_to_currency((article.quantity * article.right_sell_price(article.article_id) * 1.21), :unit =>'€', :precision => 2) if @regular_prices.where(:article_id => article.article.id).any? %>
-
-    <% end %>
-
-  </td>
-  <% end %>
-  <% end %>
-  </tr>
-
-  <tr>
-  	
-		  <td></td>
-		  <td></td>
-		  <td><strong>Total</strong></td>
-		  <td><strong><%= number_to_currency(@invoice.total_htva_deposit, :unit =>'€', :precision => 2) %></strong></td>
-		  <td><strong><%= number_to_currency(@invoice.total_tva_deposit, :unit =>'€', :precision => 2) %></strong></td>
-		  <td><strong><%= number_to_currency(@invoice.total_tvac_deposit, :unit =>'€', :precision => 2) %></strong></td>
-		  </tr>
-		  <tr>
-		  <td></td>
-		  <td></td>
-		  <td></td>
-		  <td></td>
-		  <td></td>
-		  <td></td>
-		</strong>
-
-  </tr>
-  <tr>
-  <td></td>
-  <td></td>
-  <td><strong>Total à payer</strong></td>
-  <td></td>
-  <td></td>
-  <td><strong><%= number_to_currency((@invoice.total_tvac_deposit), :unit =>'€', :precision => 2) %></strong></td>
-  </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>
+        <strong>Total à payer</strong>
+      </td>
+      <td></td>
+      <td></td>
+      <td>
+        <strong><%= number_to_currency((@invoice.total_tvac_deposit), :unit =>'€', :precision => 2) %></strong>
+      </td>
+    </tr>
 
   </table>
 
