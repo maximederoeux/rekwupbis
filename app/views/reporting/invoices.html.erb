@@ -69,3 +69,19 @@
 <% end %>
 
 </ul>
+
+
+<hr>
+
+<% Invoice.all.each do |invoice| %>
+
+  <% Box.all.each do |box| %>
+
+    <%= box.box_name %><br>
+    <%= invoice.sent_boxes_week(box) %><br>
+    <%= invoice.clean_boxes_week(box) %><br>
+    <%= invoice.dirty_boxes_week(box) %><br>
+    <%= invoice.sealed_boxes_week(box) %><br>
+
+<% end %>
+<% end %>
