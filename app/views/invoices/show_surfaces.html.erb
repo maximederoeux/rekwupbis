@@ -36,7 +36,7 @@
     </strong>
   </tr>
 
-<% Offer.lln_daily.where(created_at: @invoice.week_begin..@invoice.week_finish).each do |offer| %>
+<% Offer.lln_daily.where(created_at: @invoice.week_begin..@invoice.week_finish).find_each do |offer| %>
 
   <% if offer.organizer.lln_id >= 1%>
 
@@ -49,7 +49,7 @@
     <td class="text-center"></td>
   </tr>
 
-    <% Box.all.each do |box| %>
+    <% Box.all.find_each do |box| %>
 
       <% if offer.sent_boxes(box) >=1 or offer.returned_boxes(box) >= 1 %>
 
@@ -93,7 +93,7 @@
     </strong>
   </tr>
 
-<% Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: @invoice.week_begin..@invoice.week_finish).each do |offer| %>
+<% Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: @invoice.week_begin..@invoice.week_finish).find_each do |offer| %>
 
   <% if offer.organizer.lln_id >= 1 %>
 
@@ -107,7 +107,7 @@
       <td class="text-center"></td>
     </tr>
 
-    <% Article.all.each do |article| %>
+    <% Article.all.find_each do |article| %>
 
       <% if offer.total_articles(article) >= 1 %>
 
