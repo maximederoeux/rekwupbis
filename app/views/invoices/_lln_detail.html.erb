@@ -26,7 +26,7 @@
     <th class="text-center">Total TVAC</th>
   </tr>
 
-    <% Article.all.each do |article| %>
+    <% @invoice.articles.each do |article| %>
 
       <% if @invoice.washed_articles_week(article) >= 1 %>
 
