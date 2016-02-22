@@ -1,10 +1,13 @@
 <div class="client-block">
   <strong>Détail Facture</strong>
 </div>
+
+
 <table class="article">
 
   <tr>
     <th>Articles</th>
+    <th>Statut</th>
     <th>Qtté</th>
     <th>Prix U.</th>
     <th>Total HTVA</th>
@@ -12,9 +15,7 @@
     <th>Total TVAC</th>
   </tr>
 
-  <tr>
-    <td><strong>Lavés</strong></td>
-  </tr>
+
 
     <% Article.includes(:prices).all.each do |article| %>
 
@@ -23,8 +24,11 @@
         <% unless @invoice.washed_total(article) == 0 %>
 
         <tr>
-          <td><%= article.article_name %> lavés</td>
-          <td><%= @invoice.washed_total(article) %></td>
+          <td><%= article.article_name %></td>
+          <td>Lavés</td>
+          <td><%= @invoice.washed_total(article) %><br>
+
+          </td>
           <td><%= number_to_currency(article.right_wash_price(@invoice.client), :unit => "€", :precision => 3) %></td>
           <td><%= number_to_currency(@invoice.washed_htva(article), :unit => "€", :precision => 2) %></td>
           <td><%= number_to_currency(@invoice.washed_tva(article), :unit => "€", :precision => 2) %></td>
@@ -37,7 +41,8 @@
         <% unless @invoice.handling_total(article) == 0 %>
 
         <tr>
-          <td><%= article.article_name %> manutention</td>
+          <td><%= article.article_name %></td>
+          <td>Manutention</td>
           <td><%= @invoice.handling_total(article) %></td>
           <td><%= number_to_currency(article.right_handling_price(@invoice.client), :unit => "€", :precision => 3) %></td>
           <td><%= number_to_currency(@invoice.handling_htva(article), :unit => "€", :precision => 2) %></td>
@@ -51,7 +56,8 @@
         <% unless @invoice.very_dirty_total(article) == 0 %>
 
         <tr>
-          <td><%= article.article_name %> très sales</td>
+          <td><%= article.article_name %></td>
+          <td>Très sales</td>
           <td><%= @invoice.very_dirty_total(article) %></td>
           <td><%= number_to_currency(article.right_handwash_price(@invoice.client), :unit => "€", :precision => 3) %></td>
           <td><%= number_to_currency(@invoice.handwash_htva(article), :unit => "€", :precision => 2) %></td>
@@ -65,7 +71,8 @@
         <% unless @invoice.missing_and_broken(article) == 0 %>
 
         <tr>
-          <td><%= article.article_name %> cassés</td>
+          <td><%= article.article_name %></td>
+          <td>Cassés/manquants</td>
           <td><%= @invoice.missing_and_broken(article) %></td>
           <td><%= number_to_currency(article.right_deposit_price(@invoice.client), :unit => "€", :precision => 3) %></td>
           <td><%= number_to_currency(@invoice.deposit_htva(article), :unit => "€", :precision => 2) %></td>
@@ -88,6 +95,7 @@
 
         <tr>
           <td><%= offer_article.article.article_name %></td>
+          <td></td>
           <td><%= offer_article.quantity %></td>
           <td><%= number_to_currency(@invoice.right_offer_article_price(offer_article), :unit => "€", :precision => 2) %></td>
           <td><%= number_to_currency(@invoice.offer_article_htva(offer_article), :unit => "€", :precision => 2) %></td>

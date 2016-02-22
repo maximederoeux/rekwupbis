@@ -90,6 +90,19 @@ class ReturnBoxesController < ApplicationController
               end
             end
           end
+
+          @return_box.return_details.is_tagged_box.each do |detail|
+            if detail.box.is_bigbox
+              SortingDetail.create(:sorting_id => Sorting.last.id, :article_id => Article.is_big_box.first.id, :handling => true, :unit_qtty => detail.tagged_box)
+            elsif detail.box.is_smallbox
+              SortingDetail.create(:sorting_id => Sorting.last.id, :article_id => Article.is_small_box.first.id, :handling => true, :unit_qtty => detail.tagged_box)
+            end
+          end
+          
+          @return_box.return_details.is_tagged_top.each do |detail|          
+            SortingDetail.create(:sorting_id => Sorting.last.id, :article_id => Article.is_top.first.id, :handling => true, :unit_qtty => detail.tagged_top)
+          end
+
           @return_box.return_details.where("clean > ?", 0).each do |detail|
           Parcel.create(:return_box_id => @return_box.id, :box_id => detail.box_id, :quantity => detail.clean, :from_return => true)
           end

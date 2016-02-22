@@ -327,8 +327,16 @@ class Offer < ActiveRecord::Base
 		sent_article	
 	end
 
+	def sent_article_in_boxes(article)
+		sent_article(article) / self.boxdetails.where(:article_id => article.id).first.box_article_quantity		
+	end
+
 	def sent_boxes(box)
 		self.offer_boxes.where(:box_id => box.id).sum('quantity')
+	end
+
+	def total_sent_boxes
+		self.offer_boxes.sum('quantity')		
 	end
 
 	def clean_boxes(box)
@@ -380,8 +388,11 @@ class Offer < ActiveRecord::Base
 	end
 
 	def total_articles(article)
-		washed_articles(article) + very_dirty_articles(article) + handling_articles(article)
-		
+		washed_articles(article) + very_dirty_articles(article) + handling_articles(article)		
+	end
+
+	def total_articles_in_boxes(article)
+		total_articles(article) / self.boxdetails.where(:article_id => article.id).first.box_article_quantity
 	end
 
 	def right_wash_price(article)

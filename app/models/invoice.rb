@@ -86,6 +86,12 @@ class Invoice < ActiveRecord::Base
 		self.offer.sent_article(article)
 	end
 
+	def sent_articles_in_boxes(article)
+		self.offer.sent_article_in_boxes(article)
+	end
+
+	# DEPOSIT INVOICE
+
 	def deposit_sent_articles(article)
 		(sent_articles(article) * 0.15).floor
 	end
@@ -121,6 +127,8 @@ class Invoice < ActiveRecord::Base
 	def total_tva_deposit
 		total_tvac_deposit - total_htva_deposit
 	end
+
+	# SENT AND RETURNED
 
 	def sent_boxes(box)
 		self.offer.sent_boxes(box)
@@ -158,6 +166,14 @@ class Invoice < ActiveRecord::Base
 		sent_boxes(box) - total_return(box)
 	end
 
+	def total_difference_delivery
+		total_difference_delivery = 0
+		self.offer.boxes.find_each do |box|
+		total_difference_delivery += difference_delivery(box)
+		end
+		total_difference_delivery	
+	end
+
 	def clean_return(article)
 		clean_return = 0
 		self.sortings.find_each do |sorting|
@@ -181,6 +197,8 @@ class Invoice < ActiveRecord::Base
 		end
 		sealed_return
 	end
+
+	# SORTINGS
 
 	def washed_total(article)
 		washed_total = 0
@@ -214,10 +232,33 @@ class Invoice < ActiveRecord::Base
 		handling_total	
 	end
 
+	def missing_total(article)
+		missing_total = 0
+		self.sortings.find_each do |sorting|
+			missing_total += sorting.missing(article)
+		end
+		missing_total	
+	end
+
+	def missing_and_broken(article)
+		if article.is_top
+			broken_total(article)
+		elsif article.is_big_box
+			broken_total(article) + total_difference_delivery
+		elsif article.is_cup
+			broken_total(article) + missing_total(article)	
+		end
+	end
+
 	def total_back(article)
 		clean_return(article) + washed_total(article) + very_dirty_total(article) + handling_total(article)
 	end
 
+	def total_back_in_full_boxes(article)
+		(total_back(article) / self.offer.boxdetails.where(:article_id => article.id).first.box_article_quantity).round
+	end
+
+	# TOTALS BY ARTICLE
 
 	def washed_htva(article)
 		article.right_wash_price(self.client) * washed_total(article)	
@@ -255,18 +296,6 @@ class Invoice < ActiveRecord::Base
 		handling_tvac(article) - handling_htva(article)
 	end
 
-	def missing_total(article)
-		missing_total = 0
-		self.sortings.find_each do |sorting|
-			missing_total += sorting.missing(article)
-		end
-		missing_total	
-	end
-
-	def missing_and_broken(article)
-		broken_total(article) + missing_total(article)	
-	end
-
 	def deposit_htva(article)
 		article.right_deposit_price(self.client) * missing_and_broken(article)
 	end
@@ -278,6 +307,8 @@ class Invoice < ActiveRecord::Base
 	def deposit_tva(article)
 		deposit_tvac(article) - deposit_htva(article)
 	end
+
+	# OFFER ARTICLES
 
 	def right_offer_article_price(offer_article)
 		if offer_article.article.transport == true
@@ -298,6 +329,8 @@ class Invoice < ActiveRecord::Base
 	def offer_article_tvac(offer_article)
 		offer_article_htva(offer_article) * 1.21
 	end
+
+	# BIG TOTALS
 
 	def total_per_article_htva(article)
 		washed_htva(article) + handwash_htva(article) + handling_htva(article) + deposit_htva(article)		

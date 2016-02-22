@@ -25,11 +25,7 @@ class Sorting < ActiveRecord::Base
 		if article.is_cup
 		(self.sorting_details.clean.has_box.where(:article_id => article.id).sum('box_qtty') * article.box_value) + (self.sorting_details.clean.has_pile.where(:article_id => article.id).sum('pile_qtty') * article.pile_value) + self.sorting_details.clean.has_unit.where(:article_id => article.id).sum('unit_qtty')
 		else
-			if dirty_box_return(article).present?
-				dirty_box_return(article)
-			else
-				0
-			end
+			0
 		end
 	end
 
