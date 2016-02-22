@@ -149,6 +149,13 @@ fr:
         dirty_ctrl: "Sales"
         sealed_ctrl: "Scellées sales"
         clean_ctrl: "Propres"
+        tagged_box: "Taguées"
+        tagged_top: "Tagués"
+        missing_top: "Manquants"
+        tops: "Couvercles"
+        tagged_box_ctrl: "Taguées"
+        tagged_top_ctrl: "Tagués"
+        missing_top_ctrl: "Manquants"
       sorting_detail:
         box_qtty: "Caisses"
         pile_qtty: "Piles"

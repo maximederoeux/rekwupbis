@@ -330,44 +330,62 @@
           </div>
         </div>
 
-        <div class="col-md-3 text-center">
-          Sales
-          <div class="row text-center">
-            <div class="col-md-6">
-              Ret
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-3 text-center">
+              Sales
+              <div class="row text-center">
+                <div class="col-md-6">
+                  Ret
+                </div>
+
+                <div class="col-md-6">
+                  Cont
+                </div>
+              </div>
             </div>
 
-            <div class="col-md-6">
-              Cont
+            <div class="col-md-3 text-center">
+              Propres
+              <div class="row text-center">
+                <div class="col-md-6">
+                  Ret
+                </div>
+
+                <div class="col-md-6">
+                  Cont
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 text-center">
+              Scellées
+              <div class="row text-center">
+                <div class="col-md-6">
+                  Ret
+                </div>
+
+                <div class="col-md-6">
+                  Cont
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 text-center">
+              Taguées
+              <div class="row text-center">
+                <div class="col-md-6">
+                  Ret
+                </div>
+
+                <div class="col-md-6">
+                  Cont
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="col-md-3 text-center">
-          Propres
-          <div class="row text-center">
-            <div class="col-md-6">
-              Ret
-            </div>
-
-            <div class="col-md-6">
-              Cont
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3 text-center">
-          Scellées
-          <div class="row text-center">
-            <div class="col-md-6">
-              Ret
-            </div>
-
-            <div class="col-md-6">
-              Cont
-            </div>
-          </div>
-        </div> 
+ 
       </strong>
 
     </div>
@@ -414,7 +432,11 @@
                               </div>
 
                               <div class="col-md-6">
-                                 <%= f.collection_select :box_id, Box.is_box.closed.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                                <% if detail.box.is_not_box %>
+                                  <%= detail.box.box_name %>
+                                <% else %>
+                                  <%= f.collection_select :box_id, Box.is_box.closed.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+                                <% end %>
                               </div>
 
                               <div class="col-md-2">
@@ -427,6 +449,19 @@
 
                       <div class="modal-body">
                         <div class="row text-center">
+
+                          <% if detail.box.is_not_box %>
+                            <div class="col-md-6">
+                            <%= t("return.return") %><br>
+                              <%= f.input :tagged_top %>
+                            </div>
+
+                            <div class="col-md-6">
+                            <%= t("return.return") %><br>
+                              <%= f.input :missing_top %>
+                            </div>
+
+                          <% else %>
 
                           <div class="col-md-3">
                             <%= t("return.return") %><br>
@@ -447,30 +482,45 @@
                             <%= t("return.return") %><br>
                             <%= f.input :tagged_box %>
                           </div>
+
+                          <% end %>
                         </div>
 
                         <div class="row text-center">                        
 
-                          <div class="col-md-3">
-                            <%= t("return.control") %><br>
-                            <%= f.input :dirty_ctrl %>
-                          </div>
+                          <% if detail.box.is_not_box %>
+                            <div class="col-md-6">
+                              <%= t("return.control") %><br>
+                              <%= f.input :tagged_top_ctrl %>
+                            </div>
 
-                          <div class="col-md-3">
-                            <%= t("return.control") %><br>
-                            <%= f.input :sealed_ctrl %>
-                          </div>
+                            <div class="col-md-6">
+                              <%= t("return.control") %><br>
+                              <%= f.input :missing_top_ctrl %>
+                            </div>
 
-                          <div class="col-md-3">
-                            <%= t("return.control") %><br>
-                            <%= f.input :clean_ctrl %>
-                          </div>
+                          <% else %>
 
-                          <div class="col-md-3">
-                            <%= t("return.control") %><br>
-                            <%= f.input :tagged_box_ctrl %>
-                          </div>
+                            <div class="col-md-3">
+                              <%= t("return.control") %><br>
+                              <%= f.input :dirty_ctrl %>
+                            </div>
 
+                            <div class="col-md-3">
+                              <%= t("return.control") %><br>
+                              <%= f.input :sealed_ctrl %>
+                            </div>
+
+                            <div class="col-md-3">
+                              <%= t("return.control") %><br>
+                              <%= f.input :clean_ctrl %>
+                            </div>
+
+                            <div class="col-md-3">
+                              <%= t("return.control") %><br>
+                              <%= f.input :tagged_box_ctrl %>
+                            </div>
+                          <% end %>
                         </div>
                       </div>
 
@@ -487,54 +537,84 @@
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
-
-
             
           </div>
         </div>
       </div>
 
-      <div class="col-md-3">
-        <div class="row text-center">
-          <div class="col-md-6">
-            <%= detail.dirty_value %>
-          </div>
+      <div class="col-md-9">
+        <div class="row">
 
-          <div class="col-md-6">
-            <%= detail.dirty_ctrl_value %>
+        <div class="col-md-3">
+          <div class="row text-center">
+            <div class="col-md-6">
+              <% if detail.box.is_not_box %>
+                <strong>Manquant</strong><br>
+                <%= detail.missing_top_value %>
+              <% else %>
+                <%= detail.dirty_value %>
+              <% end %>
+            </div>
+
+            <div class="col-md-6">
+              <% if detail.box.is_not_box %>
+                <strong>Manquant</strong><br>
+                <%= detail.missing_top_ctrl_value %>
+              <% else %>
+                <%= detail.dirty_ctrl_value %>
+              <% end %>
+            </div>
           </div>
         </div>
+
+        <div class="col-md-3">
+          <div class="row text-center">
+            <div class="col-md-6">
+              <%= detail.clean_value %>
+            </div>
+
+            <div class="col-md-6">
+              <%= detail.clean_ctrl_value %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="row text-center">
+            <div class="col-md-6">
+              <%= detail.sealed_value %>
+            </div>
+
+            <div class="col-md-6">
+              <%= detail.sealed_ctrl_value %>
+            </div>
+          </div>
+        </div> 
+
+        <div class="col-md-3">
+          <div class="row text-center">
+            <div class="col-md-6">
+              <% if detail.box.is_not_box %>
+                <%= detail.tagged_top_value %>
+              <% else %>
+                <%= detail.tagged_box_value %>
+              <% end %>
+            </div>
+
+            <div class="col-md-6">
+              <% if detail.box.is_not_box %>
+                <%= detail.tagged_top_ctrl_value %>
+              <% else %>
+                <%= detail.tagged_box_ctrl_value %>
+              <% end %>            
+            </div>
+          </div>
+        </div> 
+
+        </div>
+
       </div>
 
-      <div class="col-md-3">
-        <div class="row text-center">
-          <div class="col-md-6">
-            <%= detail.clean_value %>
-          </div>
-
-          <div class="col-md-6">
-            <%= detail.clean_ctrl_value %>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="row text-center">
-          <div class="col-md-6">
-            <%= detail.sealed_value %>
-          </div>
-
-          <div class="col-md-6">
-            <%= detail.sealed_ctrl_value %>
-          </div>
-        </div>
-      </div> 
     </div>
   </li>
 

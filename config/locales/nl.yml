@@ -432,6 +432,10 @@ nl:
     unforeseen: "Niet voorzien terugkeren"
     unforeseen_create: "een niet voorzien terugkeer maken"
     back_fifteen_days_ago: "Laatste 2 weken"
+    tagged_box: "Tagged"
+    tagged_top: "Tagged"
+    missing_top: "Ontbrekend"
+    tops: "Deksels"
 
   sorting:
     start: "Start tijd"

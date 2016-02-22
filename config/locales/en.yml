@@ -438,6 +438,10 @@ en:
     unforeseen: "Unforeseen LLN Returns"
     unforeseen_create: "Create an unforeseen return"
     back_fifteen_days_ago: "Last 2 weeks"
+    tagged_box: "Tagged"
+    tagged_top: "Tagged"
+    missing_top: "Missing"
+    tops: "Tops"
 
   sorting:
     start: "Start time"

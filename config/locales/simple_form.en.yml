@@ -149,6 +149,13 @@ en:
         dirty_ctrl: "Dirty"
         sealed_ctrl: "Sealed dirty"
         clean_ctrl: "Clean"
+        tagged_box: "Tagged"
+        tagged_top: "Tagged"
+        missing_top: "Missing"
+        tops: "Tops"
+        tagged_box_ctrl: "Tagged"
+        tagged_top_ctrl: "Tagged"
+        missing_top_ctrl: "Missing"
       sorting_detail:
         box_qtty: "Boxes"
         pile_qtty: "Piles"

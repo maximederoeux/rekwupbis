@@ -149,6 +149,13 @@ nl:
         dirty_ctrl: "Vuil"
         sealed_ctrl: "Vuil verzegeld"
         clean_ctrl: "Schoon"
+        tagged_box: "Tagged"
+        tagged_top: "Tagged"
+        missing_top: "Ontbrekend"
+        tops: "Deksels"
+        tagged_box_ctrl: "Tagged"
+        tagged_top_ctrl: "Tagged"
+        missing_top_ctrl: "Ontbrekend"
       sorting_detail:
         box_qtty: "Dozen"
         pile_qtty: "Stapels"

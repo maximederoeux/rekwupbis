@@ -434,6 +434,10 @@ fr:
     unforeseen: "Retours LLN imprévus"
     unforeseen_create: "Créer un retour imprévu"
     back_fifteen_days_ago: "2 dernières semaines"
+    tagged_box: "Taguées"
+    tagged_top: "Tagués"
+    missing_top: "Manquants"
+    tops: "Couvercles"
 
   sorting:
     start: "Début du rangement"
