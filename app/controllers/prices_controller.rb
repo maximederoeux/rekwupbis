@@ -44,7 +44,7 @@ class PricesController < ApplicationController
   def update
     respond_to do |format|
       if @price.update(price_params)
-        format.html { redirect_to :back, notice: 'Price was successfully updated.' }
+        format.html { redirect_to prices_path, notice: 'Price was successfully updated.' }
         format.json { render :show, status: :ok, location: @price }
       else
         format.html { render :edit }
