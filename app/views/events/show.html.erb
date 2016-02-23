@@ -85,6 +85,11 @@
               <%= link_to offer_path(thiseventoffer) do %>
                 <span class="glyphicon glyphicon-pencil btn btn-default btn-xs" aria-hidden="true"></span>
               <% end %>
+
+              <% if @event.is_lln %>
+                 - <%= thiseventoffer.organizer.name %> - 
+                <%= thiseventoffer.created_at.strftime("%d/%m/%Y") %>
+              <% end %>
             </strong>
           </li>
           
