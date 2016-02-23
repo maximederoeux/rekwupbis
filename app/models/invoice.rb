@@ -105,7 +105,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def deposit_total_article(article, user)
-		deposit_sent_articles(article) * article.right_deposit_price(user)
+		deposit_sent_articles(article) * article.right_deposit_price(user, self.offer.event)
 	end
 
 	def total_htva_articles
@@ -297,7 +297,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def deposit_htva(article)
-		article.right_deposit_price(self.client) * missing_and_broken(article)
+		article.right_deposit_price(self.client, self.offer.event) * missing_and_broken(article)
 	end
 
 	def deposit_tvac(article)
@@ -517,7 +517,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def deposit_htva_week(article)
-		article.right_deposit_price(self.client) * broken_articles_week(article)
+		article.right_deposit_price(self.client, self.offer.event) * broken_articles_week(article)
 	end
 
 	def deposit_tvac_week(article)

@@ -74,7 +74,7 @@
           <td><%= article.article_name %></td>
           <td>Cassés/manquants</td>
           <td><%= @invoice.missing_and_broken(article) %></td>
-          <td><%= number_to_currency(article.right_deposit_price(@invoice.client), :unit => "€", :precision => 3) %></td>
+          <td><%= number_to_currency(article.right_deposit_price(@invoice.client, @invoice.offer.event), :unit => "€", :precision => 3) %></td>
           <td><%= number_to_currency(@invoice.deposit_htva(article), :unit => "€", :precision => 2) %></td>
           <td><%= number_to_currency(@invoice.deposit_tva(article), :unit => "€", :precision => 2) %></td>
           <td><%= number_to_currency(@invoice.deposit_tvac(article), :unit => "€", :precision => 2) %></td>

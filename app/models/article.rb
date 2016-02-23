@@ -193,22 +193,26 @@ class Article < ActiveRecord::Base
 		end
 	end
 
-	def right_deposit_price(user)
-		if user.negociated_price == true
-			if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
-				Price.negociated.where(:article_id => id).where(:user_id => user.id).last.deposit_value
+	def right_deposit_price(user, event)
+		if event.deposit_on_site.present? && event.deposit_on_site >= 1
+			event.deposit_on_site / 1.21
+		else
+			if user.negociated_price == true
+				if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
+					Price.negociated.where(:article_id => id).where(:user_id => user.id).last.deposit_value
+				else
+					if Price.regular.where(:article_id => id).any?
+						Price.regular.where(:article_id => id).last.deposit_value
+					else
+						0
+					end
+				end
 			else
 				if Price.regular.where(:article_id => id).any?
 					Price.regular.where(:article_id => id).last.deposit_value
 				else
 					0
 				end
-			end
-		else
-			if Price.regular.where(:article_id => id).any?
-				Price.regular.where(:article_id => id).last.deposit_value
-			else
-				0
 			end
 		end
 	end

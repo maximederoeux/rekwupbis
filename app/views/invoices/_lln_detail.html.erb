@@ -76,7 +76,7 @@
           <td><%= article.article_name %></td>
           <td class="text-center"><%= @invoice.broken_articles_week(article) %></td>
           <th class="text-center">Cassés</th>
-          <td class="text-center"><%= number_to_currency(article.right_deposit_price(@invoice.client), :unit => "€", :precision => 3) %></td>
+          <td class="text-center"><%= number_to_currency(article.right_deposit_price(@invoice.client, @invoice.offer.event), :unit => "€", :precision => 3) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.deposit_htva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.deposit_tva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.deposit_tvac_week(article), :unit => "€", :precision => 2) %></td>
