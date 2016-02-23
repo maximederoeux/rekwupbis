@@ -70,9 +70,6 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        if @event.is_bep
-          @event.update_attributes(:deposit_on_site => 0)
-        end
         format.html { redirect_to @event, notice: t("notice.event_updated") }
         format.json { render :show, status: :ok, location: @event }
       else

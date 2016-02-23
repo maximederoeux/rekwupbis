@@ -226,32 +226,52 @@ class Article < ActiveRecord::Base
 	end
 
 	def right_deposit_price(user, event)
-		if event.deposit_on_site.present?
-			if Price.regular.where(:article_id => id).any?
-				if event.deposit_on_site >= Price.regular.where(:article_id => id).last.deposit_value
-					event.deposit_on_site_value * 0.7
-				else
-					Price.regular.where(:article_id => id).last.deposit_value
-				end
+		if event.is_bep
+			if Price.negociated.where(:article_id => id).where(:user_id => User.is_bep.first.id).any?
+				Price.negociated.where(:article_id => id).where(:user_id => User.is_bep.first.id).first.deposit_value
 			else
-				0
+				if Price.regular.where(:article_id => id).any?
+					Price.regular.where(:article_id => id).last.deposit_value
+				else
+					0
+				end
 			end
 		else
-			if user.negociated_price == true
-				if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
-					Price.negociated.where(:article_id => id).where(:user_id => user.id).last.deposit_value
+			if event.deposit_on_site.present?
+				if event.deposit_on_site = 1
+					if Price.regular.where(:article_id => id).any?
+						Price.regular.where(:article_id => id).last.deposit_value
+					else
+						0.7
+					end
+				elsif event.deposit_on_site = 0
+					if Price.regular.where(:article_id => id).any?
+						Price.regular.where(:article_id => id).last.deposit_value
+					else
+						0
+					end
+				elsif event.deposit_on_site >= 1.0005
+					event.deposit_on_site *0.7
+				else
+					0
+				end
+			else
+				if user.negociated_price == true
+					if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
+						Price.negociated.where(:article_id => id).where(:user_id => user.id).last.deposit_value
+					else
+						if Price.regular.where(:article_id => id).any?
+							Price.regular.where(:article_id => id).last.deposit_value
+						else
+							0
+						end
+					end
 				else
 					if Price.regular.where(:article_id => id).any?
 						Price.regular.where(:article_id => id).last.deposit_value
 					else
 						0
 					end
-				end
-			else
-				if Price.regular.where(:article_id => id).any?
-					Price.regular.where(:article_id => id).last.deposit_value
-				else
-					0
 				end
 			end
 		end
