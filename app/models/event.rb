@@ -12,4 +12,12 @@ class Event < ActiveRecord::Base
 	validates :post_code, presence: true
 
 	scope :is_lln, lambda {where(:is_lln => true)}
+
+	def deposit_on_site_value
+		if deposit_on_site.present?
+			deposit_on_site
+		else
+			0
+		end
+	end
 end

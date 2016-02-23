@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
 	scope :time_keeping, lambda {where(:staff => true) && where(:time_keeping => true)}
 	scope :chauffeur, lambda {where(:chauffeur => true)}
 	scope :is_lln, lambda {where(:is_lln => true)}
+	scope :is_bep, lambda {where(:is_bep => true)}
 	scope :is_circle, lambda {where("lln_id > ?", 0)}
 	scope :is_namur, lambda {where(:is_namur => true)}
 	scope :is_rekwup, lambda {where(:email => "jgpahaut@rekwup.be")}

@@ -113,10 +113,24 @@ class Article < ActiveRecord::Base
 		end
 	end
 
-	def right_wash_price(user)
-		if user.negociated_price == true
-			if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
-				Price.negociated.where(:article_id => id).where(:user_id => user.id).last.washing_value
+	def right_wash_price(user, event)
+		if event.is_bep
+			if Price.negociated.where(:article_id => id).where(:user_id => User.is_bep.first.id).any?
+				Price.negociated.where(:article_id => id).where(:user_id => User.is_bep.first.id).last.washing_value
+			else
+				Price.regular.where(:article_id => id).last.washing_value
+			end
+		else
+			if user.negociated_price == true
+				if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
+					Price.negociated.where(:article_id => id).where(:user_id => user.id).last.washing_value
+				else
+					if Price.regular.where(:article_id => id).any?
+						Price.regular.where(:article_id => id).last.washing_value
+					else
+						0
+					end
+				end
 			else
 				if Price.regular.where(:article_id => id).any?
 					Price.regular.where(:article_id => id).last.washing_value
@@ -124,19 +138,27 @@ class Article < ActiveRecord::Base
 					0
 				end
 			end
-		else
-			if Price.regular.where(:article_id => id).any?
-				Price.regular.where(:article_id => id).last.washing_value
-			else
-				0
-			end
 		end
 	end
 
-	def right_washing_small_price(user)
-		if user.negociated_price == true
-			if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
-				Price.negociated.where(:article_id => id).where(:user_id => user.id).last.washing_small_value
+	def right_washing_small_price(user, event)
+		if event.is_bep
+			if Price.negociated.where(:article_id => id).where(:user_id => User.is_bep.first.id).any?
+				Price.negociated.where(:article_id => id).where(:user_id => User.is_bep.first.id).last.washing_small_value
+			else
+				Price.regular.where(:article_id => id).last.washing_small_value
+			end
+		else
+			if user.negociated_price == true
+				if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
+					Price.negociated.where(:article_id => id).where(:user_id => user.id).last.washing_small_value
+				else
+					if Price.regular.where(:article_id => id).any?
+						Price.regular.where(:article_id => id).last.washing_small_value
+					else
+						0
+					end
+				end
 			else
 				if Price.regular.where(:article_id => id).any?
 					Price.regular.where(:article_id => id).last.washing_small_value
@@ -144,19 +166,27 @@ class Article < ActiveRecord::Base
 					0
 				end
 			end
-		else
-			if Price.regular.where(:article_id => id).any?
-				Price.regular.where(:article_id => id).last.washing_small_value
-			else
-				0
-			end
 		end
 	end
 
-	def right_handwash_price(user)
-		if user.negociated_price == true
-			if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
-				Price.negociated.where(:article_id => id).where(:user_id => user.id).last.handwash_value
+	def right_handwash_price(user, event)
+		if event.is_bep
+			if Price.negociated.where(:article_id => id).where(:user_id => User.is_bep.first.id).any?
+				Price.negociated.where(:article_id => id).where(:user_id => User.is_bep.first.id).last.handwash_value
+			else
+				Price.regular.where(:article_id => id).last.handwash_value
+			end
+		else
+			if user.negociated_price == true
+				if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
+					Price.negociated.where(:article_id => id).where(:user_id => user.id).last.handwash_value
+				else
+					if Price.regular.where(:article_id => id).any?
+						Price.regular.where(:article_id => id).last.handwash_value
+					else
+						0
+					end
+				end
 			else
 				if Price.regular.where(:article_id => id).any?
 					Price.regular.where(:article_id => id).last.handwash_value
@@ -164,19 +194,27 @@ class Article < ActiveRecord::Base
 					0
 				end
 			end
-		else
-			if Price.regular.where(:article_id => id).any?
-				Price.regular.where(:article_id => id).last.handwash_value
-			else
-				0
-			end
 		end
 	end
 
-	def right_handling_price(user)
-		if user.negociated_price == true
-			if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
-				Price.negociated.where(:article_id => id).where(:user_id => user.id).last.handling_value
+	def right_handling_price(user, event)
+		if event.is_bep
+			if Price.negociated.where(:article_id => id).where(:user_id => User.is_bep.first.id).any?
+				Price.negociated.where(:article_id => id).where(:user_id => User.is_bep.first.id).last.handling_value
+			else
+				Price.regular.where(:article_id => id).last.handling_value
+			end
+		else
+			if user.negociated_price == true
+				if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
+					Price.negociated.where(:article_id => id).where(:user_id => user.id).last.handling_value
+				else
+					if Price.regular.where(:article_id => id).any?
+						Price.regular.where(:article_id => id).last.handling_value
+					else
+						0
+					end
+				end
 			else
 				if Price.regular.where(:article_id => id).any?
 					Price.regular.where(:article_id => id).last.handling_value
@@ -184,18 +222,20 @@ class Article < ActiveRecord::Base
 					0
 				end
 			end
-		else
-			if Price.regular.where(:article_id => id).any?
-				Price.regular.where(:article_id => id).last.handling_value
-			else
-				0
-			end
 		end
 	end
 
 	def right_deposit_price(user, event)
-		if event.deposit_on_site.present? && event.deposit_on_site >= Price.regular.where(:article_id => id).last.deposit_value
-			event.deposit_on_site * 0.7
+		if event.deposit_on_site.present?
+			if Price.regular.where(:article_id => id).any?
+				if event.deposit_on_site >= Price.regular.where(:article_id => id).last.deposit_value
+					event.deposit_on_site_value * 0.7
+				else
+					Price.regular.where(:article_id => id).last.deposit_value
+				end
+			else
+				0
+			end
 		else
 			if user.negociated_price == true
 				if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?

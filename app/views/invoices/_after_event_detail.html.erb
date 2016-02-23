@@ -29,7 +29,7 @@
           <td><%= @invoice.washed_total(article) %><br>
 
           </td>
-          <td><%= number_to_currency(article.right_wash_price(@invoice.client), :unit => "€", :precision => 3) %></td>
+          <td><%= number_to_currency(article.right_wash_price(@invoice.client, @invoice.offer.event), :unit => "€", :precision => 3) %></td>
           <td><%= number_to_currency(@invoice.washed_htva(article), :unit => "€", :precision => 2) %></td>
           <td><%= number_to_currency(@invoice.washed_tva(article), :unit => "€", :precision => 2) %></td>
           <td><%= number_to_currency(@invoice.washed_tvac(article), :unit => "€", :precision => 2) %></td>
@@ -44,7 +44,7 @@
           <td><%= article.article_name %></td>
           <td>Manutention</td>
           <td><%= @invoice.handling_total(article) %></td>
-          <td><%= number_to_currency(article.right_handling_price(@invoice.client), :unit => "€", :precision => 3) %></td>
+          <td><%= number_to_currency(article.right_handling_price(@invoice.client, @invoice.offer.event), :unit => "€", :precision => 3) %></td>
           <td><%= number_to_currency(@invoice.handling_htva(article), :unit => "€", :precision => 2) %></td>
           <td><%= number_to_currency(@invoice.handling_tva(article), :unit => "€", :precision => 2) %></td>
           <td><%= number_to_currency(@invoice.handling_tvac(article), :unit => "€", :precision => 2) %></td>
@@ -59,7 +59,7 @@
           <td><%= article.article_name %></td>
           <td>Très sales</td>
           <td><%= @invoice.very_dirty_total(article) %></td>
-          <td><%= number_to_currency(article.right_handwash_price(@invoice.client), :unit => "€", :precision => 3) %></td>
+          <td><%= number_to_currency(article.right_handwash_price(@invoice.client, @invoice.offer.event), :unit => "€", :precision => 3) %></td>
           <td><%= number_to_currency(@invoice.handwash_htva(article), :unit => "€", :precision => 2) %></td>
           <td><%= number_to_currency(@invoice.handwash_tva(article), :unit => "€", :precision => 2) %></td>
           <td><%= number_to_currency(@invoice.handwash_tvac(article), :unit => "€", :precision => 2) %></td>
