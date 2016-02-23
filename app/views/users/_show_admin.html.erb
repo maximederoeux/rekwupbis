@@ -181,6 +181,11 @@
         <strong><%= t("user.is_namur") %></strong>
       </li>
 
+    <% elsif @user.is_bep %>
+
+      <li class="list-group-item list-group-item-warning">
+        <strong><%= t("user.is_bep") %></strong>
+      </li>
 
     <% end %>
 
