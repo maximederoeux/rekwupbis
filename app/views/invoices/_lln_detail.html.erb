@@ -34,7 +34,7 @@
           <td><%= article.article_name %></td>
           <td class="text-center"><%= @invoice.washed_articles_week(article) %></td>
           <td class="text-center">Lavés</td>
-          <td class="text-center"><%= number_to_currency(article.right_wash_price(@invoice.client, @invoice.offer.event), :unit => "€", :precision => 3) %></td>
+          <td class="text-center"><%= number_to_currency(article.right_wash_price(@invoice.client,), :unit => "€", :precision => 3) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.washed_htva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.washed_tva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.washed_tvac_week(article), :unit => "€", :precision => 2) %></td>
@@ -48,7 +48,7 @@
           <td><%= article.article_name %></td>
           <td class="text-center"><%= @invoice.very_dirty_articles_week(article) %></td>
           <th class="text-center">Très sales</th>
-          <td class="text-center"><%= number_to_currency(article.right_handwash_price(@invoice.client, @invoice.offer.event), :unit => "€", :precision => 3) %></td>
+          <td class="text-center"><%= number_to_currency(article.right_handwash_price(@invoice.client), :unit => "€", :precision => 3) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.handwash_htva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.handwash_tva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.handwash_tvac_week(article), :unit => "€", :precision => 2) %></td>
@@ -62,7 +62,7 @@
           <td><%= article.article_name %></td>
           <td class="text-center"><%= @invoice.handling_articles_week(article) %></td>
           <th class="text-center">Manutention</th>
-          <td class="text-center"><%= number_to_currency(article.right_handling_price(@invoice.client, @invoice.offer.event), :unit => "€", :precision => 3) %></td>
+          <td class="text-center"><%= number_to_currency(article.right_handling_price(@invoice.client), :unit => "€", :precision => 3) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.handling_htva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.handling_tva_week(article), :unit => "€", :precision => 2) %></td>
           <td class="text-center"><%= number_to_currency(@invoice.handling_tvac_week(article), :unit => "€", :precision => 2) %></td>

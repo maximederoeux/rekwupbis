@@ -75,7 +75,7 @@
 
           <td><%= @invoice.wash_sent_articles(article) %></td>
 
-          <td><%= number_to_currency(article.right_wash_price(@invoice.client, @invoice.offer.event), :unit =>'€', :precision => 3) %></td>
+          <td><%= number_to_currency(article.right_wash_price(@invoice.client), :unit =>'€', :precision => 3) %></td>
 
           <td><%= number_to_currency(@invoice.wash_total_article(article, @invoice.client), :unit =>'€', :precision => 2) %>
           </td>

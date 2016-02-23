@@ -101,11 +101,11 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def wash_total_article(article, user)
-		wash_sent_articles(article) * article.right_wash_price(user, self.offer.event)
+		wash_sent_articles(article) * article.right_wash_price(user)
 	end
 
 	def deposit_total_article(article, user)
-		deposit_sent_articles(article) * article.right_deposit_price(user, self.offer.event)
+		deposit_sent_articles(article) * article.right_deposit_price(user, event)
 	end
 
 	def total_htva_articles
@@ -263,7 +263,7 @@ class Invoice < ActiveRecord::Base
 	# TOTALS BY ARTICLE
 
 	def washed_htva(article)
-		article.right_wash_price(self.client, self.offer.event) * washed_total(article)	
+		article.right_wash_price(self.client) * washed_total(article)	
 	end
 
 	def washed_tvac(article)
@@ -275,7 +275,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def handwash_htva(article)
-		article.right_handwash_price(self.client, self.offer.event) * very_dirty_total(article)
+		article.right_handwash_price(self.client) * very_dirty_total(article)
 	end
 
 	def handwash_tvac(article)
@@ -287,7 +287,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def handling_htva(article)
-		article.right_handling_price(self.client, self.offer.event) * handling_total(article)
+		article.right_handling_price(self.client) * handling_total(article)
 	end
 
 	def handling_tvac(article)
@@ -483,7 +483,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def washed_htva_week(article)
-		article.right_wash_price(self.client, self.offer.event) * washed_articles_week(article)	
+		article.right_wash_price(self.client) * washed_articles_week(article)	
 	end
 
 	def washed_tvac_week(article)
@@ -495,7 +495,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def handwash_htva_week(article)
-		article.right_handwash_price(self.client, self.offer.event) * very_dirty_articles_week(article)	
+		article.right_handwash_price(self.client) * very_dirty_articles_week(article)	
 	end
 
 	def handwash_tvac_week(article)
@@ -507,7 +507,7 @@ class Invoice < ActiveRecord::Base
 	end
 
 	def handling_htva_week(article)
-		article.right_handling_price(self.client, self.offer.event) * handling_articles_week(article)	
+		article.right_handling_price(self.client) * handling_articles_week(article)	
 	end
 
 	def handling_tvac_week(article)
