@@ -105,8 +105,14 @@
               <%= simple_form_for(@new_invoice) do |f| %>
                 <%= f.error_notification %>
 
+
                 <%= f.hidden_field :offer_id, :value => offer.id %>
+
+                <% if offer.event.is_bep %>
+                <%= f.hidden_field :client_id, :value => User.is_bep.first.id %>
+                <% else %>
                 <%= f.hidden_field :client_id, :value => offer.organizer.id %>
+                <% end %>
                 <%= f.hidden_field :doc_invoice, :value => true %>
                 <%= f.hidden_field :after_event, :value => true %>
 

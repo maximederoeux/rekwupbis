@@ -39,23 +39,16 @@
 
 <div class="client-block">
   <strong>Client:</strong><br>
-    <% if @invoice.offer.event.is_bep %>
-      <%= User.is_bep.first.company_name %><br>
-      <%= User.is_bep.first.address %><br>
-      <%= User.is_bep.first.country %> <%= User.is_bep.first.postcode %> <%= User.is_bep.first.city %><br>
-      <%= User.is_bep.first.vat %><br>
-    <% else %>
-      <%= @invoice.client.company_name if @invoice.client.company_name %><br>
-      <%= @invoice.client.full_name %><br>
-      <%= @invoice.client.address %><br>
-      <%= @invoice.client.country %> <%= @invoice.client.postcode %> <%= @invoice.client.city %><br>
-      <%= @invoice.client.vat if @invoice.client.vat %><br>
-    <% end %>
+    <%= @invoice.client.company_name if @invoice.client.company_name %><br>
+    <%= @invoice.client.full_name %><br>
+    <%= @invoice.client.address %><br>
+    <%= @invoice.client.country %> <%= @invoice.client.postcode %> <%= @invoice.client.city %><br>
+    <%= @invoice.client.vat if @invoice.client.vat %><br>
 </div>
 
 <div class="object">
   <strong>Objet:</strong><br>
-    <%= @invoice.offer.event.event_name %>
+    <%= @invoice.offer.event.event_name %> - 
       <% if @invoice.offer.event.is_bep %>
         <%= @invoice.offer.organizer.full_name %>
       <% end %>
