@@ -194,8 +194,8 @@ class Article < ActiveRecord::Base
 	end
 
 	def right_deposit_price(user, event)
-		if event.deposit_on_site.present? && event.deposit_on_site >= 1
-			event.deposit_on_site / 1.21
+		if event.deposit_on_site.present? && event.deposit_on_site >= Price.regular.where(:article_id => id).last.deposit_value
+			event.deposit_on_site * 0.7
 		else
 			if user.negociated_price == true
 				if Price.negociated.where(:article_id => id).where(:user_id => user.id).any?
