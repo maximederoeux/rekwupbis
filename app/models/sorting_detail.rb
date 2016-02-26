@@ -12,8 +12,12 @@ class SortingDetail < ActiveRecord::Base
 	scope :has_unit, lambda {where.not(unit_qtty: nil)}
 
 	def box_value
-		if box_qtty.present?
-			box_qtty * self.article.quantity_bigbox
+		if box_qtty.present? 
+			if self.quantity_bigbox.present?
+				box_qtty * self.article.quantity_bigbox
+			else
+				0
+			end
 		else
 			0
 		end
