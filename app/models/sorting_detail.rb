@@ -13,7 +13,7 @@ class SortingDetail < ActiveRecord::Base
 
 	def box_value
 		if box_qtty.present? 
-			if self.quantity_bigbox.present?
+			if self.article.quantity_bigbox.present?
 				box_qtty * self.article.quantity_bigbox
 			else
 				0
