@@ -18,8 +18,9 @@ class Wash < ActiveRecord::Base
 		if end_time.present?
 			end_time - start_time
 		else
-			Time.now - start_time
+			0
 		end
 	end
+
 
 end
