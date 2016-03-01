@@ -53,12 +53,10 @@ class Energy < ActiveRecord::Base
 
 	def total_boxes
 		total_boxes = 0
-		SortingDetail.clean.where(:updated_at => (self.created_at.beginning_of_day..self.created_at.end_of_day)).each do |detail|
-			if detail.article.is_big_box
-			total_boxes += detail.total_cups
-			end
+		ReturnBox.gone.where(:return_time => (self.created_at.beginning_of_day..self.created_at.end_of_day)).each do |return_box|
+			total_boxes += return_box.total_return
 		end
-		total_boxes	
+		total_boxes
 	end
 
 	def duration
