@@ -95,4 +95,32 @@ class Energy < ActiveRecord::Base
 		end	
 	end
 
+	def total_wash
+		total_wash = 0
+		Wash.where(:start_time => (self.created_at.beginning_of_day..self.created_at.end_of_day)).each do |wash|
+			total_wash += wash.duration
+		end
+		total_wash		
+	end
+
+	def total_wash_in_minutes
+		(total_wash / 60).floor
+	end
+
+	def total_wash_in_hours
+		(total_wash_in_minutes / 60).floor
+	end
+
+	def display_total_wash_minutes
+		total_wash_in_minutes - (total_wash_in_hours * 60)
+	end
+
+	def display_total_wash_seconds
+		total_wash.floor - (total_wash_in_minutes * 60)	
+	end
+
+	def display_total_wash
+		"#{total_wash_in_hours}h#{display_total_wash_minutes}m"
+	end
+
 end

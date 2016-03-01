@@ -14,4 +14,12 @@ class Wash < ActiveRecord::Base
 	scope :ended_two_days_ago, lambda {where(:end_time => (2.days.ago.beginning_of_day..2.days.ago.end_of_day))}
 	scope :ended_three_days_ago, lambda {where(:end_time => (3.days.ago.beginning_of_day..3.days.ago.end_of_day))}
 
+	def duration
+		if end_time.present?
+			end_time - start_time
+		else
+			Time.now - start_time
+		end
+	end
+
 end
