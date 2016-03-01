@@ -1,20 +1,29 @@
 <ul class="list-group">
 	<li class="list-group-item">
 		<div class="row">
-			<div class="col-md-4">
-				Date
+			<div class="col-md-2">
+				<b>Date</b>
 			</div>
-			<div class="col-md-2 text-center">
-				Electricité
+			<div class="col-md-1 text-center">
+				<b>Electricité</b>
 			</div>
-			<div class="col-md-2 text-center">
-				Photo
+			<div class="col-md-1 text-center">
+				<b>Photo</b>
 			</div>
-			<div class="col-md-2 text-center">
-				Gaz
+			<div class="col-md-1 text-center">
+				<b>Gaz</b>
 			</div>
-			<div class="col-md-2 text-center">
-				Eau
+			<div class="col-md-1 text-center">
+				<b>Eau</b>
+			</div>
+			<div class="col-md-1 text-center">
+				<b>Gobelets Lavés</b>
+			</div>
+			<div class="col-md-1 text-center">
+				<b>Caisses Lavées</b>
+			</div>
+			<div class="col-md-1 text-center">
+				<b>Heures prestées</b>
 			</div>
 		</div>
 	</li>
@@ -24,24 +33,34 @@
 
 		<li class="list-group-item">
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-2">
 					<%= energy.created_at.strftime('%d/%m/%Y') %>
 				</div>
 
-				<div class="col-md-2 text-center">
+				<div class="col-md-1 text-center">
 					<%= energy.daily_electricity %>
 				</div>
 
-				<div class="col-md-2 text-center">
+				<div class="col-md-1 text-center">
 					<%= energy.daily_photo %>
 				</div>
 
-				<div class="col-md-2 text-center">
+				<div class="col-md-1 text-center">
 					<%= energy.daily_gaz %>
 				</div>
 
-				<div class="col-md-2 text-center">
+				<div class="col-md-1 text-center">
 					<%= energy.daily_water %>
+				</div>
+
+				<div class="col-md-1 text-center">
+					<%= energy.total_cups %>
+				</div>
+				<div class="col-md-1 text-center">
+					<%= energy.total_boxes %>
+				</div>
+				<div class="col-md-1 text-center">
+					<%= energy.display_duration %>
 				</div>
 			</div>
 		</li>

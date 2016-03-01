@@ -41,4 +41,52 @@ class Energy < ActiveRecord::Base
 		end
 	end
 
+	def total_cups
+		total_cups = 0
+		SortingDetail.clean.where(:updated_at => (self.created_at.beginning_of_day..self.created_at.end_of_day)).each do |detail|
+			if detail.article.is_cup
+			total_cups += detail.total_cups
+			end
+		end
+		total_cups	
+	end
+
+	def total_boxes
+		total_boxes = 0
+		SortingDetail.clean.where(:updated_at => (self.created_at.beginning_of_day..self.created_at.end_of_day)).each do |detail|
+			if detail.article.is_big_box
+			total_boxes += detail.total_cups
+			end
+		end
+		total_boxes	
+	end
+
+	def duration
+		duration = 0
+		Attendance.where(:created_at => (self.created_at.beginning_of_day..self.created_at.end_of_day)).each do |attendance|
+			duration += attendance.duration
+		end
+		duration
+	end
+
+	def duration_in_minutes
+		(duration / 60).floor
+	end
+
+	def duration_in_hours
+		(duration_in_minutes / 60).floor
+	end
+
+	def display_duration_minutes
+		duration_in_minutes - (duration_in_hours * 60)
+	end
+
+	def display_duration_seconds
+		duration.floor - (duration_in_minutes * 60)	
+	end
+
+	def display_duration
+		"#{duration_in_hours}h#{display_duration_minutes}m"
+	end
+
 end
