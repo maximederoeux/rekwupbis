@@ -51,30 +51,6 @@ class Energy < ActiveRecord::Base
 		total_cups	
 	end
 
-	def total_very_dirty
-		total_very_dirty = 0
-		SortingDetail.very_dirty.where(:updated_at => (self.created_at.beginning_of_day..self.created_at.end_of_day)).each do |detail|
-			if detail.article.is_cup
-			total_cups += detail.total_cups
-			end
-		end
-		total_very_dirty	
-	end
-
-	def total_handling
-		total_handling = 0
-		SortingDetail.handling.where(:updated_at => (self.created_at.beginning_of_day..self.created_at.end_of_day)).each do |detail|
-			if detail.article.is_cup
-			total_handling += detail.total_cups
-			end
-		end
-		total_handling	
-	end
-
-	def total_manual
-		total_very_dirty + total_handling	
-	end
-
 	def total_boxes
 		total_boxes = 0
 		ReturnBox.gone.where(:return_time => (self.created_at.beginning_of_day..self.created_at.end_of_day)).each do |return_box|
