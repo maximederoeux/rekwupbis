@@ -87,4 +87,12 @@ class Energy < ActiveRecord::Base
 		"#{duration_in_hours}h#{display_duration_minutes}m"
 	end
 
+	def cups_per_hour
+		if duration_in_minutes >= 0.1
+			total_cups / duration_in_minutes * 60
+		else
+			total_cups
+		end	
+	end
+
 end
