@@ -1,7 +1,7 @@
 <ul class="list-group">
 	<li class="list-group-item">
 		<div class="row">
-			<div class="col-md-2">
+			<div class="col-md-1">
 				<b>Date</b>
 			</div>
 			<div class="col-md-1 text-center">
@@ -31,6 +31,9 @@
 			<div class="col-md-1 text-center">
 				<b>Durée lavages</b>
 			</div>
+			<div class="col-md-1 text-center">
+				<b>Lavages Manuels et Manutention</b>
+			</div>
 		</div>
 	</li>
 
@@ -39,7 +42,7 @@
 
 		<li class="list-group-item">
 			<div class="row">
-				<div class="col-md-2">
+				<div class="col-md-1">
 					<%= energy.created_at.strftime('%d/%m/%Y') %>
 				</div>
 
@@ -73,6 +76,9 @@
 				</div>
 				<div class="col-md-1 text-center">
 					<%= energy.display_total_wash %>
+				</div>
+				<div class="col-md-1 text-center">
+					<%= energy.total_manual %>
 				</div>
 			</div>
 		</li>
