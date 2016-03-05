@@ -80,6 +80,28 @@ class InvoicesController < ApplicationController
     end    
   end
 
+  def lln_detail_ter
+    @invoice = Invoice.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "#{@invoice.pdf_name} - Détails - 3", :layout => 'layouts/pdf.html.erb', :template => 'invoices/lln_detail_ter.html.erb', :page_size => 'A4'
+      end
+    end    
+  end
+
+  def lln_detail_quater
+    @invoice = Invoice.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "#{@invoice.pdf_name} - Détails - 4", :layout => 'layouts/pdf.html.erb', :template => 'invoices/lln_detail_quater.html.erb', :page_size => 'A4'
+      end
+    end    
+  end
+
   # GET /invoices/new
   def new
     @invoice = Invoice.new

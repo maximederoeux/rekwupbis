@@ -28,30 +28,16 @@
 
     <% Article.all.find_each do |article| %>
 
-      <% if @invoice.handling_articles_week(article) >= 1 %>
+      <% if @invoice.very_dirty_articles_week(article) >= 1 %>
 
         <tr>
           <td><%= article.article_name %></td>
-          <td class="text-center"><%= @invoice.handling_articles_week(article) %></td>
-          <th class="text-center">Manutention</th>
-          <td class="text-center"><%= number_to_currency(article.right_handling_price(@invoice.client), :unit => "€", :precision => 3) %></td>
-          <td class="text-center"><%= number_to_currency(@invoice.handling_htva_week(article), :unit => "€", :precision => 2) %></td>
-          <td class="text-center"><%= number_to_currency(@invoice.handling_tva_week(article), :unit => "€", :precision => 2) %></td>
-          <td class="text-center"><%= number_to_currency(@invoice.handling_tvac_week(article), :unit => "€", :precision => 2) %></td>
-
-        </tr>
-      <% end %>
-
-      <% if @invoice.broken_articles_week(article) >= 1 %>
-
-        <tr>
-          <td><%= article.article_name %></td>
-          <td class="text-center"><%= @invoice.broken_articles_week(article) %></td>
-          <th class="text-center">Cassés</th>
-          <td class="text-center"><%= number_to_currency(article.right_deposit_price(@invoice.client, @invoice.offer.event), :unit => "€", :precision => 3) %></td>
-          <td class="text-center"><%= number_to_currency(@invoice.deposit_htva_week(article), :unit => "€", :precision => 2) %></td>
-          <td class="text-center"><%= number_to_currency(@invoice.deposit_tva_week(article), :unit => "€", :precision => 2) %></td>
-          <td class="text-center"><%= number_to_currency(@invoice.deposit_tvac_week(article), :unit => "€", :precision => 2) %></td>
+          <td class="text-center"><%= @invoice.very_dirty_articles_week(article) %></td>
+          <th class="text-center">Très sales</th>
+          <td class="text-center"><%= number_to_currency(article.right_handwash_price(@invoice.client), :unit => "€", :precision => 3) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.handwash_htva_week(article), :unit => "€", :precision => 2) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.handwash_tva_week(article), :unit => "€", :precision => 2) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.handwash_tvac_week(article), :unit => "€", :precision => 2) %></td>
 
         </tr>
       <% end %>      
@@ -62,5 +48,5 @@
 </table>
 
 <div class="detail-button">
-<%= link_to t("invoice.detail_surface"), show_surfaces_invoice_path(@invoice), class: "btn btn-default pull-right" %>
+<%= link_to t("invoice.detail_verso"), lln_detail_ter_invoice_path(@invoice), class: "btn btn-default pull-right" %>
 </div>

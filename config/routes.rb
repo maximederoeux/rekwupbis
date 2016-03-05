@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       get 'show_surfaces'
       get 'show_surfaces_bis'
       get 'lln_detail_bis'
+      get 'lln_detail_ter'
+      get 'lln_detail_quater'
     end
   end
   resources :prices
