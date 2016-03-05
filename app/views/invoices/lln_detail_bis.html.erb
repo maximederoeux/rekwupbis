@@ -1,0 +1,66 @@
+<% if current_user.admin %>
+
+  <%= link_to "", lln_detail_bis_invoice_path(format: 'pdf'), :class => "btn btn-default btn-lg btn-block generate" %>
+
+<% end %>
+
+<div class="reference">
+  <strong>
+    <%= @invoice.pdf_name %>
+  </strong>
+</div>
+
+<div class="client-block">
+  <strong>Détail Facture</strong>
+</div>
+
+<table class="article">
+
+  <tr>
+    <th>Articles</th>
+    <th class="text-center">Qtté</th>
+    <th class="text-center">Statut</th>
+    <th class="text-center">Prix U.</th>
+    <th class="text-center">Total HTVA</th>
+    <th class="text-center">TVA</th>
+    <th class="text-center">Total TVAC</th>
+  </tr>
+
+    <% Article.all.find_each do |article| %>
+
+      <% if @invoice.handling_articles_week(article) >= 1 %>
+
+        <tr>
+          <td><%= article.article_name %></td>
+          <td class="text-center"><%= @invoice.handling_articles_week(article) %></td>
+          <th class="text-center">Manutention</th>
+          <td class="text-center"><%= number_to_currency(article.right_handling_price(@invoice.client), :unit => "€", :precision => 3) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.handling_htva_week(article), :unit => "€", :precision => 2) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.handling_tva_week(article), :unit => "€", :precision => 2) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.handling_tvac_week(article), :unit => "€", :precision => 2) %></td>
+
+        </tr>
+      <% end %>
+
+      <% if @invoice.broken_articles_week(article) >= 1 %>
+
+        <tr>
+          <td><%= article.article_name %></td>
+          <td class="text-center"><%= @invoice.broken_articles_week(article) %></td>
+          <th class="text-center">Cassés</th>
+          <td class="text-center"><%= number_to_currency(article.right_deposit_price(@invoice.client, @invoice.offer.event), :unit => "€", :precision => 3) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.deposit_htva_week(article), :unit => "€", :precision => 2) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.deposit_tva_week(article), :unit => "€", :precision => 2) %></td>
+          <td class="text-center"><%= number_to_currency(@invoice.deposit_tvac_week(article), :unit => "€", :precision => 2) %></td>
+
+        </tr>
+      <% end %>      
+
+
+    <% end %>
+
+</table>
+
+<div class="detail-button">
+<%= link_to t("invoice.detail_surface"), show_surfaces_invoice_path(@invoice), class: "btn btn-default pull-right" %>
+</div>
