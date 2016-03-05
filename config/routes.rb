@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     member do
       get 'show_detail'
       get 'show_surfaces'
+      get 'show_surfaces_bis'
     end
   end
   resources :prices

@@ -72,61 +72,10 @@
 
 </table>
 
-
-
-<hr>
-
-
-<div class="client-block">
-  <strong>Détails par surface</strong>
+<div class="detail-button">
+<%= link_to t("invoice.detail_surface"), show_surfaces_bis_invoice_path(@invoice), class: "btn btn-default pull-right" %>
 </div>
 
-<table class="article">
 
-  <tr>
-    <strong>
-    <th>Articles</th>
-    <th class="text-center">Lavés</th>
-    <th class="text-center">Lavage Manuel</th>
-    <th class="text-center">Manutention</th>
-    <th class="text-center">Cassés</th>
-    </strong>
-  </tr>
 
-<% Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: @invoice.week_begin..@invoice.week_finish).find_each do |offer| %>
 
-  <% if offer.organizer.lln_id >= 1 %>
-
-    
-    <tr>
-      <td><strong><%= offer.created_at.strftime("%d/%m/%Y") %> - <%= offer.organizer.name %></strong></td>
-      <td></td>
-      <td class="text-center"></td>
-      <td class="text-center"></td>
-      <td class="text-center"></td>
-      <td class="text-center"></td>
-    </tr>
-
-    <% Article.all.find_each do |article| %>
-
-      <% if offer.total_articles(article) >= 1 %>
-
-        <tr>
-
-          <td><%= article.article_name %></td>
-          <td class="text-center"><%= offer.washed_articles(article) %></td>
-          <td class="text-center"><%= offer.very_dirty_articles(article) %></td>
-          <td class="text-center"><%= offer.handling_articles(article) %></td>
-          <td class="text-center"><%= offer.broken_articles(article) %></td>
-        </tr>
-
-      <% end %>
-
-    <% end %>
-  <% end %>
-
-<% end %>
-
-</table>
-
-</div>
