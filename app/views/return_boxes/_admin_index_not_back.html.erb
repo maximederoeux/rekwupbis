@@ -1,6 +1,7 @@
 <ul class="list-group">
   <li class="list-group-item">
     <div class="row">
+      <b>
       <div class="col-md-2">
         ID
       </div>    
@@ -22,11 +23,11 @@
       <div class="col-md-2">
 
       </div>
-
+    </b>
     </div>        
   </li>
 
-<% @return_boxes.order("id DESC").each do |return_box| %>
+<% @return_boxes.order("return_date DESC").each do |return_box| %>
 
 <li class="list-group-item">
   <div class="row">
@@ -38,12 +39,12 @@
     </div>
     <div class="col-md-1">
       <% if return_box.offer.lln_daily %>
-      LLN
+      <b>LLN</b>
       <% end %>
     </div>  
     <div class="col-md-2">
       Att: <%= return_box.return_date.strftime("%d/%m/%Y") if return_box.return_date %><br>
-      Eff: <%= return_box.return_time.strftime("%d/%m/%Y") if return_box.return_time %>
+      <b>Eff: <%= return_box.return_time.strftime("%d/%m/%Y") if return_box.return_time %></b>
     </div>
     <div class="col-md-2">
       <%= return_box.offer.organizer.name %>
