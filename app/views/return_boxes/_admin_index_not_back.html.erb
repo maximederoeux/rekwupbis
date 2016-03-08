@@ -1,179 +1,77 @@
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-warning ">
-        <h4><%= content_tag(:i, "", class: "fa fa-truck fa-2x fa-flip-horizontal") %> <%= t("return.receive") %> des jours précédents</h4>
-      </li>
-        
-            <% @not_back.before_today.each do |return_box| %>
+<ul class="list-group">
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-md-2">
+        ID
+      </div>    
+      <div class="col-md-2">
+        Retour
+      </div>
+      <div class="col-md-2">
+        Client
+      </div>    
+      <div class="col-md-2">
+        Statut   
+      </div>
+      <div class="col-md-2">
+        Total
+      </div>
+      <div class="col-md-2">
 
+      </div>
+      <div class="col-md-2">
 
-                <li class="list-group-item text-center">
-          
-                <strong>
-                  <%= return_box.offer.event.event_name %><br>
-                    <% if return_box.offer.organizer.is_lln %>
-                      <%= return_box.offer.organizer.name %><br>
-                    <% end %>
+      </div>
 
-                    <%= link_to return_box_path(return_box) do %>
-                      <%= content_tag(:i, "", class: "fa fa-eye") %>
-                    <% end %>
+    </div>        
+  </li>
 
-                    <%= link_to edit_return_box_path(return_box) do %>
-                      <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
-                    <% end %>
+<% @return_boxes.order("id DESC").each do |return_box| %>
 
-                  <br>
-                  <%= return_box.return_date.strftime("%d/%m/%Y") %><br>
-                  <% unless return_box.offer.organizer.is_lln %>
-                  <%= return_box.total_return %> <%= t("menu.boxes") %>
-                  <% end %> 
-                </strong>
-                </li>
-            <% end %>
-        </ul>
-
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-warning ">
-        <h4><%= t("return.receive") %></h4>
-      </li>
-    </ul>
-
-
+<li class="list-group-item">
   <div class="row">
-    <div class="col-md-6">    
-      <div class="col-md-6">
-        <ul class="list-group">
-          <li class="list-group-item text-center">
-            <h4><%= t("delivery.gone_today") %></h4>
-          </li>
-        
-            <% @not_back.this_day.each do |return_box| %>
-
-
-                <li class="list-group-item text-center">
-          
-                <strong>
-                  <%= return_box.offer.event.event_name %><br>
-                    <% if return_box.offer.organizer.is_lln %>
-                      <%= return_box.offer.organizer.name %><br>
-                    <% end %>
-
-                    <%= link_to return_box_path(return_box) do %>
-                      <%= content_tag(:i, "", class: "fa fa-eye") %>
-                    <% end %>
-                  
-                    <%= link_to edit_return_box_path(return_box) do %>
-                      <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
-                    <% end %>
-                  <br>
-                  <%= return_box.return_date.strftime("%d/%m/%Y") %><br>
-                  <%= return_box.total_return %> <%= t("menu.boxes") %> 
-                </strong>
-                </li>
-            <% end %>
-        </ul>
-      </div>
-
-      <div class="col-md-6">
-        <ul class="list-group">
-          <li class="list-group-item text-center">
-            <h4><%= t("delivery.tomorrow2") %></h4>
-          </li>
-
-            <% @not_back.next_day.each do |return_box| %>
-
-
-              <li class="list-group-item text-center">
-        
-                <strong>
-                  <%= return_box.offer.event.event_name %><br>
-                    <% if return_box.offer.organizer.is_lln %>
-                      <%= return_box.offer.organizer.name %><br>
-                    <% end %>
-
-                    <%= link_to return_box_path(return_box) do %>
-                      <%= content_tag(:i, "", class: "fa fa-eye") %>
-                    <% end %>                 
-                              
-                    <%= link_to edit_return_box_path(return_box) do %>
-                      <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
-                    <% end %>
-                  <br>
-                  <%= return_box.return_date.strftime("%d/%m/%Y") %><br>
-                  <%= return_box.total_return %> <%= t("menu.boxes") %> 
-                </strong>
-              </li>
-            <% end %>       
-        </ul>
-      </div>
-      
-    </div>  
-
-        
-    <div class="col-md-6">
-      <div class="col-md-6">
-        <ul class="list-group">
-          <li class="list-group-item text-center">
-            <h4><%= t("delivery.two_days") %></h4>
-          </li>
-        
-            <% @not_back.two_days.each do |return_box| %>
-
-              <li class="list-group-item text-center">
-        
-                <strong>
-                  <%= return_box.offer.event.event_name %><br>
-                    <% if return_box.offer.organizer.is_lln %>
-                      <%= return_box.offer.organizer.name %><br>
-                    <% end %>
-
-                    <%= link_to return_box_path(return_box) do %>
-                      <%= content_tag(:i, "", class: "fa fa-eye") %>
-                    <% end %>                 
-                                                                  
-                    <%= link_to edit_return_box_path(return_box) do %>
-                      <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
-                    <% end %>
-                  <br>
-                  <%= return_box.return_date.strftime("%d/%m/%Y") %><br>
-                  <%= return_box.total_return %> <%= t("menu.boxes") %> 
-                </strong>
-              </li>
-          <% end %>
-        </ul>
-      </div>
-
-      <div class="col-md-6">
-        <ul class="list-group">
-          <li class="list-group-item text-center">
-            <h4><%= t("delivery.three_days") %></h4>
-          </li>
-
-            <% @not_back.three_days.each do |return_box| %>
-
-
-              <li class="list-group-item text-center">
-        
-                <strong>
-                  <%= return_box.offer.event.event_name %><br>
-                    <% if return_box.offer.organizer.is_lln %>
-                      <%= return_box.offer.organizer.name %><br>
-                    <% end %>
-                                      
-                    <%= link_to return_box_path(return_box) do %>
-                      <%= content_tag(:i, "", class: "fa fa-eye") %>
-                    <% end %>                 
-                                                     
-                    <%= link_to edit_return_box_path(return_box) do %>
-                      <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
-                    <% end %>
-                  <br>
-                  <%= return_box.return_date.strftime("%d/%m/%Y") %><br>
-                  <%= return_box.total_return %> <%= t("menu.boxes") %> 
-                </strong>
-              </li>
-            <% end %>       
-        </ul>
-      </div>
+    <div class="col-md-1">
+      <%= return_box.id %>
+        <%= link_to return_box_path(return_box) do %>
+          <%= content_tag(:i, "", class: "fa fa-eye") %>
+        <% end %>
     </div>
+    <div class="col-md-1">
+      <% if return_box.offer.lln_daily %>
+      LLN
+      <% end %>
+    </div>  
+    <div class="col-md-2">
+      Att: <%= return_box.return_date.strftime("%d/%m/%Y") if return_box.return_date %><br>
+      Eff: <%= return_box.return_time.strftime("%d/%m/%Y") if return_box.return_time %>
+    </div>
+    <div class="col-md-2">
+      <%= return_box.offer.organizer.name %>
+    </div>    
+    <div class="col-md-2">
+      <% if return_box.is_back %>
+      Rentré<br>
+      <% end %>
+      <% if return_box.is_controlled %>
+      Contrôlé<br>
+      <% end %>
+      <% if return_box.send_wash %>
+      Lavage
+      <% end %>    
+    </div>
+    <div class="col-md-2">
+      <%= return_box.total_return %>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-2">
+
+    </div>
+
   </div>
+</li>
+
+<% end %>
+
+</ul>
