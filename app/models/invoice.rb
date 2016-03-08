@@ -136,7 +136,7 @@ class Invoice < ActiveRecord::Base
 
 	def return_clean(box)
 		return_clean = 0
-			self.return_boxes.find_each do |return_box|
+			self.return_boxes.gone.find_each do |return_box|
 				return_clean += return_box.clean_boxes(box)
 			end
 		return_clean
@@ -144,7 +144,7 @@ class Invoice < ActiveRecord::Base
 
 	def return_dirty(box)
 		return_dirty = 0
-			self.return_boxes.find_each do |return_box|
+			self.return_boxes.gone.find_each do |return_box|
 				return_dirty += return_box.dirty_boxes(box)
 			end
 		return_dirty
@@ -152,7 +152,7 @@ class Invoice < ActiveRecord::Base
 
 	def return_sealed(box)
 		return_sealed = 0
-			self.return_boxes.find_each do |return_box|
+			self.return_boxes.gone.find_each do |return_box|
 				return_sealed += return_box.sealed_boxes(box)
 			end
 		return_sealed
