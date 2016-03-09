@@ -620,3 +620,76 @@
 
 <% end %>
 </ul>
+
+
+
+<% if current_user.admin %>
+
+<ul class="list-group">
+  <li class="list-group-item list-group-item-warning">
+    <b>Ajouter une caisse</b>
+  </li>
+
+<%= simple_form_for @return_detail do |f| %>
+
+<li class="list-group-item">
+<%= f.collection_select :box_id, Box.closed.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
+</li>
+
+<li class="list-group-item">
+  <div class="row">
+    <div class="col-md-3">
+      <%= t("return.return") %><br>
+      <%= f.input :dirty %>
+    </div>
+
+    <div class="col-md-3">
+      <%= t("return.return") %><br>
+      <%= f.input :sealed %>
+    </div>
+
+    <div class="col-md-3">
+      <%= t("return.return") %><br>
+      <%= f.input :clean %>
+    </div>
+
+    <div class="col-md-3">
+      <%= t("return.return") %><br>
+      <%= f.input :tagged_box %>
+    </div>
+
+  <div class="col-md-3">
+    <%= t("return.control") %><br>
+    <%= f.input :dirty_ctrl %>
+  </div>
+
+  <div class="col-md-3">
+    <%= t("return.control") %><br>
+    <%= f.input :sealed_ctrl %>
+  </div>
+
+  <div class="col-md-3">
+    <%= t("return.control") %><br>
+    <%= f.input :clean_ctrl %>
+  </div>
+
+  <div class="col-md-3">
+    <%= t("return.control") %><br>
+    <%= f.input :tagged_box_ctrl %>
+  </div>
+  </div>
+
+
+</li>                   
+                           
+   
+
+  
+
+  
+                
+  <%= f.button :submit, class: "btn btn-lg btn-block btn-info" %>
+    
+<% end %>
+
+<% end %>
