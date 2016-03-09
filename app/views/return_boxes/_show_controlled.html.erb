@@ -632,6 +632,8 @@
 
 <%= simple_form_for @return_detail do |f| %>
 
+<%= f.hidden_field :return_box_id, :value => @return_box.id %>
+
 <li class="list-group-item">
 <%= f.collection_select :box_id, Box.closed.order('box_name ASC'), :id, :box_name, {prompt: false}, {class: "form-control styled-select text-center"} %>
 </li>
@@ -680,8 +682,11 @@
   </div>
 
 
-</li>                   
-                           
+</li>
+
+
+
+</ul>                           
    
 
   
