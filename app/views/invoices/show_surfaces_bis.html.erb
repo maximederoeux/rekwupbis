@@ -34,7 +34,13 @@
 
     
     <tr>
-      <td><strong><%= offer.created_at.strftime("%d/%m/%Y") %> - <%= offer.organizer.name %></strong></td>
+    <td><b>
+      <% if offer.unforeseen_return %>
+        <%= offer.created_at.strftime("%d/%m/%Y") %> - <%= offer.organizer.name %>
+      <% else %>
+        <%= (offer.created_at + 1.day).strftime("%d/%m/%Y") %> - <%= offer.organizer.name %>
+      <% end %>
+      </b></td>
       <td></td>
       <td class="text-center"></td>
       <td class="text-center"></td>

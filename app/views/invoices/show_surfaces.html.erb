@@ -7,14 +7,14 @@
 <% end %>
 
 <div class="reference">
-  <strong>
+  <b>
     <%= @invoice.pdf_name %>
-  </strong>
+  </b>
 </div>
 
 
 <div class="client-block">
-  <strong>Livraisons et retours par surface</strong>
+  <b>Livraisons et retours par surface</b>
 </div>
 
 <table class="article">
@@ -26,14 +26,14 @@
   <col width="75">
 
   <tr>
-    <strong>
+    <b>
       <th>Caisses</th>
       <th class="text-center">Envoyées</th>
       <th class="text-center">Retours Propres</th>
       <th class="text-center">Retours Sales</th>
       <th class="text-center">Retours Scellées Sales</th>
       <th class="text-center">Total Retour</th>
-    </strong>
+    </b>
   </tr>
 
 <% Offer.lln_daily.where(created_at: @invoice.week_begin..@invoice.week_finish).find_each do |offer| %>
@@ -41,7 +41,13 @@
   <% if offer.organizer.lln_id >= 1%>
 
   <tr>
-    <td><strong><%= offer.created_at.strftime("%d/%m/%Y") %> - <%= offer.organizer.name %></strong></td>
+    <td><b>
+      <% if offer.unforeseen_return %>
+        <%= offer.created_at.strftime("%d/%m/%Y") %> - <%= offer.organizer.name %>
+      <% else %>
+        <%= (offer.created_at + 1.day).strftime("%d/%m/%Y") %> - <%= offer.organizer.name %>
+      <% end %>
+      </b></td>
     <td></td>
     <td class="text-center"></td>
     <td class="text-center"></td>

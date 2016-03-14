@@ -56,28 +56,42 @@
 			          <div class="col-xs-3 col-md-4 text-center">
 
 			          	<% if thisofferbox.box.is_empty %>
+
 			          		<%= thisofferbox.quantity if thisofferbox.quantity %> <%= t("offer.boxes") %>
+
 			          	<% else %>
+
 			              <%= thisofferbox.quantity if thisofferbox.quantity %> <%= t("offer.boxes") %> - 
 			        			<%= thisofferbox.quantity * thisofferbox.box.boxdetails.last.box_article_quantity %> <%= t("offer.cups") %>
+
 			            <% end %>
 			          </div>
 
 			         	<div class="col-xs-3 col-md-4 text-center">
+
 			         		<% if thisofferbox.box.is_big_box %>
 
 			         			<% if @offer.event.is_bep %>
+
 					          	<%= number_to_currency(thisofferbox.box.boxdetails.last.article.right_wash_price(User.is_bep.first), :unit => "€", :precision => 3) %>
+
 					          <% else %>
+
 					          	<%= number_to_currency(thisofferbox.box.boxdetails.last.article.right_wash_price(@offer.organizer), :unit => "€", :precision => 3) %>
+
 					          <% end %>
 					        <% end %>
 
 					        <% if thisofferbox.box.is_small_box %>
+
 			         			<% if @offer.event.is_bep %>
+
 					          	<%= number_to_currency(thisofferbox.box.boxdetails.last.article.right_washing_small_price(User.is_bep.first), :unit => "€", :precision => 3) %>
+
 					          <% else %>
+
 					         	<%= number_to_currency(thisofferbox.box.boxdetails.last.article.right_washing_small_price(@offer.organizer), :unit => "€", :precision => 3) %>
+					         	
 					          <% end %>
 					        <% end %>
 			        	</div>
