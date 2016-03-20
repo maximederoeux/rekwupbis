@@ -144,6 +144,26 @@
   </li>
 
   <li class="list-group-item">
+    <strong><%= t("event.organizer_name") %> </strong>
+
+    <%= simple_form_for(@offer) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.collection_select :organizer_id, User.all.order('name ASC'), :id, :full_name_with_company, {prompt: false}, {class: "form-control styled-select"} %>
+        </div>
+        <div class="col-md-6">
+          <%= f.button :submit, class: "btn btn-block btn-info" %>
+        </div>
+      </div>
+
+
+    <% end %>
+
+  </li>
+
+  <li class="list-group-item">
     <div class="row text-center">
 
       <div class="col-xs-12 col-md-4">
