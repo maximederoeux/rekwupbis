@@ -210,7 +210,7 @@ class Article < ActiveRecord::Base
 					0
 				end
 			elsif event.deposit_on_site >= 1.0005
-				event.deposit_on_site *0.7
+				event.deposit_on_site * 0.7
 			else
 				0
 			end
