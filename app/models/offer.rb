@@ -195,42 +195,44 @@ class Offer < ActiveRecord::Base
 		if lln_invoice
 			220
 		else
-			if total_cups <= 1600
+			if total_cups <= 1200
 				40
+			elsif total_cups <= 1600 && total_cups >= 1200
+				65				
 			elsif total_cups <= 2100 && total_cups >= 1600
-				60
-			elsif total_cups <= 10400 && total_cups >= 2100
 				90
-			elsif total_cups <= 12800 && total_cups >= 10400
+			elsif total_cups <= 10400 && total_cups >= 2100
 				120
+			elsif total_cups <= 12800 && total_cups >= 10400
+				140
 			elsif total_cups <= 14800 && total_cups >= 12800
-				140	
+				165	
 			elsif total_cups <= 17200 && total_cups >= 14800
-				165
-			elsif total_cups <= 19200 && total_cups >= 17200
 				195
-			elsif total_cups <= 21200 && total_cups >= 19200
+			elsif total_cups <= 19200 && total_cups >= 17200
 				220
-			elsif total_cups <= 23600 && total_cups >= 21200
+			elsif total_cups <= 21200 && total_cups >= 19200
 				250
-			elsif total_cups <= 25600 && total_cups >= 23600
+			elsif total_cups <= 23600 && total_cups >= 21200
 				275
-			elsif total_cups <= 27600 && total_cups >= 25600
+			elsif total_cups <= 25600 && total_cups >= 23600
 				300
-			elsif total_cups <= 30000 && total_cups >= 27600
+			elsif total_cups <= 27600 && total_cups >= 25600
 				330
-			elsif total_cups <= 32000 && total_cups >= 30000
+			elsif total_cups <= 30000 && total_cups >= 27600
 				360
-			elsif total_cups <= 34400 && total_cups >= 32000
+			elsif total_cups <= 32000 && total_cups >= 30000
 				385
-			elsif total_cups <= 36400 && total_cups >= 34400
+			elsif total_cups <= 34400 && total_cups >= 32000
 				415
-			elsif total_cups <= 38400 && total_cups >= 36400
+			elsif total_cups <= 36400 && total_cups >= 34400
 				440
-			elsif total_cups <= 40800 && total_cups >= 38400
+			elsif total_cups <= 38400 && total_cups >= 36400
 				475
-			elsif total_cups >= 40800
+			elsif total_cups <= 40800 && total_cups >= 38400
 				500
+			elsif total_cups >= 40800
+				600
 			end
 		end
 	end
