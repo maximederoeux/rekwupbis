@@ -1,6 +1,6 @@
 class ReturnBox < ActiveRecord::Base
 	belongs_to :offer
-	has_many :return_details
+	has_many :return_details, dependent: :destroy
 	has_many :washes, through: :offer
 	has_many :sortings, through: :offer
 	has_many :parcels

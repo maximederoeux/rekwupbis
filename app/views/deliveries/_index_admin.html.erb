@@ -38,6 +38,9 @@
 		            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
 		            <%= delivery.total_boxes %> <%= t("menu.boxes") %>
 
+								<%= link_to delivery_path(delivery), method: :delete, data: { confirm: 'Are you sure?' }  do %>
+									<%= content_tag(:i, "", class: "fa fa-trash-o fa-2x") %>
+								<% end %>
 		          </strong>
 						</li>
         	<% end %>
@@ -75,6 +78,10 @@
 		            <%= delivery.delivery_date.strftime("%d/%m/%Y") %><br>
 		            <%= delivery.total_boxes %> <%= t("menu.boxes") %>
 
+								<%= link_to delivery_path(delivery), method: :delete, data: { confirm: 'Are you sure?' }  do %>
+									<%= content_tag(:i, "", class: "fa fa-trash-o fa-2x") %>
+								<% end %>
+								
 		          </strong>
 						</li>
         	<% end %>	      

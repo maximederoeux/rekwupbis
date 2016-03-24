@@ -170,6 +170,16 @@ class OffersController < ApplicationController
   # DELETE /offers/1
   # DELETE /offers/1.json
   def destroy
+    @offer.offer_boxes.each do |offer_box|
+      offer_box.destroy
+    end
+    @offer.offer_articles.each do |offer_article|
+      offer_article.destroy
+    end
+    @offer.return_boxes.each do |return_box|
+      return_box.destroy
+    end
+    @offer.delivery.destroy
     @offer.destroy
     respond_to do |format|
       format.html { redirect_to offers_url, notice: 'Offer was successfully destroyed.' }

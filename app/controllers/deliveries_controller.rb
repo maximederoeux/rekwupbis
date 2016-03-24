@@ -88,6 +88,16 @@ class DeliveriesController < ApplicationController
   # DELETE /deliveries/1
   # DELETE /deliveries/1.json
   def destroy
+    @delivery.offer.destroy
+    @delivery.offer.offer_boxes.each do |offer_box|
+      offer_box.destroy
+    end
+    @delivery.offer.offer_articles.each do |offer_article|
+      offer_article.destroy
+    end
+    @delivery.offer.return_boxes.each do |return_box|
+      return_box.destroy
+    end
     @delivery.destroy
     respond_to do |format|
       format.html { redirect_to deliveries_url, notice: 'Delivery was successfully destroyed.' }
