@@ -38,15 +38,20 @@
 
 <% Offer.lln_daily.where(created_at: @invoice.week_begin..@invoice.week_finish).find_each do |offer| %>
 
-  <% if offer.organizer.lln_id >= 1%>
+  <% if offer.organizer.lln_id >= 1 %>
 
   <tr>
     <td><b>
       <% if offer.unforeseen_return %>
+
         <%= offer.created_at.strftime("%d/%m/%Y") %> - <%= offer.organizer.name %>
+
       <% else %>
+
         <%= (offer.created_at + 1.day).strftime("%d/%m/%Y") %> - <%= offer.organizer.name %>
+
       <% end %>
+
       </b></td>
     <td></td>
     <td class="text-center"></td>
@@ -57,7 +62,7 @@
 
     <% Box.all.find_each do |box| %>
 
-      <% if offer.sent_boxes(box) >=1 or offer.returned_boxes(box) >= 1 %>
+      <% if offer.sent_boxes(box) >= 1 or offer.returned_boxes(box) >= 1 %>
 
         <tr>
 
