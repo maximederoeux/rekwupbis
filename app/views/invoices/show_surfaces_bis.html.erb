@@ -28,15 +28,21 @@
     </strong>
   </tr>
 
-<% Offer.where(:event_id => Event.where(:is_lln => true).last.id).where(created_at: @invoice.week_begin..@invoice.week_finish).find_each do |offer| %>
+<% Offer.lln_daily.where(created_at: @invoice.week_begin..@invoice.week_finish).find_each do |offer| %>
 
   <% if offer.organizer.lln_id >= 1 %>
 
-    <tr>
+  <tr>
     <td><b>
+      <% if offer.unforeseen_return %>
 
+        <%= offer.created_at.strftime("%d/%m/%Y") %> - <%= offer.organizer.name %>
+
+      <% else %>
 
         <%= (offer.created_at + 1.day).strftime("%d/%m/%Y") %> - <%= offer.organizer.name %>
+
+      <% end %>
 
       </b></td>
       <td></td>
