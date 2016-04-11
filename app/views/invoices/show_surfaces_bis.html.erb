@@ -34,15 +34,10 @@
 
     <tr>
     <td><b>
-      <% if offer.unforeseen_return %>
 
-        <%= offer.created_at.strftime("%d/%m/%Y") %> - <%= offer.organizer.name %>
-        
-      <% else %>
 
         <%= (offer.created_at + 1.day).strftime("%d/%m/%Y") %> - <%= offer.organizer.name %>
 
-      <% end %>
       </b></td>
       <td></td>
       <td class="text-center"></td>
@@ -51,7 +46,7 @@
       <td class="text-center"></td>
     </tr>
 
-<!--     <% Article.all.find_each do |article| %>
+    <% Article.all.find_each do |article| %>
 
       <% if offer.total_articles(article) >= 1 %>
 
@@ -66,7 +61,7 @@
 
       <% end %>
 
-    <% end %> -->
+    <% end %>
   <% end %>
 
 <% end %>
