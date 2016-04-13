@@ -10,58 +10,58 @@
         <li class="list-group-item list-group-item-warning">
           <div class="row")>
             <div class="col-md-3">
-              <strong>
+              <b>
                 <%= @article.id %> - <%= @article.full_name %>
-              </strong>
+              </b>
             </div>
 
             <div class="col-md-9">
 
               <div class="col-md-2">
                 <% if @article.is_washable %>
-                  <strong>
+                  <b>
                     <%= t("article.is_washable") %>
-                  </strong>
+                  </b>
                 <% end %>
               </div>
 
               <div class="col-md-2">
                 <% if @article.is_cup %>
-                  <strong>
+                  <b>
                     <%= t("article.is_cup") %>
-                  </strong>
+                  </b>
                 <% end %>
               </div>
 
               <div class="col-md-2">
                 <% if @article.is_big_box %>
-                  <strong>
+                  <b>
                     <%= t("article.is_big_box") %>
-                  </strong>
+                  </b>
                 <% end %>
               </div>
 
               <div class="col-md-2">
                 <% if @article.is_small_box %>
-                  <strong>
+                  <b>
                     <%= t("article.is_small_box") %>
-                  </strong>
+                  </b>
                 <% end %>
               </div>
 
               <div class="col-md-2">
                 <% if @article.is_top %>
-                  <strong>
+                  <b>
                     <%= t("article.is_top") %>
-                  </strong>
+                  </b>
                 <% end %>
               </div>
 
               <div class="col-md-2">
                 <% if @article.is_palette %>
-                  <strong>
+                  <b>
                     <%= t("article.is_palette") %>
-                  </strong>
+                  </b>
                 <% end %>
               </div>
             </div>
@@ -69,7 +69,7 @@
         </li>
 
         <li class="list-group-item list-group-item-warning">
-          <strong><%= t("article.article_type") %></strong>
+          <b><%= t("article.article_type") %></b>
         </li>
 
 
@@ -77,103 +77,103 @@
           <div class="row text-center")>
             <div class="col-md-1">
               <% if @article.is_cc %>
-                <strong>
+                <b>
                   <%= t("article.is_cc") %>
-                </strong>
+                </b>
               <% end %>
             </div>
 
             <div class="col-md-1">
                 <% if @article.is_ep %>
-                  <strong>
+                  <b>
                     <%= t("article.is_ep") %>
-                  </strong>
+                  </b>
                 <% end %>
             </div>
 
             <div class="col-md-1">
                 <% if @article.is_eco %>
-                  <strong>
+                  <b>
                     <%= t("article.is_eco") %>
-                  </strong>
+                  </b>
                 <% end %>
             </div>
 
             <div class="col-md-1">
                 <% if @article.is_wine %>
-                  <strong>
+                  <b>
                     <%= t("article.is_wine") %>
-                  </strong>
+                  </b>
                 <% end %>
             </div>
             <div class="col-md-1">
                 <% if @article.is_cava %>
-                  <strong>
+                  <b>
                     <%= t("article.is_cava") %>
-                  </strong>
+                  </b>
                 <% end %>
             </div>  
 
             <div class="col-md-1">
                 <% if @article.champagne %>
-                  <strong>
+                  <b>
                     <%= t("article.is_champagne") %>
-                  </strong>
+                  </b>
                 <% end %>
             </div>  
 
             <div class="col-md-1">
                 <% if @article.is_shot %>
-                  <strong>
+                  <b>
                     <%= t("article.is_shot") %>
-                  </strong>
+                  </b>
                 <% end %>
             </div>              
           </div>
         </li>
 
         <li class="list-group-item list-group-item-warning">
-          <strong><%= t("article.article_content") %></strong>
+          <b><%= t("article.article_content") %></b>
         </li>
 
         <li class="list-group-item">
           <div class="row text-center")>
             <div class="col-md-2">
               <% if @article.is_twenty %>
-                <strong>
+                <b>
                   <%= t("article.is_twenty") %>
-                </strong>
+                </b>
               <% end %>
             </div>
 
             <div class="col-md-2">
                 <% if @article.is_twentyfive %>
-                  <strong>
+                  <b>
                     <%= t("article.is_twentyfive") %>
-                  </strong>
+                  </b>
                 <% end %>
             </div>
 
             <div class="col-md-2">
                 <% if @article.is_forty %>
-                  <strong>
+                  <b>
                     <%= t("article.is_forty") %>
-                  </strong>
+                  </b>
                 <% end %>
             </div>
 
             <div class="col-md-2">
                 <% if @article.is_fifty %>
-                  <strong>
+                  <b>
                     <%= t("article.is_fifty") %>
-                  </strong>
+                  </b>
                 <% end %>
             </div>
             <div class="col-md-2">
                 <% if @article.is_litre %>
-                  <strong>
+                  <b>
                     <%= t("article.is_litre") %>
-                  </strong>
+                  </b>
                 <% end %>
             </div>  
 
@@ -184,7 +184,7 @@
         </li>
 
         <li class="list-group-item list-group-item-warning">
-          <strong><%= t("article.article_category") %></strong>
+          <b><%= t("article.article_category") %></b>
         </li>
 
 
@@ -192,98 +192,98 @@
           <div class="row text-center")>
             <div class="col-md-2">
               <% if @article.rekwup_cup %>
-                <strong>
+                <b>
                   <%= t("article.rekwup_cup") %>
-                </strong>
+                </b>
               <% end %>
             </div>
 
             <div class="col-md-2">
                 <% if @article.is_lln %>
-                  <strong>
+                  <b>
                     <%= t("article.is_lln") %>
-                  </strong>
+                  </b>
                 <% end %>
             </div>
 
             <div class="col-md-2">
                 <% if @article.is_bep %>
-                  <strong>
+                  <b>
                     <%= t("article.is_bep") %>
-                  </strong>
+                  </b>
                 <% end %>
             </div>
 
             <div class="col-md-2">
                 <% if @article.age %>
-                  <strong>
+                  <b>
                     <%= t("article.is_age") %>
-                  </strong>
+                  </b>
                 <% end %>
             </div>
 
             <div class="col-md-2">
                 <% if @article.is_patro %>
-                  <strong>
+                  <b>
                     <%= t("article.is_patro") %>
-                  </strong>
+                  </b>
                 <% end %>
             </div>            
           </div>
         </li>
 
         <li class="list-group-item list-group-item-warning">
-          <strong><%= t("article.data") %></strong>
+          <b><%= t("article.data") %></b>
         </li>
 
         <li class="list-group-item">
           <div class="row text-center")>
             <div class="col-md-2">
-              <strong>
+              <b>
                 <%= t("article.article_content") %><br>
-              </strong>
+              </b>
               <%= @article.article_content %> CL
             </div>
             <div class="col-md-2">
-              <strong>
+              <b>
                 <%= t("article.quantity_bigbox") %><br>
-              </strong>
+              </b>
               <%= @article.quantity_bigbox %>
             </div>
 
             <div class="col-md-2">
-              <strong>
+              <b>
                 <%= t("article.quantity_smallbox") %><br>
-              </strong>
+              </b>
               <%= @article.quantity_smallbox %>
             </div>
 
             <div class="col-md-2">
-              <strong>
+              <b>
                 <%= t("article.quantity_pile") %><br>
-              </strong>
+              </b>
               <%= @article.quantity_pile %>
             </div>
 
             <div class="col-md-2">
-              <strong>
+              <b>
                 <%= t("article.pile_smallbox") %><br>
-              </strong>
+              </b>
               <%= @article.pile_smallbox %>
             </div>
 
 
             <div class="col-md-2">
-              <strong>
+              <b>
                 <%= t("article.weight") %><br>
-              </strong>
+              </b>
                 <%= @article.weight %> kg
             </div>            
           </div>
         </li>
 
         <li class="list-group-item list-group-item-warning">
-          <strong><%= t("article.other") %></strong>
+          <b><%= t("article.other") %></b>
         </li>
 
         <li class="list-group-item">
@@ -291,9 +291,9 @@
             <div class="col-md-2">
 
               <% if @article.transport %>
-                <strong>
+                <b>
                   <%= t("article.transport") %>
-                </strong>
+                </b>
               <% end %>
 
             </div>
@@ -335,7 +335,7 @@
         <li class="list-group-item list-group-item-warning">
           <div class="row")>
             <div class="col-md-4">
-              <strong>
+              <b>
                 <% if @myregular_price.present? %>
 
                   <% if @myregular_price.regular %>
@@ -345,20 +345,20 @@
                   <% end %>
 
                 <% end %>
-              </strong>
+              </b>
             </div>
 
             <div class="col-md-4">
-                  <strong>
-                    <%= t("price.valid_from") %> : <%= @myregular_price.valid_from.strftime("%d/%m/%Y") if @myregular_price %>
-                  </strong>
+                  <b>
+                    <%= t("price.valid_from") %> : <%= @myregular_price.valid_from.strftime("%d/%m/%Y") if @myregular_price.valid_from %>
+                  </b>
             </div>
 
 
             <div class="col-md-4">
-                  <strong>
-                    <%= t("price.valid_till") %> : <%= @myregular_price.valid_till.strftime("%d/%m/%Y") if @myregular_price %>
-                  </strong>
+                  <b>
+                    <%= t("price.valid_till") %> : <%= @myregular_price.valid_till.strftime("%d/%m/%Y") if @myregular_price.valid_till %>
+                  </b>
             </div>
 
           </div>
@@ -369,44 +369,44 @@
         <li class="list-group-item">
           <div class="row text-center")>
             <div class="col-md-2">
-              <strong>
+              <b>
                 <%= t("article.washing_price") %><br>
-              </strong>
+              </b>
               <%= number_to_currency(@myregular_price.washing, :unit => '€', :precision => 4) if @myregular_price %>
             </div>
 
             <div class="col-md-2">
-              <strong>
+              <b>
                 <%= t("article.washing_small") %><br>
-              </strong>
+              </b>
               <%= number_to_currency(@myregular_price.washing_small, :unit => '€', :precision => 4) if @myregular_price %>
             </div>
 
             <div class="col-md-2">
-              <strong>
+              <b>
                 <%= t("article.handwash_price") %><br>
-              </strong>
+              </b>
               <%= number_to_currency(@myregular_price.handwash, :unit => '€', :precision => 4) if @myregular_price %>
             </div>
 
             <div class="col-md-2">
-              <strong>
+              <b>
                 <%= t("article.tab_price") %><br>
-              </strong>
+              </b>
               <%= number_to_currency(@myregular_price.handling, :unit => '€', :precision => 4) if @myregular_price %>
             </div>
 
             <div class="col-md-2">
-              <strong>
+              <b>
                 <%= t("article.deposit_price") %><br>
-              </strong>
+              </b>
               <%= number_to_currency(@myregular_price.deposit, :unit => '€', :precision => 4) if @myregular_price %>
             </div>
 
             <div class="col-md-2">
-              <strong>
+              <b>
                 <%= t("article.sell_price") %><br>
-              </strong>
+              </b>
               <%= number_to_currency(@myregular_price.sell, :unit => '€', :precision => 4) if @myregular_price %>
             </div>
           </div>
