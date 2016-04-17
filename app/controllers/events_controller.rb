@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all.order("event_name ASC")
     @user = current_user
-    @myevents = @events.where(:creator_id => current_user.id) | @events.where(:organizer_id => current_user.id)
+    @myevents = @events.where(:creator_id => current_user.id) | @events.where(:organizer_id => current_user.id).order("event_name ASC")
   end
 
   # GET /events/1
