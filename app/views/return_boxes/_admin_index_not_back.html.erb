@@ -9,7 +9,7 @@
         Retour
       </div>
       <div class="col-md-2">
-        Client
+        Client / Evénement
       </div>    
       <div class="col-md-2">
         Statut   
@@ -31,24 +31,30 @@
 
 <li class="list-group-item">
   <div class="row">
+    
     <div class="col-md-1">
       <%= return_box.id %>
         <%= link_to return_box_path(return_box) do %>
           <%= content_tag(:i, "", class: "fa fa-eye") %>
         <% end %>
     </div>
+
     <div class="col-md-1">
       <% if return_box.offer.lln_daily %>
       <b>LLN</b>
       <% end %>
-    </div>  
+    </div>
+
     <div class="col-md-2">
       Att: <%= return_box.return_date.strftime("%d/%m/%Y") if return_box.return_date %><br>
       <b>Eff: <%= return_box.return_time.strftime("%d/%m/%Y") if return_box.return_time %></b>
     </div>
+
     <div class="col-md-2">
-      <%= return_box.offer.organizer.name %>
-    </div>    
+      <%= return_box.offer.organizer.name %><br>
+      <%= return_box.offer.event.event_name %>
+    </div>
+
     <div class="col-md-2">
       <% if return_box.is_back %>
       Rentré<br>
