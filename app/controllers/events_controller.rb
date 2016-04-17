@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.all.order("name ASC")
     @user = current_user
     @myevents = @events.where(:creator_id => current_user.id) | @events.where(:organizer_id => current_user.id)
   end

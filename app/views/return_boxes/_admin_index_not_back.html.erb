@@ -31,7 +31,7 @@
 
 <li class="list-group-item">
   <div class="row">
-    
+
     <div class="col-md-1">
       <%= return_box.id %>
         <%= link_to return_box_path(return_box) do %>
@@ -52,7 +52,7 @@
 
     <div class="col-md-2">
       <%= return_box.offer.organizer.name %><br>
-      <%= return_box.offer.event.event_name %>
+      <b><%= return_box.offer.event.event_name %></b>
     </div>
 
     <div class="col-md-2">
