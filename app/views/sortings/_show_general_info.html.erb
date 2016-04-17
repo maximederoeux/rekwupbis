@@ -38,21 +38,6 @@
 
         <% end %>
 
-        <% if @sorting.start_time.present? && @sorting.end_time.present? %>
-
-          <%= simple_form_for @new_sorting do |f| %>
-          <%= f.error_notification %>
-
-            <%= f.hidden_field :offer_id, :value => @sorting.offer_id %>
-            <%= f.hidden_field :start_time, :value => Time.now %>
-            <%= f.hidden_field :starter, :value => current_user.id %>
-          <%= f.submit t("sorting.new"), class: "btn btn-info pull-right" %>
-
-          <% end %>
-
-        <% end %>
-
-
       </div>
 
   </li>
