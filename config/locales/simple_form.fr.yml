@@ -101,6 +101,7 @@ fr:
         age: "AGE Namur"
         champagne: "Champagne"
         pile_smallbox: "Pile petite caisse"
+        is_other: "Gobelet tiers"
       box:
         box_name: "Nom de la caisse"
         bigbox: "Grande caisse"

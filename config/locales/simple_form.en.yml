@@ -101,6 +101,7 @@ en:
         age: "AGE Namur"
         champagne: "Champagne"
         pile_smallbox: "Small box pile"
+        is_other: "Other cup"
       box:
         box_name: "Box Name"
         bigbox: "Big Box"

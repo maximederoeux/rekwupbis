@@ -129,6 +129,7 @@ fr:
     is_age: "AGE Namur"
     is_champagne: "Champagne"
     pile_smallbox: "Pile petite caisse"
+    is_other: "Gobelet tiers"
 
   attendance:
     in: "Entrée"

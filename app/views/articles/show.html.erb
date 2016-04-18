@@ -128,7 +128,15 @@
                     <%= t("article.is_shot") %>
                   </b>
                 <% end %>
-            </div>              
+            </div>
+
+            <div class="col-md-1">
+                <% if @article.is_other %>
+                  <b>
+                    <%= t("article.is_other") %>
+                  </b>
+                <% end %>
+            </div>             
           </div>
         </li>
 
@@ -331,12 +339,16 @@
     </div>
 
 
+
     <ul class="list-group">
+
+    <% if @myregular_price.present? %>
+
         <li class="list-group-item list-group-item-warning">
           <div class="row")>
             <div class="col-md-4">
               <b>
-                <% if @myregular_price.present? %>
+
 
                   <% if @myregular_price.regular %>
                     <%= t("price.regular") %>
@@ -344,20 +356,20 @@
                     <%= t("price.negociated") %>
                   <% end %>
 
-                <% end %>
+
               </b>
             </div>
 
             <div class="col-md-4">
                   <b>
-                    <%= t("price.valid_from") %> : <%= @myregular_price.valid_from.strftime("%d/%m/%Y") if @myregular_price.valid_from %>
+                    <%= t("price.valid_from") %> : <%= @myregular_price.valid_from.strftime("%d/%m/%Y") if @myregular_price.valid_from.present? %>
                   </b>
             </div>
 
 
             <div class="col-md-4">
                   <b>
-                    <%= t("price.valid_till") %> : <%= @myregular_price.valid_till.strftime("%d/%m/%Y") if @myregular_price.valid_till %>
+                    <%= t("price.valid_till") %> : <%= @myregular_price.valid_till.strftime("%d/%m/%Y") if @myregular_price.valid_till.present? %>
                   </b>
             </div>
 
@@ -410,7 +422,10 @@
               <%= number_to_currency(@myregular_price.sell, :unit => '€', :precision => 4) if @myregular_price %>
             </div>
           </div>
-        </li>          
+        </li>
+
+      <% end %>
+
     </ul>
 
     <% if current_user.admin %>

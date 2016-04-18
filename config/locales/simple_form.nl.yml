@@ -101,6 +101,7 @@ nl:
         age: "AGE Namur"
         champagne: "Champagne"
         pile_smallbox: "Stapel klein doos"
+        is_other: "Andere beker"
       box:
         box_name: "Doosnaam"
         bigbox: "Grote doos"

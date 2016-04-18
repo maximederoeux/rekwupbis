@@ -131,6 +131,7 @@ en:
     is_age: "AGE Namur"
     is_champagne: "Champagne"
     pile_smallbox: "Small box pile"
+    is_other: "Other cup"
 
   attendance:
     in: "Clock in"

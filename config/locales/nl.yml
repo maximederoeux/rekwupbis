@@ -128,6 +128,7 @@ nl:
     is_age: "AGE Namur"
     is_champagne: "Champagne"
     pile_smallbox: "Stapel klein doos"
+    is_other: "Andere beker"
 
   attendance:
     in: "Inkomen"
