@@ -195,44 +195,80 @@ class Offer < ActiveRecord::Base
 		if lln_invoice
 			220
 		else
-			if total_cups <= 1200
-				40
-			elsif total_cups <= 1600 && total_cups >= 1200
-				65				
-			elsif total_cups <= 2100 && total_cups >= 1600
-				90
-			elsif total_cups <= 10400 && total_cups >= 2100
-				120
-			elsif total_cups <= 12800 && total_cups >= 10400
-				140
-			elsif total_cups <= 14800 && total_cups >= 12800
-				165	
-			elsif total_cups <= 17200 && total_cups >= 14800
-				195
-			elsif total_cups <= 19200 && total_cups >= 17200
-				220
-			elsif total_cups <= 21200 && total_cups >= 19200
-				250
-			elsif total_cups <= 23600 && total_cups >= 21200
-				275
-			elsif total_cups <= 25600 && total_cups >= 23600
-				300
-			elsif total_cups <= 27600 && total_cups >= 25600
-				330
-			elsif total_cups <= 30000 && total_cups >= 27600
-				360
-			elsif total_cups <= 32000 && total_cups >= 30000
-				385
-			elsif total_cups <= 34400 && total_cups >= 32000
-				415
-			elsif total_cups <= 36400 && total_cups >= 34400
-				440
-			elsif total_cups <= 38400 && total_cups >= 36400
-				475
-			elsif total_cups <= 40800 && total_cups >= 38400
-				500
-			elsif total_cups >= 40800
-				600
+			if weight < 40
+				37
+			elsif weight < 50 && weight >= 40
+				45				
+			elsif weight < 60 && weight >= 50
+				53
+			elsif weight < 70 && weight >= 60
+				60
+			elsif weight < 80 && weight >= 70
+				68
+			elsif weight < 90 && weight >= 80
+				76
+			elsif weight < 100 && weight >= 90
+				84
+			elsif weight < 110 && weight >= 100
+				92
+			elsif weight < 120 && weight >= 110
+				100
+			elsif weight < 130 && weight >= 120
+				108
+			elsif weight < 140 && weight >= 130
+				116
+			elsif weight < 600 && weight >= 140
+				118
+			elsif weight < 700 && weight >= 600
+				144
+			elsif weight < 800 && weight >= 700
+				173
+			elsif weight < 900 && weight >= 800
+				202
+			elsif weight < 1000 && weight >= 900
+				231
+			elsif weight < 1100 && weight >= 1000
+				260
+			elsif weight < 1200 && weight >= 1100
+				289
+			elsif weight < 1300 && weight >= 1200
+				349				
+			elsif weight < 1400 && weight >= 1300
+				381
+			elsif weight < 1500 && weight >= 1400
+				413
+			elsif weight < 1600 && weight >= 1500
+				445
+			elsif weight < 1700 && weight >= 1600
+				476
+			elsif weight < 1800 && weight >= 1700
+				508
+			elsif weight < 1900 && weight >= 1800
+				540
+			elsif weight < 2000 && weight >= 1900
+				572
+			elsif weight < 2100 && weight >= 2000
+				603
+			elsif weight < 2200 && weight >= 2100
+				635
+			elsif weight < 2300 && weight >= 2200
+				667
+			elsif weight < 2400 && weight >= 2300
+				699
+			elsif weight < 2500 && weight >= 2400
+				731
+			elsif weight < 2600 && weight >= 2500
+				762
+			elsif weight < 2700 && weight >= 2600
+				794
+			elsif weight < 2800 && weight >= 2700
+				826
+			elsif weight < 2900 && weight >= 2800
+				858
+			elsif weight < 3000 && weight >= 2900
+				889
+			elsif weight >= 3000
+				0
 			end
 		end
 	end
