@@ -309,7 +309,31 @@ class Offer < ActiveRecord::Base
 				1525
 			elsif weight < 5100 && weight >= 5000
 				1556
-			elsif weight >= 5100
+			elsif weight < 5200 && weight >= 5100
+				1588
+			elsif weight < 5300 && weight >= 5200
+				1620
+			elsif weight < 5400 && weight >= 5300
+				1652
+			elsif weight < 5500 && weight >= 5400
+				1683
+			elsif weight < 5600 && weight >= 5500
+				1715
+			elsif weight < 5700 && weight >= 5600
+				1747
+			elsif weight < 5800 && weight >= 5700
+				1779
+			elsif weight < 5900 && weight >= 5800
+				1810
+			elsif weight < 6000 && weight >= 5900
+				1842
+			elsif weight < 6100 && weight >= 6000
+				1874
+			elsif weight < 6200 && weight >= 6100
+				1906
+			elsif weight < 6300 && weight >= 6200
+				1938
+			elsif weight >= 6300
 				0
 			end
 		end
