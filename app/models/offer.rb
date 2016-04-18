@@ -267,7 +267,49 @@ class Offer < ActiveRecord::Base
 				858
 			elsif weight < 3000 && weight >= 2900
 				889
-			elsif weight >= 3000
+			elsif weight < 3100 && weight >= 3000
+				921
+			elsif weight < 3200 && weight >= 3100
+				953
+			elsif weight < 3300 && weight >= 3200
+				985
+			elsif weight < 3400 && weight >= 3300
+				1016				
+			elsif weight < 3500 && weight >= 3400
+				1048
+			elsif weight < 3600 && weight >= 3500
+				1080
+			elsif weight < 3700 && weight >= 3600
+				1112
+			elsif weight < 3800 && weight >= 3700
+				1143
+			elsif weight < 3900 && weight >= 3800
+				1175
+			elsif weight < 4000 && weight >= 3900
+				1207
+			elsif weight < 4100 && weight >= 4000
+				1239
+			elsif weight < 4200 && weight >= 4100
+				1271
+			elsif weight < 4300 && weight >= 4200
+				1302
+			elsif weight < 4400 && weight >= 4300
+				1334
+			elsif weight < 4500 && weight >= 4400
+				1366
+			elsif weight < 4600 && weight >= 4500
+				1398
+			elsif weight < 4700 && weight >= 4600
+				1429
+			elsif weight < 4800 && weight >= 4700
+				1461
+			elsif weight < 4900 && weight >= 4800
+				1493
+			elsif weight < 5000 && weight >= 4900
+				1525
+			elsif weight < 5100 && weight >= 5000
+				1556
+			elsif weight >= 5100
 				0
 			end
 		end
