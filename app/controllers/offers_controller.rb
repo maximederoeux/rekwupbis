@@ -50,6 +50,8 @@ class OffersController < ApplicationController
     @regular_prices = @prices.where(:regular => true)
     @new_delivery = Delivery.new
 
+    @new_return_box = ReturnBox.new
+
     @admin = @user.admin
     unless @admin or @organizer
       redirect_to :root, :alert => t("notice.access")

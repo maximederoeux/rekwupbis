@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418104057) do
+ActiveRecord::Schema.define(version: 20160419091731) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20160418104057) do
     t.datetime "drop_time"
     t.boolean  "dropped"
     t.integer  "dropped_by"
+    t.boolean  "other_cup"
   end
 
   create_table "energies", force: :cascade do |t|
@@ -302,6 +303,7 @@ ActiveRecord::Schema.define(version: 20160418104057) do
     t.boolean  "send_wash"
     t.boolean  "unforeseen_return"
     t.integer  "offer_id"
+    t.boolean  "other_cup"
   end
 
   create_table "return_details", force: :cascade do |t|

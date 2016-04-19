@@ -67,7 +67,7 @@ class DeliveriesController < ApplicationController
   def update
     respond_to do |format|
       if @delivery.update(delivery_params)
-        if @delivery.is_gone && @delivery.dropped == nil
+        if @delivery.is_gone && @delivery.dropped == nil && @delivery.other_cup == nil
           unless @delivery.offer.lln_daily
           ReturnBox.create(:offer_id => @delivery.offer_id, :return_date => @delivery.return_date)
           @delivery.offer.offer_boxes.each do |offer_box|
@@ -113,6 +113,6 @@ class DeliveriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def delivery_params
-      params.require(:delivery).permit(:offer_id, :delivery_date, :return_date, :is_ready, :is_gone, :ready_time, :ready_by, :gone_time, :sent_by, :dropped, :drop_time, :dropped_by)
+      params.require(:delivery).permit(:other_cup, :offer_id, :delivery_date, :return_date, :is_ready, :is_gone, :ready_time, :ready_by, :gone_time, :sent_by, :dropped, :drop_time, :dropped_by)
     end
 end

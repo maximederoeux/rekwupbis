@@ -207,6 +207,7 @@ fr:
     drop: "Déposer cette commande"
     dropped: "Commandes Livrées"
     delivered: "Commande Livrée"
+    new: "Créer une livraison"
 
   energy:
     gaz: "Gaz 1"
@@ -439,6 +440,7 @@ fr:
     tagged_top: "Tagués"
     missing_top: "Manquants"
     tops: "Couvercles"
+    new: "Créer un retour"
 
   sorting:
     start: "Début du rangement"

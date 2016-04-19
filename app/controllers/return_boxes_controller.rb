@@ -134,6 +134,6 @@ class ReturnBoxesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def return_box_params
-      params.require(:return_box).permit(:offer_id, :delivery_id, :return_time, :is_back, :receptionist, :ctrl_time, :ctrler, :is_controlled, :return_date, :send_wash, :unforeseen_return, return_details_attributes: [:box_id, :dirty, :sealed, :clean, :dirty_ctrl, :sealed_ctrl, :clean_ctrl])
+      params.require(:return_box).permit(:other_cup, :offer_id, :delivery_id, :return_time, :is_back, :receptionist, :ctrl_time, :ctrler, :is_controlled, :return_date, :send_wash, :unforeseen_return, return_details_attributes: [:box_id, :dirty, :sealed, :clean, :dirty_ctrl, :sealed_ctrl, :clean_ctrl])
     end
 end

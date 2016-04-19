@@ -1,0 +1,31 @@
+<ul class="list-group">
+
+	<li class="list-group-item">
+		<div class="row">
+			<div class="col-md-6">
+				<%= simple_form_for(@new_return_box) do |f| %>
+				    <%= f.error_notification %>
+
+				  <%= f.hidden_field :offer_id, :value => @offer.id %>
+				  <%= f.hidden_field :other_cup, :value => true %>
+				  <%= f.input :return_date %>
+				  <%= f.submit t("return.new"), class: "btn btn-lg btn-block btn-info" %>
+				<% end %>			
+			</div>
+			<div class="col-md-6">
+				<%= simple_form_for(@new_delivery) do |f| %>
+				    <%= f.error_notification %>
+
+				  <%= f.hidden_field :offer_id, :value => @offer.id %>
+				  <%= f.hidden_field :other_cup, :value => true %>
+				  <%= f.input :delivery_date %>
+				  <%= f.submit t("delivery.new"), class: "btn btn-lg btn-block btn-info" %>
+				<% end %>			
+			</div>
+		</div>
+
+	</li>
+
+</ul>
+
+

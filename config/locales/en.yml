@@ -292,6 +292,7 @@ en:
     drop: "Drop this order"
     dropped: "Delivered Orders"
     delivered: "Delivered order"
+    new: "Create Delivery"
 
   invoice:
     invoice: "Invoice"
@@ -443,6 +444,7 @@ en:
     tagged_top: "Tagged"
     missing_top: "Missing"
     tops: "Tops"
+    new: "Create return"
 
   sorting:
     start: "Start time"
