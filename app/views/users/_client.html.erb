@@ -54,8 +54,6 @@
       		<%= f.input :company_name, :label => t("user.organisation_name") %>
     		</div>
 
-      <% if current_user.offers.where(:client_confirmation => true).any? %>
-
 				<div class="col-md-3">
 	      	<%= f.input :taxable %>
 	      </div>
@@ -111,7 +109,6 @@
       </div>
     </li>
      
-  <% end %>
   
 </ul>
 
