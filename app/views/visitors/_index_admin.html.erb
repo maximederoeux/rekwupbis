@@ -4,7 +4,7 @@
 		<strong>Evenements après juillet</strong>
 	</li>
 
-	<% Event.where("start_date > ?", Date.today).each do |event| %>
+	<% Event.where("event_start_date > ?", Date.today).each do |event| %>
 
   <li class="list-group-item">
   	<div class="row">
