@@ -1,7 +1,7 @@
 <ul class="list-group">
 
   <li class="list-group-item list-group-item-warning">
-		<strong>Evenements après juillet</strong>
+		<strong>Evenements après aujourd'hui</strong>
 	</li>
 
 	<% @events.where("event_start_date > ?", Date.today).each do |event| %>
@@ -9,16 +9,18 @@
   <li class="list-group-item">
   	<div class="row">
   		<div class="col-md-4">
-  			<%= link_to event.event_name, event_path(event), class: "btn btn-lg btn-default btn-block" %>
+  			<%= link_to event.event_name, event_path(event), class: "btn btn-default btn-block" %>
   		</div>
   		<div class="col-md-2">
   			<%= event.event_start_date.strftime("%d/%m/%Y") %>
   		</div>
   		<div class="col-md-2">
-  			<%= event.organizer.full_name %>
+  			<%= link_to event.organizer.full_name, user_path(event.organizer), class: "btn btn-default btn-block" %>
+  			<%=  %>
   		</div>
   		<div class="col-md-2">
-  			
+  			<%= link_to event.offers.last.id, offer_path(event.offer), class: "btn btn-default btn-block" %>
+  			<%=  %>
   		</div>
 
   	</div>
