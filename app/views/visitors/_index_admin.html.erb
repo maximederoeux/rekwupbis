@@ -11,12 +11,16 @@
   		<div class="col-md-4">
   			<%= event.event_name %>
   		</div>
-  		<div class="col-md-4">
-  			<%= event.start_date %>
+  		<div class="col-md-2">
+  			<%= event.event_start_date.strftime("%d/%m/%Y") %>
   		</div>
-  		<div class="col-md-4">
+  		<div class="col-md-2">
   			<%= event.organizer.full_name %>
-  		</div>  		
+  		</div>
+  		<div class="col-md-2">
+
+  		</div>
+
   	</div>
 		
 	</li>
