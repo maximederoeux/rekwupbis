@@ -26,7 +26,7 @@ class LlnImport < ActiveRecord::Base
   end
 
   def current_year
-    if Date.today >= Date.parse("01-09-2015") && Date.today <= Date.parse("30-06-2016")
+    if Date.today >= Date.parse("01-09-2015") && Date.today <= Date.parse("31-07-2016")
       2015
     elsif Date.today >= Date.parse("01-09-2016") && Date.today <= Date.parse("30-06-2017")
       2016
