@@ -63,6 +63,19 @@ class Attendance < ActiveRecord::Base
 		"#{duration_in_hours}h#{display_duration_minutes}m"
 	end
 
+	def total_days_worked(user)
+		total_days_worked = 0
+		user.attendances.each do |attendance|
+			if attendance.id = user.attendances.first.id
+			else
+				if attendance.start_time.strftime("%d") > user.attendances.where(:id < attendance.id).last.start_time.strftime("%d")
+				total_days_worked += 1
+				end
+			end
+		end
+		total_days_worked
+	end
+
 	def entire_duration(user)
 		entire_duration = 0
 		user.attendances.each do |attendance|
