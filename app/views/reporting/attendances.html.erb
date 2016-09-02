@@ -4,13 +4,30 @@
 
 		<% User.staff.each do |user| %>
 
-		<% if user.attendances.last_week.any? %>
+		<% if user.attendances.any? %>
 
 			<li class="list-group-item list-group-item-info">
 				<strong><%= user.full_name %></strong>
 			</li>
 
-				<% if user.attendances.last_monday.any? %>
+			<% if user.attendances.any? %>
+
+					<li class="list-group-item">
+						<div class="row">
+							<div class="col-md-6">
+								Du <%= user.attendances.first.start_time.strftime("%d/%m/%Y") %> au <%= user.attendances.last.start_time.strftime("%d/%m/%Y") %>
+							</div>
+							<div class="col-md-6 text-center">
+								<%= user.attendances.first.display_entire_duration %>
+							</div>
+						</div>
+
+					</li>
+
+			<% end %>
+
+
+<!-- 				<% if user.attendances.last_monday.any? %>
 
 					<li class="list-group-item">
 						<div class="row">
@@ -125,7 +142,7 @@
 							</strong>
 						</div>
 					</li>
-				<% end %>
+				<% end %> -->
 
 		<% end %>
 		<% end %>
