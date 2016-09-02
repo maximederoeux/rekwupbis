@@ -68,7 +68,7 @@ class Attendance < ActiveRecord::Base
 		user.attendances.each do |attendance|
 			if attendance.id = user.attendances.first.id
 			else
-				if attendance.start_time.strftime("%d") > user.attendances.where(:id < attendance.id).last.start_time.strftime("%d")
+				if Date.attendance.start_time > Date.user.attendances.where(:id < attendance.id).last.start_time
 				total_days_worked += 1
 				end
 			end
