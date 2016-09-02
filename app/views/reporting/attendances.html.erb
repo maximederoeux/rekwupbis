@@ -18,7 +18,6 @@
 								Du <%= user.attendances.first.start_time.strftime("%d/%m/%Y") %> au <%= user.attendances.last.start_time.strftime("%d/%m/%Y") %>
 							</div>
 							<div class="col-md-3 text-center">
-								<%= user.attendances.first.total_days_worked(user) %>
 							</div>
 							<div class="col-md-3 text-center">
 								<%= user.attendances.first.display_entire_duration %>
