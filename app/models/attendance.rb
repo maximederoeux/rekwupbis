@@ -63,6 +63,34 @@ class Attendance < ActiveRecord::Base
 		"#{duration_in_hours}h#{display_duration_minutes}m"
 	end
 
+	def entire_duration(user)
+		entire_duration = 0
+		user.attendances.each do |attendance|
+			entire_duration += attendance.duration
+		end
+		entire_duration		
+	end
+
+	def entire_duration_in_minutes
+		(entire_duration(user) / 60).floor
+	end
+
+	def entire_duration_in_hours
+		(entire_duration_in_minutes / 60).floor
+	end
+
+	def display_entire_duration_minutes
+		entire_duration_in_minutes - (entire_duration_in_hours * 60)
+	end
+
+	def display_entire_duration_seconds
+		entire_duration(user).floor - (entire_duration_in_minutes * 60)	
+	end
+
+	def display_entire_duration
+		"#{entire_duration_in_hours}h#{display_entire_duration_minutes}m"
+	end
+
 	def this_day_duration(user)
 		this_day_duration = 0
 		user.attendances.this_day.each do |attendance|
