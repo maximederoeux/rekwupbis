@@ -23,6 +23,11 @@ class SortingDetailsController < ApplicationController
     @cava = Article.find(22)
     @champagne = Article.find(31)
     @vinii = Article.find(24)
+    @bs = Article.find(49)
+    @bep = Article.find(12)
+    @beplanet = Article.find(13)
+    @diable = Article.find(15)
+    @patro = Article.find(21)
   end
 
   # GET /sorting_details/1
