@@ -49,6 +49,37 @@ class Article < ActiveRecord::Base
 		total_march
 	end
 
+	def total_april
+		total_april = 0
+		Sorting.april.each do |sorting|
+			total_april += sorting.total_sorting(self)
+		end
+		total_april
+	end
+
+	def total_may
+		total_may = 0
+		Sorting.may.each do |sorting|
+			total_may += sorting.total_sorting(self)
+		end
+		total_may
+	end
+
+	def total_june
+		total_june = 0
+		Sorting.june.each do |sorting|
+			total_june += sorting.total_sorting(self)
+		end
+		total_june
+	end
+
+	def total_july
+		total_july = 0
+		Sorting.july.each do |sorting|
+			total_july += sorting.total_sorting(self)
+		end
+		total_july
+	end
 	def full_name
 		"#{article_name}"
 	end

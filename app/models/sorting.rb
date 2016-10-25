@@ -22,6 +22,10 @@ class Sorting < ActiveRecord::Base
 
 	scope :february, lambda {where('extract(month from start_time) = ?', 2)}
 	scope :march, lambda {where('extract(month from start_time) = ?', 3)}
+	scope :april, lambda {where('extract(month from start_time) = ?', 4)}
+	scope :may, lambda {where('extract(month from start_time) = ?', 5)}
+	scope :june, lambda {where('extract(month from start_time) = ?', 6)}
+	scope :july, lambda {where('extract(month from start_time) = ?', 7)}
 
 	def global_clean_sum(article)
 		if article.is_cup
