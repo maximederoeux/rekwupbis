@@ -52,7 +52,7 @@
             <div class="row">
 
               <div class="col-xs-6 col-md-4">
-                <%= article.full_name %>
+                <%= article.id %> - <%= article.full_name %>
 
                   <%= link_to edit_article_path(article) do %>
                     <%= content_tag(:i, "", class: "fa fa-pencil-square-o") %>
