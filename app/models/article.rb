@@ -33,6 +33,13 @@ class Article < ActiveRecord::Base
 	scope :is_empty, lambda {where(:is_empty => true)}
 	scope :is_corona, lambda {where(:is_corona => true)}
 
+	def total_february
+		total_february = 0
+		Sorting.february.each do |sorting|
+			total_february += sorting.global_clean_sum(self)
+		end
+		total_february
+	end
 
 	def full_name
 		"#{article_name}"
