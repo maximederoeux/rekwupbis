@@ -1,6 +1,25 @@
 <ul class="list-group">
 	<li class="list-group-item">
-		
+		<div class="row">
+			<div class="col-md-2">
+				Article
+			</div>
+			<div class="col-md-2">
+				Février			
+			</div>
+			<div class="col-md-2">
+				Mars		
+			</div>
+			<div class="col-md-2">
+				
+			</div>
+			<div class="col-md-2">
+				
+			</div>
+			<div class="col-md-2">
+				
+			</div>					
+		</div>		
 	</li>
 		<% @cups.each do |article| %>
 
@@ -10,14 +29,9 @@
 						<%= article.full_name %>
 					</div>
 					<div class="col-md-2">
-						<% unless article.total_february == 0 %>
-							<%= article.total_february %>
-						<% end %>				
+						<%= article.total_march %>
 					</div>
 					<div class="col-md-2">
-						<% unless article.total_march == 0 %>
-							<%= article.total_march %>
-						<% end %>		
 					</div>
 					<div class="col-md-2">
 						
