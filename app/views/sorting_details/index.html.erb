@@ -21,17 +21,17 @@
 			</div>					
 		</div>		
 	</li>
-		<% @cups.each do |article| %>
 
 			<li class="list-group-item">
 				<div class="row">
 					<div class="col-md-2">
-						<%= article.full_name %>
+						<%= @cctwenty.full_name %>
 					</div>
 					<div class="col-md-2">
-						<%= article.total_february %>
+						<%= @cctwenty.total_february %>
 					</div>
 					<div class="col-md-2">
+						<%= @cctwenty.total_march %>
 					</div>
 					<div class="col-md-2">
 						
@@ -47,8 +47,6 @@
 
 		<% end %>
 </ul>
-
-
 
 	
 	<br>

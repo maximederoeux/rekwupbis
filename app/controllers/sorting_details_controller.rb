@@ -9,8 +9,20 @@ class SortingDetailsController < ApplicationController
     @february = @sortings.february.all.order('start_time')
     @march = @sortings.march.all.order('start_time')
 
-    @articles = Article.all
-    @cups = @articles.is_cup.all
+    @cctwenty = Article.find(1)
+    @cctwentyfive = Article.find(2)
+    @ccforty = Article.find(3)
+    @ccfifty = Article.find(4)
+    @cclitre = Article.find(5)
+    @llntwentyfive = Article.find(6)
+    @llnfifty = Article.find(7)
+    @llnlitre = Article.find(8)
+    @eptwentyfive = Article.find(14)
+    @epfifty = Article.find(29)
+    @xdtwentyfive = Article.find(20)
+    @cava = Article.find(22)
+    @champagne = Article.find(31)
+    @vinii = Article.find(24)
   end
 
   # GET /sorting_details/1
