@@ -24,6 +24,7 @@ class SortingDetailsController < ApplicationController
     @champagne = Article.find(31)
     @vinii = Article.find(24)
     @bs = Article.find(49)
+    @bcc = Article.find(9)
     @bep = Article.find(12)
     @beplanet = Article.find(13)
     @diable = Article.find(15)
