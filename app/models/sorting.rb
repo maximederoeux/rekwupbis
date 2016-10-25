@@ -20,7 +20,7 @@ class Sorting < ActiveRecord::Base
 	scope :ended_two_days_ago, lambda {where(:end_time => (2.days.ago.beginning_of_day..2.days.ago.end_of_day))}
 	scope :ended_fifteen_days_ago, lambda {where(:end_time => (15.days.ago.beginning_of_day..3.days.ago.end_of_day))}
 
-	scope :february, lambda {where(:start_time => ((Date.today - 245.days).beginning_of_month..(Date.today - 245.days).end_of_month)}
+	scope :february, lambda {where(:start_time => ((Date.today - 245.days).beginning_of_month..(Date.today - 245.days).end_of_month))}
 
 	def global_clean_sum(article)
 		if article.is_cup
