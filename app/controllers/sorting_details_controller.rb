@@ -9,7 +9,7 @@ class SortingDetailsController < ApplicationController
     @february = @sortings.february.all.order('start_time')
 
     @articles = Article.all
-    @cups = @article.is_cup.all
+    @cups = @articles.is_cup.all
   end
 
   # GET /sorting_details/1
