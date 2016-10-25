@@ -21,6 +21,7 @@ class Sorting < ActiveRecord::Base
 	scope :ended_fifteen_days_ago, lambda {where(:end_time => (15.days.ago.beginning_of_day..3.days.ago.end_of_day))}
 
 	scope :february, lambda {where(:start_time => ((Date.today - 245.days).beginning_of_month..(Date.today - 245.days).end_of_month))}
+	scope :march, lambda {where(:start_time => ((Date.today - 217.days).beginning_of_month..(Date.today - 217.days).end_of_month))}
 
 	def global_clean_sum(article)
 		if article.is_cup

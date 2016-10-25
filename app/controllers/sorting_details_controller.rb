@@ -7,6 +7,7 @@ class SortingDetailsController < ApplicationController
     @sorting_details = SortingDetail.all
     @sortings = Sorting.all
     @february = @sortings.february.all.order('start_time')
+    @march = @sortings.march.all.order('start_time')
 
     @articles = Article.all
     @cups = @articles.is_cup.all

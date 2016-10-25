@@ -36,9 +36,17 @@ class Article < ActiveRecord::Base
 	def total_february
 		total_february = 0
 		Sorting.february.each do |sorting|
-			total_february += sorting.global_clean_sum(self)
+			total_february += sorting.total_sorting(self)
 		end
 		total_february
+	end
+
+	def total_march
+		total_march = 0
+		Sorting.march.each do |sorting|
+			total_march += sorting.total_sorting(self)
+		end
+		total_march
 	end
 
 	def full_name
