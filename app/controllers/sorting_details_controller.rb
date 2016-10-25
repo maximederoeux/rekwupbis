@@ -5,6 +5,8 @@ class SortingDetailsController < ApplicationController
   # GET /sorting_details.json
   def index
     @sorting_details = SortingDetail.all
+    @sortings = Sorting.all
+    @february = @sortings.february.all.order('start_time')
   end
 
   # GET /sorting_details/1
